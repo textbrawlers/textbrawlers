@@ -1,4 +1,5 @@
 const Koa = require('koa')
+const KoaStatic = require('koa-static')
 const Router = require('koa-router')
 
 const enemies = {
@@ -8,6 +9,8 @@ const enemies = {
 }
 
 const app = new Koa()
+
+app.use(KoaStatic('./front'));
 
 app.use(function * (next) {
   this.set('Access-Control-Allow-Origin', '*')
