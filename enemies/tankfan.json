@@ -1,0 +1,15 @@
+{
+	"name": "Tankfan",
+	"maxhp": 1000,
+	"damage": {
+		"normal": 1,
+    "critchance": 0.025,
+		"crit": 10,
+    "blockchance": 0.9,
+    "blockmodifier": 0.2,
+    "hit": 0.8,
+    "bleedchance": 0,
+    "bleeddamage": 1,
+    "bleedduration": 2
+	}
+}
