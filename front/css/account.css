@@ -1,0 +1,10 @@
+body {
+  background: #eee;
+}
+
+.inventory {
+  position: absolute;
+  border: 1px solid black;
+  width: 200px;
+  height: 300px;
+}
