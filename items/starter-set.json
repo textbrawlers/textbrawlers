@@ -5,15 +5,18 @@
       "damage": [2, 4]
     },
     "icon": "itemsword",
-    "slot": "hand"
+    "slot": "hand",
+    "rarity": "common"
   },
   "starter-shield": {
     "name": "Starter Shield",
     "stats": {
-      "block-chance": [0.05, 0.1]
+      "block-chance": [0.05, 0.1],
+      "block-amount": [0.1, 0.2]
     },
     "icon": "itemshield",
-    "slot": "hand"
+    "slot": "hand",
+    "rarity": "common"
   },
   "starter-helmet": {
     "name": "Starter Helmet",
@@ -21,7 +24,8 @@
       "health": [1, 5]
     },
     "icon": "itemhelmet",
-    "slot": "head"
+    "slot": "head",
+    "rarity": "common"
   },
   "starter-chestpiece": {
     "name": "Starter Chestplate",
@@ -29,7 +33,8 @@
       "health": [5, 10]
     },
     "icon": "itemchestpiece",
-    "slot": "torso"
+    "slot": "torso",
+    "rarity": "common"
   },
   "starter-pants": {
     "name": "Starter Pants",
@@ -37,7 +42,8 @@
       "health": [3, 7]
     },
     "icon": "itempants",
-    "slot": "legs"
+    "slot": "legs",
+    "rarity": "common"
   },
   "starter-boots": {
     "name": "Starter Boots",
@@ -45,6 +51,7 @@
       "health": [1, 5]
     },
     "icon": "itemboots",
-    "slot": "feet"
+    "slot": "feet",
+    "rarity": "common"
   }
 }
