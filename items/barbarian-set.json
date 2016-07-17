@@ -49,13 +49,13 @@
     "slot": "legs",
     "rarity": "uncommon"
   },
-  "barbarian-boots": {
-    "name": "Barbarian Boots",
+  "barbarian-shoes": {
+    "name": "Barbarian Shoes",
     "stats": {
       "health": [0, 5],
       "damage": [1, 2]
     },
-    "icon": "itemboots",
+    "icon": "itemshoes",
     "slot": "feet",
     "rarity": "uncommon"
   }

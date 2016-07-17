@@ -1,0 +1,51 @@
+const items = require('./items.js')
+const db = require('monk')('localhost/retardarenan')
+const users = db.get('users')
+
+const Player = module.exports = function (data) {
+  this.data = data
+  this.key = data.key
+}
+
+Player.prototype.save = function * () {
+  return yield users.findOneAndUpdate({key: this.key}, this.data)
+}
+
+Player.prototype.setInventory = function (slot, item) {
+  item = Object.assign({}, item)
+  delete item.sourceItem
+  this.data.inventory = this.data.inventory || {}
+  this.data.inventory[slot] = item
+}
+
+Player.prototype.getInventory = function (slot) {
+  this.data.inventory = this.data.inventory || {}
+  const item = this.data.inventory[slot]
+  if (item) {
+    item.sourceItem = items[item.item]
+    return item
+  }
+  return undefined
+}
+
+Player.prototype.getFullInventory = function() {
+  const inv = {}
+  for (let i = 0; i < 120; i++) {
+    const slot = `i${i}`
+    inv[slot] = this.getInventory(slot)
+  }
+  return inv
+}
+
+Player.prototype.getNextClearSlot = function() {
+  for (let i = 0; i < 120; i++) {
+    const slot = `i${i}`
+    if (!this.getInventory(slot)) {
+      return slot
+    }
+  }
+}
+
+Player.find = function * (key) {
+  return new Player(yield users.findOne({ key }))
+}
