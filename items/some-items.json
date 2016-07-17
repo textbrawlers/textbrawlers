@@ -1,0 +1,9 @@
+{
+  "starter-sword": {
+    "name": "Starter Sword",
+    "stats": {
+      "damage": [2, 4]
+    },
+    "icon": "itemsword"
+  }
+}
