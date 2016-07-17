@@ -1,0 +1,44 @@
+{
+  "starter-sword": {
+    "name": "Starter Sword",
+    "stats": {
+      "damage": [2, 4]
+    },
+    "icon": "itemsword"
+  },
+  "starter-shield": {
+    "name": "Starter Shield",
+    "stats": {
+      "block-chance": [0.05, 0.1]
+    },
+    "icon": "itemshield"
+  },
+  "starter-helmet": {
+    "name": "Starter Helmet",
+    "stats": {
+      "health": [1, 5]
+    },
+    "icon": "itemhelmet"
+  },
+  "starter-chestpiece": {
+    "name": "Starter Chestplate",
+    "stats": {
+      "health": [5, 10]
+    },
+    "icon": "itemchestpiece"
+  },
+  "starter-pants": {
+    "name": "Starter Pants",
+    "stats": {
+      "health": [3, 7]
+    },
+    "icon": "itempants"
+  },
+  "starter-boots": {
+    "name": "Starter Boots",
+    "stats": {
+      "health": [1, 5]
+    },
+    "icon": "itemboots"
+  }
+}
