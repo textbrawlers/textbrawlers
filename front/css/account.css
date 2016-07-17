@@ -63,7 +63,7 @@ body {
 }
 
 .inventory-window {
-  width: 570px;
+  width: 678px;
 }
 
 .inventory {
@@ -91,4 +91,27 @@ body {
   opacity: 0.2;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
   filter: alpha(opacity=20);
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(224,147,69, .8);
+  border: 2px solid #754c24;
+  padding: 5px;
+  pointer-events: none;
+}
+
+.tooltip h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: sans-serif;
+  margin-bottom: 4px;
+}
+
+.tooltip p {
+  font-size: 16px;
+  font-family: sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
 }

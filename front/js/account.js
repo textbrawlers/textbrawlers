@@ -3,12 +3,27 @@
   const margin = 5
   const size = 50
 
+  const tooltip = document.querySelector('.tooltip')
+  
+  function showTooltip(x, y) {
+    tooltip.style.left = x + 50 + 5
+    tooltip.style.top = y
+
+    //tooltip.innerHTML = 'test'
+  }
+
   function createSlot (x, y) {
     const slot = document.createElement('div')
     slot.classList.add('inv-slot')
     slot.style.left = margin + x * (margin + size)
     slot.style.top = margin + y * (margin + size)
     slot.id = `inv-${x}-${y}`
+
+
+    slot.addEventListener('mouseover', () => {
+      const boundingRect = slot.getBoundingClientRect()
+      showTooltip(boundingRect.left, boundingRect.top)
+    })
 
     inventory.appendChild(slot)
 
@@ -23,17 +38,21 @@
   const slots = []
 
   for (var y = 0; y < 10; y++) {
-    for (var x = 0; x < 10; x++) {
+    for (var x = 0; x < 12; x++) {
       slots.push(createSlot(x, y))
     }
   }
 
-  slots.push(document.querySelector('.inv-head'))
-  slots.push(document.querySelector('.inv-body'))
-  slots.push(document.querySelector('.inv-legs'))
-  slots.push(document.querySelector('.inv-boots'))
-  slots.push(document.querySelector('.inv-lefthand'))
-  slots.push(document.querySelector('.inv-righthand'))
+  ['.inv-head', '.inv-body', '.inv-legs', '.inv-boots', '.inv-lefthand', '.inv-righthand'].forEach(slot => {
+    slot = document.querySelector(slot)
+    slots.push(slot)
+
+    slot.addEventListener('mouseover', () => {
+      const boundingRect = slot.getBoundingClientRect()
+      showTooltip(boundingRect.left, boundingRect.top)
+    })
+  })
+
 
   const drake = dragula(slots)
 
