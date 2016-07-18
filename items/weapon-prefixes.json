@@ -4,38 +4,38 @@
       "name": "Broken",
       "stats": {
         "damage": 0.4
-      },
+      }
     },
     "rusty": {
       "name": "Rusty",
       "stats": {
         "damage": 0.6
-      },
+      }
     },
     "blunt": {
       "name": "Blunt",
       "stats": {
         "damage": 0.8
-      },
+      }
     },
     "sharp": {
       "name": "Sharp",
       "stats": {
         "damage": 1.2
-      },
+      }
     },
     "ruthless": {
       "name": "Ruthless",
       "stats": {
         "damage": 1.4
-      },
+      }
     },
     "deadly": {
       "name": "Deadly",
       "stats": {
         "damage": 1.6
-      },
-    },
+      }
+    }
   },
 
   "hit-chance": {
@@ -49,32 +49,32 @@
       "name": "Lazy",
       "stats": {
         "hit-chance": -0.4
-      },
+      }
     },
     "heavy": {
       "name": "Heavy",
       "stats": {
         "hit-chance": -0.2
-      },
+      }
     },
     "nimble": {
       "name": "Nimble",
       "stats": {
         "hit-chance": 0.2
-      },
+      }
     },
     "quick": {
       "name": "Quick",
       "stats": {
         "hit-chance": 0.4
-      },
+      }
     },
     "rapid": {
       "name": "Rapid",
       "stats": {
         "hit-chance": 0.6
-      },
-    },
+      }
+    }
   },
 
   "crit-chance": {
@@ -88,32 +88,32 @@
       "name": "Inexact",
       "stats": {
         "crit-chance": -0.4
-      },
+      }
     },
     "uncertain": {
       "name": "Uncertain",
       "stats": {
         "crit-chance": -0.2
-      },
+      }
     },
     "aiming": {
       "name": "Aiming",
       "stats": {
         "crit-chance": 0.2
-      },
+      }
     },
     "piercing": {
       "name": "Piercing",
       "stats": {
         "crit-chance": 0.4
-      },
+      }
     },
     "precise": {
       "name": "Precise",
       "stats": {
         "crit-chance": 0.6
-      },
-    },
+      }
+    }
   },
 
   "crit-damage": {
@@ -127,32 +127,32 @@
       "name": "Kind",
       "stats": {
         "crit-damage": -0.4
-      },
+      }
     },
     "safe": {
       "name": "Safe",
       "stats": {
         "crit-damage": -0.2
-      },
+      }
     },
     "crushing": {
       "name": "Crushing",
       "stats": {
         "crit-damage": 0.2
-      },
+      }
     },
     "demolishing": {
       "name": "Demolishing",
       "stats": {
         "crit-damage": 0.4
-      },
+      }
     },
     "obliterating": {
       "name": "Obliterating",
       "stats": {
         "crit-damage": 0.6
-      },
-    },
+      }
+    }
   },
 
   "bleed-chance": {
@@ -166,14 +166,14 @@
       "name": "Slicing",
       "stats": {
         "bleed-chance": 0.2
-      },
+      }
     },
     "slashing": {
       "name": "Slashing",
       "stats": {
         "bleed-chance": 0.3
-      },
-    },
+      }
+    }
   },
 
   "bleed-duration": {
@@ -187,13 +187,13 @@
       "name": "Tearing",
       "stats": {
         "bleed-duration": 3
-      },
+      }
     },
     "rupturing": {
       "name": "Rupturing",
       "stats": {
         "bleed-duration": 4
-      },
-    },
-  },
+      }
+    }
+  }
 }

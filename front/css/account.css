@@ -95,10 +95,11 @@ body {
 
 .tooltip {
   position: absolute;
-  background: rgba(224,147,69, .8);
+  background: rgba(224,147,69, 1);
   border: 2px solid #754c24;
   padding: 5px;
   pointer-events: none;
+  text-stroke: 10px white;
 }
 
 .tooltip h2 {
@@ -107,6 +108,7 @@ body {
   font-size: 18px;
   font-family: sans-serif;
   margin-bottom: 4px;
+  text-shadow: 1px 1px 0 #000;
 }
 
 .tooltip p {
@@ -114,4 +116,24 @@ body {
   font-family: sans-serif;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.rarity-common {
+  color: #d7d7d7;
+}
+
+.rarity-uncommon {
+  color: #22f23f;
+}
+
+.rarity-rare {
+  color: #229cf2;
+}
+
+.rarity-legendary {
+  color: #f26522;
+}
+
+.rarity-set {
+  color: #f23022;
 }

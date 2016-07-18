@@ -2,6 +2,7 @@
   "shortsword": {
     "name": "Shortsword",
     "slot": "hand",
+    "icon": "itemsword",
     "stats": {
       "damage": 10,
       "hit-chance": 1.0,
@@ -9,11 +10,12 @@
       "crit-damage":  2.0,
       "bleed-chance": 0.0,
       "bleed-duration": 4
-    },
+    }
   },
   "longsword": {
     "name": "Longsword",
     "slot": "hand",
+    "icon": "itemsword",
     "stats": {
       "damage": 20,
       "hit-chance": 0.6,
@@ -21,11 +23,12 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 4
-    },
+    }
   },
   "broadsword": {
     "name": "Broadsword",
     "slot": "hand",
+    "icon": "itemsword",
     "stats": {
       "damage": 15,
       "hit-chance": 0.5,
@@ -33,11 +36,12 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 4
-    },
+    }
   },
   "serrated-sword": {
     "name": "Serrated Sword",
     "slot": "hand",
+    "icon": "itemsword",
     "stats": {
       "damage": 5,
       "hit-chance": 0.6,
@@ -45,11 +49,12 @@
       "crit-damage": 1.2,
       "bleed-chance": 1.0,
       "bleed-duration": 6
-    },
+    }
   },
   "double-bladed-axe": {
     "name": "Double Bladed Axe",
     "slot": "hand",
+    "icon": "itemaxe",
     "stats": {
       "damage": 30,
       "hit-chance": 0.3,
@@ -57,11 +62,12 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 1
-    },
+    }
   },
   "woodcutters-axe": {
     "name": "Woodcutter's Axe",
     "slot": "hand",
+    "icon": "itemaxe",
     "stats": {
       "damage": 15,
       "hit-chance": 0.8,
@@ -69,11 +75,12 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 0
-    },
+    }
   },
   "tomahawk": {
     "name": "Tomahawk",
     "slot": "hand",
+    "icon": "itemaxe",
     "stats": {
       "damage": 5,
       "hit-chance": 0.4,
@@ -81,11 +88,12 @@
       "crit-damage": 15.0,
       "bleed-chance": 0.0,
       "bleed-duration": 1
-    },
+    }
   },
   "mini-axe": {
     "name": "Mini Axe",
     "slot": "hand",
+    "icon": "itemaxe",
     "stats": {
       "damage": 5,
       "hit-chance": 3.5,
@@ -93,6 +101,6 @@
       "crit-damage": 1.3,
       "bleed-chance": 0.0,
       "bleed-duration": 0.1
-    },
-  },
-},
+    }
+  }
+}
