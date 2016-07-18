@@ -2,11 +2,11 @@
 	"name": "Slime",
 	"maxhp": 1,
 	"items": {
-	  "head-slot": NONE,
-	  "chest-slot": NONE,
-	  "feet-slot": NONE,
-	  "lefthand-slot": NONE,
-	  "righthand-slot": random(possibleweaponlist),
+	  "head-slot": none,
+	  "chest-slot": none,
+	  "feet-slot": none,
+	  "lefthand-slot": none,
+	  "righthand-slot": slimy-axe,
 	},
 	"characterstats": {
 		"flat-damage": 1,
