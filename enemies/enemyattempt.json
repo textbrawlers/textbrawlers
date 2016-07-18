@@ -8,7 +8,5 @@
     "block-chance": 0.99,
     "block-modifier": 0.0,
     "hit-chance": 0.8,
-    "bleed-chance": 0,
-    "bleed-duration": 2
 	}
 }
