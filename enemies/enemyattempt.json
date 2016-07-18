@@ -1,6 +1,13 @@
 {
 	"name": "Slime",
 	"maxhp": 1,
+	"items": {
+	  "head-slot": NONE,
+	  "chest-slot": NONE,
+	  "feet-slot": NONE,
+	  "lefthand-slot": NONE,
+	  "righthand-slot": random(possibleweaponlist),
+	},
 	"characterstats": {
 		"flat-damage": 1,
     "critchance": 0.0,
