@@ -1,0 +1,55 @@
+{
+  "two-bladed-axe": {
+    "name": "Two-Bladed Axe",
+    "slot": "hand",
+    "icon": "itemaxe",
+    "stats": {
+      "damage": 30,
+      "hit-chance": 0.3,
+      "crit-chance": 0.8,
+      "crit-damage": 1.5,
+      "bleed-chance": 0.0,
+      "bleed-duration": 1
+    }
+  },
+  "woodcutters-axe": {
+    "name": "Woodcutter's Axe",
+    "slot": "hand",
+    "icon": "itemaxe",
+    "stats": {
+      "damage": 15,
+      "hit-chance": 0.8,
+      "crit-chance": 0.6,
+      "crit-damage": 1.5,
+      "bleed-chance": 0.0,
+      "bleed-duration": 0
+    }
+  },
+  "tomahawk": {
+    "name": "Tomahawk",
+    "slot": "hand",
+    "icon": "itemaxe",
+    "stats": {
+      "damage": 5,
+      "hit-chance": 0.4,
+      "crit-chance": 0.2,
+      "crit-damage": 15.0,
+      "bleed-chance": 0.0,
+      "bleed-duration": 1
+    }
+  },
+  "mini-axe": {
+    "name": "Mini Axe",
+    "slot": "hand",
+    "icon": "itemaxe",
+    "drop-rate": 50,
+    "stats": {
+      "damage": 5,
+      "hit-chance": 3.5,
+      "crit-chance": 0.1,
+      "crit-damage": 1.3,
+      "bleed-chance": 0.0,
+      "bleed-duration": 1
+    }
+  },
+},

@@ -1,0 +1,17 @@
+{
+
+  "spiky-buckler": {
+    "name": "Spiky Buckler",
+    "slot": "hand",
+    "stats": {
+      "damage": 0.0,
+      "hit-chance": 1.0,
+      "crit-chance": 0.0,
+      "crit-damage": 1.0,
+      "bleed-chance": 1.0,
+      "bleed-duration": 6,
+      "block-chance": 0.2,
+      "block": 0.8,
+    }
+  },
+},
