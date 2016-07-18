@@ -9,7 +9,7 @@
       "crit-damage":  2.0,
       "bleed-chance": 0.0,
       "bleed-duration": 4
-    },
+    }
   },
   "longsword": {
     "name": "Longsword",
@@ -21,7 +21,7 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 4
-    },
+    }
   },
   "broadsword": {
     "name": "Broadsword",
@@ -33,7 +33,7 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 4
-    },
+    }
   },
   "serrated-sword": {
     "name": "Serrated Sword",
@@ -45,10 +45,22 @@
       "crit-damage": 1.2,
       "bleed-chance": 1.0,
       "bleed-duration": 6
-    },
+    }
   },
-  "double-bladed-axe": {
-    "name": "Double Bladed Axe",
+  "cursed-sword": {
+    "name": "Cursed Sword",
+    "slot": "hand",
+    "stats": {
+      "damage": 40,
+      "hit-chance": -0.2,
+      "crit-chance": 0.0,
+      "crit-damage": 2.0,
+      "bleed-chance": 5,
+      "bleed-duration": 10
+    }
+  },
+  "two-bladed-axe": {
+    "name": "Two-Bladed Axe",
     "slot": "hand",
     "stats": {
       "damage": 30,
@@ -57,7 +69,7 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 1
-    },
+    }
   },
   "woodcutters-axe": {
     "name": "Woodcutter's Axe",
@@ -69,7 +81,7 @@
       "crit-damage": 1.5,
       "bleed-chance": 0.0,
       "bleed-duration": 0
-    },
+    }
   },
   "tomahawk": {
     "name": "Tomahawk",
@@ -81,7 +93,7 @@
       "crit-damage": 15.0,
       "bleed-chance": 0.0,
       "bleed-duration": 1
-    },
+    }
   },
   "mini-axe": {
     "name": "Mini Axe",
@@ -92,7 +104,33 @@
       "crit-chance": 0.1,
       "crit-damage": 1.3,
       "bleed-chance": 0.0,
-      "bleed-duration": 0.1
-    },
+      "bleed-duration": 1
+    }
+  },
+  "combat-hammer": {
+    "name": "Combat Hammer",
+    "slot": "hand",
+    "stats": {
+      "damage": 25,
+      "hit-chance": 0.5,
+      "crit-chance": 1.0,
+      "crit-damage": 1.2  ,
+      "bleed-chance": 0.0,
+      "bleed-duration": 0
+    }
+  },
+  "spiky-buckler": {
+    "name": "Spiky Buckler",
+    "slot": "hand",
+    "stats": {
+      "damage": 0.0,
+      "hit-chance": 1.0,
+      "crit-chance": 0.0,
+      "crit-damage": 1.0,
+      "bleed-chance": 1.0,
+      "bleed-duration": 6,
+      "block-chance": 0.2,
+      "block": 0.8,
+    }
   },
 },
