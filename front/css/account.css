@@ -15,6 +15,11 @@ body {
   position: absolute
 }
 
+.inv-slot img {
+  width: 50px;
+  height: 50px;
+}
+
 .inv-head {
   top: 10px;
   left: 70px;
