@@ -198,23 +198,23 @@
   },
   
   "stun-chance": {
-    "cutting": {
-      "name": "Cutting",
+    "stunning": {
+      "name": "Stunning",
       "stats": {
-        "bleed-chance": 0.1
+        "stun-chance": 0.1
       }
     },
-    "slicing": {
-      "name": "Slicing",
+    "staggering": {
+      "name": "Staggering",
       "stats": {
-        "bleed-chance": 0.2
+        "stun-chance": 0.2
       }
     },
-    "slashing": {
-      "name": "Slashing",
+    "overwhelming": {
+      "name": "Overwhelming",
       "stats": {
-        "bleed-chance": 0.3
+        "stun-chance": 0.3
       }
     }
-  },
+  }
 }
