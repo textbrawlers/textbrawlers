@@ -171,4 +171,13 @@
       }
     }
   },
+  "unique": {
+    "oversized": {
+      "name": "Oversized",
+      "stats": {
+        "damage": 1.6,
+        "hit-chance": -0.4
+      }
+    }
+  }
 }
