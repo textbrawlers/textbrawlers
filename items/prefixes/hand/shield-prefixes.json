@@ -37,6 +37,7 @@
       }
     }
   },
+  
   "hit-chance": {
     "slow": {
       "name": "Slow",
@@ -75,6 +76,7 @@
       }
     }
   },
+  
   "crit-chance": {
     "inaccurate": {
       "name": "Inaccurate",
@@ -113,6 +115,7 @@
       }
     }
   },
+  
   "crit-damage": {
     "harmless": {
       "name": "Harmless",
@@ -151,6 +154,7 @@
       }
     }
   },
+  
   "bleed-chance": {
     "cutting": {
       "name": "Cutting",
@@ -171,6 +175,7 @@
       }
     }
   },
+  
   "bleed-duration": {
     "ripping": {
       "name": "Ripping",
@@ -191,6 +196,7 @@
       }
     }
   },
+  
   "stun-chance": {
     "cutting": {
       "name": "Cutting",
