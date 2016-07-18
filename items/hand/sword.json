@@ -66,6 +66,6 @@
         "bleed-chance": 0.5,
         "bleed-duration": 10
       }
-    },
-  },
-},
+    }
+  }
+}
