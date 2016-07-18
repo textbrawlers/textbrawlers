@@ -3,6 +3,7 @@
   "combat-hammer": {
     "name": "Combat Hammer",
     "slot": "hand",
+    "icon": "itemhammer",
     "stats": {
       "damage": 25,
       "hit-chance": 0.5,
