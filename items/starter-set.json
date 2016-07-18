@@ -45,12 +45,12 @@
     "slot": "legs",
     "rarity": "common"
   },
-  "starter-boots": {
-    "name": "Starter Boots",
+  "starter-shoes": {
+    "name": "Starter Shoes",
     "stats": {
       "health": [1, 5]
     },
-    "icon": "itemboots",
+    "icon": "itemshoes",
     "slot": "feet",
     "rarity": "common"
   }
