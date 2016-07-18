@@ -6,9 +6,7 @@
       "attack": true,
       "icon": "itemshield",
       "stats": {
-        "damage": 0.0,
         "hit-chance": 1.0,
-        "crit-chance": 0.0,
         "crit-damage": 1.0,
         "bleed-chance": 1.0,
         "bleed-duration": 6,

@@ -10,7 +10,6 @@
         "hit-chance": 1.0,
         "crit-chance": 0.5,
         "crit-damage":  2.0,
-        "bleed-chance": 0.0,
         "bleed-duration": 4
       }
     },
@@ -24,7 +23,6 @@
         "hit-chance": 0.6,
         "crit-chance": 0.25,
         "crit-damage": 1.5,
-        "bleed-chance": 0.0,
         "bleed-duration": 4
       }
     },
@@ -38,7 +36,6 @@
         "hit-chance": 0.5,
         "crit-chance": 1.0,
         "crit-damage": 1.5,
-        "bleed-chance": 0.0,
         "bleed-duration": 4
       }
     },
@@ -51,7 +48,6 @@
       "stats": {
         "damage": 5,
         "hit-chance": 0.6,
-        "crit-chance": 0.0,
         "crit-damage": 1.2,
         "bleed-chance": 1.0,
         "bleed-duration": 6
@@ -66,7 +62,6 @@
       "stats": {
         "damage": 40,
         "hit-chance": -0.4,
-        "crit-chance": 0.0,
         "crit-damage": 2.0,
         "bleed-chance": 0.5,
         "bleed-duration": 10
