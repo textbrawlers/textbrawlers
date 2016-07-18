@@ -28,7 +28,7 @@ Player.prototype.getInventory = function (slot) {
   return undefined
 }
 
-Player.prototype.getFullInventory = function() {
+Player.prototype.getFullInventory = function () {
   const inv = {}
   for (let i = 0; i < 120; i++) {
     const slot = `i${i}`
@@ -37,7 +37,7 @@ Player.prototype.getFullInventory = function() {
   return inv
 }
 
-Player.prototype.getNextClearSlot = function() {
+Player.prototype.getNextClearSlot = function () {
   for (let i = 0; i < 120; i++) {
     const slot = `i${i}`
     if (!this.getInventory(slot)) {
@@ -46,6 +46,16 @@ Player.prototype.getNextClearSlot = function() {
   }
 }
 
+Player.prototype.switchInventory = function (a, b) {
+  const slotA = this.getInventory(a)
+  const slotB = this.getInventory(b)
+
+  this.setInventory(b, slotA)
+  this.setInventory(a, slotB)
+
+  console.log('switchInventory', a, b)
+}
+
 Player.find = function * (key) {
-  return new Player(yield users.findOne({ key }))
+  return new Player(yield users.findOne({ key}))
 }

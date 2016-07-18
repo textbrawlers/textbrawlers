@@ -22,8 +22,9 @@
 
     const item = inventoryObj[slot]
 
-    if (item) {
+    if (item && Object.keys(item).length !== 0) {
       const prefixes = item.prefixes.map(prefix => weaponPrefixes[prefix.category][prefix.prefix].name).join(' ')
+      item.sourceItem = item.sourceItem || {}
       tooltip.innerHTML = `<h2 class="rarity-${item.rarity}">${prefixes} ${item.sourceItem.name}</h2><pre>` + JSON.stringify(item, undefined, 4)
     } else {
       tooltip.style.display = 'none'
@@ -56,11 +57,31 @@
 
   function setItem (slot, item) {
     inventoryObj[slot] = item
-    const htmlSlot = document.querySelector(`[data-slot="${slot}"]`)
-    htmlSlot.innerHTML = `<img src="/png/${item.sourceItem.icon}.png"></img>`
+
+    if (item && Object.keys(item).length !== 0) {
+      const htmlSlot = document.querySelector(`[data-slot="${slot}"]`)
+
+      let icon = 'none'
+      if (item.sourceItem) icon = item.sourceItem.icon
+
+      htmlSlot.innerHTML = `<img src="/png/${icon}.png"></img>`
+    }
   }
 
-  function switchSlots (a, b) { [inventoryObj.a, inventoryObj.b] = [inventoryObj.b, inventoryObj.a]
+  function switchSlots (a, b) {
+    ;[inventoryObj[a], inventoryObj[b]] = [inventoryObj[b], inventoryObj[a]]
+
+    fetch('/api/game/inventory/switch', {
+      method: 'POST',
+      headers: {
+        key: window.localStorage.getItem('key'),
+        'accept': 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ a, b})
+    }).then(resp => resp.json()).then(json => {
+      console.log(json)
+    })
   }
 
   const slots = []

@@ -53,6 +53,7 @@ router.post('/user/login', koaBody, userApi.login)
 router.post('/user/register', koaBody, userApi.register)
 router.get('/game/inventory', koaBody, auth, game.inventory)
 router.post('/admin/spawnitem', koaBody, auth, admin.spawnitem)
+router.post('/game/inventory/switch', koaBody, auth, game.inventorySwitch)
 
 router.get('/data/items', function * () {
   this.body = items

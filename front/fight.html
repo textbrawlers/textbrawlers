@@ -1,7 +1,7 @@
 <div id="combatlog"></div>
 
 <script>
-fetch('http://localhost:3000/api/fight/playerA/playerB').then(resp => {
+fetch('/api/fight/playerA/playerB').then(resp => {
   return resp.json()
 }).then(json => {
   console.log(json)
