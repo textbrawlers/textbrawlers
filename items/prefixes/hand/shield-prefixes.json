@@ -12,13 +12,13 @@
         "damage": 0.6
       }
     },
-    "blunt": {
-      "name": "Blunt",
+    "scratched": {
+      "name": "Scratched",
       "stats": {
         "damage": 0.8
       }
     },
-    "sharp": {
+    "blunt": {
       "name": "Sharp",
       "stats": {
         "damage": 1.2
@@ -171,7 +171,6 @@
       }
     }
   },
-
   "bleed-duration": {
     "ripping": {
       "name": "Ripping",
@@ -191,5 +190,25 @@
         "bleed-duration": 4
       }
     }
-  }
+  },
+  "stun-chance": {
+    "cutting": {
+      "name": "Cutting",
+      "stats": {
+        "bleed-chance": 0.1
+      }
+    },
+    "slicing": {
+      "name": "Slicing",
+      "stats": {
+        "bleed-chance": 0.2
+      }
+    },
+    "slashing": {
+      "name": "Slashing",
+      "stats": {
+        "bleed-chance": 0.3
+      }
+    }
+  },
 }

@@ -11,7 +11,7 @@
       "bleed-chance": 1.0,
       "bleed-duration": 6,
       "block-chance": 0.2,
-      "block": 0.8,
+      "block-modifier": 0.8,
     }
   },
 },
