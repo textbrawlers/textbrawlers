@@ -1,0 +1,18 @@
+{
+  "axe": {
+    "axe-prefixes": 100,
+    "weird-prefixes": 20,
+  },
+  "sword": {
+    "sword-prefixes": 100,
+    "weird-prefixes": 20,
+  },
+  "hammer": {
+    "hammer-prefixes": 100,
+    "weird-prefixes": 20,
+  },
+  "shields": {
+    "shield-prefixes": 100,
+    "weird-prefixes": 20,
+  }
+}

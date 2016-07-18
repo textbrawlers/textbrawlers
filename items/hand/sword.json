@@ -1,69 +1,71 @@
 {
-  "shortsword": {
-    "name": "Shortsword",
-    "slot": "hand",
-    "icon": "itemsword",
-    "stats": {
-      "damage": 10,
-      "hit-chance": 1.0,
-      "crit-chance": 0.5,
-      "crit-damage":  2.0,
-      "bleed-chance": 0.0,
-      "bleed-duration": 4
-    }
-  },
-  "longsword": {
-    "name": "Longsword",
-    "slot": "hand",
-    "icon": "itemsword",
-    "stats": {
-      "damage": 20,
-      "hit-chance": 0.6,
-      "crit-chance": 0.25,
-      "crit-damage": 1.5,
-      "bleed-chance": 0.0,
-      "bleed-duration": 4
-    }
-  },
-  "broadsword": {
-    "name": "Broadsword",
-    "slot": "hand",
-    "icon": "itemsword",
-    "stats": {
-      "damage": 15,
-      "hit-chance": 0.5,
-      "crit-chance": 1.0,
-      "crit-damage": 1.5,
-      "bleed-chance": 0.0,
-      "bleed-duration": 4
-    }
-  },
-  "serrated-sword": {
-    "name": "Serrated Sword",
-    "slot": "hand",
-    "icon": "itemsword",
-    "drop-rate": 50,
-    "stats": {
-      "damage": 5,
-      "hit-chance": 0.6,
-      "crit-chance": 0.0,
-      "crit-damage": 1.2,
-      "bleed-chance": 1.0,
-      "bleed-duration": 6
-    }
-  },
-  "cursed-sword": {
-    "name": "Cursed Sword",
-    "slot": "hand",
-    "icon": "itemsword",
-    "drop-rate": 10,
-    "stats": {
-      "damage": 40,
-      "hit-chance": -0.4,
-      "crit-chance": 0.0,
-      "crit-damage": 2.0,
-      "bleed-chance": 0.5,
-      "bleed-duration": 10
-    }
+  "sword": {
+    "shortsword": {
+      "name": "Shortsword",
+      "slot": "hand",
+      "icon": "itemsword",
+      "stats": {
+        "damage": 10,
+        "hit-chance": 1.0,
+        "crit-chance": 0.5,
+        "crit-damage":  2.0,
+        "bleed-chance": 0.0,
+        "bleed-duration": 4
+      }
+    },
+    "longsword": {
+      "name": "Longsword",
+      "slot": "hand",
+      "icon": "itemsword",
+      "stats": {
+        "damage": 20,
+        "hit-chance": 0.6,
+        "crit-chance": 0.25,
+        "crit-damage": 1.5,
+        "bleed-chance": 0.0,
+        "bleed-duration": 4
+      }
+    },
+    "broadsword": {
+      "name": "Broadsword",
+      "slot": "hand",
+      "icon": "itemsword",
+      "stats": {
+        "damage": 15,
+        "hit-chance": 0.5,
+        "crit-chance": 1.0,
+        "crit-damage": 1.5,
+        "bleed-chance": 0.0,
+        "bleed-duration": 4
+      }
+    },
+    "serrated-sword": {
+      "name": "Serrated Sword",
+      "slot": "hand",
+      "icon": "itemsword",
+      "drop-rate": 50,
+      "stats": {
+        "damage": 5,
+        "hit-chance": 0.6,
+        "crit-chance": 0.0,
+        "crit-damage": 1.2,
+        "bleed-chance": 1.0,
+        "bleed-duration": 6
+      }
+    },
+    "cursed-sword": {
+      "name": "Cursed Sword",
+      "slot": "hand",
+      "icon": "itemsword",
+      "drop-rate": 10,
+      "stats": {
+        "damage": 40,
+        "hit-chance": -0.4,
+        "crit-chance": 0.0,
+        "crit-damage": 2.0,
+        "bleed-chance": 0.5,
+        "bleed-duration": 10
+      }
+    },
   },
 },
