@@ -3,6 +3,7 @@
     "two-bladed-axe": {
       "name": "Two-Bladed Axe",
       "slot": "hand",
+      "attack": true,
       "icon": "itemaxe",
       "stats": {
         "damage": 30,
@@ -16,6 +17,7 @@
     "woodcutters-axe": {
       "name": "Woodcutter's Axe",
       "slot": "hand",
+      "attack": true,
       "icon": "itemaxe",
       "stats": {
         "damage": 15,
@@ -29,6 +31,7 @@
     "tomahawk": {
       "name": "Tomahawk",
       "slot": "hand",
+      "attack": true,
       "icon": "itemaxe",
       "stats": {
         "damage": 5,
@@ -42,6 +45,7 @@
     "mini-axe": {
       "name": "Mini Axe",
       "slot": "hand",
+      "attack": true,
       "icon": "itemaxe",
       "drop-rate": 50,
       "stats": {

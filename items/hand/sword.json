@@ -3,6 +3,7 @@
     "shortsword": {
       "name": "Shortsword",
       "slot": "hand",
+      "attack": true,
       "icon": "itemsword",
       "stats": {
         "damage": 10,
@@ -16,6 +17,7 @@
     "longsword": {
       "name": "Longsword",
       "slot": "hand",
+      "attack": true,
       "icon": "itemsword",
       "stats": {
         "damage": 20,
@@ -29,6 +31,7 @@
     "broadsword": {
       "name": "Broadsword",
       "slot": "hand",
+      "attack": true,
       "icon": "itemsword",
       "stats": {
         "damage": 15,
@@ -42,6 +45,7 @@
     "serrated-sword": {
       "name": "Serrated Sword",
       "slot": "hand",
+      "attack": true,
       "icon": "itemsword",
       "drop-rate": 50,
       "stats": {
@@ -56,6 +60,7 @@
     "cursed-sword": {
       "name": "Cursed Sword",
       "slot": "hand",
+      "attack": true,
       "icon": "itemsword",
       "drop-rate": 10,
       "stats": {

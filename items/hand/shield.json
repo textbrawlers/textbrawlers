@@ -3,6 +3,7 @@
     "spiky-buckler": {
       "name": "Spiky Buckler",
       "slot": "hand",
+      "attack": true,
       "icon": "itemshield",
       "stats": {
         "damage": 0.0,
