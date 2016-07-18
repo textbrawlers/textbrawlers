@@ -12,14 +12,14 @@
         "damage": 0.6
       }
     },
-    "blunt": {
-      "name": "Blunt",
+    "weathered": {
+      "name": "Weathered",
       "stats": {
         "damage": 0.8
       }
     },
-    "sharp": {
-      "name": "Sharp",
+    "painful": {
+      "name": "Painful",
       "stats": {
         "damage": 1.2
       }
@@ -151,45 +151,24 @@
       }
     }
   },
-  "bleed-chance": {
-    "cutting": {
-      "name": "Cutting",
+  "stun-chance": {
+    "stunning": {
+      "name": "Stunning",
       "stats": {
-        "bleed-chance": 0.1
+        "stun-chance": 0.1
       }
     },
-    "slicing": {
-      "name": "Slicing",
+    "staggering": {
+      "name": "Staggering",
       "stats": {
-        "bleed-chance": 0.2
+        "stun-chance": 0.2
       }
     },
-    "slashing": {
-      "name": "Slashing",
+    "overwhelming": {
+      "name": "Overwhelming",
       "stats": {
-        "bleed-chance": 0.3
+        "stun-chance": 0.3
       }
     }
   },
-
-  "bleed-duration": {
-    "ripping": {
-      "name": "Ripping",
-      "stats": {
-        "bleed-duration": 2
-      }
-    },
-    "tearing": {
-      "name": "Tearing",
-      "stats": {
-        "bleed-duration": 3
-      }
-    },
-    "rupturing": {
-      "name": "Rupturing",
-      "stats": {
-        "bleed-duration": 4
-      }
-    }
-  }
 }
