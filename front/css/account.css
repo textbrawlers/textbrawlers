@@ -142,3 +142,24 @@ body {
 .rarity-set {
   color: #f23022;
 }
+
+.item {
+  border:2px solid;
+  box-sizing: border-box;
+}
+
+.item-common {
+  border-color: #d7d7d7;
+}
+
+.item-uncommon {
+  border-color: #22f23f;
+}
+
+.item-rare {
+  border-color: #229cf2;
+}
+
+.item-legendary {
+  border-color: #f26522;
+}

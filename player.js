@@ -1,4 +1,3 @@
-const items = require('./items.js')
 const db = require('monk')('localhost/retardarenan')
 const users = db.get('users')
 
@@ -21,8 +20,7 @@ Player.prototype.setInventory = function (slot, item) {
 Player.prototype.getInventory = function (slot) {
   this.data.inventory = this.data.inventory || {}
   const item = this.data.inventory[slot]
-  if (item) {
-    item.sourceItem = items[item.item]
+  if (item && item.type) {
     return item
   }
   return undefined
@@ -49,6 +47,8 @@ Player.prototype.getNextClearSlot = function () {
       return slot
     }
   }
+
+  return undefined
 }
 
 Player.prototype.switchInventory = function (a, b) {
@@ -62,5 +62,5 @@ Player.prototype.switchInventory = function (a, b) {
 }
 
 Player.find = function * (key) {
-  return new Player(yield users.findOne({ key}))
+  return new Player(yield users.findOne({key}))
 }

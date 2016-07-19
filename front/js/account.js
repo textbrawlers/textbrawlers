@@ -35,7 +35,6 @@
     tooltip.style.top = y
 
     const item = inventoryObj[slot]
-    console.log(slot, item)
 
     if (item && Object.keys(item).length && item.sourceItem !== 0) {
       const itemPrefixes = item.prefixes.map(prefix => prefixes[prefix.type][prefix.category][prefix.prefix].name).join(' ')
@@ -49,6 +48,8 @@
 
         if (transformStat[stat]) {
           num = transformStat[stat](num)
+        } else {
+          num = Math.round(num * 1000) / 1000
         }
 
         tooltipHtml += `<b>${num}</b> ${statName}<br>`
@@ -68,9 +69,6 @@
     const baseItem = getBaseItem(item)
 
     const stats = Object.assign({}, baseItem.stats)
-    console.log('base-stats', stats)
-
-    console.log(stats['damage'])
 
     getItemPrefixes(item).forEach(prefix => {
       Object.keys(prefix.stats).forEach(stat => {
@@ -124,13 +122,13 @@
       const baseItem = getBaseItem(item)
 
       const icon = baseItem ? baseItem.icon : 'none'
+      const rarity = item.rarity
 
-      htmlSlot.innerHTML = `<img src="/png/${icon}.png"></img>`
+      htmlSlot.innerHTML = `<img src="/png/${icon}.png" class="item item-${rarity}"></img>`
     }
   }
 
   function switchSlots (a, b) {
-    console.log('switchSlots', a, b)
     ;[inventoryObj[a], inventoryObj[b]] = [inventoryObj[b], inventoryObj[a]]
 
     fetch('/api/game/inventory/switch', {
@@ -142,7 +140,6 @@
       },
       body: JSON.stringify({ a, b})
     }).then(resp => resp.json()).then(json => {
-      console.log(json)
     })
   }
 
@@ -176,9 +173,11 @@
 
   drake.on('drop', (elem, target, source) => {
     if (target.childNodes.length > 1) {
-      const prev = target.childNodes[0]
-      target.removeChild(prev)
-      source.appendChild(prev)
+      const dropPos = target.children[0] === elem ? 1 : 0
+      const otherElem = target.childNodes[dropPos]
+
+      target.removeChild(otherElem)
+      source.appendChild(otherElem)
     }
 
     switchSlots(source.dataset.slot, target.dataset.slot)
@@ -194,7 +193,7 @@
       }
     }).then(resp => resp.json()).then(json => {
       if (!json.success) {
-        window.alert('Could not load account:\n' + json.error)
+        window.alert('Could not generate item:\n' + json.error)
       } else {
         updateInventory()
       }

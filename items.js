@@ -1,7 +1,7 @@
 const itemFiles = [
   './items/hand/axe.json',
   './items/hand/hammer.json',
-  './items/hand/shield.json',
+  //  './items/hand/shield.json',
   './items/hand/sword.json'
 ].map(file => require(file))
 

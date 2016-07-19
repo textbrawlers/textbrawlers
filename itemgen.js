@@ -91,6 +91,9 @@ function randomizeRarity () {
 
 function getPrefixes (rarity, itemCat) {
   const possiblePrefixes = weightedPrefixTypes[itemCat]
+  if (!possiblePrefixes) {
+    console.warn('No possible prefixes in ' + itemCat)
+  }
   const nPrefixes = rarities[rarity].prefixes
 
   const selectedCategories = []
@@ -98,8 +101,15 @@ function getPrefixes (rarity, itemCat) {
 
   while (selectedCategories.length < nPrefixes) {
     const prefixCat = getPrefixCategory(possiblePrefixes)
+    if (!prefixes[prefixCat]) {
+      console.log('no prefxies in prefixcat ' + prefixCat)
+    }
     const prefixCategories = Object.keys(prefixes[prefixCat])
     const suggestedPrefix = prefixCategories[Math.floor(Math.random() * prefixCategories.length)]
+
+    if (!suggestedPrefix) {
+      continue
+    }
 
     if (selectedCategories.indexOf(suggestedPrefix) === -1) {
       selectedCategories.push(suggestedPrefix)

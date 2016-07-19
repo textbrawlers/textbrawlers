@@ -5,14 +5,21 @@ module.exports.spawnitem = function * () {
   const item = itemgen.generateItem()
 
   console.log(this.player.getNextClearSlot())
-  this.player.setInventory(this.player.getNextClearSlot(), item)
+  const nextSlot = this.player.getNextClearSlot()
+
+  if (!nextSlot) {
+    this.body = {
+      success: false,
+      error: 'Full inventory'
+    }
+    return
+  }
+
+  this.player.setInventory(nextSlot, item)
 
   yield this.player.save()
 
-  this.body = "success"
-
   this.body = {
     success: true,
-    item
-  }
+  item}
 }
