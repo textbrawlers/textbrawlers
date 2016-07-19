@@ -1,208 +1,39 @@
 {
-  "damage": {
-    "broken": {
-      "name": "Broken",
+  "block-chance": {
+    "hole-filled": {
+      "name": "Hole-Filled",
       "stats": {
-        "damage": 0.4
+        "block-chance": -0.3
       }
     },
-    "rusty": {
-      "name": "Rusty",
+    "exposing": {
+      "name": "Exposing",
       "stats": {
-        "damage": 0.6
+        "block-chance": -0.2
       }
     },
-    "blunt": {
-      "name": "Blunt",
+    "crushed": {
+      "name": "Crushed",
       "stats": {
-        "damage": 0.8
+        "block-chance": -0.1
       }
     },
-    "sharp": {
-      "name": "Sharp",
+    "protective": {
+      "name": "Protective",
       "stats": {
-        "damage": 1.2
+        "block-chance": 0.1
       }
     },
-    "ruthless": {
-      "name": "Ruthless",
+    "thwarting": {
+      "name": "Thwarting",
       "stats": {
-        "damage": 1.4
+        "block-chance": 0.2
       }
     },
-    "deadly": {
-      "name": "Deadly",
+    "impenetrable": {
+      "name": "Impenetrable",
       "stats": {
-        "damage": 1.6
-      }
-    }
-  },
-  
-  "hit-chance": {
-    "slow": {
-      "name": "Slow",
-      "stats": {
-        "hit-chance": -0.6
-      }
-    },
-    "lazy": {
-      "name": "Lazy",
-      "stats": {
-        "hit-chance": -0.4
-      }
-    },
-    "heavy": {
-      "name": "Heavy",
-      "stats": {
-        "hit-chance": -0.2
-      }
-    },
-    "nimble": {
-      "name": "Nimble",
-      "stats": {
-        "hit-chance": 0.2
-      }
-    },
-    "quick": {
-      "name": "Quick",
-      "stats": {
-        "hit-chance": 0.4
-      }
-    },
-    "rapid": {
-      "name": "Rapid",
-      "stats": {
-        "hit-chance": 0.6
-      }
-    }
-  },
-  
-  "crit-chance": {
-    "inaccurate": {
-      "name": "Inaccurate",
-      "stats": {
-        "crit-chance": -0.6
-      }
-    },
-    "inexact": {
-      "name": "Inexact",
-      "stats": {
-        "crit-chance": -0.4
-      }
-    },
-    "uncertain": {
-      "name": "Uncertain",
-      "stats": {
-        "crit-chance": -0.2
-      }
-    },
-    "aiming": {
-      "name": "Aiming",
-      "stats": {
-        "crit-chance": 0.2
-      }
-    },
-    "piercing": {
-      "name": "Piercing",
-      "stats": {
-        "crit-chance": 0.4
-      }
-    },
-    "precise": {
-      "name": "Precise",
-      "stats": {
-        "crit-chance": 0.6
-      }
-    }
-  },
-  
-  "crit-damage": {
-    "harmless": {
-      "name": "Harmless",
-      "stats": {
-        "crit-damage": -0.6
-      }
-    },
-    "kind": {
-      "name": "Kind",
-      "stats": {
-        "crit-damage": -0.4
-      }
-    },
-    "safe": {
-      "name": "Safe",
-      "stats": {
-        "crit-damage": -0.2
-      }
-    },
-    "crushing": {
-      "name": "Crushing",
-      "stats": {
-        "crit-damage": 0.2
-      }
-    },
-    "demolishing": {
-      "name": "Demolishing",
-      "stats": {
-        "crit-damage": 0.4
-      }
-    },
-    "obliterating": {
-      "name": "Obliterating",
-      "stats": {
-        "crit-damage": 0.6
-      }
-    }
-  },
-  
-  "bleed-chance": {
-    "cutting": {
-      "name": "Cutting",
-      "stats": {
-        "bleed-chance": 0.1
-      }
-    },
-    "slicing": {
-      "name": "Slicing",
-      "stats": {
-        "bleed-chance": 0.2
-      }
-    },
-    "slashing": {
-      "name": "Slashing",
-      "stats": {
-        "bleed-chance": 0.3
-      }
-    }
-  },
-
-  "bleed-duration": {
-    "ripping": {
-      "name": "Ripping",
-      "stats": {
-        "bleed-duration": 2
-      }
-    },
-    "tearing": {
-      "name": "Tearing",
-      "stats": {
-        "bleed-duration": 3
-      }
-    },
-    "rupturing": {
-      "name": "Rupturing",
-      "stats": {
-        "bleed-duration": 4
-      }
-    }
-  },
-  
-  "unique": {
-    "oversized": {
-      "name": "Oversized",
-      "stats": {
-        "damage": 1.6,
-        "hit-chance": -0.4
+        "block-chance": 0.3
       }
     }
   }
