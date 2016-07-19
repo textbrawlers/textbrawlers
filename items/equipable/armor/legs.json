@@ -1,0 +1,13 @@
+{
+  "legs": {
+    "leather-trousers": {
+      "name": "Leather Trousers",
+      "slot": "head",
+      "attack": false,
+      "icon": "itempants",
+      "stats": {
+        "max-health": 10
+      }
+    }
+  }
+}

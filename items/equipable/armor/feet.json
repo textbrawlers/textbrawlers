@@ -1,0 +1,13 @@
+{
+  "feet": {
+    "leather-boots": {
+      "name": "Leather Boots",
+      "slot": "feet",
+      "attack": false,
+      "icon": "itemshoes",
+      "stats": {
+        "max-health": 10
+      }
+    }
+  }
+}
