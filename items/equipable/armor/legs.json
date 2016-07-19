@@ -17,6 +17,16 @@
       "stats": {
         "block-chance": 0.025
       }
+    },
+    "linen-trousers": {
+      "name": "Linen Trousers",
+      "slot": "legs",
+      "attack": false,
+      "icon": "itempants",
+      "stats": {
+        "max-health": -5,
+        "hit-chance": 0.1
+      }
     }
   }
 }

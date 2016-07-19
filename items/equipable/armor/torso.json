@@ -17,6 +17,26 @@
       "stats": {
         "block-chance": 0.05
       }
+    },
+    "mineral-chestplate": {
+      "name": "Mineral Chestplate",
+      "slot": "torso",
+      "attack": false,
+      "icon": "itemchestpiece",
+      "stats": {
+        "max-health": 60,
+        "hit-chance": -0.4
+      }
+    },
+    "linen-tunic": {
+      "name": "Linen Tunic",
+      "slot": "torso",
+      "attack": false,
+      "icon": "itemchestpiece",
+      "stats": {
+        "max-health": -10,
+        "hit-chance": 0.2
+      }
     }
   }
 }

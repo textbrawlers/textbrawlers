@@ -17,6 +17,17 @@
       "stats": {
         "block-chance": 0.05
       }
+    },
+    "boots-of-the-wind": {
+      "name": "Boots of the Wind",
+      "slot": "feet",
+      "attack": false,
+      "icon": "itemshoes",
+      "stats": {
+        "max-health": -25,
+        "block-chance": 0.2,
+        "hit-chance": 0.4
+      }
     }
   }
 }
