@@ -14,5 +14,21 @@
   "shields": {
     "shield-prefixes": 100,
     "weird-prefixes": 20
+
+  "head": {
+    "head-prefixes": 100,
+    "weird-prefixes": 20
+  },
+  "torso": {
+    "torso-prefixes": 100,
+    "weird-prefixes": 20
+  },
+  "legs": {
+    "torso-prefixes": 100,
+    "weird-prefixes": 20
+  },
+  "feet": {
+    "torso-prefixes": 100,
+    "weird-prefixes": 20
   }
 }
