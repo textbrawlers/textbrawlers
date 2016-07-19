@@ -2,11 +2,20 @@
   "legs": {
     "leather-trousers": {
       "name": "Leather Trousers",
-      "slot": "head",
+      "slot": "legs",
       "attack": false,
       "icon": "itempants",
       "stats": {
-        "max-health": 10
+        "max-health": 15
+      }
+    },
+    "lamellar-leggings": {
+      "name": "Lamellar Leggings",
+      "slot": "legs",
+      "attack": false,
+      "icon": "itempants",
+      "stats": {
+        "block-chance": 0.025
       }
     }
   }

@@ -1,12 +1,21 @@
 {
   "feet": {
-    "leather-boots": {
-      "name": "Leather Boots",
+    "leather-shoes": {
+      "name": "Leather Shoes",
       "slot": "feet",
       "attack": false,
       "icon": "itemshoes",
       "stats": {
         "max-health": 10
+      }
+    },
+    "lamellar-boots": {
+      "name": "Lamellar Boots",
+      "slot": "feet",
+      "attack": false,
+      "icon": "itemshoes",
+      "stats": {
+        "block-chance": 0.05
       }
     }
   }

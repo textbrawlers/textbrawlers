@@ -1,12 +1,21 @@
 {
   "head": {
     "leather-helmet": {
-      "name": "Leather Helmet",
+      "name": "Leather Cap",
       "slot": "head",
       "attack": false,
       "icon": "itemhelmet",
       "stats": {
         "max-health": 10
+      }
+    },
+    "lamellar-armor": {
+      "name": "Lamellar Helmet",
+      "slot": "head",
+      "attack": false,
+      "icon": "itemhelmet",
+      "stats": {
+        "block-chance": 0.025
       }
     }
   }

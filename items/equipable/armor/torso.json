@@ -1,12 +1,21 @@
 {
   "torso": {
-    "leather-helmet": {
-      "name": "Leather Helmet",
-      "slot": "head",
+    "leather-shirt": {
+      "name": "Leather Shirt",
+      "slot": "torso",
       "attack": false,
-      "icon": "itemhelmet",
+      "icon": "itemchestpiece",
       "stats": {
-        "max-health": 10
+        "max-health": 20
+      }
+    },
+    "lamellar-chestpiece": {
+      "name": "Lamellar Chestpiece",
+      "slot": "torso",
+      "attack": false,
+      "icon": "itemchestpiece",
+      "stats": {
+        "block-chance": 0.05
       }
     }
   }
