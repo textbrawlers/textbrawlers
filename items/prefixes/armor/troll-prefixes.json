@@ -3,31 +3,37 @@
     "uncomfortable": {
       "name": "Uncomfortable",
       "stats": {
+        "comfort": -0.4
       }
     },
     "ugly": {
       "name": "Ugly",
       "stats": {
+        "fashion": -0.4
       }
     },
     "tight-fitting": {
       "name": "Tight-fitting",
       "stats": {
+        "comfort": -0.2
       }
     },
     "dazzling": {
       "name": "Dazzling",
       "stats": {
+        "fashion": 0.2
       }
     },
     "stunning": {
       "name": "Stunning",
       "stats": {
+        "fashion": 0.4
       }
     },
-    "elegant": {
-      "name": "Elegant",
+    "comfortable": {
+      "name": "Comfortable",
       "stats": {
+        "comfort": 0.6
       }
     }
   }
