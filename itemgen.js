@@ -1,5 +1,22 @@
-const items = require('./items.js')
-const prefixes = require('./items/weapon-prefixes.json')
+const items = require('./items.js').allItems
+const prefixes = require('./prefixes.js')
+const prefixTypes = require('./items/prefixes/prefix-type.json')
+
+const weightedPrefixTypes = {}
+
+Object.keys(prefixTypes).forEach(type => {
+  let sum = 0
+  const prefixes = prefixTypes[type]
+  weightedPrefixTypes[type] = {}
+
+  Object.keys(prefixes).forEach(prefixKey => {
+    sum += prefixes[prefixKey]
+  })
+
+  Object.keys(prefixes).forEach(prefixKey => {
+    weightedPrefixTypes[type][prefixKey] = prefixes[prefixKey] / sum
+  })
+})
 
 const integerStats = [ 'health', 'damage' ]
 
@@ -29,6 +46,28 @@ const rarities = {
   }
 }
 
+const droptable = generateDroptable()
+
+function generateDroptable () {
+  let totalDropweight = 0
+
+  const droptable = []
+  Object.keys(items).forEach(key => {
+    const item = items[key]
+
+    item['drop-rate'] = item['drop-rate'] || 100
+    totalDropweight += item['drop-rate']
+
+    droptable.push(item)
+  })
+
+  droptable.forEach(item => {
+    item['drop-chance'] = item['drop-rate'] / totalDropweight
+  })
+
+  return droptable
+}
+
 function rangeInt (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
@@ -50,36 +89,68 @@ function randomizeRarity () {
   }
 }
 
-function getPrefixes (rarity) {
+function getPrefixes (rarity, itemCat) {
+  const possiblePrefixes = weightedPrefixTypes[itemCat]
   const nPrefixes = rarities[rarity].prefixes
 
   const selectedCategories = []
+  const selectedTypes = []
 
   while (selectedCategories.length < nPrefixes) {
+    const prefixCat = getPrefixCategory(possiblePrefixes)
+    const prefixCategories = Object.keys(prefixes[prefixCat])
     const suggestedPrefix = prefixCategories[Math.floor(Math.random() * prefixCategories.length)]
 
     if (selectedCategories.indexOf(suggestedPrefix) === -1) {
       selectedCategories.push(suggestedPrefix)
+      selectedTypes.push(prefixCat)
     }
   }
 
+  let i = 0
   return selectedCategories.map(category => {
-    const possible = Object.keys(prefixes[category])
-    return { category, prefix: possible[Math.floor(Math.random() * possible.length)]}
+    const type = selectedTypes[i]
+    i++
+    if (!prefixes[type][category]) {
+      console.error('No prefixes in ' + category)
+    }
+    const possible = Object.keys(prefixes[type][category])
+    return {type, category, prefix: possible[Math.floor(Math.random() * possible.length)]}
   })
 }
 
+function getPrefixCategory (possiblePrefixes) {
+  let rn = Math.random()
+  for (const key of Object.keys(possiblePrefixes)) {
+    const chance = possiblePrefixes[key]
+
+    if (rn < chance) {
+      return key
+    }
+
+    rn -= chance
+  }
+  console.error('Did not find prefix')
+}
+
+function getBaseItem () {
+  let rn = Math.random()
+  for (const item of droptable) {
+    const chance = item['drop-chance']
+    if (rn < chance) {
+      return item
+    }
+    rn -= chance
+  }
+
+  console.error('Did not find base item')
+}
+
 function generateItem () {
-  const keys = Object.keys(items)
-  const key = keys[Math.floor(Math.random() * keys.length)]
-  const item = items[key]
-
+  const item = getBaseItem()
   const rarity = randomizeRarity()
-
-  const prefixes = getPrefixes(rarity)
-
+  const prefixes = getPrefixes(rarity, item.category)
   const stats = item.stats || {}
-
   const rolls = {}
 
   Object.keys(stats).forEach(key => {
@@ -96,14 +167,13 @@ function generateItem () {
 
   const itemObj = {
     rolls,
-    item: key,
     rarity: rarity,
-    prefixes: prefixes
+    prefixes: prefixes,
+    type: item.type
   }
+  console.log(itemObj)
 
   return itemObj
 }
 
-generateItem()
-
-module.exports = { generateItem}
+module.exports = {generateItem}

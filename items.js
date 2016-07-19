@@ -1,11 +1,23 @@
-const itemsets = require('./items/itemsets.json')
+const itemFiles = [
+  './items/hand/axe.json',
+  './items/hand/hammer.json',
+  './items/hand/shield.json',
+  './items/hand/sword.json'
+].map(file => require(file))
 
-let items = {}
+let allItems = {}
 
-itemsets.forEach(set => {
-  const setConfig = require(`./items/${set}.json`)
+itemFiles.forEach(file => {
+  Object.keys(file).forEach(type => {
+    const items = file[type]
 
-  items = Object.assign(items, setConfig)
+    Object.keys(items).forEach(key => {
+      items[key].category = type
+      items[key].type = key
+    })
+
+    allItems = Object.assign(allItems, items)
+  })
 })
 
-module.exports = items
+module.exports = {allItems}

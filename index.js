@@ -9,7 +9,8 @@ const items = require('./items.js')
 const game = require('./game.js')
 const admin = require('./admin.js')
 const Player = require('./player.js')
-const weaponPrefixes = require('./items/weapon-prefixes.json')
+const prefixes = require('./prefixes.js')
+const statNames = require('./items/stat-names.json')
 
 const app = new Koa()
 
@@ -56,11 +57,15 @@ router.post('/admin/spawnitem', koaBody, auth, admin.spawnitem)
 router.post('/game/inventory/switch', koaBody, auth, game.inventorySwitch)
 
 router.get('/data/items', function * () {
-  this.body = items
+  this.body = items.allItems
 })
 
-router.get('/data/weapon-prefixes', function * () {
-  this.body = weaponPrefixes
+router.get('/data/prefixes', function * () {
+  this.body = prefixes
+})
+
+router.get('/data/stat-names', function * () {
+  this.body = statNames
 })
 
 app

@@ -4,16 +4,30 @@
   const inventory = document.querySelector('.inventory')
   const margin = 5
   const size = 50
-  let weaponPrefixes
+  let prefixes
 
   let inventoryObj = {}
+  let items
+  let statNames
 
   const INV_WIDTH = 12
   const INV_HEIGHT = 10
 
-  console.log('v4')
-
   const tooltip = document.querySelector('.tooltip')
+
+  const percent = num => Math.round(num * 100) + '%'
+
+  const transformStat = {
+    'crit-chance': percent,
+    'bleed-chance': percent,
+    'hit-chance': percent,
+    'stun-chance': percent,
+    'crit-damage': percent
+  }
+
+  function getBaseItem (item) {
+    return items[item.type]
+  }
 
   function showTooltip (x, y, slot) {
     tooltip.style.display = 'block'
@@ -21,14 +35,60 @@
     tooltip.style.top = y
 
     const item = inventoryObj[slot]
+    console.log(slot, item)
 
-    if (item && Object.keys(item).length !== 0) {
-      const prefixes = item.prefixes.map(prefix => weaponPrefixes[prefix.category][prefix.prefix].name).join(' ')
+    if (item && Object.keys(item).length && item.sourceItem !== 0) {
+      const itemPrefixes = item.prefixes.map(prefix => prefixes[prefix.type][prefix.category][prefix.prefix].name).join(' ')
       item.sourceItem = item.sourceItem || {}
-      tooltip.innerHTML = `<h2 class="rarity-${item.rarity}">${prefixes} ${item.sourceItem.name}</h2><pre>` + JSON.stringify(item, undefined, 4)
+      tooltipHtml = `<h2 class="rarity-${item.rarity}">${itemPrefixes} ${getBaseItem(item).name}</h2>`
+
+      const stats = getItemStats(item)
+      Object.keys(stats).forEach(stat => {
+        const statName = statNames[stat] || 'untranslated_' + stat
+        let num = stats[stat]
+
+        if (transformStat[stat]) {
+          num = transformStat[stat](num)
+        }
+
+        tooltipHtml += `<b>${num}</b> ${statName}<br>`
+      })
+
+      tooltip.innerHTML = tooltipHtml
     } else {
       tooltip.style.display = 'none'
     }
+  }
+
+  function getItemPrefixes (item) {
+    return item.prefixes.map(prefix => prefixes[prefix.type][prefix.category][prefix.prefix])
+  }
+
+  function getItemStats (item) {
+    const baseItem = getBaseItem(item)
+
+    const stats = Object.assign({}, baseItem.stats)
+    console.log('base-stats', stats)
+
+    console.log(stats['damage'])
+
+    getItemPrefixes(item).forEach(prefix => {
+      Object.keys(prefix.stats).forEach(stat => {
+        let num = prefix.stats[stat]
+
+        if (typeof stats[stat] === 'undefined') {
+          stats[stat] = 0
+        }
+
+        if (stat === 'damage' || stat === 'block-chance') {
+          stats[stat] *= num
+        } else {
+          stats[stat] += num
+        }
+      })
+    })
+
+    return stats
   }
 
   function hideTooltip () {
@@ -61,14 +121,16 @@
     if (item && Object.keys(item).length !== 0) {
       const htmlSlot = document.querySelector(`[data-slot="${slot}"]`)
 
-      let icon = 'none'
-      if (item.sourceItem) icon = item.sourceItem.icon
+      const baseItem = getBaseItem(item)
+
+      const icon = baseItem ? baseItem.icon : 'none'
 
       htmlSlot.innerHTML = `<img src="/png/${icon}.png"></img>`
     }
   }
 
   function switchSlots (a, b) {
+    console.log('switchSlots', a, b)
     ;[inventoryObj[a], inventoryObj[b]] = [inventoryObj[b], inventoryObj[a]]
 
     fetch('/api/game/inventory/switch', {
@@ -95,16 +157,19 @@
     }
   }
 
-  ['.inv-head', '.inv-body', '.inv-legs', '.inv-boots', '.inv-lefthand', '.inv-righthand'].forEach(slot => {
+  index = 0
+  ;['.inv-head', '.inv-body', '.inv-legs', '.inv-boots', '.inv-lefthand', '.inv-righthand'].forEach(slot => {
+    const i = index
     slot = document.querySelector(slot)
     slots.push(slot)
 
     slot.addEventListener('mouseover', () => {
       const boundingRect = slot.getBoundingClientRect()
-      showTooltip(boundingRect.left, boundingRect.top, 'i' + index)
+      showTooltip(boundingRect.left, boundingRect.top, 'e' + i)
     })
 
     slot.addEventListener('mouseout', hideTooltip)
+    index++
   })
 
   const drake = dragula(slots)
@@ -152,14 +217,30 @@
     })
   }
 
-  function fetchWeaponPrefixes () {
-    return fetch('/api/data/weapon-prefixes', {
+  function fetchPrefixes () {
+    return fetch('/api/data/prefixes', {
       method: 'GET'
     }).then(resp => resp.json())
   }
 
-  fetchWeaponPrefixes().then(prefixes => {
-    weaponPrefixes = prefixes
+  function fetchItems () {
+    return fetch('/api/data/items', {
+      method: 'GET'
+    }).then(resp => resp.json())
+  }
+
+  function fetchStatNames () {
+    return fetch('/api/data/stat-names', {
+      method: 'GET'
+    }).then(resp => resp.json())
+  }
+
+  fetchPrefixes().then(_prefixes => {
+    prefixes = _prefixes
+  }).then(fetchStatNames).then(_statNames => {
+    statNames = _statNames
+  }).then(fetchItems).then(_items => {
+    items = _items
 
     updateInventory()
   })
