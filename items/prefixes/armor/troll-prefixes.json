@@ -1,0 +1,34 @@
+{
+  "troll": {
+    "uncomfortable": {
+      "name": "Uncomfortable",
+      "stats": {
+      }
+    },
+    "ugly": {
+      "name": "Ugly",
+      "stats": {
+      }
+    },
+    "tight-fitting": {
+      "name": "Tight-fitting",
+      "stats": {
+      }
+    },
+    "dazzling": {
+      "name": "Dazzling",
+      "stats": {
+      }
+    },
+    "stunning": {
+      "name": "Stunning",
+      "stats": {
+      }
+    },
+    "elegant": {
+      "name": "Elegant",
+      "stats": {
+      }
+    }
+  }
+}
