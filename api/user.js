@@ -1,4 +1,4 @@
-const db = require('monk')('localhost/retardarenan')
+const db = require('monk')(process.env.MONGODB)
 
 const users = db.get('users')
 
@@ -17,7 +17,10 @@ module.exports.login = function * () {
   const username = this.request.body.username
   const password = this.request.body.password
 
-  const user = yield users.findOne({ username, password})
+  console.log('login')
+
+  const user = yield users.findOne({username, password})
+  console.log('uogin21')
   if (!user) {
     this.body = { success: false, error: 'Invalid details' }
     return
@@ -30,7 +33,7 @@ module.exports.register = function * () {
   const username = this.request.body.username
   const password = this.request.body.password
 
-  const user = yield users.findOne({ username})
+  const user = yield users.findOne({username})
   if (user) {
     this.body = { success: false, error: 'Username taken' }
     return
@@ -38,6 +41,6 @@ module.exports.register = function * () {
 
   const key = randomKey()
 
-  yield users.insert({ username, password, key})
+  yield users.insert({username, password, key})
   this.body = { success: true }
 }

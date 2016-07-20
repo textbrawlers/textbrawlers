@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^2.0.0",
     "koa": "^1.2.0",
     "koa-body": "^1.4.0",
     "koa-router": "^5.4.0",
