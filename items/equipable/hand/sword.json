@@ -9,7 +9,7 @@
         "damage": 10,
         "hit-chance": 1.0,
         "crit-chance": 0.5,
-        "crit-damage":  2.0,
+        "crit-damage":  1.5,
         "bleed-duration": 4
       }
     },
