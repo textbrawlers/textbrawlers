@@ -5,8 +5,19 @@
       "slot": "torso",
       "attack": false,
       "icon": "itemchestpiece",
+      "drop-rate": 125,
       "stats": {
         "max-health": 20
+      }
+    },
+    "iron-chestpiece": {
+      "name": "Iron Chestpiece",
+      "slot": "torso",
+      "attack": false,
+      "icon": "itemchestpiece",
+      "stats": {
+        "max-health": 30,
+        "block-chance": -0.15
       }
     },
     "lamellar-chestpiece": {
@@ -15,14 +26,15 @@
       "attack": false,
       "icon": "itemchestpiece",
       "stats": {
-        "block-chance": 0.05
+        "block-chance": 0.1
       }
     },
-    "mineral-chestplate": {
-      "name": "Mineral Chestplate",
+    "bedrock-chestplate": {
+      "name": "Bedrock Chestplate",
       "slot": "torso",
       "attack": false,
       "icon": "itemchestpiece",
+      "drop-rate": 75,
       "stats": {
         "max-health": 60,
         "hit-chance": -0.4
@@ -34,7 +46,7 @@
       "attack": false,
       "icon": "itemchestpiece",
       "stats": {
-        "max-health": -10,
+        "max-health": -15,
         "hit-chance": 0.2
       }
     }

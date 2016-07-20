@@ -5,8 +5,19 @@
       "slot": "feet",
       "attack": false,
       "icon": "itemshoes",
+      "drop-rate": 125,
       "stats": {
         "max-health": 10
+      }
+    },
+    "iron-greaves": {
+      "name": "Iron Greaves",
+      "slot": "feet",
+      "attack": false,
+      "icon": "itemshoes",
+      "stats": {
+        "max-health": 20,
+        "block-chance": -0.1
       }
     },
     "lamellar-boots": {
@@ -23,6 +34,7 @@
       "slot": "feet",
       "attack": false,
       "icon": "itemshoes",
+      "drop-rate": 50,
       "stats": {
         "max-health": -25,
         "block-chance": 0.2,

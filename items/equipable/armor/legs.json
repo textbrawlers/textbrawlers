@@ -5,8 +5,19 @@
       "slot": "legs",
       "attack": false,
       "icon": "itempants",
+      "drop-rate": 125,
       "stats": {
         "max-health": 15
+      }
+    },
+    "iron-leggings": {
+      "name": "Iron Leggings",
+      "slot": "legs",
+      "attack": false,
+      "icon": "itempants",
+      "stats": {
+        "max-health": 30,
+        "block-chance": -0.15
       }
     },
     "lamellar-leggings": {
@@ -15,7 +26,7 @@
       "attack": false,
       "icon": "itempants",
       "stats": {
-        "block-chance": 0.025
+        "block-chance": 0.1
       }
     },
     "linen-trousers": {
@@ -24,7 +35,7 @@
       "attack": false,
       "icon": "itempants",
       "stats": {
-        "max-health": -5,
+        "max-health": -10,
         "hit-chance": 0.1
       }
     }
