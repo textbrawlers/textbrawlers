@@ -99,9 +99,12 @@ function getPrefixes (rarity, itemCat) {
   const selectedCategories = []
   const selectedTypes = []
 
-  while (selectedCategories.length < nPrefixes) {
+  let n = 0
+
+  while (selectedCategories.length < nPrefixes && n < 100) {
     const prefixCat = getPrefixCategory(possiblePrefixes)
     if (!prefixes[prefixCat]) {
+      console.log(prefixes, prefixCat)
       console.log('no prefxies in prefixcat ' + prefixCat)
     }
     const prefixCategories = Object.keys(prefixes[prefixCat])
@@ -115,6 +118,12 @@ function getPrefixes (rarity, itemCat) {
       selectedCategories.push(suggestedPrefix)
       selectedTypes.push(prefixCat)
     }
+
+    n++
+  }
+
+  if (n === 100) {
+    console.warn('Not enough prefixes in ', itemCat)
   }
 
   let i = 0
@@ -181,7 +190,6 @@ function generateItem () {
     prefixes: prefixes,
     type: item.type
   }
-  console.log(itemObj)
 
   return itemObj
 }
