@@ -238,13 +238,14 @@
         "stun-chance": 0.3
       }
     },
-      "unique": {
-    "oversized": {
-      "name": "Oversized",
-      "drop-rate": 25,
-      "stats": {
-        "damage": 1.6,
-        "hit-chance": -0.4
+    "unique": {
+      "oversized": {
+        "name": "Oversized",
+        "drop-rate": 25,
+        "stats": {
+          "damage": 1.6,
+          "hit-chance": -0.4
+        }
       }
     }
   }
