@@ -26,12 +26,12 @@
     "troll-prefixes": 1
   },
   "legs": {
-    "torso-prefixes": 100,
+    "legs-prefixes": 100,
     "weird-prefixes-armor": 20,
     "troll-prefixes": 1
   },
   "feet": {
-    "torso-prefixes": 100,
+    "feet-prefixes": 100,
     "weird-prefixes-armor": 20,
     "troll-prefixes": 1
   }
