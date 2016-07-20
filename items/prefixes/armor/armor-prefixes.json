@@ -41,12 +41,109 @@
       }
     }
   },
-  
+
+  "enchanted": {
+    "cursed": {
+      "name": "Cursed",
+      "drop-rate": 75,
+      "stats": {
+        "max-health": -10,
+        "block-chance": -0.04,
+        "block-multiplier": 0.96,
+        "damage-multiplier": 0.96
+      }
+    },
+    "possessed": {
+      "name": "Possessed",
+      "stats": {
+        "max-health": -5,
+        "block-chance": -0.02,
+        "block-multiplier": 0.98,
+        "damage-multiplier": 0.98
+      }
+    },
+    "enchanted": {
+      "name": "Enchanted",
+      "stats": {
+        "max-health": 5,
+        "block-chance": 0.02,
+        "block-multiplier": 1.02,
+        "damage-multiplier": 1.02
+      }
+    },
+    "magical": {
+      "name": "Magical",
+      "drop-rate": 75,
+      "stats": {
+        "max-health": 10,
+        "block-chance": 0.04,
+        "block-multiplier": 1.04,
+        "damage-multiplier": 1.04
+      }
+    }
+  },
+
+  "resitance": {
+    "vulnerable": {
+      "name": "Vulnerable",
+      "drop-rate": 75,
+      "stats": {
+        "block-multiplier": 0.9
+      }
+    },
+    "exposed": {
+      "name": "Exposed",
+      "stats": {
+        "block-multiplier": 0.95
+      }
+    },
+    "secure": {
+      "name": "Secure",
+      "stats": {
+        "block-multiplier": 1.05
+      }
+    },
+    "covered": {
+      "name": "Covered",
+      "drop-rate": 75,
+      "stats": {
+        "block-multiplier": 1.1
+      }
+    }
+  },
+
+  "barbaric": {
+    "cruel": {
+      "name": "Cruel",
+      "stats": {
+        "damage-multiplier": 1.10,
+        "max-health-multiplier": 0.90
+      }
+    },
+    "barbaric": {
+      "name": "Barbaric",
+      "drop-rate": 50,
+      "stats": {
+        "damage-multiplier": 1.20,
+        "max-health-multiplier": 0.80
+      }
+    },
+    "unstoppable": {
+      "name": "Unstoppable",
+      "drop-rate": 75,
+      "stats": {
+        "damage-multiplier": 1.30,
+        "max-health-multiplier": 0.70
+      }
+    }
+  },
+
   "unique": {
     "heavy": {
       "name": "Heavy",
+      "drop-rate": 25,
       "stats": {
-        "hp-multiplier": 1.1,
+        "max-health-multiplier": 1.1,
         "hit-chance": -0.1
       }
     }

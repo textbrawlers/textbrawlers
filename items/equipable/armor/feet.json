@@ -37,8 +37,8 @@
       "drop-rate": 50,
       "stats": {
         "max-health": -25,
-        "block-chance": 0.2,
-        "hit-chance": 0.4
+        "block-chance": 0.1,
+        "hit-chance": 0.2
       }
     }
   }

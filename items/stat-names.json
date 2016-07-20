@@ -1,5 +1,6 @@
 {
   "damage": "Damage",
+  "damage-multiplier": "Damage Multiplier",
   "hit-chance": "Hit Chance",
   "crit-chance": "Crit Chance",
   "crit-damage": "Crit Damage",
@@ -7,7 +8,9 @@
   "bleed-duration": "Bleed Duration",
   "stun-chance": "Stun Chance",
   "block-chance": "Block Chance",
-  "block-modifier": "Block Modifier",
+  "block-multiplier": "Block Multiplier",
+  "max-health": "Max Health",
+  "max-health-multiplier": "Max Health Multiplier",
   "comfort": "Comfort",
   "fashionable": "Fashionable"
 }

@@ -7,7 +7,7 @@
       "icon": "itemshield",
       "stats": {
         "block-chance": 0.2,
-        "block-modifier": 0.6
+        "block-multiplier": 0.6
       }
     }
   }
