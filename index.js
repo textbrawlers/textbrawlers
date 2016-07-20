@@ -1,3 +1,7 @@
+require('dotenv').config({silent: true})
+
+process.env.MONGODB = process.env.MONGODB || 'localhost/retardarenan'
+
 const Koa = require('koa')
 const KoaStatic = require('koa-static')
 const Router = require('koa-router')

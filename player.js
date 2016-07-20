@@ -1,4 +1,4 @@
-const db = require('monk')('localhost/retardarenan')
+const db = require('monk')(process.env.MONGODB)
 const users = db.get('users')
 
 const Player = module.exports = function (data) {
