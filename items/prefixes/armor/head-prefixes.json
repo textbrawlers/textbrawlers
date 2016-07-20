@@ -2,12 +2,14 @@
   "block-chance": {
     "hole-filled": {
       "name": "Hole-Filled",
+      "drop-rate": 50,
       "stats": {
         "block-chance": -0.3
       }
     },
     "exposing": {
       "name": "Exposing",
+      "drop-rate": 75,
       "stats": {
         "block-chance": -0.2
       }
@@ -26,12 +28,14 @@
     },
     "thwarting": {
       "name": "Thwarting",
+      "drop-rate": 75,
       "stats": {
         "block-chance": 0.2
       }
     },
     "impenetrable": {
       "name": "Impenetrable",
+      "drop-rate": 50,
       "stats": {
         "block-chance": 0.3
       }

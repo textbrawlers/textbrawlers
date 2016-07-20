@@ -1,5 +1,5 @@
 {
-  "damage": "DMG",
+  "damage": "Damage",
   "hit-chance": "Hit Chance",
   "crit-chance": "Crit Chance",
   "crit-damage": "Crit Damage",
@@ -7,5 +7,7 @@
   "bleed-duration": "Bleed Duration",
   "stun-chance": "Stun Chance",
   "block-chance": "Block Chance",
-  "block-modifier": "Block Modifier"
+  "block-modifier": "Block Modifier",
+  "comfort": "Comfort",
+  "fashionable": "Fashionable"
 }

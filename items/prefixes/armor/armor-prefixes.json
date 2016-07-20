@@ -2,12 +2,14 @@
   "health": {
     "destroyed": {
       "name": "Destroyed",
+      "drop-rate": 50,
       "stats": {
         "max-health": -15.0
       }
     },
     "broken": {
       "name": "Broken",
+      "drop-rate": 75,
       "stats": {
         "max-health": -10.0
       }
@@ -26,12 +28,14 @@
     },
     "reinforced": {
       "name": "Reinforced",
+      "drop-rate": 75,
       "stats": {
         "max-health": 10.0
       }
     },
     "fortified": {
       "name": "Fortified",
+      "drop-rate": 50,
       "stats": {
         "max-health": 15.0
       }
@@ -40,8 +44,11 @@
   
   "unique": {
     "heavy": {
-      "hp-multiplier": 1.1,
-      "hit-chance": -0.1
+      "name": "Heavy",
+      "stats": {
+        "hp-multiplier": 1.1,
+        "hit-chance": -0.1
+      }
     }
   }
 }

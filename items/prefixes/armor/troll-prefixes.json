@@ -2,14 +2,16 @@
   "troll": {
     "uncomfortable": {
       "name": "Uncomfortable",
+      "drop-rate": 50,
       "stats": {
         "comfort": -0.4
       }
     },
     "ugly": {
       "name": "Ugly",
+      "drop-rate": 75,
       "stats": {
-        "fashion": -0.4
+        "fashionable": -0.4
       }
     },
     "tight-fitting": {
@@ -21,17 +23,19 @@
     "dazzling": {
       "name": "Dazzling",
       "stats": {
-        "fashion": 0.2
+        "fashionable": 0.2
       }
     },
-    "stunning": {
-      "name": "Stunning",
+    "Glittering": {
+      "name": "Glittering",
+      "drop-rate": 75,
       "stats": {
-        "fashion": 0.4
+        "fashionable": 0.4
       }
     },
     "comfortable": {
       "name": "Comfortable",
+      "drop-rate": 50,
       "stats": {
         "comfort": 0.6
       }

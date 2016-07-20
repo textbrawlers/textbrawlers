@@ -2,12 +2,14 @@
   "damage": {
     "broken": {
       "name": "Broken",
+      "drop-rate": 50,
       "stats": {
         "damage": 0.4
       }
     },
     "rusty": {
       "name": "Rusty",
+      "drop-rate": 75,
       "stats": {
         "damage": 0.6
       }
@@ -26,12 +28,14 @@
     },
     "ruthless": {
       "name": "Ruthless",
+      "drop-rate": 75,
       "stats": {
         "damage": 1.4
       }
     },
     "deadly": {
       "name": "Deadly",
+      "drop-rate": 50,
       "stats": {
         "damage": 1.6
       }
@@ -41,12 +45,14 @@
   "hit-chance": {
     "slow": {
       "name": "Slow",
+      "drop-rate": 50,
       "stats": {
         "hit-chance": -0.6
       }
     },
     "lazy": {
       "name": "Lazy",
+      "drop-rate": 75,
       "stats": {
         "hit-chance": -0.4
       }
@@ -65,12 +71,14 @@
     },
     "quick": {
       "name": "Quick",
+      "drop-rate": 75,
       "stats": {
         "hit-chance": 0.4
       }
     },
     "rapid": {
       "name": "Rapid",
+      "drop-rate": 50,
       "stats": {
         "hit-chance": 0.6
       }
@@ -80,12 +88,14 @@
   "crit-chance": {
     "inaccurate": {
       "name": "Inaccurate",
+      "drop-rate": 50,
       "stats": {
         "crit-chance": -0.6
       }
     },
     "inexact": {
       "name": "Inexact",
+      "drop-rate": 75,
       "stats": {
         "crit-chance": -0.4
       }
@@ -104,12 +114,14 @@
     },
     "piercing": {
       "name": "Piercing",
+      "drop-rate": 75,
       "stats": {
         "crit-chance": 0.4
       }
     },
     "precise": {
       "name": "Precise",
+      "drop-rate": 50,
       "stats": {
         "crit-chance": 0.6
       }
@@ -119,12 +131,14 @@
   "crit-damage": {
     "harmless": {
       "name": "Harmless",
+      "drop-rate": 50,
       "stats": {
         "crit-damage": -0.6
       }
     },
     "kind": {
       "name": "Kind",
+      "drop-rate": 75,
       "stats": {
         "crit-damage": -0.4
       }
@@ -143,12 +157,14 @@
     },
     "demolishing": {
       "name": "Demolishing",
+      "drop-rate": 75,
       "stats": {
         "crit-damage": 0.4
       }
     },
     "obliterating": {
       "name": "Obliterating",
+      "drop-rate": 50,
       "stats": {
         "crit-damage": 0.6
       }
@@ -164,12 +180,14 @@
     },
     "staggering": {
       "name": "Staggering",
+      "drop-rate": 75,
       "stats": {
         "stun-chance": 0.2
       }
     },
     "overwhelming": {
       "name": "Overwhelming",
+      "drop-rate": 50,
       "stats": {
         "stun-chance": 0.3
       }
@@ -179,6 +197,7 @@
   "unique": {
     "oversized": {
       "name": "Oversized",
+      "drop-rate": 25,
       "stats": {
         "damage": 1.6,
         "hit-chance": -0.4

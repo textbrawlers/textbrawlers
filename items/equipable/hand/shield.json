@@ -1,17 +1,13 @@
 {
   "shield": {
-    "spiky-buckler": {
-      "name": "Spiky Buckler",
+    "wooden-buckler": {
+      "name": "Wooden Buckler",
       "slot": "hand",
-      "attack": true,
+      "attack": false,
       "icon": "itemshield",
       "stats": {
-        "hit-chance": 1.0,
-        "crit-damage": 1.0,
-        "bleed-chance": 1.0,
-        "bleed-duration": 6,
         "block-chance": 0.2,
-        "block-modifier": 0.8
+        "block-modifier": 0.6
       }
     }
   }

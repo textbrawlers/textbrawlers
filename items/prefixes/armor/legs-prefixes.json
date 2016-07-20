@@ -2,6 +2,7 @@
   "damage": {
     "broken": {
       "name": "Broken",
+      "drop-rate": 50,
       "stats": {
         "damage": 0.4
       }
@@ -32,6 +33,7 @@
     },
     "deadly": {
       "name": "Deadly",
+      "drop-rate": 50,
       "stats": {
         "damage": 1.6
       }

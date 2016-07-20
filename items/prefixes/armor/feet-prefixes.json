@@ -2,12 +2,14 @@
   "hit-chance": {
     "heavy": {
       "name": "Heavy",
+      "drop-rate": 50,
       "stats": {
         "hit-chance": -0.3
       }
     },
     "clumsy": {
       "name": "Clumsy",
+      "drop-rate": 75,
       "stats": {
         "hit-chance": -0.2
       }
@@ -26,12 +28,14 @@
     },
     "quick": {
       "name": "Quick",
+      "drop-rate": 75,
       "stats": {
         "hit-chance": 0.2
       }
     },
     "swift": {
       "name": "Swift",
+      "drop-rate": 50,
       "stats": {
         "hit-chance": 0.3
       }
