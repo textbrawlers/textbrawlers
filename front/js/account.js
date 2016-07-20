@@ -16,6 +16,7 @@
   const tooltip = document.querySelector('.tooltip')
 
   const percent = num => Math.round(num * 100) + '%'
+  const plusPercent = num => '+' + Math.round(num * 100) + '%'
 
   const transformStat = {
     'crit-chance': percent,
@@ -27,8 +28,8 @@
     'block-multiplier': percent,
     'damage-multiplier': percent,
     'max-health-multiplier': percent,
-    'comfort': percent,
-    'fashionable': percent
+    'comfort': plusPercent,
+    'fashionable': plusPercent
   }
 
   function getBaseItem (item) {
@@ -192,7 +193,7 @@
 
     slot.addEventListener('mouseover', () => {
       const boundingRect = slot.getBoundingClientRect()
-      showTooltip(boundingRect.left, boundingRect.top, 'e' + i)
+      showTooltip(boundingRect.left, boundingRect.top, slot.dataset.slot)
     })
 
     slot.addEventListener('mouseout', hideTooltip)
