@@ -22,7 +22,13 @@
     'bleed-chance': percent,
     'hit-chance': percent,
     'stun-chance': percent,
-    'crit-damage': percent
+    'crit-damage': percent,
+    'block-chance': percent,
+    'block-multiplier': percent,
+    'damage-multiplier': percent,
+    'max-health-multiplier': percent,
+    'comfort': percent,
+    'fashionable': percent
   }
 
   function getBaseItem (item) {
@@ -52,7 +58,7 @@
           num = Math.round(num * 1000) / 1000
         }
 
-        tooltipHtml += `<b>${num}</b> ${statName}<br>`
+        tooltipHtml += `<p><b>${num}</b> ${statName}</p>`
       })
 
       tooltip.innerHTML = tooltipHtml
@@ -75,10 +81,14 @@
         let num = prefix.stats[stat]
 
         if (typeof stats[stat] === 'undefined') {
-          stats[stat] = 0
+          if (/multiplier$/.test(stat)) {
+            stats[stat] = 1
+          } else {
+            stats[stat] = 0
+          }
         }
 
-        if (stat === 'damage' || stat === 'block-chance') {
+        if (/multiplier$/.test(stat)) {
           stats[stat] *= num
         } else {
           stats[stat] += num
@@ -116,16 +126,36 @@
   function setItem (slot, item) {
     inventoryObj[slot] = item
 
+    const htmlSlot = document.querySelector(`[data-slot="${slot}"]`)
     if (item && Object.keys(item).length !== 0) {
-      const htmlSlot = document.querySelector(`[data-slot="${slot}"]`)
-
       const baseItem = getBaseItem(item)
 
       const icon = baseItem ? baseItem.icon : 'none'
       const rarity = item.rarity
 
       htmlSlot.innerHTML = `<img src="/png/${icon}.png" class="item item-${rarity}"></img>`
+    } else {
+      htmlSlot.innerHTML = ''
     }
+  }
+
+  document.querySelector('.craft-button').addEventListener('click', reassemble)
+
+  function reassemble () {
+    fetch('/api/game/inventory/reassemble', {
+      method: 'POST',
+      headers: {
+        key: window.localStorage.getItem('key'),
+        'accept': 'application/json',
+        'content-type': 'application/json'
+      }
+    }).then(resp => resp.json()).then(json => {
+      if (!json.success) {
+        window.alert('Could not generate item:\n' + json.error)
+      } else {
+        updateInventory()
+      }
+    })
   }
 
   function switchSlots (a, b) {
@@ -155,7 +185,7 @@
   }
 
   index = 0
-  ;['.inv-head', '.inv-body', '.inv-legs', '.inv-boots', '.inv-lefthand', '.inv-righthand'].forEach(slot => {
+  ;['.inv-head', '.inv-body', '.inv-legs', '.inv-boots', '.inv-lefthand', '.inv-righthand', '.inv-craft-1', '.inv-craft-2', '.inv-craft-3', '.inv-craft-4'].forEach(slot => {
     const i = index
     slot = document.querySelector(slot)
     slots.push(slot)
@@ -209,7 +239,20 @@
         'key': window.localStorage.getItem('key')
       }
     }).then(resp => resp.json()).then(json => {
-      Object.keys(json.inventory).forEach(slot => {
+      const slots = []
+      for (let i = 0; i < 120; i++) {
+        slots.push(`i${i}`)
+      }
+
+      for (let i = 0; i < 6; i++) {
+        slots.push(`e${i}`)
+      }
+
+      for (let i = 0; i < 4; i++) {
+        slots.push(`c${i}`)
+      }
+
+      slots.forEach(slot => {
         const item = json.inventory[slot]
         setItem(slot, item)
       })

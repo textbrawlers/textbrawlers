@@ -37,6 +37,11 @@ Player.prototype.getFullInventory = function () {
     const slot = `e${i}`
     inv[slot] = this.getInventory(slot)
   }
+
+  for (let i = 0; i < 4; i++) {
+    const slot = `c${i}`
+    inv[slot] = this.getInventory(slot)
+  }
   return inv
 }
 

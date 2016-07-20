@@ -1,11 +1,17 @@
 body {
   background: #eee;
+  font-family: Roboto, sans-serif;
 }
 
 .equip, .inventory {
   position: relative;
   border: 0px solid black;
   height: 250px;
+
+}
+
+.window {
+  border-bottom: 1px solid black;
 }
 
 .inv-slot {
@@ -68,7 +74,7 @@ body {
 }
 
 .inventory-window {
-  width: 678px;
+  width: 683px;
 }
 
 .inventory {
@@ -102,41 +108,48 @@ body {
   position: absolute;
   background: rgba(224,147,69, 1);
   border: 2px solid #754c24;
-  padding: 5px;
+  padding: 0px;
   pointer-events: none;
-  text-stroke: 10px white;
 }
 
 .tooltip h2 {
   margin: 0;
   padding: 0;
   font-size: 18px;
-  font-family: sans-serif;
   margin-bottom: 4px;
-  text-shadow: 1px 1px 0 #000;
+  /*text-shadow: 0px 2px 0 #000; */
+  /*text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;*/
+  /*-webkit-text-stroke: 1px black;*/
+
+  background: rgba(0, 0, 0, .15);
+
+  padding: 5px;
 }
 
 .tooltip p {
   font-size: 16px;
-  font-family: sans-serif;
-  margin-top: 0;
-  margin-bottom: 0;
+  padding: 0 5px;
+  margin: 0;
+}
+
+.tooltip p:last-child {
+  margin-bottom: 5px;
 }
 
 .rarity-common {
-  color: #d7d7d7;
+  color: #f7f7f7;
 }
 
 .rarity-uncommon {
-  color: #22f23f;
+  color: #37e200;
 }
 
 .rarity-rare {
-  color: #229cf2;
+  color: #1aa0ff;
 }
 
 .rarity-legendary {
-  color: #f26522;
+  color: #9d00ff;
 }
 
 .rarity-set {
@@ -144,22 +157,59 @@ body {
 }
 
 .item {
-  border:2px solid;
+  border: 2px solid;
   box-sizing: border-box;
 }
 
 .item-common {
-  border-color: #d7d7d7;
+  border-color: #f7f7f7;
 }
 
 .item-uncommon {
-  border-color: #22f23f;
+  border-color: #0cd829;
 }
 
 .item-rare {
-  border-color: #229cf2;
+  border-color: #4cb5ff;
 }
 
 .item-legendary {
-  border-color: #f26522;
+  border-color: #9d00ff;
+}
+
+.recraft-inventory {
+  position: absolute;
+  right: 17px;
+  width: 226px;
+  height: 82px;
+  padding-top: 5px;
+  top: -9px;
+  text-align: center;
+  background: #dddddd;
+}
+
+.craft-button {
+  position: relative;
+  top: 55px;
+}
+
+.bottom-inventory {
+  top: 10px;
+  position: relative;
+}
+
+.inv-craft-1 {
+  left: 5px;
+}
+
+.inv-craft-2 {
+  left: 60px;
+}
+
+.inv-craft-3 {
+  left: 115px;
+}
+
+.inv-craft-4 {
+  left: 170px;
 }
