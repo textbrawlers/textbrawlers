@@ -17,21 +17,25 @@
   },
   "head": {
     "head-prefixes": 100,
+    "armor-prefixes": 100,
     "weird-prefixes-armor": 20,
     "troll-prefixes": 1
   },
   "torso": {
     "torso-prefixes": 100,
+    "armor-prefixes": 100,
     "weird-prefixes-armor": 20,
     "troll-prefixes": 1
   },
   "legs": {
     "legs-prefixes": 100,
+    "armor-prefixes": 100,
     "weird-prefixes-armor": 20,
     "troll-prefixes": 1
   },
   "feet": {
     "feet-prefixes": 100,
+    "armor-prefixes": 100,
     "weird-prefixes-armor": 20,
     "troll-prefixes": 1
   }
