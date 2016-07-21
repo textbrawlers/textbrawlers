@@ -7,7 +7,7 @@
       "icon": "itemhammer",
       "stats": {
         "damage": 25,
-        "hit-chance": 0.5,
+        "hit-chance": 0.4,
         "crit-chance": 1.0,
         "crit-damage": 1.2
       }
