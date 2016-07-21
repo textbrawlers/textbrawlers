@@ -13,7 +13,7 @@
   const INV_WIDTH = 12
   const INV_HEIGHT = 10
 
-  const tooltip = document.querySelector('.tooltip')
+  const tooltip = document.querySelector('#tooltip')
 
   const percent = num => Math.round(num * 100) + '%'
   const plusPercent = num => '+' + Math.round(num * 100) + '%'
@@ -32,8 +32,143 @@
     'fashionable': plusPercent
   }
 
+  function calculateStats () {
+    const stats = document.querySelector('#characterstats')
+
+    stats.innerHTML = ''
+
+    const characterStats = {
+      'max-health': 100
+    }
+
+    for (let i = 0; i < 6; i++) {
+      const item = getItem(`e${i}`)
+
+      if (item) {
+        const itemStats = getItemStats(item)
+        const baseItem = getBaseItem(item)
+
+        if (!baseItem.attack) {
+          Object.keys(itemStats).forEach(stat => {
+            characterStats[stat] = combineStat(stat, characterStats[stat], itemStats[stat])
+          })
+        }
+      }
+    }
+
+    const maxHpMultiplier = characterStats['max-health-multiplier']
+    if (maxHpMultiplier) {
+      characterStats['max-health'] *= maxHpMultiplier
+      delete characterStats['max-health-multiplier']
+    }
+
+    for (let i = 0; i < 6; i++) {
+      const item = getItem(`e${i}`)
+
+      if (item) {
+        const hand = i === 4 ? 'Left Hand' : 'Right Hand'
+        const itemStats = getItemStats(item)
+        const baseItem = getBaseItem(item)
+
+        if (!baseItem.attack) {
+          continue
+        }
+
+        const weaponStats = Object.assign({}, characterStats)
+
+        Object.keys(itemStats).forEach(stat => {
+          weaponStats[stat] = combineStat(stat, characterStats[stat], itemStats[stat])
+        })
+
+        if (weaponStats['damage-multiplier']) {
+          weaponStats['damage'] *= weaponStats['damage-multiplier']
+          delete weaponStats['damage-multiplier']
+        }
+
+        stats.innerHTML += `<h2 class="rarity-${item.rarity}">${hand}</h2>`
+
+        ;[
+          'damage',
+          'hit-chance',
+          'space',
+          'crit-chance',
+          'crit-damage',
+          'space',
+          'bleed-chance',
+          'bleed-duration',
+          'space',
+          'stun-chance'
+        ].forEach(stat => {
+          if (stat === 'space') {
+            stats.innerHTML += '<div class="separator"></div>'
+          } else {
+            stats.innerHTML += listStat(stat, weaponStats[stat])
+          }
+        })
+      }
+    }
+
+    stats.innerHTML += '<h2 class="character-header">Character</h2>'
+    stats.innerHTML += getStatList(characterStats)
+
+  /*
+      <h2 class="rarity-rare">Left hand</h2>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      <h2 class="rarity-legendary">Right hand</h2>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      <h2>Character</h2>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      <p>stats</p>
+      */
+  }
+
   function getBaseItem (item) {
     return items[item.type]
+  }
+
+  function getItemName (item) {
+    const itemPrefixes = item.prefixes.map(prefix => prefixes[prefix.type][prefix.category][prefix.prefix].name).join(' ')
+    item.sourceItem = item.sourceItem || {}
+    tooltipHtml = `<h2 class="rarity-${item.rarity}">${itemPrefixes} ${getBaseItem(item).name}</h2>`
+  }
+
+  function listStat (stat, num) {
+    const statName = statNames[stat] || 'untranslated_' + stat
+
+    if (!num) {
+      if (isStatMultiplicative(stat)) {
+        num = 1
+      } else {
+        num = 0
+      }
+    }
+
+    if (transformStat[stat]) {
+      num = transformStat[stat](num)
+    } else {
+      num = Math.round(num)
+    }
+
+    return `<p><b>${num}</b> ${statName}</p>`
+  }
+
+  function getStatList (stats) {
+    let html = ''
+    Object.keys(stats).forEach(stat => {
+      html += listStat(stat, stats[stat])
+    })
+
+    return html
   }
 
   function showTooltip (x, y, slot) {
@@ -49,18 +184,8 @@
       tooltipHtml = `<h2 class="rarity-${item.rarity}">${itemPrefixes} ${getBaseItem(item).name}</h2>`
 
       const stats = getItemStats(item)
-      Object.keys(stats).forEach(stat => {
-        const statName = statNames[stat] || 'untranslated_' + stat
-        let num = stats[stat]
 
-        if (transformStat[stat]) {
-          num = transformStat[stat](num)
-        } else {
-          num = Math.round(num * 1000) / 1000
-        }
-
-        tooltipHtml += `<p><b>${num}</b> ${statName}</p>`
-      })
+      tooltipHtml += getStatList(stats)
 
       tooltip.innerHTML = tooltipHtml
     } else {
@@ -72,6 +197,26 @@
     return item.prefixes.map(prefix => prefixes[prefix.type][prefix.category][prefix.prefix])
   }
 
+  function isStatMultiplicative (stat) {
+    return /multiplier$/.test(stat)
+  }
+
+  function combineStat (stat, previous, num) {
+    if (typeof previous === 'undefined') {
+      if (isStatMultiplicative(stat)) {
+        previous = 1
+      } else {
+        previous = 0
+      }
+    }
+
+    if (isStatMultiplicative(stat)) {
+      return previous * num
+    } else {
+      return previous + num
+    }
+  }
+
   function getItemStats (item) {
     const baseItem = getBaseItem(item)
 
@@ -81,19 +226,7 @@
       Object.keys(prefix.stats).forEach(stat => {
         let num = prefix.stats[stat]
 
-        if (typeof stats[stat] === 'undefined') {
-          if (/multiplier$/.test(stat)) {
-            stats[stat] = 1
-          } else {
-            stats[stat] = 0
-          }
-        }
-
-        if (/multiplier$/.test(stat)) {
-          stats[stat] *= num
-        } else {
-          stats[stat] += num
-        }
+        stats[stat] = combineStat(stat, stats[stat], num)
       })
     })
 
@@ -122,6 +255,10 @@
     inventory.appendChild(slot)
 
     return slot
+  }
+
+  function getItem (slot) {
+    return inventoryObj[slot]
   }
 
   function setItem (slot, item) {
@@ -161,6 +298,8 @@
 
   function switchSlots (a, b) {
     ;[inventoryObj[a], inventoryObj[b]] = [inventoryObj[b], inventoryObj[a]]
+
+    calculateStats()
 
     fetch('/api/game/inventory/switch', {
       method: 'POST',
@@ -257,6 +396,7 @@
         const item = json.inventory[slot]
         setItem(slot, item)
       })
+      calculateStats()
     })
   }
 

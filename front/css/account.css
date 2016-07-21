@@ -112,6 +112,14 @@ body {
   pointer-events: none;
 }
 
+.tooltip-stat {
+  border: 0;
+  background: transparent;
+  pointer-events: auto;
+  position: static;
+  width: 190px;
+}
+
 .tooltip h2 {
   margin: 0;
   padding: 0;
@@ -212,4 +220,31 @@ body {
 
 .inv-craft-4 {
   left: 170px;
+}
+
+
+.tooltip-window {
+  margin-top: 5px;
+  border: 0;
+}
+
+.tooltip-window p:first-child {
+  margin-top: 5px;
+}
+
+.tooltip-window h2:not(first-child) {
+  margin-top: 5px;
+}
+
+.tooltip-window h2 {
+  font-size: 15px;
+  background: transparent;
+}
+
+.character-header {
+  color: #9b652f;
+}
+
+.separator {
+  height: 5px;
 }
