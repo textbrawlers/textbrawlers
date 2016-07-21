@@ -3,19 +3,19 @@
     "retreating": {
       "name": "Retreating",
       "stats": {
-        "max-health-multiplier": 1.3
+        "max-health-multiplier": 0.7
       }
     },
     "ceasing": {
       "name": "Ceasing",
       "stats": {
-        "max-health-multiplier": 1.2
+        "max-health-multiplier": 0.8
       }
     },
     "abandoning": {
       "name": "Abandoning",
       "stats": {
-        "max-health-multiplier": 1.1
+        "max-health-multiplier": 0.9
       }
     },
     "vigorous": {
