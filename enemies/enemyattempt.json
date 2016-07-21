@@ -2,10 +2,10 @@
 	"name": "Slime",
 	"maxhp": 1,
 	"items": {
-	  "head-slot": none,
-	  "chest-slot": none,
-	  "feet-slot": none,
-	  "lefthand-slot": none,
+	  "head-slot": undefined,
+	  "chest-slot": undefined,
+	  "feet-slot": undefined,
+	  "lefthand-slot": undefined,
 	  "righthand-slot": slimy-axe,
 	},
 	"characterstats": {
