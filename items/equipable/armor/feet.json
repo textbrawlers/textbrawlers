@@ -38,7 +38,7 @@
       "stats": {
         "max-health": -25,
         "block-chance": 0.1,
-        "hit-chance": 0.2
+        "hit-chance": 0.08
       }
     }
   }
