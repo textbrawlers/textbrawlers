@@ -144,7 +144,7 @@
       "drop-rate": 25,
       "stats": {
         "max-health-multiplier": 1.1,
-        "hit-chance": -0.1
+        "hit-chance": -0.15
       }
     }
   }
