@@ -207,7 +207,7 @@ body {
 }
 
 .craft-button:active {
-  background-color: rgba(0, 0, 0, .0);
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .bottom-inventory {
