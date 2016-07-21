@@ -109,27 +109,22 @@
     }
 
     stats.innerHTML += '<h2 class="character-header">Character</h2>'
-    stats.innerHTML += getStatList(characterStats)
 
-  /*
-      <h2 class="rarity-rare">Left hand</h2>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      <h2 class="rarity-legendary">Right hand</h2>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      <h2>Character</h2>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      <p>stats</p>
-      */
+    ;[
+      'max-health',
+      'space',
+      'block-chance',
+      'block-multiplier',
+      'space',
+      'damage-multiplier',
+      'hit-chance'
+    ].forEach(stat => {
+      if (stat === 'space') {
+        stats.innerHTML += '<div class="separator"></div>'
+      } else {
+        stats.innerHTML += listStat(stat, characterStats[stat])
+      }
+    })
   }
 
   function getBaseItem (item) {
