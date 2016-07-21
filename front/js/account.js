@@ -247,6 +247,8 @@
 
     slot.addEventListener('mouseout', hideTooltip)
 
+    slot.addEventListener('click', e => itemClick(e, slot))
+
     inventory.appendChild(slot)
 
     return slot
@@ -291,6 +293,26 @@
     })
   }
 
+  function itemClick (e, slot) {
+    const item = getItem(slot.dataset.slot)
+
+    if (item && e.ctrlKey) {
+      for (let i = 0; i < 4; i++) {
+        const item = getItem(`c${i}`)
+        if (!item) {
+          switchSlots(slot.dataset.slot, `c${i}`)
+          updateSlot(slot.dataset.slot)
+          updateSlot(`c${i}`)
+          break
+        }
+      }
+    }
+  }
+
+  function updateSlot (slot) {
+    setItem(slot, getItem(slot))
+  }
+
   function switchSlots (a, b) {
     ;[inventoryObj[a], inventoryObj[b]] = [inventoryObj[b], inventoryObj[a]]
 
@@ -331,6 +353,8 @@
     })
 
     slot.addEventListener('mouseout', hideTooltip)
+
+    slot.addEventListener('click', e => itemClick(e, slot))
     index++
   })
 
