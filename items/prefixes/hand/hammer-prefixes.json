@@ -4,40 +4,40 @@
       "name": "Broken",
       "drop-rate": 50,
       "stats": {
-        "damage-multiplier": 0.4
+        "damage-multiplier": 0.7
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "stats": {
-        "damage-multiplier": 0.6
+        "damage-multiplier": 0.8
       }
     },
     "weathered": {
       "name": "Weathered",
       "stats": {
-        "damage-multiplier": 0.8
+        "damage-multiplier": 0.9
       }
     },
     "painful": {
       "name": "Painful",
       "stats": {
-        "damage-multiplier": 1.2
+        "damage-multiplier": 1.1
       }
     },
     "ruthless": {
       "name": "Ruthless",
       "drop-rate": 75,
       "stats": {
-        "damage-multiplier": 1.4
+        "damage-multiplier": 1.2
       }
     },
     "deadly": {
       "name": "Deadly",
       "drop-rate": 50,
       "stats": {
-        "damage-multiplier": 1.6
+        "damage-multiplier": 1.3
       }
     }
   },
