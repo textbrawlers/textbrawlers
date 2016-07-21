@@ -199,6 +199,9 @@ body {
 .craft-button {
   position: relative;
   top: 55px;
+  background-color: rgba(0, 0, 0, .15);
+  border: none;
+  outline: none;
 }
 
 .bottom-inventory {

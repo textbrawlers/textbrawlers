@@ -4,40 +4,40 @@
       "name": "Broken",
       "drop-rate": 50,
       "stats": {
-        "damage": 0.4
+        "damage-multiplier": 0.4
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "stats": {
-        "damage": 0.6
+        "damage-multiplier": 0.6
       }
     },
     "blunt": {
       "name": "Blunt",
       "stats": {
-        "damage": 0.8
+        "damage-multiplier": 0.8
       }
     },
     "sharp": {
       "name": "Sharp",
       "stats": {
-        "damage": 1.2
+        "damage-multiplier": 1.2
       }
     },
     "ruthless": {
       "name": "Ruthless",
       "drop-rate": 75,
       "stats": {
-        "damage": 1.4
+        "damage-multiplier": 1.4
       }
     },
     "deadly": {
       "name": "Deadly",
       "drop-rate": 50,
       "stats": {
-        "damage": 1.6
+        "damage-multiplier": 1.6
       }
     }
   },
@@ -47,40 +47,40 @@
       "name": "Slow",
       "drop-rate": 50,
       "stats": {
-        "hit-chance": -0.6
+        "hit-chance": -0.5
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "stats": {
-        "hit-chance": -0.4
+        "hit-chance": -0.3
       }
     },
     "heavy": {
       "name": "Heavy",
       "stats": {
-        "hit-chance": -0.2
+        "hit-chance": -0.1
       }
     },
     "nimble": {
       "name": "Nimble",
       "stats": {
-        "hit-chance": 0.2
+        "hit-chance": 0.1
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "stats": {
-        "hit-chance": 0.4
+        "hit-chance": 0.3
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "stats": {
-        "hit-chance": 0.6
+        "hit-chance": 0.5
       }
     }
   },
@@ -222,7 +222,7 @@
       "name": "Oversized",
       "drop-rate": 25,
       "stats": {
-        "damage": 1.6,
+        "damage-multiplier": 1.6,
         "hit-chance": -0.4
       }
     }

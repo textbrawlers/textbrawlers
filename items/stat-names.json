@@ -6,6 +6,8 @@
   "crit-damage": "Crit Damage",
   "bleed-chance": "Bleed Chance",
   "bleed-duration": "Bleed Duration",
+  "poison-duration": "Poison Duration",
+  "poison-damage": "Poison Damage",
   "stun-chance": "Stun Chance",
   "block-chance": "Block Chance",
   "block-multiplier": "Block Multiplier",
