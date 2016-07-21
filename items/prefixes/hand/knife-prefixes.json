@@ -216,6 +216,32 @@
       }
     }
   },
+
+  "poison": {
+    "infected": {
+      "name": "Infected",
+      "stats": {
+        "poison-duration": 1,
+        "poison-damage": 1
+      }
+    },
+    "venomous": {
+      "name": "Venomous",
+      "drop-rate": 75,
+      "stats": {
+        "poison-duration": 2,
+        "poison-damage": 2
+      }
+    },
+    "toxic": {
+      "name": "Toxic",
+      "drop-rate": 50,
+      "stats": {
+        "poison-duration": 3,
+        "poison-damage": 3
+      }
+    }
+  },
   
   "unique": {
     "neat": {
