@@ -1,17 +1,24 @@
+import 'dotenv/config'
+
 import Koa from 'koa'
 import Router from 'koa-router'
-import dotenv from 'dotenv'
+import convert from 'koa-convert'
+import serve from 'koa-static'
+import BodyParser from 'koa-bodyparser'
 
-process.env.PORT = process.env.PORT || 3000
-process.env.MONGODB = process.env.MONGODB || 'localhost/retardarenan'
-
-dotenv.config({
-  silent: true
-})
+import server from './server/index.js'
 
 const app = new Koa()
 const router = new Router()
 
-const port = process.env.PORT
+router.use('/api', server.routes(), server.allowedMethods())
+
+app
+  .use(BodyParser())
+  .use(convert(serve('./client')))
+  .use(router.routes())
+  .use(router.allowedMethods())
+
+const port = process.env.PORT || 3000
 app.listen(port)
 console.log(`Listening on port ${port}`)

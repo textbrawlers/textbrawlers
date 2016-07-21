@@ -1,12 +1,13 @@
-require('dotenv').config({silent: true})
+import Router from 'koa-router'
+import { login, register } from './api/user.js'
 
-process.env.MONGODB = process.env.MONGODB || 'localhost/retardarenan'
+const router = new Router()
 
-const Koa = require('koa')
-const KoaStatic = require('koa-static')
-const Router = require('koa-router')
-const KoaBody = require('koa-body')
+router.post('/user/login/', login)
+router.post('/user/register/', register)
 
+export default router
+/*
 const fightApi = require('./api/fight.js')
 const userApi = require('./api/user.js')
 const items = require('./items.js')
@@ -98,3 +99,4 @@ app
   .use(router.allowedMethods())
 
 app.listen(3000)
+*/
