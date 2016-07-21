@@ -9,7 +9,8 @@
         "block-chance": 0.2,
         "block-multiplier": 0.65
       }
-    },
+    }
+  },
   "shield": {
     "heater-shield": {
       "name": "Heater Shield",
@@ -17,7 +18,7 @@
       "attack": false,
       "icon": "itemshield",
       "stats": {
-        "block-chance": 0.60,
+        "block-chance": 0.60
       }
     }
   }
