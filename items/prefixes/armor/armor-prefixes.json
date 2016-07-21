@@ -88,26 +88,26 @@
       "name": "Vulnerable",
       "drop-rate": 75,
       "stats": {
-        "block-multiplier": 0.9
+        "block-multiplier": -0.4
       }
     },
     "exposed": {
       "name": "Exposed",
       "stats": {
-        "block-multiplier": 0.95
+        "block-multiplier": 0.0
       }
     },
     "secure": {
       "name": "Secure",
       "stats": {
-        "block-multiplier": 1.05
+        "block-multiplier": 0.4
       }
     },
     "covered": {
       "name": "Covered",
       "drop-rate": 75,
       "stats": {
-        "block-multiplier": 1.1
+        "block-multiplier": 0.8
       }
     }
   },
