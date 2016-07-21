@@ -1,0 +1,17 @@
+{
+  "knife": {
+    "assasins-knife": {
+      "name": "Assassin's Knife",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemknife",
+      "stats": {
+        "damage": 5,
+        "hit-chance": 3.5,
+        "crit-chance": 0.1,
+        "crit-damage": 1.3,
+        "bleed-duration": 1
+      }
+    }
+  }
+}

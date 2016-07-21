@@ -3,6 +3,7 @@ const itemFiles = [
   './items/equipable/hand/hammer.json',
   './items/equipable/hand/shield.json',
   './items/equipable/hand/sword.json',
+  './items/equipable/hand/knife.json',
   './items/equipable/armor/head.json',
   './items/equipable/armor/torso.json',
   './items/equipable/armor/legs.json',

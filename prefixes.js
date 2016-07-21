@@ -3,6 +3,7 @@ module.exports = {
   'hammer-prefixes': require('./items/prefixes/hand/hammer-prefixes'),
   'axe-prefixes': require('./items/prefixes/hand/axe-prefixes'),
   'sword-prefixes': require('./items/prefixes/hand/sword-prefixes'),
+  'knife-prefixes': require('./items/prefixes/hand/knife-prefixes'),
   'armor-prefixes': require('./items/prefixes/armor/armor-prefixes'),
   'head-prefixes': require('./items/prefixes/armor/head-prefixes'),
   'feet-prefixes': require('./items/prefixes/armor/feet-prefixes'),

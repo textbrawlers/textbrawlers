@@ -7,6 +7,10 @@
     "sword-prefixes": 100,
     "weird-prefixes": 20
   },
+  "knife": {
+    "knife-prefixes": 100,
+    "weird-prefixes": 20
+  },
   "hammer": {
     "hammer-prefixes": 100,
     "weird-prefixes": 20
