@@ -61,6 +61,26 @@ router.post('/admin/spawnitem', koaBody, auth, admin.spawnitem)
 router.post('/game/inventory/switch', koaBody, auth, game.inventorySwitch)
 router.post('/game/inventory/reassemble', koaBody, auth, game.reassemble)
 
+router.get('/admin/refresh', function * () {
+  const spawn = require('child_process').spawn
+
+  let data = ''
+
+  const ls = spawn('git', ['pull'])
+  ls.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`)
+  })
+
+  ls.stderr.on('data', (data) => {
+    console.log(`stderr: ${data}`)
+  })
+
+  ls.on('close', (code) => {
+    console.log(`child process exited with code ${code}`)
+  })
+  this.body = 'refreshing'
+})
+
 router.get('/data/items', function * () {
   this.body = items.allItems
 })
