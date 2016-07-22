@@ -1,0 +1,64 @@
+
+{
+  "furious": {
+    "furious-set": {
+      "furious-helmet": {
+        "name": "Furious Helmet",
+        "slot": "head",
+        "attack": false,
+        "icon": "itemhelmet",
+        "stats": {
+          "max-health": 20,
+          "damage": -1
+      },
+      "furious-chestpiece": {
+        "name": "Furious Chestpiece",
+        "slot": "torso",
+        "attack": false,
+        "icon": "itemchestpiece",
+        "stats": {
+          "max-health": 20,
+          "damage": -1
+      },
+      "furious-leggings": {
+        "name": "Furious Leggings",
+        "slot": "legs",
+        "attack": false,
+        "icon": "itempants",
+        "stats": {
+          "max-health": 20,
+          "damage": -1
+      },
+      "furious-boots": {
+        "name": "Furious Boots",
+        "slot": "feet",
+        "attack": false,
+        "icon": "itemshoes",
+        "stats": {
+          "max-health": 20,
+          "damage": -1
+      },
+      "furious-Sword": {
+        "name": "Furious Sword",
+        "slot": "hand",
+        "attack": true,
+        "icon": "itemsword",
+        "stats": {
+          "damage": 5,
+          "hit-chance": 0.5
+      }
+    },
+    "bonuses": {
+      "4": {
+        "max-health-multiplier": 1.25,
+        "block-chance": 0.25,
+        "block-multiplier": 0.5
+        },
+      "6": {
+        "fury": 2,
+        "hit-chance": 0.4
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "damage": {
+    "type": "additive",
+    "tooltip": "[fixed] Damage",
+    "display": true
+  },
+  "damage-multiplier": {
+    "type": "multiplicative",
+    "tooltip": "[plus-mult] Damage",
+    "display": true
+  },
+  "hit-chance": {
+    "type": "additive",
+    "tooltip": "[percent] Hit Chance",
+    "display": true
+  },
+  "crit-chance": {
+    "type": "additive",
+    "tooltip": "[percent] Crit Chance",
+    "display": true
+  },
+  "crit-damage": {
+    "type": "additive",
+    "tooltip": "[percent] Crit Damage",
+    "display": true
+  },
+  "bleed-chance": {
+    "type": "additive",
+    "tooltip": "[percent] Bleed Chance",
+    "display": true
+  },
+  "bleed-duration": {
+    "type": "additive",
+    "tooltip": "[percent] Bleed Duration",
+    "display": true
+  },
+  "poison-duration": {
+    "type": "additive",
+    "tooltip": "[percent] Poison Duration",
+    "display": true
+  },
+  "poison-damage": {
+    "type": "additive",
+    "tooltip": "[percent] Poison Damage",
+    "display": true
+  },
+  "stun-chance": {
+    "type": "additive",
+    "tooltip": "[percent] Stun Chance",
+    "display": true
+  },
+  "block-chance": {
+    "type": "additive",
+    "tooltip": "[percent] Block Chance",
+    "display": true
+  },
+  "block-multiplier": {
+    "type": "multiplicative",
+    "tooltip": "[percent] Block Multiplier",
+    "display": true
+  },
+  "max-health": {
+    "type": "additive",
+    "tooltip": "[fixed] Max Health",
+    "display": true
+  },
+  "max-health-multiplier": {
+    "type": "multiplicative",
+    "tooltip": "[plus-mult] Max Health",
+    "display": true
+  },
+  "comfort": {
+    "type": "additive",
+    "tooltip": "[plus-percent] Comfort",
+    "display": false
+  },
+  "fashionable": {
+    "type": "additive",
+    "tooltip": "[plus-percent] Fashionable",
+    "display": false
+  },
+  "fury": {
+    "type": "multiplicative",
+    "tooltip": "Every successful attack adds a stack of 'Fury'. Each stack of 'Fury' gives [plus-mult] Damage",
+    "display": false
+  }
+}
