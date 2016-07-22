@@ -1,7 +1,7 @@
 
 {
   "furious": {
-    "furious-set": {
+    "items": {
       "furious-helmet": {
         "name": "Furious Helmet",
         "slot": "head",
@@ -38,7 +38,7 @@
           "max-health": 20,
           "damage": -1
       },
-      "furious-Sword": {
+      "furious-sword": {
         "name": "Furious Sword",
         "slot": "hand",
         "attack": true,

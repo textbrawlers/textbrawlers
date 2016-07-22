@@ -5,7 +5,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemaxe",
-      "stats": {
+      "attack-stats": {
         "damage": 30,
         "hit-chance": 0.3,
         "crit-chance": 0.8,
@@ -18,7 +18,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemaxe",
-      "stats": {
+      "attack-stats": {
         "damage": 15,
         "hit-chance": 0.8,
         "crit-chance": 0.6,
@@ -30,7 +30,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemaxe",
-      "stats": {
+      "attack-stats": {
         "damage": 5,
         "hit-chance": 0.4,
         "crit-chance": 0.2,

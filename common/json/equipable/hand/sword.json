@@ -5,7 +5,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemsword",
-      "stats": {
+      "attack-stats": {
         "damage": 10,
         "hit-chance": 1.0,
         "crit-chance": 0.5,
@@ -18,7 +18,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemsword",
-      "stats": {
+      "attack-stats": {
         "damage": 20,
         "hit-chance": 0.6,
         "crit-chance": 0.25,
@@ -31,7 +31,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemsword",
-      "stats": {
+      "attack-stats": {
         "damage": 15,
         "hit-chance": 0.5,
         "crit-chance": 1.0,
@@ -45,7 +45,7 @@
       "attack": true,
       "icon": "itemsword",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "damage": 5,
         "hit-chance": 0.6,
         "crit-damage": 1.2,
@@ -59,7 +59,7 @@
       "attack": true,
       "icon": "itemsword",
       "drop-rate": 10,
-      "stats": {
+      "attack-stats": {
         "damage": 40,
         "hit-chance": -0.4,
         "crit-damage": 2.0,

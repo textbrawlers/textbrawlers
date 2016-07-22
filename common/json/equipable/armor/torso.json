@@ -6,7 +6,7 @@
       "attack": false,
       "icon": "itemchestpiece",
       "drop-rate": 125,
-      "stats": {
+      "character-stats": {
         "max-health": 20
       }
     },
@@ -15,7 +15,7 @@
       "slot": "torso",
       "attack": false,
       "icon": "itemchestpiece",
-      "stats": {
+      "character-stats": {
         "max-health": 30,
         "block-chance": -0.15
       }
@@ -25,7 +25,7 @@
       "slot": "torso",
       "attack": false,
       "icon": "itemchestpiece",
-      "stats": {
+      "character-stats": {
         "block-chance": 0.1
       }
     },
@@ -35,7 +35,7 @@
       "attack": false,
       "icon": "itemchestpiece",
       "drop-rate": 75,
-      "stats": {
+      "character-stats": {
         "max-health": 60,
         "hit-chance": -0.4
       }
@@ -45,7 +45,7 @@
       "slot": "torso",
       "attack": false,
       "icon": "itemchestpiece",
-      "stats": {
+      "character-stats": {
         "max-health": -15,
         "hit-chance": 0.2
       }

@@ -5,7 +5,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemknife",
-      "stats": {
+      "attack-stats": {
         "damage": 5,
         "hit-chance": 3.5,
         "crit-chance": 0.1,
