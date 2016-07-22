@@ -1,0 +1,78 @@
+{
+  "bladedancer": {
+    "items": {
+      "bladedancer-helmet": {
+        "name": "Bladedancer's Helmet",
+        "slot": "head",
+        "attack": true,
+        "icon": "itemhelmet",
+        "attack-stats": {
+          "damage": 1,
+          "hit-chance": 1.0
+        },
+        "character-stats": {
+          "max-health": -10
+        }
+      },
+      "bladedancer-chestpiece": {
+        "name": "Bladedancer's Chestpiece",
+        "slot": "torso",
+        "attack": true,
+        "icon": "itemchestpiece",
+        "attack-stats": {
+          "damage": 1,
+          "hit-chance": 1.0
+        },
+        "character-stats": {
+          "max-health": -10
+        }
+      },
+      "bladedancer-leggings": {
+        "name": "Bladedancer's Leggings",
+        "slot": "legs",
+        "attack": true,
+        "icon": "itempants",
+        "attack-stats": {
+          "damage": 1,
+          "hit-chance": 1.0
+        },
+        "character-stats": {
+          "max-health": -10
+        }
+      },
+      "bladedancer-boots": {
+        "name": "Bladedancer's Boots",
+        "slot": "feet",
+        "attack": true,
+        "icon": "itemshoes",
+        "attack-stats": {
+          "damage": 1,
+          "hit-chance": 1.0
+        },
+        "character-stats": {
+          "max-health": -10
+        }
+      },
+      "bladedancer-glove": {
+        "name": "Bladedancer's Glove",
+        "slot": "hand",
+        "attack": true,
+        "icon": "itemsword",
+        "attack-stats": {
+          "damage": 1,
+          "hit-chance": 2.0
+        }
+      },
+    "bonuses": {
+      "4": {
+        "damage": 1,
+        },
+      "6": {
+        "hit-chance": 2.0,
+        "bleed-chance": 0.2,
+        "bleed-duration": 3
+        }
+      }
+    }
+  }
+}
