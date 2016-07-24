@@ -112,11 +112,14 @@ SystemJS.config({
               'babel-plugin-transform-react-jsx'
             ]
           }
+        },
+        '*.scss': {
+          'loader': 'sass'
         }
       }
     }
   }
-})
+});
 
 SystemJS.config({
   packageConfigPaths: [
@@ -154,6 +157,7 @@ SystemJS.config({
     'react-dom': 'npm:react-dom@15.2.1',
     'react-router': 'npm:react-router@2.6.0',
     'readline': 'github:jspm/nodelibs-readline@0.2.0-alpha',
+    'sass': 'github:mobilexag/plugin-sass@0.4.6',
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
     'string_decoder': 'github:jspm/nodelibs-string_decoder@0.2.0-alpha',
     'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.6.0',
@@ -703,6 +707,61 @@ SystemJS.config({
         'mz': 'npm:mz@2.4.0',
         'resolve-path': 'npm:resolve-path@1.3.2'
       }
+    },
+    'github:mobilexag/plugin-sass@0.4.6': {
+      'map': {
+        'autoprefixer': 'npm:autoprefixer@6.3.7',
+        'sass.js': 'npm:sass.js@0.9.11',
+        'postcss': 'npm:postcss@5.1.0',
+        'lodash': 'npm:lodash@4.14.0',
+        'fs': 'github:jspm/nodelibs-fs@0.1.2',
+        'path': 'github:jspm/nodelibs-path@0.1.0',
+        'url': 'github:jspm/nodelibs-url@0.1.0',
+        'reqwest': 'github:ded/reqwest@2.0.5'
+      }
+    },
+    'npm:autoprefixer@6.3.7': {
+      'map': {
+        'postcss': 'npm:postcss@5.1.0',
+        'caniuse-db': 'npm:caniuse-db@1.0.30000507',
+        'browserslist': 'npm:browserslist@1.3.5',
+        'num2fraction': 'npm:num2fraction@1.2.2',
+        'normalize-range': 'npm:normalize-range@0.1.2',
+        'postcss-value-parser': 'npm:postcss-value-parser@3.3.0'
+      }
+    },
+    'npm:postcss@5.1.0': {
+      'map': {
+        'source-map': 'npm:source-map@0.5.6',
+        'supports-color': 'npm:supports-color@3.1.2',
+        'js-base64': 'npm:js-base64@2.1.9'
+      }
+    },
+    'npm:browserslist@1.3.5': {
+      'map': {
+        'caniuse-db': 'npm:caniuse-db@1.0.30000507'
+      }
+    },
+    'npm:supports-color@3.1.2': {
+      'map': {
+        'has-flag': 'npm:has-flag@1.0.0'
+      }
+    },
+    'github:jspm/nodelibs-path@0.1.0': {
+      'map': {
+        'path-browserify': 'npm:path-browserify@0.0.0'
+      }
+    },
+    'github:jspm/nodelibs-url@0.1.0': {
+      'map': {
+        'url': 'npm:url@0.10.3'
+      }
+    },
+    'npm:url@0.10.3': {
+      'map': {
+        'punycode': 'npm:punycode@1.3.2',
+        'querystring': 'npm:querystring@0.2.0'
+      }
     }
   }
-})
+});

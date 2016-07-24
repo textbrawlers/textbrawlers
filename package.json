@@ -10,7 +10,8 @@
   },
   "standard": {
     "parser": "babel-eslint"
-  }, "devDependencies": {
+  },
+  "devDependencies": {
     "chokidar-socket-emitter": "^0.5.2",
     "nodemon": "^1.9.2",
     "npm-run-all": "^2.3.0"
@@ -30,6 +31,7 @@
       "monk": "npm:monk@^3.0.7",
       "react-dom": "npm:react-dom@^15.2.1",
       "react-router": "npm:react-router@^2.6.0",
+      "sass": "github:mobilexag/plugin-sass@^0.4.6",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0"
     },
     "devDependencies": {
@@ -190,9 +192,25 @@
           "process": "@empty"
         }
       },
+      "npm:lodash@4.14.0": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
       "npm:ms@0.7.1": {
         "jspmNodeConversion": false,
         "format": "cjs"
+      },
+      "npm:sass.js@0.9.11": {
+        "map": {
+          "ws": "@empty"
+        },
+        "meta": {
+          "dist/sass.worker.js": {
+            "format": "global"
+          }
+        }
       }
     }
   },
@@ -201,7 +219,7 @@
     "postinstall": "jspm i",
     "start": "jspm run app.js",
     "socket-emitter": "chokidar-socket-emitter",
-    "dev-bundle": "jspm bundle client/entrypoint.js + plugin-babel + systemjs-hot-reloader + babel-plugin-transform-react-jsx -wd",
+    "dev-bundle": "jspm bundle client/entrypoint.js + plugin-babel + systemjs-hot-reloader + sass + sass/sass-inject.js + babel-plugin-transform-react-jsx -wd",
     "monitor": "nodemon -w server -x \"npm start\"",
     "dev": "run-p socket-emitter dev-bundle monitor"
   },
