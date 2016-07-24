@@ -1,3 +1,7 @@
 node_modules
 jspm_packages
 .env
+build.js
+build.js.map
+npm-debug.log
+npm-debug.log*

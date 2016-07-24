@@ -5,6 +5,7 @@ import Router from 'koa-router'
 import convert from 'koa-convert'
 import serve from 'koa-static'
 import BodyParser from 'koa-bodyparser'
+import send from 'koa-send'
 
 import server from './server/index.js'
 
@@ -13,11 +14,18 @@ const router = new Router()
 
 router.use('/api', server.routes(), server.allowedMethods())
 
+const fallbackRoute = () => {
+  return async ctx => {
+    await send(ctx, './index.html')
+  }
+}
+
 app
   .use(BodyParser())
-  .use(convert(serve('./client')))
+  .use(convert(serve('.')))
   .use(router.routes())
   .use(router.allowedMethods())
+  .use(fallbackRoute())
 
 const port = process.env.PORT || 3000
 app.listen(port)

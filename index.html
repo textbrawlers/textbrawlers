@@ -1,0 +1,20 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/jspm_packages/system.js"></script>
+    <script src="/jspm.config.js"></script>
+    <script src="/build.js"></script>
+    <script>
+      System.config({
+        trace: true
+      })
+
+      System.import('systemjs-hot-reloader/default-listener.js')
+      System.import('client/entrypoint.js')
+
+    </script>
+  </body>
+</html>
