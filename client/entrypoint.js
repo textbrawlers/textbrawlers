@@ -1,23 +1,8 @@
-import './style.scss'
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Link, browserHistory, Route, IndexRoute } from 'react-router'
-
-const App = React.createClass({
-  componentWillMount() {
-    this.forceUpdate() // a little hack to help us rerender when this module is reloaded
-  },
-
-  render() {
-    return (
-      <div>
-        <Link to='/login'> testatest
-        </Link>
-        {this.props.children}
-      </div>
-    )
-  }
-})
+import App from './components/app.js'
+import LoginPage from './components/loginPage.js'
 
 const NotFound = React.createClass({
   render() {
@@ -30,15 +15,7 @@ const NotFound = React.createClass({
 const Index = React.createClass({
   render() {
     return <p>
-             indexatestatestatatest
-           </p>
-  }
-})
-
-const Login = React.createClass({
-  render() {
-    return <p>
-             loginaaaxa
+             indexatestatestatatesta
            </p>
   }
 })
@@ -46,7 +23,7 @@ const Login = React.createClass({
 const routes = (
 <Route path='/' component={App}>
   <IndexRoute component={Index} />
-  <Route path='login' component={Login} />
+  <Route path='login' component={LoginPage} />
   <Route path='*' component={NotFound} />
 </Route>
 )

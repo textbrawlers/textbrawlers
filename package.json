@@ -32,7 +32,8 @@
       "react-dom": "npm:react-dom@^15.2.1",
       "react-router": "npm:react-router@^2.6.0",
       "sass": "github:mobilexag/plugin-sass@^0.4.6",
-      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0"
+      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
+      "whatwg-fetch": "npm:whatwg-fetch@^1.0.0"
     },
     "devDependencies": {
       "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.8.0",
