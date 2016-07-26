@@ -5,5 +5,11 @@ export default {
     return request.post('/api/user/login', {
       username, password
     })
+  },
+
+  register(username, password) {
+    return request.post('/api/user/register', {
+      username, password
+    })
   }
 }

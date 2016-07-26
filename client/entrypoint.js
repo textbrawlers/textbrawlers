@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import { Router, Link, browserHistory, Route, IndexRoute } from 'react-router'
 import App from './components/app.js'
 import LoginPage from './components/loginPage.js'
+import RegisterPage from './components/registerPage.js'
 
 const NotFound = React.createClass({
   render() {
@@ -24,6 +25,7 @@ const routes = (
 <Route path='/' component={App}>
   <IndexRoute component={Index} />
   <Route path='login' component={LoginPage} />
+  <Route path='register' component={RegisterPage} />
   <Route path='*' component={NotFound} />
 </Route>
 )

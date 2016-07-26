@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, browserHistory } from 'react-router'
 import AccountAPI from 'common/api/account.js'
 
-export default class LoginPage extends React.Component {
+export default class RegisterPage extends React.Component {
 
   constructor() {
     super()
@@ -31,7 +31,7 @@ export default class LoginPage extends React.Component {
 
           <input
             type="submit"
-            value="Login" />
+            value="Register" />
         </form>
       </div>
     )
@@ -52,12 +52,12 @@ export default class LoginPage extends React.Component {
   async onSubmit(e) {
     e.preventDefault()
 
-    const response = await AccountAPI.login(this.state.username, this.state.password)
+    const response = await AccountAPI.register(this.state.username, this.state.password)
 
     if (response.json.success) {
-      browserHistory.push('/account')
+      browserHistory.push('/login')
     } else {
-      alert(`Could not login: ${response.json.error}`)
+      alert(`Could not create account: ${response.json.error}`)
     }
   }
 
