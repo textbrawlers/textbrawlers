@@ -1,33 +1,30 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Link, browserHistory, Route, IndexRoute } from 'react-router'
-import App from './components/app.js'
+import LoginApp from './components/loginApp.js'
+import Game from './components/game.js'
 import LoginPage from './components/loginPage.js'
 import RegisterPage from './components/registerPage.js'
+import GameIndex from './components/gameIndex.js'
 
-const NotFound = React.createClass({
-  render() {
-    return <p>
-             Page not found
-           </p>
-  }
-})
+const NotFound = () => (<p>Page not found</p>)
+const Index = () => (<p>Fancy homepage!</p>)
 
-const Index = React.createClass({
-  render() {
-    return <p>
-             indexatestatestatatesta
-           </p>
-  }
-})
+
+const FullIndex = () => <LoginApp><Index /></LoginApp>
+const FullLoginPage = () => <LoginApp><LoginPage /></LoginApp>
+const FullRegisterPage = () => <LoginApp><RegisterPage /></LoginApp>
 
 const routes = (
-<Route path='/' component={App}>
-  <IndexRoute component={Index} />
-  <Route path='login' component={LoginPage} />
-  <Route path='register' component={RegisterPage} />
-  <Route path='*' component={NotFound} />
-</Route>
+  <Route path='/'>
+    <IndexRoute component={FullIndex} />
+    <Route path='login' component={FullLoginPage} />
+    <Route path='register' component={FullRegisterPage} />
+    <Route path='game' component={Game}>
+      <IndexRoute component={GameIndex} />
+    </Route>
+    <Route path='*' component={NotFound} />
+  </Route>
 )
 
 class RenderForcer extends React.Component {

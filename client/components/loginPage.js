@@ -55,7 +55,7 @@ export default class LoginPage extends React.Component {
     const response = await AccountAPI.login(this.state.username, this.state.password)
 
     if (response.json.success) {
-      browserHistory.push('/account')
+      browserHistory.push('/game')
     } else {
       alert(`Could not login: ${response.json.error}`)
     }

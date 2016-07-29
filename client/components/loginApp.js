@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-export default class App extends React.Component {
+export default class extends React.Component {
   componentWillMount() {
     this.forceUpdate()
   }
