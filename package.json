@@ -222,7 +222,8 @@
     "socket-emitter": "chokidar-socket-emitter",
     "dev-bundle": "jspm bundle client/entrypoint.js + plugin-babel + systemjs-hot-reloader + sass + sass/sass-inject.js + babel-plugin-transform-react-jsx -wd",
     "monitor": "nodemon -w server -x \"npm start\"",
-    "dev": "run-p socket-emitter dev-bundle monitor"
+    "dev": "run-p socket-emitter dev-bundle monitor",
+    "build": "jspm bundle --minify client/entrypoint.js build-production.js"
   },
   "repository": {
     "type": "git",

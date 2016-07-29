@@ -14,9 +14,11 @@ const router = new Router()
 
 router.use('/api', server.routes(), server.allowedMethods())
 
+const indexFile = process.env.NODE_ENV === 'production' ? './index-production.html' : './index.html'
+
 const fallbackRoute = () => {
   return async ctx => {
-    await send(ctx, './index.html')
+    await send(ctx, indexFile)
   }
 }
 

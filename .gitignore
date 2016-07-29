@@ -5,3 +5,4 @@ build.js
 build.js.map
 npm-debug.log
 npm-debug.log*
+build-*
