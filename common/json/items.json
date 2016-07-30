@@ -1,0 +1,13 @@
+{
+  "files": [
+    "common/json/equipable/hand/axe.json",
+    "common/json/equipable/hand/hammer.json",
+    "common/json/equipable/hand/shield.json",
+    "common/json/equipable/hand/sword.json",
+    "common/json/equipable/hand/knife.json",
+    "common/json/equipable/armor/head.json",
+    "common/json/equipable/armor/torso.json",
+    "common/json/equipable/armor/legs.json",
+    "common/json/equipable/armor/feet.json"
+  ]
+}

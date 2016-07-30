@@ -1,4 +1,4 @@
 {
-  "presets": ["es2015"],
-  "plugins": ["transform-react-jsx"]
+  "presets": ["es2017"],
+  "plugins": ["transform-react-jsx", "transform-runtime"]
 }

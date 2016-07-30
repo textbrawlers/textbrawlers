@@ -6,7 +6,8 @@ const request = {
       method,
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        key: localStorage.getItem('key')
       },
       body: JSON.stringify(params)
     })

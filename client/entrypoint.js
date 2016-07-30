@@ -6,6 +6,7 @@ import Game from './components/game.js'
 import LoginPage from './components/loginPage.js'
 import RegisterPage from './components/registerPage.js'
 import GameIndex from './components/gameIndex.js'
+import ItemBrowser from './components/tools/itemBrowser.js'
 
 const NotFound = () => (<p>Page not found</p>)
 const Index = () => (<p>Fancy homepage!</p>)
@@ -22,6 +23,9 @@ const routes = (
     <Route path='register' component={FullRegisterPage} />
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />
+    </Route>
+    <Route path='tools'>
+      <Route path='itembrowser' component={ItemBrowser}/>
     </Route>
     <Route path='*' component={NotFound} />
   </Route>

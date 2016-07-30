@@ -43,3 +43,8 @@ export async function register (ctx) {
   ctx.body = { success: true }
 }
 
+export async function getPlayer (ctx) {
+  console.log('get player')
+  ctx.body = ctx.player.serialize()
+}
+

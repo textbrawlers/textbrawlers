@@ -1,6 +1,7 @@
 import React from 'react'
-import 'app/client/css/account.scss'
+import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
+import AccountAPI from 'common/api/account.js'
 
 const INV_WIDTH = 12
 const INV_HEIGHT = 10
@@ -8,6 +9,17 @@ const INV_MARGIN = 5
 const INV_SLOT_SIZE = 50
 
 export default class extends React.Component{
+
+  constructor() {
+    super()
+
+    this.load()
+  }
+
+  async load() {
+    const player = await AccountAPI.get();
+    console.log(player)
+  }
 
   createSlot(x, y, index) {
     const style = {
