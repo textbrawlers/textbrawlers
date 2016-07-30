@@ -7,8 +7,8 @@ export default class BaseItem {
     this.attack = jsonItem.attack
     this.icon = jsonItem.icon
     this.dropRate = jsonItem['drop-rate']
-    this.characterStats = jsonItem['character-stats']
-    this.attackStats = jsonItem['attack-stats']
+    this.characterStats = jsonItem['character-stats'] || {}
+    this.attackStats = jsonItem['attack-stats'] || {}
     this.id = jsonItem.id
     this.category = jsonItem.category
   }

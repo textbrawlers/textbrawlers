@@ -18,22 +18,47 @@ export default class extends React.Component {
       tooltipVisible: true
     })
   } 
+
   handleMouseOut() {
     this.setState({
       tooltipVisible: false
     })
   }
 
-  render() {
+  createTooltip() {
     const item = this.props.item
-    console.log(this.props.item)
 
     const tooltipStyle = {
       position: 'absolute',
       left: 50,
-      top: 0,
-      display: this.state.tooltipVisible ? 'block' : 'none'
+      top: 0
     }
+
+
+    const characterStats = item.characterStats.map(stat => {
+      const statTooltip = stat.render(stat => `<b>${stat}</b>`)
+      return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+    })
+
+    const attackStats = item.attackStats.map(stat => {
+      const statTooltip = stat.render(stat => `<b>${stat}</b>`)
+      return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+    })
+
+    return (
+      <div style={tooltipStyle} className='tooltip'>
+        <h2>{item.displayName}</h2>
+        <p>Attack:</p>
+        {attackStats}
+        <p>Character:</p>
+        {characterStats}
+      </div>
+    )
+  }
+
+  render() {
+    const item = this.props.item
+    console.log(this.props.item)
 
     const tooltipContainerStyle = {
       position: 'relative'
@@ -41,14 +66,16 @@ export default class extends React.Component {
 
     const className = `item item-${item.rarity}`
 
+    let tooltip
+
+    if (this.state.tooltipVisible) {
+      tooltip = this.createTooltip()
+    }
+
     return (
       <div style={tooltipContainerStyle}>
-        <img className={className} src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-        <div style={tooltipStyle}  className="tooltip">
-          <h2>Test</h2>
-          <div> test tooltip</div>
-          <pre>{JSON.stringify(item, undefined ,4)}</pre>
-        </div>
+        <img className={className}  src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
+        {tooltip}
       </div>
     )
   }
