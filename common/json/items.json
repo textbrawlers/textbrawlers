@@ -11,8 +11,8 @@
     "common/json/equipable/armor/feet.json"
   ],
   "sets": [
-    "common/json/equipable/set/set1.json"
-    "common/json/equipable/set/setbladedancer.json"
+    "common/json/equipable/set/set1.json",
+    "common/json/equipable/set/setbladedancer.json",
     "common/json/equipable/set/setyoshimitsu.json"
   ]
 }
