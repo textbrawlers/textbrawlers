@@ -14,6 +14,9 @@ const router = new Router()
 
 router.use('/api', server.routes(), server.allowedMethods())
 
+console.log('env', process.env.NODE_ENV)
+console.log('env2', process.env.MONGODB)
+
 const indexFile = process.env.NODE_ENV === 'production' ? './index-production.html' : './index.html'
 
 const fallbackRoute = () => {
