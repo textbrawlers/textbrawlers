@@ -11,5 +11,7 @@ export default class BaseItem {
     this.attackStats = jsonItem['attack-stats'] || {}
     this.id = jsonItem.id
     this.category = jsonItem.category
+    this.dropChance = jsonItem['drop-chance']
+    console.log(jsonItem)
   }
 }

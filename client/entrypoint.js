@@ -10,7 +10,7 @@ import GameIndex from './components/gameIndex.js'
 import ItemBrowser from './components/tools/itemBrowser.js'
 import ItemGen from './components/tools/itemGen.js'
 
-const NotFound = () => (<p>Page not found</p>)
+const NotFound = () => (<p>Jaha ja.</p>)
 const Index = () => (<p>Fancy homepage!</p>)
 
 
