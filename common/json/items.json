@@ -1,5 +1,5 @@
 {
-  "files": [
+  "items": [
     "common/json/equipable/hand/axe.json",
     "common/json/equipable/hand/hammer.json",
     "common/json/equipable/hand/shield.json",
@@ -9,5 +9,8 @@
     "common/json/equipable/armor/torso.json",
     "common/json/equipable/armor/legs.json",
     "common/json/equipable/armor/feet.json"
+  ],
+  "sets": [
+    "common/json/equipable/set/set1.json"
   ]
 }

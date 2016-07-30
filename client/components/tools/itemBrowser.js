@@ -13,14 +13,18 @@ export default class extends React.Component {
       items: []
     }
 
-    items().then(items => {
+    items().then(({items}) => {
       this.setState({ items })
     })
   }
   
   render() {
     const items = this.state.items.map(baseItem => {
-      const item = new Item(baseItem)
+      let rarity = 'legendary'
+      if (baseItem.category === 'set') {
+        rarity = 'set'
+      }
+      const item = new Item(baseItem, { rarity })
       const containerStyle = {
         margin: 2,
         display: 'inline-block'
