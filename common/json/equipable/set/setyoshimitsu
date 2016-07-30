@@ -28,12 +28,12 @@
           "damage-multiplier": 0.2
         }
       },
-    "bonuses": {
-      "2": {
-        "max-health-multiplier": 5.0,
-        "block-chance": 0.9,
-        "hit-chance": 0.7,
-        "damage-multiplier": 2.5
+      "bonuses": {
+        "2": {
+          "max-health-multiplier": 5.0,
+          "block-chance": 0.9,
+          "hit-chance": 0.7,
+          "damage-multiplier": 2.5
         }
       }
     }
