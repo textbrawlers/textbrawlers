@@ -42,6 +42,6 @@ export default class {
 
       return statWrapper(fn(this.value))
     }
-    return this.tooltip.replace(/\[([a-z0-9]*)\]/g, replacer)
+    return this.tooltip.replace(/\[([a-z0-9-]*)\]/g, replacer)
   }
 }
