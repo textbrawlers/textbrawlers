@@ -23,7 +23,7 @@ body {
   background: url(/client/png/itembg.png);
   width: 50px;
   height: 50px;
-  position: absolute
+  display: inline-block;
 }
 
 .inv-slot img {
@@ -32,31 +32,37 @@ body {
 }
 
 .inv-head {
+  position: absolute;
   top: 10px;
   left: 70px;
 }
 
 .inv-body {
+  position: absolute;
   top: 70px;
   left: 70px;
 }
 
 .inv-legs {
+  position: absolute;
   top: 130px;
   left: 70px;
 }
 
 .inv-boots {
+  position: absolute;
   top: 190px;
   left: 70px;
 }
 
 .inv-lefthand {
+  position: absolute;
   top: 70px;
   left: 10px;
 }
 
 .inv-righthand {
+  position: absolute;
   top: 70px;
   left: 130px;
 }
@@ -86,35 +92,13 @@ body {
   overflow: auto;
 }
 
-.gu-mirror {
-  position: fixed !important;
-  margin: 0 !important;
-  z-index: 9999 !important;
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: alpha(opacity=80);
-}
-.gu-hide {
-  display: none !important;
-}
-.gu-unselectable {
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-  user-select: none !important;
-}
-.gu-transit {
-  opacity: 0.2;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
-  filter: alpha(opacity=20);
-}
-
 .tooltip {
   position: absolute;
   background: rgba(224,147,69, 1);
   border: 2px solid #754c24;
   padding: 0px;
   pointer-events: none;
+  z-index: 100;
 }
 
 .tooltip-stat {
@@ -221,18 +205,22 @@ body {
 }
 
 .inv-craft-1 {
+  position: absolute;
   left: 5px;
 }
 
 .inv-craft-2 {
+  position: absolute;
   left: 60px;
 }
 
 .inv-craft-3 {
+  position: absolute;
   left: 115px;
 }
 
 .inv-craft-4 {
+  position: absolute;
   left: 170px;
 }
 

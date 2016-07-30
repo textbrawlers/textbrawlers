@@ -1,4 +1,5 @@
 import 'core-js/fn/object/entries'
+import BaseItem from 'common/game/baseItem.js'
 
 export default async function items() {
   const allItems = []
@@ -12,7 +13,7 @@ export default async function items() {
       // each item category
       Object.entries(items).forEach(([id, item]) => {
         // each item
-        const finalItem = Object.assign({}, item, { category, id })
+        const finalItem = new BaseItem(Object.assign({}, item, { category, id }))
         allItems.push(finalItem)
       })
     })

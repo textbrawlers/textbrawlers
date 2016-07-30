@@ -24,7 +24,8 @@ export default class extends React.Component{
   createSlot(x, y, index) {
     const style = {
       top: INV_MARGIN + y * (INV_MARGIN + INV_SLOT_SIZE),
-      left: INV_MARGIN + x * (INV_MARGIN +INV_SLOT_SIZE)
+      left: INV_MARGIN + x * (INV_MARGIN +INV_SLOT_SIZE),
+      position: 'absolute'
     }
     console.log(index)
     return <InventorySlot style={style} key={index} slot={`i${index}`} />

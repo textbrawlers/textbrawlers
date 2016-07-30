@@ -7,6 +7,10 @@ export default class extends React.Component {
     if (this.props.special) {
       specialClass = ` inv-${this.props.special}`
     }
-    return <div className={`inv-slot${specialClass}`}  style={this.props.style} data-slot={this.props.slot}></div>
+    return (
+      <div className={`inv-slot${specialClass}`}  style={this.props.style} data-slot={this.props.slot}>
+        {this.props.children}
+      </div>
+    )
   }
 }
