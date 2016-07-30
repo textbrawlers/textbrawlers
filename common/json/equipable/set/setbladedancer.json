@@ -63,9 +63,9 @@
           "hit-chance": 2.0
         }
       },
-    "bonuses": {
+      "bonuses": {
         "4": {
-          "damage": 1,
+          "damage": 1
           },
         "6": {
           "hit-chance": 2.0,
