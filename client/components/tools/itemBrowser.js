@@ -40,7 +40,6 @@ export default class extends React.Component {
 
     return (
       <div>
-        <p>Item browser</p>
         {items}
       </div>
     )

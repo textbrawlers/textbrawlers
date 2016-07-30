@@ -9,7 +9,16 @@ const round = (num, decimals) => {
 const displayFunctions = {
   plain: value => round(value, 2),
   fixed: value => round(value, 2),
-  percent: value => `${round(value * 100, 2)}%`
+  percent: value => `${round(value * 100, 2)}%`,
+  'plus-mult': value => {
+    value--
+    const niceVal = round(value * 100, 2)
+    if (value > 0) {
+      return `+${niceVal}%`
+    } else {
+      return `${niceVal}%`
+    }
+  }
 }
 
 export default class {

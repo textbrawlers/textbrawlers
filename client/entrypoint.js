@@ -2,11 +2,13 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Link, browserHistory, Route, IndexRoute } from 'react-router'
 import LoginApp from './components/loginApp.js'
+import ToolsApp from './components/toolsApp.js'
 import Game from './components/game.js'
 import LoginPage from './components/loginPage.js'
 import RegisterPage from './components/registerPage.js'
 import GameIndex from './components/gameIndex.js'
 import ItemBrowser from './components/tools/itemBrowser.js'
+import ItemGen from './components/tools/itemGen.js'
 
 const NotFound = () => (<p>Page not found</p>)
 const Index = () => (<p>Fancy homepage!</p>)
@@ -24,8 +26,9 @@ const routes = (
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />
     </Route>
-    <Route path='tools'>
+    <Route path='tools' component={ToolsApp}>
       <Route path='itembrowser' component={ItemBrowser}/>
+      <Route path='itemgen' component={ItemGen}/>
     </Route>
     <Route path='*' component={NotFound} />
   </Route>
