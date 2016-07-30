@@ -62,16 +62,16 @@
           "damage": 1,
           "hit-chance": 2.0
         }
+      }
+    },
+    "bonuses": {
+      "4": {
+        "damage": 1
       },
-      "bonuses": {
-        "4": {
-          "damage": 1
-          },
-        "6": {
-          "hit-chance": 2.0,
-          "bleed-chance": 0.2,
-          "bleed-duration": 3
-        }
+      "6": {
+        "hit-chance": 2.0,
+        "bleed-chance": 0.2,
+        "bleed-duration": 3
       }
     }
   }
