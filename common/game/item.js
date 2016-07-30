@@ -13,6 +13,8 @@ export default class Item {
     this.attackStats = Object.entries(this.baseItem.attackStats).map(([id, value]) => new Stat(id, value))
 
     this.rarity = rarity || 'common'
+
+    this.category = baseItem.category
   }
 
   get image() {
