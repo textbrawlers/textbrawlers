@@ -17,7 +17,7 @@
       "name": "Woodcutter's Axe",
       "slot": "hand",
       "attack": true,
-      "icon": "itemaxe",
+      "icon": "itemwoodaxe",
       "attack-stats": {
         "damage": 15,
         "hit-chance": 0.8,
@@ -29,7 +29,7 @@
       "name": "Tomahawk",
       "slot": "hand",
       "attack": true,
-      "icon": "itemwoodaxe",
+      "icon": "itemaxe",
       "attack-stats": {
         "damage": 5,
         "hit-chance": 0.4,
