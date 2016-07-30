@@ -9,9 +9,7 @@
         "block-chance": 0.2,
         "block-multiplier": 0.65
       }
-    }
-  },
-  "shield": {
+    },
     "heater-shield": {
       "name": "Heater Shield",
       "slot": "hand",
