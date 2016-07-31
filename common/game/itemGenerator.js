@@ -54,12 +54,12 @@ export async function generateItem() {
   const droptable = await getDroptable()
 
   const { prefixes, possible } = await getPrefixes()
-  console.log('prefixes', prefixes)
 
   const baseItem = getRandom(droptable).item
   const randomRarity =  getRandom(rarities)
 
   const rarity = randomRarity.rarity
+
 
   const item = new Item(baseItem, { rarity })
 

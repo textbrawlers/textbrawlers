@@ -5,9 +5,6 @@ async function parsePrefixes() {
   const setBonuses = {}
 
   const prefixesConfig = await System.import('common/json/prefixes.json')
-
-  console.log('prefixesconfig', prefixesConfig)
-
   const prefixFiles = {}
 
   // load all individual prefix files
