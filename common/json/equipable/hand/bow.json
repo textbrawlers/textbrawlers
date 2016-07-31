@@ -4,7 +4,7 @@
       "name": "Shortbow",
       "slot": "hand",
       "attack": true,
-      "icon": "itemlongsword",
+      "icon": "itembow",
       "attack-stats": {
         "damage": 7,
         "hit-chance": -8.8,
@@ -18,7 +18,7 @@
       "name": "Longbow",
       "slot": "hand",
       "attack": true,
-      "icon": "itemlongsword",
+      "icon": "itembow",
       "attack-stats": {
         "damage": 14,
         "hit-chance": -9.3,
