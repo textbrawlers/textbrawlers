@@ -43,7 +43,7 @@
       "name": "Serrated Sword",
       "slot": "hand",
       "attack": true,
-      "icon": "itemsword",
+      "icon": "itemserratedsword",
       "drop-rate": 50,
       "attack-stats": {
         "damage": 5,
