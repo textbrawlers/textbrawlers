@@ -1,6 +1,7 @@
 node_modules
 jspm_packages
 .env
+.idea
 build.js
 build.js.map
 npm-debug.log
