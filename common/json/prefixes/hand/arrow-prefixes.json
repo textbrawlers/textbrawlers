@@ -1,0 +1,303 @@
+{
+  "damage": {
+    "broken": {
+      "name": "Broken",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "damage-multiplier": 0.7
+        }
+      }]
+    },
+    "rusty": {
+      "name": "Rusty",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "damage-multiplier": 0.8
+        }
+      }]
+    },
+    "blunt": {
+      "name": "Blunt",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "damage-multiplier": 0.9
+        }
+      }]
+    },
+    "sharp": {
+      "name": "Sharp",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "damage-multiplier": 1.1
+        }
+      }]
+    },
+    "ruthless": {
+      "name": "Ruthless",
+      "drop-rate": 75,
+      "attack-stats": {
+        "damage-multiplier": 1.2
+      }
+    },
+    "deadly": {
+      "name": "Deadly",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "damage-multiplier": 1.3
+        }
+      }]
+    }
+  },
+
+  "hit-chance": {
+    "slow": {
+      "name": "Slow",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": -0.6
+        }
+      }]
+    },
+    "lazy": {
+      "name": "Lazy",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": -0.4
+        }
+      }]
+    },
+    "heavy": {
+      "name": "Heavy",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": -0.2
+        }
+      }]
+    },
+    "nimble": {
+      "name": "Nimble",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 0.2
+        }
+      }]
+    },
+    "quick": {
+      "name": "Quick",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 0.4
+        }
+      }]
+    },
+    "rapid": {
+      "name": "Rapid",
+      "drop-rate": 50,
+      "attack-stats": {
+        "hit-chance": 0.6
+      }
+    }
+  },
+
+  "crit-chance": {
+    "inaccurate": {
+      "name": "Inaccurate",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": -0.6
+        }
+      }]
+    },
+    "inexact": {
+      "name": "Inexact",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": -0.4
+        }
+      }]
+    },
+    "uncertain": {
+      "name": "Uncertain",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": -0.2
+        }
+      }]
+    },
+    "aiming": {
+      "name": "Aiming",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 0.2
+        }
+      }]
+    },
+    "piercing": {
+      "name": "Piercing",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 0.4
+        }
+      }]
+    },
+    "precise": {
+      "name": "Precise",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 0.6
+        }
+      }]
+    }
+  },
+
+  "crit-damage": {
+    "harmless": {
+      "name": "Harmless",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "crit-damage": -0.6
+        }
+      }]
+    },
+    "kind": {
+      "name": "Kind",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "crit-damage": -0.4
+        }
+      }]
+    },
+    "safe": {
+      "name": "Safe",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "crit-damage": -0.2
+        }
+      }]
+    },
+    "crushing": {
+      "name": "Crushing",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "crit-damage": 0.2
+        }
+      }]
+    },
+    "demolishing": {
+      "name": "Demolishing",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "crit-damage": 0.4
+        }
+      }]
+    },
+    "obliterating": {
+      "name": "Obliterating",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "crit-damage": 0.6
+        }
+      }]
+    }
+  },
+
+  "bleed-chance": {
+    "cutting": {
+      "name": "Cutting",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "bleed-chance": 0.1
+        }
+      }]
+    },
+    "slicing": {
+      "name": "Slicing",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "bleed-chance": 0.2
+        }
+      }]
+    },
+    "slashing": {
+      "name": "Slashing",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "bleed-chance": 0.3
+        }
+      }]
+    }
+  },
+
+  "bleed-duration": {
+    "ripping": {
+      "name": "Ripping",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "bleed-duration": 2
+        }
+      }]
+    },
+    "tearing": {
+      "name": "Tearing",
+      "drop-rate": 75,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "bleed-duration": 3
+        }
+      }]
+    },
+    "rupturing": {
+      "name": "Rupturing",
+      "drop-rate": 50,
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "bleed-duration": 4
+        }
+      }]
+    }
+  }
+}
