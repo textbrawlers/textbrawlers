@@ -7,7 +7,11 @@ export default class Item {
 
     this.prefixes = prefixes
 
-    this.displayName = `[prefixes] ${this.baseItem.name}`
+    console.log('prefixes in itmem' ,prefixes)
+
+    const prefixList = prefixes.map(prefix => prefix.name).join(' ')
+
+    this.displayName = `${prefixList} ${this.baseItem.name}`
 
     this.characterStats = Object.entries(this.baseItem.characterStats).map(([id, value]) => new Stat(id, value))
     this.attackStats = Object.entries(this.baseItem.attackStats).map(([id, value]) => new Stat(id, value))

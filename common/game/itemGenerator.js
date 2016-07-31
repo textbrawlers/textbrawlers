@@ -1,6 +1,7 @@
 import getItems from 'common/items/items.js'
 import getPrefixes from 'common/items/prefixes.js'
 import Item from 'common/game/item.js'
+import Prefix from 'common/game/prefix.js'
 
 const rarities = [{
     rarity: 'common',
@@ -50,7 +51,42 @@ function getRandom(droptable) {
   }
 }
 
-function getRandomPrefixes(possiblePrefixes, baseItem) {
+function getRandomPrefix(possible, category, prefixes) {
+  const totalChance = possible.reduce((val, item) => val + item.chance, 0)
+  possible.forEach(item => { item.chance /= totalChance })
+  const prefixType = getRandom(possible).type
+
+  const possibleCategories = prefixes[prefixType]
+
+  if (!possibleCategories) {
+    console.warn(`No possible categories in ${prefixType}`)
+    return undefined
+  }
+
+  const prefixCategories = Object.entries(possibleCategories).map(([category, prefixes]) => ({ category, prefixes }))
+  const prefixCategory = prefixCategories[Math.floor(Math.random() * prefixCategories.length)]
+
+  if (!prefixCategory) {
+    console.warn(`Got undefined prefix category in ${prefixType}`)
+    return undefined
+  }
+
+  if (!prefixCategory.prefixes) {
+    console.warn(`No prefixes property in ${prefixType}`)
+    return undefined
+  }
+
+  const possiblePrefixesInCat  = Object.entries(prefixCategory.prefixes).map(([key, prefix]) => ({key, prefix}))
+
+  const totalPrefixChance = possiblePrefixesInCat.reduce((val, prefix) => val + (prefix['drop-rate'] || 100), 0)
+
+  possiblePrefixesInCat.forEach(possible => possible.chance = (possible['drop-rate'] || 100) / totalPrefixChance)
+
+  const prefix = getRandom(possiblePrefixesInCat)
+  return new Prefix([prefixType, prefixCategory.category, prefix.key], prefixes[prefixType][prefixCategory.category][prefix.key])
+}
+
+function getRandomPrefixes(possiblePrefixes, baseItem, prefixes, nPrefixes) {
   const category = baseItem.category
   const possible = Object.entries(possiblePrefixes[category] || {}).map(([type, chance]) => ({type, chance}))
 
@@ -59,11 +95,22 @@ function getRandomPrefixes(possiblePrefixes, baseItem) {
     return []
   }
 
-  const totalChance = possible.reduce((val, item) => val + item.chance, 0)
-  possible.forEach(item => { item.chance /= totalChance })
-  const prefixType = getRandom(possible)
+  const generatedPrefixes = []
 
+  let n = 0
 
+  while (generatedPrefixes.length < nPrefixes && n <= 1000) {
+    n++
+    const prefix = getRandomPrefix(possible, category, prefixes)
+    if (prefix) {
+      generatedPrefixes.push(prefix)
+    }
+  }
+  if (n === 1000) {
+    console.log('Could not generate enough prefixes for', category)
+  }
+  
+  return generatedPrefixes
 }
 
 export async function generateItem() {
@@ -75,10 +122,9 @@ export async function generateItem() {
   const randomRarity =  getRandom(rarities)
   const rarity = randomRarity.rarity
 
-  const allPrefixes = getRandomPrefixes(possible, baseItem)
+  const allPrefixes = getRandomPrefixes(possible, baseItem, prefixes, randomRarity.prefixes)
 
-  const item = new Item(baseItem, { rarity })
-
+  const item = new Item(baseItem, { rarity, prefixes: allPrefixes })
 
   return item
 
