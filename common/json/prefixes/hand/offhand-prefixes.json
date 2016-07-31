@@ -39,6 +39,7 @@
       "drop-rate": 50,
       "character-stats": {
         "crit-damage": 1.75
+      }
     }
   },
   "burn": {
