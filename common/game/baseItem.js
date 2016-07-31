@@ -9,7 +9,7 @@ export default class BaseItem {
     this.dropRate = jsonItem['drop-rate']
     this.characterStats = jsonItem['character-stats'] || {}
     this.attackStats = jsonItem['attack-stats'] || {}
-    this.empowerStats = jsonItem['empower-stats'] || {}
+    this.empoweredStats = jsonItem['empower-stats'] || []
     this.id = jsonItem.id
     this.category = jsonItem.category
     this.dropRate = jsonItem['drop-rate']

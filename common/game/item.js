@@ -11,7 +11,13 @@ export default class Item {
 
     this.characterStats = Object.entries(this.baseItem.characterStats).map(([id, value]) => new Stat(id, value))
     this.attackStats = Object.entries(this.baseItem.attackStats).map(([id, value]) => new Stat(id, value))
-    this.empowerStats = Object.entries(this.baseItem.empowerStats).map(([id, value]) => new Stat(id, value))
+    
+    this.empoweredStats = this.baseItem.empoweredStats.map(empowerConfig => {
+      return {
+        stats: Object.entries(empowerConfig.stats).map(([id, value]) => new Stat(id, value)),
+        category: empowerConfig.category
+      }
+    })
 
     this.rarity = rarity || 'common'
 
