@@ -111,7 +111,11 @@ function getRandomPrefixes(possiblePrefixes, baseItem, prefixes, nPrefixes) {
     }
   }
   if (n === 1000) {
-    console.log('Could not generate enough prefixes for', category)
+    console.warn('Could not generate enough prefixes for', category)
+  }
+
+  if (generatedPrefixes.length !== nPrefixes) {
+    console.warn(`Not enough prefixes for ${category}`)
   }
   
   return generatedPrefixes
