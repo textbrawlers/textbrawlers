@@ -51,7 +51,7 @@ function getRandom(droptable) {
   }
 }
 
-function getRandomPrefix(possible, category, prefixes) {
+function getRandomPrefix(possible, category, prefixes, usedCategories) {
   const totalChance = possible.reduce((val, item) => val + item.chance, 0)
   possible.forEach(item => { item.chance /= totalChance })
   const prefixType = getRandom(possible).type
@@ -60,20 +60,24 @@ function getRandomPrefix(possible, category, prefixes) {
 
   if (!possibleCategories) {
     console.warn(`No possible categories in ${prefixType}`)
-    return undefined
+    return
   }
 
   const prefixCategories = Object.entries(possibleCategories).map(([category, prefixes]) => ({ category, prefixes }))
   const prefixCategory = prefixCategories[Math.floor(Math.random() * prefixCategories.length)]
 
   if (!prefixCategory) {
-    console.warn(`Got undefined prefix category in ${prefixType}`)
-    return undefined
+    console.warn(`No prefixes in ${prefixType}`)
+    return
+  }
+
+  if (usedCategories.indexOf(prefixCategory.category) !== -1) {
+    return
   }
 
   if (!prefixCategory.prefixes) {
     console.warn(`No prefixes property in ${prefixType}`)
-    return undefined
+    return
   }
 
   const possiblePrefixesInCat  = Object.entries(prefixCategory.prefixes).map(([key, prefix]) => ({key, prefix}))
@@ -96,14 +100,14 @@ function getRandomPrefixes(possiblePrefixes, baseItem, prefixes, nPrefixes) {
   }
 
   const generatedPrefixes = []
-
+  const usedCategories = []
   let n = 0
-
   while (generatedPrefixes.length < nPrefixes && n <= 1000) {
     n++
-    const prefix = getRandomPrefix(possible, category, prefixes)
+    const prefix = getRandomPrefix(possible, category, prefixes, usedCategories)
     if (prefix) {
       generatedPrefixes.push(prefix)
+      usedCategories.push(prefix.path[1])
     }
   }
   if (n === 1000) {

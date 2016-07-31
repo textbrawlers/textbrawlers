@@ -7,8 +7,6 @@ export default class Item {
 
     this.prefixes = prefixes
 
-    console.log('prefixes in itmem' ,prefixes)
-
     const prefixList = prefixes.map(prefix => prefix.name).join(' ')
 
     this.displayName = `${prefixList} ${this.baseItem.name}`
