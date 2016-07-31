@@ -26,7 +26,7 @@
   },
   "crit-chance": {
     "lucky": {
-      "name": "lucky",
+      "name": "Lucky",
       "drop-rate": 50,
       "character-stats": {
         "crit-chance": 0.05
