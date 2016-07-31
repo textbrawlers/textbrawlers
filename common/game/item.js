@@ -11,6 +11,7 @@ export default class Item {
 
     this.characterStats = Object.entries(this.baseItem.characterStats).map(([id, value]) => new Stat(id, value))
     this.attackStats = Object.entries(this.baseItem.attackStats).map(([id, value]) => new Stat(id, value))
+    this.empowerStats = Object.entries(this.baseItem.empowerStats).map(([id, value]) => new Stat(id, value))
 
     this.rarity = rarity || 'common'
 

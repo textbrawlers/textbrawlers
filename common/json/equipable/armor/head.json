@@ -28,7 +28,24 @@
       "character-stats": {
         "block-chance": 0.05
       }
-          },
+    },
+    "arcmage's-crown": {
+      "name": "Arcmage's Crown",
+      "slot": "head",
+      "attack": false,
+      "icon": "itemhelmet",
+      "character-stats": {
+        "block-chance": 0.01
+      },
+      "empower-stats": {
+        "category": "orb",
+        "stats": {
+          "damage-multiplier": 0.5,
+          "crit-chance": 0.05,
+          "crit-damage": 1.0
+        }
+      }
+    },
     "obsidian-helmet": {
       "name": "Obsidian Helmet",
       "slot": "head",

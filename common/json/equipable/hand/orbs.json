@@ -7,7 +7,7 @@
       "icon": "itemorbfireball",
       "attack-stats": {
         "damage": 7,
-        "hit-chance": 1.6,
+        "hit-chance": 1.0,
         "crit-chance": 0.5,
         "crit-damage": 1.8,
         "burn-chance": 1.0,
@@ -41,16 +41,11 @@
     "time-orb": {
       "name": "Orb of Time",
       "slot": "hand",
-      "attack": true,
+      "attack": false,
       "icon": "itemorbtime",
-      "attack-stats": {
-        "damage": 0,
-        "hit-chance": 1.0,
-        "crit-chance": 0,
-        "crit-damage": 0
-      },
       "character-stats": {
-        "hit-chance": 3.5
+        "hit-chance": 1.0,
+        "damage": 2
       }
     },
     "stars-orb": {
@@ -60,13 +55,22 @@
       "icon": "itemorbstars",
       "attack-stats": {
         "damage": 2,
-        "hit-chance": 3.7,
+        "hit-chance": 2.3,
         "crit-chance": 0.15,
         "crit-damage": 2.7,
         "burn-chance": 0.95,
         "burn-duration": 4,
         "bleed-chance": 0.2,
         "bleed-duration": 2
+      }
+    },
+    "health-orb": {
+      "name": "Orb of Health",
+      "slot": "hand",
+      "attack": false,
+      "icon": "itemorbtime",
+      "character-stats": {
+        "max-health": 25
       }
     }
   }
