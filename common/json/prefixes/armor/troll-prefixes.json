@@ -3,40 +3,40 @@
     "uncomfortable": {
       "name": "Uncomfortable",
       "drop-rate": 50,
-      "stats": {
+      "character-stats": {
         "comfort": -0.4
       }
     },
     "ugly": {
       "name": "Ugly",
       "drop-rate": 75,
-      "stats": {
+      "character-stats": {
         "fashionable": -0.4
       }
     },
     "tight-fitting": {
       "name": "Tight-fitting",
-      "stats": {
+      "character-stats": {
         "comfort": -0.2
       }
     },
     "dazzling": {
       "name": "Dazzling",
-      "stats": {
+      "character-stats": {
         "fashionable": 0.2
       }
     },
     "Glittering": {
       "name": "Glittering",
       "drop-rate": 75,
-      "stats": {
+      "character-stats": {
         "fashionable": 0.4
       }
     },
     "comfortable": {
       "name": "Comfortable",
       "drop-rate": 50,
-      "stats": {
+      "character-stats": {
         "comfort": 0.6
       }
     }
