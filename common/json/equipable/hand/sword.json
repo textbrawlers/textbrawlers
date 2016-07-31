@@ -17,7 +17,7 @@
       "name": "Longsword",
       "slot": "hand",
       "attack": true,
-      "icon": "itemsword",
+      "icon": "itemlongsword",
       "attack-stats": {
         "damage": 20,
         "hit-chance": 0.6,
