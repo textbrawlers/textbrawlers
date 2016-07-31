@@ -71,12 +71,12 @@
   },
   "comfort": {
     "type": "additive",
-    "tooltip": "[plus-percent] Comfort",
+    "tooltip": "[plus-mult] Comfort",
     "display": false
   },
   "fashionable": {
     "type": "additive",
-    "tooltip": "[plus-percent] Fashionable",
+    "tooltip": "[plus-mult] Fashionable",
     "display": false
   },
   "fury": {
