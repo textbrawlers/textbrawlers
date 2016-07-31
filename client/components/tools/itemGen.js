@@ -1,9 +1,9 @@
 import React from 'react'
-import items from 'common/items/items.js'
 import Item from 'common/game/item.js'
 import InvItem from '../invItem.js'
 import InventorySlot from '../inventorySlot.js'
 import { getDroptable } from 'common/game/itemGenerator.js'
+import { generateItem } from 'common/game/itemGenerator.js'
 
 export default class extends React.Component {
 
@@ -17,6 +17,14 @@ export default class extends React.Component {
     getDroptable().then(droptable => {
       this.setState({ droptable })
     })
+
+    this.genitem = this.genitem.bind(this)
+  }
+
+  async genitem() {
+    const item = await generateItem()
+
+    this.setState({ item })
   }
   
   render() {
@@ -27,6 +35,26 @@ export default class extends React.Component {
       </tr>
     ))
 
-    return <table><tbody>{table}</tbody></table>
+    let invSlot
+
+    if (this.state.item) {
+      invSlot = (
+        <div>
+          <InventorySlot>
+            <InvItem item={this.state.item} />
+          </InventorySlot>
+        </div>
+      )
+    }
+
+    return (
+      <div>
+        <button onClick={this.genitem}>Generate</button>
+        {invSlot}
+        <table>
+          <tbody>{table}</tbody>
+        </table>
+      </div>
+    )
   }
 }
