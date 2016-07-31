@@ -10,7 +10,8 @@
         "hit-chance": 0.4,
         "crit-chance": 1.0,
         "crit-damage": 1.2
-      }
+      },
+      "description": "Not to be confused with a Wombat Hammer."
     }
   }
 }
