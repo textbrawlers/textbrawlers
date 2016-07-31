@@ -29,7 +29,7 @@
       "name": "Tomahawk",
       "slot": "hand",
       "attack": true,
-      "icon": "itemaxe",
+      "icon": "itemtomahawk",
       "attack-stats": {
         "damage": 5,
         "hit-chance": 0.4,
