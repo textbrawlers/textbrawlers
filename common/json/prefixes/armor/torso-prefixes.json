@@ -2,37 +2,37 @@
   "vitality": {
     "retreating": {
       "name": "Retreating",
-      "stats": {
+      "character-stats": {
         "max-health-multiplier": 0.7
       }
     },
     "ceasing": {
       "name": "Ceasing",
-      "stats": {
+      "character-stats": {
         "max-health-multiplier": 0.8
       }
     },
     "abandoning": {
       "name": "Abandoning",
-      "stats": {
+      "character-stats": {
         "max-health-multiplier": 0.9
       }
     },
     "vigorous": {
       "name": "Vigorous",
-      "stats": {
+      "character-stats": {
         "max-health-multiplier": 1.1
       }
     },
     "enduring": {
       "name": "Enduring",
-      "stats": {
+      "character-stats": {
         "max-health-multiplier": 1.2
       }
     },
     "persevering": {
       "name": "Persevering",
-      "stats": {
+      "character-stats": {
         "max-health-multiplier": 1.3
       }
     }
