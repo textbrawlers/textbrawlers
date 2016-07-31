@@ -1,7 +1,7 @@
 {
   "prefixes": {
     "shield-prefixes": "common/json/prefixes/hand/shield-prefixes.json",
-    "hammer-prefixes": "common/json/prefixes/hand/shield-prefixes.json",
+    "hammer-prefixes": "common/json/prefixes/hand/hammer-prefixes.json",
     "axe-prefixes": "common/json/prefixes/hand/axe-prefixes.json",
     "sword-prefixes": "common/json/prefixes/hand/sword-prefixes.json",
     "knife-prefixes": "common/json/prefixes/hand/knife-prefixes.json",
@@ -9,7 +9,6 @@
     "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
     "feet-prefixes": "common/json/prefixes/armor/feet-prefixes.json",
     "legs-prefixes": "common/json/prefixes/armor/legs-prefixes.json",
-    "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json",
     "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json"
   },
   "possible": {
