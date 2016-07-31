@@ -28,9 +28,9 @@ export default class extends React.Component {
     this.setState({ items: [item] })
   }
 
-  async genMany() {
+  async genMany(n) {
     const items = []
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < n || 100; i++) {
       items.push(await generateItem())
     }
     this.setState({ items })
@@ -67,6 +67,7 @@ export default class extends React.Component {
       <div>
         <button onClick={this.genitem}>Generate</button>
         <button onClick={this.genMany}>Generate 100</button>
+        <button onClick={() => this.genMany(10000)}>Generate 10.000</button>
         <br />
         {invSlot}
         <table>
