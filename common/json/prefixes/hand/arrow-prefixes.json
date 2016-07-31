@@ -41,9 +41,12 @@
     "ruthless": {
       "name": "Ruthless",
       "drop-rate": 75,
-      "attack-stats": {
-        "damage-multiplier": 1.2
-      }
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "damage-multiplier": 1.2
+        }
+      }]
     },
     "deadly": {
       "name": "Deadly",
@@ -109,9 +112,12 @@
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
-      "attack-stats": {
-        "hit-chance": 0.6
-      }
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 0.6
+        }
+      }]
     }
   },
 
