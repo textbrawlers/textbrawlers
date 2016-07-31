@@ -1,0 +1,32 @@
+{
+  "bow": {
+    "shortbow": {
+      "name": "Shortbow",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemlongsword",
+      "attack-stats": {
+        "damage": 7,
+        "hit-chance": -8.8,
+        "crit-chance": 0.7,
+        "crit-damage": 1.8,
+        "ranged": true
+      },
+      "description": "It's actually just a slightly shorter longbow. The name Shortbow is just marketing."
+    },
+    "longbow": {
+      "name": "Longbow",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemlongsword",
+      "attack-stats": {
+        "damage": 14,
+        "hit-chance": -9.3,
+        "crit-chance": 0.4,
+        "crit-damage": 2.0,
+        "ranged": true
+      },
+      "description": "...but long in which direction?"
+    }
+  }
+}
