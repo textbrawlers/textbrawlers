@@ -3,40 +3,40 @@
     "heavy": {
       "name": "Heavy",
       "drop-rate": 50,
-      "stats": {
+      "character-stats": {
         "hit-chance": -0.15
       }
     },
     "clumsy": {
       "name": "Clumsy",
       "drop-rate": 75,
-      "stats": {
+      "character-stats": {
         "hit-chance": -0.1
       }
     },
     "slow": {
       "name": "Slow",
-      "stats": {
+      "character-stats": {
         "hit-chance": -0.05
       }
     },
     "agile": {
       "name": "Agile",
-      "stats": {
+      "character-stats": {
         "hit-chance": 0.05
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
-      "stats": {
+      "character-stats": {
         "hit-chance": 0.10
       }
     },
     "swift": {
       "name": "Swift",
       "drop-rate": 50,
-      "stats": {
+      "character-stats": {
         "hit-chance": 0.15
       }
     }
