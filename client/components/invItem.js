@@ -25,6 +25,23 @@ export default class extends React.Component {
     })
   }
 
+  getEmpowerStats(item) {
+    return item.empoweredStats.map(conf => {
+
+      const stats = conf.stats.map(stat => {
+        const statTooltip = stat.render(stat => `<b>${stat}</b>`)
+        return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+      })
+
+      return (
+        <div>
+          <p>Empowers {conf.category}:</p>
+          {stats}
+        </div>
+      )
+    })
+  }
+
   createTooltip() {
     const item = this.props.item
 
@@ -55,6 +72,8 @@ export default class extends React.Component {
       )
     }
 
+    const empowerStats = this.getEmpowerStats(item)
+
     return (
       <div style={tooltipStyle} className='tooltip'>
         <h2>{item.displayName}</h2>
@@ -62,6 +81,7 @@ export default class extends React.Component {
         {attackStats}
         <p>Character:</p>
         {characterStats}
+        {empowerStats}
         {description}
       </div>
     )

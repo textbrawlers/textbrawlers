@@ -50,6 +50,15 @@ function getRandom(droptable) {
   }
 }
 
+function getRandomPrefixes(possiblePrefixes, baseItem) {
+  const category = baseItem.category
+  const possible = Object.entries(possiblePrefixes[category] || {})
+
+  //if (possible
+
+  //  Object.entries(possible
+}
+
 export async function generateItem() {
   const droptable = await getDroptable()
 
@@ -57,11 +66,12 @@ export async function generateItem() {
 
   const baseItem = getRandom(droptable).item
   const randomRarity =  getRandom(rarities)
-
   const rarity = randomRarity.rarity
 
+  const allPrefixes = getRandomPrefixes(possible, baseItem)
 
   const item = new Item(baseItem, { rarity })
+
 
   return item
 
