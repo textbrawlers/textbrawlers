@@ -62,8 +62,27 @@ export default class extends React.Component {
       return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
     })
 
-    let description
+    let characterStatsDiv
+    if (item.characterStats.length) {
+      characterStatsDiv = (
+        <div>
+          <p>Character:</p>
+          {characterStats}
+        </div>
+      )
+    }
 
+    let attackStatsDiv
+    if (item.attackStats.length) {
+      attackStatsDiv = (
+        <div>
+          <p>Attack:</p>
+          {attackStats}
+        </div>
+      )
+    }
+
+    let description
     if (item.description) {
       description = (
         <div className="description">
@@ -77,10 +96,8 @@ export default class extends React.Component {
     return (
       <div style={tooltipStyle} className='tooltip'>
         <h2>{item.displayName}</h2>
-        <p>Attack:</p>
-        {attackStats}
-        <p>Character:</p>
-        {characterStats}
+        {attackStatsDiv}
+        {characterStatsDiv}
         {empowerStats}
         {description}
       </div>

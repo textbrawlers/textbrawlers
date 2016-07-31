@@ -12,8 +12,7 @@
     "common/json/equipable/armor/legs.json",
     "common/json/equipable/armor/feet.json",
     "common/json/equipable/hand/offhand.json",
-    "common/json/equipable/hand/wands.json",
-    "common/json/equipable/hand/runeorbs.json"
+    "common/json/equipable/hand/wands.json"
   ],
   "sets": [
     "common/json/equipable/set/set1.json",
