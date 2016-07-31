@@ -1,0 +1,63 @@
+{
+  "orbs": {
+    "runeorb-n": {
+      "name": "Runic Orb: N",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorb-N",
+      "attack-stats": {
+        "damage": 2,
+        "hit-chance": 1.0,
+        "burn-chance": 2.0,
+        "burn-duration": 2
+      },
+      "description": "An orb with the letter N engraved."
+    },
+    "runeorb-ie": {
+      "name": "Runic Orb: I,E",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorb-IE",
+      "attack-stats": {
+        "damage": 2,
+        "hit-chance": 1.0,
+        "poison-duration": 2,
+        "poison-damage": 2
+      },
+      "description": "An orb with the letter I or E engraved."
+    },
+    "runeorb-ck": {
+      "name": "Runic Orb: C,K",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorb-CK",
+      "attack-stats": {
+        "damage": 2,
+        "hit-chance": 1.0,
+        "bleed-chance": 2.0,
+        "bleed-duration": 2
+      },
+      "description": "An orb with the letter C or K engraved."
+    },
+    "runeorb-nicke": {
+      "name": "Runic Orbs: NIKCE,NEKCI,NICKE,NECKI",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorb-NICKE",
+      "attack-stats": {
+        "damage": 6,
+        "hit-chance": 1.0,
+        "crit-chance": 0,
+        "crit-damage": 0,
+        "poison-duration": 2,
+        "poison-damage": 2,
+        "bleed-chance": 2.0,
+        "bleed-duration": 2,
+        "burn-chance": 2.0,
+        "burn-duration": 2
+        ""
+      },
+      "description": "What could it mean?"
+    }
+  }
+}
