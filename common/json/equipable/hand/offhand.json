@@ -42,7 +42,7 @@
         "stun-chance": 0.2,
         "poison-duration": 3,
         "poison-damage": 2,
-        "fashionable": 100
+        "fashionable": 2
       }
     },
     "health-orb": {
