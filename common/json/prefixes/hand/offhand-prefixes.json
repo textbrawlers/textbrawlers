@@ -1,0 +1,48 @@
+{
+  "offhand": {
+    "glowing": {
+      "name": "Glowing",
+      "drop-rate": 50,
+      "character-stats": {
+        "burn-chance": 0.04,
+        "burn-duration": 2
+      }
+    },
+    "enhanced": {
+      "name": "Enhanced",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage-multiplier": 1.07
+      }
+    },
+    "arcane": {
+      "name": "Arcane",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage": 2
+      }
+    },
+    "prismatic": {
+      "name": "Prismatic",
+      "drop-rate": 25,
+      "character-stats": {
+        "fashionable": 100
+      }
+    },
+    "dragontouched": {
+      "name": "Dragontouched",
+      "drop-rate": 5,
+      "character-stats": {
+        "crit-chance": 0.1,
+        "crit-damage": 1.5
+      }
+    },
+    "energetic": {
+      "name": "energetic",
+      "drop-rate": 50,
+      "character-stats": {
+        "hit-chance": 0.6
+      }
+    }
+  }
+}
