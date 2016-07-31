@@ -38,7 +38,8 @@
       "character-stats": {
         "max-health": -10,
         "damage": 1
-      }
+      },
+      "description": "*Sigh* ANOTHER fingerprint."
     }
   }
 }

@@ -12,7 +12,8 @@
         },
         "character-stats": {
           "max-health": -10
-        }
+        },
+        "description": "Built-in facepalm protection."
       },
       "bladedancer-chestpiece": {
         "name": "Bladedancer's Chestpiece",
@@ -25,7 +26,8 @@
         },
         "character-stats": {
           "max-health": -10
-        }
+        },
+        "description": "Real armor has spiky shoulderguards."
       },
       "bladedancer-leggings": {
         "name": "Bladedancer's Leggings",
@@ -38,7 +40,8 @@
         },
         "character-stats": {
           "max-health": -10
-        }
+        },
+        "description": "Sleep on my lap. I DARE you."
       },
       "bladedancer-boots": {
         "name": "Bladedancer's Boots",
@@ -51,7 +54,8 @@
         },
         "character-stats": {
           "max-health": -10
-        }
+        },
+        "description": "Stiletto Heels. Literally."
       },
       "bladedancer-glove": {
         "name": "Bladedancer's Glove",
@@ -61,7 +65,8 @@
         "attack-stats": {
           "damage": 1,
           "hit-chance": 2.0
-        }
+        },
+        "description": "Turning slaps from painful to deadly."
       }
     },
     "bonuses": {
