@@ -30,7 +30,7 @@
       "name": "Broadsword",
       "slot": "hand",
       "attack": true,
-      "icon": "itemsword",
+      "icon": "itembroadsword",
       "attack-stats": {
         "damage": 15,
         "hit-chance": 0.5,
