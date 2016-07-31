@@ -8,7 +8,8 @@
       "drop-rate": 125,
       "character-stats": {
         "max-health": 20
-      }
+      },
+      "description": "Apparently, wearing hardened pieces of leather on your chest substantially increases yor resistance to a wide variety of weapons. Who would have guessed?"
     },
     "iron-chestpiece": {
       "name": "Iron Chestpiece",
@@ -18,7 +19,8 @@
       "character-stats": {
         "max-health": 30,
         "block-chance": -0.15
-      }
+      },
+      "description": "When your chesthair simply won't cut it."
     },
     "lamellar-chestpiece": {
       "name": "Lamellar Chestpiece",
@@ -27,7 +29,8 @@
       "icon": "itemchestpiece",
       "character-stats": {
         "block-chance": 0.1
-      }
+      },
+      "description": "Armor covered in small overlapping pieces of metal. Not the most comfortable of things."
     },
     "bedrock-chestplate": {
       "name": "Bedrock Chestplate",
@@ -39,7 +42,7 @@
         "max-health": 60,
         "hit-chance": -0.4
       },
-      "description": "Legends tell tales of a chestpiece so powerful that no mortal man could damage it. This is not that chestpiece."
+      "description": "Legends tell tales of a chestplate so powerful that no mortal man could damage it. This is not that chestplate."
     },
     "linen-tunic": {
       "name": "Linen Tunic",
@@ -49,7 +52,8 @@
       "character-stats": {
         "max-health": -15,
         "hit-chance": 0.2
-      }
+      },
+      "description": "Not as tasty as a Linen Tonic, but slightly more wearable."
     }
   }
 }
