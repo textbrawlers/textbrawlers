@@ -11,7 +11,7 @@
   },
   "hit-chance": {
     "type": "additive",
-    "tooltip": "[percent] Hit Chance",
+    "tooltip": "[fixed] Attacks/Turn",
     "display": true
   },
   "crit-chance": {
