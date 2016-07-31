@@ -1,0 +1,32 @@
+{
+  "wands": {
+    "fireball-wand": {
+      "name": "Wand of Fire",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemfirewand",
+      "attack-stats": {
+        "damage": 7,
+        "hit-chance": 1.0,
+        "crit-chance": 0.5,
+        "crit-damage": 1.8,
+        "burn-chance": 1.0,
+        "burn-duration": 3
+      },
+      "description": "A matchstick is pobably more usefull"
+    },
+    "lightning-orb": {
+      "name": "Wand of Lightning",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemlightningwand",
+      "attack-stats": {
+        "damage": 1,
+        "hit-chance": 10,
+        "crit-chance": 0.05,
+        "crit-damage": 2.0
+      },
+      "description": "Madness?? THIS IS ZEUS!!!"
+    }
+  }
+}

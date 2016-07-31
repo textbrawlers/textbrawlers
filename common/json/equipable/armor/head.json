@@ -40,7 +40,7 @@
       "empower-stats": [{
         "category": "orb",
         "stats": {
-          "damage-multiplier": 0.5,
+          "damage-multiplier": 1.5,
           "crit-chance": 0.05,
           "crit-damage": 1.0
         }

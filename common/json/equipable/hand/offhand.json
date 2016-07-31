@@ -1,31 +1,5 @@
 {
-  "orbs": {
-    "fireball-orb": {
-      "name": "Orb of Fireball",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemorbfireball",
-      "attack-stats": {
-        "damage": 7,
-        "hit-chance": 1.0,
-        "crit-chance": 0.5,
-        "crit-damage": 1.8,
-        "burn-chance": 1.0,
-        "burn-duration": 3
-      }
-    },
-    "lightning-orb": {
-      "name": "Orb of Lightning",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemorblightning",
-      "attack-stats": {
-        "damage": 1,
-        "hit-chance": 10,
-        "crit-chance": 0.05,
-        "crit-damage": 2.0
-      }
-    },
+  "offhands": {
     "death-orb": {
       "name": "Orb of Death",
       "slot": "hand",
@@ -38,13 +12,13 @@
         "crit-damage": 50.0
       }
     },
-    "time-orb": {
-      "name": "Orb of Time",
+    "hourglass": {
+      "name": "Hourglass of Infinite Time",
       "slot": "hand",
       "attack": false,
-      "icon": "itemorbtime",
+      "icon": "itemhourglass",
       "character-stats": {
-        "hit-chance": 1.0,
+        "hit-chance": 0.3,
         "damage": 2
       }
     },
