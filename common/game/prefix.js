@@ -4,9 +4,9 @@ export default class {
   constructor(path, prefix) {
     this.path = path
 
-    prefix.characterStats = prefix.characterStats || []
-    prefix.attackStats = prefix.attackStats || []
-    prefix.empoweredStats = prefix.empoweredStats || []
+    prefix.characterStats = prefix['character-stats'] || []
+    prefix.attackStats = prefix['attack-stats'] || []
+    prefix.empoweredStats = prefix['empowered-stats'] || []
 
     this.characterStats = Object.entries(prefix.characterStats).map(([id, value]) => new Stat(id, value))
     this.attackStats = Object.entries(prefix.attackStats).map(([id, value]) => new Stat(id, value))

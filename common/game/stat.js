@@ -33,10 +33,19 @@ export default class {
       }
     }
     this.value = value
+    this.id = id
 
     this.tooltip = baseStat.tooltip
     this.type = baseStat.type
     this.display = baseStat.display
+  }
+
+  add(value) {
+    if (this.type === 'multiplicative') {
+      this.value *= value
+    } else {
+      this.value += value
+    }
   }
 
   render(statWrapper) {
