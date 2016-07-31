@@ -5,6 +5,7 @@
     "axe-prefixes": "common/json/prefixes/hand/axe-prefixes.json",
     "sword-prefixes": "common/json/prefixes/hand/sword-prefixes.json",
     "knife-prefixes": "common/json/prefixes/hand/knife-prefixes.json",
+    "arrow-prefixes": "common/json/prefixes/hand/knife-prefixes.json",
     "armor-prefixes": "common/json/prefixes/armor/armor-prefixes.json",
     "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
     "feet-prefixes": "common/json/prefixes/armor/feet-prefixes.json",
@@ -31,6 +32,9 @@
     "shield": {
       "shield-prefixes": 100,
       "weird-prefixes": 20
+    },
+    "arrow": {
+      "arrow-prefixes": 100
     },
     "head": {
       "head-prefixes": 100,
