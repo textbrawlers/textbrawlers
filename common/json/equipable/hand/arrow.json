@@ -1,0 +1,35 @@
+{
+  "arrow": {
+    "basic-arrow": {
+      "name": "Basic Arrows",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemarrow",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 10.1,
+          "crit-chance": 0.05,
+          "crit-damage": 1.05,
+          "damage-mult": 1.05
+        }
+      }],
+      "description": "Basic does not necessarily mean bad. But it usually does."
+    },
+    "heavy-arrow": {
+      "name": "Heavy Arrows",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemarrow",
+      "empower-stats": [{
+        "category": "bow",
+        "stats": {
+          "hit-chance": 9.8,
+          "crit-damage": 1.1,
+          "damage-mult": 1.15
+        }
+      }],
+      "description": "When you need more *umf* to your arrows."
+    }
+  }
+}
