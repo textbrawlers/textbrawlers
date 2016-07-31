@@ -38,7 +38,8 @@
       "character-stats": {
         "max-health": 60,
         "hit-chance": -0.4
-      }
+      },
+      "description": "Legends tell tales of a chestpiece so powerful that no mortal man could damage it. This is not that chestpiece."
     },
     "linen-tunic": {
       "name": "Linen Tunic",
