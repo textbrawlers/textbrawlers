@@ -22,8 +22,8 @@
         "damage": 2
       }
     },
-    "stars-orb": {
-      "name": "Orb of the Stars",
+    "starstone": {
+      "name": "Starstone",
       "slot": "hand",
       "attack": true,
       "icon": "itemorbstars",
@@ -32,10 +32,14 @@
         "hit-chance": 2.3,
         "crit-chance": 0.15,
         "crit-damage": 2.7,
-        "burn-chance": 0.95,
+        "burn-chance": 0.2,
         "burn-duration": 4,
         "bleed-chance": 0.2,
-        "bleed-duration": 2
+        "bleed-duration": 2,
+        "stun-chance": 0.2,
+        "poison-duration": 3,
+        "poison-damage": 2,
+        "fashionable": 100
       }
     },
     "health-orb": {
