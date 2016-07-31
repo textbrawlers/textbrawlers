@@ -30,7 +30,7 @@ const routes = (
       <Route path='itembrowser' component={ItemBrowser}/>
       <Route path='itemgen' component={ItemGen}/>
     </Route>
-    <Route path='*' component={NotFound} />
+    <Route path='*' component={NotFound} />a
   </Route>
 )
 

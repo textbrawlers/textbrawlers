@@ -24,6 +24,9 @@ const displayFunctions = {
 export default class {
   constructor(id, value) {
     const baseStat = stats[id]
+    if (!baseStat) {
+      console.warn('Stat is not configured', id)
+    }
     this.value = value
 
     this.tooltip = baseStat.tooltip

@@ -8,7 +8,8 @@
     "common/json/equipable/armor/head.json",
     "common/json/equipable/armor/torso.json",
     "common/json/equipable/armor/legs.json",
-    "common/json/equipable/armor/feet.json"
+    "common/json/equipable/armor/feet.json",
+    "common/json/equipable/hand/orbs.json"
   ],
   "sets": [
     "common/json/equipable/set/set1.json",

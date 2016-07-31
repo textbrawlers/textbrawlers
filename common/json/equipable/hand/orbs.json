@@ -1,0 +1,73 @@
+{
+  "orbs": {
+    "fireball-orb": {
+      "name": "Orb of Fireball",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorbfireball",
+      "attack-stats": {
+        "damage": 7,
+        "hit-chance": 1.6,
+        "crit-chance": 0.5,
+        "crit-damage": 1.8,
+        "burn-chance": 1.0,
+        "burn-duration": 3
+      }
+    },
+    "lightning-orb": {
+      "name": "Orb of Lightning",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorblightning",
+      "attack-stats": {
+        "damage": 1,
+        "hit-chance": 10,
+        "crit-chance": 0.05,
+        "crit-damage": 2.0
+      }
+    },
+    "death-orb": {
+      "name": "Orb of Death",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorbdeath",
+      "attack-stats": {
+        "damage": 1,
+        "hit-chance": 1.0,
+        "crit-chance": 0.01,
+        "crit-damage": 50.0
+      }
+    },
+    "time-orb": {
+      "name": "Orb of Time",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorbtime",
+      "attack-stats": {
+        "damage": 0,
+        "hit-chance": 1.0,
+        "crit-chance": 0,
+        "crit-damage": 0
+      },
+      "character-stats": {
+        "hit-chance": 3.5
+      }
+    },
+    "stars-orb": {
+      "name": "Orb of the Stars",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemorbstars",
+      "attack-stats": {
+        "damage": 2,
+        "hit-chance": 3.7,
+        "crit-chance": 0.15,
+        "crit-damage": 2.7,
+        "burn-chance": 0.95,
+        "burn-duration": 4,
+        "bleed-chance": 0.2,
+        "bleed-duration": 2
+      }
+    }
+  }
+}

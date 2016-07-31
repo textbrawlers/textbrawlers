@@ -83,5 +83,15 @@
     "type": "multiplicative",
     "tooltip": "Every successful attack adds a stack of 'Fury'. Each stack of 'Fury' gives [plus-mult] Damage",
     "display": false
+  },
+  "burn-chance": {
+    "type": "additive",
+    "tooltip": "[percent] chance of igniting your opponent",
+    "display": true
+  },
+  "burn-duration": {
+    "type": "additive",
+    "tooltip": "[fixed] Burn Duration",
+    "display": true
   }
 }
