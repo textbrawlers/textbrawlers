@@ -110,6 +110,7 @@ SystemJS.config({
     'babel-plugin-transform-runtime': 'npm:babel-plugin-transform-runtime@6.12.0',
     'babel-preset-es2015': 'npm:babel-preset-es2015@6.9.0',
     'babel-preset-es2017': 'npm:babel-preset-es2017@1.6.1',
+    'bcryptjs': 'npm:bcryptjs@2.3.0',
     'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
     'child_process': 'github:jspm/nodelibs-child_process@0.2.0-alpha',
     'constants': 'github:jspm/nodelibs-constants@0.2.0-alpha',

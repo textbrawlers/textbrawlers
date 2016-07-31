@@ -23,6 +23,7 @@
       "babel-plugin-transform-runtime": "npm:babel-plugin-transform-runtime@^6.12.0",
       "babel-preset-es2015": "npm:babel-preset-es2015@^6.9.0",
       "babel-preset-es2017": "npm:babel-preset-es2017@^1.6.1",
+      "bcryptjs": "npm:bcryptjs@^2.3.0",
       "core-js": "npm:core-js@^2.4.1",
       "dotenv": "npm:dotenv@^2.0.0",
       "graceful-fs": "npm:graceful-fs@^4.1.4",
@@ -247,4 +248,4 @@
     "url": "https://github.com/ineentho/textspel/issues"
   },
   "homepage": "https://github.com/ineentho/textspel#readme"
-}
+}
