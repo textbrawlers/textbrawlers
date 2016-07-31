@@ -26,6 +26,11 @@ export default class {
     const baseStat = stats[id]
     if (!baseStat) {
       console.warn('Stat is not configured', id)
+      baseStat = {
+        tooltip: `Missing stat: ${id}`,
+        type: 'additive',
+        display: false
+      }
     }
     this.value = value
 

@@ -52,11 +52,18 @@ function getRandom(droptable) {
 
 function getRandomPrefixes(possiblePrefixes, baseItem) {
   const category = baseItem.category
-  const possible = Object.entries(possiblePrefixes[category] || {})
+  const possible = Object.entries(possiblePrefixes[category] || {}).map(([type, chance]) => ({type, chance}))
 
-  //if (possible
+  if (possible.length === 0) {
+    console.warn(`${category} has no possible prefixes`)
+    return []
+  }
 
-  //  Object.entries(possible
+  const totalChance = possible.reduce((val, item) => val + item.chance, 0)
+  possible.forEach(item => { item.chance /= totalChance })
+  const prefixType = getRandom(possible)
+
+
 }
 
 export async function generateItem() {
