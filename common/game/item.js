@@ -26,12 +26,17 @@ export default class Item {
 
     this.empoweredStats = []
     this.baseEmpoweredStats.concat(...this.prefixes.map(prefix => prefix.empowredStats)).forEach(empowered => {
+      if (empowered) {
+        const exisitingEmpower = this.empoweredStats.find(emp => emp.category === empowred.category)
 
+        if (exisitingEmpower) {
+          exisitingEmpower.stats = this.mergeStats(exisitingEmpower.concat(empowered.stats))
+        } else {
+          this.empoweredStats.push(empowered)
+        }
+      }
     })
 
-
-
-    console.log('cs', this.characterStats, this.prefixes)
 
     this.rarity = rarity || 'common'
 
@@ -42,7 +47,6 @@ export default class Item {
   mergeStats(stats) {
     const outStats = []
     stats.forEach(stat => {
-      console.log('stat', stat)
       const existingStat = outStats.find(s => s.id === stat.id)
       if (existingStat) {
         existingStat.add(stat.value)
