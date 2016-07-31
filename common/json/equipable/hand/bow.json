@@ -12,7 +12,7 @@
         "crit-damage": 1.8,
         "ranged": true
       },
-      "description": "It's actually just a slightly shorter longbow. The name Shortbow is just marketing."
+      "description": "It's actually just a slightly shorter Longbow. The name Shortbow is just marketing."
     },
     "longbow": {
       "name": "Longbow",
