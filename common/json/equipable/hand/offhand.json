@@ -20,7 +20,8 @@
       "character-stats": {
         "hit-chance": 0.3,
         "damage": 2
-      }
+      },
+      "description":"You can't see me, my time is now!"
     },
     "starstone": {
       "name": "Starstone",
