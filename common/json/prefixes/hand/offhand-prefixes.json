@@ -1,10 +1,24 @@
 {
   "damage": {
+    "reduced": {
+      "name": "Reduced",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage-multiplier": -0.07
+      }
+    },
     "enhanced": {
       "name": "Enhanced",
       "drop-rate": 50,
       "character-stats": {
         "damage-multiplier": 1.07
+      }
+    },
+    "demonic": {
+      "name": "Demonic",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage": -2
       }
     },
     "arcane": {
@@ -16,6 +30,13 @@
     }
   },
   "hit-chance": {
+    "draining": {
+      "name": "Draining",
+      "drop-rate": 50,
+      "character-stats": {
+        "hit-chance": -0.6
+      }
+    },
     "energetic": {
       "name": "Energetic",
       "drop-rate": 50,
@@ -31,11 +52,32 @@
       "character-stats": {
         "crit-chance": 0.05
       }
+    },
+    "clumsy": {
+      "name": "Clumsy",
+      "drop-rate": 50,
+      "character-stats": {
+        "crit-chance": -0.05
+      }
     }
   },
   "crit-damage": {
+    "weak": {
+      "name": "Weak",
+      "drop-rate": 50,
+      "character-stats": {
+        "crit-damage": -0.17
+      }
+    },
     "powerful": {
       "name": "Powerful",
+      "drop-rate": 50,
+      "character-stats": {
+        "crit-damage": 0.10
+      }
+    },
+    "overpowered": {
+      "name": "Overpowered",
       "drop-rate": 50,
       "character-stats": {
         "crit-damage": 0.25
@@ -75,7 +117,7 @@
       "name": "Prismatic",
       "drop-rate": 25,
       "character-stats": {
-        "fashionable": 10
+        "fashionable": 0.5
       }
     }
   }
