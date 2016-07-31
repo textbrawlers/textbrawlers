@@ -38,7 +38,7 @@
       }
     },
     "energetic": {
-      "name": "energetic",
+      "name": "Energetic",
       "drop-rate": 50,
       "character-stats": {
         "hit-chance": 0.6
