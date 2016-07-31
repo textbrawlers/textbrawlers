@@ -28,7 +28,7 @@
       "name": "Starstone",
       "slot": "hand",
       "attack": true,
-      "icon": "itemorbstars",
+      "icon": "itemstarstone",
       "drop-rate": 25,
       "character-stats": {
         "damage-multiplier": 1.05,
