@@ -57,7 +57,7 @@
       "name": "Cursed Sword",
       "slot": "hand",
       "attack": true,
-      "icon": "itemsword",
+      "icon": "itemcursedsword",
       "drop-rate": 10,
       "attack-stats": {
         "damage": 40,
