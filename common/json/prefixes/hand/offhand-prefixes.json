@@ -1,13 +1,5 @@
 {
-  "offhand": {
-    "glowing": {
-      "name": "Glowing",
-      "drop-rate": 50,
-      "character-stats": {
-        "burn-chance": 0.04,
-        "burn-duration": 2
-      }
-    },
+  "damage": {
     "enhanced": {
       "name": "Enhanced",
       "drop-rate": 50,
@@ -21,14 +13,52 @@
       "character-stats": {
         "damage": 2
       }
-    },
-    "prismatic": {
-      "name": "Prismatic",
-      "drop-rate": 25,
+    }
+  },
+  "hit-chance": {
+    "energetic": {
+      "name": "Energetic",
+      "drop-rate": 50,
       "character-stats": {
-        "fashionable": 100
+        "hit-chance": 0.6
+      }
+    }
+  },
+  "crit-chance": {
+    "lucky": {
+      "name": "lucky",
+      "drop-rate": 50,
+      "character-stats": {
+        "crit-chance": 0.05
+      }
+  },
+  "crit-damage": {
+    "powerful": {
+      "name": "Powerful",
+      "drop-rate": 50,
+      "character-stats": {
+        "crit-damage": 1.75
+    }
+  },
+  "burn": {
+    "glowing": {
+      "name": "Glowing",
+      "drop-rate": 50,
+      "character-stats": {
+        "burn-chance": 0.02,
+        "burn-duration": 2
       }
     },
+    "fiery": {
+      "name": "Fiery",
+      "drop-rate": 50,
+      "character-stats": {
+        "burn-chance": 0.04,
+        "burn-duration": 3
+      }
+    }
+  },
+  "special": {
     "dragontouched": {
       "name": "Dragontouched",
       "drop-rate": 5,
@@ -36,12 +66,14 @@
         "crit-chance": 0.1,
         "crit-damage": 1.5
       }
-    },
-    "energetic": {
-      "name": "Energetic",
-      "drop-rate": 50,
+    }
+  },
+  "worthless": {
+    "prismatic": {
+      "name": "Prismatic",
+      "drop-rate": 25,
       "character-stats": {
-        "hit-chance": 0.6
+        "fashionable": 100
       }
     }
   }
