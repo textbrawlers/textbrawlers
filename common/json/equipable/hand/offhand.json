@@ -1,10 +1,10 @@
 {
   "offhands": {
-    "death-orb": {
-      "name": "Orb of Death",
+    "skull-of-death": {
+      "name": "Skull of Death",
       "slot": "hand",
       "attack": true,
-      "icon": "itemorbdeath",
+      "icon": "itemskull",
       "attack-stats": {
         "damage": 1,
         "hit-chance": 1.0,
