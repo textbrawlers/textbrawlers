@@ -30,7 +30,7 @@ export default class extends React.Component {
 
   async genMany(n) {
     const items = []
-    for (let i = 0; i < n || 100; i++) {
+    for (let i = 0; i < (n || 100); i++) {
       items.push(await generateItem())
     }
     this.setState({ items })
