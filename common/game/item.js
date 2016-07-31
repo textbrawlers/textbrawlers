@@ -15,6 +15,7 @@ export default class Item {
     this.rarity = rarity || 'common'
 
     this.category = baseItem.category
+    this.description = baseItem.description
   }
 
   get image() {

@@ -1,0 +1,61 @@
+{
+  "prefixes": {
+    "shield-prefixes": "common/json/prefixes/hand/shield-prefixes.json",
+    "hammer-prefixes": "common/json/prefixes/hand/shield-prefixes.json",
+    "axe-prefixes": "common/json/prefixes/hand/axe-prefixes.json",
+    "sword-prefixes": "common/json/prefixes/hand/sword-prefixes.json",
+    "knife-prefixes": "common/json/prefixes/hand/knife-prefixes.json",
+    "armor-prefixes": "common/json/prefixes/armor/armor-prefixes.json",
+    "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
+    "feet-prefixes": "common/json/prefixes/armor/feet-prefixes.json",
+    "legs-prefixes": "common/json/prefixes/armor/legs-prefixes.json",
+    "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json",
+    "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json"
+  },
+  "possible": {
+    "axe": {
+      "axe-prefixes": 100,
+      "weird-prefixes": 20
+    },
+    "sword": {
+      "sword-prefixes": 100,
+      "weird-prefixes": 20
+    },
+    "knife": {
+      "knife-prefixes": 100,
+      "weird-prefixes": 20
+    },
+    "hammer": {
+      "hammer-prefixes": 100,
+      "weird-prefixes": 20
+    },
+    "shield": {
+      "shield-prefixes": 100,
+      "weird-prefixes": 20
+    },
+    "head": {
+      "head-prefixes": 100,
+      "armor-prefixes": 100,
+      "weird-prefixes-armor": 20,
+      "troll-prefixes": 1
+    },
+    "torso": {
+      "torso-prefixes": 100,
+      "armor-prefixes": 100,
+      "weird-prefixes-armor": 20,
+      "troll-prefixes": 1
+    },
+    "legs": {
+      "legs-prefixes": 100,
+      "armor-prefixes": 100,
+      "weird-prefixes-armor": 20,
+      "troll-prefixes": 1
+    },
+    "feet": {
+      "feet-prefixes": 100,
+      "armor-prefixes": 100,
+      "weird-prefixes-armor": 20,
+      "troll-prefixes": 1
+    }
+  }
+}

@@ -12,5 +12,6 @@ export default class BaseItem {
     this.id = jsonItem.id
     this.category = jsonItem.category
     this.dropRate = jsonItem['drop-rate']
+    this.description = jsonItem.description
   }
 }
