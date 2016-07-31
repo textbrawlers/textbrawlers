@@ -4,7 +4,7 @@
       "name": "Reduced",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": -0.07
+        "damage-multiplier": 0.93
       }
     },
     "enhanced": {
@@ -117,7 +117,7 @@
       "name": "Prismatic",
       "drop-rate": 25,
       "character-stats": {
-        "fashionable": 0.5
+        "fashionable": 1.5
       }
     }
   }
