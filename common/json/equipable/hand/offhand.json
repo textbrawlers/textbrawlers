@@ -30,28 +30,22 @@
       "attack": true,
       "icon": "itemorbstars",
       "drop-rate": 25,
-      "attack-stats": {
-        "damage": 2,
-        "hit-chance": 0.9,
-        "crit-chance": 0.15,
-        "crit-damage": 2.7,
-        "burn-chance": 0.2,
-        "burn-duration": 4,
-        "bleed-chance": 0.2,
-        "bleed-duration": 2,
-        "stun-chance": 0.2,
-        "poison-duration": 3,
-        "poison-damage": 2,
-        "fashionable": 2
+      "character-stats": {
+        "damage-multiplier":1.05,
+        "hit-chance": 0.1,
+        "bleed-chance": 0.1,
+        "bleed-duration": 1,
+        "fashionable": 1.4
       }
     },
-    "health-orb": {
+    "orb-of-health": {
       "name": "Orb of Health",
       "slot": "hand",
       "attack": false,
       "icon": "itemorbtime",
       "character-stats": {
-        "max-health": 25
+        "max-health": 30,
+        "max-health-multiplier": 1.15
       }
     }
   }
