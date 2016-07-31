@@ -4,7 +4,7 @@
       "name": "Wooden Buckler",
       "slot": "hand",
       "attack": false,
-      "icon": "itemshield",
+      "icon": "itemwoodbuckler",
       "character-stats": {
         "block-chance": 0.2,
         "block-multiplier": 0.65
