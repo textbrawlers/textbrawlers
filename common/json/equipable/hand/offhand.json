@@ -31,13 +31,13 @@
       "icon": "itemorbstars",
       "drop-rate": 25,
       "character-stats": {
-        "damage-multiplier":1.05,
+        "damage-multiplier": 1.05,
         "hit-chance": 0.1,
-        "bleed-chance": 0.1,
-        "bleed-duration": 1,
+        "burn-chance": 0.1,
+        "burn-duration": 3,
         "fashionable": 1.4
       },
-      "description":"By the power of the moon!"
+      "description":"By the power of the stars!"
     },
     "crystal-of-vigor": {
       "name": "Crystal of Vigor",
