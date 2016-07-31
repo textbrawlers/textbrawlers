@@ -3,40 +3,40 @@
     "broken": {
       "name": "Broken",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "damage-multiplier": 0.7
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "damage-multiplier": 0.8
       }
     },
     "blunt": {
       "name": "Blunt",
-      "stats": {
+      "attack-stats": {
         "damage-multiplier": 0.9
       }
     },
     "sharp": {
       "name": "Sharp",
-      "stats": {
+      "attack-stats": {
         "damage-multiplier": 1.1
       }
     },
     "ruthless": {
       "name": "Ruthless",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "damage-multiplier": 1.2
       }
     },
     "deadly": {
       "name": "Deadly",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "damage-multiplier": 1.3
       }
     }
@@ -46,40 +46,40 @@
     "slow": {
       "name": "Slow",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "hit-chance": -0.5
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "hit-chance": -0.3
       }
     },
     "heavy": {
       "name": "Heavy",
-      "stats": {
+      "attack-stats": {
         "hit-chance": -0.1
       }
     },
     "nimble": {
       "name": "Nimble",
-      "stats": {
+      "attack-stats": {
         "hit-chance": 0.1
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "hit-chance": 0.3
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "hit-chance": 0.5
       }
     }
@@ -89,40 +89,40 @@
     "inaccurate": {
       "name": "Inaccurate",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "crit-chance": -0.6
       }
     },
     "inexact": {
       "name": "Inexact",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "crit-chance": -0.4
       }
     },
     "uncertain": {
       "name": "Uncertain",
-      "stats": {
+      "attack-stats": {
         "crit-chance": -0.2
       }
     },
     "aiming": {
       "name": "Aiming",
-      "stats": {
+      "attack-stats": {
         "crit-chance": 0.2
       }
     },
     "piercing": {
       "name": "Piercing",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "crit-chance": 0.4
       }
     },
     "precise": {
       "name": "Precise",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "crit-chance": 0.6
       }
     }
@@ -132,40 +132,40 @@
     "harmless": {
       "name": "Harmless",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "crit-damage": -0.6
       }
     },
     "kind": {
       "name": "Kind",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "crit-damage": -0.4
       }
     },
     "safe": {
       "name": "Safe",
-      "stats": {
+      "attack-stats": {
         "crit-damage": -0.2
       }
     },
     "crushing": {
       "name": "Crushing",
-      "stats": {
+      "attack-stats": {
         "crit-damage": 0.2
       }
     },
     "demolishing": {
       "name": "Demolishing",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "crit-damage": 0.4
       }
     },
     "obliterating": {
       "name": "Obliterating",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "crit-damage": 0.6
       }
     }
@@ -174,21 +174,21 @@
   "bleed-chance": {
     "cutting": {
       "name": "Cutting",
-      "stats": {
+      "attack-stats": {
         "bleed-chance": 0.1
       }
     },
     "slicing": {
       "name": "Slicing",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "bleed-chance": 0.2
       }
     },
     "slashing": {
       "name": "Slashing",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "bleed-chance": 0.3
       }
     }
@@ -197,21 +197,21 @@
   "bleed-duration": {
     "ripping": {
       "name": "Ripping",
-      "stats": {
+      "attack-stats": {
         "bleed-duration": 2
       }
     },
     "tearing": {
       "name": "Tearing",
       "drop-rate": 75,
-      "stats": {
+      "attack-stats": {
         "bleed-duration": 3
       }
     },
     "rupturing": {
       "name": "Rupturing",
       "drop-rate": 50,
-      "stats": {
+      "attack-stats": {
         "bleed-duration": 4
       }
     }
@@ -221,7 +221,7 @@
     "oversized": {
       "name": "Oversized",
       "drop-rate": 25,
-      "stats": {
+      "attack-stats": {
         "damage-multiplier": 1.6,
         "hit-chance": -0.4
       }
