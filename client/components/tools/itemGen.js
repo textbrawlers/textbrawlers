@@ -19,12 +19,21 @@ export default class extends React.Component {
     })
 
     this.genitem = this.genitem.bind(this)
+    this.genMany = this.genMany.bind(this)
   }
 
   async genitem() {
     const item = await generateItem()
 
-    this.setState({ item })
+    this.setState({ items: [item] })
+  }
+
+  async genMany() {
+    const items = []
+    for (let i = 0; i < 100; i++) {
+      items.push(await generateItem())
+    }
+    this.setState({ items })
   }
   
   render() {
@@ -37,19 +46,28 @@ export default class extends React.Component {
 
     let invSlot
 
-    if (this.state.item) {
-      invSlot = (
-        <div>
-          <InventorySlot>
-            <InvItem item={this.state.item} />
-          </InventorySlot>
-        </div>
-      )
+    const containerStyle = {
+      margin: 2,
+      display: 'inline-block'
+    }
+
+    if (this.state.items) {
+      invSlot = this.state.items.map(item => {
+        return (
+          <div style={containerStyle}>
+            <InventorySlot>
+              <InvItem item={item} />
+            </InventorySlot>
+          </div>
+        )
+      })
     }
 
     return (
       <div>
         <button onClick={this.genitem}>Generate</button>
+        <button onClick={this.genMany}>Generate 100</button>
+        <br />
         {invSlot}
         <table>
           <tbody>{table}</tbody>
