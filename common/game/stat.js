@@ -23,7 +23,7 @@ const displayFunctions = {
 
 export default class {
   constructor(id, value) {
-    const baseStat = stats[id]
+    let baseStat = stats[id]
     if (!baseStat) {
       console.warn('Stat is not configured', id)
       baseStat = {
