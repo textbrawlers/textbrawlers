@@ -38,11 +38,11 @@
         "fashionable": 1.4
       }
     },
-    "orb-of-health": {
-      "name": "Orb of Health",
+    "crystal-of-vigor": {
+      "name": "Crystal of Vigor",
       "slot": "hand",
       "attack": false,
-      "icon": "itemorbtime",
+      "icon": "itemvigorcrystal",
       "character-stats": {
         "max-health": 30,
         "max-health-multiplier": 1.15
