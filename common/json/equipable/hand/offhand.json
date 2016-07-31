@@ -32,7 +32,7 @@
       "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
-        "hit-chance": 2.3,
+        "hit-chance": 0.9,
         "crit-chance": 0.15,
         "crit-damage": 2.7,
         "burn-chance": 0.2,
