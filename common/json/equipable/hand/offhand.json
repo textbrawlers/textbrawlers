@@ -17,6 +17,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemhourglass",
+      "drop-rate": 1,
       "character-stats": {
         "hit-chance": 0.3,
         "damage": 2
@@ -27,6 +28,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemorbstars",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
         "hit-chance": 2.3,
