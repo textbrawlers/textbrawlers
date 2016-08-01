@@ -5,6 +5,7 @@
     "axe-prefixes": "common/json/prefixes/hand/axe-prefixes.json",
     "sword-prefixes": "common/json/prefixes/hand/sword-prefixes.json",
     "knife-prefixes": "common/json/prefixes/hand/knife-prefixes.json",
+    "bow-prefixes": "common/json/prefixes/hand/bow-prefixes.json",
     "arrow-prefixes": "common/json/prefixes/hand/arrow-prefixes.json",
     "armor-prefixes": "common/json/prefixes/armor/armor-prefixes.json",
     "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
