@@ -27,7 +27,7 @@ export default class Item {
     this.empoweredStats = []
     this.baseEmpoweredStats.concat(...this.prefixes.map(prefix => prefix.empowredStats)).forEach(empowered => {
       if (empowered) {
-        const exisitingEmpower = this.empoweredStats.find(emp => emp.category === empowred.category)
+        const exisitingEmpower = this.empoweredStats.find(emp => emp.category === empowered.category)
 
         if (exisitingEmpower) {
           exisitingEmpower.stats = this.mergeStats(exisitingEmpower.concat(empowered.stats))
