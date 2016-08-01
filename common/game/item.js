@@ -1,20 +1,19 @@
 import 'core-js/fn/object/entries'
 import Stat from './stat.js'
+import items from 'common/items/items.js'
 
 export default class Item {
   constructor(baseItem, { prefixes = [], rarity } = {}) {
-    this.baseItem = baseItem
-
     this.prefixes = prefixes
 
     const prefixList = prefixes.map(prefix => prefix.name).join(' ')
 
-    this.displayName = `${prefixList} ${this.baseItem.name}`
+    this.displayName = `${prefixList} ${baseItem.name}`
 
-    this.baseCharacterStats = Object.entries(this.baseItem.characterStats).map(([id, value]) => new Stat(id, value))
-    this.baseAttackStats = Object.entries(this.baseItem.attackStats).map(([id, value]) => new Stat(id, value))
+    this.baseCharacterStats = Object.entries(baseItem.characterStats).map(([id, value]) => new Stat(id, value))
+    this.baseAttackStats = Object.entries(baseItem.attackStats).map(([id, value]) => new Stat(id, value))
     
-    this.baseEmpoweredStats = this.baseItem.empoweredStats.map(empowerConfig => {
+    this.baseEmpoweredStats = baseItem.empoweredStats.map(empowerConfig => {
       return {
         stats: Object.entries(empowerConfig.stats).map(([id, value]) => new Stat(id, value)),
         category: empowerConfig.category
@@ -35,11 +34,14 @@ export default class Item {
       }
     })
 
+    this.icon = baseItem.icon
+
 
     this.rarity = rarity || 'common'
 
     this.category = baseItem.category
     this.description = baseItem.description
+    this.id = baseItem.id
   }
 
   mergeStats(stats) {
@@ -57,6 +59,21 @@ export default class Item {
   }
 
   get image() {
-    return `/client/png/${this.baseItem.icon}.png`
+    return `/client/png/${this.icon}.png`
+  }
+
+  static async fromJSON(jsonItem) {
+    const { items } = await items()
+
+    const baseItem = items.filter(item => item.id === jsonItem.id)
+
+    if (!baseItem) {
+      console.warn(`Tried to create item of type ${jsonItem.id}`)
+      return
+    }
+
+    return new Item(baseItem, {
+      rarity: baseItem.rarity
+    })
   }
 }
