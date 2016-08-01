@@ -1,0 +1,173 @@
+{
+  "damage": {
+    "broken": {
+      "name": "Broken",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage-multiplier": 0.7
+      }
+    },
+    "rusty": {
+      "name": "Poorly-made",
+      "drop-rate": 75,
+      "attack-stats": {
+        "damage-multiplier": 0.8
+      }
+    },
+    "blunt": {
+      "name": "Non-elastic",
+      "attack-stats": {
+        "damage-multiplier": 0.9
+      }
+    },
+    "sharp": {
+      "name": "Elastic",
+      "attack-stats": {
+        "damage-multiplier": 1.1
+      }
+    },
+    "ruthless": {
+      "name": "Ruthless",
+      "drop-rate": 75,
+      "attack-stats": {
+        "damage-multiplier": 1.2
+      }
+    },
+    "deadly": {
+      "name": "Deadly",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage-multiplier": 1.3
+      }
+    }
+  },
+
+  "hit-chance": {
+    "slow": {
+      "name": "Slow",
+      "drop-rate": 50,
+      "attack-stats": {
+        "hit-chance": -0.5
+      }
+    },
+    "lazy": {
+      "name": "Lazy",
+      "drop-rate": 75,
+      "attack-stats": {
+        "hit-chance": -0.3
+      }
+    },
+    "heavy": {
+      "name": "Heavy",
+      "attack-stats": {
+        "hit-chance": -0.1
+      }
+    },
+    "nimble": {
+      "name": "Nimble",
+      "attack-stats": {
+        "hit-chance": 0.1
+      }
+    },
+    "quick": {
+      "name": "Quick",
+      "drop-rate": 75,
+      "attack-stats": {
+        "hit-chance": 0.3
+      }
+    },
+    "rapid": {
+      "name": "Rapid",
+      "drop-rate": 50,
+      "attack-stats": {
+        "hit-chance": 0.5
+      }
+    }
+  },
+
+  "crit-chance": {
+    "inaccurate": {
+      "name": "Inaccurate",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-chance": -0.6
+      }
+    },
+    "inexact": {
+      "name": "Inexact",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-chance": -0.4
+      }
+    },
+    "uncertain": {
+      "name": "Uncertain",
+      "attack-stats": {
+        "crit-chance": -0.2
+      }
+    },
+    "aiming": {
+      "name": "Aiming",
+      "attack-stats": {
+        "crit-chance": 0.2
+      }
+    },
+    "piercing": {
+      "name": "Accurate",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-chance": 0.4
+      }
+    },
+    "precise": {
+      "name": "Precise",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-chance": 0.6
+      }
+    }
+  },
+
+  "crit-damage": {
+    "harmless": {
+      "name": "Harmless",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-damage": -0.6
+      }
+    },
+    "kind": {
+      "name": "Kind",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-damage": -0.4
+      }
+    },
+    "safe": {
+      "name": "Safe",
+      "attack-stats": {
+        "crit-damage": -0.2
+      }
+    },
+    "crushing": {
+      "name": "Crushing",
+      "attack-stats": {
+        "crit-damage": 0.2
+      }
+    },
+    "demolishing": {
+      "name": "Demolishing",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-damage": 0.4
+      }
+    },
+    "obliterating": {
+      "name": "Obliterating",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-damage": 0.6
+      }
+    }
+  }
+}
