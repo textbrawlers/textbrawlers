@@ -33,7 +33,7 @@
       "name": "Linen Trousers",
       "slot": "legs",
       "attack": false,
-      "icon": "itempants",
+      "icon": "itemlinenpants",
       "character-stats": {
         "max-health": -10,
         "hit-chance": 0.1

@@ -26,18 +26,17 @@
       "attack": false,
       "icon": "itemlamellarshoes",
       "character-stats": {
-        "block-chance": 0.05
+        "block-chance": 0.1
       }
     },
     "boots-of-the-wind": {
       "name": "Boots of the Wind",
       "slot": "feet",
       "attack": false,
-      "icon": "itemshoes",
+      "icon": "itemwindshoes",
       "drop-rate": 50,
       "character-stats": {
-        "max-health": -25,
-        "block-chance": 0.1,
+        "max-health-multiplier": 0.9,
         "hit-chance": 0.1
       },
       "description": "Lighter than air, and just as protective!"

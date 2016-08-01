@@ -36,7 +36,7 @@
       "name": "Bedrock Chestplate",
       "slot": "torso",
       "attack": false,
-      "icon": "itemchestpiece",
+      "icon": "itembedrockchestpiece",
       "drop-rate": 75,
       "character-stats": {
         "max-health": 60,
@@ -48,7 +48,7 @@
       "name": "Linen Tunic",
       "slot": "torso",
       "attack": false,
-      "icon": "itemchestpiece",
+      "icon": "itemlinenchestpiece",
       "character-stats": {
         "max-health": -15,
         "hit-chance": 0.2

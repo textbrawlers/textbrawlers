@@ -26,14 +26,14 @@
       "attack": false,
       "icon": "itemlamellarhelmet",
       "character-stats": {
-        "block-chance": 0.05
+        "block-chance": 0.1
       }
     },
-    "arcmages-crown": {
-      "name": "Arcmage's Crown",
+    "archmages-crown": {
+      "name": "Archmage's Crown",
       "slot": "head",
       "attack": false,
-      "icon": "itemhelmet",
+      "icon": "itemcrownhelmet",
       "character-stats": {
         "block-chance": 0.01
       },
