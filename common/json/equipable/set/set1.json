@@ -5,7 +5,7 @@
         "name": "Furious Helmet",
         "slot": "head",
         "attack": false,
-        "icon": "itemhelmet",
+        "icon": "itemfurioushelmet",
         "character-stats": {
           "max-health": 20,
           "damage": -1
@@ -15,7 +15,7 @@
         "name": "Furious Chestpiece",
         "slot": "torso",
         "attack": false,
-        "icon": "itemchestpiece",
+        "icon": "itemfuriouschestpiece",
         "character-stats": {
           "max-health": 20,
           "damage": -1
@@ -25,7 +25,7 @@
         "name": "Furious Leggings",
         "slot": "legs",
         "attack": false,
-        "icon": "itempants",
+        "icon": "itemfuriouspants",
         "character-stats": {
           "max-health": 20,
           "damage": -1
@@ -35,7 +35,7 @@
         "name": "Furious Boots",
         "slot": "feet",
         "attack": false,
-        "icon": "itemshoes",
+        "icon": "itemfuriousshoes",
         "character-stats": {
           "max-health": 20,
           "damage": -1
@@ -45,7 +45,7 @@
         "name": "Furious Sword",
         "slot": "hand",
         "attack": true,
-        "icon": "itemsword",
+        "icon": "itemfurioussword",
         "attack-stats": {
           "damage": 5,
           "hit-chance": 0.5
