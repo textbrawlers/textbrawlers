@@ -34,6 +34,10 @@
       "shield-prefixes": 100,
       "weird-prefixes": 20
     },
+    "bow": {
+      "bow-prefixes": 100,
+      "weird-prefixes": 20
+    },
     "arrow": {
       "arrow-prefixes": 100
     },
