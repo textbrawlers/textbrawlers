@@ -4,7 +4,7 @@
       "name": "Leather Shirt",
       "slot": "torso",
       "attack": false,
-      "icon": "itemchestpiece",
+      "icon": "itemleatherchestpiece",
       "drop-rate": 125,
       "character-stats": {
         "max-health": 20
@@ -15,7 +15,7 @@
       "name": "Iron Chestpiece",
       "slot": "torso",
       "attack": false,
-      "icon": "itemchestpiece",
+      "icon": "itemironchestpiece",
       "character-stats": {
         "max-health": 30,
         "block-chance": -0.15

@@ -4,7 +4,7 @@
       "name": "Leather Cap",
       "slot": "head",
       "attack": false,
-      "icon": "itemhelmet",
+      "icon": "itemleatherhelmet",
       "drop-rate": 125,
       "character-stats": {
         "max-health": 10
@@ -14,7 +14,7 @@
       "name": "Iron Helmet",
       "slot": "head",
       "attack": false,
-      "icon": "itemhelmet",
+      "icon": "itemironhelmet",
       "character-stats": {
         "max-health": 20,
         "block-chance": -0.1

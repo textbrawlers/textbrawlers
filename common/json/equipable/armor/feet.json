@@ -4,7 +4,7 @@
       "name": "Leather Shoes",
       "slot": "feet",
       "attack": false,
-      "icon": "itemshoes",
+      "icon": "itemleathershoes",
       "drop-rate": 125,
       "character-stats": {
         "max-health": 10
@@ -14,7 +14,7 @@
       "name": "Iron Greaves",
       "slot": "feet",
       "attack": false,
-      "icon": "itemshoes",
+      "icon": "itemironshoes",
       "character-stats": {
         "max-health": 20,
         "block-chance": -0.1
