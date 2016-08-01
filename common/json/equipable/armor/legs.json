@@ -8,7 +8,8 @@
       "drop-rate": 125,
       "character-stats": {
         "max-health": 15
-      }
+      },
+      "description": "Cow pants!"
     },
     "iron-leggings": {
       "name": "Iron Leggings",
@@ -18,16 +19,19 @@
       "character-stats": {
         "max-health": 30,
         "block-chance": -0.15
-      }
+      },
+      "description": "A piece of your standard iron attire. More specifically the piece for your legs."
     },
     "lamellar-leggings": {
       "name": "Lamellar Leggings",
       "slot": "legs",
       "attack": false,
       "icon": "itemlamellarpants",
+      "drop-rate": 75,
       "character-stats": {
         "block-chance": 0.1
-      }
+      },
+      "description": "Flexible!"
     },
     "linen-trousers": {
       "name": "Linen Trousers",
@@ -37,7 +41,8 @@
       "character-stats": {
         "max-health": -10,
         "hit-chance": 0.1
-      }
+      },
+      "description": "A pair of flimsy linen trousers. Protection sold separately."
     }
   }
 }

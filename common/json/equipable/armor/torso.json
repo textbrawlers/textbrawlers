@@ -20,13 +20,14 @@
         "max-health": 30,
         "block-chance": -0.15
       },
-      "description": "When your chesthair simply won't cut it."
+      "description": "A piece of your standard iron attire. More specifically the piece for your chest."
     },
     "lamellar-chestpiece": {
       "name": "Lamellar Chestpiece",
       "slot": "torso",
       "attack": false,
       "icon": "itemlamellarchestpiece",
+      "drop-rate": 75,
       "character-stats": {
         "block-chance": 0.1
       },
@@ -37,7 +38,7 @@
       "slot": "torso",
       "attack": false,
       "icon": "itembedrockchestpiece",
-      "drop-rate": 75,
+      "drop-rate": 25,
       "character-stats": {
         "max-health": 60,
         "hit-chance": -0.4

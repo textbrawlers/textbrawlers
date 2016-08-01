@@ -8,7 +8,8 @@
       "drop-rate": 125,
       "character-stats": {
         "max-health": 10
-      }
+      },
+      "description": "A leathery piece of headwear. Protection is not assured."
     },
     "iron-helmet": {
       "name": "Iron Helmet",
@@ -18,22 +19,26 @@
       "character-stats": {
         "max-health": 20,
         "block-chance": -0.1
-      }
+      },
+      "description": "A piece of your standard iron attire. More specifically the piece for your head."
     },
     "lamellar-helmet": {
       "name": "Lamellar Helmet",
       "slot": "head",
       "attack": false,
       "icon": "itemlamellarhelmet",
+      "drop-rate": 75,
       "character-stats": {
         "block-chance": 0.1
-      }
+      },
+      "description": "Someone decided to make a lamellar helmet. Someone is not very smart."
     },
     "archmages-crown": {
       "name": "Archmage's Crown",
       "slot": "head",
       "attack": false,
       "icon": "itemcrownhelmet",
+      "drop-rate": 10,
       "character-stats": {
         "block-chance": 0.01
       },
@@ -44,7 +49,8 @@
           "crit-chance": 0.05,
           "crit-damage": 1.0
         }
-      }]
+      }],
+      "description": "A long lost crown. Who knows what it is for?"
     },
     "obsidian-helmet": {
       "name": "Obsidian Helmet",
