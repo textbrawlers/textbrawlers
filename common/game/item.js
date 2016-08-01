@@ -26,14 +26,12 @@ export default class Item {
 
     this.empoweredStats = []
     this.baseEmpoweredStats.concat(...this.prefixes.map(prefix => prefix.empoweredStats)).forEach(empowered => {
-      if (empowered) {
-        const exisitingEmpower = this.empoweredStats.find(emp => emp.category === empowered.category)
+      const exisitingEmpower = this.empoweredStats.find(emp => emp.category === empowered.category)
 
-        if (exisitingEmpower) {
-          exisitingEmpower.stats = this.mergeStats(exisitingEmpower.concat(empowered.stats))
-        } else {
-          this.empoweredStats.push(empowered)
-        }
+      if (exisitingEmpower) {
+        exisitingEmpower.stats = this.mergeStats(exisitingEmpower.stats.concat(empowered.stats))
+      } else {
+        this.empoweredStats.push(empowered)
       }
     })
 

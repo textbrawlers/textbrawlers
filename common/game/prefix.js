@@ -6,7 +6,7 @@ export default class {
 
     prefix.characterStats = prefix['character-stats'] || []
     prefix.attackStats = prefix['attack-stats'] || []
-    prefix.empoweredStats = prefix['empowered-stats'] || []
+    prefix.empoweredStats = prefix['empower-stats'] || []
 
     this.characterStats = Object.entries(prefix.characterStats).map(([id, value]) => new Stat(id, value))
     this.attackStats = Object.entries(prefix.attackStats).map(([id, value]) => new Stat(id, value))
