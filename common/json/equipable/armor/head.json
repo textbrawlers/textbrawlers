@@ -24,7 +24,7 @@
       "name": "Lamellar Helmet",
       "slot": "head",
       "attack": false,
-      "icon": "itemhelmet",
+      "icon": "itemlamellarhelmet",
       "character-stats": {
         "block-chance": 0.05
       }
@@ -50,7 +50,7 @@
       "name": "Obsidian Helmet",
       "slot": "head",
       "attack": false,
-      "icon": "itemhelmet",
+      "icon": "itemobsidianhelmet",
       "drop-rate": 50,
       "character-stats": {
         "max-health": -10,

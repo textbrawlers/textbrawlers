@@ -24,7 +24,7 @@
       "name": "Lamellar Boots",
       "slot": "feet",
       "attack": false,
-      "icon": "itemshoes",
+      "icon": "itemlamellarshoes",
       "character-stats": {
         "block-chance": 0.05
       }

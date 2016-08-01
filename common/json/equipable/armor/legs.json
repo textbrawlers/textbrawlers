@@ -24,7 +24,7 @@
       "name": "Lamellar Leggings",
       "slot": "legs",
       "attack": false,
-      "icon": "itempants",
+      "icon": "itemlamellarpants",
       "character-stats": {
         "block-chance": 0.1
       }
