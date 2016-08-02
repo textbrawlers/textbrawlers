@@ -18,7 +18,7 @@
       "name": "Longbow",
       "slot": "hand",
       "attack": true,
-      "icon": "itembow",
+      "icon": "itemlongbow",
       "attack-stats": {
         "damage": 14,
         "hit-chance": -9.3,
