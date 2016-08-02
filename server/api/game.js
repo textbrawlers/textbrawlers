@@ -1,7 +1,7 @@
-import ItemGen from 'common/game/itemGenerator.js'
+import { generateItem } from 'common/game/itemGenerator.js'
 
 export async function requestItem(ctx){
-  ctx.player.inventory.push(ItemGen.genitem())
+  ctx.player.inventory.push(generateItem())
 }
 
 export async function requestInventory(ctx){

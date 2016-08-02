@@ -19,7 +19,7 @@ const auth = async (ctx, next) => {
 
 const router = new Router()
 
-router.use(['/user/get'], auth)
+router.use(['/user/get', '/game/requestItem', '/game/requestInventory'], auth)
 
 router.post('/user/login', login)
 router.post('/user/register', register)

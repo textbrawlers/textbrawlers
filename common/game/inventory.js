@@ -3,12 +3,9 @@ import 'core-js/fn/object/entries'
 
 export default class Inventory {
   constructor(items, size) {
-    this.inventory = {}
+    this.inventory = items || {}
     this.size = size
 
-    items.forEach(item => {
-      this.push(item)
-    })
   }
 
   getNextClearSlot() {
@@ -46,12 +43,22 @@ export default class Inventory {
   }
 
   static async fromJSON(jsonInventory, size) {
-    const items = await Promise.all(jsonInventory.map(jsonItem => Item.fromJSON(jsonItem)))
 
+    const items = {}
+
+    for(let [slot, item] of Object.entries(jsonInventory)) {
+      items[slot] = await Item.fromJSON(item)
+    }
     return new Inventory(items, size)
+
   }
 
   serialize() {
-    return this.items.map(item => item.serialize())
+    const serialized = {}
+    Object.entries(this.inventory).forEach(([slot, item]) => {
+      serialized[slot] = item.serialize()
+    })
+    
+    return serialized
   }
 }

@@ -3,6 +3,7 @@ import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
 import AccountAPI from 'common/api/account.js'
 import Inventory from 'common/game/inventory.js'
+import request from 'common/api/request.js'
 
 const INV_WIDTH = 12
 const INV_HEIGHT = 10
