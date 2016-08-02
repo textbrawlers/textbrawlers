@@ -73,14 +73,16 @@ export default class Item {
     }
 
     return new Item(baseItem, {
-      rarity: baseItem.rarity
+      rarity: baseItem.rarity,
+      prefixes: jsonItem.prefixes || []
     })
   }
 
   serialize() {
     return {
       id: this.id,
-      rarity: this.rarity
+      rarity: this.rarity,
+      prefixes: this.prefixes.map(prefix => prefix.path)
     }
   }
 }

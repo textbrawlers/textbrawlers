@@ -16,4 +16,8 @@ export default class ServerPlayer extends Player{
     }
     return undefined
   }
+
+  async save() {
+    
+  }
 }

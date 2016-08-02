@@ -3,12 +3,18 @@ import Inventory from './inventory.js'
 export default class ServerPlayer {
 
   constructor(jsonPlayer) {
-    this.inventory = new Inventoryjson(jsonPlayer.inventory) 
+  }
+
+  static fromJSON() {
+    const inventory = await Inventory.fromJSON(jsonPlayer.inventory) 
+    const equippedInventory = await Inventory.fromJSON(jsonPlayer.equippedInventory) 
+ 
+    const reassembleInventory = await Inventory.fromJSON(jsonPlayer.reassembleInventory)
   }
 
   serialize() {
-    return this.jsonPlayer
+    return {
+      inventory: this.inventory.serialize()
+    }
   }
-
-  
 }

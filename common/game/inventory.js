@@ -17,12 +17,16 @@ export default class Inventory {
         return i
       }
     }
+
+    return false
   }
+
+
 
   push(item) {
     const nextSlot = this.getNextClearSlot()
 
-    if (nextSlot) {
+    if (nextSlot !== false) {
       return this.set(nextSlot, item)
     }
 
@@ -41,7 +45,7 @@ export default class Inventory {
     return this.inventorySlot[slot]
   }
 
-  async fromJSON(jsonInventory, size) {
+  static async fromJSON(jsonInventory, size) {
     const items = await Promise.all(jsonInventory.map(jsonItem => Item.fromJSON(jsonItem)))
 
     return new Inventory(items, size)
