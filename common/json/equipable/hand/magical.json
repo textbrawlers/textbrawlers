@@ -1,6 +1,6 @@
 {
   "wands": {
-    "fireball-wand": {
+    "wand-of-fire": {
       "name": "Wand of Fire",
       "slot": "hand",
       "attack": true,
@@ -15,7 +15,7 @@
       },
       "description": "A match would probably be more useful."
     },
-    "lightning-orb": {
+    "wand-of-lightning": {
       "name": "Wand of Lightning",
       "slot": "hand",
       "attack": true,
@@ -26,7 +26,7 @@
         "crit-chance": 0.05,
         "crit-damage": 2.0
       },
-      "description": "Madness?? THIS IS ZEUS!!!"
+      "description": "Madness? THIS... IS... ZEUS!"
     }
   }
 }

@@ -17,7 +17,8 @@
       "icon": "itemshield",
       "character-stats": {
         "block-chance": 0.60
-      }
+      },
+      "description": "''Have you seen my smoothing iron, honey?''"
     }
   }
 }

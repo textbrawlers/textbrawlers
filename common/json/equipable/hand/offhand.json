@@ -10,7 +10,8 @@
         "hit-chance": 1.0,
         "crit-chance": 0.01,
         "crit-damage": 50.0
-      }
+      },
+      "description": "It is a plain old skull, with little to no use."
     },
     "hourglass": {
       "name": "Hourglass of Infinite Time",
@@ -47,7 +48,8 @@
       "character-stats": {
         "max-health": 30,
         "max-health-multiplier": 1.15
-      }
+      },
+      "description": "It makes you feel healthier. Probably just placebo."
     }
   }
 }
