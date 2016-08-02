@@ -13,19 +13,19 @@
         "bleed-duration": 1
       },
       "description": "The knife of a very well known assassin, and therefore a very bad assassin."
-    }
-  },
-  "linen-knife": {
-    "name": "Linen Knife",
-    "slot": "hand",
-    "attack": true,
-    "icon": "itemlinenknife",
-    "attack-stats": {
-      "damage": 2,
-      "hit-chance": 0.8,
-      "crit-chance": 1,
-      "crit-damage": 0.5
     },
-    "description": "But WHY?"
+    "linen-knife": {
+      "name": "Linen Knife",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemlinenknife",
+      "attack-stats": {
+        "damage": 2,
+        "hit-chance": 0.8,
+        "crit-chance": 1,
+        "crit-damage": 0.5
+      },
+      "description": "But WHY?"
+    }
   }
 }
