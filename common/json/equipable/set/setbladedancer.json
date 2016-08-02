@@ -61,7 +61,7 @@
         "name": "Bladedancer's Glove",
         "slot": "hand",
         "attack": true,
-        "icon": "itemsword",
+        "icon": "itemglove",
         "attack-stats": {
           "damage": 1,
           "hit-chance": 2.0
