@@ -2,7 +2,6 @@ import React from 'react'
 import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
 import AccountAPI from 'common/api/account.js'
-import ItemGen from 'common/game/itemGenerator.js'
 
 const INV_WIDTH = 12
 const INV_HEIGHT = 10
@@ -46,7 +45,7 @@ export default class extends React.Component{
   }
 
   requestItem(){
-    const item = ItemGen.genitem()
+    request.post('/api/game/requestItem')
   }
 
   render() {

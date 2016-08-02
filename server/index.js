@@ -1,6 +1,7 @@
 import Router from 'koa-router'
 import { login, register, getPlayer } from './api/user.js'
 import Player from 'common/game/serverPlayer.js'
+import { requestItem } from './game.js'
 
 const auth = async (ctx, next) => {
   const key = ctx.request.header.key
@@ -22,6 +23,7 @@ router.use(['/user/get'], auth)
 
 router.post('/user/login', login)
 router.post('/user/register', register)
+router.post('/game/requestItem', requestItem)
 router.get('/user/get', getPlayer)
 
 export default router
