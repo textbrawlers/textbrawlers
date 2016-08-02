@@ -19,7 +19,7 @@
     "name": "Linen Knife",
     "slot": "hand",
     "attack": true,
-    "icon": "itemknife",
+    "icon": "itemlinenknife",
     "attack-stats": {
       "damage": 2,
       "hit-chance": 0.8,
