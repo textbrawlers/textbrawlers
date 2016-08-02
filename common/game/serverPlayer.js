@@ -7,17 +7,18 @@ const users = db.get('users')
 export default class ServerPlayer extends Player{
   
   static async fromKey(key) {
-    console.log('fromkey', key)
-    const jsonPlayer = await users.findOne({ key })
-    console.log('jp', jsonPlayer)
+    const jsonUser = (await users.findOne({ key })) || {}
 
-    if (jsonPlayer) {
-      return new Player(jsonPlayer)
+    if (jsonUser) {
+      const player = new Player.fromJSON(jsonUser.player || {})
+      player.key = key
+      return player
     }
     return undefined
   }
 
   async save() {
-    
+    const key = this.key
+    await users.update({key}, { $set: { player: this.serialize() }})
   }
 }

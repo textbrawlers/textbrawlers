@@ -1,6 +1,6 @@
 import 'core-js/fn/object/entries'
 import Stat from './stat.js'
-import items from 'common/items/items.js'
+import getItems from 'common/items/items.js'
 
 export default class Item {
   constructor(baseItem, { prefixes = [], rarity } = {}) {
@@ -63,9 +63,9 @@ export default class Item {
   }
 
   static async fromJSON(jsonItem) {
-    const { items } = await items()
+    const { items } = await getItems()
 
-    const baseItem = items.filter(item => item.id === jsonItem.id)
+    const baseItem = items.find(item => item.id === jsonItem.id)
 
     if (!baseItem) {
       console.warn(`Tried to create item of type ${jsonItem.id}`)

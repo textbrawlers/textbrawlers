@@ -49,6 +49,7 @@ export default class Inventory {
     for(let [slot, item] of Object.entries(jsonInventory)) {
       items[slot] = await Item.fromJSON(item)
     }
+
     return new Inventory(items, size)
 
   }

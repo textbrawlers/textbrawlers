@@ -20,6 +20,7 @@ export default class extends React.Component{
     this.load()
 
     this.getItem = this.getItem.bind(this)
+    this.requestItem = this.requestItem.bind(this)
   }
 
   async load() {
