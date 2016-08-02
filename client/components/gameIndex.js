@@ -2,6 +2,7 @@ import React from 'react'
 import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
 import AccountAPI from 'common/api/account.js'
+import ItemGen from 'common/game/itemGenerator.js'
 
 const INV_WIDTH = 12
 const INV_HEIGHT = 10
@@ -44,6 +45,10 @@ export default class extends React.Component{
     return slots
   }
 
+  requestItem(){
+    const item = ItemGen.genitem()
+  }
+
   render() {
     return (
       <div className='container'>
@@ -76,7 +81,7 @@ export default class extends React.Component{
           </div>
         </div>
 
-        <button id="spawnItem">Spawn Item</button>
+        <button id="spawnItem" onClick={this.requestItem}>Spawn Item</button>
 
         <br />
 

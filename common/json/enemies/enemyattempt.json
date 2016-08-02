@@ -14,6 +14,6 @@
 		"crit-damage": 2,
     "block-chance": 0.99,
     "block-modifier": 0.0,
-    "hit-chance": 0.8,
+    "attack-speed": 0.8,
 	}
 }

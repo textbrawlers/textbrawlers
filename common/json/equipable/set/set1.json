@@ -48,7 +48,7 @@
         "icon": "itemfurioussword",
         "attack-stats": {
           "damage": 5,
-          "hit-chance": 0.5
+          "attack-speed": 0.5
         }
       }
     },
@@ -60,7 +60,7 @@
       },
       "6": {
         "fury": 2,
-        "hit-chance": 0.4
+        "attack-speed": 0.4
       }
     }
   }

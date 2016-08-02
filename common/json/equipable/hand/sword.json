@@ -7,7 +7,7 @@
       "icon": "itemsword",
       "attack-stats": {
         "damage": 10,
-        "hit-chance": 1.0,
+        "attack-speed": 1.0,
         "crit-chance": 0.5,
         "crit-damage":  1.5,
         "bleed-duration": 4
@@ -20,7 +20,7 @@
       "icon": "itemlongsword",
       "attack-stats": {
         "damage": 20,
-        "hit-chance": 0.6,
+        "attack-speed": 0.6,
         "crit-chance": 0.25,
         "crit-damage": 1.5,
         "bleed-duration": 4
@@ -33,7 +33,7 @@
       "icon": "itembroadsword",
       "attack-stats": {
         "damage": 15,
-        "hit-chance": 0.5,
+        "attack-speed": 0.5,
         "crit-chance": 1.0,
         "crit-damage": 1.5,
         "bleed-duration": 4
@@ -47,7 +47,7 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 5,
-        "hit-chance": 0.6,
+        "attack-speed": 0.6,
         "crit-damage": 1.2,
         "bleed-chance": 1.0,
         "bleed-duration": 6
@@ -61,7 +61,7 @@
       "drop-rate": 10,
       "attack-stats": {
         "damage": 40,
-        "hit-chance": -0.4,
+        "attack-speed": -0.4,
         "crit-damage": 2.0,
         "bleed-chance": 0.5,
         "bleed-duration": 10

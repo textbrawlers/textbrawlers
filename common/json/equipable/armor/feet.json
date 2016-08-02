@@ -4,7 +4,7 @@
       "name": "Leather Boots",
       "slot": "feet",
       "attack": false,
-      "icon": "itemleathershoes",
+      "icon": "itemshoes",
       "drop-rate": 125,
       "character-stats": {
         "max-health": 10
@@ -15,7 +15,7 @@
       "name": "Iron Greaves",
       "slot": "feet",
       "attack": false,
-      "icon": "itemironshoes",
+      "icon": "itemshoes",
       "character-stats": {
         "max-health": 20,
         "block-chance": -0.1
@@ -41,7 +41,7 @@
       "drop-rate": 25,
       "character-stats": {
         "max-health-multiplier": 0.9,
-        "hit-chance": 0.1
+        "attack-speed": 0.1
       },
       "description": "Lighter than air, and just as protective!"
     }

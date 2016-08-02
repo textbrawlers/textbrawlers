@@ -1,5 +1,5 @@
 {
-  "wands": {
+  "magical": {
     "wand-of-fire": {
       "name": "Wand of Fire",
       "slot": "hand",
@@ -7,7 +7,7 @@
       "icon": "itemfirewand",
       "attack-stats": {
         "damage": 7,
-        "hit-chance": 1.0,
+        "attack-speed": 1.0,
         "crit-chance": 0.5,
         "crit-damage": 1.8,
         "burn-chance": 1.0,
@@ -22,11 +22,23 @@
       "icon": "itemlightningwand",
       "attack-stats": {
         "damage": 1,
-        "hit-chance": 10,
+        "attack-speed": 10,
         "crit-chance": 0.05,
         "crit-damage": 2.0
       },
       "description": "Madness? THIS... IS... ZEUS!"
+    },
+    "skull-of-death": {
+      "name": "Skull of Death",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemskull",
+      "attack-stats": {
+        "damage": 1,
+        "attack-speed": 1.0,
+        "crit-chance": 0.01,
+        "crit-damage": 50.0
+      }
     }
   }
 }

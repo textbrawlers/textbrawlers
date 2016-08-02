@@ -42,45 +42,45 @@
     }
   },
 
-  "hit-chance": {
+  "attack-speed": {
     "slow": {
       "name": "Slow",
       "drop-rate": 50,
       "attack-stats": {
-        "hit-chance": -0.6
+        "attack-speed": -0.6
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "attack-stats": {
-        "hit-chance": -0.4
+        "attack-speed": -0.4
       }
     },
     "heavy": {
       "name": "Heavy",
       "attack-stats": {
-        "hit-chance": -0.2
+        "attack-speed": -0.2
       }
     },
     "nimble": {
       "name": "Nimble",
       "attack-stats": {
-        "hit-chance": 0.2
+        "attack-speed": 0.2
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "attack-stats": {
-        "hit-chance": 0.4
+        "attack-speed": 0.4
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "attack-stats": {
-        "hit-chance": 0.6
+        "attack-speed": 0.6
       }
     }
   },
@@ -242,14 +242,14 @@
       }
     }
   },
-  
+
   "unique": {
     "neat": {
       "name": "Neat",
       "drop-rate": 25,
       "attack-stats": {
         "damage-multiplier": 0.8,
-        "hit-chance": 0.9
+        "attack-speed": 0.9
       }
     }
   }

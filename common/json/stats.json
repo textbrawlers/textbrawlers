@@ -9,7 +9,7 @@
     "tooltip": "[plus-mult] Damage",
     "display": true
   },
-  "hit-chance": {
+  "attack-speed": {
     "type": "additive",
     "tooltip": "[fixed] Attacks per Turn",
     "display": true

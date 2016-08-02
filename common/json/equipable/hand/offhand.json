@@ -1,18 +1,5 @@
 {
   "offhand": {
-    "skull-of-death": {
-      "name": "Skull of Death",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemskull",
-      "attack-stats": {
-        "damage": 1,
-        "hit-chance": 1.0,
-        "crit-chance": 0.01,
-        "crit-damage": 50.0
-      },
-      "description": "It is a plain old skull, with little to no use."
-    },
     "hourglass": {
       "name": "Hourglass of Infinite Time",
       "slot": "hand",
@@ -20,7 +7,7 @@
       "icon": "itemhourglass",
       "drop-rate": 1,
       "character-stats": {
-        "hit-chance": 0.3,
+        "attack-speed": 0.3,
         "damage": 2
       },
       "description":"You can't see me, my time is now!"
@@ -28,12 +15,12 @@
     "starstone": {
       "name": "Starstone",
       "slot": "hand",
-      "attack": true,
+      "attack": false,
       "icon": "itemstarstone",
       "drop-rate": 25,
       "character-stats": {
         "damage-multiplier": 1.05,
-        "hit-chance": 0.1,
+        "attack-speed": 0.1,
         "burn-chance": 0.1,
         "burn-duration": 3,
         "fashionable": 1.4

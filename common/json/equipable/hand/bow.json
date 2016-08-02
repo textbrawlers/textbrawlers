@@ -7,7 +7,7 @@
       "icon": "itembow",
       "attack-stats": {
         "damage": 7,
-        "hit-chance": -8.8,
+        "attack-speed": -8.8,
         "crit-chance": 0.7,
         "crit-damage": 1.8,
         "ranged": true
@@ -21,7 +21,7 @@
       "icon": "itemlongbow",
       "attack-stats": {
         "damage": 14,
-        "hit-chance": -9.3,
+        "attack-speed": -9.3,
         "crit-chance": 0.4,
         "crit-damage": 2.0,
         "ranged": true

@@ -29,19 +29,19 @@
       }
     }
   },
-  "hit-chance": {
+  "attack-speed": {
     "draining": {
       "name": "Draining",
       "drop-rate": 50,
       "character-stats": {
-        "hit-chance": -0.6
+        "attack-speed": -0.6
       }
     },
     "energetic": {
       "name": "Energetic",
       "drop-rate": 50,
       "character-stats": {
-        "hit-chance": 0.6
+        "attack-speed": 0.6
       }
     }
   },

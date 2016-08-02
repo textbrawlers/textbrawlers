@@ -8,7 +8,7 @@
         "icon": "itemsword",
         "attack-stats": {
           "damage": 20,
-          "hit-chance": 0.7
+          "attack-speed": 0.7
         },
         "character-stats": {
           "damage-multiplier": 2.0,
@@ -24,7 +24,7 @@
         "character-stats": {
           "max-health-multiplier": 0.8,
           "block-chance": 0.1,
-          "hit-chance": -0.7,
+          "attack-speed": -0.7,
           "damage-multiplier": 0.2
         }
       }
@@ -33,7 +33,7 @@
       "2": {
         "max-health-multiplier": 5.0,
         "block-chance": 0.9,
-        "hit-chance": 0.7,
+        "attack-speed": 0.7,
         "damage-multiplier": 2.5
       }
     }

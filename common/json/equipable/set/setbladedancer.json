@@ -8,7 +8,7 @@
         "icon": "itemhelmet",
         "attack-stats": {
           "damage": 1,
-          "hit-chance": 1.0
+          "attack-speed": 1.0
         },
         "character-stats": {
           "max-health": -10
@@ -22,7 +22,7 @@
         "icon": "itemchestpiece",
         "attack-stats": {
           "damage": 1,
-          "hit-chance": 1.0
+          "attack-speed": 1.0
         },
         "character-stats": {
           "max-health": -10
@@ -36,7 +36,7 @@
         "icon": "itempants",
         "attack-stats": {
           "damage": 1,
-          "hit-chance": 1.0
+          "attack-speed": 1.0
         },
         "character-stats": {
           "max-health": -10
@@ -50,7 +50,7 @@
         "icon": "itemshoes",
         "attack-stats": {
           "damage": 1,
-          "hit-chance": 1.0
+          "attack-speed": 1.0
         },
         "character-stats": {
           "max-health": -10
@@ -64,7 +64,7 @@
         "icon": "itemglove",
         "attack-stats": {
           "damage": 1,
-          "hit-chance": 2.0
+          "attack-speed": 2.0
         },
         "description": "Turning slaps from painful to deadly."
       }
@@ -74,7 +74,7 @@
         "damage": 1
       },
       "6": {
-        "hit-chance": 1.5,
+        "attack-speed": 1.5,
         "bleed-chance": 0.2,
         "bleed-duration": 3
       }

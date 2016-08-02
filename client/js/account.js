@@ -21,7 +21,7 @@
   const transformStat = {
     'crit-chance': percent,
     'bleed-chance': percent,
-    'hit-chance': percent,
+    'attack-speed': percent,
     'stun-chance': percent,
     'crit-damage': percent,
     'block-chance': percent,
@@ -89,7 +89,7 @@
 
         ;[
           'damage',
-          'hit-chance',
+          'attack-speed',
           'space',
           'crit-chance',
           'crit-damage',
@@ -117,7 +117,7 @@
       'block-multiplier',
       'space',
       'damage-multiplier',
-      'hit-chance'
+      'attack-speed'
     ].forEach(stat => {
       if (stat === 'space') {
         stats.innerHTML += '<div class="separator"></div>'

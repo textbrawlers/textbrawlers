@@ -4,7 +4,7 @@
       "name": "Leather Trousers",
       "slot": "legs",
       "attack": false,
-      "icon": "itemleatherpants",
+      "icon": "itempants",
       "drop-rate": 125,
       "character-stats": {
         "max-health": 15
@@ -15,7 +15,7 @@
       "name": "Iron Leggings",
       "slot": "legs",
       "attack": false,
-      "icon": "itemironpants",
+      "icon": "itempants",
       "character-stats": {
         "max-health": 30,
         "block-chance": -0.15
@@ -40,9 +40,10 @@
       "icon": "itemlinenpants",
       "character-stats": {
         "max-health": -10,
-        "hit-chance": 0.1
+        "attack-speed": 0.1
       },
       "description": "A pair of flimsy linen trousers. Protection sold separately."
+      }
     }
   }
 }
