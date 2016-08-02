@@ -2,6 +2,7 @@ import React from 'react'
 import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
 import AccountAPI from 'common/api/account.js'
+import Inventory from 'common/game/inventory.js'
 
 const INV_WIDTH = 12
 const INV_HEIGHT = 10
@@ -21,6 +22,14 @@ export default class extends React.Component{
     console.log(player)
   }
 
+  getItem(index){
+    const item = this.state.inventory.get(index)
+    if (!item){
+      return
+    }
+    return <InvItem item={item} />
+  }
+
   createSlot(x, y, index) {
     const style = {
       top: INV_MARGIN + y * (INV_MARGIN + INV_SLOT_SIZE),
@@ -28,7 +37,7 @@ export default class extends React.Component{
       position: 'absolute'
     }
     console.log(index)
-    return <InventorySlot style={style} key={index} slot={`i${index}`} />
+    return <InventorySlot style={style} key={index} slot={`i${index}`} > {getItem()} <InventorySlot/>
   }
 
   getInventory() {
@@ -44,8 +53,11 @@ export default class extends React.Component{
     return slots
   }
 
-  requestItem(){
+  async requestItem(){
     request.post('/api/game/requestItem')
+    const jsonInv = request.get('/api/game/requestInventory')
+    const inventory = await Inventory.fromJSON(jsonInv)
+    this.setState({inventory})
   }
 
   render() {
