@@ -74,7 +74,7 @@
         "damage": 1
       },
       "6": {
-        "hit-chance": 2.0,
+        "hit-chance": 1.5,
         "bleed-chance": 0.2,
         "bleed-duration": 3
       }
