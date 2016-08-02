@@ -76,4 +76,11 @@ export default class Item {
       rarity: baseItem.rarity
     })
   }
+
+  serialize() {
+    return {
+      id: this.id,
+      rarity: this.rarity
+    }
+  }
 }
