@@ -41,7 +41,7 @@ export default class Inventory {
     return this.inventorySlot[slot]
   }
 
-  fromJSON(jsonInventory, size) {
+  async fromJSON(jsonInventory, size) {
     const items = await Promise.all(jsonInventory.map(jsonItem => Item.fromJSON(jsonItem)))
 
     return new Inventory(items, size)
