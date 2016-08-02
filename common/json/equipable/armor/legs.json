@@ -4,7 +4,7 @@
       "name": "Leather Trousers",
       "slot": "legs",
       "attack": false,
-      "icon": "itempants",
+      "icon": "itemleatherpants",
       "drop-rate": 125,
       "character-stats": {
         "max-health": 15
@@ -15,7 +15,7 @@
       "name": "Iron Leggings",
       "slot": "legs",
       "attack": false,
-      "icon": "itempants",
+      "icon": "itemironpants",
       "character-stats": {
         "max-health": 30,
         "block-chance": -0.15
