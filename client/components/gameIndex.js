@@ -14,7 +14,11 @@ export default class extends React.Component{
   constructor() {
     super()
 
+    this.state = {}
+
     this.load()
+
+    this.getItem = this.getItem.bind(this)
   }
 
   async load() {
@@ -23,7 +27,7 @@ export default class extends React.Component{
   }
 
   getItem(index){
-    const item = this.state.inventory.get(index)
+    const item = this.state.inventory && this.state.inventory.get(index)
     if (!item){
       return
     }
@@ -37,7 +41,7 @@ export default class extends React.Component{
       position: 'absolute'
     }
     console.log(index)
-    return <InventorySlot style={style} key={index} slot={`i${index}`} > {getItem()} <InventorySlot/>
+    return <InventorySlot style={style} key={index} slot={`i${index}`} > {this.getItem()} </InventorySlot>
   }
 
   getInventory() {

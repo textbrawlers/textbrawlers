@@ -5,7 +5,7 @@ export default class ServerPlayer {
   constructor(jsonPlayer) {
   }
 
-  static fromJSON() {
+  static async fromJSON() {
     const inventory = await Inventory.fromJSON(jsonPlayer.inventory) 
     const equippedInventory = await Inventory.fromJSON(jsonPlayer.equippedInventory) 
  
@@ -14,7 +14,7 @@ export default class ServerPlayer {
 
   serialize() {
     return {
-      inventory: this.inventory.serialize()
+      /*inventory: this.inventory.serialize()*/
     }
   }
 }
