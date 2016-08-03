@@ -86,7 +86,7 @@
   },
   "burn-chance": {
     "type": "additive",
-    "tooltip": "[percent] chance of igniting your opponent",
+    "tooltip": "[percent] Burn Chance",
     "display": true
   },
   "burn-duration": {
