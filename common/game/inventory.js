@@ -29,7 +29,7 @@ export default class Inventory {
   }
 
   set(slot, item) {
-    if (!this.inventorySlot) {
+    if (!this.inventory[slot]) {
       this.inventory[slot] = item
       return true
     }
@@ -37,7 +37,7 @@ export default class Inventory {
   }
 
   get(slot) {
-    return this.inventorySlot[slot]
+    return this.inventory[slot]
   }
 
   static async fromJSON(jsonInventory, size) {
