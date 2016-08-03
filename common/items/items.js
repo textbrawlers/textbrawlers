@@ -1,7 +1,10 @@
 import 'core-js/fn/object/entries'
 import BaseItem from 'common/game/baseItem.js'
 
+const cache = {}
+
 async function parseNormalItems() {
+  if (cache.normal) return cache.normal
   const allItems = []
 
   const itemsConfig = await System.import('common/json/items.json')
@@ -19,10 +22,13 @@ async function parseNormalItems() {
     })
   })
 
+  cache.normal = allItems
+
   return allItems
 }
 
 async function parseSetItems() {
+  if (cache.set) return cache.set
   const allItems = []
   const setBonuses = {}
 
@@ -41,10 +47,15 @@ async function parseSetItems() {
       })
     })
   })
-  return {
+
+  const resp = {
     items: allItems,
     setBonuses
   }
+
+  cache.set = resp
+
+  return resp
 }
 
 export default async function() {

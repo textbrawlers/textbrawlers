@@ -15,6 +15,13 @@ async function parsePrefixes() {
   return { prefixes: prefixFiles, possible: prefixesConfig.possible }
 }
 
+let cache
+
 export default async function() {
-  return await parsePrefixes()
+  if (cache) {
+      return cache
+  }
+  const res = await parsePrefixes()
+  cache = res
+  return res
 }
