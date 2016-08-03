@@ -59,7 +59,7 @@ export default class extends React.Component{
   }
 
   async requestItem(){
-    request.post('/api/game/requestItem')
+    await request.post('/api/game/requestItem')
     const jsonInv = (await request.get('/api/game/requestInventory')).json
     const inventory = await Inventory.fromJSON(jsonInv)
     this.setState({inventory})
