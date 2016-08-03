@@ -34,14 +34,14 @@
       "name": "Draining",
       "drop-rate": 75,
       "character-stats": {
-        "attack-speed": -0.5
+        "attack-speed": -0.05
       }
     },
     "energetic": {
       "name": "Energetic",
       "drop-rate": 50,
       "character-stats": {
-        "attack-speed": 0.5
+        "attack-speed": 0.05
       }
     }
   },
@@ -65,7 +65,7 @@
     "weak": {
       "name": "Weak",
       "character-stats": {
-        "crit-damage": -0.10
+        "crit-damage": -0.05
       }
     },
     "powerful": {
@@ -79,7 +79,7 @@
       "name": "Overpowered",
       "drop-rate": 50,
       "character-stats": {
-        "crit-damage": 0.20
+        "crit-damage": 0.15
       }
     }
   },
@@ -88,7 +88,7 @@
       "name": "Glowing",
       "drop-rate": 100,
       "character-stats": {
-        "burn-chance": 0.01,
+        "burn-chance": 0.05,
         "burn-duration": 2
       }
     },
@@ -96,8 +96,8 @@
       "name": "Fiery",
       "drop-rate": 75,
       "character-stats": {
-        "burn-chance": 0.02,
-        "burn-duration": 3
+        "burn-chance": 0.05,
+        "burn-duration": 4
       }
     }
   }
