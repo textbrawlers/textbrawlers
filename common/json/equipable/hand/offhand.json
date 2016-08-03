@@ -36,7 +36,7 @@
         "attack-speed": -0.2,
         "crit-chance": -0.2,
         "damage": 5,
-        "comfort": 0.5
+        "comfort": 1.5
       },
       "description":"I *hick* need too *hick* drink..."
     },
