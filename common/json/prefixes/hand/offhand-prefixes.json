@@ -14,8 +14,8 @@
         "damage-multiplier": 1.05
       }
     },
-    "demonic": {
-      "name": "Demonic",
+    "magical": {
+      "name": "Magical",
       "drop-rate": 100,
       "character-stats": {
         "damage": -1
@@ -30,18 +30,44 @@
     }
   },
   "attack-speed": {
-    "draining": {
-      "name": "Draining",
-      "drop-rate": 100,
+    "crippling": {
+      "name": "Crippling",
+      "drop-rate": 25,
+      "character-stats": {
+        "attack-speed": -0.15
+      }
+    },
+    "constraining": {
+      "name": "Constraining",
+      "drop-rate": 50,
+      "character-stats": {
+        "attack-speed": -0.1
+      }
+    },
+    "hindering": {
+      "name": "Hindering",
       "character-stats": {
         "attack-speed": -0.05
       }
     },
-    "energetic": {
-      "name": "Energetic",
+    "hastening": {
+      "name": "Hastening",
+      "character-stats": {
+        "attack-speed": 0.5
+      }
+    },
+    "quickening": {
+      "name": "Quickening",
       "drop-rate": 50,
       "character-stats": {
-        "attack-speed": 0.05
+        "attack-speed": 0.10
+      }
+    },
+    "energizing": {
+      "name": "Energizing",
+      "drop-rate": 25,
+      "character-stats": {
+        "attack-speed": 0.15
       }
     }
   },
@@ -62,6 +88,20 @@
     }
   },
   "crit-damage": {
+    "underpowered": {
+      "name": "Underpowered",
+      "drop-rate": 25,
+      "character-stats": {
+        "crit-damage": -0.15
+      }
+    },
+    "puny": {
+      "name": "Puny",
+      "drop-rate": 25,
+      "character-stats": {
+        "crit-damage": -0.10
+      }
+    },
     "weak": {
       "name": "Weak",
       "character-stats": {
@@ -70,14 +110,20 @@
     },
     "powerful": {
       "name": "Powerful",
-      "drop-rate": 100,
+      "character-stats": {
+        "crit-damage": 0.05
+      }
+    },
+    "mighty": {
+      "name": "Mighty",
+      "drop-rate": 50,
       "character-stats": {
         "crit-damage": 0.10
       }
     },
     "overpowered": {
       "name": "Overpowered",
-      "drop-rate": 50,
+      "drop-rate": 25,
       "character-stats": {
         "crit-damage": 0.15
       }
@@ -86,7 +132,6 @@
   "burn": {
     "glowing": {
       "name": "Glowing",
-      "drop-rate": 100,
       "character-stats": {
         "burn-chance": 0.05,
         "burn-duration": 1
@@ -96,7 +141,15 @@
       "name": "Fiery",
       "drop-rate": 50,
       "character-stats": {
-        "burn-chance": 0.05,
+        "burn-chance": 0.1,
+        "burn-duration": 1
+      }
+    },
+    "flaming": {
+      "name": "Flaming",
+      "drop-rate": 25,
+      "character-stats": {
+        "burn-chance": 0.1,
         "burn-duration": 2
       }
     }
