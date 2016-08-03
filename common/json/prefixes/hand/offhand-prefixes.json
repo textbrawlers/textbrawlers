@@ -46,7 +46,7 @@
     }
   },
   "crit-chance": {
-        "clumsy": {
+    "clumsy": {
       "name": "Clumsy",
       "drop-rate": 100,
       "character-stats": {
@@ -89,7 +89,7 @@
       "drop-rate": 100,
       "character-stats": {
         "burn-chance": 0.05,
-        "burn-duration": 2
+        "burn-duration": 1
       }
     },
     "fiery": {
@@ -97,7 +97,7 @@
       "drop-rate": 50,
       "character-stats": {
         "burn-chance": 0.05,
-        "burn-duration": 4
+        "burn-duration": 2
       }
     }
   }
