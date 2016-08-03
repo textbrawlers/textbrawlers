@@ -95,7 +95,7 @@ export default class extends React.Component {
 
     return (
       <div style={tooltipStyle} className='tooltip'>
-        <h2>{item.displayName}</h2>
+        <h2 className={`rarity-${item.rarity}`}>{item.displayName}</h2>
         {attackStatsDiv}
         {characterStatsDiv}
         {empowerStats}
