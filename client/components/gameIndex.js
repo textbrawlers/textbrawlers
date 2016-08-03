@@ -3,6 +3,7 @@ import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
 import AccountAPI from 'common/api/account.js'
 import Inventory from 'common/game/inventory.js'
+import InvItem from './invItem.js'
 import request from 'common/api/request.js'
 
 const INV_WIDTH = 12
@@ -24,8 +25,7 @@ export default class extends React.Component{
   }
 
   async load() {
-    const player = await AccountAPI.get();
-    console.log(player)
+    const player =(await AccountAPI.get()).json
   }
 
   getItem(index){
@@ -42,8 +42,7 @@ export default class extends React.Component{
       left: INV_MARGIN + x * (INV_MARGIN +INV_SLOT_SIZE),
       position: 'absolute'
     }
-    console.log(index)
-    return <InventorySlot style={style} key={index} slot={`i${index}`} > {this.getItem()} </InventorySlot>
+    return <InventorySlot style={style} key={index} slot={`i${index}`} > {this.getItem(index)} </InventorySlot>
   }
 
   getInventory() {
@@ -61,7 +60,7 @@ export default class extends React.Component{
 
   async requestItem(){
     request.post('/api/game/requestItem')
-    const jsonInv = request.get('/api/game/requestInventory')
+    const jsonInv = (await request.get('/api/game/requestInventory')).json
     const inventory = await Inventory.fromJSON(jsonInv)
     this.setState({inventory})
   }

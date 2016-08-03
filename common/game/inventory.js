@@ -48,6 +48,8 @@ export default class Inventory {
       items[slot] = await Item.fromJSON(item)
     }
 
+    console.log('from json', items, jsonInventory)
+
     return new Inventory(items, size)
 
   }
