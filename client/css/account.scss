@@ -92,14 +92,15 @@ body {
   overflow: auto;
 }
 
+.tether-element {
+  pointer-events: none;
+}
+
 .tooltip {
-  position: absolute;
   background: rgba(224,147,69, 1);
   border: 2px solid #754c24;
   padding: 0px;
   pointer-events: none;
-  z-index: 100;
-  display: inline-block;
   width: 250px;
 }
 

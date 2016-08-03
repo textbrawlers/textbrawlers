@@ -22,6 +22,8 @@ export default class extends React.Component{
 
     this.getItem = this.getItem.bind(this)
     this.requestItem = this.requestItem.bind(this)
+
+    this.updateInventory()
   }
 
   async load() {
@@ -58,11 +60,15 @@ export default class extends React.Component{
     return slots
   }
 
-  async requestItem(){
-    await request.post('/api/game/requestItem')
+  async updateInventory() {
     const jsonInv = (await request.get('/api/game/requestInventory')).json
     const inventory = await Inventory.fromJSON(jsonInv)
     this.setState({inventory})
+  }
+
+  async requestItem(){
+    await request.post('/api/game/requestItem')
+    this.updateInventory()
   }
 
   render() {

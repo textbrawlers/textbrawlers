@@ -1,4 +1,5 @@
 import React from 'react'
+import TetherComponent from 'react-tether'
 
 export default class extends React.Component {
 
@@ -45,13 +46,6 @@ export default class extends React.Component {
   createTooltip() {
     const item = this.props.item
 
-    const tooltipStyle = {
-      position: 'absolute',
-      left: 50,
-      top: 0
-    }
-
-
     const characterStats = item.characterStats.map(stat => {
       const statTooltip = stat.render(stat => `<b>${stat}</b>`)
       return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
@@ -94,7 +88,7 @@ export default class extends React.Component {
     const empowerStats = this.getEmpowerStats(item)
 
     return (
-      <div style={tooltipStyle} className='tooltip'>
+      <div className='tooltip'>
         <h2 className={`rarity-${item.rarity}`}>{item.displayName}</h2>
         {attackStatsDiv}
         {characterStatsDiv}
@@ -121,8 +115,10 @@ export default class extends React.Component {
 
     return (
       <div style={tooltipContainerStyle}>
-        <img className={className}  src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-        {tooltip}
+        <TetherComponent attachment="top left" targetAttachment="top right" targetOffset="0 4px" constraints={[{to: 'window', pin: true}]}>
+          <img className={className}  src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
+          { this.state.tooltipVisible && tooltip }
+        </TetherComponent>
       </div>
     )
   }

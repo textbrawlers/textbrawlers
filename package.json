@@ -36,6 +36,7 @@
       "koa-static": "npm:koa-static@^2.0.0",
       "monk": "npm:monk@^3.0.7",
       "react-router": "npm:react-router@^2.6.0",
+      "react-tether": "npm:react-tether@^0.5.2",
       "sass": "github:mobilexag/plugin-sass@^0.4.6",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
       "whatwg-fetch": "npm:whatwg-fetch@^1.0.0"

@@ -140,6 +140,7 @@ SystemJS.config({
     'react': 'npm:react@15.2.1',
     'react-dom': 'npm:react-dom@15.2.1',
     'react-router': 'npm:react-router@2.6.0',
+    'react-tether': 'npm:react-tether@0.5.2',
     'readline': 'github:jspm/nodelibs-readline@0.2.0-alpha',
     'sass': 'github:mobilexag/plugin-sass@0.4.6',
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
@@ -303,7 +304,7 @@ SystemJS.config({
         'inherits': 'npm:inherits@2.0.1',
         'create-hash': 'npm:create-hash@1.1.2',
         'create-hmac': 'npm:create-hmac@1.1.4',
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'browserify-rsa': 'npm:browserify-rsa@4.0.1',
         'elliptic': 'npm:elliptic@6.3.1',
         'parse-asn1': 'npm:parse-asn1@5.0.0'
@@ -332,13 +333,13 @@ SystemJS.config({
     },
     'npm:create-ecdh@4.0.0': {
       'map': {
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'elliptic': 'npm:elliptic@6.3.1'
       }
     },
     'npm:diffie-hellman@5.0.2': {
       'map': {
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'randombytes': 'npm:randombytes@2.0.3',
         'miller-rabin': 'npm:miller-rabin@4.0.0'
       }
@@ -347,7 +348,7 @@ SystemJS.config({
       'map': {
         'parse-asn1': 'npm:parse-asn1@5.0.0',
         'create-hash': 'npm:create-hash@1.1.2',
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'browserify-rsa': 'npm:browserify-rsa@4.0.1',
         'randombytes': 'npm:randombytes@2.0.3'
       }
@@ -381,14 +382,14 @@ SystemJS.config({
     'npm:elliptic@6.3.1': {
       'map': {
         'inherits': 'npm:inherits@2.0.1',
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'brorand': 'npm:brorand@1.0.5',
         'hash.js': 'npm:hash.js@1.0.3'
       }
     },
     'npm:browserify-rsa@4.0.1': {
       'map': {
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'randombytes': 'npm:randombytes@2.0.3'
       }
     },
@@ -413,7 +414,7 @@ SystemJS.config({
     },
     'npm:miller-rabin@4.0.0': {
       'map': {
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'brorand': 'npm:brorand@1.0.5'
       }
     },
@@ -430,7 +431,7 @@ SystemJS.config({
     },
     'npm:asn1.js@4.8.0': {
       'map': {
-        'bn.js': 'npm:bn.js@4.11.5',
+        'bn.js': 'npm:bn.js@4.11.6',
         'inherits': 'npm:inherits@2.0.1',
         'minimalistic-assert': 'npm:minimalistic-assert@1.0.0'
       }
@@ -626,19 +627,13 @@ SystemJS.config({
     },
     'npm:isomorphic-fetch@2.2.1': {
       'map': {
-        'node-fetch': 'npm:node-fetch@1.5.3',
+        'node-fetch': 'npm:node-fetch@1.6.0',
         'whatwg-fetch': 'npm:whatwg-fetch@1.0.0'
       }
     },
     'npm:promise@7.1.1': {
       'map': {
         'asap': 'npm:asap@2.0.4'
-      }
-    },
-    'npm:node-fetch@1.5.3': {
-      'map': {
-        'is-stream': 'npm:is-stream@1.1.0',
-        'encoding': 'npm:encoding@0.1.12'
       }
     },
     'npm:encoding@0.1.12': {
@@ -1267,6 +1262,17 @@ SystemJS.config({
         'xtend': 'npm:xtend@4.0.1',
         'to-arraybuffer': 'npm:to-arraybuffer@1.0.1',
         'builtin-status-codes': 'npm:builtin-status-codes@2.0.0'
+      }
+    },
+    'npm:react-tether@0.5.2': {
+      'map': {
+        'tether': 'npm:tether@1.3.4'
+      }
+    },
+    'npm:node-fetch@1.6.0': {
+      'map': {
+        'is-stream': 'npm:is-stream@1.1.0',
+        'encoding': 'npm:encoding@0.1.12'
       }
     }
   }
