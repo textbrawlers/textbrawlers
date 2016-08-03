@@ -18,8 +18,6 @@ export default class Inventory {
     return false
   }
 
-
-
   push(item) {
     const nextSlot = this.getNextClearSlot()
 

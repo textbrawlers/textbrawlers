@@ -19,10 +19,10 @@
       "drop-rate": 25,
       "character-stats": {
         "damage-multiplier": 1.05,
-        "attack-speed": 0.1,
+        "attack-speed": 0.05,
         "burn-chance": 0.1,
-        "burn-duration": 3,
-        "fashionable": 1.4
+        "burn-duration": 1,
+        "fashionable": 1.1
       },
       "description":"In the name of the stars!"
     },
