@@ -2,7 +2,7 @@
   "damage": {
     "reduced": {
       "name": "Reduced",
-      "drop-rate": 75,
+      "drop-rate": 100,
       "character-stats": {
         "damage-multiplier": 0.95
       }
@@ -16,7 +16,7 @@
     },
     "demonic": {
       "name": "Demonic",
-      "drop-rate": 75,
+      "drop-rate": 100,
       "character-stats": {
         "damage": -1
       }
@@ -32,7 +32,7 @@
   "attack-speed": {
     "draining": {
       "name": "Draining",
-      "drop-rate": 75,
+      "drop-rate": 100,
       "character-stats": {
         "attack-speed": -0.05
       }
@@ -48,7 +48,7 @@
   "crit-chance": {
         "clumsy": {
       "name": "Clumsy",
-      "drop-rate": 75,
+      "drop-rate": 100,
       "character-stats": {
         "crit-chance": -0.05
       }
@@ -70,7 +70,7 @@
     },
     "powerful": {
       "name": "Powerful",
-      "drop-rate": 75,
+      "drop-rate": 100,
       "character-stats": {
         "crit-damage": 0.10
       }
@@ -94,7 +94,7 @@
     },
     "fiery": {
       "name": "Fiery",
-      "drop-rate": 75,
+      "drop-rate": 50,
       "character-stats": {
         "burn-chance": 0.05,
         "burn-duration": 4
