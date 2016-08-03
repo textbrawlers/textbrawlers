@@ -79,7 +79,7 @@ export default class Item {
     }
 
     return new Item(baseItem, {
-      rarity: baseItem.rarity,
+      rarity: jsonItem.rarity,
       prefixes: (jsonItem.prefixes || []).map(prefix => new Prefix(prefix, prefixes[prefix[0]][prefix[1]][prefix[2]]))
     })
   }
