@@ -11,7 +11,8 @@
         "crit-chance": 0.5,
         "crit-damage": 1.8,
         "burn-chance": 1.0,
-        "burn-duration": 3
+        "burn-duration": 3,
+        "ranged": true
       },
       "description": "A match would probably be more useful."
     },
@@ -24,7 +25,8 @@
         "damage": 1,
         "attack-speed": 10,
         "crit-chance": 0.05,
-        "crit-damage": 2.0
+        "crit-damage": 2.0,
+        "ranged": true
       },
       "description": "Madness? THIS... IS... ZEUS!"
     },
@@ -37,7 +39,8 @@
         "damage": 1,
         "attack-speed": 1.0,
         "crit-chance": 0.01,
-        "crit-damage": 50.0
+        "crit-damage": 50.0,
+        "ranged": true
       }
     }
   }

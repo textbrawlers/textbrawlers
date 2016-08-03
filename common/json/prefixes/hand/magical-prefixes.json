@@ -1,0 +1,166 @@
+{
+  "damage": {
+    "reduced": {
+      "name": "Reduced",
+      "drop-rate": 100,
+      "attack-stats": {
+        "damage-multiplier": 0.80
+      }
+    },
+    "weakened": {
+      "name": "Weakened",
+      "drop-rate": 100,
+      "attack-stats": {
+        "damage-multiplier": 0.90
+      }
+    },
+    "enhanced": {
+      "name": "Enhanced",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage-multiplier": 1.1
+      }
+    },
+    "arcane": {
+      "name": "Arcane",
+      "drop-rate": 25,
+      "attack-stats": {
+        "damage-multiplier": 1.2
+      }
+    }
+  },
+  
+  "attack-speed": {
+    "hindering": {
+      "name": "Hindering",
+      "drop-rate": 50,
+      "attack-stats": {
+        "attack-speed": -0.3
+      }
+    },
+    "complicated": {
+      "name": "Complicated",
+      "drop-rate": 75,
+      "attack-stats": {
+        "attack-speed": -0.15
+      }
+    },
+    "hastened": {
+      "name": "Hastened",
+      "drop-rate": 75,
+      "attack-stats": {
+        "attack-speed": 0.15
+      }
+    },
+    "energetic": {
+      "name": "Energetic",
+      "drop-rate": 50,
+      "attack-stats": {
+        "attack-speed": 0.3
+      }
+    }
+  },
+  
+  "crit-chance": {
+    "unpredictable": {
+      "name": "Unpredictable",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-chance": -0.30
+      }
+    },
+    "clumsy": {
+      "name": "Clumsy",
+      "drop-rate": 100,
+      "attack-stats": {
+        "crit-chance": -0.15
+      }
+    },
+    "fortunate": {
+      "name": "Fortunate",
+      "drop-rate": 100,
+      "attack-stats": {
+        "crit-chance": 0.15
+      }
+    },
+    "lucky": {
+      "name": "Lucky",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-chance": 0.30
+      }
+    }
+  },
+  
+  "crit-damage": {
+    "underpowered": {
+      "name": "Underpowered",
+      "drop-rate": 100,
+      "attack-stats": {
+        "crit-damage": -0.45
+      }
+    },
+    "puny": {
+      "name": "Puny",
+      "drop-rate": 100,
+      "attack-stats": {
+        "crit-damage": -0.3
+      }
+    },
+    "weak": {
+      "name": "Weak",
+      "drop-rate": 100,
+      "attack-stats": {
+        "crit-damage": -0.15
+      }
+    },
+    "powerful": {
+      "name": "Powerful",
+      "drop-rate": 100,
+      "attack-stats": {
+        "crit-damage": 0.15
+      }
+    },
+    "mighty": {
+      "name": "Mighty",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-damage": 0.3
+      }
+    },
+    "overpowered": {
+      "name": "Overpowered",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-damage": 0.45
+      }
+    }
+  },
+  
+  "burn": {
+    "glowing": {
+      "name": "Glowing",
+      "drop-rate": 100,
+      "attack-stats": {
+        "burn-chance": 0.1,
+        "burn-duration": 1
+      }
+    },
+    "fiery": {
+      "name": "Fiery",
+      "drop-rate": 50,
+      "attack-stats": {
+        "burn-chance": 0.1,
+        "burn-duration": 2
+      }
+    },
+    "flaming": {
+      "name": "Flaming",
+      "drop-rate": 25,
+      "attack-stats": {
+        "burn-chance": 0.2,
+        "burn-duration": 2
+      }
+    }
+  }
+}

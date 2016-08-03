@@ -7,6 +7,7 @@
     "knife-prefixes": "common/json/prefixes/hand/knife-prefixes.json",
     "bow-prefixes": "common/json/prefixes/hand/bow-prefixes.json",
     "arrow-prefixes": "common/json/prefixes/hand/arrow-prefixes.json",
+    "magical-prefixes": "common/json/prefixes/hand/magical-prefixes.json",
 
     "rare-shield-prefixes": "common/json/prefixes/hand/rare-shield-prefixes.json",
     "rare-hammer-prefixes": "common/json/prefixes/hand/rare-hammer-prefixes.json",
@@ -53,6 +54,10 @@
     },
     "arrow": {
       "arrow-prefixes": 100
+    },
+    "magical": {
+      "magical-prefixes": 100,
+      "weird-prefixes": 20
     },
     "head": {
       "head-prefixes": 100,

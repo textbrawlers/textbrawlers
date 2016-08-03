@@ -94,6 +94,11 @@
     "tooltip": "[fixed] Burn Duration",
     "display": true
   },
+  "ranged": {
+    "type": "boolean",
+    "tooltip": "Ranged",
+    "display": true
+  },
   "category": {
     "type": "text",
     "tooltip": "Itemtype: [type]",
