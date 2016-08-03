@@ -2,6 +2,7 @@ import Stat from 'common/game/stat.js'
 
 export default class {
   constructor(path, prefix) {
+    console.log('new prefix', path, prefix)
     this.path = path
 
     prefix.characterStats = prefix['character-stats'] || []

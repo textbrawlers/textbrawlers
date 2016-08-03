@@ -3,6 +3,8 @@ import { generateItem } from 'common/game/itemGenerator.js'
 export async function requestItem(ctx){
   ctx.player.inventory.push(await generateItem())
 
+  console.log(ctx.player)
+
   await ctx.player.save()
 
   ctx.body = { success: true }

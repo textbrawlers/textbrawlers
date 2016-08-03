@@ -1,12 +1,12 @@
 import Router from 'koa-router'
 import { login, register, getPlayer } from './api/user.js'
-import Player from 'common/game/serverPlayer.js'
+import SPlayer from 'common/game/serverPlayer.js'
 import { requestItem, requestInventory } from './api/game.js'
 
 const auth = async (ctx, next) => {
   const key = ctx.request.header.key
 
-  const player = await Player.fromKey(key)
+  const player = await SPlayer.fromKey(key)
 
   if (player) {
     ctx.player = player

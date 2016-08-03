@@ -1,6 +1,8 @@
 import 'core-js/fn/object/entries'
 import Stat from './stat.js'
+import Prefix from './prefix.js'
 import getItems from 'common/items/items.js'
+import getPrefixes from 'common/items/prefixes.js'
 
 export default class Item {
   constructor(baseItem, { prefixes = [], rarity } = {}) {
@@ -53,7 +55,9 @@ export default class Item {
       } else {
         outStats.push(stat)
       }
+      console.log('loop 3 ')
     })
+    console.log('merge stats 2')
 
     return outStats
   }
@@ -64,6 +68,8 @@ export default class Item {
 
   static async fromJSON(jsonItem) {
     const { items } = await getItems()
+    const { prefixes } = await getPrefixes()
+
 
     const baseItem = items.find(item => item.id === jsonItem.id)
 
@@ -74,7 +80,7 @@ export default class Item {
 
     return new Item(baseItem, {
       rarity: baseItem.rarity,
-      prefixes: jsonItem.prefixes || []
+      prefixes: (jsonItem.prefixes || []).map(prefix => new Prefix(prefix, prefixes[prefix[0]][prefix[1]][prefix[2]]))
     })
   }
 
