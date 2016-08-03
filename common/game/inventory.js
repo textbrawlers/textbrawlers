@@ -39,7 +39,10 @@ export default class Inventory {
   }
 
   get(slot) {
-    return this.inventorySlot[slot]
+    if (this.inventorySlot){
+      return this.inventorySlot[slot]
+    }
+    return
   }
 
   static async fromJSON(jsonInventory, size) {
@@ -59,7 +62,7 @@ export default class Inventory {
     Object.entries(this.inventory).forEach(([slot, item]) => {
       serialized[slot] = item.serialize()
     })
-    
+
     return serialized
   }
 }
