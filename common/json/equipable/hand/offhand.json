@@ -26,6 +26,20 @@
       },
       "description":"In the name of the stars!"
     },
+    "whinegoblet": {
+      "name": "Whinegoblet",
+      "slot": "hand",
+      "attack": false,
+      "icon": "itemwhinegoblet",
+      "drop-rate": 25,
+      "character-stats": {
+        "attack-speed": -0.2,
+        "crit-chance": -0.2,
+        "damage": 5,
+        "comfort": 0.5
+      },
+      "description":"I *hick* need too *hick* drink..."
+    },
     "crystal-of-vigor": {
       "name": "Crystal of Vigor",
       "slot": "hand",

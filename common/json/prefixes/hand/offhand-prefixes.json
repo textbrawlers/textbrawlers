@@ -1,7 +1,7 @@
 {
   "damage": {
-    "reduced": {
-      "name": "Reduced",
+    "reducing": {
+      "name": "Reducing",
       "drop-rate": 100,
       "character-stats": {
         "damage-multiplier": 0.95
@@ -14,18 +14,32 @@
         "damage-multiplier": 1.05
       }
     },
+    "stupifying": {
+      "name": "Stupifying",
+      "drop-rate": 100,
+      "character-stats": {
+        "damage": -2
+      }
+    },
+    "faulty": {
+      "name": "Faulty",
+      "drop-rate": 100,
+      "character-stats": {
+        "damage": -1
+      }
+    },
     "magical": {
       "name": "Magical",
       "drop-rate": 100,
       "character-stats": {
-        "damage": -1
+        "damage": 1
       }
     },
     "arcane": {
       "name": "Arcane",
       "drop-rate": 25,
       "character-stats": {
-        "damage": 1
+        "damage": 2
       }
     }
   },
@@ -149,7 +163,7 @@
       "name": "Flaming",
       "drop-rate": 25,
       "character-stats": {
-        "burn-chance": 0.1,
+        "burn-chance": 0.10,
         "burn-duration": 2
       }
     }
