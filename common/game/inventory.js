@@ -39,9 +39,6 @@ export default class Inventory {
   }
 
   get(slot) {
-    if (!this.inventorySlot){
-      return
-    }
     return this.inventorySlot[slot]
   }
 
