@@ -1,0 +1,34 @@
+{
+	"knight": {			
+		"name": "Ordinary Knight",
+		"maxhp": 80,
+		"character-stats": {
+			"damage": 10,
+			"attack-speed": 0.8,
+		    "critchance": 0.4,
+			"crit-damage": 1.5,
+		    "block-chance": 0.4,
+		    "block-modifier": 0.6
+		}
+	},
+	"assassin": {			
+		"name": "Assassin",
+		"maxhp": 50,
+		"character-stats": {
+			"damage": 15,
+			"attack-speed": 1.8,
+		    "critchance": 0.6,
+			"crit-damage": 2,
+		    "block-chance": 0.1,
+		    "block-modifier": 0.9
+		}
+	}
+}
+
+enemy-damage or difficulty =
+your-item-level *
+flat-enemy-damage/other stats
+
+???
+
+(or just more enemies?)

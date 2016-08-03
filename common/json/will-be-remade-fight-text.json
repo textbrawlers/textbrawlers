@@ -1,0 +1,66 @@
+{
+  "attack": {
+    attacker attacks defender.
+    attacker hits defender with his item-name.
+    attacker pets defender with his item-name.
+    attacker attempts to hit defender.
+    attacker flails his item-name wildly.
+    attacker gently caresses defender with his item-name.
+    attacker takes a jab at defender.
+    attacker shouts profanity at defender and hurts his feelings.
+    attacker bashes defender in the stomach.
+    attacker windmill-kicks defender.
+    attacker roundhouse-kicks defender.
+    attacker bites defender.
+    attacker takes a cheap shot at defender.
+    attacker hugs defender.
+    attacker headbutts defender.
+    attacker tells a joke about defender s mother.
+    defender gets an arrow in the back. Who did that?
+    defender gets a boot thrown in his face.
+    defender takes a hit to the side.
+    defender suffers a hit to the temple.
+    defender is helpless to the attack.
+    defender hits himself.
+    defender seems to let attacker hit him for some reason.
+    defender trips and lands on attackers item-name.
+    defender attempts to do a cartwheel and breaks an arm.
+    defender attempts to do a cartwheel and breaks a leg.
+    defender attempts to do a cartwheel and breaks his nose.
+    defender attempts some sort of acrobatic stunt.
+  },
+  "crit": {
+    attacker smashes defender s skull in.
+    attacker obliterates defender s spleen.
+    attacker crushes defender s dreams.
+    attacker destroys defender.
+    attacker 360 no-scopes defender.
+    attacker demolishes defender s face.
+  },
+  "block": {
+    defender blocks attacker s hit.
+    defender takes slightly less damage.
+    defender accomplishes something in his life.
+    defender lives another day.
+    defender somehow blocks attacker s item-name.
+    defender gets lucky.
+  },
+  "killing-blow": {
+    attacker softly disembowels defender.
+    attacker assassinates defender.
+    attacker triumphs over defender.
+    attacker is victorious.
+    attacker deals the killing blow to defender.
+    attacker ends the fight out of pity.
+    attacker somehow kills defender.
+    attacker lucks out.
+    attacker abruptly beheads defender.
+    attacker teabags defender.
+    attacker slices defender s carotid artery.
+    attacker brutally ends defender.
+    attacker gives defender the business.
+    defender falls over and dies.
+    defender loses too much blood.
+    defender gets put in the ground.
+  }
+}
