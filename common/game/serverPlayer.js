@@ -32,5 +32,6 @@ export default class ServerPlayer extends Player{
   async save() {
     const key = this.key
     await users.update({key}, { $set: { player: this.serialize() }})
+    console.log('saving player', this)
   }
 }

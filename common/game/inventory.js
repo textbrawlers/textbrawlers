@@ -29,7 +29,7 @@ export default class Inventory {
   }
 
   set(slot, item) {
-    if (this.inventory[slot]) {
+    if (!this.inventory[slot]) {
       this.inventory[slot] = item
       return true
     }
@@ -42,13 +42,18 @@ export default class Inventory {
 
   static async fromJSON(jsonInventory, size) {
 
+    jsonInventory = jsonInventory || {}
+
+    console.log('json inv', jsonInventory)
+
     const items = {}
 
     for(let [slot, item] of Object.entries(jsonInventory)) {
+      console.log('inside entries')
       items[slot] = await Item.fromJSON(item)
     }
 
-    console.log('from json', items, jsonInventory)
+    console.log('from json', items, jsonInventory, size)
 
     return new Inventory(items, size)
 
