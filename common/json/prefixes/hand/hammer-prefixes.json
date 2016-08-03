@@ -192,16 +192,5 @@
         "stun-chance": 0.3
       }
     }
-  },
-
-  "unique": {
-    "oversized": {
-      "name": "Oversized",
-      "drop-rate": 25,
-      "attack-stats": {
-        "damage": 1.6,
-        "attack-speed": -0.4
-      }
-    }
   }
 }

@@ -1,0 +1,11 @@
+{
+  "unique": {
+    "heavy": {
+      "name": "Heavy",
+      "character-stats": {
+        "max-health-multiplier": 1.1,
+        "attack-speed": -0.10
+      }
+    }
+  }
+}

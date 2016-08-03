@@ -237,16 +237,6 @@
       "character-stats": {
         "stun-chance": 0.3
       }
-    },
-    "unique": {
-      "oversized": {
-        "name": "Oversized",
-        "drop-rate": 25,
-        "character-stats": {
-          "damage-multiplier": 1.6,
-          "hit-chance": -0.4
-        }
-      }
     }
   }
 }

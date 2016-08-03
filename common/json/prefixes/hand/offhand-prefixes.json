@@ -2,76 +2,75 @@
   "damage": {
     "reduced": {
       "name": "Reduced",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "character-stats": {
-        "damage-multiplier": 0.93
+        "damage-multiplier": 0.95
       }
     },
     "enhanced": {
       "name": "Enhanced",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": 1.07
+        "damage-multiplier": 1.05
       }
     },
     "demonic": {
       "name": "Demonic",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "character-stats": {
-        "damage": -2
+        "damage": -1
       }
     },
     "arcane": {
       "name": "Arcane",
-      "drop-rate": 50,
+      "drop-rate": 25,
       "character-stats": {
-        "damage": 2
+        "damage": 1
       }
     }
   },
   "attack-speed": {
     "draining": {
       "name": "Draining",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "character-stats": {
-        "attack-speed": -0.6
+        "attack-speed": -0.5
       }
     },
     "energetic": {
       "name": "Energetic",
       "drop-rate": 50,
       "character-stats": {
-        "attack-speed": 0.6
+        "attack-speed": 0.5
       }
     }
   },
   "crit-chance": {
+        "clumsy": {
+      "name": "Clumsy",
+      "drop-rate": 75,
+      "character-stats": {
+        "crit-chance": -0.05
+      }
+    },
     "lucky": {
       "name": "Lucky",
       "drop-rate": 50,
       "character-stats": {
         "crit-chance": 0.05
       }
-    },
-    "clumsy": {
-      "name": "Clumsy",
-      "drop-rate": 50,
-      "character-stats": {
-        "crit-chance": -0.05
-      }
     }
   },
   "crit-damage": {
     "weak": {
       "name": "Weak",
-      "drop-rate": 50,
       "character-stats": {
-        "crit-damage": -0.17
+        "crit-damage": -0.10
       }
     },
     "powerful": {
       "name": "Powerful",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "character-stats": {
         "crit-damage": 0.10
       }
@@ -80,14 +79,14 @@
       "name": "Overpowered",
       "drop-rate": 50,
       "character-stats": {
-        "crit-damage": 0.25
+        "crit-damage": 0.20
       }
     }
   },
   "burn": {
     "glowing": {
       "name": "Glowing",
-      "drop-rate": 50,
+      "drop-rate": 100,
       "character-stats": {
         "burn-chance": 0.01,
         "burn-duration": 2
@@ -95,7 +94,7 @@
     },
     "fiery": {
       "name": "Fiery",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "character-stats": {
         "burn-chance": 0.02,
         "burn-duration": 3
@@ -109,15 +108,6 @@
       "character-stats": {
         "crit-chance": 0.1,
         "crit-damage": 0.5
-      }
-    }
-  },
-  "worthless": {
-    "prismatic": {
-      "name": "Prismatic",
-      "drop-rate": 25,
-      "character-stats": {
-        "fashionable": 1.5
       }
     }
   }

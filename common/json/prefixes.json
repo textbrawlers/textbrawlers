@@ -7,6 +7,13 @@
     "knife-prefixes": "common/json/prefixes/hand/knife-prefixes.json",
     "bow-prefixes": "common/json/prefixes/hand/bow-prefixes.json",
     "arrow-prefixes": "common/json/prefixes/hand/arrow-prefixes.json",
+
+    "rare-shield-prefixes": "common/json/prefixes/hand/rare-shield-prefixes.json",
+    "rare-hammer-prefixes": "common/json/prefixes/hand/rare-hammer-prefixes.json",
+    "rare-axe-prefixes": "common/json/prefixes/hand/rare-axe-prefixes.json",
+    "rare-sword-prefixes": "common/json/prefixes/hand/rare-sword-prefixes.json",
+    "rare-knife-prefixes": "common/json/prefixes/hand/rare-knife-prefixes.json",
+
     "armor-prefixes": "common/json/prefixes/armor/armor-prefixes.json",
     "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
     "feet-prefixes": "common/json/prefixes/armor/feet-prefixes.json",
@@ -17,23 +24,28 @@
   "possible": {
     "axe": {
       "axe-prefixes": 100,
-      "weird-prefixes": 20
+      "weird-prefixes": 20,
+      "rare-axe-prefixes": 10
     },
     "sword": {
       "sword-prefixes": 100,
-      "weird-prefixes": 20
+      "weird-prefixes": 20,
+      "rare-sword-prefixes": 10
     },
     "knife": {
       "knife-prefixes": 100,
-      "weird-prefixes": 20
+      "weird-prefixes": 20,
+      "rare-knife-prefixes": 10
     },
     "hammer": {
       "hammer-prefixes": 100,
-      "weird-prefixes": 20
+      "weird-prefixes": 20,
+      "rare-hammer-prefixes": 10
     },
     "shield": {
-      "shield-prefixes": 100,
-      "weird-prefixes": 20
+      "shield-prefixes": 0,
+      "rare-shield-prefixes": 0,
+      "armor-prefixes": 100
     },
     "bow": {
       "bow-prefixes": 100,
@@ -46,29 +58,34 @@
       "head-prefixes": 100,
       "armor-prefixes": 100,
       "weird-prefixes-armor": 20,
+      "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "torso": {
       "torso-prefixes": 100,
       "armor-prefixes": 100,
       "weird-prefixes-armor": 20,
+      "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "legs": {
       "legs-prefixes": 100,
       "armor-prefixes": 100,
       "weird-prefixes-armor": 20,
+      "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "feet": {
       "feet-prefixes": 100,
       "armor-prefixes": 100,
       "weird-prefixes-armor": 20,
+      "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "offhand": {
       "offhand-prefixes": 100,
-      "weird-prefixes": 20
+      "weird-prefixes": 20,
+      "rare-offhand-prefixes": 10
     }
   }
 }

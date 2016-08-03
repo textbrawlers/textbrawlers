@@ -215,16 +215,5 @@
         "bleed-duration": 4
       }
     }
-  },
-
-  "unique": {
-    "oversized": {
-      "name": "Oversized",
-      "drop-rate": 25,
-      "attack-stats": {
-        "damage-multiplier": 1.6,
-        "attack-speed": -0.4
-      }
-    }
   }
 }

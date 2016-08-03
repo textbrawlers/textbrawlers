@@ -1,0 +1,11 @@
+{
+  "unique": {
+    "neat": {
+      "name": "Neat",
+      "attack-stats": {
+        "damage-multiplier": 0.8,
+        "attack-speed": 0.9
+      }
+    }
+  }
+}

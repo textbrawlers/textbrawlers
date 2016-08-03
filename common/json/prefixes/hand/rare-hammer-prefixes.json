@@ -1,0 +1,11 @@
+{
+  "unique": {
+    "oversized": {
+      "name": "Oversized",
+      "attack-stats": {
+        "damage": 1.6,
+        "attack-speed": -0.2
+      }
+    }
+  }
+}
