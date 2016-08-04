@@ -2,19 +2,19 @@ import Inventory from './inventory.js'
 
 export default class Player {
 
-  constructor({inventory, equippedInventory, reassembleInventory}) {
+  constructor({inventory, equipped, reassemble}) {
     this.inventory = inventory || new Inventory([], 120)
-    this.equippedInventory = equippedInventory  || new Inventory([], 6)
-    this.reassembleInventory = reassembleInventory || new Inventory([], 4)
+    this.equipped = equipped || new Inventory([], 6)
+    this.reassemble = reassemble || new Inventory([], 4)
   }
 
   static async baseFromJSON(jsonPlayer) {
-    const inventory = await Inventory.fromJSON(jsonPlayer.inventory, 120) 
-    const equippedInventory = await Inventory.fromJSON(jsonPlayer.equippedInventory, 6) 
- 
-    const reassembleInventory = await Inventory.fromJSON(jsonPlayer.reassembleInventory, 4)
+    const inventory = await Inventory.fromJSON(jsonPlayer.inventory, 120)
+    const equipped = await Inventory.fromJSON(jsonPlayer.equipped, 6)
 
-    return { inventory, equippedInventory, reassembleInventory }
+    const reassemble = await Inventory.fromJSON(jsonPlayer.reassemble, 4)
+
+    return { inventory, equipped, reassemble }
   }
 
   static async fromJSON(jsonPlayer) {
@@ -24,8 +24,8 @@ export default class Player {
   serialize() {
     return {
       inventory: this.inventory.serialize(),
-      equippedInventory: this.equippedInventory.serialize(),
-      reassembleInventory: this.reassembleInventory.serialize(),
+      equipped: this.equipped.serialize(),
+      reassemble: this.reassemble.serialize(),
     }
   }
 }

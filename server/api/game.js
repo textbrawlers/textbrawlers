@@ -13,10 +13,11 @@ export async function requestInventory(ctx){
 }
 
 export async function moveItem(ctx){
-  let fromInv = getCorrectInventory(ctx, ctx.body.from.inventory)
-  let toInv = getCorrectInventory(ctx, ctx.body.to.inventory)
-  let fromPos = ctx.body.from.item
-  let toPos = ctx.body.to.item
+  console.log(ctx.request.body.from.inventory)
+  let fromInv = getCorrectInventory(ctx, ctx.request.body.from.inventory)
+  let toInv = getCorrectInventory(ctx, ctx.request.body.to.inventory)
+  let fromPos = ctx.request.body.from.item
+  let toPos = ctx.request.body.to.item
 
   let tempItem = fromInv[fromPos]
   fromInv[fromPos] = toInv[toPos]
@@ -31,8 +32,8 @@ function getCorrectInventory(ctx, inventory){
       return ctx.player.equipped
     case 'inventory':
       return ctx.player.inventory
-    case 'assembler':
-      return ctx.player.assembler
+    case 'reassemble':
+      return ctx.player.reassemble
     default:
       return
   }
