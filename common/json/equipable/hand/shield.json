@@ -7,18 +7,27 @@
       "icon": "itemwoodbuckler",
       "character-stats": {
         "block-chance": 0.2,
-        "block-multiplier": 0.65
+        "block-multiplier": 0.6
       }
     },
     "heater-shield": {
       "name": "Heater Shield",
       "slot": "hand",
       "attack": false,
-      "icon": "itemshield",
+      "icon": "itemheatershield",
       "character-stats": {
-        "block-chance": 0.60
+        "block-chance": 0.4,
+        "block-multiplier": 0.8
       },
       "description": "''Have you seen my smoothing iron, honey?''"
+    },
+    "tower-shield": {
+      "name": "Tower Shield",
+      "slot": "hand",
+      "attack": false,
+      "icon": "itemtowershield",
+      "character-stats": {
+        "block-chance": 0.6
     }
   }
 }

@@ -1,241 +1,170 @@
 {
-  "damage": {
-    "broken": {
-      "name": "Broken",
+  "block-multiplier": {
+    "decayed": {
+      "name": "Decayed",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": 0.7
+        "block-multiplier": 1.3
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "character-stats": {
-        "damage-multiplier": 0.8
+        "block-multiplier": 1.2
       }
     },
     "scratched": {
       "name": "Scratched",
       "character-stats": {
-        "damage-multiplier": 0.9
+        "block-multiplier": 1.1
       }
     },
-    "blunt": {
-      "name": "Sharp",
+    "spotless": {
+      "name": "Spotless",
       "character-stats": {
-        "damage-multiplier": 1.1
+        "block-multiplier": 0.9
       }
     },
-    "ruthless": {
-      "name": "Ruthless",
+    "pristine": {
+      "name": "Pristine",
       "drop-rate": 75,
       "character-stats": {
-        "damage-multiplier": 1.2
+        "block-multiplier": 0.8
       }
     },
-    "deadly": {
-      "name": "Deadly",
+    "perfect": {
+      "name": "Perfect",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": 1.3
+        "block-multiplier": 0.7
       }
     }
   },
   
-  "hit-chance": {
+  "block-chance": {
     "slow": {
       "name": "Slow",
       "drop-rate": 50,
       "character-stats": {
-        "hit-chance": -0.15
+        "block-chance": -0.15
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "character-stats": {
-        "hit-chance": -0.1
+        "block-chance": -0.1
       }
     },
     "heavy": {
       "name": "Heavy",
       "character-stats": {
-        "hit-chance": -0.05
+        "block-chance": -0.05
       }
     },
     "nimble": {
       "name": "Nimble",
       "character-stats": {
-        "hit-chance": 0.05
+        "block-chance": 0.05
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "character-stats": {
-        "hit-chance": 0.1
+        "block-chance": 0.1
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "character-stats": {
-        "hit-chance": 0.15
+        "block-chance": 0.15
       }
     }
   },
   
-  "crit-chance": {
-    "inaccurate": {
-      "name": "Inaccurate",
+  "health": {
+    "destroyed": {
+      "name": "Destroyed",
       "drop-rate": 50,
       "character-stats": {
-        "crit-chance": -0.6
+        "max-health": -15.0
       }
     },
-    "inexact": {
-      "name": "Inexact",
+    "broken": {
+      "name": "Broken",
       "drop-rate": 75,
       "character-stats": {
-        "crit-chance": -0.4
+        "max-health": -10.0
       }
     },
-    "uncertain": {
-      "name": "Uncertain",
+    "damaged": {
+      "name": "Damaged",
       "character-stats": {
-        "crit-chance": -0.2
+        "max-health": -5.0
       }
     },
-    "aiming": {
-      "name": "Aiming",
+    "thick": {
+      "name": "Thick",
       "character-stats": {
-        "crit-chance": 0.2
+        "max-health": 5.0
       }
     },
-    "piercing": {
-      "name": "Piercing",
+    "reinforced": {
+      "name": "Reinforced",
       "drop-rate": 75,
       "character-stats": {
-        "crit-chance": 0.4
+        "max-health": 10.0
       }
     },
-    "precise": {
-      "name": "Precise",
+    "fortified": {
+      "name": "Fortified",
       "drop-rate": 50,
       "character-stats": {
-        "crit-chance": 0.6
+        "max-health": 15.0
       }
     }
   },
   
-  "crit-damage": {
-    "harmless": {
-      "name": "Harmless",
-      "drop-rate": 50,
-      "character-stats": {
-        "crit-damage": -0.6
-      }
-    },
-    "kind": {
-      "name": "Kind",
+  "enchanted": {
+    "cursed": {
+      "name": "Cursed",
       "drop-rate": 75,
       "character-stats": {
-        "crit-damage": -0.4
+        "max-health": -10,
+        "block-chance": -0.04,
+        "block-multiplier": 1.04,
+        "damage-multiplier": 0.96
       }
     },
-    "safe": {
-      "name": "Safe",
+    "possessed": {
+      "name": "Possessed",
       "character-stats": {
-        "crit-damage": -0.2
+        "max-health": -5,
+        "block-chance": -0.02,
+        "block-multiplier": 1.02,
+        "damage-multiplier": 0.98
       }
     },
-    "crushing": {
-      "name": "Crushing",
+    "enchanted": {
+      "name": "Enchanted",
       "character-stats": {
-        "crit-damage": 0.2
+        "max-health": 5,
+        "block-chance": 0.02,
+        "block-multiplier": 0.98,
+        "damage-multiplier": 1.02
       }
     },
-    "demolishing": {
-      "name": "Demolishing",
+    "magical": {
+      "name": "Magical",
       "drop-rate": 75,
       "character-stats": {
-        "crit-damage": 0.4
-      }
-    },
-    "obliterating": {
-      "name": "Obliterating",
-      "drop-rate": 50,
-      "character-stats": {
-        "crit-damage": 0.6
-      }
-    }
-  },
-  
-  "bleed-chance": {
-    "cutting": {
-      "name": "Cutting",
-      "character-stats": {
-        "bleed-chance": 0.1
-      }
-    },
-    "slicing": {
-      "name": "Slicing",
-      "drop-rate": 75,
-      "character-stats": {
-        "bleed-chance": 0.2
-      }
-    },
-    "slashing": {
-      "name": "Slashing",
-      "drop-rate": 50,
-      "character-stats": {
-        "bleed-chance": 0.3
-      }
-    }
-  },
-  
-  "bleed-duration": {
-    "ripping": {
-      "name": "Ripping",
-      "character-stats": {
-        "bleed-duration": 2
-      }
-    },
-    "tearing": {
-      "name": "Tearing",
-      "drop-rate": 75,
-      "character-stats": {
-        "bleed-duration": 3
-      }
-    },
-    "rupturing": {
-      "name": "Rupturing",
-      "drop-rate": 50,
-      "character-stats": {
-        "bleed-duration": 4
-      }
-    }
-  },
-  
-  "stun-chance": {
-    "stunning": {
-      "name": "Stunning",
-      "character-stats": {
-        "stun-chance": 0.1
-      }
-    },
-    "staggering": {
-      "name": "Staggering",
-      "drop-rate": 75,
-      "character-stats": {
-        "stun-chance": 0.2
-      }
-    },
-    "overwhelming": {
-      "name": "Overwhelming",
-      "drop-rate": 50,
-      "character-stats": {
-        "stun-chance": 0.3
+        "max-health": 10,
+        "block-chance": 0.04,
+        "block-multiplier": 0.94,
+        "damage-multiplier": 1.04
       }
     }
   }

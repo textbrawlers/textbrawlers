@@ -36,12 +36,12 @@
   },
   "poison-duration": {
     "type": "additive",
-    "tooltip": "[percent] Poison Duration",
+    "tooltip": "[fixed] Poison Duration",
     "display": true
   },
   "poison-damage": {
     "type": "additive",
-    "tooltip": "[percent] Poison Damage",
+    "tooltip": "[fixed] Poison Damage",
     "display": true
   },
   "stun-chance": {

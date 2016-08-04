@@ -44,9 +44,8 @@
       "rare-hammer-prefixes": 10
     },
     "shield": {
-      "shield-prefixes": 0,
-      "rare-shield-prefixes": 0,
-      "armor-prefixes": 100
+      "shield-prefixes": 100,
+      "rare-shield-prefixes": 10
     },
     "bow": {
       "bow-prefixes": 100,

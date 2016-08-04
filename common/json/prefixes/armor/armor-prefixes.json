@@ -83,7 +83,7 @@
     }
   },
 
-  "resitance": {
+  "resistance": {
     "vulnerable": {
       "name": "Vulnerable",
       "drop-rate": 75,
@@ -113,6 +113,29 @@
   },
 
   "barbaric": {
+    "honorable": {
+      "name": "Honorable",
+      "drop-rate": 75,
+      "character-stats": {
+        "damage-multiplier": 0.65,
+        "max-health-multiplier": 1.30
+      }
+    },
+    "peaceful": {
+      "name": "Peaceful",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage-multiplier": 0.75,
+        "max-health-multiplier": 1.20
+      }
+    },
+    "merciful": {
+      "name": "Merciful",
+      "character-stats": {
+        "damage-multiplier": 0.85,
+        "max-health-multiplier": 1.10
+      }
+    },
     "cruel": {
       "name": "Cruel",
       "character-stats": {
@@ -134,17 +157,6 @@
       "character-stats": {
         "damage-multiplier": 1.30,
         "max-health-multiplier": 0.65
-      }
-    }
-  },
-
-  "unique": {
-    "heavy": {
-      "name": "Heavy",
-      "drop-rate": 25,
-      "character-stats": {
-        "max-health-multiplier": 1.1,
-        "attack-speed": -0.15
       }
     }
   }
