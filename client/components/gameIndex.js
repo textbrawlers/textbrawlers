@@ -11,7 +11,7 @@ const INV_HEIGHT = 10
 const INV_MARGIN = 5
 const INV_SLOT_SIZE = 50
 
-export default class extends React.Component{
+export default class GameIndex extends React.Component{
 
   constructor() {
     super()

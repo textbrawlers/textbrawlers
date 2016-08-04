@@ -44,16 +44,11 @@ export default class Inventory {
 
     jsonInventory = jsonInventory || {}
 
-    console.log('json inv', jsonInventory)
-
     const items = {}
 
     for(let [slot, item] of Object.entries(jsonInventory)) {
-      console.log('inside entries')
       items[slot] = await Item.fromJSON(item)
     }
-
-    console.log('from json', items, jsonInventory, size)
 
     return new Inventory(items, size)
 

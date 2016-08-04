@@ -138,6 +138,8 @@ SystemJS.config({
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'querystring': 'github:jspm/nodelibs-querystring@0.2.0-alpha',
     'react': 'npm:react@15.2.1',
+    'react-dnd': 'npm:react-dnd@2.1.4',
+    'react-dnd-html5-backend': 'npm:react-dnd-html5-backend@2.1.2',
     'react-dom': 'npm:react-dom@15.2.1',
     'react-router': 'npm:react-router@2.6.0',
     'react-tether': 'npm:react-tether@0.5.2',
@@ -1273,6 +1275,35 @@ SystemJS.config({
       'map': {
         'is-stream': 'npm:is-stream@1.1.0',
         'encoding': 'npm:encoding@0.1.12'
+      }
+    },
+    'npm:react-dnd@2.1.4': {
+      'map': {
+        'invariant': 'npm:invariant@2.2.1',
+        'lodash': 'npm:lodash@4.14.1',
+        'dnd-core': 'npm:dnd-core@2.0.2',
+        'disposables': 'npm:disposables@1.0.1'
+      }
+    },
+    'npm:react-dnd-html5-backend@2.1.2': {
+      'map': {
+        'lodash': 'npm:lodash@4.14.1'
+      }
+    },
+    'npm:dnd-core@2.0.2': {
+      'map': {
+        'invariant': 'npm:invariant@2.2.1',
+        'lodash': 'npm:lodash@4.14.1',
+        'asap': 'npm:asap@2.0.4',
+        'redux': 'npm:redux@3.5.2'
+      }
+    },
+    'npm:redux@3.5.2': {
+      'map': {
+        'lodash': 'npm:lodash@4.14.1',
+        'loose-envify': 'npm:loose-envify@1.2.0',
+        'symbol-observable': 'npm:symbol-observable@0.2.4',
+        'lodash-es': 'npm:lodash-es@4.14.1'
       }
     }
   }

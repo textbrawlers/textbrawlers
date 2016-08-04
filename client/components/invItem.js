@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { DragSource } from 'react-dnd';
 import TetherComponent from 'react-tether'
 
-export default class extends React.Component {
+class InventoryItem extends React.Component {
 
   constructor() {
     super()
@@ -29,9 +30,9 @@ export default class extends React.Component {
   getEmpowerStats(item) {
     return item.empoweredStats.map(conf => {
 
-      const stats = conf.stats.map(stat => {
+      const stats = conf.stats.map((stat, i) => {
         const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-        return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+        return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
       })
 
       return (
@@ -46,14 +47,14 @@ export default class extends React.Component {
   createTooltip() {
     const item = this.props.item
 
-    const characterStats = item.characterStats.map(stat => {
-      const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-      return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+    const characterStats = item.characterStats.map((stat, i) => {
+      const statTooltip = stat.render((stat, i) => `<b>${stat}</b>`)
+      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
     })
 
-    const attackStats = item.attackStats.map(stat => {
+    const attackStats = item.attackStats.map((stat, i) => {
       const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-      return <p dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
     })
 
     let characterStatsDiv
@@ -109,17 +110,38 @@ export default class extends React.Component {
 
     let tooltip
 
-    if (this.state.tooltipVisible) {
+    const { isDragging, connectDragSource } = this.props;
+
+    if (this.state.tooltipVisible && ! isDragging) {
       tooltip = this.createTooltip()
     }
 
-    return (
+    return connectDragSource(
       <div style={tooltipContainerStyle}>
         <TetherComponent attachment="top left" targetAttachment="top right" targetOffset="0 4px" constraints={[{to: 'window', pin: true}]}>
           <img className={className}  src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-          { this.state.tooltipVisible && tooltip }
+          { this.state.tooltipVisible && !isDragging && tooltip }
         </TetherComponent>
       </div>
     )
   }
 }
+
+const itemSource = {
+  beginDrag(props) {
+    console.log('begin drag')
+    return {
+      item: props.item,
+      slot: props.slot
+    }
+  }
+}
+
+const collect = (connect, monitor) => {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+export default DragSource('item', itemSource, collect)(InventoryItem)

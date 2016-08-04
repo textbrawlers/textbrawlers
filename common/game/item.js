@@ -55,9 +55,7 @@ export default class Item {
       } else {
         outStats.push(stat)
       }
-      console.log('loop 3 ')
     })
-    console.log('merge stats 2')
 
     return outStats
   }
