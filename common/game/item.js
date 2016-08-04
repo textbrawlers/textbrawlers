@@ -3,6 +3,11 @@ import Stat from './stat.js'
 import Prefix from './prefix.js'
 import getItems from 'common/items/items.js'
 import getPrefixes from 'common/items/prefixes.js'
+import LRU from 'lru-cache'
+
+const itemCache = LRU({
+  max: 10000
+})
 
 export default class Item {
   constructor(baseItem, { prefixes = [], rarity } = {}) {
@@ -65,6 +70,14 @@ export default class Item {
   }
 
   static async fromJSON(jsonItem) {
+    const str = JSON.stringify(jsonItem)
+
+    const cachedItem = itemCache.get(str)
+
+    if (cachedItem) {
+      return cachedItem
+    }
+
     const { items } = await getItems()
     const { prefixes } = await getPrefixes()
 
@@ -76,10 +89,15 @@ export default class Item {
       return
     }
 
-    return new Item(baseItem, {
+    const item = new Item(baseItem, {
       rarity: jsonItem.rarity,
       prefixes: (jsonItem.prefixes || []).map(prefix => new Prefix(prefix, prefixes[prefix[0]][prefix[1]][prefix[2]]))
     })
+
+    itemCache.set(str, item)
+
+
+    return item
   }
 
   serialize() {

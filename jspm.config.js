@@ -131,6 +131,7 @@ SystemJS.config({
     'koa-router': 'npm:koa-router@7.0.1',
     'koa-send': 'npm:koa-send@3.2.0',
     'koa-static': 'npm:koa-static@2.0.0',
+    'lru-cache': 'npm:lru-cache@4.0.1',
     'module': 'github:jspm/nodelibs-module@0.2.0-alpha',
     'monk': 'npm:monk@3.0.7',
     'net': 'github:jspm/nodelibs-net@0.2.0-alpha',
@@ -1304,6 +1305,12 @@ SystemJS.config({
         'loose-envify': 'npm:loose-envify@1.2.0',
         'symbol-observable': 'npm:symbol-observable@0.2.4',
         'lodash-es': 'npm:lodash-es@4.14.1'
+      }
+    },
+    'npm:lru-cache@4.0.1': {
+      'map': {
+        'pseudomap': 'npm:pseudomap@1.0.2',
+        'yallist': 'npm:yallist@2.0.0'
       }
     }
   }
