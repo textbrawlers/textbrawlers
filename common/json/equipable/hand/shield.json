@@ -28,6 +28,7 @@
       "icon": "itemtowershield",
       "character-stats": {
         "block-chance": 0.6
+      }
     }
   }
 }
