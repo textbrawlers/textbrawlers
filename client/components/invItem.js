@@ -130,9 +130,22 @@ class InventoryItem extends React.Component {
 const itemSource = {
   beginDrag(props) {
     return {
-      item: props.item,
-      slot: props.slot
+      slot: props.slot,
+      inventory: props.inventory
     }
+  },
+
+  endDrag(props, monitor) {
+    if (!monitor.didDrop()) {
+      return;
+    }
+    const to = monitor.getDropResult()
+    const from = {
+      inventory: props.inventory,
+      item: props.slot
+    }
+
+    props.switchItems({ from, to })
   }
 }
 

@@ -3,6 +3,9 @@ import { DropTarget } from 'react-dnd'
 
 class InventorySlot extends React.Component {
 
+  componentWillReceiveProps(nextProps) {
+  }
+
   render() {
     let specialClass = ''
     if (this.props.special) {
@@ -20,16 +23,21 @@ class InventorySlot extends React.Component {
 }
 
 const target = {
-  drop() {
-    return {
-      name: 'test'
+  drop(droppedItem, targetMonitor, targetSlot) {
+    const res =  {
+      inventory: droppedItem.inventory,
+      item: parseInt(droppedItem.slot)
     }
+    console.log(res)
+    return res
   }
 }
 
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver()
+  isOver: monitor.isOver(),
+  didDrop: monitor.didDrop(),
+  isOverCurrent: monitor.isOver({ shallow: true }),
 })
 
 export default DropTarget('item', target, collect)(InventorySlot)

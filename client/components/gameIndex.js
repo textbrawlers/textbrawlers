@@ -30,12 +30,12 @@ export default class GameIndex extends React.Component{
     //const player =(await AccountAPI.get()).json
   }
 
-  getItem(index){
+  getItem(inventory, index){
     const item = this.state.inventory && this.state.inventory.get(index)
     if (!item){
       return
     }
-    return <InvItem item={item} />
+    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory="inventory" slot={index}/>
   }
 
   createSlot(x, y, index) {
@@ -44,7 +44,12 @@ export default class GameIndex extends React.Component{
       left: INV_MARGIN + x * (INV_MARGIN +INV_SLOT_SIZE),
       position: 'absolute'
     }
-    return <InventorySlot style={style} key={index} slot={`i${index}`} > {this.getItem(index)} </InventorySlot>
+    return <InventorySlot style={style} key={index} switchItems={this.switchItems.bind(this)} inventory="inventory" slot={index}> {this.getItem('inventory', index)} </InventorySlot>
+  }
+
+  async switchItems(data) {
+    jsonInv = (await request.post('/api/game/switchItems', data)).json
+    this.updateInventory(jsonInv)
   }
 
   getInventory() {
@@ -79,12 +84,12 @@ export default class GameIndex extends React.Component{
         <div className="window equip-window">
           <h2>Equipped Items</h2>
           <div className="equip">
-            <InventorySlot special="head" slot="e0" />
-            <InventorySlot special="body" slot="e1" />
-            <InventorySlot special="legs" slot="e2" />
-            <InventorySlot special="boots" slot="e3" />
-            <InventorySlot special="lefthand" slot="e4" />
-            <InventorySlot special="righthand" slot="e5" />
+            <InventorySlot switchItems={this.switchItems.bind(this)} special="head" slot="0" inventory="equipped" />
+            <InventorySlot switchItems={this.switchItems.bind(this)} special="body" slot="1" inventory="equipped" />
+            <InventorySlot switchItems={this.switchItems.bind(this)} special="legs" slot="2" inventory="equipped" />
+            <InventorySlot switchItems={this.switchItems.bind(this)} special="boots" slot="3" inventory="equipped" />
+            <InventorySlot switchItems={this.switchItems.bind(this)} special="lefthand" slot="4" inventory="equipped" />
+            <InventorySlot switchItems={this.switchItems.bind(this)} special="righthand" slot="5" inventory="equipped" />
           </div>
         </div>
 
@@ -96,10 +101,10 @@ export default class GameIndex extends React.Component{
           <div className="bottom-inventory">
             <div className="recraft-inventory">
 
-              <InventorySlot special="craft-1" slot="c0" />
-              <InventorySlot special="craft-2" slot="c1" />
-              <InventorySlot special="craft-3" slot="c2" />
-              <InventorySlot special="craft-4" slot="c3" />
+              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-1" slot="0" inventory="assembler" />
+              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-2" slot="1" inventory="assembler" />
+              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-3" slot="2" inventory="assembler" />
+              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-4" slot="3" inventory="assembler" />
               <button className="craft-button">Reassemble</button>
             </div>
           </div>
