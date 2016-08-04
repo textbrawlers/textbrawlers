@@ -129,7 +129,6 @@ class InventoryItem extends React.Component {
 
 const itemSource = {
   beginDrag(props) {
-    console.log('begin drag')
     return {
       item: props.item,
       slot: props.slot

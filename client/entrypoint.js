@@ -9,6 +9,9 @@ import RegisterPage from './components/registerPage.js'
 import GameIndex from './components/gameIndex.js'
 import ItemBrowser from './components/tools/itemBrowser.js'
 import ItemGen from './components/tools/itemGen.js'
+import { DragDropContext} from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
 
 const NotFound = () => (<p>Jaha ja.</p>)
 const Index = () => (<p>Fancy homepage!</p>)
@@ -50,6 +53,8 @@ class RenderForcer extends React.Component {
   }
 }
 
+const WrappedRenderForcer = DragDropContext(HTML5Backend)(RenderForcer)
+
 render((
-  <RenderForcer />
+  <WrappedRenderForcer />
   ), document.getElementById('root'))
