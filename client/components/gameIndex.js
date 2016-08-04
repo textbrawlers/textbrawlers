@@ -48,7 +48,7 @@ export default class GameIndex extends React.Component{
   }
 
   async switchItems(data) {
-    jsonInv = (await request.post('/api/game/switchItems', data)).json
+    const jsonInv = (await request.post('/api/game/swapItems', data)).json
     this.updateInventory(jsonInv)
   }
 

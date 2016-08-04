@@ -19,11 +19,13 @@ export async function moveItem(ctx){
   let fromPos = ctx.request.body.from.item
   let toPos = ctx.request.body.to.item
 
-  let tempItem = fromInv[fromPos]
-  fromInv[fromPos] = toInv[toPos]
-  toInv[toPos] = tempItem
+  let tempItem = fromInv.get(fromPos)
+  fromInv.set(fromPos, toInv.get(toPos))
+  toInv.set(toPos, tempItem)
 
   ctx.body = ctx.player.inventory.serialize()
+
+  await ctx.player.save()
 }
 
 function getCorrectInventory(ctx, inventory){

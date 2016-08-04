@@ -19,14 +19,14 @@ const auth = async (ctx, next) => {
 
 const router = new Router()
 
-router.use(['/user/get', '/game/requestItem', '/game/requestInventory', '/game/moveItem'], auth)
+router.use(['/user/get', '/game/requestItem', '/game/requestInventory', '/game/swapItems'], auth)
 
 router.post('/user/login', login)
 router.post('/user/register', register)
 router.get('/user/get', getPlayer)
 
 router.post('/game/requestItem', requestItem)
-router.post('/game/moveItem', moveItem)
+router.post('/game/swapItems', moveItem)
 router.get('/game/requestInventory', requestInventory)
 
 export default router

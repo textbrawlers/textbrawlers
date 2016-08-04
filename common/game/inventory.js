@@ -29,11 +29,11 @@ export default class Inventory {
   }
 
   set(slot, item) {
-    if (!this.inventory[slot]) {
+    if (item) {
       this.inventory[slot] = item
-      return true
+    } else {
+      delete this.inventory[slot]
     }
-    return false
   }
 
   get(slot) {
