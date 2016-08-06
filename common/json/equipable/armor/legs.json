@@ -17,8 +17,8 @@
       "attack": false,
       "icon": "itemironpants",
       "character-stats": {
-        "max-health": 30,
-        "block-chance": -0.15
+        "max-health": 20,
+        "block-chance": -0.1
       },
       "description": "A piece of your standard iron attire. More specifically the piece for your legs."
     },

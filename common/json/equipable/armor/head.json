@@ -17,8 +17,8 @@
       "attack": false,
       "icon": "itemironhelmet",
       "character-stats": {
-        "max-health": 20,
-        "block-chance": -0.1
+        "max-health": 15,
+        "block-chance": -0.05
       },
       "description": "A piece of your standard iron attire. More specifically the piece for your head."
     },
@@ -29,7 +29,7 @@
       "icon": "itemlamellarhelmet",
       "drop-rate": 75,
       "character-stats": {
-        "block-chance": 0.1
+        "block-chance": 0.05
       },
       "description": "Someone decided to make a lamellar helmet. Someone is not very smart."
     },
