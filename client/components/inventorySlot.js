@@ -20,7 +20,9 @@ class InventorySlot extends React.Component {
       'itemmove3',
       'itemmove4',
       'itemmove5',
-      'itemmove6'
+      'itemmove6',
+      'itemmove7',
+      'itemmove8'
     ]
 
     const image = possible[parseInt(this.props.slot) % 6]
