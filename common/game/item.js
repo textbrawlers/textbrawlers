@@ -55,8 +55,9 @@ export default class Item {
     const outStats = []
     stats.forEach(stat => {
       const existingStat = outStats.find(s => s.id === stat.id)
+      const index = outStats.indexOf(existingStat)
       if (existingStat) {
-        existingStat.add(stat.value)
+        outStats[index] = existingStat.add(stat.value)
       } else {
         outStats.push(stat)
       }

@@ -13,7 +13,6 @@ export async function requestInventory(ctx){
 }
 
 export async function moveItem(ctx){
-  console.log(ctx.request.body.from.inventory)
   let fromInv = getCorrectInventory(ctx, ctx.request.body.from.inventory)
   let toInv = getCorrectInventory(ctx, ctx.request.body.to.inventory)
   let fromPos = ctx.request.body.from.item
@@ -25,6 +24,22 @@ export async function moveItem(ctx){
 
   ctx.body = ctx.player.serialize()
 
+  await ctx.player.save()
+}
+
+export async function reassemble(ctx) {
+  const player = ctx.player
+
+  if (player.reassemble.get(0) && player.reassemble.get(1) && player.reassemble.get(2) && player.reassemble.get(3)) {
+    player.reassemble.set(0, undefined)
+    player.reassemble.set(1, undefined)
+    player.reassemble.set(2, undefined)
+    player.reassemble.set(3, undefined)
+  }
+
+  ctx.player.inventory.push(await generateItem())
+
+  ctx.body = ctx.player.serialize()
   await ctx.player.save()
 }
 

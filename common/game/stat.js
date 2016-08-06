@@ -21,7 +21,7 @@ const displayFunctions = {
   }
 }
 
-export default class {
+export default class Stat {
   constructor(id, value) {
     let baseStat = stats[id]
     if (!baseStat) {
@@ -40,12 +40,19 @@ export default class {
     this.display = baseStat.display
   }
 
+  copy() {
+    return new Stat(this.id, this.value)
+  }
+
   add(value) {
-    if (this.type === 'multiplicative') {
-      this.value *= value
+    const newItem = this.copy()
+    if (newItem.type === 'multiplicative') {
+      newItem.value *= value
     } else {
-      this.value += value
+      newItem.value += value
     }
+
+    return newItem
   }
 
   render(statWrapper) {

@@ -28,8 +28,18 @@ export default class GameIndex extends React.Component{
     this.getItem = this.getItem.bind(this)
     this.requestItem = this.requestItem.bind(this)
     this.createSpecialSlot = this.createSpecialSlot.bind(this)
+    this.reassemble = this.reassemble.bind(this)
 
     this.updatePlayer()
+  }
+
+  async request(url) {
+    const resp = (await request.post(url)).json
+    this.updatePlayer(resp)
+  }
+
+  async reassemble() {
+    await this.request('/api/game/reassemble')
   }
 
   async load() {
@@ -114,7 +124,7 @@ export default class GameIndex extends React.Component{
               {this.createSpecialSlot('reassemble', 1, 'craft-2')}
               {this.createSpecialSlot('reassemble', 2, 'craft-3')}
               {this.createSpecialSlot('reassemble', 3, 'craft-4')}
-              <button className="craft-button">Reassemble</button>
+              <button onClick={this.reassemble} className="craft-button">Reassemble</button>
             </div>
           </div>
         </div>
