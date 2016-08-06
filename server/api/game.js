@@ -35,9 +35,9 @@ export async function reassemble(ctx) {
     player.reassemble.set(1, undefined)
     player.reassemble.set(2, undefined)
     player.reassemble.set(3, undefined)
+    ctx.player.inventory.push(await generateItem())
   }
 
-  ctx.player.inventory.push(await generateItem())
 
   ctx.body = ctx.player.serialize()
   await ctx.player.save()
