@@ -25,7 +25,7 @@ class InventorySlot extends React.Component {
       'itemmove8'
     ]
 
-    const image = possible[parseInt(this.props.slot) % 6]
+    const image = possible[parseInt(this.props.slot) % possible.length]
 
     return connectDropTarget(
       <div className={`inv-slot${specialClass}`}  style={this.props.style} data-slot={this.props.slot}>
