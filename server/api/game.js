@@ -5,11 +5,11 @@ export async function requestItem(ctx){
 
   await ctx.player.save()
 
-  ctx.body = ctx.player.inventory.serialize()
+  ctx.body = ctx.player.serialize()
 }
 
 export async function requestInventory(ctx){
-  ctx.body = ctx.player.inventory.serialize()
+  ctx.body = ctx.player.serialize()
 }
 
 export async function moveItem(ctx){
@@ -23,7 +23,7 @@ export async function moveItem(ctx){
   fromInv.set(fromPos, toInv.get(toPos))
   toInv.set(toPos, tempItem)
 
-  ctx.body = ctx.player.inventory.serialize()
+  ctx.body = ctx.player.serialize()
 
   await ctx.player.save()
 }

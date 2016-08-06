@@ -29,7 +29,6 @@ const target = {
       inventory: droppedItem.inventory,
       item: parseInt(droppedItem.slot)
     }
-    console.log(res)
     return res
   }
 }

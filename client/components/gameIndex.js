@@ -3,6 +3,7 @@ import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
 import AccountAPI from 'common/api/account.js'
 import Inventory from 'common/game/inventory.js'
+import Player from 'common/game/player.js'
 import InvItem from './invItem.js'
 import request from 'common/api/request.js'
 
@@ -16,14 +17,19 @@ export default class GameIndex extends React.Component{
   constructor() {
     super()
 
-    this.state = {}
+    this.state = {
+      player: {
+
+      }
+    }
 
     this.load()
 
     this.getItem = this.getItem.bind(this)
     this.requestItem = this.requestItem.bind(this)
+    this.createSpecialSlot = this.createSpecialSlot.bind(this)
 
-    this.updateInventory()
+    this.updatePlayer()
   }
 
   async load() {
@@ -31,11 +37,11 @@ export default class GameIndex extends React.Component{
   }
 
   getItem(inventory, index){
-    const item = this.state.inventory && this.state.inventory.get(index)
+    const item = this.state.player[inventory] && this.state.player[inventory].get(index)
     if (!item){
       return
     }
-    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory="inventory" slot={index}/>
+    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index}/>
   }
 
   createSlot(x, y, index) {
@@ -48,11 +54,11 @@ export default class GameIndex extends React.Component{
   }
 
   async switchItems(data) {
-    const jsonInv = (await request.post('/api/game/swapItems', data)).json
-    this.updateInventory(jsonInv)
+    const jsonPlayer = (await request.post('/api/game/swapItems', data)).json
+    this.updatePlayer(jsonPlayer)
   }
 
-  getInventory() {
+  getInventory() {https://gist.github.com/ineentho/158a76817d0a5288e00c3b296f4952e7
     let slots = []
     let index = 0
     for (let y = 0; y < INV_HEIGHT; y++) {
@@ -65,17 +71,21 @@ export default class GameIndex extends React.Component{
     return slots
   }
 
-  async updateInventory(jsonInv) {
-    if (!jsonInv) {
-      jsonInv = (await request.get('/api/game/requestInventory')).json
+  async updatePlayer(jsonPlayer) {
+    if (!jsonPlayer) {
+      jsonPlayer = (await request.get('/api/user/get')).json
     }
-    const inventory = await Inventory.fromJSON(jsonInv)
-    this.setState({inventory})
+    const player = await Player.fromJSON(jsonPlayer)
+    this.setState({player})
   }
 
   async requestItem(){
     const resp = (await request.post('/api/game/requestItem')).json
-    this.updateInventory(resp)
+    this.updatePlayer(resp)
+  }
+
+  createSpecialSlot(inventory, slot, special = '') {
+    return <InventorySlot special={special} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={slot}> {this.getItem(inventory, slot)} </InventorySlot>
   }
 
   render() {
@@ -84,12 +94,12 @@ export default class GameIndex extends React.Component{
         <div className="window equip-window">
           <h2>Equipped Items</h2>
           <div className="equip">
-            <InventorySlot switchItems={this.switchItems.bind(this)} special="head" slot="0" inventory="equipped" />
-            <InventorySlot switchItems={this.switchItems.bind(this)} special="body" slot="1" inventory="equipped" />
-            <InventorySlot switchItems={this.switchItems.bind(this)} special="legs" slot="2" inventory="equipped" />
-            <InventorySlot switchItems={this.switchItems.bind(this)} special="boots" slot="3" inventory="equipped" />
-            <InventorySlot switchItems={this.switchItems.bind(this)} special="lefthand" slot="4" inventory="equipped" />
-            <InventorySlot switchItems={this.switchItems.bind(this)} special="righthand" slot="5" inventory="equipped" />
+            {this.createSpecialSlot('equipped', 0, 'head')}
+            {this.createSpecialSlot('equipped', 1, 'body')}
+            {this.createSpecialSlot('equipped', 2, 'legs')}
+            {this.createSpecialSlot('equipped', 3, 'boots')}
+            {this.createSpecialSlot('equipped', 4, 'lefthand')}
+            {this.createSpecialSlot('equipped', 5, 'righthand')}
           </div>
         </div>
 
@@ -100,11 +110,10 @@ export default class GameIndex extends React.Component{
           </div>
           <div className="bottom-inventory">
             <div className="recraft-inventory">
-
-              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-1" slot="0" inventory="assembler" />
-              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-2" slot="1" inventory="assembler" />
-              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-3" slot="2" inventory="assembler" />
-              <InventorySlot switchItems={this.switchItems.bind(this)} special="craft-4" slot="3" inventory="assembler" />
+              {this.createSpecialSlot('reassemble', 0, 'craft-1')}
+              {this.createSpecialSlot('reassemble', 1, 'craft-2')}
+              {this.createSpecialSlot('reassemble', 2, 'craft-3')}
+              {this.createSpecialSlot('reassemble', 3, 'craft-4')}
               <button className="craft-button">Reassemble</button>
             </div>
           </div>

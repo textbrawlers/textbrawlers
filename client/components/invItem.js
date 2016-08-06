@@ -28,7 +28,7 @@ class InventoryItem extends React.Component {
   }
 
   getEmpowerStats(item) {
-    return item.empoweredStats.map(conf => {
+    return item.empoweredStats.map((conf, i) => {
 
       const stats = conf.stats.map((stat, i) => {
         const statTooltip = stat.render(stat => `<b>${stat}</b>`)
@@ -36,7 +36,7 @@ class InventoryItem extends React.Component {
       })
 
       return (
-        <div>
+        <div key={i}>
           <p>Empowers {conf.category}:</p>
           {stats}
         </div>
