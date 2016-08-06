@@ -14,22 +14,9 @@ class InventorySlot extends React.Component {
   
     const { connectDropTarget, isOver } = this.props
 
-    const possible = [
-      'itemmove',
-      'itemmove2',
-      'itemmove3',
-      'itemmove4',
-      'itemmove5',
-      'itemmove6',
-      'itemmove7',
-      'itemmove8'
-    ]
-
-    const image = possible[parseInt(this.props.slot) % possible.length]
-
     return connectDropTarget(
       <div className={`inv-slot${specialClass}`}  style={this.props.style} data-slot={this.props.slot}>
-        { isOver && <img className="itemmove" src={`/client/png/${image}.png`} /> }
+        { isOver && <img className="itemmove" src={`/client/png/itemmove.png`} /> }
         {this.props.children}
       </div>
     )
