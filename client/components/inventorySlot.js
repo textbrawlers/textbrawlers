@@ -15,7 +15,8 @@ class InventorySlot extends React.Component {
     const { connectDropTarget, isOver } = this.props
 
     return connectDropTarget(
-      <div className={`inv-slot${specialClass} ${isOver ? 'inv-slot-over' : ''}`}  style={this.props.style} data-slot={this.props.slot}>
+      <div className={`inv-slot${specialClass}`}  style={this.props.style} data-slot={this.props.slot}>
+        { isOver && <img className="itemmove" src="/client/png/itemmove3.png" /> }
         {this.props.children}
       </div>
     )

@@ -25,10 +25,20 @@ body {
   height: 50px;
   display: inline-block;
   position: relative;
-}
-
-.inv-slot-over {
-  background: black;
+  
+  .itemmove {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
 }
 
 .inv-slot img {
@@ -267,3 +277,8 @@ body {
 .separator {
   height: 5px;
 }
+
+.tether-element {
+  z-index: 10;
+}
+
