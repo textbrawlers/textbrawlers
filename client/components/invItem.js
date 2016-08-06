@@ -106,7 +106,7 @@ class InventoryItem extends React.Component {
       position: 'relative'
     }
 
-    const className = `item item-${item.rarity}`
+    let className = `item item-${item.rarity}`
 
     let tooltip
 
@@ -114,6 +114,10 @@ class InventoryItem extends React.Component {
 
     if (this.state.tooltipVisible && ! isDragging) {
       tooltip = this.createTooltip()
+    }
+
+    if (isDragging) {
+      className += ' item-dragging'
     }
 
     return connectDragSource(
@@ -137,8 +141,9 @@ const itemSource = {
 
   endDrag(props, monitor) {
     if (!monitor.didDrop()) {
-      return;
+      return
     }
+
     const to = monitor.getDropResult()
     const from = {
       inventory: props.inventory,

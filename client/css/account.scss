@@ -176,6 +176,10 @@ body {
   color: #f23022;
 }
 
+.item-dragging {
+  opacity: .5;
+}
+
 .item {
   border: 2px solid;
   box-sizing: border-box;
