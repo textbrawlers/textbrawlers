@@ -6,6 +6,7 @@ import Inventory from 'common/game/inventory.js'
 import Player from 'common/game/player.js'
 import InvItem from './invItem.js'
 import request from 'common/api/request.js'
+import CharacterStats from './characterStats.js'
 
 const INV_WIDTH = 12
 const INV_HEIGHT = 10
@@ -135,6 +136,7 @@ export default class GameIndex extends React.Component{
 
         <div className="window tooltip-window">
           <div id="characterstats" className="tooltip tooltip-stat">
+            <CharacterStats player={this.state.player} />
           </div>
         </div>
       </div>

@@ -17,6 +17,35 @@ export default class Player {
     return { inventory, equipped, reassemble }
   }
 
+  get stats() {
+    let characterStats = []
+    for (let i = 0; i < 6; i++) {
+      const item = this.equipped.get(i)
+      if (!item) {
+        continue
+      }
+
+      characterStats = this.mergeStats(characterStats.concat(item.characterStats))
+    }
+
+    return characterStats
+  }
+
+  mergeStats(stats) {
+    const outStats = []
+    stats.forEach(stat => {
+      const existingStat = outStats.find(s => s.id === stat.id)
+      const index = outStats.indexOf(existingStat)
+      if (existingStat) {
+        outStats[index] = existingStat.add(stat.value)
+      } else {
+        outStats.push(stat)
+      }
+    })
+
+    return outStats
+  }
+
   static async fromJSON(jsonPlayer) {
     return new Player(await Player.baseFromJSON(jsonPlayer))
   }
