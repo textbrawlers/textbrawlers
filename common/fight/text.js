@@ -60,6 +60,17 @@ export default function messages(m, attacker, defender, round) {
             } else {
                 m.add(100, '[attacker] fired an arrow at [defender] which hit.')
             }
+        }
+
+        if (attacker.weapon.type === 'sword') {
+            if (round.blocked) {
+                m.add(100, '[attacker] sliced at [defender]\'s defences.')
+            } else if (round.critical) {
+                m.add(100, '[attacker] fired an arrow at [defender] which hit a critical spot.')
+                m.add(1, '[defender] took an arrow to the knee.')
+            } else {
+                m.add(100, '[attacker] fired an arrow at [defender] which hit.')
+            }
 
         }
         
