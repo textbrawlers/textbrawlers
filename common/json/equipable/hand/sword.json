@@ -11,7 +11,8 @@
         "crit-chance": 0.5,
         "crit-damage":  1.5,
         "bleed-duration": 4
-      }
+      },
+	  "description": "Size isn't everything."
     },
     "longsword": {
       "name": "Longsword",
@@ -24,7 +25,8 @@
         "crit-chance": 0.25,
         "crit-damage": 1.5,
         "bleed-duration": 4
-      }
+      },
+	  "description": "When you need to disembowel someone from a distance."
     },
     "broadsword": {
       "name": "Broadsword",
@@ -37,7 +39,8 @@
         "crit-chance": 1.0,
         "crit-damage": 1.5,
         "bleed-duration": 4
-      }
+      },
+	  "description": "Not as broad as your mother!"
     },
     "serrated-sword": {
       "name": "Serrated Sword",
@@ -51,7 +54,8 @@
         "crit-damage": 1.2,
         "bleed-chance": 1.0,
         "bleed-duration": 6
-      }
+      },
+	  "description": "Now with 200 percent more blood!"
     },
     "cursed-sword": {
       "name": "Cursed Sword",
@@ -65,7 +69,8 @@
         "crit-damage": 2.0,
         "bleed-chance": 0.5,
         "bleed-duration": 10
-      }
+      },
+	  "description": "Don't forget to feed it."
     }
   }
 }

@@ -11,7 +11,8 @@
         "crit-chance": 0.8,
         "crit-damage": 1.5,
         "bleed-duration": 1
-      }
+      },
+	  "description": "Cuts both ways!"
     },
     "woodcutters-axe": {
       "name": "Woodcutter's Axe",
@@ -23,7 +24,8 @@
         "attack-speed": 0.8,
         "crit-chance": 0.6,
         "crit-damage": 1.5
-      }
+      },
+	  "description": "How much wood would a woodcutter cut if a woodcutter could cut wood?"
     },
     "tomahawk": {
       "name": "Tomahawk",
@@ -36,7 +38,8 @@
         "crit-chance": 0.2,
         "crit-damage": 15.0,
         "bleed-duration": 1
-      }
+      },
+	  "description": "/"But how is that a haircut?/"/n/"Wrong tomahawk, bro./""
     }
   }
 }
