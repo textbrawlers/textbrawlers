@@ -44,6 +44,12 @@ export default class Stat {
     return new Stat(this.id, this.value)
   }
 
+  multiply(value) {
+    const newItem = this.copy()
+    newItem.value *= value
+    return newItem
+  }
+
   add(value) {
     const newItem = this.copy()
     if (newItem.type === 'multiplicative') {

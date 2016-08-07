@@ -30,7 +30,7 @@ class InventoryItem extends React.Component {
   getEmpowerStats(item) {
     return item.empoweredStats.map((conf, i) => {
 
-      const stats = conf.stats.map((stat, i) => {
+      const stats = conf.stats.getStats().map((stat, i) => {
         const statTooltip = stat.render(stat => `<b>${stat}</b>`)
         return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
       })
@@ -47,18 +47,18 @@ class InventoryItem extends React.Component {
   createTooltip() {
     const item = this.props.item
 
-    const characterStats = item.characterStats.map((stat, i) => {
+    const characterStats = item.characterStats.getStats().map((stat, i) => {
       const statTooltip = stat.render((stat, i) => `<b>${stat}</b>`)
       return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
     })
 
-    const attackStats = item.attackStats.map((stat, i) => {
+    const attackStats = item.attackStats.getStats().map((stat, i) => {
       const statTooltip = stat.render(stat => `<b>${stat}</b>`)
       return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
     })
 
     let characterStatsDiv
-    if (item.characterStats.length) {
+    if (!item.characterStats.isEmpty()) {
       characterStatsDiv = (
         <div>
           <p>Character:</p>
@@ -68,7 +68,7 @@ class InventoryItem extends React.Component {
     }
 
     let attackStatsDiv
-    if (item.attackStats.length) {
+    if (!item.attackStats.isEmpty()) {
       attackStatsDiv = (
         <div>
           <p>Attack:</p>
@@ -124,7 +124,7 @@ class InventoryItem extends React.Component {
       <div style={tooltipContainerStyle}>
         <TetherComponent attachment="top left" targetAttachment="top right" targetOffset="0 4px" constraints={[{to: 'window', pin: true}]}>
           <img className={className}  src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-          { this.state.tooltipVisible && !isDragging && tooltip }
+          { tooltip }
         </TetherComponent>
       </div>
     )

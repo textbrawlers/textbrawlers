@@ -2,6 +2,7 @@ import 'core-js/fn/object/entries'
 import Stat from './stat.js'
 import Prefix from './prefix.js'
 import getItems from 'common/items/items.js'
+import StatCollection from './statCollection.js'
 import getPrefixes from 'common/items/prefixes.js'
 import LRU from 'lru-cache'
 
@@ -17,53 +18,46 @@ export default class Item {
 
     this.displayName = `${prefixList} ${baseItem.name}`
 
-    this.baseCharacterStats = Object.entries(baseItem.characterStats).map(([id, value]) => new Stat(id, value))
-    this.baseAttackStats = Object.entries(baseItem.attackStats).map(([id, value]) => new Stat(id, value))
+    this.baseCharacterStats = new StatCollection(Object.entries(baseItem.characterStats).map(([id, value]) => new Stat(id, value)))
+    this.baseAttackStats = new StatCollection(Object.entries(baseItem.attackStats).map(([id, value]) => new Stat(id, value)))
     
     this.baseEmpoweredStats = baseItem.empoweredStats.map(empowerConfig => {
       return {
-        stats: Object.entries(empowerConfig.stats).map(([id, value]) => new Stat(id, value)),
+        stats: new StatCollection(Object.entries(empowerConfig.stats).map(([id, value]) => new Stat(id, value))),
         category: empowerConfig.category
       }
     })
 
-    this.characterStats = this.mergeStats(this.baseCharacterStats.concat(...this.prefixes.map(prefix => prefix.characterStats)))
-    this.attackStats = this.mergeStats(this.baseAttackStats.concat(...this.prefixes.map(prefix => prefix.attackStats)))
-
+    this.characterStats = new StatCollection(this.baseCharacterStats)
+    this.attackStats = new StatCollection(this.baseAttackStats)
     this.empoweredStats = []
-    this.baseEmpoweredStats.concat(...this.prefixes.map(prefix => prefix.empoweredStats)).forEach(empowered => {
-      const exisitingEmpower = this.empoweredStats.find(emp => emp.category === empowered.category)
 
-      if (exisitingEmpower) {
-        exisitingEmpower.stats = this.mergeStats(exisitingEmpower.stats.concat(empowered.stats))
-      } else {
-        this.empoweredStats.push(empowered)
-      }
+    this.baseEmpoweredStats.forEach(({stats, category}) => this.empoweredStats.push({stats, category}))
+
+    this.prefixes.forEach(prefix => {
+      this.characterStats.add(prefix.characterStats)
+      this.attackStats.add(prefix.attackStats)
+
+      prefix.empoweredStats.forEach(empowered => {
+        const existingEmpower = this.empoweredStats.find(emp => emp.category === empowered.category)
+
+        if (existingEmpower) {
+          console.log('exisiting', existingEmpower)
+          if (!existingEmpower.stats) {
+            debugger
+          }
+          existingEmpower.stats = existingEmpower.stats.add(empowered.stats)
+        } else {
+          this.empoweredStats.push({stats: empowered.stats, category: empowered.category})
+        }
+      })
     })
 
     this.icon = baseItem.icon
-
-
     this.rarity = rarity || 'common'
-
     this.category = baseItem.category
     this.description = baseItem.description
     this.id = baseItem.id
-  }
-
-  mergeStats(stats) {
-    const outStats = []
-    stats.forEach(stat => {
-      const existingStat = outStats.find(s => s.id === stat.id)
-      const index = outStats.indexOf(existingStat)
-      if (existingStat) {
-        outStats[index] = existingStat.add(stat.value)
-      } else {
-        outStats.push(stat)
-      }
-    })
-
-    return outStats
   }
 
   get image() {

@@ -1,4 +1,5 @@
 import Inventory from './inventory.js'
+import StatCollection from './statCollection.js'
 
 export default class Player {
 
@@ -18,32 +19,22 @@ export default class Player {
   }
 
   get stats() {
-    let characterStats = []
+    let characterStats = new StatCollection()
     for (let i = 0; i < 6; i++) {
       const item = this.equipped.get(i)
       if (!item) {
         continue
       }
 
-      characterStats = this.mergeStats(characterStats.concat(item.characterStats))
+      characterStats.add(item.characterStats)
     }
+    /*
+    const maxHpMultiplier = characterStats.find(stat => stat.id === 'max-health-multiplier')
+    const maxHpIndex = characterStats.indexOf(maxHpMultiplier)
+    characterStats.splice(maxHpIndex)
+    */
 
     return characterStats
-  }
-
-  mergeStats(stats) {
-    const outStats = []
-    stats.forEach(stat => {
-      const existingStat = outStats.find(s => s.id === stat.id)
-      const index = outStats.indexOf(existingStat)
-      if (existingStat) {
-        outStats[index] = existingStat.add(stat.value)
-      } else {
-        outStats.push(stat)
-      }
-    })
-
-    return outStats
   }
 
   static async fromJSON(jsonPlayer) {
