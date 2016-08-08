@@ -24,7 +24,7 @@ const FullLoginPage = () => <LoginApp><LoginPage /></LoginApp>
 const FullRegisterPage = () => <LoginApp><RegisterPage /></LoginApp>
 
 const routes = (
-  <Route path='/'>
+  <Route path='/' component={OutlineApp} >
     <IndexRoute component={FullIndex} />
     <Route path='login' component={FullLoginPage} />
     <Route path='register' component={FullRegisterPage} />
