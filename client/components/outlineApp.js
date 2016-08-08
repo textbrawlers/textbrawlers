@@ -8,13 +8,10 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          <li><Link to='/'> Home</Link></li>
-          <li><Link to='/login'> Login</Link></li>
-          <li><Link to='/register'> Register</Link></li>
-        </ul>
+      <div className="outline">
+        asdadasd
         {this.props.children}
+        asdsadas
       </div>
     )
   }
