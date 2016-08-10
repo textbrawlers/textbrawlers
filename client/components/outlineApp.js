@@ -8,10 +8,22 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div className="outline">
-        asdadasd
+
+      <div>
+        <div className="links">
+          <div className="leftlinks">
+            <Link to='/'> <img src="/client/png/inventory.png"></img></Link>
+          </div>
+          <div className="middlelinks">
+           <Link to='/'> <img className="title" src="/client/png/title.png"></img></Link>
+          </div>
+          <div className="rightlinks">
+            <Link to='/'> <img src="/client/png/inventory.png"></img></Link>
+          </div>
+        </div>
+        <div className="outline">
         {this.props.children}
-        asdsadas
+        </div>
       </div>
     )
   }

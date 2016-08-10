@@ -1,10 +1,40 @@
 body {
-  background-color:pink;
+  background-color:#F2F2F2;
   margin:0;
   padding:0;
 }
 
 .outline {
-  border:2px black solid;
+  margin:auto;
+  width:400;
+  min-width:200px;
+  height:auto;
+  border:2px #754c24 solid;
   padding:10px;
+  background-color:e09345;
+}
+
+.links {
+  display:flex;
+  height:80px;
+  margin:15px;
+  font-size:0;
+  align-items:center;
+}
+
+.title {
+  padding:10px;
+}
+
+.middlelinks {
+  width: 410px;
+}
+
+
+.leftlinks, .rightlinks {
+  flex: 1;
+}
+
+.leftlinks {
+  text-align:right;
 }
