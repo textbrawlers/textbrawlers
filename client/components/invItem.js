@@ -29,7 +29,6 @@ class InventoryItem extends React.Component {
 
   getEmpowerStats(item) {
     return item.empoweredStats.map((conf, i) => {
-
       const stats = conf.stats.getStats().map((stat, i) => {
         const statTooltip = stat.render(stat => `<b>${stat}</b>`)
         return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>

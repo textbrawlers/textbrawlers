@@ -22,8 +22,9 @@ export default class Item {
     this.baseAttackStats = new StatCollection(Object.entries(baseItem.attackStats).map(([id, value]) => new Stat(id, value)))
     
     this.baseEmpoweredStats = baseItem.empoweredStats.map(empowerConfig => {
+      const stats = new StatCollection(Object.entries(empowerConfig.stats).map(([id, value]) => new Stat(id, value)))
       return {
-        stats: new StatCollection(Object.entries(empowerConfig.stats).map(([id, value]) => new Stat(id, value))),
+        stats: stats,
         category: empowerConfig.category
       }
     })
@@ -31,8 +32,16 @@ export default class Item {
     this.characterStats = new StatCollection(this.baseCharacterStats)
     this.attackStats = new StatCollection(this.baseAttackStats)
     this.empoweredStats = []
+    
 
-    this.baseEmpoweredStats.forEach(({stats, category}) => this.empoweredStats.push({stats, category}))
+    this.baseEmpoweredStats.forEach(({stats, category}) => {
+      console.log(stats, category)
+      const obj = {stats: stats, category: category}
+      console.log('obj', obj)
+      this.empoweredStats.push(obj)
+    })
+
+    console.log(this.empoweredStats)
 
     this.prefixes.forEach(prefix => {
       this.characterStats.add(prefix.characterStats)
