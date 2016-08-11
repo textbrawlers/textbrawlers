@@ -19,7 +19,7 @@ const NotFound = () => (<p>Jaha ja.</p>)
 const Index = () => (<p>Fancy homepage!</p>)
 
 
-const FullIndex = () => <LoginApp><LoginPage></LoginApp>
+const FullIndex = () => <LoginApp><LoginPage></LoginPage></LoginApp>
 const FullRegisterPage = () => <LoginApp><RegisterPage /></LoginApp>
 
 const routes = (
