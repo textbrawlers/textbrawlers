@@ -35,3 +35,20 @@ body {
 .leftlinks {
   text-align:right;
 }
+
+.window {
+  background: #ddd;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.window h2 {
+  margin: 0;
+  padding: 5px;
+  font-size: 15px;
+  border-bottom: 1px solid black;
+}
+
+.login-window {
+  width:300px;
+}

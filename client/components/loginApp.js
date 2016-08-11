@@ -9,11 +9,9 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          <li><Link to='/'> Home</Link></li>
-          <li><Link to='/login'> Login</Link></li>
-          <li><Link to='/register'> Register</Link></li>
-        </ul>
+        <div className="window login-window">
+          <h2>Equipped Items</h2>
+        </div>
         {this.props.children}
       </div>
     )
