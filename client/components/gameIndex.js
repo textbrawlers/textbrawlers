@@ -130,6 +130,8 @@ export default class GameIndex extends React.Component{
           </div>
         </div>
 
+
+        <br />
         <button id="spawnItem" onClick={this.requestItem}>Spawn Item</button>
 
         <br />

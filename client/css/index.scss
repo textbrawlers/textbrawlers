@@ -41,12 +41,6 @@ body {
   text-align:right;
 }
 
-.window {
-  background:#ededed;
-  display: inline-block;
-  vertical-align: top;
-}
-
 .windowcontent {
   margin:5px;
 }
@@ -57,7 +51,6 @@ body {
 
 .login-window, .register-window, .guest-window {
   width:300px;
-  margin:0px 5px;
 }
 
 .login {
