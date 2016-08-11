@@ -18,12 +18,14 @@ export default class LoginPage extends React.Component {
         <form onSubmit={this.onSubmit.bind(this)}>
           <label htmlFor="username">Username:</label><br />
           <input
+            className="input"
             type="text"
             id="username"
             value={this.state.username}
             onChange={this.updateUsername.bind(this)} /><br />
           <label htmlFor="password">Password:</label><br />
           <input
+            className="input"
             type="password"
             id="password"
             value={this.state.password}

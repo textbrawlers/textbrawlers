@@ -52,7 +52,7 @@ render((
   <WrappedRenderForcer />
   ), document.getElementById('root'))
 
-const WebFontConfig = {
+window.WebFontConfig = {
   google: { families: [ 'Roboto::latin' ] }
 };
 (function() {
