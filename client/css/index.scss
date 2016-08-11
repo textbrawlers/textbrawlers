@@ -2,6 +2,7 @@ body {
   background-color:#F2F2F2;
   margin:0;
   padding:0;
+  font-family:roboto;
 }
 
 .outline {
@@ -48,6 +49,12 @@ body {
   border-bottom: 1px solid black;
 }
 
-.login-window {
+.signin-window, .signup-window .guest-window {
   width:300px;
+}
+
+.login, . {
+  position: relative;
+  border: 0px solid black;
+  height: 250px;
 }

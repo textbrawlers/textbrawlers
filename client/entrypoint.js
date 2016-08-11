@@ -19,14 +19,12 @@ const NotFound = () => (<p>Jaha ja.</p>)
 const Index = () => (<p>Fancy homepage!</p>)
 
 
-const FullIndex = () => <LoginApp><Index /></LoginApp>
-const FullLoginPage = () => <LoginApp><LoginPage /></LoginApp>
+const FullIndex = () => <LoginApp><LoginPage></LoginApp>
 const FullRegisterPage = () => <LoginApp><RegisterPage /></LoginApp>
 
 const routes = (
   <Route path='/' component={OutlineApp} >
     <IndexRoute component={FullIndex} />
-    <Route path='login' component={FullLoginPage} />
     <Route path='register' component={FullRegisterPage} />
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />

@@ -9,8 +9,14 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <div className="window login-window">
+        <div className="window signin-window">
           <h2>Sign In</h2>
+        </div>
+        <div className="window signup-window">
+          <h2>Sign Up</h2>
+        </div>
+        <div className="window guest-window">
+          <h2>Play as Guest</h2>
         </div>
         {this.props.children}
       </div>
