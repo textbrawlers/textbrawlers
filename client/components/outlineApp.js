@@ -21,9 +21,7 @@ export default class extends React.Component {
             <Link to='/'> <img src="/client/png/inventory.png"></img></Link>
           </div>
         </div>
-        <div className="outline">
         {this.props.children}
-        </div>
       </div>
     )
   }
