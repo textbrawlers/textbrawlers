@@ -5,6 +5,10 @@ body {
   font-family:roboto;
 }
 
+.container {
+  width:915;
+}
+
 .outline {
   margin:auto;
   height:auto;
@@ -51,6 +55,7 @@ body {
 
 .signin-window, .signup-window, .guest-window {
   width:300px;
+  margin:0px 2.5px,
 }
 
 .login {
