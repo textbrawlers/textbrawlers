@@ -10,7 +10,7 @@ export default class extends React.Component {
     return (
       <div>
         <div className="window login-window">
-          <h2>Equipped Items</h2>
+          <h2>Sign In</h2>
         </div>
         {this.props.children}
       </div>
