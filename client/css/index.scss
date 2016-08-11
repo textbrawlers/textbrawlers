@@ -7,6 +7,7 @@ body {
 
 .containerlogin {
   width:930px;
+  margin:0 auto;
 }
 
 .outline {
@@ -41,19 +42,20 @@ body {
 }
 
 .window {
-  background: #ddd;
+  background:#ededed;
   display: inline-block;
   vertical-align: top;
 }
 
-.window h2 {
-  margin: 0;
-  padding: 5px;
-  font-size: 15px;
-  border-bottom: 1px solid black;
+.windowcontent {
+  margin:5px;
 }
 
-.signin-window, .signup-window, .guest-window {
+.window form {
+  margin-bottom:0;
+}
+
+.login-window, .register-window, .guest-window {
   width:300px;
   margin:0px 5px;
 }

@@ -5,8 +5,6 @@ import LoginApp from './components/loginApp.js'
 import OutlineApp from './components/outlineApp.js'
 import ToolsApp from './components/toolsApp.js'
 import Game from './components/game.js'
-import LoginPage from './components/loginPage.js'
-import RegisterPage from './components/registerPage.js'
 import GameIndex from './components/gameIndex.js'
 import ItemBrowser from './components/tools/itemBrowser.js'
 import ItemGen from './components/tools/itemGen.js'
@@ -18,14 +16,9 @@ import 'client/css/index.scss'
 const NotFound = () => (<p>Jaha ja.</p>)
 const Index = () => (<p>Fancy homepage!</p>)
 
-
-const FullIndex = () => <LoginApp><LoginPage></LoginPage></LoginApp>
-const FullRegisterPage = () => <LoginApp><RegisterPage /></LoginApp>
-
 const routes = (
   <Route path='/' component={OutlineApp} >
-    <IndexRoute component={FullIndex} />
-    <Route path='register' component={FullRegisterPage} />
+    <IndexRoute component={LoginApp} />
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />
     </Route>
@@ -58,3 +51,15 @@ const WrappedRenderForcer = DragDropContext(HTML5Backend)(RenderForcer)
 render((
   <WrappedRenderForcer />
   ), document.getElementById('root'))
+
+const WebFontConfig = {
+  google: { families: [ 'Roboto::latin' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();

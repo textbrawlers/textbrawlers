@@ -13,10 +13,6 @@ body {
   height: 250px;
 }
 
-.window {
-  border-bottom: 1px solid black;
-}
-
 .inv-slot {
   background: url(/client/png/itembg.png);
   width: 50px;
@@ -78,12 +74,14 @@ body {
 }
 
 .window {
-  background: #ddd;
+  background: #ededed;
   display: inline-block;
   vertical-align: top;
+  border-bottom: 1px solid black;
 }
 
 .window h2 {
+  background-color:#ddd;
   margin: 0;
   padding: 5px;
   font-size: 15px;
