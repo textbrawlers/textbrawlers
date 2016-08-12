@@ -6,7 +6,7 @@ body {
 }
 
 .containerlogin {
-  width:930px;
+  width:660px;
   margin:0 auto;
 }
 
@@ -50,15 +50,18 @@ body {
 }
 
 .login-window, .register-window, .guest-window {
-  width:300px;
-}
-
-.login {
-  position: relative;
-  border: 0px solid black;
-  height: 250px;
+  width:210px;
 }
 
 .input {
+  width:200px;
   margin-bottom:5px;
+}
+
+.login-button {
+  background-color: rgba(0, 0, 0, .15);
+  border: none;
+  outline: none;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
 }

@@ -56,7 +56,7 @@
   },
   "block-multiplier": {
     "type": "multiplicative",
-    "tooltip": "[percent] Block Multiplier",
+    "tooltip": "[fixed] Block Multiplier",
     "display": true
   },
   "max-health": {
