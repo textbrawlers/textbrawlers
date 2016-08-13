@@ -1,13 +1,11 @@
 import React from 'react'
-import Item from 'common/game/item.js'
 import InvItem from '../invItem.js'
 import InventorySlot from '../inventorySlot.js'
-import { getDroptable } from 'common/game/itemGenerator.js'
-import { generateItem } from 'common/game/itemGenerator.js'
+import { getDroptable, generateItem } from 'common/game/itemGenerator.js'
 
 export default class extends React.Component {
 
-  constructor() {
+  constructor () {
     super()
 
     this.state = {
@@ -15,31 +13,35 @@ export default class extends React.Component {
     }
 
     getDroptable().then(droptable => {
-      this.setState({ droptable })
+      this.setState({droptable})
     })
 
     this.genitem = this.genitem.bind(this)
   }
 
-  async genitem() {
+  async genitem () {
     const item = await generateItem()
 
     this.setState({ items: [item] })
   }
 
-  async genMany(n) {
+  async genMany (n) {
     const items = []
     for (let i = 0; i < n; i++) {
       items.push(await generateItem())
     }
-    this.setState({ items })
+    this.setState({items})
   }
-  
-  render() {
+
+  render () {
     const table = this.state.droptable.map(entry => (
       <tr>
-        <td>{entry.item.name}</td>
-        <td>{Math.round(entry.chance * 100 * 100) / 100}%</td>
+        <td>
+          {entry.item.name}
+        </td>
+        <td>
+          {Math.round(entry.chance * 100 * 100) / 100}%
+        </td>
       </tr>
     ))
 
@@ -64,13 +66,21 @@ export default class extends React.Component {
 
     return (
       <div>
-        <button onClick={this.genitem}>Generate</button>
-        <button onClick={() => this.genMany(100)}>Generate 100</button>
-        <button onClick={() => this.genMany(10000)}>Generate 10.000</button>
+        <button onClick={this.genitem}>
+          Generate
+        </button>
+        <button onClick={() => this.genMany(100)}>
+          Generate 100
+        </button>
+        <button onClick={() => this.genMany(10000)}>
+          Generate 10.000
+        </button>
         <br />
         {invSlot}
         <table>
-          <tbody>{table}</tbody>
+          <tbody>
+            {table}
+          </tbody>
         </table>
       </div>
     )

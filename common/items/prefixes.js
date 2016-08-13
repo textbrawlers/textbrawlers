@@ -1,6 +1,6 @@
 import 'core-js/fn/object/entries'
 
-async function parsePrefixes() {
+async function parsePrefixes () {
   const allItems = []
   const setBonuses = {}
 
@@ -19,7 +19,7 @@ let cache
 
 export default async function() {
   if (cache) {
-      return cache
+    return cache
   }
   const res = await parsePrefixes()
   cache = res

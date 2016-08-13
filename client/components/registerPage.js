@@ -4,7 +4,7 @@ import AccountAPI from 'common/api/account.js'
 
 export default class RegisterPage extends React.Component {
 
-  constructor() {
+  constructor () {
     super()
     this.state = {
       username: '',
@@ -12,48 +12,53 @@ export default class RegisterPage extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <div>
         <form onSubmit={this.onSubmit.bind(this)}>
-          <label htmlFor="username">Username:</label><br />
+          <label htmlFor='username'>
+            Username:
+          </label>
+          <br />
           <input
-            className="input"
-            type="text"
-            id="username"
+            className='input'
+            type='text'
+            id='username'
             value={this.state.username}
-            onChange={this.updateUsername.bind(this)} /><br />
-          <label htmlFor="password">Password:</label><br />
+            onChange={this.updateUsername.bind(this)} />
+          <br />
+          <label htmlFor='password'>
+            Password:
+          </label>
+          <br />
           <input
-            className="input"
-            type="password"
-            id="password"
+            className='input'
+            type='password'
+            id='password'
             value={this.state.password}
-            onChange={this.updatePassword.bind(this)} /><br />
-          <div className="login-button-center"> 
-          <input
-            className="login-button"
-            type="submit"
-            value="Register" />
+            onChange={this.updatePassword.bind(this)} />
+          <br />
+          <div className='login-button-center'>
+            <input className='login-button' type='submit' value='Register' />
           </div>
         </form>
       </div>
     )
   }
 
-  updateUsername(e) {
+  updateUsername (e) {
     this.setState(Object.assign(this.state, {
       username: e.target.value
     }))
   }
 
-  updatePassword(e) {
+  updatePassword (e) {
     this.setState(Object.assign(this.state, {
       password: e.target.value
     }))
   }
 
-  async onSubmit(e) {
+  async onSubmit (e) {
     e.preventDefault()
 
     const response = await AccountAPI.register(this.state.username, this.state.password)

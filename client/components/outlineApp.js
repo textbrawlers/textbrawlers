@@ -2,23 +2,29 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export default class extends React.Component {
-  componentWillMount() {
+  componentWillMount () {
     this.forceUpdate()
   }
 
-  render() {
+  render () {
     return (
 
       <div>
-        <div className="links">
-          <div className="leftlinks">
-            <Link to='/'> <img src="/client/png/inventory.png"></img></Link>
+        <div className='links'>
+          <div className='leftlinks'>
+            <Link to='/'>
+            <img src='/client/png/inventory.png'></img>
+            </Link>
           </div>
-          <div className="middlelinks">
-           <Link to='/'> <img className="title" src="/client/png/title.png"></img></Link>
+          <div className='middlelinks'>
+            <Link to='/'>
+            <img className='title' src='/client/png/title.png'></img>
+            </Link>
           </div>
-          <div className="rightlinks">
-            <Link to='/'> <img src="/client/png/inventory.png"></img></Link>
+          <div className='rightlinks'>
+            <Link to='/'>
+            <img src='/client/png/inventory.png'></img>
+            </Link>
           </div>
         </div>
         {this.props.children}

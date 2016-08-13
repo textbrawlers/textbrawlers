@@ -1,4 +1,4 @@
-import 'whatwg-fetch';
+import 'whatwg-fetch'
 
 const request = {
   async send(method, url, params) {

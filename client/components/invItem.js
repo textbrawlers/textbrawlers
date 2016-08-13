@@ -36,7 +36,10 @@ class InventoryItem extends React.Component {
 
       return (
         <div key={i}>
-          <p>Empowers {conf.category}:</p>
+          <p>
+            Empowers
+            {conf.category}:
+          </p>
           {stats}
         </div>
       )
@@ -60,7 +63,9 @@ class InventoryItem extends React.Component {
     if (!item.characterStats.isEmpty()) {
       characterStatsDiv = (
         <div>
-          <p>Character:</p>
+          <p>
+            Character:
+          </p>
           {characterStats}
         </div>
       )
@@ -70,7 +75,9 @@ class InventoryItem extends React.Component {
     if (!item.attackStats.isEmpty()) {
       attackStatsDiv = (
         <div>
-          <p>Attack:</p>
+          <p>
+            Attack:
+          </p>
           {attackStats}
         </div>
       )
@@ -121,8 +128,16 @@ class InventoryItem extends React.Component {
 
     return connectDragSource(
       <div style={tooltipContainerStyle}>
-        <TetherComponent attachment='top left' targetAttachment='top right' targetOffset='0 4px' constraints={[{to: 'window', pin: true}]}>
-          <img className={className} src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} />
+        <TetherComponent
+          attachment='top left'
+          targetAttachment='top right'
+          targetOffset='0 4px'
+          constraints={[{to: 'window', pin: true}]}>
+          <img
+            className={className}
+            src={item.image}
+            onMouseOver={this.handleMouseOver}
+            onMouseOut={this.handleMouseOut} />
           {tooltip}
         </TetherComponent>
       </div>
@@ -131,14 +146,14 @@ class InventoryItem extends React.Component {
 }
 
 const itemSource = {
-  beginDrag (props) {
+  beginDrag(props) {
     return {
       slot: props.slot,
       inventory: props.inventory
     }
   },
 
-  endDrag (props, monitor) {
+  endDrag(props, monitor) {
     if (!monitor.didDrop()) {
       return
     }
@@ -149,7 +164,7 @@ const itemSource = {
       item: props.slot
     }
 
-    props.switchItems({ from, to })
+    props.switchItems({ from, to})
   }
 }
 

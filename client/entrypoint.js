@@ -12,20 +12,22 @@ import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import 'client/css/index.scss'
 
-const NotFound = () => (<p>Jaha ja.</p>)
+const NotFound = () => (<p>
+                          Jaha ja.
+                        </p>)
 
 const routes = (
-  <Route path='/' component={OutlineApp} >
-    <IndexRoute component={LoginApp} />
-    <Route path='game' component={Game}>
-      <IndexRoute component={GameIndex} />
-    </Route>
-    <Route path='tools' component={ToolsApp}>
-      <Route path='itembrowser' component={ItemBrowser} />
-      <Route path='itemgen' component={ItemGen} />
-    </Route>
-    <Route path='*' component={NotFound} />
+<Route path='/' component={OutlineApp}>
+  <IndexRoute component={LoginApp} />
+  <Route path='game' component={Game}>
+    <IndexRoute component={GameIndex} />
   </Route>
+  <Route path='tools' component={ToolsApp}>
+    <Route path='itembrowser' component={ItemBrowser} />
+    <Route path='itemgen' component={ItemGen} />
+  </Route>
+  <Route path='*' component={NotFound} />
+</Route>
 )
 
 class RenderForcer extends React.Component {

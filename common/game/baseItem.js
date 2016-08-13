@@ -1,5 +1,5 @@
 export default class BaseItem {
-  constructor(jsonItem) {
+  constructor (jsonItem) {
     this.jsonItem = jsonItem
 
     this.name = jsonItem.name

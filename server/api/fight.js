@@ -96,8 +96,7 @@ module.exports.fight = function * () {
       attacker: Object.assign({}, attacker),
       defender: Object.assign({}, defender),
       damageInflicted: dmgInflicted,
-      modifiers
-    })
+    modifiers})
 
     if (Math.random() < attacker.damage.bleedchance) {
       defender.bleeds.push({
@@ -110,8 +109,7 @@ module.exports.fight = function * () {
         duration: attacker.damage.bleedduration,
         damage: attacker.damage.bleeddamage,
         attacker,
-        defender
-      })
+      defender})
     }
   }
 
@@ -127,8 +125,7 @@ module.exports.fight = function * () {
       round++
       fight.push({
         type: 'round',
-        round
-      })
+      round})
       attack(a, b)
     }
   }

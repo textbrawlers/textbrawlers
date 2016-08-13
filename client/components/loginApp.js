@@ -4,27 +4,27 @@ import LoginPage from './loginPage.js'
 import RegisterPage from './registerPage.js'
 
 export default class extends React.Component {
-  componentWillMount() {
+  componentWillMount () {
     this.forceUpdate()
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <div className="containerlogin">
-          <div className="window login-window">
+        <div className='containerlogin'>
+          <div className='window login-window'>
             <h2>Login</h2>
-            <div className="windowcontent">
+            <div className='windowcontent'>
               <LoginPage />
             </div>
           </div>
-          <div className="window register-window">
+          <div className='window register-window'>
             <h2>Register</h2>
-            <div className="windowcontent">
+            <div className='windowcontent'>
               <RegisterPage />
             </div>
           </div>
-          <div className="window guest-window">
+          <div className='window guest-window'>
             <h2>Play as Guest</h2>
           </div>
         </div>
