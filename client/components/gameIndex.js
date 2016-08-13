@@ -125,7 +125,7 @@ export default class GameIndex extends React.Component {
                 {this.createSpecialSlot('reassemble', 1, 'craft-2', 'any')}
                 {this.createSpecialSlot('reassemble', 2, 'craft-3', 'any')}
                 {this.createSpecialSlot('reassemble', 3, 'craft-4', 'any')}
-                <button onClick={this.reassemble} className='craft-button'>
+                <button onClick={this.reassemble} className='button craft'>
                   Reassemble
                 </button>
               </div>

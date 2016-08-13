@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import RealtimeClient from 'client/realtime/realtimeClient.js'
+import Friends from './friends.js'
 
 export default class Game extends Component {
   constructor () {
@@ -38,6 +39,7 @@ export default class Game extends Component {
   render () {
     return (
       <div>
+        <Friends />
         <div style={{position: 'absolute'}}>
           Realtime status: {this.state.realtime.connected ? 'Connected' : 'Disconnected'}
           {!this.state.realtime.connected &&

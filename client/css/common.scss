@@ -39,6 +39,10 @@ body {
   margin:5px;
 }
 
+.container-friend .windowcontent {
+  margin:0px 5px;
+}
+
 .window form {
   margin-bottom:0;
 }
@@ -48,7 +52,6 @@ body {
   display: inline-block;
   vertical-align: top;
   border-bottom: 1px solid black;
-  margin:0 5px;
 }
 
 .window h2 {
@@ -70,7 +73,7 @@ body {
   height: 50px;
   display: inline-block;
   position: relative;
-}
+} 
 
 .inv-slot img {
   width: 50px;
@@ -177,4 +180,72 @@ body {
 .tooltip-window h2 {
   font-size: 15px;
   background: transparent;
+}
+
+.button {
+  position: relative;
+  background-color:#C4C4C4;
+  border: none;
+  outline: none;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+
+.button:active {
+  background-color:#d4d4d4;
+}
+
+.button-center {
+  text-align:center;
+}
+
+.container-friend {
+  position:absolute;
+  top:30px;
+  right:30px;
+  width:280px;
+  max-height:100%;
+}
+
+.friend-window {
+  width:280px;
+}
+
+.friend {
+  width:260px;
+  background-color:#d4d4d4;
+  margin:5px auto;
+  padding:1px 6px;
+}
+
+.friend-pending {
+  width:260px;
+  background-color:#d4d4d4;
+  margin:5px auto;
+  color:rgba(0,0,0,0.4);
+  padding:1px 6px;
+}
+
+.container-friend-button {
+  margin:auto;
+}
+
+.accept, .decline {
+  width:17px;
+  height:17px;
+  top:1px;
+  position: relative;
+  display:inline-block;
+  border: none;
+  outline: none;
+  float:right;
+}
+
+.accept {
+  background-color:#8CFF8C;
+}
+
+.decline {
+  margin:0px 2px 0px 0px;
+  background-color:#FF8C8C;
 }
