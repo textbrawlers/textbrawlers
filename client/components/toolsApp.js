@@ -9,17 +9,38 @@ export default class extends React.Component {
   render () {
     return (
       <div>
-        <ul>
-          <li>
-            <Link to='/tools/itembrowser'> Item Browser
-            </Link>
-          </li>
-          <li>
-            <Link to='/tools/itemgen'> Item Gen
-            </Link>
-          </li>
-        </ul>
-        {this.props.children}
+        <div>
+          <div className='links'>
+            <div className='leftlinks'>
+              <Link to='/'>
+                <img src='/client/png/inventory.png' />
+              </Link>
+            </div>
+            <div className='middlelinks'>
+              <Link to='/'>
+                <img className='title' src='/client/png/title.png' />
+              </Link>
+            </div>
+            <div className='rightlinks'>
+              <Link to='/'>
+                <img src='/client/png/inventory.png' />
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <Link to='/tools/itembrowser'> Item Browser
+              </Link>
+            </li>
+            <li>
+              <Link to='/tools/itemgen'> Item Gen
+              </Link>
+            </li>
+          </ul>
+          {this.props.children}
+        </div>
       </div>
     )
   }
