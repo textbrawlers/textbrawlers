@@ -30,11 +30,12 @@ export default class RegisterPage extends React.Component {
             id="password"
             value={this.state.password}
             onChange={this.updatePassword.bind(this)} /><br />
-
+          <div className="login-button-center"> 
           <input
             className="login-button"
             type="submit"
             value="Register" />
+          </div>
         </form>
       </div>
     )
