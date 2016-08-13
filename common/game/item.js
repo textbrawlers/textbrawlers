@@ -7,7 +7,8 @@ import getPrefixes from 'common/items/prefixes.js'
 import LRU from 'lru-cache'
 
 const itemCache = LRU({
-  max: 10000
+  max: 10000,
+  maxAge: 1
 })
 
 export default class Item {
@@ -35,13 +36,10 @@ export default class Item {
     
 
     this.baseEmpoweredStats.forEach(({stats, category}) => {
-      console.log(stats, category)
       const obj = {stats: stats, category: category}
-      console.log('obj', obj)
       this.empoweredStats.push(obj)
     })
 
-    console.log(this.empoweredStats)
 
     this.prefixes.forEach(prefix => {
       this.characterStats.add(prefix.characterStats)
@@ -51,11 +49,10 @@ export default class Item {
         const existingEmpower = this.empoweredStats.find(emp => emp.category === empowered.category)
 
         if (existingEmpower) {
-          console.log('exisiting', existingEmpower)
           if (!existingEmpower.stats) {
-            debugger
+            //debugger
           }
-          existingEmpower.stats = existingEmpower.stats.add(empowered.stats)
+          existingEmpower.stats.add(empowered.stats)
         } else {
           this.empoweredStats.push({stats: empowered.stats, category: empowered.category})
         }
@@ -95,7 +92,19 @@ export default class Item {
 
     const item = new Item(baseItem, {
       rarity: jsonItem.rarity,
-      prefixes: (jsonItem.prefixes || []).map(prefix => new Prefix(prefix, prefixes[prefix[0]][prefix[1]][prefix[2]]))
+      prefixes: (jsonItem.prefixes || []).map(prefix => {
+        let prefixObj = prefixes
+
+        for (let i = 0; i < 3; i++) {
+          prefixObj = prefixObj[prefix[i]]
+          if (!prefixObj) {
+            console.warn('Filtering out erroneous prefix', prefix)
+            return undefined
+          }
+        }
+
+        return new Prefix(prefix, prefixObj)
+      }).filter(prefix => prefix !== undefined)
     })
 
     itemCache.set(str, item)
