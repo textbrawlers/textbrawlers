@@ -1,71 +1,29 @@
-body {
-  background-color:#F2F2F2;
-  margin:0;
-  padding:0;
-  font-family:roboto;
-}
+.page-homepage {
 
-.containerlogin {
-  width:660px;
-  margin:0 auto;
-}
+  .container-login {
+    width:660px;
+    margin:0 auto;
+  }
 
-.outline {
-  margin:auto;
-  height:auto;
-  padding:10px;
-}
+  .login-window, .register-window, .guest-window {
+    width:210px;
+  }
 
-.links {
-  display:flex;
-  height:80px;
-  margin:15px;
-  font-size:0;
-  align-items:center;
-}
+  .input {
+    width:200px;
+    margin-bottom:5px;
+  }
 
-.title {
-  padding:10px;
-}
+  .login-button {
+    background-color: rgba(0, 0, 0, .15);
+    border: none;
+    outline: none;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+  }
 
-.middlelinks {
-  width: 410px;
-}
+  .login-button-center {
+    text-align:center;
+  }
 
-
-.leftlinks, .rightlinks {
-  flex: 1;
-}
-
-.leftlinks {
-  text-align:right;
-}
-
-.windowcontent {
-  margin:5px;
-}
-
-.window form {
-  margin-bottom:0;
-}
-
-.login-window, .register-window, .guest-window {
-  width:210px;
-}
-
-.input {
-  width:200px;
-  margin-bottom:5px;
-}
-
-.login-button {
-  background-color: rgba(0, 0, 0, .15);
-  border: none;
-  outline: none;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-}
-
-.login-button-center {
-  text-align:center;
 }

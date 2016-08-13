@@ -27,7 +27,6 @@ export default class extends React.Component {
             </Link>
           </div>
         </div>
-        {this.props.children}
       </div>
     )
   }

@@ -1,8 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, browserHistory, Route, IndexRoute } from 'react-router'
-import LoginApp from './components/loginApp.js'
-import OutlineApp from './components/outlineApp.js'
+import HomepageApp from './components/homepageApp.js'
 import ToolsApp from './components/toolsApp.js'
 import Game from './components/game.js'
 import GameIndex from './components/gameIndex.js'
@@ -10,13 +9,13 @@ import ItemBrowser from './components/tools/itemBrowser.js'
 import ItemGen from './components/tools/itemGen.js'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
-//import 'client/css/index.scss'
+import 'client/css/common.scss'
 
 const NotFound = () => (<p> Jaha ja.</p>)
 
 const routes = (
-  <Route path='/' component={OutlineApp}>
-    <IndexRoute component={LoginApp} />
+  <Route path='/'>
+    <IndexRoute component={HomepageApp} />
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />
     </Route>

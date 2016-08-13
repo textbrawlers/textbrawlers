@@ -1,278 +1,260 @@
-body {
-  font-family:roboto;
-}
+.page-game-inventory {
 
-.container {
-  width: 893px;
-  margin: auto;
-}
-
-.equip, .inventory {
-  position: relative;
-  border: 0px solid black;
-  height: 250px;
-}
-
-.inv-slot {
-  background: url(/client/png/itembg.png);
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  position: relative;
-  
-  .itemmove {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
+  .container-inventory {
+    width: 893px;
+    margin: auto;
   }
+
+  .equip, .inventory {
+    position: relative;
+    border: 0px solid black;
+    height: 250px;
+  }
+
+  .inv-slot {
+    background: url(/client/png/itembg.png);
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    position: relative;
+    
+    .itemmove {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
+
+  .inv-slot img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .inv-head {
+    position: absolute;
+    top: 10px;
+    left: 70px;
+  }
+
+  .inv-body {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+  }
+
+  .inv-legs {
+    position: absolute;
+    top: 130px;
+    left: 70px;
+  }
+
+  .inv-boots {
+    position: absolute;
+    top: 190px;
+    left: 70px;
+  }
+
+  .inv-lefthand {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+  }
+
+  .inv-righthand {
+    position: absolute;
+    top: 70px;
+    left: 130px;
+  }
+
+  .equip-window {
+    width: 190px;
+  }
+
+  .inventory-window {
+    width: 683px;
+  }
+
+  .inventory {
+    overflow: auto;
+  }
+
+  .tether-element {
+    pointer-events: none;
+  }
+
+  .tooltip {
+    background: rgba(224,147,69, 1);
+    border: 2px solid #754c24;
+    padding: 0px;
+    pointer-events: none;
+    width: 250px;
+  }
+
+  .tooltip-stat {
+    border: 0;
+    background: transparent;
+    pointer-events: auto;
+    position: static;
+    width: 190px;
+  }
+
+  .tooltip h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    margin-bottom: 4px;
+    /*text-shadow: 0px 2px 0 #000; */
+    /*text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;*/
+    /*-webkit-text-stroke: 1px black;*/
+
+    background: rgba(0, 0, 0, .15);
+
+    padding: 5px;
+  }
+
+  .tooltip p {
+    font-size: 16px;
+    padding: 0 5px;
+    margin: 0;
+  }
+
+  .tooltip p:last-child {
+    margin-bottom: 5px;
+  }
+
+  .tooltip .description {
+    margin: 5px;
+    font-style: italic;
+  }
+
+  .rarity-common {
+    color: #f7f7f7;
+  }
+
+  .rarity-uncommon {
+    color: #37e200;
+  }
+
+  .rarity-rare {
+    color: #1aa0ff;
+  }
+
+  .rarity-legendary {
+    color: #9d00ff;
+  }
+
+  .rarity-set {
+    color: #f23022;
+  }
+
+  .item-dragging {
+    opacity: .5;
+  }
+
+  .item {
+    border: 2px solid;
+    box-sizing: border-box;
+  }
+
+  .item-common {
+    border-color: #f7f7f7;
+  }
+
+  .item-uncommon {
+    border-color: #0cd829;
+  }
+
+  .item-rare {
+    border-color: #4cb5ff;
+  }
+
+  .item-legendary {
+    border-color: #9d00ff;
+  }
+
+  .item-set {
+    border-color: #f23022;
+  }
+
+  .recraft-inventory {
+    position: absolute;
+    right: 17px;
+    width: 226px;
+    height: 82px;
+    padding-top: 5px;
+    top: -9px;
+    text-align: center;
+    background: #dddddd;
+  }
+
+  .craft-button {
+    position: relative;
+    top: 55px;
+    background-color: rgba(0, 0, 0, .15);
+    border: none;
+    outline: none;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+  }
+
+  .craft-button:active {
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  .bottom-inventory {
+    top: 10px;
+    position: relative;
+  }
+
+  .inv-craft-1 {
+    position: absolute;
+    left: 5px;
+  }
+
+  .inv-craft-2 {
+    position: absolute;
+    left: 60px;
+  }
+
+  .inv-craft-3 {
+    position: absolute;
+    left: 115px;
+  }
+
+  .inv-craft-4 {
+    position: absolute;
+    left: 170px;
+  }
+
+  .tooltip-window {
+    margin-top: 5px;
+    border: 0;
+  }
+
+  .tooltip-window p:first-child {
+    margin-top: 5px;
+  }
+
+  .tooltip-window h2:not(first-child) {
+    margin-top: 5px;
+  }
+
+  .tooltip-window h2 {
+    font-size: 15px;
+    background: transparent;
+  }
+
+  .character-header {
+    color: #9b652f;
+  }
+
+  .separator {
+    height: 5px;
+  }
+
+  .tether-element {
+    z-index: 10;
+  }
+
 }
-
-.inv-slot img {
-  width: 50px;
-  height: 50px;
-}
-
-.inv-head {
-  position: absolute;
-  top: 10px;
-  left: 70px;
-}
-
-.inv-body {
-  position: absolute;
-  top: 70px;
-  left: 70px;
-}
-
-.inv-legs {
-  position: absolute;
-  top: 130px;
-  left: 70px;
-}
-
-.inv-boots {
-  position: absolute;
-  top: 190px;
-  left: 70px;
-}
-
-.inv-lefthand {
-  position: absolute;
-  top: 70px;
-  left: 10px;
-}
-
-.inv-righthand {
-  position: absolute;
-  top: 70px;
-  left: 130px;
-}
-
-.equip-window {
-  width: 190px;
-}
-
-.window {
-  background: #ededed;
-  display: inline-block;
-  vertical-align: top;
-  border-bottom: 1px solid black;
-  margin:0 5px;
-}
-
-.window h2 {
-  background-color:#ddd;
-  margin: 0;
-  padding: 5px;
-  font-size: 15px;
-  border-bottom: 1px solid black;
-}
-
-.inventory-window {
-  width: 683px;
-}
-
-.inventory {
-  overflow: auto;
-}
-
-.tether-element {
-  pointer-events: none;
-}
-
-.tooltip {
-  background: rgba(224,147,69, 1);
-  border: 2px solid #754c24;
-  padding: 0px;
-  pointer-events: none;
-  width: 250px;
-}
-
-.tooltip-stat {
-  border: 0;
-  background: transparent;
-  pointer-events: auto;
-  position: static;
-  width: 190px;
-}
-
-.tooltip h2 {
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-  margin-bottom: 4px;
-  /*text-shadow: 0px 2px 0 #000; */
-  /*text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;*/
-  /*-webkit-text-stroke: 1px black;*/
-
-  background: rgba(0, 0, 0, .15);
-
-  padding: 5px;
-}
-
-.tooltip p {
-  font-size: 16px;
-  padding: 0 5px;
-  margin: 0;
-}
-
-.tooltip p:last-child {
-  margin-bottom: 5px;
-}
-
-.tooltip .description {
-  margin: 5px;
-  font-style: italic;
-}
-
-.rarity-common {
-  color: #f7f7f7;
-}
-
-.rarity-uncommon {
-  color: #37e200;
-}
-
-.rarity-rare {
-  color: #1aa0ff;
-}
-
-.rarity-legendary {
-  color: #9d00ff;
-}
-
-.rarity-set {
-  color: #f23022;
-}
-
-.item-dragging {
-  opacity: .5;
-}
-
-.item {
-  border: 2px solid;
-  box-sizing: border-box;
-}
-
-.item-common {
-  border-color: #f7f7f7;
-}
-
-.item-uncommon {
-  border-color: #0cd829;
-}
-
-.item-rare {
-  border-color: #4cb5ff;
-}
-
-.item-legendary {
-  border-color: #9d00ff;
-}
-
-.item-set {
-  border-color: #f23022;
-}
-
-.recraft-inventory {
-  position: absolute;
-  right: 17px;
-  width: 226px;
-  height: 82px;
-  padding-top: 5px;
-  top: -9px;
-  text-align: center;
-  background: #dddddd;
-}
-
-.craft-button {
-  position: relative;
-  top: 55px;
-  background-color: rgba(0, 0, 0, .15);
-  border: none;
-  outline: none;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-}
-
-.craft-button:active {
-  background-color: rgba(0, 0, 0, .1);
-}
-
-.bottom-inventory {
-  top: 10px;
-  position: relative;
-}
-
-.inv-craft-1 {
-  position: absolute;
-  left: 5px;
-}
-
-.inv-craft-2 {
-  position: absolute;
-  left: 60px;
-}
-
-.inv-craft-3 {
-  position: absolute;
-  left: 115px;
-}
-
-.inv-craft-4 {
-  position: absolute;
-  left: 170px;
-}
-
-
-.tooltip-window {
-  margin-top: 5px;
-  border: 0;
-}
-
-.tooltip-window p:first-child {
-  margin-top: 5px;
-}
-
-.tooltip-window h2:not(first-child) {
-  margin-top: 5px;
-}
-
-.tooltip-window h2 {
-  font-size: 15px;
-  background: transparent;
-}
-
-.character-header {
-  color: #9b652f;
-}
-
-.separator {
-  height: 5px;
-}
-
-.tether-element {
-  z-index: 10;
-}
-

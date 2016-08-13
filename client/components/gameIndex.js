@@ -1,5 +1,5 @@
 import React from 'react'
-//import 'client/css/account.scss'
+import 'client/css/game-inventory.scss'
 import InventorySlot from './inventorySlot.js'
 import Player from 'common/game/player.js'
 import InvItem from './invItem.js'
@@ -101,43 +101,45 @@ export default class GameIndex extends React.Component {
 
   render () {
     return (
-      <div className='container'>
-        <div className='window equip-window'>
-          <h2>Equipped Items</h2>
-          <div className='equip'>
-            {this.createSpecialSlot('equipped', 0, 'head', 'head')}
-            {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
-            {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
-            {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
-            {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
-            {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
-          </div>
-        </div>
-        <div className='window inventory-window'>
-          <h2>Inventory</h2>
-          <div className='inventory'>
-            {this.getInventory()}
-          </div>
-          <div className='bottom-inventory'>
-            <div className='recraft-inventory'>
-              {this.createSpecialSlot('reassemble', 0, 'craft-1', 'any')}
-              {this.createSpecialSlot('reassemble', 1, 'craft-2', 'any')}
-              {this.createSpecialSlot('reassemble', 2, 'craft-3', 'any')}
-              {this.createSpecialSlot('reassemble', 3, 'craft-4', 'any')}
-              <button onClick={this.reassemble} className='craft-button'>
-                Reassemble
-              </button>
+      <div className="page-game-inventory">
+        <div className='container-inventory'>
+          <div className='window equip-window'>
+            <h2>Equipped Items</h2>
+            <div className='equip'>
+              {this.createSpecialSlot('equipped', 0, 'head', 'head')}
+              {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
+              {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
+              {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
+              {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
+              {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
             </div>
           </div>
-        </div>
-        <br />
-        <button id='spawnItem' onClick={this.requestItem}>
-          Spawn Item
-        </button>
-        <br />
-        <div className='window tooltip-window'>
-          <div id='characterstats' className='tooltip tooltip-stat'>
-            <CharacterStats player={this.state.player} />
+          <div className='window inventory-window'>
+            <h2>Inventory</h2>
+            <div className='inventory'>
+              {this.getInventory()}
+            </div>
+            <div className='bottom-inventory'>
+              <div className='recraft-inventory'>
+                {this.createSpecialSlot('reassemble', 0, 'craft-1', 'any')}
+                {this.createSpecialSlot('reassemble', 1, 'craft-2', 'any')}
+                {this.createSpecialSlot('reassemble', 2, 'craft-3', 'any')}
+                {this.createSpecialSlot('reassemble', 3, 'craft-4', 'any')}
+                <button onClick={this.reassemble} className='craft-button'>
+                  Reassemble
+                </button>
+              </div>
+            </div>
+          </div>
+          <br />
+          <button id='spawnItem' onClick={this.requestItem}>
+            Spawn Item
+          </button>
+          <br />
+          <div className='window tooltip-window'>
+            <div id='characterstats' className='tooltip tooltip-stat'>
+              <CharacterStats player={this.state.player} />
+            </div>
           </div>
         </div>
       </div>
