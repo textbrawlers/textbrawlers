@@ -10,7 +10,7 @@ import ItemBrowser from './components/tools/itemBrowser.js'
 import ItemGen from './components/tools/itemGen.js'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
-import 'client/css/index.scss'
+//import 'client/css/index.scss'
 
 const NotFound = () => (<p> Jaha ja.</p>)
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import 'client/css/account.scss'
+//import 'client/css/account.scss'
 import InventorySlot from './inventorySlot.js'
 import Player from 'common/game/player.js'
 import InvItem from './invItem.js'
