@@ -58,16 +58,18 @@ export default class RegisterPage extends React.Component {
     }))
   }
 
-  async onSubmit (e) {
+  onSubmit (e) {
     e.preventDefault()
+    return Promise.resolve((async resolve => {
+      const response = await AccountAPI.register(this.state.username, this.state.password)
 
-    const response = await AccountAPI.register(this.state.username, this.state.password)
-
-    if (response.json.success) {
-      browserHistory.push('/login')
-    } else {
-      window.alert(`Could not create account: ${response.json.error}`)
-    }
+      if (response.json.success) {
+        browserHistory.push('/login')
+      } else {
+        window.alert(`Could not create account: ${response.json.error}`)
+      }
+      resolve()
+    })()).catch(err => console.error(err))
   }
 
 }
