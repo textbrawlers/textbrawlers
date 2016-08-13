@@ -13,7 +13,7 @@ export default class ServerPlayer extends Player {
   }
 
   static async fromKey (key) {
-    const jsonUser = (await users.findOne({key})) || {}
+    const jsonUser = (await users.findOne({key}))
 
     if (jsonUser) {
       const player = ServerPlayer.fromJSON(jsonUser.player || {}, key)

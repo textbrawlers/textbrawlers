@@ -1,55 +1,52 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import RealtimeClient from 'client/realtime/realtimeClient.js'
 
 export default class Game extends Component {
   constructor () {
     super()
 
     this.state = {
-      connected: false
+      realtime: {
+        connected: false
+      }
     }
 
     this.active = true
+
+    this.connect = this.connect.bind(this)
+  }
+
+  connect () {
+    this.realtime.connect()
   }
 
   componentWillMount () {
-    console.log('will mount')
-    const host = document.location.host.replace(/:.*/, '')
-    const port = document.location.port
-    const token = window.localStorage.getItem('key')
+    this.realtime = new RealtimeClient()
 
-    this.socket = new window.WebSocket(`ws://${host}:${port}/?token=${token}`)
-
-    this.socket.addEventListener('open', e => {
-      this.setState({ connected: true })
-      console.log('WS: Connected')
-    })
-
-    this.socket.addEventListener('close', e => {
-      console.log('WS: Disconnected')
-      if (this.active) {
-        this.setState({ connected: false })
-      }
-    })
-
-    this.socket.addEventListener('message', e => {
-      console.log('message', e)
-    })
-
-    this.socket.addEventListener('error', e => {
-      console.error('WebSocket erorr', e)
+    this.realtime.on('change', () => {
+      this.setState({
+        realtime: this.realtime.state
+      })
     })
   }
 
   componentWillUnmount () {
-    this.socket.close()
-    this.active = false
+    this.realtime.close()
   }
 
   render () {
     return (
       <div>
-        Realtime status: {this.state.connected ? 'Connected' : 'Disconnected'}
+        <div style={{position: 'absolute'}}>
+          Realtime status: {this.state.realtime.connected ? 'Connected' : 'Disconnected'}
+          {!this.state.realtime.connected &&
+            <button onClick={this.connect}>Reconnect</button>
+          }
+          <br />
+          Players online: {this.state.realtime.playerCount}
+        </div>
+
         <div className='links'>
           <div className='leftlinks'>
             <Link to='/'>

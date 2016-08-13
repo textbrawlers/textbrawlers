@@ -1,15 +1,33 @@
 import url from 'url'
 import ServerPlayer from 'common/game/serverPlayer.js'
+import RealtimePlayer from './realtime/realtimePlayer.js'
+
+const players = []
+
+function sendPlayerCount () {
+  const count = players.length
+
+  for (const player of players) {
+    player.updatePlayerCount(count)
+  }
+}
 
 export default function realtime (wss) {
   wss.on('connection', checkError(async ws => {
     const location = url.parse(ws.upgradeReq.url, true)
 
-    console.log('authenticating', location.query.token)
     const player = await ServerPlayer.fromKey(location.query.token)
 
     if (player) {
-      console.log('Connected to realtime')
+      const realtimePlayer = new RealtimePlayer(player, ws)
+      realtimePlayer.send('status.auth', true)
+      players.push(realtimePlayer)
+      sendPlayerCount()
+
+      ws.addEventListener('close', () => {
+        players.splice(players.indexOf(realtimePlayer), 1)
+        sendPlayerCount()
+      })
     } else {
       ws.terminate()
     }
