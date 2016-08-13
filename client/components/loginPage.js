@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import AccountAPI from 'common/api/account.js'
 
 export default class LoginPage extends React.Component {
@@ -66,7 +66,7 @@ export default class LoginPage extends React.Component {
     if (response.json.success) {
       browserHistory.push('/game')
     } else {
-      alert(`Could not login: ${response.json.error}`)
+      window.alert(`Could not login: ${response.json.error}`)
     }
   }
 

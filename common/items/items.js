@@ -16,7 +16,7 @@ async function parseNormalItems () {
       // each item category
       Object.entries(items).forEach(([id, item]) => {
         // each item
-        const finalItem = new BaseItem(Object.assign({}, item, { category, id}))
+        const finalItem = new BaseItem(Object.assign({}, item, {category, id}))
         allItems.push(finalItem)
       })
     })
@@ -42,7 +42,7 @@ async function parseSetItems () {
       Object.entries(setConfig.items).forEach(([id, item]) => {
         // each set item
         const category = 'set'
-        const finalItem = new BaseItem(Object.assign({}, item, { category, id}))
+        const finalItem = new BaseItem(Object.assign({}, item, {category, id}))
         allItems.push(finalItem)
       })
     })
@@ -50,7 +50,8 @@ async function parseSetItems () {
 
   const resp = {
     items: allItems,
-  setBonuses}
+    setBonuses
+  }
 
   cache.set = resp
 
@@ -64,5 +65,5 @@ export default async function () {
   const items = normalItems.concat(setItems.items)
   const setBonuses = setItems.bonuses
 
-  return { items, setBonuses}
+  return {items, setBonuses}
 }

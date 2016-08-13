@@ -7,8 +7,7 @@ import getPrefixes from 'common/items/prefixes.js'
 import LRU from 'lru-cache'
 
 const itemCache = LRU({
-  max: 10000,
-  maxAge: 1
+  max: 10000
 })
 
 export default class Item {
@@ -33,7 +32,6 @@ export default class Item {
     this.characterStats = new StatCollection(this.baseCharacterStats)
     this.attackStats = new StatCollection(this.baseAttackStats)
     this.empoweredStats = []
-
 
     this.baseEmpoweredStats.forEach(({stats, category}) => {
       const obj = {stats: stats, category: category}

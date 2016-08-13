@@ -32,14 +32,13 @@ export async function getDroptable () {
 
     droptable.push({
       chance: dropRate / totalChance,
-    item})
+      item
+    })
   })
   return droptable
 }
 
 function getRandom (droptable) {
-  const totalChance = droptable.reduce((val, item) => val + item.chance, 0)
-
   let rn = Math.random()
 
   for (const item of droptable) {
@@ -53,7 +52,8 @@ function getRandom (droptable) {
 function getRandomPrefix (possible, category, prefixes, usedCategories) {
   const totalChance = possible.reduce((val, item) => val + item.chance, 0)
   possible.forEach(item => {
-    item.chance /= totalChance})
+    item.chance /= totalChance
+  })
   const prefixType = getRandom(possible).type
 
   const possibleCategories = prefixes[prefixType]
@@ -63,7 +63,7 @@ function getRandomPrefix (possible, category, prefixes, usedCategories) {
     return
   }
 
-  const prefixCategories = Object.entries(possibleCategories).map(([category, prefixes]) => ({ category, prefixes}))
+  const prefixCategories = Object.entries(possibleCategories).map(([category, prefixes]) => ({category, prefixes}))
   const prefixCategory = prefixCategories[Math.floor(Math.random() * prefixCategories.length)]
 
   if (!prefixCategory) {
@@ -84,7 +84,9 @@ function getRandomPrefix (possible, category, prefixes, usedCategories) {
 
   const totalPrefixChance = possiblePrefixesInCat.reduce((val, prefix) => val + (prefix['drop-rate'] || 100), 0)
 
-  possiblePrefixesInCat.forEach(possible => possible.chance = (possible['drop-rate'] || 100) / totalPrefixChance)
+  possiblePrefixesInCat.forEach(possible => {
+    possible.chance = (possible['drop-rate'] || 100) / totalPrefixChance
+  })
 
   const prefix = getRandom(possiblePrefixesInCat)
   return new Prefix([prefixType, prefixCategory.category, prefix.key], prefixes[prefixType][prefixCategory.category][prefix.key])

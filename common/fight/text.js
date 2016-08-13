@@ -7,13 +7,12 @@ export default function messages (m, attacker, defender, round) {
     m.add(100, '[attacker] is victorious.')
     m.add(1, "[attacker], as the honorable man/woman, he/she is, has decided to spare [defender]'s life... Lol jk!")
   } else {
-
-    /*m.add(100, [
+    /* m.add(100, [
         'meddelande 1',
         'meddelande 2',
         'meddelande 3'
     ])
-    
+
     m.add(5 [
         'meddelande 4',
         'meddelande 5',

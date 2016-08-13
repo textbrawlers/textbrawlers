@@ -15,7 +15,7 @@ export default class Player {
 
     const reassemble = await Inventory.fromJSON(jsonPlayer.reassemble, 4)
 
-    return { inventory, equipped, reassemble}
+    return {inventory, equipped, reassemble}
   }
 
   get stats () {

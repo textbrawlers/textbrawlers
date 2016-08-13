@@ -14,7 +14,7 @@ export default class extends React.Component {
     }
 
     items().then(({items}) => {
-      this.setState({ items})
+      this.setState({items})
     })
   }
 
@@ -24,7 +24,7 @@ export default class extends React.Component {
       if (baseItem.category === 'set') {
         rarity = 'set'
       }
-      const item = new Item(baseItem, { rarity})
+      const item = new Item(baseItem, {rarity})
       const containerStyle = {
         margin: 2,
         display: 'inline-block'

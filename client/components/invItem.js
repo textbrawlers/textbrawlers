@@ -146,14 +146,14 @@ class InventoryItem extends React.Component {
 }
 
 const itemSource = {
-  beginDrag(props) {
+  beginDrag (props) {
     return {
       slot: props.slot,
       inventory: props.inventory
     }
   },
 
-  endDrag(props, monitor) {
+  endDrag (props, monitor) {
     if (!monitor.didDrop()) {
       return
     }
@@ -164,7 +164,7 @@ const itemSource = {
       item: props.slot
     }
 
-    props.switchItems({ from, to})
+    props.switchItems({from, to})
   }
 }
 

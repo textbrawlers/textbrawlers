@@ -13,10 +13,10 @@ export default class ServerPlayer extends Player {
   }
 
   static async fromKey (key) {
-    const jsonUser = (await users.findOne({ key})) || {}
+    const jsonUser = (await users.findOne({key})) || {}
 
     if (jsonUser) {
-      const player = new ServerPlayer.fromJSON(jsonUser.player || {}, key)
+      const player = ServerPlayer.fromJSON(jsonUser.player || {}, key)
       player.key = key
       player.serverPlayer = true
       return player
@@ -30,6 +30,6 @@ export default class ServerPlayer extends Player {
 
   async save () {
     const key = this.key
-    await users.update({key}, { $set: { player: this.serialize() }})
+    await users.update({key}, { $set: { player: this.serialize() } })
   }
 }

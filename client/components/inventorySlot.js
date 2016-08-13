@@ -23,7 +23,7 @@ class InventorySlot extends React.Component {
 }
 
 const target = {
-  drop(droppedItem, targetMonitor, targetSlot) {
+  drop (droppedItem, targetMonitor, targetSlot) {
     const res = {
       inventory: droppedItem.inventory,
       item: parseInt(droppedItem.slot)

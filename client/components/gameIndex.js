@@ -44,11 +44,7 @@ export default class GameIndex extends React.Component {
     if (!item) {
       return
     }
-    return <InvItem
-             item={item}
-             switchItems={this.switchItems.bind(this)}
-             inventory={inventory}
-             slot={index} />
+    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
   }
 
   createSlot (x, y, index) {
@@ -57,15 +53,11 @@ export default class GameIndex extends React.Component {
       left: INV_MARGIN + x * (INV_MARGIN + INV_SLOT_SIZE),
       position: 'absolute'
     }
-    return <InventorySlot
-             accepts='any'
-             style={style}
-             key={index}
-             switchItems={this.switchItems.bind(this)}
-             inventory='inventory'
-             slot={index}>
-             {this.getItem('inventory', index)}
-           </InventorySlot>
+    return (
+      <InventorySlot accepts='any' style={style} key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}>
+         {this.getItem('inventory', index)}
+      </InventorySlot>
+    )
   }
 
   async switchItems (data) {
@@ -99,15 +91,12 @@ export default class GameIndex extends React.Component {
     this.updatePlayer(resp)
   }
 
-  createSpecialSlot (inventory, slot, special = '' , accepts = 'any') {
-    return <InventorySlot
-             accepts={accepts}
-             special={special}
-             switchItems={this.switchItems.bind(this)}
-             inventory={inventory}
-             slot={slot}>
-             {this.getItem(inventory, slot)}
-           </InventorySlot>
+  createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
+    return (
+      <InventorySlot accepts={accepts} special={special} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={slot}>
+        {this.getItem(inventory, slot)}
+      </InventorySlot>
+    )
   }
 
   render () {

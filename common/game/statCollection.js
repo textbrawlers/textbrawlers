@@ -25,7 +25,6 @@ export default class StatCollection {
     return this.stats
   }
 
-
   _addOne (stat) {
     if (!stat) {
       console.error('Added undefined stat', stat)

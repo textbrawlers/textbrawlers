@@ -13,17 +13,17 @@ export default class extends React.Component {
         <div className='links'>
           <div className='leftlinks'>
             <Link to='/'>
-            <img src='/client/png/inventory.png'></img>
+              <img src='/client/png/inventory.png' />
             </Link>
           </div>
           <div className='middlelinks'>
             <Link to='/'>
-            <img className='title' src='/client/png/title.png'></img>
+              <img className='title' src='/client/png/title.png' />
             </Link>
           </div>
           <div className='rightlinks'>
             <Link to='/'>
-            <img src='/client/png/inventory.png'></img>
+              <img src='/client/png/inventory.png' />
             </Link>
           </div>
         </div>
