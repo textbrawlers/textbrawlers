@@ -35,6 +35,7 @@ export default class LoginPage extends React.Component {
             className="login-button"
             type="submit"
             value="Login" />
+          </div>
         </form>
       </div>
     )
