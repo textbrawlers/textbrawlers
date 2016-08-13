@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import LoginPage from './loginPage.js'
 import RegisterPage from './registerPage.js'
+import 'client/css/homepage.scss'
 
 export default class extends React.Component {
   componentWillMount () {
