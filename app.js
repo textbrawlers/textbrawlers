@@ -1,5 +1,6 @@
 import 'dotenv/config'
 
+import http from 'http'
 import Koa from 'koa'
 import Router from 'koa-router'
 import convert from 'koa-convert'
@@ -8,6 +9,8 @@ import BodyParser from 'koa-bodyparser'
 import send from 'koa-send'
 
 import server from './server/index.js'
+import realtime from './server/realtime.js'
+import WebSocket from 'ws'
 
 const app = new Koa()
 const router = new Router()
@@ -30,5 +33,12 @@ app
   .use(fallbackRoute())
 
 const port = process.env.PORT || 3000
-app.listen(port)
+
+const httpServer = http.createServer(app.callback())
+
+const webSocketServer = new WebSocket.Server({server: httpServer})
+
+realtime(webSocketServer)
+
+httpServer.listen(3000)
 console.log(`Listening on port ${port}`)

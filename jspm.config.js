@@ -97,7 +97,7 @@ SystemJS.config({
       }
     }
   }
-})
+});
 
 SystemJS.config({
   packageConfigPaths: [
@@ -135,6 +135,7 @@ SystemJS.config({
     'module': 'github:jspm/nodelibs-module@0.2.0-alpha',
     'monk': 'npm:monk@3.0.7',
     'net': 'github:jspm/nodelibs-net@0.2.0-alpha',
+    'os': 'github:jspm/nodelibs-os@0.2.0-alpha',
     'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'querystring': 'github:jspm/nodelibs-querystring@0.2.0-alpha',
@@ -156,6 +157,7 @@ SystemJS.config({
     'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
     'vm': 'github:jspm/nodelibs-vm@0.2.0-alpha',
     'whatwg-fetch': 'npm:whatwg-fetch@1.0.0',
+    'ws': 'npm:ws@1.1.1',
     'zlib': 'github:jspm/nodelibs-zlib@0.2.0-alpha'
   },
   packages: {
@@ -446,14 +448,7 @@ SystemJS.config({
     },
     'github:jspm/nodelibs-buffer@0.2.0-alpha': {
       'map': {
-        'buffer-browserify': 'npm:buffer@4.7.1'
-      }
-    },
-    'npm:buffer@4.7.1': {
-      'map': {
-        'isarray': 'npm:isarray@1.0.0',
-        'ieee754': 'npm:ieee754@1.1.6',
-        'base64-js': 'npm:base64-js@1.1.2'
+        'buffer-browserify': 'npm:buffer@4.9.0'
       }
     },
     'github:jspm/nodelibs-http@0.2.0-alpha': {
@@ -1312,6 +1307,38 @@ SystemJS.config({
         'pseudomap': 'npm:pseudomap@1.0.2',
         'yallist': 'npm:yallist@2.0.0'
       }
+    },
+    'npm:ws@1.1.1': {
+      'map': {
+        'options': 'npm:options@0.0.6',
+        'bufferutil': 'npm:bufferutil@1.2.1',
+        'utf-8-validate': 'npm:utf-8-validate@1.2.1',
+        'ultron': 'npm:ultron@1.0.2'
+      }
+    },
+    'npm:bufferutil@1.2.1': {
+      'map': {
+        'bindings': 'npm:bindings@1.2.1',
+        'nan': 'npm:nan@2.4.0'
+      }
+    },
+    'npm:utf-8-validate@1.2.1': {
+      'map': {
+        'bindings': 'npm:bindings@1.2.1',
+        'nan': 'npm:nan@2.4.0'
+      }
+    },
+    'npm:buffer@4.9.0': {
+      'map': {
+        'isarray': 'npm:isarray@1.0.0',
+        'base64-js': 'npm:base64-js@1.1.2',
+        'ieee754': 'npm:ieee754@1.1.6'
+      }
+    },
+    'github:jspm/nodelibs-os@0.2.0-alpha': {
+      'map': {
+        'os-browserify': 'npm:os-browserify@0.2.1'
+      }
     }
   }
-})
+});

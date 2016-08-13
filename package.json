@@ -6,7 +6,8 @@
   "dependencies": {
     "babel-eslint": "^6.1.2",
     "dotenv": "^2.0.0",
-    "jspm": "0.17.0-beta.22"
+    "jspm": "0.17.0-beta.22",
+    "ws": "^1.1.1"
   },
   "standard": {
     "parser": "babel-eslint"
@@ -41,7 +42,8 @@
       "react-tether": "npm:react-tether@^0.5.2",
       "sass": "github:mobilexag/plugin-sass@^0.4.6",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
-      "whatwg-fetch": "npm:whatwg-fetch@^1.0.0"
+      "whatwg-fetch": "npm:whatwg-fetch@^1.0.0",
+      "ws": "npm:ws@^1.1.1"
     },
     "devDependencies": {
       "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.8.0",
@@ -61,6 +63,7 @@
       "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
       "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
       "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "querystring": "github:jspm/nodelibs-querystring@^0.2.0-alpha",
@@ -226,6 +229,14 @@
           "dist/sass.worker.js": {
             "format": "global"
           }
+        }
+      },
+      "npm:ws@1.1.1": {
+        "dependencies": {
+          "options": ">=0.0.5",
+          "ultron": "1.0.x",
+          "utf-8-validate": "1.2.x",
+          "bufferutil": "1.2.x"
         }
       }
     }
