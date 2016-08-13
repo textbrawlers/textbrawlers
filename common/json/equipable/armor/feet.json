@@ -17,7 +17,7 @@
       "attack": false,
       "icon": "itemironshoes",
       "character-stats": {
-        "max-health": 15,
+        "max-health": 20,
         "block-chance": -0.05
       },
       "description": "A piece of your standard iron attire. More specifically the piece for your feet."

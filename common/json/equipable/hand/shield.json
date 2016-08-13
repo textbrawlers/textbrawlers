@@ -27,7 +27,8 @@
       "attack": false,
       "icon": "itemtowershield",
       "character-stats": {
-        "block-chance": 0.6
+        "block-chance": 0.6,
+        "block-multiplier": 1
       }
     }
   }
