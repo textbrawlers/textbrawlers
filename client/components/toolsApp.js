@@ -12,9 +12,6 @@ export default class extends React.Component {
         <div>
           <div className='links'>
             <div className='leftlinks'>
-              <Link to='/'>
-                <img src='/client/png/inventory.png' />
-              </Link>
             </div>
             <div className='middlelinks'>
               <Link to='/'>
@@ -22,9 +19,6 @@ export default class extends React.Component {
               </Link>
             </div>
             <div className='rightlinks'>
-              <Link to='/'>
-                <img src='/client/png/inventory.png' />
-              </Link>
             </div>
           </div>
         </div>

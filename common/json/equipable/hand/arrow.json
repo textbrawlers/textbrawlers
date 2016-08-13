@@ -3,7 +3,7 @@
     "basic-arrow": {
       "name": "Basic Arrows",
       "slot": "hand",
-      "attack": true,
+      "attack": false,
       "icon": "itemironarrow",
       "empower-stats": [{
         "category": "bow",
@@ -19,7 +19,7 @@
     "heavy-arrow": {
       "name": "Heavy Arrows",
       "slot": "hand",
-      "attack": true,
+      "attack": false,
       "icon": "itemironarrow",
       "empower-stats": [{
         "category": "bow",
