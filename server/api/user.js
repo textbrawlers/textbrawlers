@@ -15,7 +15,7 @@ function randomKey () {
   return key
 }
 
-function genSalt(work) {
+function genSalt (work) {
   return new Promise((resolve, reject) => {
     bCrypt.genSalt(work, (err, salt) => {
       if (err) {
@@ -27,7 +27,7 @@ function genSalt(work) {
   })
 }
 
-function hash(pw, salt) {
+function hash (pw, salt) {
   return new Promise((resolve, reject) => {
     bCrypt.hash(pw, salt, (err, hash) => {
       if (err) {
@@ -39,7 +39,7 @@ function hash(pw, salt) {
   })
 }
 
-function compare(password, userPassword){
+function compare (password, userPassword) {
   return new Promise((resolve, reject) => {
     bCrypt.compare(password, userPassword, (err, match) => {
       if (err) {
@@ -63,7 +63,7 @@ export async function login (ctx) {
 
   const match = await compare(password, user.hashedpw)
 
-  if (!match){
+  if (!match) {
     ctx.body = { success: false, error: 'Invalid details' }
     return
   }
@@ -93,4 +93,3 @@ export async function register (ctx) {
 export async function getPlayer (ctx) {
   ctx.body = ctx.player.serialize()
 }
-

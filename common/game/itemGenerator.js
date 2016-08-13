@@ -4,24 +4,24 @@ import Item from 'common/game/item.js'
 import Prefix from 'common/game/prefix.js'
 
 const rarities = [{
-    rarity: 'common',
-    prefixes: 1,
-    chance: 0.52
-  }, {
-    rarity: 'uncommon',
-    prefixes: 2,
-    chance: 0.28
-  }, {
-    rarity: 'rare',
-    prefixes: 3,
-    chance: 0.14
-  }, {
-    rarity: 'legendary',
-    prefixes: 4,
-    chance: 0.06
-  }]
+  rarity: 'common',
+  prefixes: 1,
+  chance: 0.52
+}, {
+  rarity: 'uncommon',
+  prefixes: 2,
+  chance: 0.28
+}, {
+  rarity: 'rare',
+  prefixes: 3,
+  chance: 0.14
+}, {
+  rarity: 'legendary',
+  prefixes: 4,
+  chance: 0.06
+}]
 
-export async function getDroptable() {
+export async function getDroptable () {
   const items = (await getItems()).items
   const possibleItems = items.filter(item => item.category !== 'set')
   const totalChance = possibleItems.reduce((val, item) => val + (item.dropRate || 100), 0)
@@ -38,9 +38,7 @@ export async function getDroptable() {
   return droptable
 }
 
-function getRandom(droptable) {
-  const totalChance = droptable.reduce((val, item) => val + item.chance, 0)
-
+function getRandom (droptable) {
   let rn = Math.random()
 
   for (const item of droptable) {
@@ -51,9 +49,11 @@ function getRandom(droptable) {
   }
 }
 
-function getRandomPrefix(possible, category, prefixes, usedCategories) {
+function getRandomPrefix (possible, category, prefixes, usedCategories) {
   const totalChance = possible.reduce((val, item) => val + item.chance, 0)
-  possible.forEach(item => { item.chance /= totalChance })
+  possible.forEach(item => {
+    item.chance /= totalChance
+  })
   const prefixType = getRandom(possible).type
 
   const possibleCategories = prefixes[prefixType]
@@ -63,7 +63,7 @@ function getRandomPrefix(possible, category, prefixes, usedCategories) {
     return
   }
 
-  const prefixCategories = Object.entries(possibleCategories).map(([category, prefixes]) => ({ category, prefixes }))
+  const prefixCategories = Object.entries(possibleCategories).map(([category, prefixes]) => ({category, prefixes}))
   const prefixCategory = prefixCategories[Math.floor(Math.random() * prefixCategories.length)]
 
   if (!prefixCategory) {
@@ -80,17 +80,19 @@ function getRandomPrefix(possible, category, prefixes, usedCategories) {
     return
   }
 
-  const possiblePrefixesInCat  = Object.entries(prefixCategory.prefixes).map(([key, prefix]) => ({key, prefix}))
+  const possiblePrefixesInCat = Object.entries(prefixCategory.prefixes).map(([key, prefix]) => ({key, prefix}))
 
   const totalPrefixChance = possiblePrefixesInCat.reduce((val, prefix) => val + (prefix['drop-rate'] || 100), 0)
 
-  possiblePrefixesInCat.forEach(possible => possible.chance = (possible['drop-rate'] || 100) / totalPrefixChance)
+  possiblePrefixesInCat.forEach(possible => {
+    possible.chance = (possible['drop-rate'] || 100) / totalPrefixChance
+  })
 
   const prefix = getRandom(possiblePrefixesInCat)
   return new Prefix([prefixType, prefixCategory.category, prefix.key], prefixes[prefixType][prefixCategory.category][prefix.key])
 }
 
-function getRandomPrefixes(possiblePrefixes, baseItem, prefixes, nPrefixes) {
+function getRandomPrefixes (possiblePrefixes, baseItem, prefixes, nPrefixes) {
   const category = baseItem.category
   const possible = Object.entries(possiblePrefixes[category] || {}).map(([type, chance]) => ({type, chance}))
 
@@ -117,17 +119,17 @@ function getRandomPrefixes(possiblePrefixes, baseItem, prefixes, nPrefixes) {
   if (generatedPrefixes.length !== nPrefixes) {
     console.warn(`Not enough prefixes for ${category}`)
   }
-  
+
   return generatedPrefixes
 }
 
-export async function generateItem() {
+export async function generateItem () {
   const droptable = await getDroptable()
 
   const { prefixes, possible } = await getPrefixes()
 
   const baseItem = getRandom(droptable).item
-  const randomRarity =  getRandom(rarities)
+  const randomRarity = getRandom(rarities)
   const rarity = randomRarity.rarity
 
   const allPrefixes = getRandomPrefixes(possible, baseItem, prefixes, randomRarity.prefixes)
@@ -135,5 +137,4 @@ export async function generateItem() {
   const item = new Item(baseItem, { rarity, prefixes: allPrefixes })
 
   return item
-
 }

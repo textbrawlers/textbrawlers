@@ -314,7 +314,7 @@
   }
 
   function switchSlots (a, b) {
-    ;[inventoryObj[a], inventoryObj[b]] = [inventoryObj[b], inventoryObj[a]]
+    ; [inventoryObj[a], inventoryObj[b]] = [inventoryObj[b], inventoryObj[a]]
 
     calculateStats()
 

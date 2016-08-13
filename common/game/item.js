@@ -7,12 +7,11 @@ import getPrefixes from 'common/items/prefixes.js'
 import LRU from 'lru-cache'
 
 const itemCache = LRU({
-  max: 10000,
-  maxAge: 1
+  max: 10000
 })
 
 export default class Item {
-  constructor(baseItem, { prefixes = [], rarity } = {}) {
+  constructor (baseItem, { prefixes = [], rarity } = {}) {
     this.prefixes = prefixes
 
     const prefixList = prefixes.map(prefix => prefix.name).join(' ')
@@ -21,7 +20,7 @@ export default class Item {
 
     this.baseCharacterStats = new StatCollection(Object.entries(baseItem.characterStats).map(([id, value]) => new Stat(id, value)))
     this.baseAttackStats = new StatCollection(Object.entries(baseItem.attackStats).map(([id, value]) => new Stat(id, value)))
-    
+
     this.baseEmpoweredStats = baseItem.empoweredStats.map(empowerConfig => {
       const stats = new StatCollection(Object.entries(empowerConfig.stats).map(([id, value]) => new Stat(id, value)))
       return {
@@ -33,13 +32,11 @@ export default class Item {
     this.characterStats = new StatCollection(this.baseCharacterStats)
     this.attackStats = new StatCollection(this.baseAttackStats)
     this.empoweredStats = []
-    
 
     this.baseEmpoweredStats.forEach(({stats, category}) => {
       const obj = {stats: stats, category: category}
       this.empoweredStats.push(obj)
     })
-
 
     this.prefixes.forEach(prefix => {
       this.characterStats.add(prefix.characterStats)
@@ -50,7 +47,7 @@ export default class Item {
 
         if (existingEmpower) {
           if (!existingEmpower.stats) {
-            //debugger
+            // debugger
           }
           existingEmpower.stats.add(empowered.stats)
         } else {
@@ -67,11 +64,11 @@ export default class Item {
     this.id = baseItem.id
   }
 
-  get image() {
+  get image () {
     return `/client/png/${this.icon}.png`
   }
 
-  static async fromJSON(jsonItem) {
+  static async fromJSON (jsonItem) {
     const str = JSON.stringify(jsonItem)
 
     const cachedItem = itemCache.get(str)
@@ -82,7 +79,6 @@ export default class Item {
 
     const { items } = await getItems()
     const { prefixes } = await getPrefixes()
-
 
     const baseItem = items.find(item => item.id === jsonItem.id)
 
@@ -110,11 +106,10 @@ export default class Item {
 
     itemCache.set(str, item)
 
-
     return item
   }
 
-  serialize() {
+  serialize () {
     return {
       id: this.id,
       rarity: this.rarity,

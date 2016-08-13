@@ -3,8 +3,7 @@ import { DropTarget } from 'react-dnd'
 
 class InventorySlot extends React.Component {
 
-  componentWillReceiveProps (nextProps) {
-  }
+  componentWillReceiveProps (nextProps) {}
 
   render () {
     let specialClass = ''

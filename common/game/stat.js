@@ -3,7 +3,7 @@ import stats from 'common/json/stats.json'
 const round = (num, decimals) => {
   const n = Math.pow(10, decimals)
 
-  return Math.round(num * n)  / n
+  return Math.round(num * n) / n
 }
 
 const displayFunctions = {
@@ -22,7 +22,7 @@ const displayFunctions = {
 }
 
 export default class Stat {
-  constructor(id, value) {
+  constructor (id, value) {
     let baseStat = stats[id]
     if (!baseStat) {
       console.warn('Stat is not configured', id)
@@ -40,17 +40,17 @@ export default class Stat {
     this.display = baseStat.display
   }
 
-  copy() {
+  copy () {
     return new Stat(this.id, this.value)
   }
 
-  multiply(value) {
+  multiply (value) {
     const newItem = this.copy()
     newItem.value *= value
     return newItem
   }
 
-  add(value) {
+  add (value) {
     const newItem = this.copy()
     if (newItem.type === 'multiplicative') {
       newItem.value *= value
@@ -61,7 +61,7 @@ export default class Stat {
     return newItem
   }
 
-  render(statWrapper) {
+  render (statWrapper) {
     const replacer = (match, fnName) => {
       let fn = displayFunctions[fnName]
 

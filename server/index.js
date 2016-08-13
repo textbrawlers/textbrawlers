@@ -16,7 +16,6 @@ const auth = async (ctx, next) => {
   }
 }
 
-
 const router = new Router()
 
 router.use(['/user/get', '/game/requestItem', '/game/requestInventory', '/game/swapItems', '/game/reassemble'], auth)

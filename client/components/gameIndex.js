@@ -53,7 +53,11 @@ export default class GameIndex extends React.Component {
       left: INV_MARGIN + x * (INV_MARGIN + INV_SLOT_SIZE),
       position: 'absolute'
     }
-    return <InventorySlot accepts='any' style={style} key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}> {this.getItem('inventory', index)} </InventorySlot>
+    return (
+      <InventorySlot accepts='any' style={style} key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}>
+         {this.getItem('inventory', index)}
+      </InventorySlot>
+    )
   }
 
   async switchItems (data) {
@@ -88,7 +92,11 @@ export default class GameIndex extends React.Component {
   }
 
   createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
-    return <InventorySlot accepts={accepts} special={special} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={slot}> {this.getItem(inventory, slot)} </InventorySlot>
+    return (
+      <InventorySlot accepts={accepts} special={special} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={slot}>
+        {this.getItem(inventory, slot)}
+      </InventorySlot>
+    )
   }
 
   render () {
@@ -105,7 +113,6 @@ export default class GameIndex extends React.Component {
             {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
           </div>
         </div>
-
         <div className='window inventory-window'>
           <h2>Inventory</h2>
           <div className='inventory'>
@@ -117,16 +124,17 @@ export default class GameIndex extends React.Component {
               {this.createSpecialSlot('reassemble', 1, 'craft-2', 'any')}
               {this.createSpecialSlot('reassemble', 2, 'craft-3', 'any')}
               {this.createSpecialSlot('reassemble', 3, 'craft-4', 'any')}
-              <button onClick={this.reassemble} className='craft-button'>Reassemble</button>
+              <button onClick={this.reassemble} className='craft-button'>
+                Reassemble
+              </button>
             </div>
           </div>
         </div>
-
         <br />
-        <button id='spawnItem' onClick={this.requestItem}>Spawn Item</button>
-
+        <button id='spawnItem' onClick={this.requestItem}>
+          Spawn Item
+        </button>
         <br />
-
         <div className='window tooltip-window'>
           <div id='characterstats' className='tooltip tooltip-stat'>
             <CharacterStats player={this.state.player} />

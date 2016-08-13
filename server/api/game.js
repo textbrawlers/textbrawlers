@@ -1,6 +1,6 @@
 import { generateItem } from 'common/game/itemGenerator.js'
 
-export async function requestItem(ctx){
+export async function requestItem (ctx) {
   ctx.player.inventory.push(await generateItem())
 
   await ctx.player.save()
@@ -8,11 +8,11 @@ export async function requestItem(ctx){
   ctx.body = ctx.player.serialize()
 }
 
-export async function requestInventory(ctx){
+export async function requestInventory (ctx) {
   ctx.body = ctx.player.serialize()
 }
 
-export async function moveItem(ctx){
+export async function moveItem (ctx) {
   let fromInv = getCorrectInventory(ctx, ctx.request.body.from.inventory)
   let toInv = getCorrectInventory(ctx, ctx.request.body.to.inventory)
   let fromPos = ctx.request.body.from.item
@@ -27,7 +27,7 @@ export async function moveItem(ctx){
   await ctx.player.save()
 }
 
-export async function reassemble(ctx) {
+export async function reassemble (ctx) {
   const player = ctx.player
 
   if (player.reassemble.get(0) && player.reassemble.get(1) && player.reassemble.get(2) && player.reassemble.get(3)) {
@@ -38,12 +38,11 @@ export async function reassemble(ctx) {
     ctx.player.inventory.push(await generateItem())
   }
 
-
   ctx.body = ctx.player.serialize()
   await ctx.player.save()
 }
 
-function getCorrectInventory(ctx, inventory){
+function getCorrectInventory (ctx, inventory) {
   switch (inventory) {
     case 'equipped':
       return ctx.player.equipped

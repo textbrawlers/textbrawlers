@@ -97,7 +97,7 @@ SystemJS.config({
       }
     }
   }
-});
+})
 
 SystemJS.config({
   packageConfigPaths: [
@@ -1314,4 +1314,4 @@ SystemJS.config({
       }
     }
   }
-});
+})

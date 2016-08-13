@@ -1,19 +1,18 @@
-
 export default class StatCollection {
 
-  constructor(stats) {
+  constructor (stats) {
     this.stats = []
-    
+
     if (stats) {
       this.add(stats)
     }
   }
 
-  isEmpty() {
+  isEmpty () {
     return this.stats.length === 0
   }
 
-  add(stats) {
+  add (stats) {
     if (stats instanceof StatCollection) {
       stats = stats.getStats()
     }
@@ -22,12 +21,11 @@ export default class StatCollection {
     stats.forEach(stat => this._addOne(stat))
   }
 
-  getStats() {
+  getStats () {
     return this.stats
   }
 
-  
-  _addOne(stat) {
+  _addOne (stat) {
     if (!stat) {
       console.error('Added undefined stat', stat)
     }
@@ -39,7 +37,7 @@ export default class StatCollection {
     }
   }
 
-  find(fn) {
+  find (fn) {
     return this.stats.find(fn)
   }
 

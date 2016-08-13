@@ -3,7 +3,7 @@ import BaseItem from 'common/game/baseItem.js'
 
 const cache = {}
 
-async function parseNormalItems() {
+async function parseNormalItems () {
   if (cache.normal) return cache.normal
   const allItems = []
 
@@ -16,7 +16,7 @@ async function parseNormalItems() {
       // each item category
       Object.entries(items).forEach(([id, item]) => {
         // each item
-        const finalItem = new BaseItem(Object.assign({}, item, { category, id }))
+        const finalItem = new BaseItem(Object.assign({}, item, {category, id}))
         allItems.push(finalItem)
       })
     })
@@ -27,7 +27,7 @@ async function parseNormalItems() {
   return allItems
 }
 
-async function parseSetItems() {
+async function parseSetItems () {
   if (cache.set) return cache.set
   const allItems = []
   const setBonuses = {}
@@ -42,7 +42,7 @@ async function parseSetItems() {
       Object.entries(setConfig.items).forEach(([id, item]) => {
         // each set item
         const category = 'set'
-        const finalItem = new BaseItem(Object.assign({}, item, { category, id }))
+        const finalItem = new BaseItem(Object.assign({}, item, {category, id}))
         allItems.push(finalItem)
       })
     })
@@ -58,13 +58,12 @@ async function parseSetItems() {
   return resp
 }
 
-export default async function() {
+export default async function () {
   const normalItems = await parseNormalItems()
   const setItems = await parseSetItems()
 
   const items = normalItems.concat(setItems.items)
   const setBonuses = setItems.bonuses
 
-
-  return { items, setBonuses }
+  return {items, setBonuses}
 }

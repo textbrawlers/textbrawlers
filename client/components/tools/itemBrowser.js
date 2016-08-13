@@ -6,7 +6,7 @@ import InventorySlot from '../inventorySlot.js'
 
 export default class extends React.Component {
 
-  constructor() {
+  constructor () {
     super()
 
     this.state = {
@@ -14,17 +14,17 @@ export default class extends React.Component {
     }
 
     items().then(({items}) => {
-      this.setState({ items })
+      this.setState({items})
     })
   }
-  
-  render() {
+
+  render () {
     const items = this.state.items.map(baseItem => {
       let rarity = 'legendary'
       if (baseItem.category === 'set') {
         rarity = 'set'
       }
-      const item = new Item(baseItem, { rarity })
+      const item = new Item(baseItem, {rarity})
       const containerStyle = {
         margin: 2,
         display: 'inline-block'
