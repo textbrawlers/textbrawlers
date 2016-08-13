@@ -1,5 +1,6 @@
 import Inventory from './inventory.js'
 import StatCollection from './statCollection.js'
+import Stat from './stat.js'
 
 export default class Player {
 
@@ -20,6 +21,8 @@ export default class Player {
 
   get stats () {
     let characterStats = new StatCollection()
+    characterStats.add(new Stat('max-health', 100))
+    characterStats.add(new Stat('block-multiplier', 0.75))
     for (let i = 0; i < 6; i++) {
       const item = this.equipped.get(i)
       if (!item) {
@@ -28,13 +31,56 @@ export default class Player {
 
       characterStats.add(item.characterStats)
     }
-    /*
+
     const maxHpMultiplier = characterStats.find(stat => stat.id === 'max-health-multiplier')
-    const maxHpIndex = characterStats.indexOf(maxHpMultiplier)
-    characterStats.splice(maxHpIndex)
-    */
+    if (maxHpMultiplier) {
+      const maxHpFlat = characterStats.stats.find(stat => stat.id === 'max-health')
+      characterStats.remove(maxHpMultiplier)
+
+      characterStats.add(new Stat('max-health', (maxHpMultiplier.value - 1) * maxHpFlat.value))
+    }
 
     return characterStats
+  }
+
+  getWeaponStats (weapon) {
+    const stats = new StatCollection(this.stats)
+    stats.add(weapon.attackStats)
+
+    for (let i = 0; i < 6; i++) {
+      const item = this.equipped.get(i)
+      if (!item) { continue }
+      item.empoweredStats.filter(empower => empower.category === weapon.category).forEach(empower => {
+        stats.add(empower.stats)
+      })
+    }
+
+    const statsToRemove = [
+      'max-health',
+      'block-chance',
+      'block-multiplier'
+    ]
+
+    stats.filter(stat => statsToRemove.indexOf(stat.id) === -1)
+    return stats
+  }
+
+  get weaponStats () {
+    const weapons = []
+    for (let i = 0; i < 6; i++) {
+      const item = this.equipped.get(i)
+      if (!item || !item.canAttack) {
+        continue
+      }
+
+      weapons.push({
+        stats: this.getWeaponStats(item),
+        weapon: item,
+        slot: i
+      })
+    }
+
+    return weapons
   }
 
   static async fromJSON (jsonPlayer) {

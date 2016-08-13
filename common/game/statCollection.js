@@ -41,4 +41,12 @@ export default class StatCollection {
     return this.stats.find(fn)
   }
 
+  remove (stat) {
+    this.stats.splice(this.stats.indexOf(stat), 1)
+  }
+
+  filter (fn) {
+    this.stats = this.stats.filter(fn)
+  }
+
 }

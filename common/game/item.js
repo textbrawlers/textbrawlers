@@ -62,6 +62,7 @@ export default class Item {
     this.description = baseItem.description
     this.slot = baseItem.slot
     this.id = baseItem.id
+    this.canAttack = baseItem.attack
   }
 
   get image () {
