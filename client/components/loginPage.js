@@ -42,7 +42,7 @@ export default class LoginPage extends React.Component {
             <input
               className='login-button'
               type='submit'
-              value='Login' />
+              value='Login'
               onChange={this.updatePassword.bind(this)} />
           </div>
         </form>
