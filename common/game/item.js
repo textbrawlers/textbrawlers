@@ -63,6 +63,7 @@ export default class Item {
     this.rarity = rarity || 'common'
     this.category = baseItem.category
     this.description = baseItem.description
+    this.slot = baseItem.slot
     this.id = baseItem.id
   }
 

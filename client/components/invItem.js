@@ -1,10 +1,10 @@
-import React from 'react';
-import { DragSource } from 'react-dnd';
+import React from 'react'
+import { DragSource } from 'react-dnd'
 import TetherComponent from 'react-tether'
 
 class InventoryItem extends React.Component {
 
-  constructor() {
+  constructor () {
     super()
 
     this.state = {
@@ -15,19 +15,19 @@ class InventoryItem extends React.Component {
     this.handleMouseOver = this.handleMouseOver.bind(this)
   }
 
-  handleMouseOver() {
+  handleMouseOver () {
     this.setState({
       tooltipVisible: true
     })
-  } 
+  }
 
-  handleMouseOut() {
+  handleMouseOut () {
     this.setState({
       tooltipVisible: false
     })
   }
 
-  getEmpowerStats(item) {
+  getEmpowerStats (item) {
     return item.empoweredStats.map((conf, i) => {
       const stats = conf.stats.getStats().map((stat, i) => {
         const statTooltip = stat.render(stat => `<b>${stat}</b>`)
@@ -43,7 +43,7 @@ class InventoryItem extends React.Component {
     })
   }
 
-  createTooltip() {
+  createTooltip () {
     const item = this.props.item
 
     const characterStats = item.characterStats.getStats().map((stat, i) => {
@@ -79,7 +79,7 @@ class InventoryItem extends React.Component {
     let description
     if (item.description) {
       description = (
-        <div className="description">
+        <div className='description'>
           {item.description}
         </div>
       )
@@ -98,7 +98,7 @@ class InventoryItem extends React.Component {
     )
   }
 
-  render() {
+  render () {
     const item = this.props.item
 
     const tooltipContainerStyle = {
@@ -109,9 +109,9 @@ class InventoryItem extends React.Component {
 
     let tooltip
 
-    const { isDragging, connectDragSource } = this.props;
+    const { isDragging, connectDragSource } = this.props
 
-    if (this.state.tooltipVisible && ! isDragging) {
+    if (this.state.tooltipVisible && !isDragging) {
       tooltip = this.createTooltip()
     }
 
@@ -121,9 +121,9 @@ class InventoryItem extends React.Component {
 
     return connectDragSource(
       <div style={tooltipContainerStyle}>
-        <TetherComponent attachment="top left" targetAttachment="top right" targetOffset="0 4px" constraints={[{to: 'window', pin: true}]}>
-          <img className={className}  src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}/>
-          { tooltip }
+        <TetherComponent attachment='top left' targetAttachment='top right' targetOffset='0 4px' constraints={[{to: 'window', pin: true}]}>
+          <img className={className} src={item.image} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} />
+          {tooltip}
         </TetherComponent>
       </div>
     )
@@ -131,14 +131,14 @@ class InventoryItem extends React.Component {
 }
 
 const itemSource = {
-  beginDrag(props) {
+  beginDrag (props) {
     return {
       slot: props.slot,
       inventory: props.inventory
     }
   },
 
-  endDrag(props, monitor) {
+  endDrag (props, monitor) {
     if (!monitor.didDrop()) {
       return
     }
@@ -160,4 +160,8 @@ const collect = (connect, monitor) => {
   }
 }
 
-export default DragSource('item', itemSource, collect)(InventoryItem)
+const types = props => {
+  return `item-${props.item.slot}`
+}
+
+export default DragSource(types, itemSource, collect)(InventoryItem)
