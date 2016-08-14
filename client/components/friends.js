@@ -8,11 +8,13 @@ export default class Friends extends React.Component {
       <div>
         <div className='container-friend'>
           <div className='window friend-window'>
-            <h2>Friends</h2>
+            <h2>Friends<div className="disconnected"></div></h2>
             <div className='windowcontent'>
               <div className="friend-list">
                 <div className="friend">
                   TehFuccboiHenjik
+                  <div className="offline">
+                  </div>
                 </div>
                 <div className="friend-pending">
                   TehFuccboiHenjik2
