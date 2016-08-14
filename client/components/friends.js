@@ -1,24 +1,31 @@
 import React from 'react'
-import { browserHistory } from 'react-router'
 
 export default class Friends extends React.Component {
 
   render () {
+    console.log('reqs', this.props.social.requests)
+    console.log(this.props)
+    const friendRequests = this.props.social.requests.map((req, i) => {
+      return (
+        <div key={i} className='friend-pending'>
+          {req.from.username}
+          <button className='decline' />
+          <button className='accept' />
+        </div>
+      )
+    })
+
     return (
       <div>
         <div className='container-friend'>
           <div className='window friend-window'>
             <h2>Friends</h2>
             <div className='windowcontent'>
-              <div className="friend-list">
-                <div className="friend">
+              <div className='friend-list'>
+                <div className='friend'>
                   TehFuccboiHenjik
                 </div>
-                <div className="friend-pending">
-                  TehFuccboiHenjik2
-                  <button className="decline"/>
-                  <button className="accept" />
-                </div>
+                {friendRequests}
                 <form>
                   <label htmlFor='friend-name'>
                     Friend username:

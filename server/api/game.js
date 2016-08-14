@@ -57,19 +57,53 @@ export async function add (ctx) {
     return
   }
 
+  if (invitedPlayer._id.equals(ctx.account._id)) {
+    ctx.body = { success: false, message: 'You cannot add yourself' }
+    return
+  }
+
   invitedPlayer.social = invitedPlayer.social || {}
   invitedPlayer.social.requests = invitedPlayer.social.requests || []
+  invitedPlayer.social.friends = invitedPlayer.social.friends || []
 
-  invitedPlayer.social.requests.push({
-    from: {
+  const exisitingRequest = invitedPlayer.social.requests.find(req => req.from._id.equals(ctx.account._id))
+
+  if (!exisitingRequest) {
+    invitedPlayer.social.requests.push({
+      from: {
+        username: ctx.account.username,
+        _id: ctx.account._id
+      }
+    })
+  }
+
+  ctx.account.social = ctx.account.social || {}
+  ctx.account.social.requests = ctx.account.social.requests || []
+  ctx.account.social.friends = ctx.account.social.friends || []
+
+  const requestOtherWay = ctx.account.social.requests.find(req => req.from._id.equals(invitedPlayer._id))
+
+  if (requestOtherWay) {
+    ctx.account.social.requests = ctx.account.social.requests.filter(req => !req.from._id.equals(invitedPlayer._id))
+    invitedPlayer.social.requests = invitedPlayer.social.requests.filter(req => !req.from._id.equals(ctx.account._id))
+    console.log('Friend added')
+
+    invitedPlayer.social.friends.push({
       username: ctx.account.username,
       _id: ctx.account._id
-    }
-  })
+    })
 
-  users.update({_id: invitedPlayer._id}, { $set: {social: invitedPlayer.social} })
+    ctx.account.social.friends.push({
+      username: invitedPlayer.username,
+      _id: invitedPlayer._id
+    })
+  }
+
+  await users.update({_id: invitedPlayer._id}, { $set: {social: invitedPlayer.social} })
+  await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
 
   sendMessage(invitedPlayer._id, 'social', true)
+  sendMessage(ctx.account._id, 'social', true)
 
   ctx.body = { success: true }
 }

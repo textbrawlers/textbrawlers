@@ -27,8 +27,7 @@ export default class Game extends Component {
   }
 
   async updateSocial () {
-    const social = await request.get('/api/game/social')
-
+    const social = (await request.get('/api/game/social')).json
     this.setState({social})
   }
 
@@ -60,16 +59,12 @@ export default class Game extends Component {
   render () {
     return (
       <div>
-        <Friends />
+        <Friends social={this.state.social} realtime={this.state.realtime} />
         <div style={{position: 'absolute'}}>
           Realtime status: {this.state.realtime.connected ? 'Connected' : 'Disconnected'}
           {!this.state.realtime.connected &&
             <button onClick={this.connect}>Reconnect</button>
           }
-          <br />
-          Players online: {this.state.realtime.playerCount}
-          <br />
-          {JSON.stringify(this.state.social)}
           <br />
           <button onClick={this.addFriend}>Add friend</button>
         </div>
