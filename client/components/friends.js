@@ -15,6 +15,14 @@ export default class Friends extends React.Component {
       )
     })
 
+    const friends = this.props.social.friends.map((friend, i) => {
+      return (
+        <div key={i} className='friend'>
+          {friend.username}
+        </div>
+      )
+    })
+
     return (
       <div>
         <div className='container-friend'>
@@ -22,9 +30,7 @@ export default class Friends extends React.Component {
             <h2>Friends</h2>
             <div className='windowcontent'>
               <div className='friend-list'>
-                <div className='friend'>
-                  TehFuccboiHenjik
-                </div>
+                {friends}
                 {friendRequests}
                 <form>
                   <label htmlFor='friend-name'>

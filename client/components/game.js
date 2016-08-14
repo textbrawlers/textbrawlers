@@ -14,7 +14,8 @@ export default class Game extends Component {
       },
 
       social: {
-        requests: []
+        requests: [],
+        friends: []
       }
     }
 
