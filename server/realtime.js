@@ -2,7 +2,7 @@ import url from 'url'
 import ServerPlayer from 'common/game/serverPlayer.js'
 import RealtimePlayer from './realtime/realtimePlayer.js'
 
-const players = []
+export const players = []
 
 function sendPlayerCount () {
   const count = players.length
@@ -10,6 +10,14 @@ function sendPlayerCount () {
   for (const player of players) {
     player.updatePlayerCount(count)
   }
+}
+
+export function sendMessage (playerId, messageId, data) {
+  players.filter(realtimePlayer => {
+    return realtimePlayer.player.id.equals(playerId)
+  }).forEach(realtimePlayer => {
+    realtimePlayer.send(messageId, data)
+  })
 }
 
 export default function realtime (wss) {

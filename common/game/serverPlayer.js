@@ -12,14 +12,19 @@ export default class ServerPlayer extends Player {
     this.key = key
   }
 
-  static async fromKey (key) {
+  static async fromKey (key, both = false) {
     const jsonUser = (await users.findOne({key}))
 
     if (jsonUser) {
-      const player = ServerPlayer.fromJSON(jsonUser.player || {}, key)
+      const player = await ServerPlayer.fromJSON(jsonUser.player || {}, key)
       player.key = key
+      player.id = jsonUser._id
       player.serverPlayer = true
-      return player
+      if (both) {
+        return { player, jsonUser }
+      } else {
+        return player
+      }
     }
     return undefined
   }

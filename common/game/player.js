@@ -4,10 +4,11 @@ import Stat from './stat.js'
 
 export default class Player {
 
-  constructor ({inventory, equipped, reassemble}) {
+  constructor ({inventory, equipped, reassemble, id}) {
     this.inventory = inventory || new Inventory([], 120)
     this.equipped = equipped || new Inventory([], 6)
     this.reassemble = reassemble || new Inventory([], 4)
+    this.id = id
   }
 
   static async baseFromJSON (jsonPlayer) {

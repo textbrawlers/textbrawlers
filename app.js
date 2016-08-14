@@ -8,8 +8,8 @@ import serve from 'koa-static'
 import BodyParser from 'koa-bodyparser'
 import send from 'koa-send'
 
-import server from './server/index.js'
-import realtime from './server/realtime.js'
+import server from 'server/index.js'
+import realtime from 'server/realtime.js'
 import WebSocket from 'ws'
 
 const app = new Koa()
