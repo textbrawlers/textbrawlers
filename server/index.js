@@ -1,7 +1,7 @@
 import Router from 'koa-router'
 import { login, register, getPlayer } from './api/user.js'
 import SPlayer from 'common/game/serverPlayer.js'
-import { requestItem, requestInventory, moveItem, reassemble, add, getSocial } from './api/game.js'
+import { requestItem, requestInventory, moveItem, reassemble, add, getSocial, removeFriend, removeRequest } from './api/game.js'
 
 const auth = async (ctx, next) => {
   const key = ctx.request.header.key
@@ -19,7 +19,7 @@ const auth = async (ctx, next) => {
 
 const router = new Router()
 
-router.use(['/user/get', '/game/requestItem', '/game/requestInventory', '/game/swapItems', '/game/reassemble', '/game/add', '/game/social'], auth)
+router.use(['/user/get', '/game/requestItem', '/game/requestInventory', '/game/swapItems', '/game/reassemble', '/game/add', '/game/social', '/game/removefriend', '/game/removeRequest'], auth)
 
 router.post('/user/login', login)
 router.post('/user/register', register)
@@ -29,6 +29,8 @@ router.post('/game/reassemble', reassemble)
 router.post('/game/add', add)
 router.post('/game/requestItem', requestItem)
 router.post('/game/swapItems', moveItem)
+router.post('/game/removefriend', removeFriend)
+router.post('/game/removerequest', removeRequest)
 router.get('/game/requestInventory', requestInventory)
 router.get('/game/social', getSocial)
 

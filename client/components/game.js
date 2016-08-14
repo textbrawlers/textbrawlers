@@ -22,7 +22,6 @@ export default class Game extends Component {
     this.active = true
 
     this.connect = this.connect.bind(this)
-    this.addFriend = this.addFriend.bind(this)
 
     this.updateSocial()
   }
@@ -34,11 +33,6 @@ export default class Game extends Component {
 
   connect () {
     this.realtime.connect()
-  }
-
-  addFriend () {
-    const name = window.prompt('Name?')
-    request.post('/api/game/add', { name })
   }
 
   componentWillMount () {
@@ -66,8 +60,6 @@ export default class Game extends Component {
           {!this.state.realtime.connected &&
             <button onClick={this.connect}>Reconnect</button>
           }
-          <br />
-          <button onClick={this.addFriend}>Add friend</button>
         </div>
 
         <div className='links'>

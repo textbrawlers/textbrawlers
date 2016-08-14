@@ -66,7 +66,16 @@ export async function add (ctx) {
   invitedPlayer.social.requests = invitedPlayer.social.requests || []
   invitedPlayer.social.friends = invitedPlayer.social.friends || []
 
+  ctx.account.social = ctx.account.social || {}
+  ctx.account.social.requests = ctx.account.social.requests || []
+  ctx.account.social.friends = ctx.account.social.friends || []
+
   const exisitingRequest = invitedPlayer.social.requests.find(req => req.from._id.equals(ctx.account._id))
+
+  if (ctx.account.social.friends.find(friend => friend._id.equals(invitedPlayer._id))) {
+    ctx.body = { success: false, message: 'You are already friends' }
+    return
+  }
 
   if (!exisitingRequest) {
     invitedPlayer.social.requests.push({
@@ -76,10 +85,6 @@ export async function add (ctx) {
       }
     })
   }
-
-  ctx.account.social = ctx.account.social || {}
-  ctx.account.social.requests = ctx.account.social.requests || []
-  ctx.account.social.friends = ctx.account.social.friends || []
 
   const requestOtherWay = ctx.account.social.requests.find(req => req.from._id.equals(invitedPlayer._id))
 
@@ -103,6 +108,43 @@ export async function add (ctx) {
   await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
 
   sendMessage(invitedPlayer._id, 'social', true)
+  sendMessage(ctx.account._id, 'social', true)
+
+  ctx.body = { success: true }
+}
+
+export async function removeRequest (ctx) {
+  ctx.account.social = ctx.account.social || {}
+  ctx.account.social.requests = ctx.account.social.requests || {}
+
+  ctx.account.social.requests = ctx.account.social.requests.filter(req => req.from._id.equals(ctx.request.id))
+
+  await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
+  sendMessage(ctx.account._id, 'social', true)
+  ctx.body = { success: true }
+}
+
+export async function removeFriend (ctx) {
+  ctx.account.social = ctx.account.social || {}
+  ctx.account.social.friends = ctx.account.social.friends || {}
+
+  const friend = await users.findOne({ _id: ctx.request.body.id })
+
+  if (!friend) {
+    ctx.body = { success: false, message: 'Friend not found' }
+    return
+  }
+
+  friend.social = friend.social || {}
+  friend.social.friends = friend.social.friends || {}
+
+  friend.social.friends = friend.social.friends.filter(friend => !friend._id.equals(ctx.account._id))
+  ctx.account.social.friends = ctx.account.social.friends.filter(account => !account._id.equals(friend._id))
+
+  await users.update({_id: friend._id}, { $set: {social: friend.social} })
+  await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
+
+  sendMessage(friend._id, 'social', true)
   sendMessage(ctx.account._id, 'social', true)
 
   ctx.body = { success: true }
