@@ -212,14 +212,12 @@ body {
 }
 
 .friend {
-  width:260px;
   background-color:#d4d4d4;
   margin:5px auto;
   padding:1px 6px;
 }
 
 .friend-pending {
-  width:260px;
   background-color:#d4d4d4;
   margin:5px auto;
   color:rgba(0,0,0,0.4);
@@ -231,9 +229,9 @@ body {
 }
 
 .accept, .decline {
-  width:17px;
-  height:17px;
-  top:1px;
+  width:20px;
+  height:15px;
+  top:2px;
   position: relative;
   display:inline-block;
   border: none;
@@ -242,10 +240,19 @@ body {
 }
 
 .accept {
-  background-color:#8CFF8C;
+  margin-right:6px;
+  background-color:#48E04A;
 }
 
 .decline {
-  margin:0px 2px 0px 0px;
-  background-color:#FF8C8C;
+  background-color:#E04848;
+}
+
+.input {
+  width:100%;
+  margin-bottom:5px;
+}
+
+.container-friend .button {
+  margin-bottom:5px;
 }

@@ -19,6 +19,19 @@ export default class Friends extends React.Component {
                   <button className="decline"/>
                   <button className="accept" />
                 </div>
+                <form>
+                  <label htmlFor='friend-name'>
+                    Friend username:
+                  </label>
+                  <br />
+                  <input
+                    className='input'
+                    type='text'
+                    id='friend-name' />
+                  <div className='button-center'>
+                    <input className='button' type='submit' value='Add friend' />
+                  </div>
+                </form>
               </div>
             </div>
           </div>
