@@ -244,8 +244,16 @@ body {
   background-color:#48E04A;
 }
 
+.accept:active {
+  background-color:#4EF551;
+}
+
 .decline {
   background-color:#E04848;
+}
+
+.decline:active {
+  background-color:#F54E4E;
 }
 
 .input {
