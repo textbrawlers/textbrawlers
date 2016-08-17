@@ -117,7 +117,7 @@ export async function removeRequest (ctx) {
   ctx.account.social = ctx.account.social || {}
   ctx.account.social.requests = ctx.account.social.requests || {}
 
-  ctx.account.social.requests = ctx.account.social.requests.filter(req => req.from._id.equals(ctx.request.id))
+  ctx.account.social.requests = ctx.account.social.requests.filter(req => !req.from._id.equals(ctx.request.body.id))
 
   await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
   sendMessage(ctx.account._id, 'social', true)
