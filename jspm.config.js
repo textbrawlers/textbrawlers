@@ -140,6 +140,7 @@ SystemJS.config({
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'querystring': 'github:jspm/nodelibs-querystring@0.2.0-alpha',
     'react': 'npm:react@15.2.1',
+    'react-contextmenu': 'npm:react-contextmenu@1.6.2',
     'react-dnd': 'npm:react-dnd@2.1.4',
     'react-dnd-html5-backend': 'npm:react-dnd-html5-backend@2.1.2',
     'react-dom': 'npm:react-dom@15.2.1',
@@ -1296,10 +1297,10 @@ SystemJS.config({
     },
     'npm:redux@3.5.2': {
       'map': {
-        'lodash': 'npm:lodash@4.14.1',
+        'lodash': 'npm:lodash@4.15.0',
         'loose-envify': 'npm:loose-envify@1.2.0',
         'symbol-observable': 'npm:symbol-observable@0.2.4',
-        'lodash-es': 'npm:lodash-es@4.14.1'
+        'lodash-es': 'npm:lodash-es@4.15.0'
       }
     },
     'npm:lru-cache@4.0.1': {
@@ -1338,6 +1339,29 @@ SystemJS.config({
     'github:jspm/nodelibs-os@0.2.0-alpha': {
       'map': {
         'os-browserify': 'npm:os-browserify@0.2.1'
+      }
+    },
+    'npm:react-contextmenu@1.6.2': {
+      'map': {
+        'lodash.isobject': 'npm:lodash.isobject@3.0.2',
+        'redux': 'npm:redux@3.5.2',
+        'object-assign': 'npm:object-assign@4.1.0',
+        'classnames': 'npm:classnames@2.2.5',
+        'invariant': 'npm:invariant@2.2.1',
+        'react-overlays': 'npm:react-overlays@0.6.6'
+      }
+    },
+    'npm:react-overlays@0.6.6': {
+      'map': {
+        'classnames': 'npm:classnames@2.2.5',
+        'warning': 'npm:warning@3.0.0',
+        'react-prop-types': 'npm:react-prop-types@0.4.0',
+        'dom-helpers': 'npm:dom-helpers@2.4.0'
+      }
+    },
+    'npm:react-prop-types@0.4.0': {
+      'map': {
+        'warning': 'npm:warning@3.0.0'
       }
     }
   }

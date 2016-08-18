@@ -7,7 +7,7 @@ export default class CharacterStats extends Component {
 
     let playerStats = []
 
-    function getStats(stats) {
+    function getStats (stats) {
       return stats.stats.map((stat, i) => {
         const statTooltip = stat.render(stat => `<b>${stat}</b>`)
         return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import RealtimeClient from 'client/realtime/realtimeClient.js'
 import Friends from './friends.js'
+import request from 'common/api/request.js'
 
 export default class Game extends Component {
   constructor () {
@@ -10,12 +11,24 @@ export default class Game extends Component {
     this.state = {
       realtime: {
         connected: false
+      },
+
+      social: {
+        requests: [],
+        friends: []
       }
     }
 
     this.active = true
 
     this.connect = this.connect.bind(this)
+
+    this.updateSocial()
+  }
+
+  async updateSocial () {
+    const social = (await request.get('/api/game/social')).json
+    this.setState({social})
   }
 
   connect () {
@@ -30,6 +43,8 @@ export default class Game extends Component {
         realtime: this.realtime.state
       })
     })
+
+    this.realtime.on('message-social', () => this.updateSocial())
   }
 
   componentWillUnmount () {
@@ -39,14 +54,12 @@ export default class Game extends Component {
   render () {
     return (
       <div>
-        <Friends />
+        <Friends social={this.state.social} realtime={this.state.realtime} />
         <div style={{position: 'absolute'}}>
           Realtime status: {this.state.realtime.connected ? 'Connected' : 'Disconnected'}
           {!this.state.realtime.connected &&
             <button onClick={this.connect}>Reconnect</button>
           }
-          <br />
-          Players online: {this.state.realtime.playerCount}
         </div>
 
         <div className='links'>

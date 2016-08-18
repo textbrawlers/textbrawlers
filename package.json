@@ -37,6 +37,7 @@
       "koa-static": "npm:koa-static@^2.0.0",
       "lru-cache": "npm:lru-cache@^4.0.1",
       "monk": "npm:monk@^3.0.7",
+      "react-contextmenu": "npm:react-contextmenu@^1.6.2",
       "react-dnd-html5-backend": "npm:react-dnd-html5-backend@^2.1.2",
       "react-router": "npm:react-router@^2.6.0",
       "react-tether": "npm:react-tether@^0.5.2",
@@ -212,6 +213,12 @@
         }
       },
       "npm:lodash@4.14.1": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:lodash@4.15.0": {
         "map": {
           "buffer": "@empty",
           "process": "@empty"

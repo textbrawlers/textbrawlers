@@ -74,6 +74,8 @@ export default class RealtimeClient extends EventEmitter {
     if (message.id === 'status.playercount') {
       this.setPlayercount(message.data)
     }
+
+    this.emit('message-' + message.id, message.data)
   }
 
   onError (e) {
