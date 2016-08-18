@@ -67,7 +67,7 @@
     "hastening": {
       "name": "Hastening",
       "character-stats": {
-        "attack-speed": 0.5
+        "attack-speed": 0.05
       }
     },
     "quickening": {

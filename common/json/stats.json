@@ -94,9 +94,9 @@
     "tooltip": "[fixed] Burn Duration",
     "display": true
   },
-  "nullify": {
+  "void-strike": {
     "type": "multiplicative",
-    "tooltip": "Every hit adds a stack of 'void'. Each hit has a 30% chance to deal the numbers of stacks times your damage.",
+    "tooltip": "Every hit adds a stack of 'void'. Each hit has a 50% chance to deal the numbers of stacks times your damage.",
     "display": false
   },
   "ranged": {

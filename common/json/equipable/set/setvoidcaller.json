@@ -4,11 +4,10 @@
       "voidcaller-helmet": {
         "name": "Collar of the Voidcaller",
         "slot": "head",
-        "attack": true,
         "icon": "itemhelmet",
         "character-stats": {
           "max-health": -5,
-          "crit-chance": -0.05,
+          "crit-chance": -0.01,
           "block-chance": 0.05,
           "block-multiplier": 0.1
         },
@@ -17,24 +16,22 @@
       "voidcaller-chestpiece": {
         "name": "Robe of the Voidcaller",
         "slot": "torso",
-        "attack": true,
         "icon": "itemchestpiece",
         "character-stats": {
           "max-health": -5,
-          "crit-chance": -0.05,
+          "crit-chance": -0.01,
           "block-chance": 0.05,
           "block-multiplier": 0.1
         },
-        "description": "The fabric of space and time is woven into this robe."
+        "description": "The very fabric of space and time is woven into this robe."
       },
       "voidcaller-leggings": {
         "name": "Trousers of the Voidcaller",
         "slot": "legs",
-        "attack": true,
         "icon": "itempants",
         "character-stats": {
           "max-health": -5,
-          "crit-chance": -0.05,
+          "crit-chance": -0.01,
           "block-chance": 0.05,
           "block-multiplier": 0.1
         },
@@ -43,21 +40,20 @@
       "voidcaller-boots": {
         "name": "Treads of the Voidcaller",
         "slot": "feet",
-        "attack": true,
         "icon": "itemshoes",
         "character-stats": {
           "max-health": -5,
-          "crit-chance": -0.05,
+          "crit-chance": -0.01,
           "block-chance": 0.05,
           "block-multiplier": 0.1
         },
         "description": "It can be tricky to tread on nothing."
       },
-      "voidcaller-glove": {
+      "voidcaller-ring": {
         "name": "Power of the Voidcaller",
         "slot": "hand",
         "attack": true,
-        "icon": "itemglove",
+        "icon": "voidcallerring",
         "attack-stats": {
           "damage": 6,
           "attack-speed": 1.7,
@@ -68,17 +64,20 @@
     },
     "bonuses": {
       "2": {
-        "damage": 1
+        "damage": 1,
+        "nullify": 0.6
       },
       "3": {
-        "damage": 2
+        "damage": 2,
+        "nullify": 0.75
       },
       "4": {
-        "damage": 4
+        "damage": 4,
+        "nullify": 0.9
       },
       "5": {
         "damage": 6,
-        "nullify": 1
+        "nullify": 1.05
       }
     }
   }

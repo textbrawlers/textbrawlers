@@ -38,7 +38,7 @@
       "slot": "head",
       "attack": false,
       "icon": "itemcrownhelmet",
-      "drop-rate": 10,
+      "drop-rate": 20,
       "character-stats": {
         "block-chance": 0.01
       },
