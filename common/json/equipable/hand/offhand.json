@@ -57,12 +57,12 @@
       "slot": "hand",
       "attack": false,
       "icon": "wodkatime",
-      "drop-rate": 1000,
+      "drop-rate": 1,
       "character-stats": {
-        "damage": 1000,
-        "damage-multiplier": 100000,
-        "crit-chance": 1,
-        "crit-damage": 1500
+        "damage": 9999,
+        "damage-multiplier": 10000,
+        "crit-chance": 0.99,
+        "crit-damage": 9999
       },
       "description": "WODKATIME!!!"
     }

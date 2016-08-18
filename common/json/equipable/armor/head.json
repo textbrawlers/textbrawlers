@@ -43,7 +43,7 @@
         "block-chance": 0.01
       },
       "empower-stats": [{
-        "category": "orb",
+        "category": "offhand",
         "stats": {
           "damage-multiplier": 1.5,
           "crit-chance": 0.05,
