@@ -53,7 +53,7 @@
         "name": "Power of the Voidcaller",
         "slot": "hand",
         "attack": true,
-        "icon": "voidcallerring",
+        "icon": "itemvoidcallerring",
         "attack-stats": {
           "damage": 6,
           "attack-speed": 1.7,

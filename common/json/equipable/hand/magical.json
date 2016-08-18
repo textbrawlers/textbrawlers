@@ -22,9 +22,9 @@
       "attack": true,
       "icon": "itemlightningwand",
       "attack-stats": {
-        "damage": 1,
-        "attack-speed": 10,
-        "crit-chance": 0.05,
+        "damage": 4,
+        "attack-speed": 3.5,
+        "crit-chance": 0.20,
         "crit-damage": 2.0,
         "ranged": true
       },
