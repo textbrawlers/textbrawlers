@@ -12,35 +12,33 @@
           "block-chance": 0.05,
           "block-multiplier": 0.1
         },
-        "description": "Built-in facepalm protection."
+        "description": "Someone put something clever here."
       },
-      "bladedancer-chestpiece": {
-        "name": "Bladedancer's Chestpiece",
+      "voidcaller-chestpiece": {
+        "name": "Robe of the Voidcaller",
         "slot": "torso",
         "attack": true,
         "icon": "itemchestpiece",
-        "attack-stats": {
-          "damage": 1,
-          "attack-speed": 1.0
-        },
         "character-stats": {
-          "max-health": -10
+          "max-health": -5,
+          "crit-chance": -0.05,
+          "block-chance": 0.05,
+          "block-multiplier": 0.1
         },
-        "description": "Real armor has spiky shoulderguards."
+        "description": "The fabric of space and time is woven into this robe."
       },
-      "bladedancer-leggings": {
-        "name": "Bladedancer's Leggings",
+      "voidcaller-leggings": {
+        "name": "Trousers of the Voidcaller",
         "slot": "legs",
         "attack": true,
         "icon": "itempants",
-        "attack-stats": {
-          "damage": 1,
-          "attack-speed": 1.0
-        },
         "character-stats": {
-          "max-health": -10
+          "max-health": -5,
+          "crit-chance": -0.05,
+          "block-chance": 0.05,
+          "block-multiplier": 0.1
         },
-        "description": "Sleep on my lap. I DARE you."
+        "description": "Once worn by a lord of the dark side."
       },
       "voidcaller-boots": {
         "name": "Treads of the Voidcaller",
@@ -55,26 +53,32 @@
         },
         "description": "It can be tricky to tread on nothing."
       },
-      "bladedancer-glove": {
-        "name": "Bladedancer's Glove",
+      "voidcaller-glove": {
+        "name": "Power of the Voidcaller",
         "slot": "hand",
         "attack": true,
         "icon": "itemglove",
         "attack-stats": {
-          "damage": 1,
-          "attack-speed": 2.0
+          "damage": 6,
+          "attack-speed": 1.7,
+          "ranged": true
         },
-        "description": "Turning slaps from painful to deadly."
+        "description": "The one ring, capable of channeling immense power from the void."
       }
     },
     "bonuses": {
-      "4": {
+      "2": {
         "damage": 1
       },
-      "6": {
-        "attack-speed": 1.5,
-        "bleed-chance": 0.2,
-        "bleed-duration": 3
+      "3": {
+        "damage": 2
+      },
+      "4": {
+        "damage": 4
+      },
+      "5": {
+        "damage": 6,
+        "nullify": 1
       }
     }
   }
