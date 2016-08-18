@@ -55,7 +55,7 @@ body {
 }
 
 .window h2 {
-  background-color:#ddd;
+  background-color:#dddddd;
   margin: 0;
   padding: 5px;
   font-size: 15px;
@@ -216,6 +216,30 @@ body {
   background-color:#d4d4d4;
   margin:5px auto;
   padding:1px 6px;
+}
+
+.online, .offline, .disconnected {
+  width:15px;
+  height:15px;
+  border-radius:10px;
+  top:2px;
+  position: relative;
+  display:inline-block;
+  border: none;
+  outline: none;
+  float:right;
+}
+
+.online {
+  background-color:#48E04A;
+}
+
+.offline {
+  background-color:#ededed;
+}
+
+.disconnected {
+  background-color:#E04848;
 }
 
 .friend-pending {

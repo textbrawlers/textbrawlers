@@ -10,7 +10,7 @@
         "stats": {
           "attack-speed": 10.1,
           "crit-chance": 0.05,
-          "crit-damage": 1.05,
+          "crit-damage": 0.05,
           "damage-multiplier": 1.05
         }
       }],
@@ -25,7 +25,7 @@
         "category": "bow",
         "stats": {
           "attack-speed": 9.8,
-          "crit-damage": 1.1,
+          "crit-damage": 0.1,
           "damage-multiplier": 1.15
         }
       }],
