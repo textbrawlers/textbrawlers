@@ -54,32 +54,27 @@ export default class Game extends Component {
   render () {
     return (
       <div>
-        <Friends social={this.state.social} realtime={this.state.realtime} />
+        <Friends social={this.state.social} connect={this.connect} realtime={this.state.realtime} />
         <div style={{position: 'absolute'}}>
-          Realtime status: {this.state.realtime.connected ? 'Connected' : 'Disconnected'}
-          {!this.state.realtime.connected &&
-            <button onClick={this.connect}>Reconnect</button>
-          }
+          <div className='links'>
+            <div className='leftlinks'>
+              <Link to='/'>
+                <img src='/client/png/inventory.png' />
+              </Link>
+            </div>
+            <div className='middlelinks'>
+              <Link to='/'>
+                <img className='title' src='/client/png/title.png' />
+              </Link>
+            </div>
+            <div className='rightlinks'>
+              <Link to='/'>
+                <img src='/client/png/inventory.png' />
+              </Link>
+            </div>
+          </div>
+          {this.props.children}
         </div>
-
-        <div className='links'>
-          <div className='leftlinks'>
-            <Link to='/'>
-              <img src='/client/png/inventory.png' />
-            </Link>
-          </div>
-          <div className='middlelinks'>
-            <Link to='/'>
-              <img className='title' src='/client/png/title.png' />
-            </Link>
-          </div>
-          <div className='rightlinks'>
-            <Link to='/'>
-              <img src='/client/png/inventory.png' />
-            </Link>
-          </div>
-        </div>
-        {this.props.children}
       </div>
     )
   }

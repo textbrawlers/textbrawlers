@@ -1,6 +1,6 @@
 import Monk from 'monk'
 import { generateItem } from 'common/game/itemGenerator.js'
-import { sendMessage } from 'server/realtime.js'
+import { sendMessage, invitePlayer } from 'server/realtime.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
@@ -146,6 +146,15 @@ export async function removeFriend (ctx) {
 
   sendMessage(friend._id, 'social', true)
   sendMessage(ctx.account._id, 'social', true)
+
+  ctx.body = { success: true }
+}
+
+export async function inviteGame (ctx) {
+  const playerToInvite = ctx.request.body.id
+  const sourceId = ctx.account._id
+
+  invitePlayer(playerToInvite, sourceId)
 
   ctx.body = { success: true }
 }

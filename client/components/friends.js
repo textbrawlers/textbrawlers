@@ -13,6 +13,13 @@ export default class Friends extends Component {
     }
   }
 
+  componentWillMount () {
+    //console.log('props', this.props)
+      /*this.props.realtime.on('message-status.invites', (e) => {
+      console.log(e)
+      })*/
+  }
+
   addFriend (e) {
     e.preventDefault()
     const name = this.state.friendName
@@ -45,9 +52,7 @@ export default class Friends extends Component {
     })
   }
 
-  render () {
-    console.log('reqs', this.props.social.requests)
-    console.log(this.props)
+  renderFriendContent () {
     const friendRequests = this.props.social.requests.map((req, i) => {
       return (
         <div key={i} className='friend-pending'>
@@ -63,32 +68,47 @@ export default class Friends extends Component {
     })
 
     return (
+      <div className='windowcontent'>
+        <div className='friend-list'>
+          {friends}
+          {friendRequests}
+          <form onSubmit={this.addFriend}>
+            <label htmlFor='friend-name'>
+              Friend username:
+            </label>
+            <br />
+            <input
+              className='input'
+              type='text'
+              value={this.state.friendName}
+              onChange={e => this.setState({friendName: e.target.value})}
+              id='friend-name' />
+            <div className='button-center'>
+              <input className='button' type='submit' value='Add friend' />
+            </div>
+          </form>
+        </div>
+      </div>
+    )
+  }
+
+  renderFriendsOffline () {
+    return (
+      <div className='windowcontent'>
+        <p>You are offline.</p>
+        <button onClick={this.props.connect}>Reconnect</button>
+      </div>
+    )
+  }
+
+  render () {
+    return (
       <div>
         <FriendContextMenu />
         <div className='container-friend'>
           <div className='window friend-window'>
-            <h2>Friends<div className="disconnected"></div></h2>
-            <div className='windowcontent'>
-              <div className="friend-list">
-                  {friends}
-                  {friendRequests}
-                <form onSubmit={this.addFriend}>
-                  <label htmlFor='friend-name'>
-                    Friend username:
-                  </label>
-                  <br />
-                  <input
-                    className='input'
-                    type='text'
-                    value={this.state.friendName}
-                    onChange={e => this.setState({friendName: e.target.value})}
-                    id='friend-name' />
-                  <div className='button-center'>
-                    <input className='button' type='submit' value='Add friend' />
-                  </div>
-                </form>
-              </div>
-            </div>
+            <h2>Friends <div className='disconnected'></div></h2>
+            {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
           </div>
         </div>
       </div>
@@ -101,7 +121,7 @@ class BasicFriend extends Component {
     return (
       <div className='friend'>
         {this.props.friend.username}
-        <div className="offline">
+        <div className='offline'>
         </div>
       </div>
     )
@@ -122,6 +142,9 @@ class FriendContextMenu extends Component {
         <MenuItem data={{action: 'remove-friend'}} onClick={this.handleClick}>
           Remove Friend
         </MenuItem>
+        <MenuItem data={{action: 'invite-game'}} onClick={this.handleClick}>
+          Invite to Game
+        </MenuItem>
       </ContextMenu>
     )
   }
@@ -135,6 +158,8 @@ class FriendContextMenu extends Component {
           window.alert('Could not remove friend: ' + resp.json.message)
         }
       })
+    } else if (action === 'invite-game') {
+      request.post('/api/game/inviteGame', { id: data.friend._id })
     }
   }
 }

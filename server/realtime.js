@@ -12,6 +12,14 @@ function sendPlayerCount () {
   }
 }
 
+export function invitePlayer (playerId, sourceId) {
+  players.filter(realtimePlayer => {
+    return realtimePlayer.player.id.equals(playerId)
+  }).forEach(realtimePlayer => {
+    realtimePlayer.addInvite(sourceId)
+  })
+}
+
 export function sendMessage (playerId, messageId, data) {
   players.filter(realtimePlayer => {
     return realtimePlayer.player.id.equals(playerId)
