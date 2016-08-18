@@ -51,6 +51,20 @@
         "max-health-multiplier": 1.15
       },
       "description": "It makes you feel healthier. Probably just placebo."
+    },
+    "wodkatime": {
+      "name": "Wodkatime",
+      "slot": "hand",
+      "attack": false,
+      "icon": "wodkatime",
+      "drop-rate": 1000,
+      "character-stats": {
+        "damage": 1000,
+        "damage-multiplier": 100000,
+        "crit-chance": 1,
+        "crit-damage": 1500
+      },
+      "description": "WODKATIME!!!"
     }
   }
 }
