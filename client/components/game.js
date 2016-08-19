@@ -13,6 +13,8 @@ export default class Game extends Component {
         connected: false
       },
 
+      realtimeState: {},
+
       social: {
         requests: [],
         friends: []
@@ -54,8 +56,8 @@ export default class Game extends Component {
   render () {
     return (
       <div>
-        <Friends social={this.state.social} connect={this.connect} realtime={this.state.realtime} />
-        <div style={{position: 'absolute'}}>
+        <Friends social={this.state.social} connect={this.connect} realtimeState={this.state.realtimeState} realtime={this.realtime} />
+        <div>
           <div className='links'>
             <div className='leftlinks'>
               <Link to='/'>

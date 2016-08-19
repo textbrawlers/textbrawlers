@@ -9,15 +9,15 @@ export default class Friends extends Component {
     this.addFriend = this.addFriend.bind(this)
 
     this.state = {
-      friendName: ''
+      friendName: '',
+      invites: []
     }
   }
 
   componentWillMount () {
-    //console.log('props', this.props)
-      /*this.props.realtime.on('message-status.invites', (e) => {
-      console.log(e)
-      })*/
+    this.props.realtime.on('message-status.invites', invites => {
+      this.setState({invites: invites})
+    })
   }
 
   addFriend (e) {
