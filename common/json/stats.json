@@ -11,7 +11,7 @@
   },
   "attack-speed": {
     "type": "additive",
-    "tooltip": "[fixed] Attacks per Turn",
+    "tooltip": "[fixed-fine] Attacks per Turn",
     "display": true
   },
   "crit-chance": {
@@ -56,7 +56,7 @@
   },
   "block-multiplier": {
     "type": "multiplicative",
-    "tooltip": "[fixed] Block Multiplier",
+    "tooltip": "[fixed-fine] Block Multiplier",
     "display": true
   },
   "max-health": {
