@@ -30,7 +30,11 @@ export default class Game extends Component {
 
   async updateSocial () {
     const social = (await request.get('/api/game/social')).json
-    this.setState({social})
+    try {
+      this.setState({social})
+    } catch (ex) {
+      console.error(ex)
+    }
   }
 
   connect () {
@@ -41,9 +45,13 @@ export default class Game extends Component {
     this.realtime = new RealtimeClient()
 
     this.realtime.on('change', () => {
-      this.setState({
-        realtime: this.realtime.state
-      })
+      try {
+        this.setState({
+          realtime: this.realtime.state
+        })
+      } catch (ex) {
+        console.error(ex)
+      }
     })
 
     this.realtime.on('message-social', () => this.updateSocial())
@@ -56,7 +64,7 @@ export default class Game extends Component {
   render () {
     return (
       <div>
-        <Friends social={this.state.social} connect={this.connect} realtimeState={this.state.realtimeState} realtime={this.realtime} />
+        <Friends social={this.state.social} connect={this.connect} realtimeState={this.state.realtime} realtime={this.realtime} />
         <div>
           <div className='links'>
             <div className='leftlinks'>

@@ -12,11 +12,11 @@ function sendPlayerCount () {
   }
 }
 
-export function invitePlayer (playerId, sourceId) {
+export function invitePlayer (playerId, sourcePlayer) {
   players.filter(realtimePlayer => {
     return realtimePlayer.player.id.equals(playerId)
   }).forEach(realtimePlayer => {
-    realtimePlayer.addInvite(sourceId)
+    realtimePlayer.addInvite(sourcePlayer)
   })
 }
 
