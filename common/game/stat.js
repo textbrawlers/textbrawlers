@@ -7,12 +7,13 @@ const round = (num, decimals) => {
 }
 
 const displayFunctions = {
-  plain: value => round(value, 2),
-  fixed: value => round(value, 2),
-  percent: value => `${round(value * 100, 2)}%`,
+  plain: value => round(value, 0),
+  fixed: value => round(value, 0),
+  'fixed-fine': value => round(value, 2),
+  percent: value => `${round(value * 100, 0)}%`,
   'plus-mult': value => {
     value--
-    const niceVal = round(value * 100, 2)
+    const niceVal = round(value * 100, 0)
     if (value > 0) {
       return `+${niceVal}%`
     } else {
