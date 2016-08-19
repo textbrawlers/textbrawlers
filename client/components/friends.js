@@ -103,12 +103,20 @@ export default class Friends extends Component {
 
   render () {
     return (
-      <div>
+      <div className="container-social">
         <FriendContextMenu />
         <div className='container-friend'>
           <div className='window friend-window'>
             <h2>Friends <div className='disconnected'></div></h2>
             {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
+          </div>
+        </div>
+        <div className='container-invite'>
+          <div className='window invite-window'>
+            <h2>Invites</h2>
+              <div className='friend'>
+              {this.props.friend.username}
+            </div>
           </div>
         </div>
       </div>
