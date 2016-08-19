@@ -2,12 +2,14 @@
   "vitality": {
     "retreating": {
       "name": "Retreating",
+      "drop-rate": 25,
       "character-stats": {
         "max-health-multiplier": 0.85
       }
     },
     "ceasing": {
       "name": "Ceasing",
+      "drop-rate": 50,
       "character-stats": {
         "max-health-multiplier": 0.9
       }
@@ -21,17 +23,19 @@
     "vigorous": {
       "name": "Vigorous",
       "character-stats": {
-        "max-health-multiplier": 1.5
+        "max-health-multiplier": 1.05
       }
     },
     "enduring": {
       "name": "Enduring",
+      "drop-rate": 50,
       "character-stats": {
         "max-health-multiplier": 1.1
       }
     },
     "persevering": {
       "name": "Persevering",
+      "drop-rate": 25,
       "character-stats": {
         "max-health-multiplier": 1.15
       }
