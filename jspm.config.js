@@ -40,6 +40,9 @@ SystemJS.config({
       }
     }
   },
+  sassPluginOptions: {
+    'autoprefixer': true
+  },
   transpiler: 'plugin-babel',
   packages: {
     'server': {
