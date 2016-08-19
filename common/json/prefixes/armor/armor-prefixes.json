@@ -47,7 +47,7 @@
       "name": "Cursed",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": -10,
+        "max-health": -8,
         "block-chance": -0.04,
         "block-multiplier": 1.04,
         "damage-multiplier": 0.96
@@ -56,7 +56,7 @@
     "possessed": {
       "name": "Possessed",
       "character-stats": {
-        "max-health": -5,
+        "max-health": -4,
         "block-chance": -0.02,
         "block-multiplier": 1.02,
         "damage-multiplier": 0.98
@@ -65,7 +65,7 @@
     "enchanted": {
       "name": "Enchanted",
       "character-stats": {
-        "max-health": 5,
+        "max-health": 4,
         "block-chance": 0.02,
         "block-multiplier": 0.98,
         "damage-multiplier": 1.02
@@ -75,7 +75,7 @@
       "name": "Magical",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": 10,
+        "max-health": 8,
         "block-chance": 0.04,
         "block-multiplier": 0.94,
         "damage-multiplier": 1.04
@@ -115,48 +115,48 @@
   "barbaric": {
     "honorable": {
       "name": "Honorable",
-      "drop-rate": 75,
+      "drop-rate": 25,
       "character-stats": {
-        "damage-multiplier": 0.65,
-        "max-health-multiplier": 1.30
+        "damage-multiplier": 0.82,
+        "max-health-multiplier": 1.18
       }
     },
     "peaceful": {
       "name": "Peaceful",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": 0.75,
-        "max-health-multiplier": 1.20
+        "damage-multiplier": 0.88,
+        "max-health-multiplier": 1.12
       }
     },
     "merciful": {
       "name": "Merciful",
       "character-stats": {
-        "damage-multiplier": 0.85,
-        "max-health-multiplier": 1.10
+        "damage-multiplier": 0.94,
+        "max-health-multiplier": 1.06
       }
     },
     "cruel": {
       "name": "Cruel",
       "character-stats": {
-        "damage-multiplier": 1.10,
-        "max-health-multiplier": 0.85
+        "damage-multiplier": 1.06,
+        "max-health-multiplier": 0.94
       }
     },
     "barbaric": {
       "name": "Barbaric",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": 1.20,
-        "max-health-multiplier": 0.75
+        "damage-multiplier": 1.12,
+        "max-health-multiplier": 0.88
       }
     },
     "unstoppable": {
       "name": "Unstoppable",
-      "drop-rate": 75,
+      "drop-rate": 25,
       "character-stats": {
-        "damage-multiplier": 1.30,
-        "max-health-multiplier": 0.65
+        "damage-multiplier": 1.18,
+        "max-health-multiplier": 0.82
       }
     }
   }

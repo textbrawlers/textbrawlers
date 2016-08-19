@@ -5,6 +5,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemfirewand",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 7,
         "attack-speed": 1.0,
@@ -21,6 +22,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemlightningwand",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 4,
         "attack-speed": 3.5,
@@ -35,13 +37,15 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemskull",
+      "drop-rate": 25,
       "attack-stats": {
-        "damage": 1,
+        "damage": 2,
         "attack-speed": 1.0,
         "crit-chance": 0.01,
-        "crit-damage": 50.0,
+        "crit-damage": 250.0,
         "ranged": true
-      }
+      },
+      "description": "Do you feel lucky, punk?"
     }
   }
 }
