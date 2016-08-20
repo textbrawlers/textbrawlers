@@ -26,7 +26,7 @@ export default class StatCollection {
   }
 
   getValue (stat) {
-    const s = this.getStat()
+    const s = this.getStat(stat)
     return s ? s.value : 0
   }
 
