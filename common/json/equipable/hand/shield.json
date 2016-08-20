@@ -7,7 +7,7 @@
       "icon": "itemwoodbuckler",
       "character-stats": {
         "block-chance": 0.2,
-        "block-multiplier": 0.6
+        "block-multiplier": 0.5
       }
     },
     "heater-shield": {
@@ -17,7 +17,7 @@
       "icon": "itemheatershield",
       "character-stats": {
         "block-chance": 0.4,
-        "block-multiplier": 0.8
+        "block-multiplier": 0.7
       },
       "description": "''Have you seen my smoothing iron, honey?''"
     },
@@ -28,7 +28,7 @@
       "icon": "itemtowershield",
       "character-stats": {
         "block-chance": 0.6,
-        "block-multiplier": 1
+        "block-multiplier": 0.9
       }
     }
   }

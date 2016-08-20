@@ -101,7 +101,7 @@ export default class GameIndex extends React.Component {
 
   render () {
     return (
-      <div className="page-game-inventory">
+      <div className='page-game-inventory'>
         <div className='container-inventory'>
           <div className='window equip-window'>
             <h2>Equipped Items</h2>

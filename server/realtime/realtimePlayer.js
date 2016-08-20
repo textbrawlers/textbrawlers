@@ -17,7 +17,8 @@ export default class RealtimePlayer {
 
   addInvite (inviter) {
     const invite = {
-      inviter: inviter.toString()
+      inviter: inviter._id.toString(),
+      username: inviter.username
     }
     this.invites.push(invite)
 

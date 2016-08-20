@@ -9,15 +9,15 @@ export default class Friends extends Component {
     this.addFriend = this.addFriend.bind(this)
 
     this.state = {
-      friendName: ''
+      friendName: '',
+      invites: []
     }
   }
 
   componentWillMount () {
-    //console.log('props', this.props)
-      /*this.props.realtime.on('message-status.invites', (e) => {
-      console.log(e)
-      })*/
+    this.props.realtime.on('message-status.invites', invites => {
+      this.setState({invites: invites})
+    })
   }
 
   addFriend (e) {
@@ -101,23 +101,35 @@ export default class Friends extends Component {
     )
   }
 
+  renderInviteWindow () {
+    const invites = this.state.invites.map((invite, i) => {
+      return (
+        <div key={i} className='friend'>
+          {invite.username}
+        </div>
+      )
+    })
+
+    return (
+      <div className='container-invite'>
+        <div className='window invite-window'>
+          <h2>Invites</h2>
+          {invites}
+        </div>
+      </div>
+    )
+  }
+
   render () {
     return (
-      <div className="container-social">
+      <div className='container-social'>
         <FriendContextMenu />
         <div className='container-friend'>
           <div className='window friend-window'>
             <h2>Friends <div className='disconnected'></div></h2>
             {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
           </div>
-        </div>
-        <div className='container-invite'>
-          <div className='window invite-window'>
-            <h2>Invites</h2>
-              <div className='friend'>
-              {this.props.friend.username}
-            </div>
-          </div>
+          {this.state.invites.length ? this.renderInviteWindow() : ''}
         </div>
       </div>
     )

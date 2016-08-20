@@ -154,7 +154,7 @@ export async function inviteGame (ctx) {
   const playerToInvite = ctx.request.body.id
   const sourceId = ctx.account._id
 
-  invitePlayer(playerToInvite, sourceId)
+  invitePlayer(playerToInvite, ctx.account)
 
   ctx.body = { success: true }
 }

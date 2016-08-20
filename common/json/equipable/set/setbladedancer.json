@@ -5,7 +5,7 @@
         "name": "Bladedancer's Helmet",
         "slot": "head",
         "attack": true,
-        "icon": "itemhelmet",
+        "icon": "itembladedancerhelmet",
         "attack-stats": {
           "damage": 1,
           "attack-speed": 1.0
@@ -19,7 +19,7 @@
         "name": "Bladedancer's Chestpiece",
         "slot": "torso",
         "attack": true,
-        "icon": "itemchestpiece",
+        "icon": "itembladedancerchestpiece",
         "attack-stats": {
           "damage": 1,
           "attack-speed": 1.0
@@ -33,7 +33,7 @@
         "name": "Bladedancer's Leggings",
         "slot": "legs",
         "attack": true,
-        "icon": "itempants",
+        "icon": "itembladedancerpants",
         "attack-stats": {
           "damage": 1,
           "attack-speed": 1.0
@@ -47,7 +47,7 @@
         "name": "Bladedancer's Boots",
         "slot": "feet",
         "attack": true,
-        "icon": "itemshoes",
+        "icon": "itembladedancershoes",
         "attack-stats": {
           "damage": 1,
           "attack-speed": 1.0
