@@ -4,14 +4,14 @@
       "name": "Reducing",
       "drop-rate": 100,
       "character-stats": {
-        "damage-multiplier": 0.95
+        "damage-multiplier": -0.05
       }
     },
     "enhanced": {
       "name": "Enhanced",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": 1.05
+        "damage-multiplier": 0.05
       }
     },
     "stupifying": {

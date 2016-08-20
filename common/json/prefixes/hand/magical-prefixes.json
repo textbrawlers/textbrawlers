@@ -4,28 +4,28 @@
       "name": "Reduced",
       "drop-rate": 100,
       "attack-stats": {
-        "damage-multiplier": 0.80
+        "damage-multiplier": -0.2
       }
     },
     "weakened": {
       "name": "Weakened",
       "drop-rate": 100,
       "attack-stats": {
-        "damage-multiplier": 0.90
+        "damage-multiplier": -0.1
       }
     },
     "enhanced": {
       "name": "Enhanced",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": 1.1
+        "damage-multiplier": 0.1
       }
     },
     "arcane": {
       "name": "Arcane",
       "drop-rate": 25,
       "attack-stats": {
-        "damage-multiplier": 1.2
+        "damage-multiplier": 0.2
       }
     }
   },

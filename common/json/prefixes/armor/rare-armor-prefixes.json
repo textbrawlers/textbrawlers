@@ -3,7 +3,7 @@
     "heavy": {
       "name": "Heavy",
       "character-stats": {
-        "max-health-multiplier": 1.1,
+        "max-health-multiplier": 0.1,
         "attack-speed": -0.1
       }
     }
