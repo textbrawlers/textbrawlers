@@ -10,6 +10,7 @@ export default class Fight {
 
     this.turn = SMath.randomInt(this.playerStates.length)
     this.currentWeapon = 0
+    this.numAttacks = 0
   }
 
   attack () {
@@ -20,13 +21,15 @@ export default class Fight {
 
     this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
 
-    // Fakking mechanics
-    //
-    const damage = this.weapons[this.currentWeapon].stats.getValue('damage')
+    let damage = this.weapons[this.currentWeapon].stats.getValue('damage')
+
+    damage *= this.weapons[this.currentWeapon].stats.getValue('damage-multiplier')
+
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')){
+      damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
+    }
 
     this.defender.currentHP -= damage
-
-    // Fakking mechanics
 
     this.numAttacks -= 1
 
@@ -41,6 +44,7 @@ export default class Fight {
 
     if (this.numAttacks <= 0) {
       this.currentWeapon++
+      this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
       if (!this.weapons[this.currentWeapon]) {
         this.turn ++
         this.currentWeapon = 0
