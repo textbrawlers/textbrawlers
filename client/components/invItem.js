@@ -1,6 +1,7 @@
 import React from 'react'
 import { DragSource } from 'react-dnd'
 import TetherComponent from 'react-tether'
+import * as Common from 'common/api/common.js'
 
 class InventoryItem extends React.Component {
 
@@ -34,11 +35,13 @@ class InventoryItem extends React.Component {
         return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
       })
 
+      let empowerCategory = " " + Common.capitalizeFirstLetter(conf.category)
+
       return (
         <div key={i}>
           <p>
             Empowers
-            {conf.category}:
+            {empowerCategory}:
           </p>
           {stats}
         </div>

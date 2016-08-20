@@ -1,4 +1,4 @@
-import SMath from "common/api/specmath"
+import * as SMath from "common/api/specmath"
 
 export default class Fight{
   constructor(players){
@@ -18,11 +18,11 @@ export default class Fight{
 
     this.weapons = this.attacker.player.weaponStats()
 
-    this.numAttacks = this.weapons[this.currentWeapon].getStat('attack-speed')
+    this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
 
     // Fakking mechanics
 
-    defender.hp -= this.weapons[this.currentWeapon].getStat('damage')
+    defender.hp -= this.weapons[this.currentWeapon].stats.getValue('damage')
 
     // Fakking mechanics
 
@@ -38,7 +38,7 @@ export default class Fight{
         }
       }
     }
-    
+
     if (defender.hp < 0) {
       return true // Fight over
     }
