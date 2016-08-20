@@ -249,7 +249,8 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "bleed-chance": 0.1
+          "bleed-chance": 0.1,
+          "bleed-duration": 1
         }
       }]
     },
@@ -259,7 +260,8 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "bleed-chance": 0.2
+          "bleed-chance": 0.2,
+          "bleed-duration": 1
         }
       }]
     },
@@ -269,7 +271,8 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "bleed-chance": 0.3
+          "bleed-chance": 0.3,
+          "bleed-duration": 1
         }
       }]
     }

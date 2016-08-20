@@ -7,10 +7,9 @@
       "icon": "itemaxe",
       "attack-stats": {
         "damage": 22,
-        "attack-speed": 0.4,
-        "crit-chance": 0.8,
-        "crit-damage": 1.5,
-        "bleed-duration": 1
+        "attack-speed": 0.5,
+        "crit-chance": 0.75,
+        "crit-damage": 1.5
       },
 	  "description": "Cuts both ways!"
     },
@@ -36,8 +35,7 @@
         "damage": 5,
         "attack-speed": 0.35,
         "crit-chance": 0.25,
-        "crit-damage": 15.0,
-        "bleed-duration": 1
+        "crit-damage": 15.0
       },
 	  "description": "Significantly deadlier than a mohawk. But just as cool."
     }
