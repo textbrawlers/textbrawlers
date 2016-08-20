@@ -24,7 +24,7 @@ export default class CharacterStats extends Component {
       weapons = player.weaponStats.map(({slot, weapon, stats}, i) => {
         return (
           <div key={i}>
-            <h2>{slot}</h2>
+            <h2>{weapon.displayName}</h2>
             <div>{getStats(stats)}</div>
           </div>
         )

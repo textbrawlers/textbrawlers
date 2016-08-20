@@ -22,13 +22,13 @@ export default class Fight{
 
     // Fakking mechanics
 
-    defender.hp -= this.weapons[this.currentWeapon].stats.getValue('damage')
+    this.defender.hp -= this.weapons[this.currentWeapon].stats.getValue('damage')
 
     // Fakking mechanics
 
     this.numAttacks -= 1
 
-    if (numAttacks <= 0) {
+    if (this.numAttacks <= 0) {
       this.currentWeapon++
       if (!this.weapons[this.currentWeapon]) {
         this.turn ++
@@ -39,7 +39,7 @@ export default class Fight{
       }
     }
 
-    if (defender.hp < 0) {
+    if (this.defender.hp < 0) {
       return true // Fight over
     }
   }
