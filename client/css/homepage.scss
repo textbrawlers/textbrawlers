@@ -7,6 +7,8 @@
 
   .login-window, .register-window, .guest-window {
     width:210px;
+    display:flex;
+    flex-direction:column;
   }
 
 }

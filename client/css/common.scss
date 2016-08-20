@@ -37,7 +37,8 @@ body {
 }
 
 .windowcontent {
- padding:5px;
+  padding:5px;
+  flex:1;
 }
 
 .container-friend .windowcontent {
@@ -361,6 +362,7 @@ body {
 .content-background {
   background-color:#ededed;
   border-bottom: 1px solid black;
+  display:flex;
 }
 
 .window:not(:first-child) .windowcontent {
