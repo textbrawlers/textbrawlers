@@ -5,8 +5,8 @@
     "display": true
   },
   "damage-multiplier": {
-    "type": "multiplicative",
-    "tooltip": "[plus-mult] Damage",
+    "type": "additive",
+    "tooltip": "[plus-percent] Damage",
     "display": true
   },
   "attack-speed": {
@@ -65,18 +65,18 @@
     "display": true
   },
   "max-health-multiplier": {
-    "type": "multiplicative",
-    "tooltip": "[plus-mult] Max Health",
+    "type": "additive",
+    "tooltip": "[plus-percent] Max Health",
     "display": true
   },
   "comfort": {
     "type": "additive",
-    "tooltip": "[plus-mult] Comfort",
+    "tooltip": "[plus-percent] Comfort",
     "display": false
   },
   "fashionable": {
     "type": "additive",
-    "tooltip": "[plus-mult] Fashionable",
+    "tooltip": "[plus-percent] Fashionable",
     "display": false
   },
   "fury": {

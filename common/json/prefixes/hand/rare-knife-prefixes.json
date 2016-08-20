@@ -3,7 +3,7 @@
     "neat": {
       "name": "Neat",
       "attack-stats": {
-        "damage-multiplier": 0.8,
+        "damage-multiplier": -0.2,
         "attack-speed": 0.9
       }
     }

@@ -136,7 +136,7 @@
         "max-health": -10,
         "block-chance": -0.04,
         "block-multiplier": 1.04,
-        "damage-multiplier": 0.96
+        "damage-multiplier": -0.04
       }
     },
     "possessed": {
@@ -145,7 +145,7 @@
         "max-health": -5,
         "block-chance": -0.02,
         "block-multiplier": 1.02,
-        "damage-multiplier": 0.98
+        "damage-multiplier": -0.02
       }
     },
     "enchanted": {
@@ -154,7 +154,7 @@
         "max-health": 5,
         "block-chance": 0.02,
         "block-multiplier": 0.98,
-        "damage-multiplier": 1.02
+        "damage-multiplier": 0.02
       }
     },
     "magical": {
@@ -164,7 +164,7 @@
         "max-health": 10,
         "block-chance": 0.04,
         "block-multiplier": 0.94,
-        "damage-multiplier": 1.04
+        "damage-multiplier": 0.04
       }
     }
   }

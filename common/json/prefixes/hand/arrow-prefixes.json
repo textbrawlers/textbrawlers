@@ -6,7 +6,7 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "damage-multiplier": 0.7
+          "damage-multiplier": -0.3
         }
       }]
     },
@@ -16,7 +16,7 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "damage-multiplier": 0.8
+          "damage-multiplier": -0.2
         }
       }]
     },
@@ -25,7 +25,7 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "damage-multiplier": 0.9
+          "damage-multiplier": -0.1
         }
       }]
     },
@@ -34,7 +34,7 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "damage-multiplier": 1.1
+          "damage-multiplier": 0.1
         }
       }]
     },
@@ -44,7 +44,7 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "damage-multiplier": 1.2
+          "damage-multiplier": 0.2
         }
       }]
     },
@@ -54,7 +54,7 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "damage-multiplier": 1.3
+          "damage-multiplier": 0.3
         }
       }]
     }
