@@ -13,7 +13,6 @@ export default class Fight {
   }
 
   attack () {
-    const attacker = this.turn
     this.attacker = this.playerStates[this.turn]
     this.defender = this.playerStates[this.turn + 1] || this.playerStates[0]
 
@@ -32,9 +31,12 @@ export default class Fight {
     this.numAttacks -= 1
 
     const resp = {
-      playerStates: this.playerStates,
+      playerStates: this.playerStates.map(s => ({
+        currentHP: s.currentHP,
+        maxHP: s.maxHP
+      })),
       damage: damage,
-      attace: this.turn
+      attacer: this.turn
     }
 
     if (this.numAttacks <= 0) {
