@@ -13,7 +13,7 @@
         "damage": 3,
         "attack-speed": 0.3,
         "crit-chance": 0.3,
-        "crit-damage": 0.3,
+        "crit-damage": 0.3
       },
       "description": "By the power of ACB"
     },
