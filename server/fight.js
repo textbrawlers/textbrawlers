@@ -27,7 +27,7 @@ export default class Fight {
     if(Math.random() <= this.numAttacks){
       damage = this.weapons[this.currentWeapon].stats.getValue('damage')
 
-      damage *= this.weapons[this.currentWeapon].stats.getValue('damage-multiplier')
+      damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
       if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')){
         damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
