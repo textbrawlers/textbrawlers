@@ -5,6 +5,7 @@ import HomepageApp from './components/homepageApp.js'
 import ToolsApp from './components/toolsApp.js'
 import Game from './components/game.js'
 import GameIndex from './components/gameIndex.js'
+import Fight from './components/fight.js'
 import ItemBrowser from './components/tools/itemBrowser.js'
 import ItemGen from './components/tools/itemGen.js'
 import { DragDropContext } from 'react-dnd'
@@ -18,6 +19,7 @@ const routes = (
     <IndexRoute component={HomepageApp} />
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />
+      <Route path='fight' component={Fight} />
     </Route>
     <Route path='tools' component={ToolsApp}>
       <Route path='itembrowser' component={ItemBrowser} />

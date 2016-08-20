@@ -1,6 +1,6 @@
 import Monk from 'monk'
 import { generateItem } from 'common/game/itemGenerator.js'
-import { sendMessage, invitePlayer } from 'server/realtime.js'
+import * as Realtime from 'server/realtime.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
@@ -107,8 +107,8 @@ export async function add (ctx) {
   await users.update({_id: invitedPlayer._id}, { $set: {social: invitedPlayer.social} })
   await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
 
-  sendMessage(invitedPlayer._id, 'social', true)
-  sendMessage(ctx.account._id, 'social', true)
+  Realtime.sendMessage(invitedPlayer._id, 'social', true)
+  Realtime.sendMessage(ctx.account._id, 'social', true)
 
   ctx.body = { success: true }
 }
@@ -120,7 +120,7 @@ export async function removeRequest (ctx) {
   ctx.account.social.requests = ctx.account.social.requests.filter(req => !req.from._id.equals(ctx.request.body.id))
 
   await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
-  sendMessage(ctx.account._id, 'social', true)
+  Realtime.sendMessage(ctx.account._id, 'social', true)
   ctx.body = { success: true }
 }
 
@@ -144,17 +144,25 @@ export async function removeFriend (ctx) {
   await users.update({_id: friend._id}, { $set: {social: friend.social} })
   await users.update({_id: ctx.account._id}, { $set: {social: ctx.account.social} })
 
-  sendMessage(friend._id, 'social', true)
-  sendMessage(ctx.account._id, 'social', true)
+  Realtime.sendMessage(friend._id, 'social', true)
+  Realtime.sendMessage(ctx.account._id, 'social', true)
 
   ctx.body = { success: true }
 }
 
 export async function inviteGame (ctx) {
   const playerToInvite = ctx.request.body.id
-  const sourceId = ctx.account._id
 
-  invitePlayer(playerToInvite, ctx.account)
+  Realtime.invitePlayer(playerToInvite, ctx.account)
+
+  ctx.body = { success: true }
+}
+
+export async function acceptInvite (ctx) {
+  const playerId = ctx.account._id
+  const inviteId = ctx.request.body.id
+
+  Realtime.acceptInvite(playerId, inviteId)
 
   ctx.body = { success: true }
 }

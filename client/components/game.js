@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import RealtimeClient from 'client/realtime/realtimeClient.js'
 import Friends from './friends.js'
 import request from 'common/api/request.js'
+import { browserHistory } from 'react-router'
 
 export default class Game extends Component {
   constructor () {
@@ -55,6 +56,10 @@ export default class Game extends Component {
     })
 
     this.realtime.on('message-social', () => this.updateSocial())
+
+    this.realtime.on('message-startgame', () => {
+      browserHistory.push('/game/fight')
+    })
   }
 
   componentWillUnmount () {

@@ -12,6 +12,23 @@ function sendPlayerCount () {
   }
 }
 
+export function acceptInvite (playerId, inviteId) {
+  let inviteAccepted = false
+  players.filter(realtimePlayer => {
+    return realtimePlayer.player.id.equals(playerId)
+  }).forEach(invitedRealtimePlayer => {
+    if (invitedRealtimePlayer.acceptInvite(inviteId)) {
+      inviteAccepted = true
+    }
+  })
+
+  if (inviteAccepted) {
+    players.filter(rp => rp.player.id.equals(inviteId)).forEach(other => {
+      sendMessage(other.player.id, 'startgame')
+    })
+  }
+}
+
 export function invitePlayer (playerId, sourcePlayer) {
   players.filter(realtimePlayer => {
     return realtimePlayer.player.id.equals(playerId)

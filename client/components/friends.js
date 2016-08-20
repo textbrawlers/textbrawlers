@@ -7,6 +7,7 @@ export default class Friends extends Component {
   constructor () {
     super()
     this.addFriend = this.addFriend.bind(this)
+    this.acceptInvite = this.acceptInvite.bind(this)
 
     this.state = {
       friendName: '',
@@ -28,6 +29,14 @@ export default class Friends extends Component {
         this.setState({friendName: ''})
       } else {
         window.alert('Could not send request: ' + json.message)
+      }
+    })
+  }
+
+  acceptInvite (invite) {
+    request.post('/api/game/acceptInvite', { id: invite.inviter }).then(({json}) => {
+      if (!json.success) {
+        window.alert('Could not accept invite: ' + json.message)
       }
     })
   }
@@ -104,7 +113,7 @@ export default class Friends extends Component {
   renderInviteWindow () {
     const invites = this.state.invites.map((invite, i) => {
       return (
-        <div key={i} className='friend'>
+        <div key={i} className='friend' onClick={() => this.acceptInvite(invite)}>
           {invite.username}
         </div>
       )

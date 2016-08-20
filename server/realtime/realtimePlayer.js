@@ -15,6 +15,20 @@ export default class RealtimePlayer {
     this.send('status.playercount', count)
   }
 
+  acceptInvite (other) {
+    const inviteIndex = this.invites.findIndex(invite => invite.inviter.toString() === other.toString())
+
+    console.log(inviteIndex)
+
+    if (inviteIndex !== -1) {
+      this.invites.splice(inviteIndex, 1)
+      this.sendInviteUpdate()
+      this.send('startgame')
+      return true
+    }
+    return false
+  }
+
   addInvite (inviter) {
     const invite = {
       inviter: inviter._id.toString(),
