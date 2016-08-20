@@ -38,7 +38,7 @@ export default class Player {
       const maxHpFlat = characterStats.stats.find(stat => stat.id === 'max-health')
       characterStats.remove(maxHpMultiplier)
 
-      characterStats.add(new Stat('max-health', (maxHpMultiplier.value - 1) * maxHpFlat.value))
+      characterStats.add(new Stat('max-health', maxHpMultiplier.value * maxHpFlat.value))
     }
 
     return characterStats

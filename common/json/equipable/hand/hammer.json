@@ -6,7 +6,7 @@
       "attack": true,
       "icon": "itemhammer",
       "attack-stats": {
-        "damage": 25,
+        "damage": 20,
         "attack-speed": 0.4,
         "crit-chance": 1.0,
         "crit-damage": 1.2

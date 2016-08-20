@@ -11,6 +11,12 @@ const displayFunctions = {
   fixed: value => round(value, 0),
   'fixed-fine': value => round(value, 2),
   percent: value => `${round(value * 100, 0)}%`,
+  'plus-percent': value => {
+    const sign = value > 0 ? '+' : '-'
+    const num = Math.abs(round(value * 100, 0))
+
+    return `${sign}${num}%`
+  },
   'plus-mult': value => {
     value--
     const niceVal = round(value * 100, 0)

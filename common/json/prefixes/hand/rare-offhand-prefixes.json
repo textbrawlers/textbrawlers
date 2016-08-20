@@ -12,7 +12,7 @@
       "name": "Dragontouched",
       "character-stats": {
         "crit-chance": 0.1,
-        "crit-damage": 0.5
+        "crit-damage": 0.4
       }
     }
   }
