@@ -21,12 +21,22 @@ export default class Fight{
     this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
 
     // Fakking mechanics
+    //
+    const damage = this.weapons[this.currentWeapon].stats.getValue('damage')
 
-    this.defender.hp -= this.weapons[this.currentWeapon].stats.getValue('damage')
+    this.defender.hp -= damage
 
     // Fakking mechanics
 
     this.numAttacks -= 1
+
+    const resp = {
+      players: this.playerStates.map(pstate => ({
+        currentHP: pstate.currentHP,
+        maxHP: pstate.maxHP
+      })),
+      damage: damage
+    }
 
     if (this.numAttacks <= 0) {
       this.currentWeapon++
@@ -40,7 +50,8 @@ export default class Fight{
     }
 
     if (this.defender.hp < 0) {
-      return true // Fight over
+      return false // Fight over
     }
+    return resp
   }
 }
