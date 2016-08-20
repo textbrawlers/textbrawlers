@@ -88,7 +88,7 @@ export default class Game extends Component {
               </Link>
             </div>
           </div>
-          {this.props.children}
+          {React.cloneElement(this.props.children, { realtime: this.realtime })}
         </div>
       </div>
     )

@@ -66,6 +66,10 @@ export default class Player {
     return stats
   }
 
+  getStat (statId) {
+    return this.stats.find(stat => stat.id === statId)
+  }
+
   get weaponStats () {
     const weapons = []
     for (let i = 0; i < 6; i++) {

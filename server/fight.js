@@ -1,10 +1,10 @@
-import * as SMath from "common/api/specmath"
+import * as SMath from 'common/api/specmath'
 
-export default class Fight{
-  constructor(players){
+export default class Fight {
+  constructor (players) {
     this.playerStates = players.map(player => ({
-      currentHP: player.health,
-      maxHP: player.health,
+      currentHP: Math.round(player.getStat('max-health').value),
+      maxHP: Math.round(player.getStat('max-health').value),
       player: player
     }))
 
@@ -12,7 +12,8 @@ export default class Fight{
     this.currentWeapon = 0
   }
 
-  attack() {
+  attack () {
+    const attacker = this.turn
     this.attacker = this.playerStates[this.turn]
     this.defender = this.playerStates[this.turn + 1] || this.playerStates[0]
 
@@ -24,18 +25,16 @@ export default class Fight{
     //
     const damage = this.weapons[this.currentWeapon].stats.getValue('damage')
 
-    this.defender.hp -= damage
+    this.defender.currentHP -= damage
 
     // Fakking mechanics
 
     this.numAttacks -= 1
 
     const resp = {
-      players: this.playerStates.map(pstate => ({
-        currentHP: pstate.currentHP,
-        maxHP: pstate.maxHP
-      })),
-      damage: damage
+      playerStates: this.playerStates,
+      damage: damage,
+      attace: this.turn
     }
 
     if (this.numAttacks <= 0) {
@@ -49,9 +48,10 @@ export default class Fight{
       }
     }
 
-    if (this.defender.hp < 0) {
-      return false // Fight over
+    if (this.defender.currentHP <= 0) {
+      resp.done = true
     }
+
     return resp
   }
 }

@@ -34,8 +34,13 @@ export function acceptInvite (playerId, inviteId) {
     otherRps.forEach(other => {
       sendMessage(other.player.id, 'startgame')
     })
-
-    fightManager.startFight(playerRps[0], otherRps[0])
+    const p1 = playerRps[0].player
+    const p2 = otherRps[0].player
+    const fight = fightManager.startFight([p1, p2])
+    fight.on('attack', attack => {
+      sendMessage(p1.id, 'fight.attack', attack)
+      sendMessage(p2.id, 'fight.attack', attack)
+    })
   }
 }
 
@@ -58,7 +63,6 @@ export function sendMessage (playerId, messageId, data) {
 export default function realtime (wss) {
   wss.on('connection', checkError(async ws => {
     const location = url.parse(ws.upgradeReq.url, true)
-
     const player = await ServerPlayer.fromKey(location.query.token)
 
     if (player) {
