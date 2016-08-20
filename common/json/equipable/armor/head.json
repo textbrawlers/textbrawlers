@@ -1,5 +1,22 @@
 {
   "head": {
+    "scb-helmet": {
+      "name": "ACB Helmut",
+      "slot": "head",
+      "attack": true,
+      "icon": "itemironhelmet",
+      "drop-rate": 125,
+      "character-stats": {
+        "block-chance": 0.01
+      },
+      "attack-stats": {
+        "damage": 3,
+        "attack-speed": 0.3,
+        "crit-chance": 0.3,
+        "crit-damage": 0.3,
+      },
+      "description": "By the power of ACB"
+    },
     "leather-helmet": {
       "name": "Leather Cap",
       "slot": "head",
