@@ -37,11 +37,11 @@ body {
 }
 
 .windowcontent {
-  margin:5px;
+ padding:5px;
 }
 
 .container-friend .windowcontent {
-  margin:0px 5px;
+  padding:0px 5px;
 }
 
 .window form {
@@ -52,7 +52,6 @@ body {
   background: #ededed;
   display: inline-block;
   vertical-align: top;
-  border-bottom: 1px solid black;
 }
 
 .window h2 {
@@ -357,4 +356,13 @@ body {
     display: inline-block;
     position: absolute;
     right: 7px;
+}
+
+.content-background {
+  background-color:#ededed;
+  border-bottom: 1px solid black;
+}
+
+.window:not(:first-child) .windowcontent {
+  border-left:1px solid #dddddd;
 }
