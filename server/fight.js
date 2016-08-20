@@ -11,25 +11,28 @@ export default class Fight {
     this.turn = SMath.randomInt(this.playerStates.length)
     this.currentWeapon = 0
     this.numAttacks = 0
+    this.attackId = 0
   }
 
   attack () {
+    this.attackId++
+
     this.attacker = this.playerStates[this.turn]
     this.defender = this.playerStates[this.turn + 1] || this.playerStates[0]
 
     this.weapons = this.attacker.player.weaponStats
 
-    if (this.numAttacks <= 0){
+    if (this.numAttacks <= 0) {
       this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
     }
 
     let damage = 0
-    if(Math.random() <= this.numAttacks){
+    if (Math.random() <= this.numAttacks) {
       damage = this.weapons[this.currentWeapon].stats.getValue('damage')
 
       damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
-      if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')){
+      if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')) {
         damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
       }
 
@@ -41,10 +44,12 @@ export default class Fight {
     const resp = {
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
-        maxHP: s.maxHP
+        maxHP: s.maxHP,
+        id: s.player.id
       })),
       damage: damage,
-      attacer: this.turn
+      attacer: this.turn,
+      id: this.attackId
     }
 
     if (this.numAttacks <= 0) {

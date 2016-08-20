@@ -21,8 +21,13 @@ export default class StatCollection {
     stats.forEach(stat => this._addOne(stat))
   }
 
-  getValue (stat){
-    return this.stats.find(s => s.id === stat).value
+  getStat (statId) {
+    return this.stats.find(s => s.id === statId)
+  }
+
+  getValue (stat) {
+    const s = this.getStat()
+    return s ? s.value : 0
   }
 
   getStats () {
