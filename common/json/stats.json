@@ -5,7 +5,7 @@
     "display": true
   },
   "damage-multiplier": {
-    "type": "multiplicative",
+    "type": "additive",
     "tooltip": "[plus-mult] Damage",
     "display": true
   },
@@ -65,7 +65,7 @@
     "display": true
   },
   "max-health-multiplier": {
-    "type": "multiplicative",
+    "type": "additive",
     "tooltip": "[plus-mult] Max Health",
     "display": true
   },
