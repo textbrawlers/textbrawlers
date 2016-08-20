@@ -7,7 +7,7 @@
       "icon": "itemironhelmet",
       "drop-rate": 125,
       "character-stats": {
-        "block-chance": 0.01
+        "block-chance": 0.03
       },
       "attack-stats": {
         "damage": 3,
