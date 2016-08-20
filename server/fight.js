@@ -8,7 +8,7 @@ export default class Fight{
       player: player
     }))
 
-    this.turn = SMath.randomInt(playerStates.length)
+    this.turn = SMath.randomInt(this.playerStates.length)
     this.currentWeapon = 0
   }
 
@@ -16,7 +16,7 @@ export default class Fight{
     this.attacker = this.playerStates[this.turn]
     this.defender = this.playerStates[this.turn + 1] || this.playerStates[0]
 
-    this.weapons = this.attacker.player.weaponStats()
+    this.weapons = this.attacker.player.weaponStats
 
     this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
 

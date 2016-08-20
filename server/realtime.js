@@ -1,8 +1,11 @@
 import url from 'url'
 import ServerPlayer from 'common/game/serverPlayer.js'
 import RealtimePlayer from './realtime/realtimePlayer.js'
+import FightManager from './fightManager.js'
 
 export const players = []
+
+const fightManager = new FightManager()
 
 function sendPlayerCount () {
   const count = players.length
@@ -14,18 +17,25 @@ function sendPlayerCount () {
 
 export function acceptInvite (playerId, inviteId) {
   let inviteAccepted = false
-  players.filter(realtimePlayer => {
-    return realtimePlayer.player.id.equals(playerId)
-  }).forEach(invitedRealtimePlayer => {
+  const playerRps = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
+  const otherRps = players.filter(rp => rp.player.id.equals(inviteId))
+
+  if (!(playerRps.length > 0 && otherRps.length > 0)) {
+    return
+  }
+
+  playerRps.forEach(invitedRealtimePlayer => {
     if (invitedRealtimePlayer.acceptInvite(inviteId)) {
       inviteAccepted = true
     }
   })
 
   if (inviteAccepted) {
-    players.filter(rp => rp.player.id.equals(inviteId)).forEach(other => {
+    otherRps.forEach(other => {
       sendMessage(other.player.id, 'startgame')
     })
+
+    fightManager.startFight(playerRps[0], otherRps[0])
   }
 }
 
