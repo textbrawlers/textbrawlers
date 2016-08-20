@@ -19,7 +19,9 @@ export default class Fight {
 
     this.weapons = this.attacker.player.weaponStats
 
-    this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
+    if (this.numAttacks <= 0){
+      this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
+    }
 
     let damage = this.weapons[this.currentWeapon].stats.getValue('damage')
 
