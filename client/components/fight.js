@@ -18,20 +18,23 @@ export default class Fight extends Component {
   }
 
   getItem (inventory, index) {
-      const item = this.state.player[inventory] && this.state.player[inventory].get(index)
-      if (!item) {
-        return
-      }
-      return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
+    if (!this.state.player) {
+      return
     }
+    const item = this.state.player[inventory] && this.state.player[inventory].get(index)
+    if (!item) {
+      return
+    }
+    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
+  }
 
   createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
-      return (
-        <InventorySlot accepts={accepts} special={special} inventory={inventory} slot={slot}>
-          {this.getItem(inventory, slot)}
-        </InventorySlot>
-      )
-    }
+    return (
+      <InventorySlot accepts={accepts} special={special} inventory={inventory} slot={slot}>
+        {this.getItem(inventory, slot)}
+      </InventorySlot>
+    )
+  }
 
   componentWillMount () {
     this.props.realtime.on('message-fight.attack', attack => {
