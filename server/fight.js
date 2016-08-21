@@ -169,4 +169,28 @@ export default class Fight {
       }
     }
   }
+
+  applyArcane () {
+    let defender = this.getCurrentDefenderIndex()
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('arcane-chance')) {
+      if (this.playerStates[defender].buffs.find(buff => buff.type === 'arcane')) {
+        let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'arcane')
+        if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('arcane-damage')) {
+          const newBuff = {type: 'arcane',
+            stacks: 1,
+            damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage')
+          }
+          this.playerStates[defender].buffs[buffIndex] = newBuff
+        } else {
+          this.playerStates[defender].buffs[buffIndex].stacks++
+        }
+      } else {
+       const newBuff = {type: 'arcane',
+         duration: 3,
+         damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage')
+       }
+       this.playerStates[defender].buffs.push(newBuff)
+     }
+    }
+  }
 }

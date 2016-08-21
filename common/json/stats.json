@@ -94,6 +94,16 @@
     "tooltip": "[percent] Burn Damage",
     "display": true
   },
+  "arcane-chance": {
+    "type": "additive",
+    "tooltip": "[percent] Burn Chance",
+    "display": true
+  },
+  "arcane-damage": {
+    "type": "additive",
+    "tooltip": "[fixed] Burn Damage",
+    "display": true
+  },
   "void-strike": {
     "type": "multiplicative",
     "tooltip": "Every hit adds a stack of 'void'. Each hit has a 50% chance to deal the numbers of stacks times your damage.",
