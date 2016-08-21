@@ -49,7 +49,6 @@ export default class GameIndex extends React.Component {
 
   createSlot (index) {
 
-    }
     return (
       <InventorySlot accepts='any' key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}>
          {this.getItem('inventory', index)}
