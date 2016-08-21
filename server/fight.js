@@ -89,6 +89,7 @@ export default class Fight {
   }
 
   applyCrit () {
+    this.crit = 0
     if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')) {
       this.crits = 1
       if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1) {
