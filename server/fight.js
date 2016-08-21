@@ -50,6 +50,7 @@ export default class Fight {
     if (this.numAttacks <= 0) {
       this.currentWeapon++
       if (!this.weapons[this.currentWeapon]) {
+        this.buffRound = true
         this.turn++
         this.currentWeapon = 0
         if (!this.playerStates[this.turn]) {
@@ -68,19 +69,25 @@ export default class Fight {
       damage: this.damage,
       attacker: this.turn,
       miss: this.miss,
-      crit: this.crits
+      crit: this.crits,
+      arcaneDamage: this.arcaneDamage
     }
   }
 
   doAttack () {
     this.crits = 0
     this.damage = 0
+    this.arcaneDamage = 0
     if (Math.random() <= this.numAttacks) {
       this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
       this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
       this.applyCrit()
       this.applyBleed()
+      this.applyPoison()
+      this.applyStun()
+      this.applyBurn()
+      this.applyArcane()
 
       this.damage = Math.round(this.damage)
       this.defender.currentHP -= this.damage
@@ -97,14 +104,18 @@ export default class Fight {
     return currentDefenderIndex
   }
 
+  getCurrentAttackingIndex () {
+    return this.turn
+  }
+
   applyCrit () {
     if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')) {
       this.crits = 1
       if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1) {
         this.crits = 2
-        this.damage *= 1.5 * this.weapons[this.currentWeapon].stats.getValue('crit-damage')
+        this.damage *= 1.5 * (1 + this.weapons[this.currentWeapon].stats.getValue('crit-damage'))
       } else {
-        this.damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
+        this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('crit-damage'))
       }
     }
   }
@@ -175,22 +186,93 @@ export default class Fight {
     if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('arcane-chance')) {
       if (this.playerStates[defender].buffs.find(buff => buff.type === 'arcane')) {
         let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'arcane')
-        if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('arcane-damage')) {
-          const newBuff = {type: 'arcane',
-            stacks: 1,
-            damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage')
+        let damage = this.playerStates[defender].buffs[buffIndex].damage
+        if (damage < this.weapons[this.currentWeapon].stats.getValue('arcane-damage')) {
+          let currentStacks = this.playerStates[defender].buffs[buffIndex].stacks
+          if (currentStacks >= 4) {
+            this.damage += this.playerStates[defender].buffs[buffIndex].storedDmg
+            this.arcaneDamage = this.playerStates[defender].buffs[buffIndex].storedDmg
+            this.playerStates[defender].buffs.splice(buffIndex, 1)
+          } else {
+            const newBuff = {type: 'arcane',
+              stacks: currentStacks++,
+              damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage'),
+              storedDmg: this.playerStates[defender].buffs[buffIndex].storedDmg
+            }
+            this.playerStates[defender].buffs[buffIndex] = newBuff
           }
-          this.playerStates[defender].buffs[buffIndex] = newBuff
         } else {
           this.playerStates[defender].buffs[buffIndex].stacks++
         }
       } else {
        const newBuff = {type: 'arcane',
          stacks: 1,
-         damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage')
+         damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage'),
+         storedDmg: 0
        }
        this.playerStates[defender].buffs.push(newBuff)
+      }
+    }
+  }
+
+  checkBuffs () {
+    let defender = this.getCurrentDefenderIndex()
+    if (this.playerStates[defender].buffs.length > 0){
+      return true
+    }
+    return false
+  }
+
+  doBuffs () {
+    let bleedDamage = 0
+    let poisonDamage = 0
+    let burnDamage = 0
+    let arcaneDamage = 0
+
+    let defender = this.getCurrentDefenderIndex()
+    let index = 0
+    while (this.playerStates[defender].buffs[index]) {
+      let currentBuff = this.playerStates[defender].buffs[index]
+      if (currentBuff.type === 'bleed'){
+        bleedDamage++
+        if (currentBuff.duration <= 1){
+          this.playerStates[defender].buffs.splice(index)
+        } else {
+          this.playerStates[defender].buffs[index].duration--
+          index++
+        }
+      } else if (currentBuff.type === 'poison'){
+        poisonDamage = currentBuff.damage
+        if (currentBuff.duration <= 1){
+          this.playerStates[defender].buffs.splice(index)
+        } else {
+          this.playerStates[defender].buffs[index].duration--
+          index++
+        }
+      } else if (currentBuff.type === 'burn'){
+        burnDamage = (currentBuff.damage + 1) * currentBuff.baseDmg
+        if (currentBuff.duration <= 1){
+          this.playerStates[defender].buffs.splice(index)
+        } else {
+          this.playerStates[defender].buffs[index].duration--
+          index++
+        }
+      } else if (currentBuff.type === 'arcane'){
+       arcaneDamage = 1
+       this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
      }
+    }
+
+    return {
+      playerStates: this.playerStates.map(s => ({
+        currentHP: s.currentHP,
+        maxHP: s.maxHP
+      })),
+      playerDamaged: this.turn,
+      bleedDamage: bleedDamage,
+      poisonDamage: poisonDamage,
+      burnDamage: burnDamage,
+      arcaneDamage: arcaneDamage
     }
   }
 }
