@@ -15,7 +15,7 @@
     "common/json/equipable/hand/magical.json"
   ],
   "sets": [
-    "common/json/equipable/set/set1.json",
+    "common/json/equipable/set/setfurious.json",
     "common/json/equipable/set/setbladedancer.json",
     "common/json/equipable/set/setvoidcaller.json"
   ]
