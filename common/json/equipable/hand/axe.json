@@ -9,7 +9,7 @@
         "damage": 22,
         "attack-speed": 0.5,
         "crit-chance": 0.75,
-        "crit-damage": 1.5
+        "crit-damage": 0.5
       },
 	  "description": "Cuts both ways!"
     },
@@ -22,7 +22,7 @@
         "damage": 14,
         "attack-speed": 0.8,
         "crit-chance": 0.6,
-        "crit-damage": 1.5
+        "crit-damage": 0.5
       },
 	  "description": "How much wood would a woodcutter cut if a woodcutter could cut wood?"
     },
@@ -35,7 +35,7 @@
         "damage": 5,
         "attack-speed": 0.35,
         "crit-chance": 0.25,
-        "crit-damage": 15.0
+        "crit-damage": 14.0
       },
 	  "description": "Significantly deadlier than a mohawk. But just as cool."
     }

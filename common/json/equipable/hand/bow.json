@@ -9,7 +9,7 @@
         "damage": 7,
         "attack-speed": -8.8,
         "crit-chance": 0.7,
-        "crit-damage": 1.8,
+        "crit-damage": 0.8,
         "ranged": true
       },
       "description": "It's actually just a slightly shorter Longbow. The name Shortbow is just marketing."
@@ -23,7 +23,7 @@
         "damage": 14,
         "attack-speed": -9.3,
         "crit-chance": 0.4,
-        "crit-damage": 2.0,
+        "crit-damage": 1.0,
         "ranged": true
       },
       "description": "...but long in which direction?"

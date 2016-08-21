@@ -66,7 +66,7 @@
       "name": "Unpredictable",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": -0.30
+        "crit-chance": -0.3
       }
     },
     "clumsy": {
