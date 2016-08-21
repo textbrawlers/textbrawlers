@@ -11,7 +11,7 @@
   },
   "attack-speed": {
     "type": "additive",
-    "tooltip": "[fixed-fine] Attacks per Turn",
+    "tooltip": "[fixed-fine] Hit Chance",
     "display": true
   },
   "crit-chance": {

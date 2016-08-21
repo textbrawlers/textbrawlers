@@ -13,7 +13,23 @@ export default class Fight {
     this.numAttacks = 0
   }
 
-  attack () {
+  buffs() {
+
+  }
+
+  attack() {
+    this.initAttack()
+    this.doAttack()
+    const resp = this.createResponse()
+    this.endAttack()
+
+    if (this.defender.currentHP <= 0) {
+      resp.done = true
+    }
+    return resp
+  }
+
+  initAttack() {
     this.attacker = this.playerStates[this.turn]
     this.defender = this.playerStates[this.turn + 1] || this.playerStates[0]
 
@@ -22,31 +38,10 @@ export default class Fight {
     if (this.numAttacks <= 0){
       this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
     }
+  }
 
-    let damage = 0
-    if(Math.random() <= this.numAttacks){
-      damage = this.weapons[this.currentWeapon].stats.getValue('damage')
-
-      damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
-
-      if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')){
-        damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
-      }
-
-      this.defender.currentHP -= damage
-    }
-
+  endAttack() {
     this.numAttacks -= 1
-
-    const resp = {
-      playerStates: this.playerStates.map(s => ({
-        currentHP: s.currentHP,
-        maxHP: s.maxHP
-      })),
-      damage: damage,
-      attacer: this.turn
-    }
-
     if (this.numAttacks <= 0) {
       this.currentWeapon++
       if (!this.weapons[this.currentWeapon]) {
@@ -57,11 +52,60 @@ export default class Fight {
         }
       }
     }
+  }
 
-    if (this.defender.currentHP <= 0) {
-      resp.done = true
+  createResponse(){
+    return {
+      playerStates: this.playerStates.map(s => ({
+        currentHP: s.currentHP,
+        maxHP: s.maxHP
+      })),
+      damage: this.damage,
+      attacker: this.turn,
+      miss: this.miss,
+      crit: this.crits
     }
+  }
 
-    return resp
+  doAttack() {
+    this.damage = 0
+    if(Math.random() <= this.numAttacks){
+
+      this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
+      this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
+
+      this.applyCrit()
+      this.applyBleed()
+
+      this.damage = Math.round(this.damage)
+      this.defender.currentHP -= this.damage
+    }
+    else{
+      this.miss = true
+    }
+  }
+
+  applyCrit(){
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')){
+      this.crits = 1
+      if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1){
+        this.crits = 2
+        this.damage *= 1.5 * this.weapons[this.currentWeapon].stats.getValue('crit-damage')
+      }
+      else{
+        this.damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
+      }
+    }
+  }
+
+  applyBleed(){
+    let currentDefenderIndex = 0
+    if(this.playerStates[this.turn + 1]){
+      currentDefenderIndex = this.turn + 1
+    }
+    if (!this.playerStates[currentDefenderIndex].bleedDuration && Math.random() <= this.weapons[this.currentWeapon].stats.getValue('bleed-chance')){
+      this.playerStates[currentDefenderIndex].bleedDuration =
+        this.weapons[this.currentWeapon].stats.getValue('bleed-duration')
+    }
   }
 }
