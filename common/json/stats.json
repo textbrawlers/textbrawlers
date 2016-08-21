@@ -21,7 +21,7 @@
   },
   "crit-damage": {
     "type": "additive",
-    "tooltip": "[percent] Crit Damage",
+    "tooltip": "[plus-percent] Crit Damage",
     "display": true
   },
   "bleed-chance": {
