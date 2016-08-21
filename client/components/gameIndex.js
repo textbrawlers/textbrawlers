@@ -6,9 +6,9 @@ import InvItem from './invItem.js'
 import request from 'common/api/request.js'
 import CharacterStats from './characterStats.js'
 
-const INV_WIDTH = 12
-const INV_HEIGHT = 10
-const INV_MARGIN = 5
+const INV_WIDTH = 10
+const INV_HEIGHT = 4
+const INV_MARGIN = 10 
 const INV_SLOT_SIZE = 50
 
 export default class GameIndex extends React.Component {
@@ -47,14 +47,11 @@ export default class GameIndex extends React.Component {
     return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
   }
 
-  createSlot (x, y, index) {
-    const style = {
-      top: INV_MARGIN + y * (INV_MARGIN + INV_SLOT_SIZE),
-      left: INV_MARGIN + x * (INV_MARGIN + INV_SLOT_SIZE),
-      position: 'absolute'
+  createSlot (index) {
+
     }
     return (
-      <InventorySlot accepts='any' style={style} key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}>
+      <InventorySlot accepts='any' key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}>
          {this.getItem('inventory', index)}
       </InventorySlot>
     )
@@ -70,7 +67,7 @@ export default class GameIndex extends React.Component {
     let index = 0
     for (let y = 0; y < INV_HEIGHT; y++) {
       for (let x = 0; x < INV_WIDTH; x++) {
-        slots.push(this.createSlot(x, y, index))
+        slots.push(this.createSlot(index))
         index++
       }
     }
