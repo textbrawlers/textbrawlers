@@ -10,7 +10,7 @@
         "damage": 7,
         "attack-speed": 1.0,
         "crit-chance": 0.5,
-        "crit-damage": 1.8,
+        "crit-damage": 0.8,
         "burn-chance": 1.0,
         "burn-duration": 3,
         "ranged": true
@@ -27,7 +27,7 @@
         "damage": 4,
         "attack-speed": 3.5,
         "crit-chance": 0.20,
-        "crit-damage": 2.0,
+        "crit-damage": 1.0,
         "ranged": true
       },
       "description": "Madness? THIS... IS... ZEUS!"

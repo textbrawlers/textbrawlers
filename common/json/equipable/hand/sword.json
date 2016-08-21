@@ -9,7 +9,7 @@
         "damage": 10,
         "attack-speed": 1.0,
         "crit-chance": 0.5,
-        "crit-damage":  1.5
+        "crit-damage":  0.5
       },
 	  "description": "Size isn't everything."
     },
@@ -22,7 +22,7 @@
         "damage": 20,
         "attack-speed": 0.6,
         "crit-chance": 0.25,
-        "crit-damage": 1.5
+        "crit-damage": 0.5
       },
 	  "description": "When you need to disembowel someone from a distance."
     },
@@ -35,7 +35,7 @@
         "damage": 15,
         "attack-speed": 0.5,
         "crit-chance": 1.0,
-        "crit-damage": 1.5
+        "crit-damage": 0.5
       },
 	  "description": "Not as broad as your mother!"
     },
@@ -48,7 +48,7 @@
       "attack-stats": {
         "damage": 5,
         "attack-speed": 0.6,
-        "crit-damage": 1.2,
+        "crit-damage": 0.2,
         "bleed-chance": 1.0
       },
 	  "description": "Now with 200 percent more blood!"
@@ -62,7 +62,7 @@
       "attack-stats": {
         "damage": 35,
         "attack-speed": -0.4,
-        "crit-damage": 2.0,
+        "crit-damage": 1.0,
         "bleed-chance": 0.5,
         "bleed-duration": 10
       },
