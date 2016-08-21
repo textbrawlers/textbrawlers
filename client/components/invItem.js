@@ -3,6 +3,14 @@ import { DragSource } from 'react-dnd'
 import TetherComponent from 'react-tether'
 import * as Common from 'common/api/common.js'
 
+const targetSlot = {
+  head: 0,
+  torso: 1,
+  legs: 2,
+  feet: 3,
+  hand: 4
+}
+
 class InventoryItem extends React.Component {
 
   constructor () {
@@ -27,6 +35,13 @@ class InventoryItem extends React.Component {
       this.props.switchItems({from, to: {
         inventory: 'reassemble',
         item: -1
+      }})
+    }
+
+    if (e.shiftKey) {
+      this.props.switchItems({from, to: {
+        inventory: 'equipped',
+        item: targetSlot[this.props.item.slot]
       }})
     }
   }
