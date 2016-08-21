@@ -6,6 +6,8 @@
   .fight-window {
     width:611px;
     height:500px;
+    display:flex;
+    flex-direction:column;
   }
 
   .fight-text {
