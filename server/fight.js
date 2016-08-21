@@ -15,14 +15,13 @@ export default class Fight {
     this.attackId = 0
   }
 
-  attack() {
+  attack () {
     this.attackId++
-    const resp
-    if(this.buffRound && this.checkBuffs()){
+    let resp
+    if (this.buffRound && this.checkBuffs()) {
       resp = this.doBuffs()
       this.buffRound = false
-    }
-    else{
+    } else {
       this.initAttack()
       this.doAttack()
       resp = this.createResponse()
@@ -35,7 +34,7 @@ export default class Fight {
     return resp
   }
 
-  initAttack() {
+  initAttack () {
     this.attacker = this.playerStates[this.turn]
     this.defender = this.playerStates[this.turn + 1] || this.playerStates[0]
 
@@ -46,12 +45,12 @@ export default class Fight {
     }
   }
 
-  endAttack() {
+  endAttack () {
     this.numAttacks -= 1
     if (this.numAttacks <= 0) {
       this.currentWeapon++
       if (!this.weapons[this.currentWeapon]) {
-        this.turn ++
+        this.turn++
         this.currentWeapon = 0
         if (!this.playerStates[this.turn]) {
           this.turn = 0
@@ -60,7 +59,7 @@ export default class Fight {
     }
   }
 
-  createResponse(){
+  createResponse () {
     return {
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
@@ -73,10 +72,9 @@ export default class Fight {
     }
   }
 
-  doAttack() {
+  doAttack () {
     this.damage = 0
-    if(Math.random() <= this.numAttacks){
-
+    if (Math.random() <= this.numAttacks) {
       this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
       this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
@@ -85,55 +83,54 @@ export default class Fight {
 
       this.damage = Math.round(this.damage)
       this.defender.currentHP -= this.damage
-    }
-    else{
+    } else {
       this.miss = true
     }
   }
 
-  applyCrit(){
-    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')){
+  applyCrit () {
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')) {
       this.crits = 1
-      if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1){
+      if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1) {
         this.crits = 2
         this.damage *= 1.5 * this.weapons[this.currentWeapon].stats.getValue('crit-damage')
-      }
-      else{
+      } else {
         this.damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
       }
     }
   }
 
-  getCurrentDefenderIndex(){
+  getCurrentDefenderIndex () {
     let currentDefenderIndex = 0
-    if(this.playerStates[this.turn + 1]){
+    if (this.playerStates[this.turn + 1]) {
       currentDefenderIndex = this.turn + 1
     }
     return currentDefenderIndex
   }
 
-  applyBleed(){
+  applyBleed () {
     let defender = this.getCurrentDefenderIndex()
-    if (Math.random() <= this.weapons[defender].stats.getValue('bleed-chance')){
+    if (Math.random() <= this.weapons[defender].stats.getValue('bleed-chance')) {
       let bleedStack = {type: 'bleed', duration: this.weapons[this.currentWeapon].stats.getValue('bleed-duration')}
       this.playerStates[defender].buffs.push(bleedStack)
     }
   }
 
-  applyPoison(){
+  applyPoison () {
     let defender = this.getCurrentDefenderIndex()
-    if(this.playerStates[defender].buffs.find(buff => buff.type === 'poison')){
+    if (this.playerStates[defender].buffs.find(buff => buff.type === 'poison')) {
       let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'poison')
-      if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('poison-damage')){
-        newBuff = {type: 'poison',
+      if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('poison-damage')) {
+        const newBuff = {
+          type: 'poison',
           duration: this.weapons[this.currentWeapon].stats.getValue('poison-duration'),
           damage: this.weapons[this.currentWeapon].stats.getValue('poison-damage')
         }
         this.playerStates[defender].buffs[buffIndex] = newBuff
       }
-    }
-    else{
-      newBuff = {type: 'poison',
+    } else {
+      const newBuff = {
+        type: 'poison',
         duration: this.weapons[this.currentWeapon].stats.getValue('poison-duration'),
         damage: this.weapons[this.currentWeapon].stats.getValue('poison-damage')
       }
@@ -141,29 +138,28 @@ export default class Fight {
     }
   }
 
-  applyStun(){
+  applyStun () {
     let defender = this.getCurrentDefenderIndex()
-    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('stun-chance')){
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('stun-chance')) {
       this.playerStates[defender].buffs.push({type: 'stun'})
     }
   }
 
-  applyBurn(baseDamage){
+  applyBurn (baseDamage) {
     let defender = this.getCurrentDefenderIndex()
-    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('burn-chance')){
-      if(this.playerStates[defender].buffs.find(buff => buff.type === 'burn')){
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('burn-chance')) {
+      if (this.playerStates[defender].buffs.find(buff => buff.type === 'burn')) {
         let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'burn')
-        if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('burn-damage')){
-          newBuff = {type: 'burn',
+        if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('burn-damage')) {
+          const newBuff = {type: 'burn',
             duration: 3,
             baseDmg: baseDamage,
             damageMult: this.weapons[this.currentWeapon].stats.getValue('burn-damage')
           }
           this.playerStates[defender].buffs[buffIndex] = newBuff
         }
-      }
-      else{
-        newBuff = {type: 'burn',
+      } else {
+        const newBuff = {type: 'burn',
           duration: 3,
           baseDmg: baseDamage,
           damageMult: this.weapons[this.currentWeapon].stats.getValue('burn-damage')
