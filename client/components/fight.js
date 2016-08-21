@@ -17,29 +17,29 @@ export default class Fight extends Component {
     }
   }
 
-getItem (inventory, index) {
-    const item = this.state.player[inventory] && this.state.player[inventory].get(index)
-    if (!item) {
-      return
+  getItem (inventory, index) {
+      const item = this.state.player[inventory] && this.state.player[inventory].get(index)
+      if (!item) {
+        return
+      }
+      return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
     }
-    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
-  }
 
-createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
-    return (
-      <InventorySlot accepts={accepts} special={special} inventory={inventory} slot={slot}>
-        {this.getItem(inventory, slot)}
-      </InventorySlot>
-    )
-  }
+  createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
+      return (
+        <InventorySlot accepts={accepts} special={special} inventory={inventory} slot={slot}>
+          {this.getItem(inventory, slot)}
+        </InventorySlot>
+      )
+    }
 
-componentWillMount () {
-  this.props.realtime.on('message-fight.attack', attack => {
-    this.setState({
-      attacks: this.state.attacks.concat(attack)
+  componentWillMount () {
+    this.props.realtime.on('message-fight.attack', attack => {
+      this.setState({
+        attacks: this.state.attacks.concat(attack)
+      })
     })
-  })
-}
+  }
 
   render () {
     const attacks = this.state.attacks.map(attack => {
@@ -63,7 +63,7 @@ componentWillMount () {
               {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
             </div>
           </div>
-        <div>
+        </div>
         <div className='content-background'>
           <div className='window fight-window'>
             <h2>Fight</h2>
