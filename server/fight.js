@@ -205,19 +205,19 @@ export default class Fight {
           this.playerStates[defender].buffs[buffIndex].stacks++
         }
       } else {
-       const newBuff = {type: 'arcane',
-         stacks: 1,
-         damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage'),
-         storedDmg: 0
-       }
-       this.playerStates[defender].buffs.push(newBuff)
+        const newBuff = {type: 'arcane',
+          stacks: 1,
+          damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage'),
+          storedDmg: 0
+        }
+        this.playerStates[defender].buffs.push(newBuff)
       }
     }
   }
 
   checkBuffs () {
     let defender = this.getCurrentDefenderIndex()
-    if (this.playerStates[defender].buffs.length > 0){
+    if (this.playerStates[defender].buffs.length > 0) {
       return true
     }
     return false
@@ -233,34 +233,34 @@ export default class Fight {
     let index = 0
     while (this.playerStates[defender].buffs[index]) {
       let currentBuff = this.playerStates[defender].buffs[index]
-      if (currentBuff.type === 'bleed'){
+      if (currentBuff.type === 'bleed') {
         bleedDamage++
-        if (currentBuff.duration <= 1){
+        if (currentBuff.duration <= 1) {
           this.playerStates[defender].buffs.splice(index)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
-      } else if (currentBuff.type === 'poison'){
+      } else if (currentBuff.type === 'poison') {
         poisonDamage = currentBuff.damage
-        if (currentBuff.duration <= 1){
+        if (currentBuff.duration <= 1) {
           this.playerStates[defender].buffs.splice(index)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
-      } else if (currentBuff.type === 'burn'){
+      } else if (currentBuff.type === 'burn') {
         burnDamage = (currentBuff.damage + 1) * currentBuff.baseDmg
-        if (currentBuff.duration <= 1){
+        if (currentBuff.duration <= 1) {
           this.playerStates[defender].buffs.splice(index)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
-      } else if (currentBuff.type === 'arcane'){
-       arcaneDamage = 1
-       this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
-     }
+      } else if (currentBuff.type === 'arcane') {
+        arcaneDamage = 1
+        this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
+      }
     }
 
     return {
