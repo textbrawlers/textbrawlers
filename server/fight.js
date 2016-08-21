@@ -88,6 +88,14 @@ export default class Fight {
     }
   }
 
+  getCurrentDefenderIndex () {
+    let currentDefenderIndex = 0
+    if (this.playerStates[this.turn + 1]) {
+      currentDefenderIndex = this.turn + 1
+    }
+    return currentDefenderIndex
+  }
+
   applyCrit () {
     if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')) {
       this.crits = 1
@@ -98,14 +106,6 @@ export default class Fight {
         this.damage *= this.weapons[this.currentWeapon].stats.getValue('crit-damage')
       }
     }
-  }
-
-  getCurrentDefenderIndex () {
-    let currentDefenderIndex = 0
-    if (this.playerStates[this.turn + 1]) {
-      currentDefenderIndex = this.turn + 1
-    }
-    return currentDefenderIndex
   }
 
   applyBleed () {
