@@ -14,6 +14,21 @@ class InventoryItem extends React.Component {
 
     this.handleMouseOut = this.handleMouseOut.bind(this)
     this.handleMouseOver = this.handleMouseOver.bind(this)
+    this.onClick = this.onClick.bind(this)
+  }
+
+  onClick (e) {
+    const from = {
+      inventory: this.props.inventory,
+      item: this.props.slot
+    }
+
+    if (e.ctrlKey) {
+      this.props.switchItems({from, to: {
+        inventory: 'reassemble',
+        item: -1
+      }})
+    }
   }
 
   handleMouseOver () {
@@ -35,7 +50,7 @@ class InventoryItem extends React.Component {
         return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
       })
 
-      let empowerCategory = " " + Common.capitalizeFirstLetter(conf.category)
+      let empowerCategory = ' ' + Common.capitalizeFirstLetter(conf.category)
 
       return (
         <div key={i}>
@@ -139,6 +154,7 @@ class InventoryItem extends React.Component {
           <img
             className={className}
             src={item.image}
+            onClick={this.onClick}
             onMouseOver={this.handleMouseOver}
             onMouseOut={this.handleMouseOut} />
           {tooltip}

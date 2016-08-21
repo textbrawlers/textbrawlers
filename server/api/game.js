@@ -23,6 +23,15 @@ export async function moveItem (ctx) {
   let fromPos = ctx.request.body.from.item
   let toPos = ctx.request.body.to.item
 
+  if (toPos === -1) {
+    toPos = toInv.getNextClearSlot()
+
+    if (toPos === false) {
+      ctx.body = ctx.player.serialize()
+      return
+    }
+  }
+
   let tempItem = fromInv.get(fromPos)
   fromInv.set(fromPos, toInv.get(toPos))
   toInv.set(toPos, tempItem)
