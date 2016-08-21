@@ -40,7 +40,7 @@
       "icon": "itemwindshoes",
       "drop-rate": 25,
       "character-stats": {
-        "max-health-multiplier": 0.9,
+        "max-health-multiplier": -0.1,
         "attack-speed": 0.15
       },
       "description": "Lighter than air, and just as protective!"

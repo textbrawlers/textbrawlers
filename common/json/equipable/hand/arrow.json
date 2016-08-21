@@ -11,7 +11,7 @@
           "attack-speed": 10.1,
           "crit-chance": 0.05,
           "crit-damage": 0.05,
-          "damage-multiplier": 1.05
+          "damage-multiplier": 0.05
         }
       }],
       "description": "Basic does not necessarily mean bad. But it usually does."
@@ -26,7 +26,7 @@
         "stats": {
           "attack-speed": 9.8,
           "crit-damage": 0.1,
-          "damage-multiplier": 1.15
+          "damage-multiplier": 0.15
         }
       }],
       "description": "When your arrows need more impact."

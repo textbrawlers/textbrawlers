@@ -62,7 +62,7 @@
       "empower-stats": [{
         "category": "offhand",
         "stats": {
-          "damage-multiplier": 1.5,
+          "damage-multiplier": 0.5,
           "crit-chance": 0.05,
           "crit-damage": 1.0
         }
