@@ -1,4 +1,5 @@
 import Inventory from './inventory.js'
+import EquippedInventory from './equippedInventory.js'
 import StatCollection from './statCollection.js'
 import Stat from './stat.js'
 
@@ -6,16 +7,16 @@ export default class Player {
 
   constructor ({inventory, equipped, reassemble, id}) {
     this.inventory = inventory || new Inventory([], 120)
-    this.equipped = equipped || new Inventory([], 6)
+    this.equipped = equipped || new EquippedInventory([], 6)
     this.reassemble = reassemble || new Inventory([], 4)
     this.id = id
   }
 
   static async baseFromJSON (jsonPlayer) {
-    const inventory = await Inventory.fromJSON(jsonPlayer.inventory, 120)
-    const equipped = await Inventory.fromJSON(jsonPlayer.equipped, 6)
+    const inventory = await Inventory.fromJSON(Inventory, jsonPlayer.inventory, 120)
+    const equipped = await EquippedInventory.fromJSON(EquippedInventory, jsonPlayer.equipped, 6)
 
-    const reassemble = await Inventory.fromJSON(jsonPlayer.reassemble, 4)
+    const reassemble = await Inventory.fromJSON(Inventory, jsonPlayer.reassemble, 4)
 
     return {inventory, equipped, reassemble}
   }

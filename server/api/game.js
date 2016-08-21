@@ -31,10 +31,12 @@ export async function moveItem (ctx) {
       return
     }
   }
-
   let tempItem = fromInv.get(fromPos)
-  fromInv.set(fromPos, toInv.get(toPos))
-  toInv.set(toPos, tempItem)
+
+  if (fromInv.canSet(fromPos, toInv.get(toPos)) && toInv.canSet(toPos, tempItem)) {
+    fromInv.set(fromPos, toInv.get(toPos))
+    toInv.set(toPos, tempItem)
+  }
 
   ctx.body = ctx.player.serialize()
 

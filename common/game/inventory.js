@@ -27,6 +27,10 @@ export default class Inventory {
     return false
   }
 
+  canSet (slot, item) {
+    return true
+  }
+
   set (slot, item) {
     if (item) {
       this.inventory[slot] = item
@@ -39,7 +43,7 @@ export default class Inventory {
     return this.inventory[slot]
   }
 
-  static async fromJSON (jsonInventory, size) {
+  static async fromJSON (Type, jsonInventory, size) {
     jsonInventory = jsonInventory || {}
 
     const items = {}
@@ -48,7 +52,7 @@ export default class Inventory {
       items[slot] = await Item.fromJSON(item)
     }
 
-    return new Inventory(items, size)
+    return new Type(items, size)
   }
 
   serialize () {
