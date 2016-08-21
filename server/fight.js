@@ -5,7 +5,8 @@ export default class Fight {
     this.playerStates = players.map(player => ({
       currentHP: Math.round(player.getStat('max-health').value),
       maxHP: Math.round(player.getStat('max-health').value),
-      player: player
+      player: player,
+      buffs: []
     }))
 
     this.turn = SMath.randomInt(this.playerStates.length)
@@ -14,19 +15,22 @@ export default class Fight {
     this.attackId = 0
   }
 
-  buffs() {
-
-  }
-
   attack() {
     this.attackId++
-    this.initAttack()
-    this.doAttack()
-    const resp = this.createResponse()
-    this.endAttack()
+    const resp
+    if(this.buffRound && this.checkBuffs()){
+      resp = this.doBuffs()
+      this.buffRound = false
+    }
+    else{
+      this.initAttack()
+      this.doAttack()
+      resp = this.createResponse()
+      this.endAttack()
 
-    if (this.defender.currentHP <= 0) {
-      resp.done = true
+      if (this.defender.currentHP <= 0) {
+        resp.done = true
+      }
     }
     return resp
   }
@@ -100,14 +104,72 @@ export default class Fight {
     }
   }
 
-  applyBleed(){
+  getCurrentDefenderIndex(){
     let currentDefenderIndex = 0
     if(this.playerStates[this.turn + 1]){
       currentDefenderIndex = this.turn + 1
     }
-    if (!this.playerStates[currentDefenderIndex].bleedDuration && Math.random() <= this.weapons[this.currentWeapon].stats.getValue('bleed-chance')){
-      this.playerStates[currentDefenderIndex].bleedDuration =
-        this.weapons[this.currentWeapon].stats.getValue('bleed-duration')
+    return currentDefenderIndex
+  }
+
+  applyBleed(){
+    let defender = this.getCurrentDefenderIndex()
+    if (Math.random() <= this.weapons[defender].stats.getValue('bleed-chance')){
+      let bleedStack = {type: 'bleed', duration: this.weapons[this.currentWeapon].stats.getValue('bleed-duration')}
+      this.playerStates[defender].buffs.push(bleedStack)
+    }
+  }
+
+  applyPoison(){
+    let defender = this.getCurrentDefenderIndex()
+    if(this.playerStates[defender].buffs.find(buff => buff.type === 'poison')){
+      let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'poison')
+      if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('poison-damage')){
+        newBuff = {type: 'poison',
+          duration: this.weapons[this.currentWeapon].stats.getValue('poison-duration'),
+          damage: this.weapons[this.currentWeapon].stats.getValue('poison-damage')
+        }
+        this.playerStates[defender].buffs[buffIndex] = newBuff
+      }
+    }
+    else{
+      newBuff = {type: 'poison',
+        duration: this.weapons[this.currentWeapon].stats.getValue('poison-duration'),
+        damage: this.weapons[this.currentWeapon].stats.getValue('poison-damage')
+      }
+      this.playerStates[defender].buffs.push(newBuff)
+    }
+  }
+
+  applyStun(){
+    let defender = this.getCurrentDefenderIndex()
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('stun-chance')){
+      this.playerStates[defender].buffs.push({type: 'stun'})
+    }
+  }
+
+  applyBurn(baseDamage){
+    let defender = this.getCurrentDefenderIndex()
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('burn-chance')){
+      if(this.playerStates[defender].buffs.find(buff => buff.type === 'burn')){
+        let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'burn')
+        if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('burn-damage')){
+          newBuff = {type: 'burn',
+            duration: 3,
+            baseDmg: baseDamage,
+            damageMult: this.weapons[this.currentWeapon].stats.getValue('burn-damage')
+          }
+          this.playerStates[defender].buffs[buffIndex] = newBuff
+        }
+      }
+      else{
+        newBuff = {type: 'burn',
+          duration: 3,
+          baseDmg: baseDamage,
+          damageMult: this.weapons[this.currentWeapon].stats.getValue('burn-damage')
+        }
+        this.playerStates[defender].buffs.push(newBuff)
+      }
     }
   }
 }

@@ -89,9 +89,9 @@
     "tooltip": "[percent] Burn Chance",
     "display": true
   },
-  "burn-duration": {
+  "burn-damage": {
     "type": "additive",
-    "tooltip": "[fixed] Burn Duration",
+    "tooltip": "[percent] Burn Damage",
     "display": true
   },
   "void-strike": {
