@@ -54,26 +54,60 @@ export default class Fight extends Component {
     })
     return (
       <div className='page-game-fight'>
-        <div className='page-game-inventory'>
-          <div className='window equip-window'>
-            <h2>Equipped Items</h2>
-            <div className='equip'>
-              {this.createSpecialSlot('equipped', 0, 'head', 'head')}
-              {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
-              {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
-              {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
-              {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
-              {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
+        <div className='content-background'>
+          <div className='page-game-inventory'>
+            <div className='window equip-window'>
+              <h2>Equipped Items</h2>
+              <div className='equip windowcontent'>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 0, 'head', 'head')}
+                </div>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
+                  {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
+                  {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
+                </div>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
+                </div>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='content-background'>
           <div className='window fight-window'>
             <h2>Fight</h2>
             <div className='windowcontent'>
-              {attacks}
-              <div className='fight-text'>
-                StenfiskeN hits Ineentho for 18 Damage.
+              <div className='container-fight-text'>
+                {attacks}
+                <div className='fight-text'>
+                  StenfiskeN hits Ineentho for 69 Damage.
+                </div>
+                <div className='fight-text'>
+                  Ineentho hits StenfiskeN for 1337 Damage.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='page-game-inventory'>
+            <div className='window equip-window'>
+              <h2>Equipped Items</h2>
+              <div className='equip windowcontent'>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 0, 'head', 'head')}
+                </div>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
+                  {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
+                  {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
+                </div>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
+                </div>
+                <div className='equip-itemslot'>
+                  {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
+                </div>
               </div>
             </div>
           </div>

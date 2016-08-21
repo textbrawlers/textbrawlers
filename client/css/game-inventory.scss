@@ -1,14 +1,14 @@
 .page-game-inventory {
 
   .container-inventory {
-    width: 893px;
+    width: 801px;
     margin: auto;
   }
 
   .equip, .inventory {
     position: relative;
     border: 0px solid black;
-    height: 250px;
+    height: 240px;
   }
   
   .itemmove {
@@ -18,40 +18,8 @@
     z-index: 1;
   }
 
-  .inv-head {
-    position: absolute;
-    top: 10px;
-    left: 70px;
-  }
-
-  .inv-body {
-    position: absolute;
-    top: 70px;
-    left: 70px;
-  }
-
-  .inv-legs {
-    position: absolute;
-    top: 130px;
-    left: 70px;
-  }
-
-  .inv-boots {
-    position: absolute;
-    top: 190px;
-    left: 70px;
-  }
-
-  .inv-lefthand {
-    position: absolute;
-    top: 70px;
-    left: 10px;
-  }
-
-  .inv-righthand {
-    position: absolute;
-    top: 70px;
-    left: 130px;
+  .equip-itemslot {
+    text-align:center;
   }
 
   .equip-window {
@@ -59,12 +27,11 @@
   }
 
   .inventory-window {
-    width: 683px;
+    width: 611px;
   }
 
   .inventory {
-    margin-top:5px;
-    overflow: auto;
+    overflow: none;
   }
 
   .item-dragging {
@@ -73,17 +40,13 @@
 
   .recraft-inventory {
     position: absolute;
-    right: 17px;
-    width: 226px;
-    height: 82px;
-    padding-top: 5px;
+    right: 0px;
+    width: 250px;
+    padding: 5px 0px;
     top: -9px;
     text-align: center;
-    background: #dddddd;
-  }
-
-  .craft {
-    top: 55px;
+    background: #ededed;
+    border-bottom:1px solid black;
   }
 
   .bottom-inventory {
@@ -91,25 +54,22 @@
     position: relative;
   }
 
-  .inv-craft-1 {
+  .inventory-tabs {
     position: absolute;
-    left: 5px;
+    left: 0px;
+    width: 310px;
+    padding: 5px 0px;
+    top: -9px;
+    text-align: center;
+    background: #ededed;
+    border-bottom:1px solid black;
   }
 
-  .inv-craft-2 {
-    position: absolute;
-    left: 60px;
+  .bottom-tabs {
+    top: 10px;
+    position: relative;
   }
 
-  .inv-craft-3 {
-    position: absolute;
-    left: 115px;
-  }
-
-  .inv-craft-4 {
-    position: absolute;
-    left: 170px;
-  }
 
   .tooltip-window {
     margin-top: 5px;

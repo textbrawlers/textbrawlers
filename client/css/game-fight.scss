@@ -4,13 +4,22 @@
   justify-content:center;
 
   .fight-window {
-    width:800px;
+    width:611px;
     height:500px;
   }
 
   .fight-text {
   background-color:#d4d4d4;
   padding:1px 6px;
+  margin-top:5px;
+  }
+
+  .container-fight-text {
+    height:500px - 39px;
+  }
+
+  .fight-window .windowcontent {
+    padding:0px 5px;
   }
 
 }
