@@ -47,40 +47,40 @@
       "name": "Slow",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": -0.6
+        "attack-speed": -0.3
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": -0.4
+        "attack-speed": -0.2
       }
     },
     "heavy": {
       "name": "Heavy",
       "attack-stats": {
-        "attack-speed": -0.2
+        "attack-speed": -0.1
       }
     },
     "nimble": {
       "name": "Nimble",
       "attack-stats": {
-        "attack-speed": 0.2
+        "attack-speed": 0.1
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": 0.4
+        "attack-speed": 0.2
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": 0.6
+        "attack-speed": 0.3
       }
     }
   },
@@ -90,40 +90,40 @@
       "name": "Inaccurate",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": -0.6
+        "crit-chance": -0.3
       }
     },
     "inexact": {
       "name": "Inexact",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": -0.4
+        "crit-chance": -0.2
       }
     },
     "uncertain": {
       "name": "Uncertain",
       "attack-stats": {
-        "crit-chance": -0.2
+        "crit-chance": -0.1
       }
     },
     "aiming": {
       "name": "Aiming",
       "attack-stats": {
-        "crit-chance": 0.2
+        "crit-chance": 0.1
       }
     },
     "piercing": {
       "name": "Piercing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": 0.4
+        "crit-chance": 0.2
       }
     },
     "precise": {
       "name": "Precise",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": 0.6
+        "crit-chance": 0.3
       }
     }
   },
