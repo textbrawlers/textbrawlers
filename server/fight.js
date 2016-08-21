@@ -186,7 +186,7 @@ export default class Fight {
         }
       } else {
        const newBuff = {type: 'arcane',
-         duration: 3,
+         stacks: 1,
          damage: this.weapons[this.currentWeapon].stats.getValue('arcane-damage')
        }
        this.playerStates[defender].buffs.push(newBuff)
