@@ -54,7 +54,7 @@
     },
     "bonuses": {
       "4": {
-        "max-health-multiplier": 1.25,
+        "max-health-multiplier": 0.25,
         "block-chance": 0.25,
         "block-multiplier": 0.5
       },

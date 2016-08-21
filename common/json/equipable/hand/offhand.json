@@ -18,7 +18,7 @@
       "icon": "itemstarstone",
       "drop-rate": 25,
       "character-stats": {
-        "damage-multiplier": 1.05,
+        "damage-multiplier": 0.05,
         "attack-speed": 0.05,
         "burn-chance": 0.1,
         "burn-duration": 1,
@@ -35,7 +35,7 @@
       "character-stats": {
         "attack-speed": -0.2,
         "crit-chance": -0.2,
-        "damage-multiplier": 1.20,
+        "damage-multiplier": 0.20,
         "comfort": 1.5
       },
       "description":"I need a... Drink... *hick*"
@@ -48,7 +48,7 @@
       "drop-rate": 75,
       "character-stats": {
         "max-health": 30,
-        "max-health-multiplier": 1.15
+        "max-health-multiplier": 0.15
       },
       "description": "It makes you feel healthier. Probably just placebo."
     }

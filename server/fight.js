@@ -11,6 +11,7 @@ export default class Fight {
     this.turn = SMath.randomInt(this.playerStates.length)
     this.currentWeapon = 0
     this.numAttacks = 0
+    this.attackId = 0
   }
 
   buffs() {
@@ -18,6 +19,7 @@ export default class Fight {
   }
 
   attack() {
+    this.attackId++
     this.initAttack()
     this.doAttack()
     const resp = this.createResponse()
@@ -35,7 +37,7 @@ export default class Fight {
 
     this.weapons = this.attacker.player.weaponStats
 
-    if (this.numAttacks <= 0){
+    if (this.numAttacks <= 0) {
       this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
     }
   }
