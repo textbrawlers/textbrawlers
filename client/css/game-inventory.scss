@@ -22,13 +22,13 @@
   }
 
   .equip-itemslot {
-    text-align:center;
+    display: flex;
+    justify-content: center;
   }
 
   .equip-window {
-    width: 190px;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
   }
 
   .inventory-window {

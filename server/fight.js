@@ -73,6 +73,7 @@ export default class Fight {
   }
 
   doAttack () {
+    this.crits = 0
     this.damage = 0
     if (Math.random() <= this.numAttacks) {
       this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
