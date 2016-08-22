@@ -116,9 +116,9 @@ export default class Fight extends Component {
     }
     else if (attack.crit > 0){
       if (attack.arcaneDamage > 0){
-        return 'Player ' + attack.attacker + ' made a critical hit to for ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
+        return 'Player ' + attack.attacker + ' made a critical hit for ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
       }
-      return 'Player ' + attack.attacker + ' made a critical hit to for ' + attack.damage + ' damage.'
+      return 'Player ' + attack.attacker + ' made a critical hit for ' + attack.damage + ' damage.'
     }
     else if (attack.arcaneDamage > 0){
       return 'Player ' + attack.attacker + ' dealt ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
