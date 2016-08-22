@@ -96,12 +96,12 @@
   },
   "arcane-chance": {
     "type": "additive",
-    "tooltip": "[percent] Burn Chance",
+    "tooltip": "[percent] Arcane Chance",
     "display": true
   },
   "arcane-damage": {
     "type": "additive",
-    "tooltip": "[fixed] Burn Damage",
+    "tooltip": "[fixed] Arcane Damage",
     "display": true
   },
   "void-strike": {
