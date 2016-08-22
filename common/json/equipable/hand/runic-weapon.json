@@ -4,7 +4,8 @@
       "name": "Runic Shortsword",
       "slot": "hand",
       "attack": true,
-      "icon": "itemsword",
+      "icon": "itemrunesword",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
         "attack-speed": 0.25,
@@ -20,13 +21,14 @@
 		  "crit-damage": 0.125
         }
       }],
-	  "description": "The runes appear to be some sort of ancient warning label: \"Do not use as a makeshift toothpick\"."
+	  "description": "Found next to the corpse of the supreme lord of all undead. Upon closer inspection, it was determined to be a complete coincidence."
     },
     "runic-two-bladed-axe": {
       "name": "Runic Two-Bladed Axe",
       "slot": "hand",
       "attack": true,
-      "icon": "itemaxe",
+      "icon": "itemruneaxe",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
         "attack-speed": 0.125,
@@ -42,14 +44,14 @@
 		  "crit-damage": 0.125
         }
       }],
-	  "description": "\"Three eggs, Five liters of milk, two kilos of flour. Remember to buy catfood.\""
+	  "description": "\"Three eggs, five liters of milk, two kilos of flour. Remember to buy catfood.\""
     },
     "runic-knife": {
       "name": "Runic Knife",
       "slot": "hand",
       "attack": true,
-      "icon": "itemknife",
-      "drop-rate": 50,
+      "icon": "itemruneknife",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
         "attack-speed": 0.75,
@@ -68,13 +70,14 @@
 		  "bleed-duration": 1
         }
       }],
-      "description": "\"You owe five bucks\". Whoever wrote these runes was apparently picky with money"
+      "description": "The runes appear to be some sort of ancient warning label: \"Do not use as a makeshift toothpick\"."
     },
     "runic-combat-hammer": {
       "name": "Runic Combat Hammer",
       "slot": "hand",
       "attack": true,
-      "icon": "itemhammer",
+      "icon": "itemrunehammer",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
         "attack-speed": 0.1,
