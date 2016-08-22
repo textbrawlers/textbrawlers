@@ -21,7 +21,7 @@
 		  "crit-damage": 0.125
         }
       }],
-	  "description": "The runes appear to be some sort of ancient warning label: \"Do not use as a makeshift toothpick\"."
+	  "description": "Found next to the corpse of the supreme lord of all undead. Upon closer inspection, it was determined to be a complete coincidence."
     },
     "runic-two-bladed-axe": {
       "name": "Runic Two-Bladed Axe",
@@ -70,7 +70,7 @@
 		  "bleed-duration": 1
         }
       }],
-      "description": "\"You owe five bucks\". Whoever wrote these runes was apparently picky with money"
+      "description": "The runes appear to be some sort of ancient warning label: \"Do not use as a makeshift toothpick\"."
     },
     "runic-combat-hammer": {
       "name": "Runic Combat Hammer",
