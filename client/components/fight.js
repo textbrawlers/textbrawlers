@@ -45,10 +45,10 @@ export default class Fight extends Component {
   }
 
   render () {
-    const attacks = this.state.attacks.map(attack => {
+    const attacks = this.state.attacks.map((attack, i) => {
       const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
       return (
-        <div className='fight-text'>
+        <div key={i} className='fight-text'>
           {attackText}
         </div>
       )
@@ -115,7 +115,7 @@ export default class Fight extends Component {
       return 'Player ' + attack.attacker + ' missed.'
     }
     else if (attack.crit > 0){
-      (attack.arcaneDamage > 0){
+      if (attack.arcaneDamage > 0){
         return 'Player ' + attack.attacker + ' made a critical hit to for ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
       }
       return 'Player ' + attack.attacker + ' made a critical hit to for ' + attack.damage + ' damage.'
