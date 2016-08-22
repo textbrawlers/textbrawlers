@@ -1,4 +1,5 @@
 export default function messages (m, attacker, defender, round) {
+
   if (defender.hp <= 0) {
     m.add(100, '[attacker] finished off [defender].')
     m.add(100, '[attacker] abrutply ended [defender].')
@@ -38,12 +39,24 @@ export default function messages (m, attacker, defender, round) {
         m.add(50, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
       } else if (round.blocked) {
         m.add(100, '[attacker] swinged his [item-name] at [defender] but [defender] blocked the attack.')
-        m.add(50, "[attacker] flailed wildly at [defender] and got blocked, to no one's suprise.")
+        m.add(50, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
       } else if (round.critical) {
         m.add(100, '[attacker] swinged his [item-name] at [defender] and hit a weak spot.')
-        m.add(50, "[attacker] flailed wildly at [defender] and hit a weak spot, to everyone's suprise.")
+        m.add(50, '[attacker] flailed wildly at [defender] and hit a weak spot, to everyone\'s suprise.')
       } else {
         m.add(100, '[attacker] swinged his [item-name] at [defender] and hit.')
+        m.add(50, '[attacker] flailed wildly at [defender] and hit, somehow.')
+      }
+    }
+
+    if (attacker.weapon.rarity === 'legendary' ) {
+      if (round.missed) {
+        m.add(50, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
+      } else if (round.blocked) {
+        m.add(50, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
+      } else if (round.critical) {
+        m.add(50, '[attacker] flailed wildly at [defender] and hit a weak spot, to everyone\'s suprise.')
+      } else {
         m.add(50, '[attacker] flailed wildly at [defender] and hit, somehow.')
       }
     }
@@ -61,12 +74,51 @@ export default function messages (m, attacker, defender, round) {
 
     if (attacker.weapon.type === 'sword') {
       if (round.blocked) {
-        m.add(100, "[attacker] sliced at [defender]'s defences.")
+        m.add(100, '[attacker] sliced at [defender]\'s defences.')
       } else if (round.critical) {
-        m.add(100, '[attacker] fired an arrow at [defender] which hit a critical spot.')
-        m.add(1, '[defender] took an arrow to the knee.')
+        m.add(100, '[attacker] sliced [defender] and hit a critical spot.')
       } else {
-        m.add(100, '[attacker] fired an arrow at [defender] which hit.')
+        m.add(100, '[attacker] sliced [defender].')
+      }
+    }
+
+    if (attacker.weapon.type === 'axe') {
+      if (round.blocked) {
+        m.add(100, '[attacker] chopped at [defender]\'s defences.')
+      } else if (round.critical) {
+        m.add(100, '[attacker] chopped [defender] and hit a critical spot.')
+      } else {
+        m.add(100, '[attacker] chopped [defender].')
+      }
+    }
+
+    if (attacker.weapon.type === 'hammer') {
+      if (round.blocked) {
+        m.add(100, '[attacker] battered [defender]\'s defences.')
+      } else if (round.critical) {
+        m.add(100, '[attacker] battered [defender] and hit a critical spot.')
+      } else {
+        m.add(100, '[attacker] battered [defender].')
+      }
+    }
+
+    if (attacker.weapon.type === 'knife') {
+      if (round.blocked) {
+        m.add(100, '[attacker] stabbed at [defender]\'s defences.')
+      } else if (round.critical) {
+        m.add(100, '[attacker] stabbed [defender] and hit a critical spot.')
+      } else {
+        m.add(100, '[attacker] stabbed [defender].')
+      }
+    }
+
+    if (attacker.weapon.type === 'magical-weapon') {
+      if (round.blocked) {
+        m.add(100, '[attacker] fired a spell at [defender]\'s defences.')
+      } else if (round.critical) {
+        m.add(100, '[attacker] fired a spell at [defender] and hit a critical spot.')
+      } else {
+        m.add(100, '[attacker] fired a spell at [defender].')
       }
     }
   }
