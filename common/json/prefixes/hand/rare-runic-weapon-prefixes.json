@@ -4,9 +4,13 @@
       "name": "Flaming",
       "attack-stats": {
         "burn-chance": 0.05,
+	"burn-damage": 0.1,
       },
+      "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
+          "burn-chance": 0.05,
+	  "burn-damage": 0.1,
         }
       }]
     }
@@ -19,6 +23,7 @@
         "arcane-chance": 0.025,
         "arcane-damage": 1
       },
+      "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
           "arcane-chance": 0.025,
