@@ -49,7 +49,7 @@ export default class Fight extends Component {
       const attackText = attack.type === 'regular' ? printRegularAttack(attack) : printBuffAttack(attack)
       return (
         <div className='fight-text'>
-          {JSON.stringify(attack)}
+          {attackText}
         </div>
       )
     })
