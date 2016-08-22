@@ -4,7 +4,7 @@
       "name": "Runic Shortsword",
       "slot": "hand",
       "attack": true,
-      "icon": "itemsword",
+      "icon": "itemrunesword",
       "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
@@ -27,7 +27,7 @@
       "name": "Runic Two-Bladed Axe",
       "slot": "hand",
       "attack": true,
-      "icon": "itemaxe",
+      "icon": "itemruneaxe",
       "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
@@ -50,7 +50,7 @@
       "name": "Runic Knife",
       "slot": "hand",
       "attack": true,
-      "icon": "itemknife",
+      "icon": "itemruneknife",
       "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
@@ -76,7 +76,7 @@
       "name": "Runic Combat Hammer",
       "slot": "hand",
       "attack": true,
-      "icon": "itemhammer",
+      "icon": "itemrunehammer",
       "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
