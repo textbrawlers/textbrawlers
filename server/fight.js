@@ -75,6 +75,7 @@ export default class Fight {
   }
 
   doAttack () {
+    this.miss = false
     this.crits = 0
     this.damage = 0
     this.arcaneDamage = 0

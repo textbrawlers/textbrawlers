@@ -148,7 +148,7 @@
       "name": "Glowing",
       "character-stats": {
         "burn-chance": 0.05,
-        "burn-duration": 1
+        "burn-damage": 1
       }
     },
     "fiery": {
@@ -156,7 +156,7 @@
       "drop-rate": 50,
       "character-stats": {
         "burn-chance": 0.1,
-        "burn-duration": 1
+        "burn-damage": 1
       }
     },
     "flaming": {
@@ -164,7 +164,7 @@
       "drop-rate": 25,
       "character-stats": {
         "burn-chance": 0.10,
-        "burn-duration": 2
+        "burn-damage": 2
       }
     }
   }
