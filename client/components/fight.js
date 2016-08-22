@@ -108,7 +108,7 @@ export default class Fight extends Component {
   }
 
   printRegularAttack (attack) {
-    if (attack.hasWeapon){
+    if (!attack.hasWeapon){
       return 'Player ' + attack.attacker + ' has no weapon.'
     }
     if (attack.miss){
