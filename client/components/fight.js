@@ -79,12 +79,6 @@ export default class Fight extends Component {
             <div className='windowcontent'>
               <div className='container-fight-text'>
                 {attacks}
-                <div className='fight-text'>
-                  StenfiskeN hits Ineentho for 69 Damage.
-                </div>
-                <div className='fight-text'>
-                  Ineentho hits StenfiskeN for 1337 Damage.
-                </div>
               </div>
             </div>
           </div>
