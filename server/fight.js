@@ -65,7 +65,8 @@ export default class Fight {
       type: 'regular',
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
-        maxHP: s.maxHP
+        maxHP: s.maxHP,
+        id: s.player.id
       })),
       damage: this.damage,
       attacker: this.turn,
@@ -290,7 +291,8 @@ export default class Fight {
       type: 'buff',
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
-        maxHP: s.maxHP
+        maxHP: s.maxHP,
+        id: s.player.id
       })),
       playerDamaged: this.turn,
       bleedDamage: bleedDamage,

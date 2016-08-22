@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import 'client/css/game-fight.scss'
 import 'client/css/game-inventory.scss'
+import request from 'common/api/request.js'
+import Player from 'common/game/player.js'
 import InventorySlot from './inventorySlot.js'
 import InvItem from './invItem.js'
 
@@ -17,10 +19,25 @@ export default class Fight extends Component {
     }
   }
 
+  componentDidMount () {
+    this.updatePlayer().catch(err => console.error(err))
+  }
+
+  async updatePlayer (jsonPlayer) {
+    if (!jsonPlayer) {
+      jsonPlayer = (await request.get('/api/user/get')).json
+    }
+    const player = await Player.fromJSON(jsonPlayer)
+    this.setState({player})
+    console.log('player', player)
+  }
+
   getItem (inventory, index) {
     if (!this.state.player) {
       return
     }
+    return
+    console.log('stateplayer', this.state.player)
     const item = this.state.player[inventory] && this.state.player[inventory].get(index)
     if (!item) {
       return
@@ -47,8 +64,15 @@ export default class Fight extends Component {
   render () {
     const attacks = this.state.attacks.map((attack, i) => {
       const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
+      const pState = attack.playerStates[attack.attacker]
+
+      const isMe = pState && pState.id === this.state.player.id
+      const className = ['fight-text']
+      if (!isMe) {
+        className.push('fight-text-opponent')
+      }
       return (
-        <div key={i} className='fight-text'>
+        <div key={i} className={className.join(' ')}>
           {attackText}
         </div>
       )

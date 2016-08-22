@@ -15,10 +15,11 @@ export default class Player {
   static async baseFromJSON (jsonPlayer) {
     const inventory = await Inventory.fromJSON(Inventory, jsonPlayer.inventory, 120)
     const equipped = await EquippedInventory.fromJSON(EquippedInventory, jsonPlayer.equipped, 6)
-
     const reassemble = await Inventory.fromJSON(Inventory, jsonPlayer.reassemble, 4)
 
-    return {inventory, equipped, reassemble}
+    const id = jsonPlayer.id
+
+    return {inventory, equipped, reassemble, id}
   }
 
   get stats () {
@@ -97,7 +98,8 @@ export default class Player {
     return {
       inventory: this.inventory.serialize(),
       equipped: this.equipped.serialize(),
-      reassemble: this.reassemble.serialize()
+      reassemble: this.reassemble.serialize(),
+      id: this.id
     }
   }
 }
