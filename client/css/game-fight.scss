@@ -18,7 +18,8 @@
 
   .container-fight-text {
     height:500px - 39px;
-    overflow:scroll;
+    overflow-y:scroll;
+    word-wrap:break-word;
   }
 
   .fight-window .windowcontent {
