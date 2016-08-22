@@ -143,7 +143,7 @@
       "drop-rate": 100,
       "attack-stats": {
         "burn-chance": 0.1,
-        "burn-duration": 1
+        "burn-damage": 0.1
       }
     },
     "fiery": {
@@ -151,7 +151,7 @@
       "drop-rate": 50,
       "attack-stats": {
         "burn-chance": 0.1,
-        "burn-duration": 2
+        "burn-damage": 0.2
       }
     },
     "flaming": {
@@ -159,7 +159,7 @@
       "drop-rate": 25,
       "attack-stats": {
         "burn-chance": 0.2,
-        "burn-duration": 2
+        "burn-damage": 0.2
       }
     }
   }

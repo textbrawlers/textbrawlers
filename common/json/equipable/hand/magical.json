@@ -12,7 +12,7 @@
         "crit-chance": 0.5,
         "crit-damage": 0.8,
         "burn-chance": 1.0,
-        "burn-duration": 3,
+        "burn-damage": 0.3,
         "ranged": true
       },
       "description": "A match would probably be more useful."

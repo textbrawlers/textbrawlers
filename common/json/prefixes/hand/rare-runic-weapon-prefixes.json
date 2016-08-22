@@ -1,0 +1,30 @@
+{
+  "burn": {
+    "flaming": {
+      "name": "Flaming",
+      "attack-stats": {
+        "burn-chance": 0.05,
+      },
+        "category": "runic-weapon",
+        "stats": {
+        }
+      }]
+    }
+  },
+  
+  "arcane": {
+    "arcane": {
+      "name": "Arcane",
+      "attack-stats": {
+        "arcane-chance": 0.025,
+        "arcane-damage": 1
+      },
+        "category": "runic-weapon",
+        "stats": {
+          "arcane-chance": 0.025,
+          "arcane-damage": 1
+        }
+      }]
+    }
+  }
+}
