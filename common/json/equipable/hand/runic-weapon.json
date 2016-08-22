@@ -5,6 +5,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemsword",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
         "attack-speed": 0.25,
@@ -27,6 +28,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemaxe",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
         "attack-speed": 0.125,
@@ -49,7 +51,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemknife",
-      "drop-rate": 50,
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
         "attack-speed": 0.75,
@@ -75,6 +77,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemhammer",
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
         "attack-speed": 0.1,
