@@ -46,7 +46,7 @@ export default class Fight extends Component {
 
   render () {
     const attacks = this.state.attacks.map(attack => {
-      const attackText = attack.type === 'regular' ? printRegularAttack(attack) : printBuffAttack(attack)
+      const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
       return (
         <div className='fight-text'>
           {attackText}
