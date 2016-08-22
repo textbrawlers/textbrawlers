@@ -87,12 +87,18 @@ export default class Fight {
         this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
+        //Normal Modifiers
         this.applyCrit()
+        this.applyBlock()
+
+        //Special Modifiers
+        this.applyArcane()
+
+        //Dot Modifiers
         this.applyBleed()
         this.applyPoison()
         this.applyStun()
         this.applyBurn()
-        this.applyArcane()
 
         this.damage = Math.round(this.damage)
         this.defender.currentHP -= this.damage
@@ -116,10 +122,16 @@ export default class Fight {
     return this.turn
   }
 
+  applyBlock () {
+    if (Math.random() < this.defender.player.getStat('block-chance').value){
+      this.damage *= this.defender.player.getStat('block-multiplier').value
+    }
+  }
+
   applyCrit () {
-    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance')) {
+    if (Math.random() < this.weapons[this.currentWeapon].stats.getValue('crit-chance')) {
       this.crits = 1
-      if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1) {
+      if (Math.random() < this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1) {
         this.crits = 2
         this.damage *= 1.5 * (1 + this.weapons[this.currentWeapon].stats.getValue('crit-damage'))
       } else {
@@ -160,14 +172,14 @@ export default class Fight {
 
   applyStun () {
     let defender = this.getCurrentDefenderIndex()
-    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('stun-chance')) {
+    if (Math.random() < this.weapons[this.currentWeapon].stats.getValue('stun-chance')) {
       this.playerStates[defender].buffs.push({type: 'stun'})
     }
   }
 
   applyBurn (baseDamage) {
     let defender = this.getCurrentDefenderIndex()
-    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('burn-chance')) {
+    if (Math.random() < this.weapons[this.currentWeapon].stats.getValue('burn-chance')) {
       if (this.playerStates[defender].buffs.find(buff => buff.type === 'burn')) {
         let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'burn')
         if (this.playerStates[defender].buffs[buffIndex].damage < this.weapons[this.currentWeapon].stats.getValue('burn-damage')) {
@@ -191,7 +203,7 @@ export default class Fight {
 
   applyArcane () {
     let defender = this.getCurrentDefenderIndex()
-    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('arcane-chance')) {
+    if (Math.random() < this.weapons[this.currentWeapon].stats.getValue('arcane-chance')) {
       if (this.playerStates[defender].buffs.find(buff => buff.type === 'arcane')) {
         let buffIndex = this.playerStates[defender].buffs.findIndex(buff => buff.type === 'arcane')
         let damage = this.playerStates[defender].buffs[buffIndex].damage
