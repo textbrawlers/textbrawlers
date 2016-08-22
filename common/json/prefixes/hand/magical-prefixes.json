@@ -29,7 +29,7 @@
       }
     }
   },
-  
+
   "attack-speed": {
     "hindering": {
       "name": "Hindering",
@@ -60,7 +60,7 @@
       }
     }
   },
-  
+
   "crit-chance": {
     "unpredictable": {
       "name": "Unpredictable",
@@ -91,7 +91,7 @@
       }
     }
   },
-  
+
   "crit-damage": {
     "underpowered": {
       "name": "Underpowered",
@@ -136,7 +136,7 @@
       }
     }
   },
-  
+
   "burn": {
     "glowing": {
       "name": "Glowing",

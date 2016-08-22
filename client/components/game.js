@@ -74,7 +74,7 @@ export default class Game extends Component {
           <div className='links'>
             <div className='leftlinks'>
               <Link to='/game/fight'>
-                <img src='/client/png/inventory.png' />
+                <img src='/client/png/fight.png' />
               </Link>
             </div>
             <div className='middlelinks'>
