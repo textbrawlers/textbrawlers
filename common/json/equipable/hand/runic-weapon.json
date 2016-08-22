@@ -1,0 +1,96 @@
+{
+  "runic-weapon": {
+    "runic-shortsword": {
+      "name": "Runic Shortsword",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsword",
+      "attack-stats": {
+        "damage": 2,
+        "attack-speed": 0.25,
+        "crit-chance": 0.125,
+        "crit-damage":  0.125
+      },
+	  "empower-stats": [{
+        "category": "runic-weapon",
+        "stats": {
+		  "damage": 2,
+		  "attack-speed": 0.25,
+		  "crit-chance": 0.125,
+		  "crit-damage": 0.125
+        }
+      }],
+	  "description": "The runes appear to be some sort of ancient warning label: \"Do not use as a makeshift toothpick\"."
+    },
+    "runic-two-bladed-axe": {
+      "name": "Runic Two-Bladed Axe",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemaxe",
+      "attack-stats": {
+        "damage": 5,
+        "attack-speed": 0.125,
+        "crit-chance": 0.15,
+        "crit-damage": 0.125
+      },
+	  "empower-stats": [{
+        "category": "runic-weapon",
+        "stats": {
+		  "damage": 5,
+		  "attack-speed": 0.125,
+		  "crit-chance": 0.15,
+		  "crit-damage": 0.125
+        }
+      }],
+	  "description": "\"Three eggs, Five liters of milk, two kilos of flour. Remember to buy catfood.\""
+    },
+    "runic-knife": {
+      "name": "Runic Knife",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemknife",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage": 2,
+        "attack-speed": 0.75,
+        "crit-chance": 0.4,
+        "crit-damage": 0.025,
+        "bleed-chance": 0.1
+      },
+	  "empower-stats": [{
+        "category": "runic-weapon",
+        "stats": {
+		  "damage": 2,
+		  "attack-speed": 0.75,
+		  "crit-chance": 0.1,
+		  "crit-damage": 0.025,
+		  "bleed-chance": 0.1,
+		  "bleed-duration": 1
+        }
+      }],
+      "description": "\"You owe five bucks\". Whoever wrote these runes was apparently picky with money"
+    },
+    "runic-combat-hammer": {
+      "name": "Runic Combat Hammer",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemhammer",
+      "attack-stats": {
+        "damage": 5,
+        "attack-speed": 0.1,
+        "crit-chance": 0.25,
+        "crit-damage": 0.05
+      },
+	  "empower-stats": [{
+        "category": "runic-weapon",
+        "stats": {
+		  "damage": 5,
+		  "attack-speed": 0.1,
+		  "crit-chance": 0.25,
+		  "crit-damage": 0.05
+        }
+      }],
+      "description": "The runes roughly translates to \"This side up\"."
+    }
+  }
+}

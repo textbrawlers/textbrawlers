@@ -24,7 +24,7 @@
         "crit-chance": 0.6,
         "crit-damage": 0.5
       },
-	  "description": "How much wood would a woodcutter cut if a woodcutter could cut wood?"
+	  "description": "How much wood would a woodcutter cut if a woodcutter would cut wood?"
     },
     "tomahawk": {
       "name": "Tomahawk",
