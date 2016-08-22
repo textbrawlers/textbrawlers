@@ -108,6 +108,9 @@ export default class Fight extends Component {
   }
 
   printRegularAttack (attack) {
+    if (attack.hasWeapon){
+      return 'Player ' + attack.attacker + ' has no weapon.'
+    }
     if (attack.miss){
       return 'Player ' + attack.attacker + ' missed.'
     }
@@ -153,5 +156,11 @@ export default class Fight extends Component {
       string += attack.arcaneDamage + ' Arcane Damage'
       damageBefore = true
     }
+    if (!damageBefore){
+      string = 'Player ' + attack.playerDamaged + ' has no dots applied.'
+    } else {
+      string += '.'
+    }
+    return string
   }
 }

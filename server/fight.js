@@ -69,6 +69,7 @@ export default class Fight {
       })),
       damage: this.damage,
       attacker: this.turn,
+      hasWeapon: this.hasWeapon,
       miss: this.miss,
       crit: this.crits,
       arcaneDamage: this.arcaneDamage
@@ -76,25 +77,30 @@ export default class Fight {
   }
 
   doAttack () {
-    this.miss = false
-    this.crits = 0
-    this.damage = 0
-    this.arcaneDamage = 0
-    if (Math.random() <= this.numAttacks) {
-      this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
-      this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
+    if(this.weapons[0]){
+      this.hasWeapon = true
+      this.miss = false
+      this.crits = 0
+      this.damage = 0
+      this.arcaneDamage = 0
+      if (Math.random() <= this.numAttacks) {
+        this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
+        this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
-      this.applyCrit()
-      this.applyBleed()
-      this.applyPoison()
-      this.applyStun()
-      this.applyBurn()
-      this.applyArcane()
+        this.applyCrit()
+        this.applyBleed()
+        this.applyPoison()
+        this.applyStun()
+        this.applyBurn()
+        this.applyArcane()
 
-      this.damage = Math.round(this.damage)
-      this.defender.currentHP -= this.damage
+        this.damage = Math.round(this.damage)
+        this.defender.currentHP -= this.damage
+      } else {
+        this.miss = true
+      }
     } else {
-      this.miss = true
+      this.hasWeapon = false
     }
   }
 
