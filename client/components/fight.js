@@ -46,6 +46,7 @@ export default class Fight extends Component {
 
   render () {
     const attacks = this.state.attacks.map(attack => {
+      const attackText = attack.type === 'regular' ? printRegularAttack(attack) : printBuffAttack(attack)
       return (
         <div className='fight-text'>
           {JSON.stringify(attack)}
@@ -106,4 +107,48 @@ export default class Fight extends Component {
     )
   }
 
+  printRegularAttack (attack) {
+    if (attack.miss){
+      return 'Player ' + attack.attacker + ' missed.'
+    }
+    else if (attack.crit > 0){
+      return 'Player ' + attack.attacker + ' made a critical hit to for ' + attack.damage + ' damage.'
+    }
+    else if (attack.arcaneDamage > 0){
+      return 'Player ' + attack.attacker + ' dealt ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
+    }
+    else {
+      return 'Player ' + attack.attacker + ' dealt ' + attack.damage + ' damage.'
+    }
+  }
+
+  printRegularAttack (attack) {
+    let string = 'Player ' + attack.playerDamaged + ' took '
+    let damageBefore = false
+    if (attack.bleedDamage > 0){
+      string += attack.bleedDamage + ' Bleed Damage'
+      damageBefore = true
+    }
+    if (attack.poisonDamage > 0){
+      if (damageBefore){
+        string += ', '
+      }
+      string += attack.poisonDamage + ' Poison Damage'
+      damageBefore = true
+    }
+    if (attack.burnDamage > 0){
+      if (damageBefore){
+        string += ', '
+      }
+      string += attack.burnDamage + ' Burn Damage'
+      damageBefore = true
+    }
+    if (attack.arcaneDamage > 0){
+      if (damageBefore){
+        string += ', '
+      }
+      string += attack.arcaneDamage + ' Arcane Damage'
+      damageBefore = true
+    }
+  }
 }

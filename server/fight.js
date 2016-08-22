@@ -62,6 +62,7 @@ export default class Fight {
 
   createResponse () {
     return {
+      type: 'regular'
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP
@@ -268,6 +269,7 @@ export default class Fight {
     this.playerStates[defender].currentHP -= Math.round(totalDamage)
 
     return {
+      type: 'buff'
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP
