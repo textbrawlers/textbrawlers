@@ -122,7 +122,7 @@ export default class Fight {
 
   applyBleed () {
     let defender = this.getCurrentDefenderIndex()
-    if (Math.random() <= this.weapons[defender].stats.getValue('bleed-chance')) {
+    if (Math.random() <= this.weapons[this.currentWeapon].stats.getValue('bleed-chance')) {
       let bleedStack = {type: 'bleed', duration: this.weapons[this.currentWeapon].stats.getValue('bleed-duration')}
       this.playerStates[defender].buffs.push(bleedStack)
     }
@@ -263,7 +263,7 @@ export default class Fight {
       }
     }
 
-    totalDamage = bleedDamage + poisonDamage + burnDamage + arcaneDamage
+    let totalDamage = bleedDamage + poisonDamage + burnDamage + arcaneDamage
     this.playerStates[defender].currentHP -= Math.round(totalDamage)
 
     return {
