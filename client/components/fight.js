@@ -125,7 +125,7 @@ export default class Fight extends Component {
     }
   }
 
-  printRegularAttack (attack) {
+  printBuffAttack (attack) {
     let string = 'Player ' + attack.playerDamaged + ' took '
     let damageBefore = false
     if (attack.bleedDamage > 0){
