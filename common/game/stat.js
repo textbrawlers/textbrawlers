@@ -45,6 +45,7 @@ export default class Stat {
     this.tooltip = baseStat.tooltip
     this.type = baseStat.type
     this.display = baseStat.display
+    this.detailedTooltip = baseStat['detailed-tooltip']
   }
 
   copy () {
