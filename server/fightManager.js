@@ -31,3 +31,5 @@ export default class FightManager {
     }
   }
 }
+
+export const fightManager = new FightManager()

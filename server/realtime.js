@@ -1,11 +1,9 @@
 import url from 'url'
 import ServerPlayer from 'common/game/serverPlayer.js'
 import RealtimePlayer from './realtime/realtimePlayer.js'
-import FightManager from './fightManager.js'
+import { fightManager } from './fightManager.js'
 
 export const players = []
-
-const fightManager = new FightManager()
 
 function sendPlayerCount () {
   const count = players.length
