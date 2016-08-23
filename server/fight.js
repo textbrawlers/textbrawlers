@@ -291,7 +291,7 @@ export default class Fight {
           index++
         }
       } else if (currentBuff.type === 'burn') {
-        burnDamage = (currentBuff.damage + 1) * currentBuff.baseDmg
+        burnDamage = (currentBuff.damageMult + 1) * currentBuff.baseDmg
         console.log('burn: ' + burnDamage)
         if (currentBuff.duration <= 1) {
           this.playerStates[defender].buffs.splice(index)
