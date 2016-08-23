@@ -1,0 +1,222 @@
+{
+  "damage": {
+    "broken": {
+      "name": "Broken",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage-multiplier": -0.3
+      }
+    },
+    "rusty": {
+      "name": "Rusty",
+      "drop-rate": 75,
+      "attack-stats": {
+        "damage-multiplier": -0.2
+      }
+    },
+    "blunt": {
+      "name": "Blunt",
+      "attack-stats": {
+        "damage-multiplier": -0.1
+      }
+    },
+    "sharp": {
+      "name": "Sharp",
+      "attack-stats": {
+        "damage-multiplier": 0.1
+      }
+    },
+    "ruthless": {
+      "name": "Ruthless",
+      "drop-rate": 75,
+      "attack-stats": {
+        "damage-multiplier": 0.2
+      }
+    },
+    "deadly": {
+      "name": "Deadly",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage-multiplier": 0.3
+      }
+    }
+  },
+
+  "attack-speed": {
+    "slow": {
+      "name": "Slow",
+      "drop-rate": 50,
+      "attack-stats": {
+        "attack-speed": -0.3
+      }
+    },
+    "lazy": {
+      "name": "Lazy",
+      "drop-rate": 75,
+      "attack-stats": {
+        "attack-speed": -0.2
+      }
+    },
+    "heavy": {
+      "name": "Heavy",
+      "attack-stats": {
+        "attack-speed": -0.1
+      }
+    },
+    "nimble": {
+      "name": "Nimble",
+      "attack-stats": {
+        "attack-speed": 0.1
+      }
+    },
+    "quick": {
+      "name": "Quick",
+      "drop-rate": 75,
+      "attack-stats": {
+        "attack-speed": 0.2
+      }
+    },
+    "rapid": {
+      "name": "Rapid",
+      "drop-rate": 50,
+      "attack-stats": {
+        "attack-speed": 0.3
+      }
+    }
+  },
+
+  "crit-chance": {
+    "inaccurate": {
+      "name": "Inaccurate",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-chance": -0.3
+      }
+    },
+    "inexact": {
+      "name": "Inexact",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-chance": -0.2
+      }
+    },
+    "uncertain": {
+      "name": "Uncertain",
+      "attack-stats": {
+        "crit-chance": -0.1
+      }
+    },
+    "aiming": {
+      "name": "Aiming",
+      "attack-stats": {
+        "crit-chance": 0.1
+      }
+    },
+    "piercing": {
+      "name": "Piercing",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-chance": 0.2
+      }
+    },
+    "precise": {
+      "name": "Precise",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-chance": 0.3
+      }
+    }
+  },
+
+  "crit-damage": {
+    "harmless": {
+      "name": "Harmless",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-damage": -0.6
+      }
+    },
+    "kind": {
+      "name": "Kind",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-damage": -0.4
+      }
+    },
+    "safe": {
+      "name": "Safe",
+      "attack-stats": {
+        "crit-damage": -0.2
+      }
+    },
+    "crushing": {
+      "name": "Crushing",
+      "attack-stats": {
+        "crit-damage": 0.2
+      }
+    },
+    "demolishing": {
+      "name": "Demolishing",
+      "drop-rate": 75,
+      "attack-stats": {
+        "crit-damage": 0.4
+      }
+    },
+    "obliterating": {
+      "name": "Obliterating",
+      "drop-rate": 50,
+      "attack-stats": {
+        "crit-damage": 0.6
+      }
+    }
+  },
+
+  "bleed-chance": {
+    "cutting": {
+      "name": "Cutting",
+      "attack-stats": {
+        "bleed-chance": 0.1,
+        "bleed-duration": 1
+      }
+    },
+    "slicing": {
+      "name": "Slicing",
+      "drop-rate": 75,
+      "attack-stats": {
+        "bleed-chance": 0.2,
+        "bleed-duration": 1
+      }
+    },
+    "slashing": {
+      "name": "Slashing",
+      "drop-rate": 50,
+      "attack-stats": {
+        "bleed-chance": 0.3,
+        "bleed-duration": 1
+      }
+    }
+  },
+
+  "bleed-duration": {
+    "ripping": {
+      "name": "Ripping",
+      "attack-stats": {
+        "bleed-duration": 2
+      }
+    },
+    "tearing": {
+      "name": "Tearing",
+      "drop-rate": 75,
+      "attack-stats": {
+        "bleed-duration": 3
+      }
+    },
+    "rupturing": {
+      "name": "Rupturing",
+      "drop-rate": 50,
+      "attack-stats": {
+        "bleed-duration": 4
+      }
+    }
+  }
+}
