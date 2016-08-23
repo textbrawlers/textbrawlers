@@ -51,6 +51,23 @@
         "max-health-multiplier": 0.15
       },
       "description": "It makes you feel healthier. Probably just placebo."
+    },
+    "runestone": {
+      "name": "Arcane Runic Stone",
+      "slot": "hand",
+      "attack": false,
+      "icon": "itemstarstone",
+      "drop-rate": 25,
+	    "empower-stats": [{
+        "category": "runic-weapon",
+        "stats": {
+		      "damage-mult": -0.2,
+		      "attack-speed": 0.2,
+		      "arcane-chance": 0.2,
+		      "arcane-damage": 2
+        }
+      }],
+      "description":"A Mundane Runic Stone just doesn't seem as cool."
     }
   }
 }
