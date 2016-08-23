@@ -87,7 +87,14 @@ export default class Fight {
       if (Math.random() <= this.numAttacks) {
         this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
-
+        
+        //Fury adding and Modifier
+        if (this.playerStates[attacker].buffs.find(buff => buff.type === 'fury')) {
+          let buffIndex = this.playerStates[attacker].buffs.findIndex(buff => buff.type === 'fury')
+          this.damage *= this.playerStates[attacker].buffs[buffIndex].damageMult
+        }
+        this.applyFury(this.weapons[this.currentWeapon].stats.getValue('fury'))
+        
         //Normal Modifiers
         this.applyCrit()
         this.applyBlock()
@@ -100,7 +107,7 @@ export default class Fight {
         this.applyPoison()
         this.applyStun()
         this.applyBurn()
-
+        
         this.damage = Math.round(this.damage)
         this.defender.currentHP -= this.damage
       } else {
@@ -233,6 +240,24 @@ export default class Fight {
         }
         this.playerStates[defender].buffs.push(newBuff)
       }
+    }
+  }
+  
+  applyFury (weaponDamageMult) {
+    let attacker = this.getCurrentAttackerIndex()
+    if (this.playerStates[attacker].buffs.find(buff => buff.type === 'fury')) {
+      let buffIndex = this.playerStates[attacker].buffs.findIndex(buff => buff.type === 'fury')
+      const newBuff = {
+        type: 'fury',
+        damageMult: weaponDamageMult * this.playerStates[attacker].buffs[buffIndex].damageMult
+      }
+      this.playerStates[attacker].buffs[buffIndex] = newBuff
+    } else {
+      const newBuff = {
+        type: 'fury',
+        damageMult: weaponDamageMult
+      }
+      this.playerStates[attacker].buffs.push(newBuff)
     }
   }
 
