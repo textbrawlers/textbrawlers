@@ -13,7 +13,8 @@
     "common/json/equipable/armor/feet.json",
     "common/json/equipable/hand/offhand.json",
     "common/json/equipable/hand/magical.json",
-    "common/json/equipable/hand/runic-weapon.json"
+    "common/json/equipable/hand/runic-weapon.json",
+    "common/json/equipable/hand/test.json"
   ],
   "sets": [
     "common/json/equipable/set/setfurious.json",

@@ -160,6 +160,7 @@ export default class Fight {
           damage: this.weapons[this.currentWeapon].stats.getValue('poison-damage')
         }
         this.playerStates[defender].buffs[buffIndex] = newBuff
+        console.log('Refreshed Poison')
       }
     } else {
       const newBuff = {
@@ -168,6 +169,7 @@ export default class Fight {
         damage: this.weapons[this.currentWeapon].stats.getValue('poison-damage')
       }
       this.playerStates[defender].buffs.push(newBuff)
+      console.log('Applied Poison')
     }
   }
 
@@ -190,6 +192,7 @@ export default class Fight {
             damageMult: this.weapons[this.currentWeapon].stats.getValue('burn-damage')
           }
           this.playerStates[defender].buffs[buffIndex] = newBuff
+          console.log('Refreshed Burn')
         }
       } else {
         const newBuff = {type: 'burn',
@@ -198,6 +201,7 @@ export default class Fight {
           damageMult: this.weapons[this.currentWeapon].stats.getValue('burn-damage')
         }
         this.playerStates[defender].buffs.push(newBuff)
+        console.log('Applied Burn')
       }
     }
   }
@@ -214,6 +218,7 @@ export default class Fight {
             this.damage += this.playerStates[defender].buffs[buffIndex].storedDmg
             this.arcaneDamage = this.playerStates[defender].buffs[buffIndex].storedDmg
             this.playerStates[defender].buffs.splice(buffIndex, 1)
+            console.log('Exploded Arcane')
           } else {
             const newBuff = {type: 'arcane',
               stacks: currentStacks++,
@@ -221,9 +226,11 @@ export default class Fight {
               storedDmg: this.playerStates[defender].buffs[buffIndex].storedDmg
             }
             this.playerStates[defender].buffs[buffIndex] = newBuff
+            console.log('Refreshed Arcane')
           }
         } else {
           this.playerStates[defender].buffs[buffIndex].stacks++
+          console.log('Refreshed Arcane')
         }
       } else {
         const newBuff = {type: 'arcane',
@@ -232,6 +239,7 @@ export default class Fight {
           storedDmg: 0
         }
         this.playerStates[defender].buffs.push(newBuff)
+        console.log('Applied Arcane')
       }
     }
   }
@@ -262,6 +270,7 @@ export default class Fight {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
+        console.log('Bleed Damage Dealt')
       } else if (currentBuff.type === 'poison') {
         poisonDamage = currentBuff.damage
         if (currentBuff.duration <= 1) {
@@ -270,6 +279,7 @@ export default class Fight {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
+        console.log('Poison Damage Dealt')
       } else if (currentBuff.type === 'burn') {
         burnDamage = (currentBuff.damage + 1) * currentBuff.baseDmg
         if (currentBuff.duration <= 1) {
@@ -278,9 +288,12 @@ export default class Fight {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
+        console.log('Burn Damage Dealt')
       } else if (currentBuff.type === 'arcane') {
         arcaneDamage = 1
         this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
+        index++
+        console.log('Arcane Damage Dealt')
       }
     }
 

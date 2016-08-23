@@ -1,0 +1,26 @@
+{
+  "test": {
+    "dot-tester": {
+      "name": "Dot Tester",
+      "slot": "hand",
+      "attack": true,
+      "icon": "test",
+      "drop-rate": 1000,
+      "attack-stats": {
+        "damage": 5,
+        "attack-speed": 1,
+        "crit-chance": 1.5,
+        "crit-damage": 1,
+        "bleed-chance": 1,
+        "bleed-duration": 3,
+        "poison-damage": 4,
+        "poison-duration": 2,
+        "burn-chance": 1,
+        "burn-damage": 0.4,
+        "arcane-chance": 1,
+        "arcane-damage": 3
+      },
+      "description": "Only added for testing of dots."
+    }
+  }
+}
