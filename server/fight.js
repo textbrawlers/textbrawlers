@@ -119,7 +119,7 @@ export default class Fight {
     return currentDefenderIndex
   }
 
-  getCurrentAttackingIndex () {
+  getCurrentAttackerIndex () {
     return this.turn
   }
 
