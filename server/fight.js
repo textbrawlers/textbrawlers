@@ -99,7 +99,7 @@ export default class Fight {
         this.applyBleed()
         this.applyPoison()
         this.applyStun()
-        this.applyBurn()
+        this.applyBurn(this.damage)
 
         this.damage = Math.round(this.damage)
         this.defender.currentHP -= this.damage
@@ -291,8 +291,7 @@ export default class Fight {
           index++
         }
       } else if (currentBuff.type === 'burn') {
-        burnDamage = (currentBuff.damageMult + 1) * currentBuff.baseDmg
-        console.log('burn: ' + burnDamage)
+        burnDamage = Math.round(currentBuff.damageMult * currentBuff.baseDmg)
         if (currentBuff.duration <= 1) {
           this.playerStates[defender].buffs.splice(index)
         } else {
