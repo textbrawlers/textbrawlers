@@ -15,6 +15,30 @@ export default class Fight {
     this.attackId = 0
   }
 
+  luckWeightLifter(players) {
+    const maxWeight = 0
+    players.forEach(player => {
+      const playerLuckValue = player.getStat('luck').value
+      if (playerLuckValue){
+        maxWeight += 10 * (1 + playerLuckValue)
+      } else {
+        maxWeight += 10
+      }
+    })
+    const weight = SMath.randomInt(maxWeight)
+    let currWeight = 0
+    const index = players.findIndex(player => {
+      const playerLuckValue = player.getStat('luck').value
+      if (playerLuckValue){
+        currWeight += 10 * (1 + playerLuckValue)
+      } else {
+        currWeight += 10
+      }
+      return weight < currWeight
+    })
+    return index >= 0 ? index : 0
+  }
+
   attack () {
     this.attackId++
     let resp
@@ -270,7 +294,7 @@ export default class Fight {
     let burnDamage = 0
     let arcaneDamage = 0
 
-    let defender = this.getCurrentDefenderIndex()
+    let defender = this.getCurrentAttackerIndex()
     let index = 0
     while (this.playerStates[defender].buffs[index]) {
       let currentBuff = this.playerStates[defender].buffs[index]
