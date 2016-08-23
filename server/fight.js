@@ -134,7 +134,7 @@ export default class Fight {
       this.crits = 1
       if (Math.random() < this.weapons[this.currentWeapon].stats.getValue('crit-chance') - 1) {
         this.crits = 2
-        this.damage *= 1.5 * (1 + this.weapons[this.currentWeapon].stats.getValue('crit-damage'))
+        this.damage *= (1 + (1.5 * this.weapons[this.currentWeapon].stats.getValue('crit-damage')))
       } else {
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('crit-damage'))
       }
