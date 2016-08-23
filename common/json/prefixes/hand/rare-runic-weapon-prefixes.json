@@ -14,5 +14,22 @@
         }
       }]
     }
+  },
+  
+  "arcane": {
+    "arcane": {
+      "name": "Arcane",
+      "attack-stats": {
+        "arcane-chance": 0.025,
+        "arcane-damage": 1
+      },
+      "empower-stats": [{
+        "category": "runic-weapon",
+        "stats": {
+          "arcane-chance": 0.025,
+          "arcane-damage": 1
+        }
+      }]
+    }
   }
 }
