@@ -1,18 +1,6 @@
 {
   "voidcaller": {
     "items": {
-      "voidcaller-helmet": {
-        "name": "Amulet of the Voidcaller",
-        "slot": "head",
-        "icon": "itemheadvoidcaller",
-        "character-stats": {
-          "max-health": -5,
-          "crit-chance": -0.01,
-          "block-chance": 0.05,
-          "block-multiplier": 0.1
-        },
-        "description": "\"Hello, is this the void? Yeah, its me again...\""
-      },
       "voidcaller-chestpiece": {
         "name": "Robe of the Voidcaller",
         "slot": "torso",
@@ -56,7 +44,7 @@
         "icon": "itemvoidcallerring",
         "attack-stats": {
           "damage": 6,
-          "attack-speed": 1.7,
+          "attack-speed": 1.1,
           "ranged": true
         },
         "description": "The one ring, capable of channeling immense power from the void."
@@ -74,10 +62,6 @@
       "4": {
         "damage": 4,
         "void-strike": 0.9
-      },
-      "5": {
-        "damage": 6,
-        "void-strike": 1.05
       }
     }
   }
