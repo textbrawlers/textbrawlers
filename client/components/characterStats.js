@@ -1,3 +1,4 @@
+import TetherComponent from 'react-tether'
 import React, { Component } from 'react'
 
 export default class CharacterStats extends Component {
@@ -8,10 +9,7 @@ export default class CharacterStats extends Component {
     let playerStats = []
 
     function getStats (stats) {
-      return stats.stats.map((stat, i) => {
-        const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-        return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
-      })
+      return stats.stats.map((stat, i) => <Stat stat={stat} key={i} />)
     }
 
     if (player.stats) {
@@ -37,6 +35,47 @@ export default class CharacterStats extends Component {
         <div>{playerStats}</div>
         {weapons}
       </div>
+    )
+  }
+}
+
+class Stat extends Component {
+
+  constructor () {
+    super()
+
+    this.mouseOver = this.mouseOver.bind(this)
+    this.mouseOut = this.mouseOut.bind(this)
+
+    this.state = {
+      showTooltip: false
+    }
+  }
+
+  mouseOver () {
+    this.setState({ showTooltip: true })
+  }
+
+  mouseOut () {
+    this.setState({ showTooltip: false })
+  }
+
+  render () {
+    const stat = this.props.stat
+    const statTooltip = stat.render(stat => `<b>${stat}</b>`)
+    const tooltip = this.state.showTooltip && <div>{stat.detailedTooltip}</div>
+    return (
+      <TetherComponent
+        attachment='top left'
+        targetAttachment='top left'
+        targetOffset='25px 100px'
+        constraints={[{to: 'window', pin: true}]}>
+        <p
+          onMouseOver={this.mouseOver}
+          onMouseOut={this.mouseOut}
+          dangerouslySetInnerHTML={{__html: statTooltip}} />
+        {tooltip}
+      </TetherComponent>
     )
   }
 }
