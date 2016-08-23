@@ -56,7 +56,7 @@
       "name": "Arcane Runic Stone",
       "slot": "hand",
       "attack": false,
-      "icon": "Fulruneplaceholder",
+      "icon": "Fulrunplaceholder",
       "drop-rate": 25,
 	    "empower-stats": [{
         "category": "runic-weapon",
