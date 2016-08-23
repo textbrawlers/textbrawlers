@@ -2,121 +2,151 @@
   "damage": {
     "type": "additive",
     "tooltip": "[fixed] Damage",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "damage-multiplier": {
     "type": "additive",
     "tooltip": "[plus-percent] Damage",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "attack-speed": {
     "type": "additive",
     "tooltip": "[fixed-fine] Hit Chance",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "crit-chance": {
     "type": "additive",
     "tooltip": "[percent] Crit Chance",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "crit-damage": {
     "type": "additive",
     "tooltip": "[plus-percent] Crit Damage",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "bleed-chance": {
     "type": "additive",
     "tooltip": "[percent] Bleed Chance",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "bleed-duration": {
     "type": "additive",
     "tooltip": "[fixed] Bleed Duration",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "poison-duration": {
     "type": "additive",
     "tooltip": "[fixed] Poison Duration",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "poison-damage": {
     "type": "additive",
     "tooltip": "[fixed] Poison Damage",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "stun-chance": {
     "type": "additive",
     "tooltip": "[percent] Stun Chance",
+    "detail-tooltip": "Stun Chance is the chance of causing a Stun with each attack. A Stun halves your opponent's attack speed during their next turn.",
     "display": true
   },
   "block-chance": {
     "type": "additive",
     "tooltip": "[percent] Block Chance",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "block-multiplier": {
     "type": "multiplicative",
     "tooltip": "[fixed-fine] Block Multiplier",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "max-health": {
     "type": "additive",
     "tooltip": "[fixed] Max Health",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "max-health-multiplier": {
     "type": "additive",
     "tooltip": "[plus-percent] Max Health",
+    "detail-tooltip": "PLACEHOLDER",
     "display": true
   },
   "comfort": {
     "type": "additive",
     "tooltip": "[plus-percent] Comfort",
+    "detail-tooltip": "PLACEHOLDER",
     "display": false
   },
   "fashionable": {
     "type": "additive",
     "tooltip": "[plus-percent] Fashionable",
+    "detail-tooltip": "PLACEHOLDER",
     "display": false
   },
   "fury": {
     "type": "multiplicative",
-    "tooltip": "Every successful attack adds a stack of 'Fury'. Each stack of 'Fury' gives [plus-mult] Damage",
+    "tooltip": "[plus-mult] Fury",
+    "detail-tooltip": "Every successful attack multiplies your current Fury stacks with the Fury of your weapon. All your attacks have their damage increased based on your current Fury stacks. All Fury stacks are lost as soon as you miss an attack.",
     "display": false
   },
   "burn-chance": {
     "type": "additive",
     "tooltip": "[percent] Burn Chance",
+    "detail-tooltip": "Burn Chance is your chance of inflicting a Burn with each attack. A Burn deals a percentage of the damage that applied it each turn for three turns.",
     "display": true
   },
   "burn-damage": {
     "type": "additive",
     "tooltip": "[percent] Burn Damage",
+    "detail-tooltip": "Burn Damage is how much damage a Burn deals. A Burn deals a percentage of the damage that applied it each turn for three turns.",
     "display": true
   },
   "arcane-chance": {
     "type": "additive",
     "tooltip": "[percent] Arcane Chance",
+    "detail-tooltip": "Arcane Chance is the chance your weapon has to give your opponent a stack of Arcane (stacks up to 4 times). Your opponent takes 1 damage each turn for each stack of arcane they have. However, they also store damage for each stack equal to your Arcane Damage - 1. Upon reaching five stacks, all stored damage is released, and all arcane stacks are removed.",
     "display": true
   },
   "arcane-damage": {
     "type": "additive",
     "tooltip": "[fixed] Arcane Damage",
+    "detail-tooltip": "Arcane Damage is the damage you weapon deals for each Arcane stack. Your opponent takes 1 damage each turn for each stack of arcane they have. However, they also store damage for each stack equal to your Arcane Damage - 1. Upon reaching five stacks, all stored damage is released, and all arcane stacks are removed.",
     "display": true
   },
   "void-strike": {
     "type": "multiplicative",
-    "tooltip": "Every hit adds a stack of 'void'. Each hit has a 50% chance to deal the numbers of stacks times your damage.",
+    "tooltip": "[fixed] Void Strike",
+    "detail-tooltip": "Every hit adds a stack of 'void'. Each hit has a 50% chance to deal the numbers of stacks times your damage.",
     "display": false
   },
   "ranged": {
     "type": "boolean",
     "tooltip": "Ranged",
+    "detail-tooltip": "Ranged weapons are harder to dodge, but easier to block. Your enemy treats their dodge as 10% lower against this weapon, but treats their block chance as 20% higher.",
+    "display": true
+  },
+  "slow": {
+    "type": "boolean",
+    "tooltip": "Slow",
+    "detail-tooltip": "Slow weapons are easier to dodge, and thus your enemy treats their dodge as 20% higher against this weapon.",
     "display": true
   },
   "category": {
     "type": "text",
     "tooltip": "Itemtype: [type]",
+    "detail-tooltip": "Item type is used when determining which items recieve Empowered stats.",
     "display": false
   }
 }
