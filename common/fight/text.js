@@ -1,5 +1,4 @@
-export default function messages (m, attacker, defender, round) {
-
+export default function messages (m, weapon, attacker, defender, round) {
   if (defender.hp <= 0) {
     m.add(100, '[attacker] finished off [defender].')
     m.add(100, '[attacker] abrutply ended [defender].')
@@ -20,7 +19,7 @@ export default function messages (m, attacker, defender, round) {
         'meddelande 6'
     ])*/
 
-    if (attacker.weapon.hasStat('ranged')) {
+    if (weapon.hasStat('ranged')) {
       if (round.missed) {
         m.add(100, '[attacker] fired at [defender] but missed.')
       } else if (round.blocked) {
@@ -33,7 +32,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (!attacker.weapon.hasStat('ranged')) {
+    if (!weapon.hasStat('ranged')) {
       if (round.missed) {
         m.add(100, '[attacker] swinged his [item-name] at [defender] but missed.')
         m.add(50, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
@@ -49,7 +48,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (attacker.weapon.rarity === 'legendary' ) {
+    if (weapon.rarity === 'legendary') {
       if (round.missed) {
         m.add(50, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
       } else if (round.blocked) {
@@ -61,7 +60,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (attacker.weapon.type === 'bow') {
+    if (weapon.type === 'bow') {
       if (round.blocked) {
         m.add(100, '[attacker] fired an arrow at [defender] but [defender] blocked it.')
       } else if (round.critical) {
@@ -72,7 +71,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (attacker.weapon.type === 'sword') {
+    if (weapon.type === 'sword') {
       if (round.blocked) {
         m.add(100, '[attacker] sliced at [defender]\'s defences.')
       } else if (round.critical) {
@@ -82,7 +81,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (attacker.weapon.type === 'axe') {
+    if (weapon.type === 'axe') {
       if (round.blocked) {
         m.add(100, '[attacker] chopped at [defender]\'s defences.')
       } else if (round.critical) {
@@ -92,7 +91,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (attacker.weapon.type === 'hammer') {
+    if (weapon.type === 'hammer') {
       if (round.blocked) {
         m.add(100, '[attacker] battered [defender]\'s defences.')
       } else if (round.critical) {
@@ -102,7 +101,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (attacker.weapon.type === 'knife') {
+    if (weapon.type === 'knife') {
       if (round.blocked) {
         m.add(100, '[attacker] stabbed at [defender]\'s defences.')
       } else if (round.critical) {
@@ -112,7 +111,7 @@ export default function messages (m, attacker, defender, round) {
       }
     }
 
-    if (attacker.weapon.type === 'magical-weapon') {
+    if (weapon.type === 'magical-weapon') {
       if (round.blocked) {
         m.add(100, '[attacker] fired a spell at [defender]\'s defences.')
       } else if (round.critical) {

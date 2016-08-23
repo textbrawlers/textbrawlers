@@ -65,6 +65,10 @@ export default class Item {
     this.canAttack = baseItem.attack
   }
 
+  hasStat (stat) {
+    return !!this.attackStats.find(stat => stat.id === stat)
+  }
+
   get image () {
     return `/client/png/${this.icon}.png`
   }

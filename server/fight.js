@@ -59,8 +59,11 @@ export default class Fight {
   }
 
   initAttack () {
-    this.attacker = this.playerStates[this.turn]
-    this.defender = this.playerStates[this.turn + 1] || this.playerStates[0]
+    this.attackerNum = this.turn
+    this.defenderNum = this.playerStates[this.turn + 1] ? this.turn + 1 : 0
+
+    this.attacker = this.playerStates[this.attackerNum]
+    this.defender = this.playerStates[this.defenderNum]
 
     this.weapons = this.attacker.player.weaponStats
 
@@ -93,11 +96,13 @@ export default class Fight {
         id: s.player.id
       })),
       damage: this.damage,
-      attacker: this.turn,
+      attacker: this.attackerNum,
+      defender: this.defenderNum,
       hasWeapon: this.hasWeapon,
       miss: this.miss,
       crit: this.crits,
-      arcaneDamage: this.arcaneDamage
+      arcaneDamage: this.arcaneDamage,
+      weapon: this.currentWeapon
     }
   }
 
