@@ -9,6 +9,7 @@
     "arrow-prefixes": "common/json/prefixes/hand/arrow-prefixes.json",
     "magical-prefixes": "common/json/prefixes/hand/magical-prefixes.json",
     "runic-weapon-prefixes": "common/json/prefixes/hand/runic-weapon-prefixes.json",
+    "spear-prefixes": "common/json/prefixes/hand/spear-prefixes.json",
 
     "rare-shield-prefixes": "common/json/prefixes/hand/rare-shield-prefixes.json",
     "rare-hammer-prefixes": "common/json/prefixes/hand/rare-hammer-prefixes.json",
@@ -16,6 +17,7 @@
     "rare-sword-prefixes": "common/json/prefixes/hand/rare-sword-prefixes.json",
     "rare-knife-prefixes": "common/json/prefixes/hand/rare-knife-prefixes.json",
     "rare-runic-weapon-prefixes": "common/json/prefixes/hand/rare-runic-weapon-prefixes.json",
+    "rare-spear-prefixes": "common/json/prefixes/hand/rare-spear-prefixes.json",
 
     "armor-prefixes": "common/json/prefixes/armor/armor-prefixes.json",
     "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
@@ -63,6 +65,11 @@
     "runic-weapon": {
       "runic-weapon-prefixes": 100,
       "rare-runic-weapon-prefixes": 10,
+      "weird-prefixes": 20
+    },
+    "spear": {
+      "spear-prefixes": 100,
+      "rare-spear-prefixes": 10,
       "weird-prefixes": 20
     },
     "head": {
