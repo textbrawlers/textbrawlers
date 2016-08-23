@@ -45,7 +45,16 @@
         "attack-stats": {
           "damage": 6,
           "attack-speed": 1.1,
+          "crit-chance": 0.5,
+          "crit-damage": 0.75,
+          "arcane-chance": 0.5,
+          "arcane-damage": 4,
           "ranged": true
+        },
+        "character-stats": {
+          "max-health-multiplier": -0.05,
+          "luck": 0.05,
+          "fashionable": 0.25
         },
         "description": "The one ring, capable of channeling immense power from the void."
       }
@@ -53,15 +62,18 @@
     "bonuses": {
       "2": {
         "damage": 1,
-        "void-strike": 0.6
+        "attack-speed": 0.05,
+        "void-strike": 0.85
       },
       "3": {
         "damage": 2,
-        "void-strike": 0.75
+        "attack-speed": 0.125,
+        "void-strike": 1
       },
       "4": {
         "damage": 4,
-        "void-strike": 0.9
+        "attack-speed": 0.2,
+        "void-strike": 1.15
       }
     }
   }

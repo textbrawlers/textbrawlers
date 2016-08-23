@@ -60,11 +60,11 @@
         "block-chance": 0.01
       },
       "empower-stats": [{
-        "category": "offhand",
+        "category": "magical",
         "stats": {
-          "damage-multiplier": 0.5,
+          "damage-multiplier": 0.15,
           "crit-chance": 0.05,
-          "crit-damage": 1.0
+          "crit-damage": 0.5
         }
       }],
       "description": "A long lost crown. Who knows what it is for?"

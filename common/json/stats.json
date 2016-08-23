@@ -143,6 +143,11 @@
     "detail-tooltip": "Slow weapons are easier to dodge, and thus your enemy treats their dodge as 20% higher against this weapon.",
     "display": true
   },
+  "luck": {
+    "type": "additive",
+    "tooltip": "[percent] Luck",
+    "detail-tooltip": "Increases the chance to hit first in fights."
+  },
   "category": {
     "type": "text",
     "tooltip": "Itemtype: [type]",
