@@ -88,13 +88,6 @@ export default class Fight {
         this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
-        //Fury adding and Modifier
-        if (this.playerStates[attacker].buffs.find(buff => buff.type === 'fury')) {
-          let buffIndex = this.playerStates[attacker].buffs.findIndex(buff => buff.type === 'fury')
-          this.damage *= this.playerStates[attacker].buffs[buffIndex].damageMult
-        }
-        this.applyFury(this.weapons[this.currentWeapon].stats.getValue('fury'))
-
         //Normal Modifiers
         this.applyCrit()
         this.applyBlock()
@@ -112,10 +105,6 @@ export default class Fight {
         this.defender.currentHP -= this.damage
       } else {
         this.miss = true
-        //Fury removing
-        if (this.playerStates[attacker].buffs.find(buff => buff.type === 'fury')) {
-          this.resetFury()
-        }
       }
     } else {
       this.hasWeapon = false
