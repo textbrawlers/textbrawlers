@@ -53,7 +53,7 @@
       "description": "It makes you feel healthier. Probably just placebo."
     },
     "runestone": {
-      "name": "Arcane Runic Stone",
+      "name": "Runic Stone",
       "slot": "hand",
       "attack": false,
       "icon": "Fulrunplaceholder",
@@ -67,7 +67,7 @@
 		      "arcane-damage": 2
         }
       }],
-      "description":"A Mundane Runic Stone just doesn't seem as cool."
+      "description":"Carving a message into a stone is hardly practical. But it IS cool."
     }
   }
 }
