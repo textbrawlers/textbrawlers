@@ -16,7 +16,7 @@ export default class Fight {
   }
 
   luckWeightLifter(players) {
-    const maxWeight = 0
+    let maxWeight = 0
     players.forEach(player => {
       const playerLuckValue = player.getStat('luck').value
       if (playerLuckValue){
