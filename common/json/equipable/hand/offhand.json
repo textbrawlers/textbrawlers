@@ -61,7 +61,7 @@
 	    "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
-		      "damage-mult": -0.2,
+		      "damage-multiplier": -0.2,
 		      "attack-speed": 0.2,
 		      "arcane-chance": 0.2,
 		      "arcane-damage": 2
