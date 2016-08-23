@@ -54,8 +54,8 @@
       "drop-rate": 25,
       "attack-stats": {
         "damage": 2,
-        "attack-speed": 0.75,
-        "crit-chance": 0.4,
+        "attack-speed": 0.4,
+        "crit-chance": 0.1,
         "crit-damage": 0.025,
         "bleed-chance": 0.1
       },
@@ -63,7 +63,7 @@
         "category": "runic-weapon",
         "stats": {
 		  "damage": 2,
-		  "attack-speed": 0.75,
+		  "attack-speed": 0.4,
 		  "crit-chance": 0.1,
 		  "crit-damage": 0.025,
 		  "bleed-chance": 0.1,
