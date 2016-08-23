@@ -285,7 +285,7 @@ export default class Fight {
     }
 
     let totalDamage = bleedDamage + poisonDamage + burnDamage + arcaneDamage
-    this.playerStates[defender].currentHP -= Math.round(totalDamage)
+    this.defender.currentHP -= Math.round(totalDamage)
 
     return {
       type: 'buff',
