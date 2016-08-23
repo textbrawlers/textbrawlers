@@ -15,7 +15,7 @@
     "rare-axe-prefixes": "common/json/prefixes/hand/rare-axe-prefixes.json",
     "rare-sword-prefixes": "common/json/prefixes/hand/rare-sword-prefixes.json",
     "rare-knife-prefixes": "common/json/prefixes/hand/rare-knife-prefixes.json",
-    "rare-runic-weapon-prefixes": "common/json/prefixes/hand/rare-runic-weapon-prefixes.json",
+    "rare-runic-weapon-prefixes": "common/json/prefixes/hand/rare-knife-prefixes.json",
 
     "armor-prefixes": "common/json/prefixes/armor/armor-prefixes.json",
     "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
