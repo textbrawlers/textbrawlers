@@ -10,7 +10,7 @@
         "category": "runic-weapon",
         "stats": {
           "burn-chance": 0.05,
-	  "burn-damage": 0.1,
+	        "burn-damage": 0.1,
         }
       }]
     }
