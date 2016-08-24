@@ -16,6 +16,12 @@
     margin-top:5px;
   }
 
+  .fight-text:nth-child(even) {
+    background-color:#rgba(0,0,0,0);
+    padding:1px 6px;
+    margin-top:5px;
+  }
+
   .fight-text-opponent {
     text-align: right;
   }
