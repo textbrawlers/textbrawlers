@@ -63,8 +63,8 @@
         "stats": {
 		      "damage-multiplier": -0.2,
 		      "attack-speed": 0.2,
-		      "arcane-chance": 0.2,
-		      "arcane-damage": 2
+		      "arcane-chance": 0.35,
+		      "arcane-damage": 3
         }
       }],
       "description":"Carving a message into a stone is hardly practical. But it IS cool."
