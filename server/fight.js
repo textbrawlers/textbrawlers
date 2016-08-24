@@ -302,7 +302,7 @@ export default class Fight {
     let arcaneDamage = 0
     let arcaneStacks = 0
 
-    let defender = this.getCurrentAttackerIndex()
+    let defender = this.getCurrentDefenderIndex()
     let index = 0
     while (this.playerStates[defender].buffs[index]) {
       let currentBuff = this.playerStates[defender].buffs[index]
@@ -322,7 +322,7 @@ export default class Fight {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
-        // poisonDuration = this.playerStates[defender].buffs[index].duration
+        poisonDuration = currentBuff.duration--
       } else if (currentBuff.type === 'burn') {
         burnDamage = Math.round(currentBuff.damageMult * currentBuff.baseDmg)
         if (currentBuff.duration <= 0) {
@@ -331,17 +331,17 @@ export default class Fight {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
-        // burnDuration = this.playerStates[defender].buffs[index].duration
+        burnDuration = currentBuff.duration--
       } else if (currentBuff.type === 'arcane') {
         arcaneDamage = 1
         this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
         index++
-        arcaneStacks =   this.playerStates[defender].buffs[index].stacks
+        arcaneStacks = currentBuff.stacks
       }
     }
 
     let totalDamage = bleedDamage + poisonDamage + burnDamage + arcaneDamage
-    this.attacker.currentHP -= Math.round(totalDamage)
+    this.defender.currentHP -= Math.round(totalDamage)
 
     return {
       type: 'buff',
@@ -350,7 +350,7 @@ export default class Fight {
         maxHP: s.maxHP,
         id: s.player.id
       })),
-      playerDamaged: this.turn,
+      playerDamaged: defender,
       bleedDamage: bleedDamage,
       poisonDamage: poisonDamage,
       poisonDuration: poisonDuration,
