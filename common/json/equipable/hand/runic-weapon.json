@@ -94,6 +94,25 @@
         }
       }],
       "description": "The runes roughly translates to \"This side up\"."
+    },
+    "runic-spear": {
+      "name": "Runic Spear",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemancientspear",
+      "drop-rate": 25,
+      "attack-stats": {
+        "damage": 6,
+        "attack-speed": 0.2
+      },
+	    "empower-stats": [{
+        "category": "runic-weapon",
+        "stats": {
+		      "damage": 6,
+		      "attack-speed": 0.2
+        }
+      }],
+      "description": "\"Pointy end goes in enemy.\""
     }
   }
 }
