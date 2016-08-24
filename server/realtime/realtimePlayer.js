@@ -23,7 +23,6 @@ export default class RealtimePlayer {
     if (inviteIndex !== -1) {
       this.invites.splice(inviteIndex, 1)
       this.sendInviteUpdate()
-      this.send('startgame')
       return true
     }
     return false

@@ -99,7 +99,8 @@ export default class Fight {
       attacker: this.attackerNum,
       defender: this.defenderNum,
       hasWeapon: this.hasWeapon,
-      miss: this.miss,
+      missed: this.miss,
+      blocked: this.blocked,
       crit: this.crits,
       arcaneDamage: this.arcaneDamage,
       weapon: this.currentWeapon
@@ -153,7 +154,9 @@ export default class Fight {
   }
 
   applyBlock () {
-    if (Math.random() < this.defender.player.getStat('block-chance').value){
+    this.blocked = false
+    if (Math.random() < this.defender.player.getStat('block-chance').value) {
+      this.blocked = true
       this.damage *= this.defender.player.getStat('block-multiplier').value
     }
   }
@@ -350,6 +353,7 @@ export default class Fight {
         maxHP: s.maxHP,
         id: s.player.id
       })),
+      attacker: this.getCurrentAttackerIndex(),
       playerDamaged: defender,
       bleedDamage: bleedDamage,
       poisonDamage: poisonDamage,

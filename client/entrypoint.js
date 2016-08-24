@@ -19,7 +19,7 @@ const routes = (
     <IndexRoute component={HomepageApp} />
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />
-      <Route path='fight' component={Fight} />
+      <Route path='fight/:fightId' component={Fight} />
     </Route>
     <Route path='tools' component={ToolsApp}>
       <Route path='itembrowser' component={ItemBrowser} />

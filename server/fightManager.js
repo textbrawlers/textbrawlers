@@ -2,6 +2,17 @@ import fightMessages from 'common/fight/text.js'
 import Fight from 'server/fight.js'
 import EventEmitter from 'events'
 
+const getFightKey = () => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVXYabcdefghijklmnopqrstuvxyz0123456789'
+
+  let key = ''
+  for (var i = 0; i < 20; i++) {
+    key += chars[Math.floor(Math.random() * chars.length)]
+  }
+
+  return key
+}
+
 function getRandom (droptable) {
   let rn = Math.random()
 
@@ -19,11 +30,16 @@ export default class FightManager {
     this.fights = []
   }
 
+  get (id) {
+    return this.fights.find(fightObj => fightObj.id === id)
+  }
+
   startFight (players) {
     const fight = new Fight(players)
     const fightObj = new EventEmitter()
     fightObj.players = players
     fightObj.fight = fight
+    fightObj.id = getFightKey()
     this.fights.push(fightObj)
 
     this.attack(fightObj)
@@ -40,16 +56,17 @@ export default class FightManager {
       chanceSum += chance
     }
 
-    messages.forEach(message => { message.chance /= chanceSum })
-
-    const attacker = fightObj.players[resp.attacker]
-    const defender = fightObj.players[resp.defender]
+    const attacker = resp.playerStates[resp.attacker]
+    const defender = resp.playerStates[resp.defender]
 
     const weapon = fightObj.players[resp.attacker].weaponStats[resp.weapon].weapon
 
     fightMessages({add}, weapon, attacker, defender, resp)
 
-    return getRandom(messages).message
+    messages.forEach(message => { message.chance /= chanceSum })
+
+    const msg = getRandom(messages).message
+    return msg
   }
 
   sendAttackResponse (fightObj, resp) {

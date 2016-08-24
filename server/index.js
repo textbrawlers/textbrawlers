@@ -32,6 +32,7 @@ router.post('/game/removerequest', auth, game.removeRequest)
 router.post('/game/inviteGame', auth, game.inviteGame)
 router.post('/game/acceptInvite', auth, game.acceptInvite)
 router.get('/game/requestInventory', auth, game.requestInventory)
+router.get('/game/fight/:id', auth, game.getFight)
 router.get('/game/social', auth, game.getSocial)
 
 export default router

@@ -58,7 +58,7 @@ export default class Item {
 
     this.icon = baseItem.icon
     this.rarity = rarity || 'common'
-    this.category = baseItem.category
+    this.category = this.type = baseItem.category
     this.description = baseItem.description
     this.slot = baseItem.slot
     this.id = baseItem.id

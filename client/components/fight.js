@@ -15,21 +15,24 @@ export default class Fight extends Component {
     this.createSpecialSlot = this.createSpecialSlot.bind(this)
 
     this.state = {
-      attacks: []
+      attacks: [],
+      me: -1
     }
   }
 
   componentDidMount () {
-    this.updatePlayer().catch(err => console.error(err))
+    this.update().catch(err => console.error(err))
   }
 
-  async updatePlayer (jsonPlayer) {
-    if (!jsonPlayer) {
-      jsonPlayer = (await request.get('/api/user/get')).json
-    }
-    const player = await Player.fromJSON(jsonPlayer)
-    this.setState({player})
-    console.log('player', player)
+  async update () {
+    const resp = (await request.get('/api/game/fight/' + this.props.params.fightId)).json
+    const players = await Promise.all(resp.players.map(player => Player.fromJSON(player)))
+
+    this.setState({
+      players: players,
+      accounts: resp.accounts,
+      me: resp.me
+    })
   }
 
   getItem (inventory, index) {
@@ -66,7 +69,8 @@ export default class Fight extends Component {
       const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
       const pState = attack.playerStates[attack.attacker]
 
-      const isMe = pState && pState.id === this.state.player.id
+
+      const isMe = attack.attacker === this.state.me
       const className = ['fight-text']
       if (!isMe) {
         className.push('fight-text-opponent')
@@ -132,29 +136,19 @@ export default class Fight extends Component {
   }
 
   printRegularAttack (attack) {
-    if (!attack.hasWeapon){
-      return 'Player ' + attack.attacker + ' has no weapon.'
+    if (!this.state.accounts) {
+      return
     }
-    if (attack.miss){
-      return 'Player ' + attack.attacker + ' missed.'
-    }
-    else if (attack.crit > 0){
-      if (attack.crit > 1){
-        if (attack.arcaneDamage > 0){
-          return 'Player ' + attack.attacker + ' made a critical critical hit for ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
-        }
-        return 'Player ' + attack.attacker + ' made a critical critical hit for ' + attack.damage + ' damage.'
-      } else if (attack.arcaneDamage > 0){
-        return 'Player ' + attack.attacker + ' made a critical hit for ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
-      }
-      return 'Player ' + attack.attacker + ' made a critical hit for ' + attack.damage + ' damage.'
-    }
-    else if (attack.arcaneDamage > 0){
-      return 'Player ' + attack.attacker + ' dealt ' + attack.damage + ' damage and ' + attack.arcaneDamage + ' arcane damage.'
-    }
-    else {
-      return 'Player ' + attack.attacker + ' dealt ' + attack.damage + ' damage.'
-    }
+
+    const attacker = this.state.accounts[attack.attacker].username
+    const defender = this.state.accounts[attack.defender].username
+
+    const msg = attack.message
+      .replace('[attacker]', attacker)
+      .replace('[defender]', defender)
+
+
+    return `${msg} (${attack.damage})`
   }
 
   printBuffAttack (attack) {
