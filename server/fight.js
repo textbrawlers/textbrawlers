@@ -296,8 +296,11 @@ export default class Fight {
   doBuffs () {
     let bleedDamage = 0
     let poisonDamage = 0
+    let poisonDuration = 0
     let burnDamage = 0
+    let burnDuration = 0
     let arcaneDamage = 0
+    let arcaneStacks = 0
 
     let defender = this.getCurrentAttackerIndex()
     let index = 0
@@ -305,7 +308,7 @@ export default class Fight {
       let currentBuff = this.playerStates[defender].buffs[index]
       if (currentBuff.type === 'bleed') {
         bleedDamage++
-        if (currentBuff.duration <= 1) {
+        if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index)
         } else {
           this.playerStates[defender].buffs[index].duration--
@@ -313,24 +316,27 @@ export default class Fight {
         }
       } else if (currentBuff.type === 'poison') {
         poisonDamage = currentBuff.damage
-        if (currentBuff.duration <= 1) {
+        if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
+        // poisonDuration = this.playerStates[defender].buffs[index].duration
       } else if (currentBuff.type === 'burn') {
         burnDamage = Math.round(currentBuff.damageMult * currentBuff.baseDmg)
-        if (currentBuff.duration <= 1) {
+        if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
         }
+        // burnDuration = this.playerStates[defender].buffs[index].duration
       } else if (currentBuff.type === 'arcane') {
         arcaneDamage = 1
         this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
         index++
+        arcaneStacks =   this.playerStates[defender].buffs[index].stacks
       }
     }
 
@@ -347,8 +353,11 @@ export default class Fight {
       playerDamaged: this.turn,
       bleedDamage: bleedDamage,
       poisonDamage: poisonDamage,
+      poisonDuration: poisonDuration,
       burnDamage: burnDamage,
-      arcaneDamage: arcaneDamage
+      burnDuration: burnDuration,
+      arcaneDamage: arcaneDamage,
+      arcaneStacks: arcaneStacks
     }
   }
 }
