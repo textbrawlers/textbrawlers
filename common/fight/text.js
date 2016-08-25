@@ -6,6 +6,11 @@ export default function messages (m, weapon, attacker, defender, round) {
     m.add(100, '[defender] had a bad day.')
     m.add(100, '[attacker] is victorious.')
     m.add(1, "[attacker], as the honorable man/woman, he/she is, has decided to spare [defender]'s life... Lol jk!")
+    m.add(100, "[attacker] ended [defender]'s pitiful existance.")
+  
+    if (weapon.type === 'magical-weapon') {
+      m.add(50, "[defender] was promptly turned into a bubbling pool of flesh.")
+    }
   } else {
     /* m.add(100, [
         'meddelande 1',
@@ -22,13 +27,17 @@ export default function messages (m, weapon, attacker, defender, round) {
     if (weapon.hasStat('ranged')) {
       if (round.missed) {
         m.add(100, '[attacker] fired at [defender] but missed.')
+        m.add(30, '[attacker] attempted to trickshot [defender], but failed miserably.')
       } else if (round.blocked) {
         m.add(100, '[attacker] fired at [defender] but [defender] blocked.')
+        m.add(30, "[attacker] attempted to trickshot [defender], but failed to consider [defender]'s blocking skills.")
       } else if (round.crit) {
         m.add(100, '[attacker] fired at [defender] and hit a weak spot.]')
+        m.add(30, '[attacker] managed to trickshot [defender], resulting in a critical hit!')
         m.add(1, '[attacker] 360 no-scoped [defender].]')
       } else {
         m.add(100, '[attacker] fired at [defender] and hit.')
+        m.add(30, '[attacker] managed to trickshot [defender], though the result was hardly worth the effort.')
       }
     }
 
@@ -118,6 +127,7 @@ export default function messages (m, weapon, attacker, defender, round) {
         m.add(100, '[attacker] stabbed at [defender]\'s defences.')
       } else if (round.crit) {
         m.add(100, '[attacker] stabbed [defender] and hit a critical spot.')
+        m.add(20, '[attacker] stabbed [defender] in the back. What a coward.')
       } else {
         m.add(100, '[attacker] stabbed [defender].')
       }
