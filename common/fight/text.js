@@ -48,15 +48,27 @@ export default function messages (m, weapon, attacker, defender, round) {
       }
     }
 
-    if (weapon.rarity === 'legendary') {
+    if (weapon.rarity === 'legendary' && weapon.hasStat('ranged')) {
       if (round.missed) {
-        m.add(50, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
+        m.add(10, '[attacker] fired his legendary [item-name] at [defender] but missed.')
       } else if (round.blocked) {
-        m.add(50, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
+        m.add(10, '[attacker] fired his legendary [item-name] at [defender] and got blocked.')
       } else if (round.crit) {
-        m.add(50, '[attacker] flailed wildly at [defender] and hit a weak spot, to everyone\'s suprise.')
+        m.add(10, '[attacker] fired his legendary [item-name] at [defender] and hit a weak spot.')
       } else {
-        m.add(50, '[attacker] flailed wildly at [defender] and hit, somehow.')
+        m.add(10, '[attacker] fired his legendary [item-name] at [defender] and hit.')
+      }
+    }
+    
+    if (weapon.rarity === 'legendary' && !weapon.hasStat('ranged')) {
+      if (round.missed) {
+        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but missed.')
+      } else if (round.blocked) {
+        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but [defender] blocked the attack.')
+      } else if (round.crit) {
+        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit a weak spot.')
+      } else {
+        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit.')
       }
     }
 
