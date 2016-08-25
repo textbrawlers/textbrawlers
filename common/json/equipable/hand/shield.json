@@ -8,7 +8,8 @@
       "character-stats": {
         "block-chance": 0.2,
         "block-multiplier": 0.5
-      }
+      },
+      "description": "Lets just hope your enemy doesn't bring any fire weapon..."
     },
     "heater-shield": {
       "name": "Heater Shield",
@@ -29,7 +30,8 @@
       "character-stats": {
         "block-chance": 0.6,
         "block-multiplier": 0.9
-      }
+      },
+      "description": "Big enough to tower over any opposition."
     }
   }
 }
