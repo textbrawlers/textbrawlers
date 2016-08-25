@@ -2,58 +2,54 @@ export default function messages (m, weapon, attacker, defender, round) {
   if (defender.currentHP <= 0) {
     m.add(100, '[attacker] finished off [defender].')
     m.add(100, '[attacker] abrutply ended [defender].')
-    m.add(1, '[attacker] softly disemboweled [defender].')
+    m.add(100, '[attacker] softly disemboweled [defender].')
     m.add(100, '[defender] had a bad day.')
     m.add(100, '[attacker] is victorious.')
-    m.add(1, "[attacker], as the honorable man/woman, he/she is, has decided to spare [defender]'s life... Lol jk!")
-    m.add(100, "[attacker] ended [defender]'s pitiful existance.")
+    m.add(1, '[attacker], as the honorable man/woman, he/she is, has decided to spare [defender]\'s life... Lol jk!')
+    m.add(100, '[attacker] ended [defender]\'s pitiful existance.')
+    m.add(1, 'Randy Orton RKO\'s [defender] outta nowhere!')
+    m.add(50, '[defender]\'s head spontaneously exploded.')
+    m.add(1, 'Gregolas smited [defender].')
+    m.add(50, '[defender] tripped and broke his neck...')
+    m.add(100, '[attacker] inflicted fatal damage to [defender].')
   
     if (weapon.type === 'magical-weapon') {
       m.add(50, "[defender] was promptly turned into a bubbling pool of flesh.")
     }
   } else {
-    /* m.add(100, [
-        'meddelande 1',
-        'meddelande 2',
-        'meddelande 3'
-    ])
-
-    m.add(5 [
-        'meddelande 4',
-        'meddelande 5',
-        'meddelande 6'
-    ])*/
 
     if (weapon.hasStat('ranged')) {
       if (round.missed) {
         m.add(100, '[attacker] fired at [defender] but missed.')
-        m.add(30, '[attacker] attempted to trickshot [defender], but failed miserably.')
+        m.add(10, '[attacker] attempted to trickshot [defender], but failed miserably.')
       } else if (round.blocked) {
         m.add(100, '[attacker] fired at [defender] but [defender] blocked.')
-        m.add(30, "[attacker] attempted to trickshot [defender], but failed to consider [defender]'s blocking skills.")
+        m.add(10, "[attacker] attempted to trickshot [defender], but failed to consider [defender]'s blocking skills.")
       } else if (round.crit) {
         m.add(100, '[attacker] fired at [defender] and hit a weak spot.]')
-        m.add(30, '[attacker] managed to trickshot [defender], resulting in a critical hit!')
+        m.add(10, '[attacker] managed to trickshot [defender], resulting in a critical hit!')
         m.add(1, '[attacker] 360 no-scoped [defender].]')
       } else {
         m.add(100, '[attacker] fired at [defender] and hit.')
-        m.add(30, '[attacker] managed to trickshot [defender], though the result was hardly worth the effort.')
+        m.add(10, '[attacker] managed to trickshot [defender], though the result was underwhelming.')
       }
     }
 
     if (!weapon.hasStat('ranged')) {
       if (round.missed) {
         m.add(100, '[attacker] swinged his [item-name] at [defender] but missed.')
-        m.add(50, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
+        m.add(10, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
+        m.add(1, "[attacker] missed...")
       } else if (round.blocked) {
         m.add(100, '[attacker] swinged his [item-name] at [defender] but [defender] blocked the attack.')
-        m.add(50, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
+        m.add(10, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
       } else if (round.crit) {
         m.add(100, '[attacker] swinged his [item-name] at [defender] and hit a weak spot.')
-        m.add(50, '[attacker] flailed wildly at [defender] and hit a weak spot, to everyone\'s suprise.')
+        m.add(10, '[attacker] flailed wildly at [defender] and hit a weak spot, to everyone\'s suprise.')
       } else {
         m.add(100, '[attacker] swinged his [item-name] at [defender] and hit.')
-        m.add(50, '[attacker] flailed wildly at [defender] and hit, somehow.')
+        m.add(10, '[attacker] flailed wildly at [defender] and hit, somehow.')
+        m.add(50, '[defender] suddenly got an arrow in his back. Who did that?')
       }
     }
 
