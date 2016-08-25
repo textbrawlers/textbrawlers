@@ -2,19 +2,19 @@
   "damage": {
     "type": "additive",
     "tooltip": "[fixed] Damage",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "The amount of damage a weapon deals with each hit, before adding any modifiers such as percentage-based damage and crits.",
     "display": true
   },
   "damage-multiplier": {
     "type": "additive",
     "tooltip": "[plus-percent] Damage",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "A percentage-based multiplier for your damage. The damage a weapon deals is increased by this value.",
     "display": true
   },
   "attack-speed": {
     "type": "additive",
     "tooltip": "[fixed-fine] Hit Chance",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "The chance your weapon has to hit an enemy (this is different from evade). If a weapon has more than 1 hit chance, it will automatically hit once, and have a chance of hitting an additional time. For example, a weapon with 4.5 hit chance will automatically hit 4 times and have a 50 percent chance of hitting a fifth time.",
     "display": true
   },
   "crit-chance": {
@@ -32,25 +32,25 @@
   "bleed-chance": {
     "type": "additive",
     "tooltip": "[percent] Bleed Chance",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "The chance your weapon has to inflict a Bleed stack upon your enemy each attack. Bleed deals 1 damage each turn and stacks, with each stack having its own separate duration.",
     "display": true
   },
   "bleed-duration": {
     "type": "additive",
     "tooltip": "[fixed] Bleed Duration",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "How long a stack of Bleed from this weapon will last. Bleed deals 1 damage each turn and stacks, with each stack having its own separate duration.",
     "display": true
   },
   "poison-duration": {
     "type": "additive",
     "tooltip": "[fixed] Poison Duration",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "How long a stack of poison from this weapon will remain. Poison deals damage each turn to an enemy depending on your Poison Damage. Poison does not stack, and if multiple poisons are applied to an enemy, only the one with the highest damage will remain.",
     "display": true
   },
   "poison-damage": {
     "type": "additive",
     "tooltip": "[fixed] Poison Damage",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "How much damage a stack of poison from this weapon will deal per turn. Poison deals damage each turn to an enemy depending on your Poison Damage. Poison does not stack, and if multiple poisons are applied to an enemy, only the one with the highest damage will remain.",
     "display": true
   },
   "stun-chance": {
@@ -62,37 +62,37 @@
   "block-chance": {
     "type": "additive",
     "tooltip": "[percent] Block Chance",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "Block Chance is the chance you have to block an attack. A blocked attack deals reduced damage based on your Block Multiplier.",
     "display": true
   },
   "block-multiplier": {
     "type": "multiplicative",
     "tooltip": "[fixed-fine] Block Multiplier",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "Block Multiplier determines how many percent of the initial damage you will take when blocking. A 0.5 block multiplier means a 50 percent reduction in damage, while a 0.1 modifier means a 90 percent reduction.",
     "display": true
   },
   "max-health": {
     "type": "additive",
     "tooltip": "[fixed] Max Health",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "Your maximum health, this determines how long you will be able to survive.",
     "display": true
   },
   "max-health-multiplier": {
     "type": "additive",
     "tooltip": "[plus-percent] Max Health",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "A percentage-based modifier for your maximum health. Your maximum health is increased by this value.",
     "display": true
   },
   "comfort": {
     "type": "additive",
     "tooltip": "[plus-percent] Comfort",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "How comfortable you currently are.",
     "display": false
   },
   "fashionable": {
     "type": "additive",
     "tooltip": "[plus-percent] Fashionable",
-    "detail-tooltip": "PLACEHOLDER",
+    "detail-tooltip": "How FABULOUS you look.",
     "display": false
   },
   "fury": {
@@ -128,7 +128,7 @@
   "void-strike": {
     "type": "multiplicative",
     "tooltip": "[fixed] Void Strike",
-    "detail-tooltip": "Every hit adds a stack of 'void'. Each hit has a 50% chance to deal the numbers of stacks times your damage.",
+    "detail-tooltip": "Every hit adds a stack of 'void'. Each hit has a 50% chance to deal the numbers of stacks times your damage, while consuming all stacks.",
     "display": false
   },
   "ranged": {
