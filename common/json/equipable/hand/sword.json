@@ -76,7 +76,7 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 10,
-        "hit-chance": 0.6,
+        "hit-chance": 0.6
       },
     "description": "\"What do you call it?\"\n\n\"...\""
     },
@@ -87,7 +87,7 @@
       "icon": "itemancientsword",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 10,
+        "damage": 10
       },
     "description": "It's pretty old."
     },
@@ -99,7 +99,7 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 8,
-        "hit-chance": 1.15,
+        "hit-chance": 1.15
       },
     "description": "Stick 'em with the pointy end."
     },
@@ -111,7 +111,7 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 45,
-        "hit-chance": 0.15,
+        "hit-chance": 0.15
       },
     "description": "For when the longsword just won't suffice."
     }
