@@ -4,7 +4,7 @@
       "name": "Oversized",
       "character-stats": {
       	"block-chance": 0.15,
-      	"attack-speed": 0.2
+      	"attack-speed": -0.2
       }
     }
   },
