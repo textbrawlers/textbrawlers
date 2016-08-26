@@ -27,6 +27,20 @@
         "ranged": true
       },
       "description": "...but long in which direction?"
+    },
+    "crossbow": {
+      "name": "Crossbow",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemcrossbow",
+      "attack-stats": {
+        "damage": 12,
+        "attack-speed": -10,
+        "crit-chance": 0.3,
+        "crit-damage": 1.2,
+        "ranged": true
+      },
+      "description": "Don't cross the bows!"
     }
   }
 }
