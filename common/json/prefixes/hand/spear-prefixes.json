@@ -172,23 +172,23 @@
   },
 
   "bleed-chance": {
-    "cutting": {
-      "name": "Cutting",
+    "wounding": {
+      "name": "Wounding",
       "attack-stats": {
         "bleed-chance": 0.1,
         "bleed-duration": 1
       }
     },
-    "slicing": {
-      "name": "Slicing",
+    "puncturing": {
+      "name": "Puncturing",
       "drop-rate": 75,
       "attack-stats": {
         "bleed-chance": 0.2,
         "bleed-duration": 1
       }
     },
-    "slashing": {
-      "name": "Slashing",
+    "lacerating": {
+      "name": "Lacerating",
       "drop-rate": 50,
       "attack-stats": {
         "bleed-chance": 0.3,
