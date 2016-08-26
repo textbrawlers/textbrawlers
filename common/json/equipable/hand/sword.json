@@ -67,6 +67,53 @@
         "bleed-duration": 10
       },
 	  "description": "Don't forget to feed it."
+    },
+    "nameless-sword": {
+      "name": "Nameless Sword",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemnamelesssword",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage": 10,
+        "hit-chance": 0.6,
+      },
+    "description": "\"What do you call it?\"<br><br>\"...\""
+    },
+    "ancient-sword": {
+      "name": "Ancient Sword",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemancientsword",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage": 10,
+      },
+    "description": "It's pretty old."
+    },
+    "rapier": {
+      "name": "Rapier",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemrapier",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage": 8,
+        "hit-chance": 1.15,
+      },
+    "description": "Stick 'em with the pointy end."
+    },
+    "zweihander": {
+      "name": "Zweihander",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemzweihander",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage": 45,
+        "hit-chance": 0.15,
+      },
+    "description": "For when the longsword just won't suffice."
     }
   }
 }

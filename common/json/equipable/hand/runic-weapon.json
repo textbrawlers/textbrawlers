@@ -99,7 +99,7 @@
       "name": "Runic Spear",
       "slot": "hand",
       "attack": true,
-      "icon": "itemancientspear",
+      "icon": "itemrunespear",
       "drop-rate": 25,
       "attack-stats": {
         "damage": 6,

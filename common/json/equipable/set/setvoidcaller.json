@@ -4,7 +4,7 @@
       "voidcaller-chestpiece": {
         "name": "Robe of the Voidcaller",
         "slot": "torso",
-        "icon": "itemchestvoidcaller",
+        "icon": "itemvoidrobe",
         "character-stats": {
           "max-health": -5,
           "crit-chance": -0.01,
@@ -16,7 +16,7 @@
       "voidcaller-leggings": {
         "name": "Trousers of the Voidcaller",
         "slot": "legs",
-        "icon": "itemlegsvoidcaller",
+        "icon": "itemvoidtrousers",
         "character-stats": {
           "max-health": -5,
           "crit-chance": -0.01,
@@ -28,7 +28,7 @@
       "voidcaller-boots": {
         "name": "Treads of the Voidcaller",
         "slot": "feet",
-        "icon": "itemfeetvoidcaller",
+        "icon": "itemvoidtreads",
         "character-stats": {
           "max-health": -5,
           "crit-chance": -0.01,
