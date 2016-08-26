@@ -24,7 +24,9 @@
     "feet-prefixes": "common/json/prefixes/armor/feet-prefixes.json",
     "legs-prefixes": "common/json/prefixes/armor/legs-prefixes.json",
     "offhand-prefixes": "common/json/prefixes/hand/offhand-prefixes.json",
-    "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json"
+    "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json",
+
+    "weird-prefixes": "common/json/prefixes/armor/weird-prefix.json"
   },
   "possible": {
     "axe": {

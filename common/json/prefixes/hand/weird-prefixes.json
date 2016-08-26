@@ -1,15 +1,9 @@
 {
   "weird": {
-    "insertidhere": {
-      "name": "InsertNameHere",
+    "replicating": {
+      "name": "Replicating",
       "stats": {
         "insertstathere": 1.0
-      }
-    },
-    "insertidhere2": {
-      "name": "InsertNameHere2",
-      "stats": {
-        "insertstathere2": 2.0
       }
     }
   }
