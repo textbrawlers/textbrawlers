@@ -78,7 +78,7 @@
         "damage": 10,
         "hit-chance": 0.6,
       },
-    "description": "\"What do you call it?\"<br><br>\"...\""
+    "description": "\"What do you call it?\"\n\n\"...\""
     },
     "ancient-sword": {
       "name": "Ancient Sword",
