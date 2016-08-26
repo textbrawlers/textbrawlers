@@ -20,8 +20,8 @@
       "attack": true,
       "icon": "itemlongbow",
       "attack-stats": {
-        "damage": 14,
-        "attack-speed": -9.3,
+        "damage": 11,
+        "attack-speed": -9.5,
         "crit-chance": 0.4,
         "crit-damage": 1.0,
         "ranged": true
