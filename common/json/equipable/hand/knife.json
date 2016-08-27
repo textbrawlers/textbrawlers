@@ -8,12 +8,18 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 6,
-        "attack-speed": 3,
+        "attack-speed": 1.0,
         "crit-chance": 0.4,
         "crit-damage": 0.4,
         "bleed-chance": 0.35,
         "bleed-duration": 1
       },
+	  "empower-stats": [{
+        "category": "knife",
+        "stats": {
+		  "attack-speed": 1.0
+        }
+      }],
       "description": "The knife of a very well known assassin, and therefore a very bad assassin."
     },
     "linen-knife": {
@@ -24,10 +30,16 @@
       "drop-rate": 10,
       "attack-stats": {
         "damage": 2,
-        "attack-speed": 0.8,
+        "attack-speed": 0.1,
         "crit-chance": 1,
         "crit-damage": -0.5
       },
+	  "empower-stats": [{
+        "category": "knife",
+        "stats": {
+		  "attack-speed": 1.0
+        }
+      }],
       "description": "But WHY?"
     }
   }
