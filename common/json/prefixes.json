@@ -26,7 +26,7 @@
     "offhand-prefixes": "common/json/prefixes/hand/offhand-prefixes.json",
     "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json",
 
-    "weird-prefixes": "common/json/prefixes/armor/weird-prefix.json"
+    "weird-prefixes": "common/json/prefixes/armor/weird-prefixes.json"
   },
   "possible": {
     "axe": {
