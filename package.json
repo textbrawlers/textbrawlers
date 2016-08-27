@@ -6,7 +6,7 @@
   "dependencies": {
     "babel-eslint": "^6.1.2",
     "dotenv": "^2.0.0",
-    "jspm": "0.17.0-beta.22",
+    "jspm": "^0.17.0-beta.28",
     "ws": "^1.1.1"
   },
   "standard": {
