@@ -24,9 +24,7 @@
     "feet-prefixes": "common/json/prefixes/armor/feet-prefixes.json",
     "legs-prefixes": "common/json/prefixes/armor/legs-prefixes.json",
     "offhand-prefixes": "common/json/prefixes/hand/offhand-prefixes.json",
-    "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json",
-
-    "weird-prefixes": "common/json/prefixes/armor/weird-prefixes.json"
+    "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json"
   },
   "possible": {
     "axe": {
@@ -77,28 +75,24 @@
     "head": {
       "head-prefixes": 100,
       "armor-prefixes": 100,
-      "weird-prefixes-armor": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "torso": {
       "torso-prefixes": 100,
       "armor-prefixes": 100,
-      "weird-prefixes-armor": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "legs": {
       "legs-prefixes": 100,
       "armor-prefixes": 100,
-      "weird-prefixes-armor": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "feet": {
       "feet-prefixes": 100,
       "armor-prefixes": 100,
-      "weird-prefixes-armor": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },

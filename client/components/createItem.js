@@ -137,13 +137,13 @@ export default class CreateItem extends Component {
           return (
             <div key={i}>
               <select value={prefix[0]} onChange={e => this.setPrefix1(i, e)}>
-                {Object.keys(this.state.allPrefixes).map(prefix => <option value={prefix}>{prefix}</option>)}
+                {Object.keys(this.state.allPrefixes).map((prefix, i) => <option key={i} value={prefix}>{prefix}</option>)}
               </select>
               <select value={prefix[1]} onChange={e => this.setPrefix2(i, e)}>
-                {Object.keys(this.state.allPrefixes[prefix[0]]).map(prefix => <option value={prefix}>{prefix}</option>)}
+                {Object.keys(this.state.allPrefixes[prefix[0]]).map((prefix, i) => <option key={i} value={prefix}>{prefix}</option>)}
               </select>
               <select value={prefix[2]} onChange={e => this.setPrefix3(i, e)}>
-                {Object.keys(this.state.allPrefixes[prefix[0]][prefix[1]]).map(prefix => <option value={prefix}>{prefix}</option>)}
+                {Object.keys(this.state.allPrefixes[prefix[0]][prefix[1]]).map((prefix, i) => <option key={i} value={prefix}>{prefix}</option>)}
               </select>
               <button onClick={() => this.removePrefix(i)}>X</button>
             </div>
