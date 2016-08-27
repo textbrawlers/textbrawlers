@@ -34,10 +34,10 @@
       "attack": true,
       "icon": "itemcrossbow",
       "attack-stats": {
-        "damage": 12,
-        "attack-speed": -10,
-        "crit-chance": 0.3,
-        "crit-damage": 1.2,
+        "damage": 13,
+        "attack-speed": -9.8,
+        "crit-chance": 0.2,
+        "crit-damage": 1.3,
         "ranged": true
       },
       "description": "Don't cross the bows!"

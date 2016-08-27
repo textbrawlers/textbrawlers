@@ -103,13 +103,14 @@
       "drop-rate": 25,
       "attack-stats": {
         "damage": 6,
-        "attack-speed": 0.2
+        "attack-speed": 0.2,
+        "slow": true
       },
-	    "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		      "damage": 6,
-		      "attack-speed": 0.2
+	  "empower-stats": [{
+		"category": "runic-weapon",
+		"stats": {
+		  "damage": 6,
+		  "attack-speed": 0.2
         }
       }],
       "description": "\"Pointy end goes in enemy.\""

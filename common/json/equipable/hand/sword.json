@@ -49,9 +49,10 @@
         "damage": 5,
         "attack-speed": 0.6,
         "crit-damage": 0.2,
-        "bleed-chance": 1.0
+        "bleed-chance": 1.0,
+		"bleed-duration": 4
       },
-	  "description": "Now with 200 percent more blood!"
+	  "description": "Watch them bleed. A lot."
     },
     "cursed-sword": {
       "name": "Cursed Sword",
@@ -62,6 +63,7 @@
       "attack-stats": {
         "damage": 35,
         "attack-speed": -0.4,
+		"crit-chance": 0.25,
         "crit-damage": 1.0,
         "bleed-chance": 0.5,
         "bleed-duration": 10
@@ -76,7 +78,11 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 10,
-        "hit-chance": 0.6
+        "attack-speed": 0.75,
+		"crit-chance": 0.35,
+		"crit-damage": 0.7,
+		"bleed-chance": 0.4,
+		"bleed-duration": 2
       },
     "description": "\"What do you call it?\"\n\n\"...\""
     },
@@ -87,7 +93,10 @@
       "icon": "itemancientsword",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 10
+        "damage": 12,
+		"attack-speed": 0.8,
+		"crit-chance": 0.5,
+		"crit-damage": 0.5
       },
     "description": "It's pretty old."
     },
@@ -98,8 +107,10 @@
       "icon": "itemrapier",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 8,
-        "hit-chance": 1.15
+        "damage": 4,
+        "attack-speed": 1.35,
+		"crit-chance": 0.8,
+		"crit-damage": 1.5
       },
     "description": "Stick 'em with the pointy end."
     },
@@ -110,8 +121,11 @@
       "icon": "itemzweihander",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 45,
-        "hit-chance": 0.15
+        "damage": 40,
+        "attack-speed": 0.15,
+		"crit-chance": 0.2,
+		"crit-damage": 0.4,
+		"slow": true
       },
     "description": "For when the longsword just won't suffice."
     }
