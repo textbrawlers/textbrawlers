@@ -1,7 +1,7 @@
 import React from 'react'
 import { DragSource } from 'react-dnd'
 import TetherComponent from 'react-tether'
-import * as Common from 'common/api/common.js'
+import ItemTooltip from './itemTooltip.js'
 
 const targetSlot = {
   head: 0,
@@ -58,86 +58,6 @@ class InventoryItem extends React.Component {
     })
   }
 
-  getEmpowerStats (item) {
-    return item.empoweredStats.map((conf, i) => {
-      const stats = conf.stats.getStats().map((stat, i) => {
-        const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-        return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
-      })
-
-      let empowerCategory = ' ' + Common.capitalizeFirstLetter(conf.category)
-
-      return (
-        <div key={i}>
-          <p>
-            Empowers
-            {empowerCategory}:
-          </p>
-          {stats}
-        </div>
-      )
-    })
-  }
-
-  createTooltip () {
-    const item = this.props.item
-
-    const characterStats = item.characterStats.getStats().map((stat, i) => {
-      const statTooltip = stat.render((stat, i) => `<b>${stat}</b>`)
-      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
-    })
-
-    const attackStats = item.attackStats.getStats().map((stat, i) => {
-      const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
-    })
-
-    let characterStatsDiv
-    if (!item.characterStats.isEmpty()) {
-      characterStatsDiv = (
-        <div>
-          <p>
-            Character:
-          </p>
-          {characterStats}
-        </div>
-      )
-    }
-
-    let attackStatsDiv
-    if (!item.attackStats.isEmpty()) {
-      attackStatsDiv = (
-        <div>
-          <p>
-            Attack:
-          </p>
-          {attackStats}
-        </div>
-      )
-    }
-
-    let description
-    if (item.description) {
-      description = (
-        <div className='description'>
-          {item.description}
-        </div>
-      )
-    }
-
-    const empowerStats = this.getEmpowerStats(item)
-
-    return (
-      <div className='tooltip'>
-        <h2 className={`rarity-${item.rarity}`}>{item.displayName}</h2>
-        {attackStatsDiv}
-        {characterStatsDiv}
-        {empowerStats}
-        {description}
-      </div>
-    )
-  }
-
   render () {
     const item = this.props.item
 
@@ -152,7 +72,7 @@ class InventoryItem extends React.Component {
     const { isDragging, connectDragSource } = this.props
 
     if (this.state.tooltipVisible && !isDragging) {
-      tooltip = this.createTooltip()
+      tooltip = <ItemTooltip item={item} />
     }
 
     if (isDragging) {
