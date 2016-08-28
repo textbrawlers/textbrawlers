@@ -154,9 +154,12 @@ export default class Fight extends Component {
     const attacker = this.state.accounts[attack.attacker].username
     const defender = this.state.accounts[attack.defender].username
 
+    const weapon = this.state.players[attack.attacker].weaponStats[attack.weapon].weapon.displayName
+
     const msg = attack.message
-      .replace('[attacker]', attacker)
-      .replace('[defender]', defender)
+      .replace(/\[attacker\]/g, attacker)
+      .replace(/\[defender\]/g, defender)
+      .replace(/\[item-name\]/g, weapon)
 
 
     return `${msg} (${attack.damage})`
