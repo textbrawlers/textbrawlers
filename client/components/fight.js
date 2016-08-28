@@ -16,6 +16,8 @@ export default class Fight extends Component {
 
     this.state = {
       attacks: [],
+      players: [],
+      accounts: [],
       me: -1
     }
   }
@@ -35,23 +37,18 @@ export default class Fight extends Component {
     })
   }
 
-  getItem (inventory, index) {
-    if (!this.state.player) {
-      return
-    }
-    return
-    console.log('stateplayer', this.state.player)
-    const item = this.state.player[inventory] && this.state.player[inventory].get(index)
+  getItem (player, inventory, index) {
+    const item = player[inventory] && player[inventory].get(index)
     if (!item) {
       return
     }
-    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
+    return <InvItem item={item} inventory={inventory} slot={index} />
   }
 
-  createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
+  createSpecialSlot (player, inventory, slot, special = '', accepts = 'any') {
     return (
       <InventorySlot accepts={accepts} special={special} inventory={inventory} slot={slot}>
-        {this.getItem(inventory, slot)}
+        {this.getItem(player, inventory, slot)}
       </InventorySlot>
     )
   }
@@ -67,8 +64,6 @@ export default class Fight extends Component {
   render () {
     const attacks = this.state.attacks.map((attack, i) => {
       const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
-      const pState = attack.playerStates[attack.attacker]
-
 
       const isMe = attack.attacker === this.state.me
       const className = ['fight-text']
@@ -81,26 +76,37 @@ export default class Fight extends Component {
         </div>
       )
     })
+
+    const playerMe = this.state.players[this.state.me]
+    const playerOpponent = this.state.players[this.state.me === 0 ? 1 : 0]
+    const accountMe = this.state.accounts[this.state.me]
+    const accountOpponent = this.state.accounts[this.state.me === 0 ? 1 : 0]
+
     return (
       <div className='page-game-fight page-game-inventory'>
         <div className='content-background'>
           <div className='window equip-window'>
             <h2>Equipped Items</h2>
             <div className='equip windowcontent'>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 0, 'head', 'head')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
-                {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
-                {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
-              </div>
+              {playerMe &&
+                <div>
+                  {accountMe.username}
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 0, 'head', 'head')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 4, 'lefthand', 'hand')}
+                    {this.createSpecialSlot(playerMe, 'equipped', 1, 'body', 'torso')}
+                    {this.createSpecialSlot(playerMe, 'equipped', 5, 'righthand', 'hand')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 2, 'legs', 'legs')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 3, 'boots', 'feet')}
+                  </div>
+                </div>
+              }
             </div>
           </div>
           <div className='window fight-window'>
@@ -114,20 +120,25 @@ export default class Fight extends Component {
           <div className='window equip-window'>
             <h2>Equipped Items</h2>
             <div className='equip windowcontent'>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 0, 'head', 'head')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
-                {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
-                {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
-              </div>
+              {playerOpponent &&
+                <div>
+                  {accountOpponent.username}
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 0, 'head', 'head')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 4, 'lefthand', 'hand')}
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 1, 'body', 'torso')}
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 5, 'righthand', 'hand')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 2, 'legs', 'legs')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 3, 'boots', 'feet')}
+                  </div>
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -136,7 +147,7 @@ export default class Fight extends Component {
   }
 
   printRegularAttack (attack) {
-    if (!this.state.accounts) {
+    if (this.state.accounts.length === 0) {
       return
     }
 
