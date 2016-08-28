@@ -29,6 +29,14 @@ export default class Fight extends Component {
 
   async update () {
     const resp = (await request.get('/api/game/fight/' + this.props.params.fightId)).json
+
+    if (resp.success === false) {
+      this.setState({
+        failedLoad: true
+      })
+      return
+    }
+
     const players = await Promise.all(resp.players.map(player => Player.fromJSON(player)))
 
     this.setState({
@@ -91,6 +99,14 @@ export default class Fight extends Component {
     if (lastAttack) {
       buffsMe = lastAttack.playerStates[this.state.me].buffs
       buffsOpponent = lastAttack.playerStates[this.state.me === 0 ? 1 : 0].buffs
+    }
+
+    if (this.state.failedLoad) {
+      return (
+        <div className='page-game-fight'>
+          FIght not found
+        </div>
+      )
     }
 
     return (

@@ -196,6 +196,10 @@ export async function getSocial (ctx) {
 
 export async function getFight (ctx) {
   const fight = fightManager.get(ctx.params.id)
+  if (!fight) {
+    ctx.body = { success: false }
+    return
+  }
   const players = fight.players.map(player => player.serialize())
   let accounts = await Promise.all(fight.players.map(player => users.findOne({_id: player.id})))
   accounts = accounts.map(account => ({username: account.username}))
