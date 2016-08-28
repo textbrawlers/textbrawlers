@@ -174,43 +174,30 @@ export default class Fight extends Component {
       .replace(/\[defender\]/g, defender)
       .replace(/\[item-name\]/g, weapon)
 
-
     return `${msg} (${attack.damage})`
   }
 
   printBuffAttack (attack) {
-    let string = 'Player ' + attack.playerDamaged + ' took '
-    let damageBefore = false
-    if (attack.bleedDamage > 0){
-      string += attack.bleedDamage + ' Bleed Damage'
-      damageBefore = true
+    const attacker = this.state.accounts[attack.attacker].username
+
+    const buffTexts = []
+
+    if (attack.bleedDamage > 0) {
+      buffTexts.push(attack.bleedDamage + ' Bleed Damage')
     }
-    if (attack.poisonDamage > 0){
-      if (damageBefore){
-        string += ', '
-      }
-      string += attack.poisonDamage + ' Poison Damage'
-      damageBefore = true
+    if (attack.poisonDamage > 0) {
+      buffTexts.push(attack.poisonDamage + ' Poison Damage')
     }
-    if (attack.burnDamage > 0){
-      if (damageBefore){
-        string += ', '
-      }
-      string += attack.burnDamage + ' Burn Damage'
-      damageBefore = true
+    if (attack.burnDamage > 0) {
+      buffTexts.push(attack.burnDamage + ' Burn Damage')
     }
-    if (attack.arcaneDamage > 0){
-      if (damageBefore){
-        string += ', '
-      }
-      string += attack.arcaneDamage + ' Arcane Damage'
-      damageBefore = true
+    if (attack.arcaneDamage > 0) {
+      buffTexts.push(attack.arcaneDamage + ' Arcane Damage')
     }
-    if (!damageBefore){
-      string = 'Player ' + attack.playerDamaged + ' has no dots applied.'
-    } else {
-      string += '.'
+
+    if (buffTexts.length > 0) {
+      return `${attacker} took ${buffTexts.join(', ')}.`
     }
-    return string
+    return ''
   }
 }
