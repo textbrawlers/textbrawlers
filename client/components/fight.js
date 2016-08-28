@@ -5,6 +5,7 @@ import request from 'common/api/request.js'
 import Player from 'common/game/player.js'
 import InventorySlot from './inventorySlot.js'
 import InvItem from './invItem.js'
+import BuffBar from './buffBar.js'
 
 export default class Fight extends Component {
 
@@ -82,6 +83,16 @@ export default class Fight extends Component {
     const accountMe = this.state.accounts[this.state.me]
     const accountOpponent = this.state.accounts[this.state.me === 0 ? 1 : 0]
 
+    const lastAttack = this.state.attacks[this.state.attacks.length - 1]
+
+    let buffsMe = []
+    let buffsOpponent = []
+
+    if (lastAttack) {
+      buffsMe = lastAttack.playerStates[this.state.me].buffs
+      buffsOpponent = lastAttack.playerStates[this.state.me === 0 ? 1 : 0].buffs
+    }
+
     return (
       <div className='page-game-fight page-game-inventory'>
         <div className='content-background'>
@@ -107,6 +118,7 @@ export default class Fight extends Component {
                   </div>
                 </div>
               }
+              <BuffBar buffs={buffsMe} />
             </div>
           </div>
           <div className='window fight-window'>
@@ -139,6 +151,7 @@ export default class Fight extends Component {
                   </div>
                 </div>
               }
+              <BuffBar buffs={buffsOpponent} />
             </div>
           </div>
         </div>

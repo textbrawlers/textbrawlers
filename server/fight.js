@@ -93,7 +93,8 @@ export default class Fight {
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP,
-        id: s.player.id
+        id: s.player.id,
+        buffs: s.buffs
       })),
       damage: this.damage,
       attacker: this.attackerNum,
@@ -351,7 +352,8 @@ export default class Fight {
       playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP,
-        id: s.player.id
+        id: s.player.id,
+        buffs: s.buffs
       })),
       attacker: this.getCurrentAttackerIndex(),
       playerDamaged: defender,
