@@ -31,21 +31,6 @@
         "ranged": true
       },
       "description": "Madness? THIS... IS... ZEUS!"
-    },
-    "skull-of-death": {
-      "name": "Skull of Death",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemskull",
-      "drop-rate": 25,
-      "attack-stats": {
-        "damage": 2,
-        "attack-speed": 1.0,
-        "crit-chance": 0.01,
-        "crit-damage": 250.0,
-        "ranged": true
-      },
-      "description": "Do you feel lucky, punk?"
     }
   }
 }

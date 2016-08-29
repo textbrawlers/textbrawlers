@@ -33,9 +33,8 @@
       "icon": "itemwinegoblet",
       "drop-rate": 25,
       "character-stats": {
-        "attack-speed": -0.2,
         "crit-chance": -0.2,
-        "damage-multiplier": 0.20,
+        "damage-multiplier": 0.8,
         "comfort": 1.5
       },
       "description":"I need a... Drink... *hick*"
@@ -47,7 +46,7 @@
       "icon": "itemvigorcrystal",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": 30,
+        "max-health": 60,
         "max-health-multiplier": 0.15
       },
       "description": "It makes you feel healthier. Probably just placebo."
@@ -68,6 +67,17 @@
         }
       }],
       "description":"Carving a message into a stone is hardly practical. But it IS cool."
+    },
+    "skull-of-death": {
+      "name": "Skull of Death",
+      "slot": "hand",
+      "attack": false,
+      "icon": "itemskull",
+      "drop-rate": 25,
+      "character-stats": {
+        "damage": 2
+      },
+      "description": "Do you feel lucky, punk?"
     }
   }
 }
