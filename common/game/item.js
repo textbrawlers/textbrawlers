@@ -38,7 +38,11 @@ export default class Item {
       this.empoweredStats.push(obj)
     })
 
-    this.prefixes.forEach(prefix => {
+    this.prefixes.forEach((prefix, i) => {
+      if (i > 0 && prefix.path[2] === 'replicating') {
+        prefix = this.prefixes[i - 1]
+      }
+
       this.characterStats.add(prefix.characterStats)
       this.attackStats.add(prefix.attackStats)
 

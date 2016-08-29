@@ -5,6 +5,7 @@ import request from 'common/api/request.js'
 import Player from 'common/game/player.js'
 import InventorySlot from './inventorySlot.js'
 import InvItem from './invItem.js'
+import BuffBar from './buffBar.js'
 
 export default class Fight extends Component {
 
@@ -16,6 +17,8 @@ export default class Fight extends Component {
 
     this.state = {
       attacks: [],
+      players: [],
+      accounts: [],
       me: -1
     }
   }
@@ -26,6 +29,14 @@ export default class Fight extends Component {
 
   async update () {
     const resp = (await request.get('/api/game/fight/' + this.props.params.fightId)).json
+
+    if (resp.success === false) {
+      this.setState({
+        failedLoad: true
+      })
+      return
+    }
+
     const players = await Promise.all(resp.players.map(player => Player.fromJSON(player)))
 
     this.setState({
@@ -35,23 +46,18 @@ export default class Fight extends Component {
     })
   }
 
-  getItem (inventory, index) {
-    if (!this.state.player) {
-      return
-    }
-    return
-    console.log('stateplayer', this.state.player)
-    const item = this.state.player[inventory] && this.state.player[inventory].get(index)
+  getItem (player, inventory, index) {
+    const item = player[inventory] && player[inventory].get(index)
     if (!item) {
       return
     }
-    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
+    return <InvItem item={item} inventory={inventory} slot={index} />
   }
 
-  createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
+  createSpecialSlot (player, inventory, slot, special = '', accepts = 'any') {
     return (
       <InventorySlot accepts={accepts} special={special} inventory={inventory} slot={slot}>
-        {this.getItem(inventory, slot)}
+        {this.getItem(player, inventory, slot)}
       </InventorySlot>
     )
   }
@@ -67,8 +73,6 @@ export default class Fight extends Component {
   render () {
     const attacks = this.state.attacks.map((attack, i) => {
       const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
-      const pState = attack.playerStates[attack.attacker]
-
 
       const isMe = attack.attacker === this.state.me
       const className = ['fight-text']
@@ -81,26 +85,56 @@ export default class Fight extends Component {
         </div>
       )
     })
+
+    const playerMe = this.state.players[this.state.me]
+    const playerOpponent = this.state.players[this.state.me === 0 ? 1 : 0]
+    const accountMe = this.state.accounts[this.state.me]
+    const accountOpponent = this.state.accounts[this.state.me === 0 ? 1 : 0]
+
+    const lastAttack = this.state.attacks[this.state.attacks.length - 1]
+
+    let buffsMe = []
+    let buffsOpponent = []
+
+    if (lastAttack) {
+      buffsMe = lastAttack.playerStates[this.state.me].buffs
+      buffsOpponent = lastAttack.playerStates[this.state.me === 0 ? 1 : 0].buffs
+    }
+
+    if (this.state.failedLoad) {
+      return (
+        <div className='page-game-fight'>
+          FIght not found
+        </div>
+      )
+    }
+
     return (
       <div className='page-game-fight page-game-inventory'>
         <div className='content-background'>
           <div className='window equip-window'>
             <h2>Equipped Items</h2>
             <div className='equip windowcontent'>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 0, 'head', 'head')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
-                {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
-                {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
-              </div>
+              {playerMe &&
+                <div>
+                  {accountMe.username}
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 0, 'head', 'head')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 4, 'lefthand', 'hand')}
+                    {this.createSpecialSlot(playerMe, 'equipped', 1, 'body', 'torso')}
+                    {this.createSpecialSlot(playerMe, 'equipped', 5, 'righthand', 'hand')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 2, 'legs', 'legs')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerMe, 'equipped', 3, 'boots', 'feet')}
+                  </div>
+                </div>
+              }
+              <BuffBar buffs={buffsMe} />
             </div>
           </div>
           <div className='window fight-window'>
@@ -114,20 +148,26 @@ export default class Fight extends Component {
           <div className='window equip-window'>
             <h2>Equipped Items</h2>
             <div className='equip windowcontent'>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 0, 'head', 'head')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}
-                {this.createSpecialSlot('equipped', 1, 'body', 'torso')}
-                {this.createSpecialSlot('equipped', 5, 'righthand', 'hand')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 2, 'legs', 'legs')}
-              </div>
-              <div className='equip-itemslot'>
-                {this.createSpecialSlot('equipped', 3, 'boots', 'feet')}
-              </div>
+              {playerOpponent &&
+                <div>
+                  {accountOpponent.username}
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 0, 'head', 'head')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 4, 'lefthand', 'hand')}
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 1, 'body', 'torso')}
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 5, 'righthand', 'hand')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 2, 'legs', 'legs')}
+                  </div>
+                  <div className='equip-itemslot'>
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 3, 'boots', 'feet')}
+                  </div>
+                </div>
+              }
+              <BuffBar buffs={buffsOpponent} />
             </div>
           </div>
         </div>
@@ -136,54 +176,44 @@ export default class Fight extends Component {
   }
 
   printRegularAttack (attack) {
-    if (!this.state.accounts) {
+    if (this.state.accounts.length === 0) {
       return
     }
 
     const attacker = this.state.accounts[attack.attacker].username
     const defender = this.state.accounts[attack.defender].username
 
-    const msg = attack.message
-      .replace('[attacker]', attacker)
-      .replace('[defender]', defender)
+    const weapon = this.state.players[attack.attacker].weaponStats[attack.weapon].weapon.displayName
 
+    const msg = attack.message
+      .replace(/\[attacker\]/g, attacker)
+      .replace(/\[defender\]/g, defender)
+      .replace(/\[item-name\]/g, weapon)
 
     return `${msg} (${attack.damage})`
   }
 
   printBuffAttack (attack) {
-    let string = 'Player ' + attack.playerDamaged + ' took '
-    let damageBefore = false
-    if (attack.bleedDamage > 0){
-      string += attack.bleedDamage + ' Bleed Damage'
-      damageBefore = true
+    const attacker = this.state.accounts[attack.attacker].username
+
+    const buffTexts = []
+
+    if (attack.bleedDamage > 0) {
+      buffTexts.push(attack.bleedDamage + ' Bleed Damage')
     }
-    if (attack.poisonDamage > 0){
-      if (damageBefore){
-        string += ', '
-      }
-      string += attack.poisonDamage + ' Poison Damage'
-      damageBefore = true
+    if (attack.poisonDamage > 0) {
+      buffTexts.push(attack.poisonDamage + ' Poison Damage')
     }
-    if (attack.burnDamage > 0){
-      if (damageBefore){
-        string += ', '
-      }
-      string += attack.burnDamage + ' Burn Damage'
-      damageBefore = true
+    if (attack.burnDamage > 0) {
+      buffTexts.push(attack.burnDamage + ' Burn Damage')
     }
-    if (attack.arcaneDamage > 0){
-      if (damageBefore){
-        string += ', '
-      }
-      string += attack.arcaneDamage + ' Arcane Damage'
-      damageBefore = true
+    if (attack.arcaneDamage > 0) {
+      buffTexts.push(attack.arcaneDamage + ' Arcane Damage')
     }
-    if (!damageBefore){
-      string = 'Player ' + attack.playerDamaged + ' has no dots applied.'
-    } else {
-      string += '.'
+
+    if (buffTexts.length > 0) {
+      return `${attacker} took ${buffTexts.join(', ')}.`
     }
-    return string
+    return ''
   }
 }

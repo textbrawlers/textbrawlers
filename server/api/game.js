@@ -2,6 +2,7 @@ import Monk from 'monk'
 import { generateItem } from 'common/game/itemGenerator.js'
 import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
+import Item from 'common/game/item.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
@@ -12,6 +13,16 @@ export async function requestItem (ctx) {
   await ctx.player.save()
 
   ctx.body = ctx.player.serialize()
+}
+
+export async function createCustomItem (ctx) {
+  const item = await Item.fromJSON(ctx.request.body)
+  console.log('item', item)
+  ctx.player.inventory.push(item)
+
+  await ctx.player.save()
+
+  ctx.body = {success: true}
 }
 
 export async function requestInventory (ctx) {
@@ -185,6 +196,10 @@ export async function getSocial (ctx) {
 
 export async function getFight (ctx) {
   const fight = fightManager.get(ctx.params.id)
+  if (!fight) {
+    ctx.body = { success: false }
+    return
+  }
   const players = fight.players.map(player => player.serialize())
   let accounts = await Promise.all(fight.players.map(player => users.findOne({_id: player.id})))
   accounts = accounts.map(account => ({username: account.username}))

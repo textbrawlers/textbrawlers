@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import 'client/css/game-inventory.scss'
+import { ContextMenu, MenuItem, ContextMenuLayer } from 'react-contextmenu'
+import { browserHistory } from 'react-router'
 import InventorySlot from './inventorySlot.js'
 import Player from 'common/game/player.js'
 import InvItem from './invItem.js'
 import request from 'common/api/request.js'
 import CharacterStats from './characterStats.js'
+import CreateItem from './createItem.js'
 
 const INV_WIDTH = 10
 const INV_HEIGHT = 4
-const INV_MARGIN = 10 
-const INV_SLOT_SIZE = 50
 
-export default class GameIndex extends React.Component {
+export default class GameIndex extends Component {
 
   constructor () {
     super()
@@ -26,6 +27,8 @@ export default class GameIndex extends React.Component {
     this.requestItem = this.requestItem.bind(this)
     this.createSpecialSlot = this.createSpecialSlot.bind(this)
     this.reassemble = this.reassemble.bind(this)
+    this.createItem = this.createItem.bind(this)
+    this.createItemCallback = this.createItemCallback.bind(this)
 
     this.updatePlayer()
   }
@@ -39,16 +42,25 @@ export default class GameIndex extends React.Component {
     await this.request('/api/game/reassemble')
   }
 
+  createItemCallback (resp) {
+    if (resp === 'item-created') {
+      this.updatePlayer()
+    }
+
+    this.setState({
+      creatingItem: false
+    })
+  }
+
   getItem (inventory, index) {
     const item = this.state.player[inventory] && this.state.player[inventory].get(index)
     if (!item) {
       return
     }
-    return <InvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
+    return <ContextMenuInvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
   }
 
   createSlot (index) {
-
     return (
       <InventorySlot accepts='any' key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}>
          {this.getItem('inventory', index)}
@@ -87,8 +99,13 @@ export default class GameIndex extends React.Component {
     this.updatePlayer(resp)
   }
 
+  createItem () {
+    this.setState({ creatingItem: true })
+  }
+
   createSpecialSlot (inventory, slot, special = '', accepts = 'any') {
     return (
+
       <InventorySlot accepts={accepts} special={special} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={slot}>
         {this.getItem(inventory, slot)}
       </InventorySlot>
@@ -98,6 +115,7 @@ export default class GameIndex extends React.Component {
   render () {
     return (
       <div className='page-game-inventory'>
+        <InventoryItemContextMenu />
         <div className='container-inventory'>
           <div className='content-background'>
             <div className='window equip-window'>
@@ -146,9 +164,20 @@ export default class GameIndex extends React.Component {
               </div>
             </div>
           </div>
+          {this.state.creatingItem && (
+            <div className='window' style={{position: 'absolute', left: 0, top: 0}}>
+              <h2>Create Item</h2>
+              <div className='windowcontent'>
+                <CreateItem callback={this.createItemCallback} />
+              </div>
+            </div>
+          )}
           <br />
           <button id='spawnItem' onClick={this.requestItem}>
             Spawn Item
+          </button>
+          <button onClick={this.createItem}>
+            Create
           </button>
           <br />
           <div className='window tooltip-window'>
@@ -159,5 +188,33 @@ export default class GameIndex extends React.Component {
         </div>
       </div>
     )
+  }
+}
+
+const ContextMenuInvItem = ContextMenuLayer('inventory-item', props => props)(InvItem)
+
+class InventoryItemContextMenu extends Component {
+  constructor () {
+    super()
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  render () {
+    return (
+      <ContextMenu identifier='inventory-item'>
+        <MenuItem data={{action: 'view-details'}} onClick={this.handleClick}>
+          View Details
+        </MenuItem>
+      </ContextMenu>
+    )
+  }
+
+  handleClick (e, data) {
+    const action = data.action
+
+    if (action === 'view-details') {
+      const item64 = window.btoa(JSON.stringify(data.item.serialize()))
+      browserHistory.push(`/game/item/${item64}`)
+    }
   }
 }
