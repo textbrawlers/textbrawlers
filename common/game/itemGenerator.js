@@ -105,8 +105,11 @@ function getRandomPrefixes (possiblePrefixes, baseItem, prefixes, nPrefixes) {
   const usedCategories = []
   let n = 0
   while (generatedPrefixes.length < nPrefixes && n <= 1000) {
-    n++
     const prefix = getRandomPrefix(possible, category, prefixes, usedCategories)
+    if (prefix[2] === 'replicating' && n === 0) {
+      continue
+    }
+    n++
     if (prefix) {
       generatedPrefixes.push(prefix)
       usedCategories.push(prefix.path[1])
