@@ -133,40 +133,40 @@
       "name": "Harmless",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": -0.6
+        "crit-damage": -0.45
       }
     },
     "kind": {
       "name": "Kind",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-damage": -0.4
+        "crit-damage": -0.3
       }
     },
     "safe": {
       "name": "Safe",
       "attack-stats": {
-        "crit-damage": -0.2
+        "crit-damage": -0.15
       }
     },
     "crushing": {
       "name": "Crushing",
       "attack-stats": {
-        "crit-damage": 0.2
+        "crit-damage": 0.15
       }
     },
     "demolishing": {
       "name": "Demolishing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-damage": 0.4
+        "crit-damage": 0.3
       }
     },
     "obliterating": {
       "name": "Obliterating",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": 0.6
+        "crit-damage": 0.45
       }
     }
   },
