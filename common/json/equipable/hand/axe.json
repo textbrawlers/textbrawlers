@@ -8,8 +8,8 @@
       "attack-stats": {
         "damage": 22,
         "attack-speed": 0.5,
-        "crit-chance": 0.75,
-        "crit-damage": 0.5
+        "crit-chance": 0.35,
+        "crit-damage": 0.75
       },
 	  "description": "Cuts both ways!"
     },
@@ -19,10 +19,10 @@
       "attack": true,
       "icon": "itemwoodaxe",
       "attack-stats": {
-        "damage": 14,
-        "attack-speed": 0.8,
-        "crit-chance": 0.6,
-        "crit-damage": 0.5
+        "damage": 15,
+        "attack-speed": 0.65,
+        "crit-chance": 0.4,
+        "crit-damage": 0.6
       },
 	  "description": "How much wood would a woodcutter cut if a woodcutter would cut wood?"
     },
