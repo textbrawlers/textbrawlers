@@ -90,14 +90,14 @@
       "name": "Inaccurate",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": -0.3
+        "crit-chance": -0.2
       }
     },
     "inexact": {
       "name": "Inexact",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": -0.2
+        "crit-chance": -0.15
       }
     },
     "uncertain": {
@@ -116,14 +116,14 @@
       "name": "Piercing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": 0.2
+        "crit-chance": 0.15
       }
     },
     "precise": {
       "name": "Precise",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": 0.3
+        "crit-chance": 0.2
       }
     }
   },
