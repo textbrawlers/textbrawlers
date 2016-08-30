@@ -20,8 +20,8 @@
       "icon": "itemlongsword",
       "attack-stats": {
         "damage": 20,
-        "attack-speed": 0.6,
-        "crit-chance": 0.25,
+        "attack-speed": 0.55,
+        "crit-chance": 0.2,
         "crit-damage": 0.5
       },
 	  "description": "When you need to disembowel someone from a distance."
@@ -34,7 +34,7 @@
       "attack-stats": {
         "damage": 15,
         "attack-speed": 0.5,
-        "crit-chance": 1.0,
+        "crit-chance": 0.85,
         "crit-damage": 0.5
       },
 	  "description": "Not as broad as your mother!"
@@ -122,7 +122,7 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 40,
-        "attack-speed": 0.15,
+        "attack-speed": 0.2,
 		"crit-chance": 0.2,
 		"crit-damage": 0.4,
 		"slow": true
