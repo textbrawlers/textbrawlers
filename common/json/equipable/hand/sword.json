@@ -46,11 +46,10 @@
       "icon": "itemserratedsword",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 5,
-        "attack-speed": 0.6,
-        "crit-damage": 0.2,
-        "bleed-chance": 1.0,
-		"bleed-duration": 4
+        "damage": 6,
+        "attack-speed": 0.85,
+        "bleed-chance": 0.75,
+		    "bleed-duration": 8
       },
 	  "description": "Watch them bleed. A lot."
     },
