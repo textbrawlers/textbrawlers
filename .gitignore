@@ -7,3 +7,6 @@ build.js.map
 npm-debug.log
 npm-debug.log*
 build-*
+
+logs/*
+!logs/.gitkeep
