@@ -5,7 +5,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "test",
-      "drop-rate": 1000,
+      "drop-rate": 0,
       "attack-stats": {
         "damage": 5,
         "attack-speed": 1,
@@ -27,7 +27,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "test2",
-      "drop-rate": 1000,
+      "drop-rate": 0,
       "attack-stats": {
         "damage": 5,
         "attack-speed": 0
