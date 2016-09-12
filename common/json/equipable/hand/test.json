@@ -21,6 +21,18 @@
         "arcane-damage": 3
       },
       "description": "Only added for testing of dots."
+    },
+    "tard-tester": {
+      "name": "Tard Tester",
+      "slot": "hand",
+      "attack": true,
+      "icon": "test2",
+      "drop-rate": 1000,
+      "attack-stats": {
+        "damage": 5,
+        "attack-speed": 0
+      },
+      "description": "Only added for testing of tards."
     }
   }
 }
