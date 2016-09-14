@@ -35,11 +35,12 @@ export default class FightManager {
   }
 
   startFight (players) {
-    const fight = new Fight(players)
+    const key = getFightKey()
+    const fight = new Fight(players, key)
     const fightObj = new EventEmitter()
     fightObj.players = players
     fightObj.fight = fight
-    fightObj.id = getFightKey()
+    fightObj.id = key
     this.fights.push(fightObj)
 
     this.attack(fightObj)
@@ -83,6 +84,7 @@ export default class FightManager {
     this.sendAttackResponse(fightObj, resp)
 
     if (resp.done) {
+      fightObj.fight.writeLog()
       this.fights.splice(this.fights.indexOf(fightObj), 1)
     } else {
       setTimeout(() => this.attack(fightObj), 500)

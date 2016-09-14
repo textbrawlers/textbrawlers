@@ -194,7 +194,7 @@ export default class Fight extends Component {
   }
 
   printBuffAttack (attack) {
-    const attacker = this.state.accounts[attack.attacker].username
+    const defender = this.state.accounts[attack.playerDamaged].username
 
     const buffTexts = []
 
@@ -212,7 +212,7 @@ export default class Fight extends Component {
     }
 
     if (buffTexts.length > 0) {
-      return `${attacker} took ${buffTexts.join(', ')}.`
+      return `${defender} took ${buffTexts.join(', ')}.`
     }
     return ''
   }
