@@ -2,8 +2,7 @@ import * as SMath from 'common/api/specmath'
 import fs from 'fs'
 
 export default class Fight {
-  constructor (players, key) {
-    this.key = key
+  constructor (players) {
     this.log = []
 
     this.playerStates = players.map(player => ({
@@ -46,11 +45,11 @@ export default class Fight {
 
   attack () {
     this.attackId++
+    this.buffRound = false
     let resp
     if (this.buffRound && this.checkBuffs()) {
       this.log.push('ID: ' + this.attackId + '. Starting a dotattack.')
       resp = this.doBuffs()
-      this.buffRound = false
     } else {
       this.log.push('ID: ' + this.attackId + '. Starting an attack.')
       this.initAttack()
@@ -131,7 +130,7 @@ export default class Fight {
       this.damage = 0
       this.arcaneDamage = 0
       if (Math.random() <= this.numAttacks) {
-        this.log.push('ID: ' + this.attackId + '. Player ' + this.getCurrentAttackerIndex() + ' hit the enemy.')
+        this.log.push('ID: ' + this.attackId + '. Player hit the enemy.')
 
         this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
         this.log.push('ID: ' + this.attackId + '. Base damage = ' + this.damage + '.')
@@ -422,9 +421,9 @@ export default class Fight {
     }
   }
 
-  writeLog(){
+  writeLog(fightKey){
     const logString = `${this.log.join('\r\n')}`
-    fs.writeFile("./logs/fight-" + this.key + ".log", logString, function(err){
+    fs.writeFile("./logs/fight-" + fightKey + ".log", logString, function(err){
       if (err) {
         console.log(err)
       } else {
