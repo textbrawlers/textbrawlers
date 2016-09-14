@@ -87,12 +87,13 @@ export default class Fight {
       if (!this.weapons[this.currentWeapon]) {
         this.log.push('ID: ' + this.attackId + '. Player has no more weapons.')
         this.buffRound = true
-        this.log.push('ID: ' + this.attackId + '. Setting buffRound: true.')
+        this.log.push('ID: ' + this.attackId + '. Setting dotround: true.')
         this.turn++
         this.currentWeapon = 0
         if (!this.playerStates[this.turn]) {
           this.turn = 0
         }
+        this.log.push('ID: ' + this.attackId + '. Attack ended.')
       }else{
         this.log.push('ID: ' + this.attackId + '. Player is using another weapon.')
       }
@@ -154,9 +155,11 @@ export default class Fight {
         this.defender.currentHP -= this.damage
       } else {
         this.miss = true
+        this.log.push('ID: ' + this.attackId + '. Player missed.')
       }
     } else {
       this.hasWeapon = false
+      this.log.push('ID: ' + this.attackId + '. This scrub has no weapons.')
     }
   }
 
@@ -340,6 +343,7 @@ export default class Fight {
     if (this.playerStates[defender].buffs.length > 0) {
       return true
     }
+    this.log.push('ID: ' + this.attackId + '. No dots found, skipping dotattack.')
     return false
   }
 
