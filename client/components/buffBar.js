@@ -32,7 +32,7 @@ export default class BuffBar extends Component {
         exisiting.stacks++
         return newArr
       }
-      return newArr.concat(buff)
+      return newArr.concat(Object.assign({}, buff))
     }, [])
 
     const buffList = buffs.map((buff, i) => {
