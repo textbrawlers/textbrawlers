@@ -7,14 +7,14 @@ export default class Player {
 
   constructor ({inventory, equipped, reassemble, id}) {
     this.inventory = inventory || new Inventory([], 120)
-    this.equipped = equipped || new EquippedInventory([], 6)
+    this.equipped = equipped || new EquippedInventory([], 7)
     this.reassemble = reassemble || new Inventory([], 4)
     this.id = id
   }
 
   static async baseFromJSON (jsonPlayer) {
     const inventory = await Inventory.fromJSON(Inventory, jsonPlayer.inventory, 120)
-    const equipped = await EquippedInventory.fromJSON(EquippedInventory, jsonPlayer.equipped, 6)
+    const equipped = await EquippedInventory.fromJSON(EquippedInventory, jsonPlayer.equipped, 7)
     const reassemble = await Inventory.fromJSON(Inventory, jsonPlayer.reassemble, 4)
 
     const id = jsonPlayer.id
@@ -26,7 +26,7 @@ export default class Player {
     let characterStats = new StatCollection()
     characterStats.add(new Stat('max-health', 100))
     characterStats.add(new Stat('block-multiplier', 0.75))
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
       const item = this.equipped.get(i)
       if (!item) {
         continue
@@ -74,7 +74,7 @@ export default class Player {
 
   get weaponStats () {
     const weapons = []
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
       const item = this.equipped.get(i)
       if (!item || !item.canAttack) {
         continue
