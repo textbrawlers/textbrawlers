@@ -118,8 +118,9 @@ export default class Fight extends Component {
               {playerMe &&
                 <div>
                   {accountMe.username}
-                  <div className='equip-itemslot'>
+                  <div className='equip-itemslot equip-right'>
                     {this.createSpecialSlot(playerMe, 'equipped', 0, 'head', 'head')}
+                    {this.createSpecialSlot(playerMe, 'equipped', 6, 'trinket', 'trinket')}
                   </div>
                   <div className='equip-itemslot'>
                     {this.createSpecialSlot(playerMe, 'equipped', 4, 'lefthand', 'hand')}
@@ -151,8 +152,9 @@ export default class Fight extends Component {
               {playerOpponent &&
                 <div>
                   {accountOpponent.username}
-                  <div className='equip-itemslot'>
+                  <div className='equip-itemslot equip-right'>
                     {this.createSpecialSlot(playerOpponent, 'equipped', 0, 'head', 'head')}
+                    {this.createSpecialSlot(playerOpponent, 'equipped', 6, 'trinket', 'trinket')}
                   </div>
                   <div className='equip-itemslot'>
                     {this.createSpecialSlot(playerOpponent, 'equipped', 4, 'lefthand', 'hand')}

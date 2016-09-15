@@ -121,8 +121,9 @@ export default class GameIndex extends Component {
             <div className='window equip-window'>
               <h2>Equipped Items</h2>
               <div className='equip windowcontent'>
-                <div className='equip-itemslot'>
+                <div className='equip-itemslot equip-right'>
                   {this.createSpecialSlot('equipped', 0, 'head', 'head')}
+                  {this.createSpecialSlot('equipped', 6, 'trinket', 'trinket')}
                 </div>
                 <div className='equip-itemslot'>
                   {this.createSpecialSlot('equipped', 4, 'lefthand', 'hand')}

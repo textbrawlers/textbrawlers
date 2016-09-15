@@ -50,6 +50,7 @@ const types = props => {
     accepts.push('item-legs')
     accepts.push('item-feet')
     accepts.push('item-hand')
+    accepts.push('item-trinket')
   }
 
   return accepts
