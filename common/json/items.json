@@ -15,6 +15,7 @@
     "common/json/equipable/hand/magical.json",
     "common/json/equipable/hand/runic-weapon.json",
     "common/json/equipable/hand/spear.json",
+    "common/json/equipable/armor/trinket.json",
     "common/json/equipable/hand/test.json"
   ],
   "sets": [

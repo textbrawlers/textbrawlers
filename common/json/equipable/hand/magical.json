@@ -31,6 +31,22 @@
         "ranged": true
       },
       "description": "Madness? THIS... IS... ZEUS!"
+    },
+    "fingeroflight": {
+      "name": "Fingeroflight",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemfingeroflight",
+      "drop-rate": 15,
+      "attack-stats": {
+        "damage": 9,
+        "attack-speed": 0.85,
+        "crit-chance": 0.5,
+        "crit-damage": 0.75,
+        "arcane-chance": 0.75,
+        "arcane-damage": 4
+      },
+      "description": "What... Pointing at people makes them die?"
     }
   }
 }

@@ -139,7 +139,7 @@
         "attack-speed": 0.99,
         "crit-chance": 0.35,
         "crit-damage": 1.99,
-        "burn-chance": 0.1,
+        "burn-chance": 0.05,
         "burn-damage": 0.4
       },
       "description": "Very bright was that sword when it was made whole again; the light of the sun shone redly in it, and the light of the moon shone cold, and its edge was hard and keen. The blade was given a new name; Andúril, Flame of the West."
