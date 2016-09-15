@@ -51,7 +51,7 @@
         "bleed-chance": 0.75,
 		    "bleed-duration": 8
       },
-	  "description": "Watch them bleed. A lot."
+	    "description": "Watch them bleed. A lot."
     },
     "cursed-sword": {
       "name": "Cursed Sword",
@@ -62,12 +62,12 @@
       "attack-stats": {
         "damage": 35,
         "attack-speed": -0.4,
-		"crit-chance": 0.25,
+		    "crit-chance": 0.25,
         "crit-damage": 1.0,
         "bleed-chance": 0.5,
         "bleed-duration": 10
       },
-	  "description": "Don't forget to feed it."
+	    "description": "Don't forget to feed it."
     },
     "nameless-sword": {
       "name": "Nameless Sword",
@@ -78,12 +78,12 @@
       "attack-stats": {
         "damage": 10,
         "attack-speed": 0.75,
-		"crit-chance": 0.35,
-		"crit-damage": 0.7,
-		"bleed-chance": 0.4,
-		"bleed-duration": 2
+    		"crit-chance": 0.35,
+    		"crit-damage": 0.7,
+    		"bleed-chance": 0.4,
+    		"bleed-duration": 2
       },
-    "description": "\"What do you call it?\"\n\n\"...\""
+      "description": "\"What do you call it?\"\n\n\"...\""
     },
     "ancient-sword": {
       "name": "Ancient Sword",
@@ -93,11 +93,11 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 12,
-		"attack-speed": 0.8,
-		"crit-chance": 0.5,
-		"crit-damage": 0.5
+    		"attack-speed": 0.8,
+    		"crit-chance": 0.5,
+    		"crit-damage": 0.5
       },
-    "description": "It's pretty old."
+      "description": "It's pretty old."
     },
     "rapier": {
       "name": "Rapier",
@@ -108,10 +108,10 @@
       "attack-stats": {
         "damage": 4,
         "attack-speed": 1.35,
-		"crit-chance": 0.8,
-		"crit-damage": 1.5
+    		"crit-chance": 0.8,
+    		"crit-damage": 1.5
       },
-    "description": "Stick 'em with the pointy end."
+      "description": "Stick 'em with the pointy end."
     },
     "zweihander": {
       "name": "Zweihander",
@@ -122,11 +122,27 @@
       "attack-stats": {
         "damage": 40,
         "attack-speed": 0.2,
-		"crit-chance": 0.2,
-		"crit-damage": 0.4,
-		"slow": true
+    		"crit-chance": 0.2,
+    		"crit-damage": 0.4,
+    		"slow": true
       },
-    "description": "For when the longsword just won't suffice."
+      "description": "For when the longsword just won't suffice."
+    },
+    "andúril": {
+      "name": "Andúril",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemandúril",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage": 15,
+        "attack-speed": 0.99,
+        "crit-chance": 0.35,
+        "crit-damage": 1.99,
+        "burn-chance": 0.1,
+        "burn-damage": 0.4
+      },
+      "description": "Very bright was that sword when it was made whole again; the light of the sun shone redly in it, and the light of the moon shone cold, and its edge was hard and keen. The blade was given a new name; Andúril, Flame of the West."
     }
   }
 }

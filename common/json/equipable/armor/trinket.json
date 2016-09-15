@@ -1,0 +1,15 @@
+{
+  "trinket": {
+    "content": {
+      "name": "Content",
+      "slot": "trinket",
+      "attack": false,
+      "icon": "itemcontent",
+      "drop-rate": 125,
+      "character-stats": {
+        "max-health": 20
+      },
+      "description": "More content."
+    }
+  }
+}
