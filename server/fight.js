@@ -46,11 +46,10 @@ export default class Fight {
   attack () {
     this.attackId++
     let resp
+    this.buffRound = this.checkBuffs() ? this.buffRound : false;
     if (this.buffRound){
-      if (this.checkBuffs()) {
-        this.log.push('ID: ' + this.attackId + '. Starting a dotattack.')
-        resp = this.doBuffs()
-      }
+      this.log.push('ID: ' + this.attackId + '. Starting a dotattack.')
+      resp = this.doBuffs()
       this.buffRound = false
     } else {
       this.log.push('ID: ' + this.attackId + '. Starting an attack.')
