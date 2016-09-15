@@ -8,7 +8,8 @@ const targetSlot = {
   torso: 1,
   legs: 2,
   feet: 3,
-  hand: 4
+  hand: 4,
+  trinket: 5
 }
 
 class InventoryItem extends React.Component {

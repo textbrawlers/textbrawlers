@@ -6,7 +6,8 @@ const slots = {
   2: 'legs',
   3: 'feet',
   4: 'hand',
-  5: 'hand'
+  5: 'hand',
+  6: 'trinket'
 }
 
 export default class EquippedInventory extends Inventory {
