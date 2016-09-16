@@ -12,6 +12,35 @@
         "crit-damage": 0.2
       },
       "description": "Not to be confused with a Wombat Hammer."
+    },
+    "sledgehammer": {
+      "name": "Sledgehammer",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsledgehammer",
+      "attack-stats": {
+        "damage": 25,
+        "attack-speed": 0.25,
+        "crit-chance": 0.9,
+        "crit-damage": 0.25,
+		"stun-chance": 0.5
+      },
+      "description": "Can\'t touch this."
+    },
+    "morning-star": {
+      "name": "Morning Star",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemmorningstar",
+      "attack-stats": {
+        "damage": 10,
+        "attack-speed": 0.65,
+        "crit-chance": 0.6,
+        "crit-damage": 0.1,
+		"bleed-chance": 0.6,
+		"bleed-duration": 3
+      },
+      "description": "Rise and shine!"
     }
   }
 }
