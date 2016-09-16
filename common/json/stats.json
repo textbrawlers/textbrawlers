@@ -143,6 +143,12 @@
     "detail-tooltip": "Slow weapons are easier to dodge, and thus your enemy treats their dodge as 20% higher against this weapon.",
     "display": true
   },
+  "armor-pierce": {
+    "type": "additive",
+    "tooltip": "[percent] Armor Pierce",
+    "detail-tooltip": "If a weapon has Armor Pierce, your opponent recieves that much lower Block Chance against attacks with this weapon.",
+    "display": true
+  },
   "luck": {
     "type": "additive",
     "tooltip": "[percent] Luck",
