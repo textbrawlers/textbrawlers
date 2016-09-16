@@ -1,5 +1,22 @@
 {
   "head": {
+    "acb-helmet": {
+      "name": "SCB Helmbutt",
+      "slot": "head",
+      "attack": true,
+      "icon": "itemironhelmet",
+      "drop-rate": 125,
+      "character-stats": {
+        "block-multiplier": 0.96
+      },
+      "attack-stats": {
+        "damage": 0,
+        "attack-speed": 1,
+        "bleed-chance": 1,
+        "bleed-duration": 10
+      },
+      "description": "It seems like yet ANTOHER developer needs to learn the alphabet."
+    },
     "scb-helmet": {
       "name": "ACB Helmbutt",
       "slot": "head",
@@ -15,7 +32,7 @@
         "crit-chance": 0.3,
         "crit-damage": 0.3
       },
-      "description": "It seems lika a developer needs to learn the alphabet."
+      "description": "It seems like a developer needs to learn the alphabet."
     },
     "leather-helmet": {
       "name": "Leather Cap",
