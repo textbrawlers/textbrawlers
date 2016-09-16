@@ -6,6 +6,7 @@
       "attack": false,
       "icon": "itemcontent",
       "drop-rate": 125,
+      
       "character-stats": {
         "max-health": 20
       },

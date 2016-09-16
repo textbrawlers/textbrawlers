@@ -48,8 +48,11 @@ export default class Inventory {
 
     const items = {}
 
-    for (let [slot, item] of Object.entries(jsonInventory)) {
-      items[slot] = await Item.fromJSON(item)
+    for (let [slot, jsonItem] of Object.entries(jsonInventory)) {
+      const item = await Item.fromJSON(jsonItem)
+      if (item){
+        items[slot] = item
+      }
     }
 
     return new Type(items, size)

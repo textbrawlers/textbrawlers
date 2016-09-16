@@ -76,6 +76,9 @@ export default class Fight {
 
     if (this.numAttacks <= 0) {
       this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
+      if (this.attacker.buffs.find(b => b.type === "stun")){
+        this.numAttacks /= 2
+      }
     }
     this.log.push('ID: ' + this.attackId + '. Attack initialized, player ' + this.attackerNum + ' is the attacker.')
   }
@@ -317,27 +320,29 @@ export default class Fight {
           this.arcaneDamage = oldBuffs[buffIndex].storedDmg
           this.playerStates[defender].buffs.splice(buffIndex, 1)
         } else if (damage < weapon.stats.getValue('arcane-damage')) {
-          this.log.push('ID: ' + this.attackId + '. Arcane, new dot is stronger, applying.')
-          const newBuff = {type: 'arcane',
+          const newBuff = {
+            type: 'arcane',
             stacks: currentStacks++,
             damage: weapon.stats.getValue('arcane-damage'),
             storedDmg: oldBuffs[buffIndex].storedDmg
           }
           this.playerStates[defender].buffs[buffIndex] = newBuff
+          this.log.push('ID: ' + this.attackId + '. Arcane, new dot is stronger, applying. Stacks: ' + newBuff.stacks + '.')
         } else {
-          this.log.push('ID: ' + this.attackId + '. Arcane, old dot is stronger.')
           this.playerStates[defender].buffs[buffIndex].stacks++
+          this.log.push('ID: ' + this.attackId + '. Arcane, old dot is stronger. Stacks: ' + this.playerStates[defender].buffs[buffIndex].stacks + '.')
         }
       } else {
-        this.log.push('ID: ' + this.attackId + '. Arcane, dot not found, applying.')
-        const newBuff = {type: 'arcane',
+        this.log.push('ID: ' + this.attackId + '. Arcane, dot not found, applying. Stacks: 1.')
+        const newBuff = {
+          type: 'arcane',
           stacks: 1,
           damage: weapon.stats.getValue('arcane-damage'),
           storedDmg: 0
         }
         this.playerStates[defender].buffs.push(newBuff)
       }
-    }else{
+    } else {
       this.log.push('ID: ' + this.attackId + '. Arcane, failed.')
     }
   }
@@ -400,6 +405,9 @@ export default class Fight {
         this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
         index++
         arcaneStacks = currentBuff.stacks
+      } else if (currentBuff.type === 'stun') {
+        this.log.push('ID: ' + this.attackId + '. Stun found, removing.')
+        this.playerStates[defender].buffs.splice(index)
       }
     }
 

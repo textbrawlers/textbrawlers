@@ -11,28 +11,17 @@
         "attack-speed": 1,
         "crit-chance": 1.5,
         "crit-damage": 1,
+        "stun-chance": 1,
         "bleed-chance": 1,
         "bleed-duration": 3,
-        "poison-damage": 4,
+        "poison-damage": 2,
         "poison-duration": 2,
         "burn-chance": 1,
-        "burn-damage": 0.4,
+        "burn-damage": 0.1,
         "arcane-chance": 1,
         "arcane-damage": 3
       },
       "description": "Only added for testing of dots."
-    },
-    "tard-tester": {
-      "name": "Tard Tester",
-      "slot": "hand",
-      "attack": true,
-      "icon": "test2",
-      "drop-rate": 0,
-      "attack-stats": {
-        "damage": 5,
-        "attack-speed": 0
-      },
-      "description": "Only added for testing of tards."
     }
   }
 }
