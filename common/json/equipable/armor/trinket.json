@@ -13,7 +13,7 @@
     },
     "pocket-knife": {
       "name": "Pocket Knife",
-      "slot": "hand",
+      "slot": "trinket",
       "attack": true,
       "icon": "itemknife",
       "drop-rate": 50,
