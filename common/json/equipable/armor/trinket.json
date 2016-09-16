@@ -11,5 +11,21 @@
       },
       "description": "More content."
     }
+    "pocket-knife": {
+      "name": "Pocket Knife",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemknife",
+      "drop-rate": 50,
+      "attack-stats": {
+        "damage": 2,
+        "attack-speed": 1.0,
+        "crit-chance": 0.7,
+        "crit-damage": 0.4,
+        "bleed-chance": 0.45,
+        "bleed-duration": 1
+      },
+      "description": "I ALWAYS have a backup plan."
+    },
   }
 }
