@@ -10,7 +10,7 @@
         "max-health": 20
       },
       "description": "More content."
-    }
+    },
     "pocket-knife": {
       "name": "Pocket Knife",
       "slot": "hand",
@@ -26,6 +26,6 @@
         "bleed-duration": 1
       },
       "description": "I ALWAYS have a backup plan."
-    },
+    }
   }
 }
