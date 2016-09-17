@@ -1,0 +1,90 @@
+{
+  "damage": {
+    "reducing": {
+      "name": "Reducing",
+      "drop-rate": 100,
+      "character-stats": {
+        "damage-multiplier": -0.05
+      }
+    },
+    "enhanced": {
+      "name": "Enhanced",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage-multiplier": 0.05
+      }
+    }
+  },
+  "attack-speed": {
+    "constraining": {
+      "name": "Constraining",
+      "drop-rate": 50,
+      "character-stats": {
+        "attack-speed": -0.1
+      }
+    },
+    "hindering": {
+      "name": "Hindering",
+      "character-stats": {
+        "attack-speed": -0.05
+      }
+    },
+    "hastening": {
+      "name": "Hastening",
+      "character-stats": {
+        "attack-speed": 0.05
+      }
+    },
+    "quickening": {
+      "name": "Quickening",
+      "drop-rate": 50,
+      "character-stats": {
+        "attack-speed": 0.10
+      }
+    }
+  },
+  "crit-chance": {
+    "clumsy": {
+      "name": "Clumsy",
+      "drop-rate": 100,
+      "character-stats": {
+        "crit-chance": -0.05
+      }
+    },
+    "lucky": {
+      "name": "Lucky",
+      "drop-rate": 50,
+      "character-stats": {
+        "crit-chance": 0.05
+      }
+    }
+  },
+  "crit-damage": {
+    "puny": {
+      "name": "Puny",
+      "drop-rate": 25,
+      "character-stats": {
+        "crit-damage": -0.10
+      }
+    },
+    "weak": {
+      "name": "Weak",
+      "character-stats": {
+        "crit-damage": -0.05
+      }
+    },
+    "powerful": {
+      "name": "Powerful",
+      "character-stats": {
+        "crit-damage": 0.05
+      }
+    },
+    "mighty": {
+      "name": "Mighty",
+      "drop-rate": 50,
+      "character-stats": {
+        "crit-damage": 0.10
+      }
+    }
+  }
+}

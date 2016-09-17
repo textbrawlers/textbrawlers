@@ -25,6 +25,7 @@
     "legs-prefixes": "common/json/prefixes/armor/legs-prefixes.json",
     "offhand-prefixes": "common/json/prefixes/hand/offhand-prefixes.json",
     "torso-prefixes": "common/json/prefixes/armor/torso-prefixes.json",
+    "trinket-prefixes": "common/json/prefixes/armor/trinket-prefixes.json",
 
     "weird-prefixes": "common/json/prefixes/hand/weird-prefixes.json"
   },
@@ -96,6 +97,10 @@
       "feet-prefixes": 100,
       "armor-prefixes": 100,
       "rare-armor-prefixes": 10,
+      "troll-prefixes": 1
+    },
+    "trinket": {
+      "trinket-prefixes": 100,
       "troll-prefixes": 1
     },
     "offhand": {

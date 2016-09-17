@@ -27,6 +27,17 @@
         "bleed-duration": 1
       },
       "description": "I ALWAYS have a backup plan."
+    },
+    "haemorrhaging-amulet": {
+      "name": "Haemorrhaging Amulet",
+      "slot": "trinket",
+      "attack": false,
+      "icon": "itemknife",
+      "drop-rate": 50,
+      "character-stats": {
+        "bleed-duration": 4
+      },
+      "description": "Attaching a bandage causes it to transform into a Coagulating Amulet"
     }
   }
 }
