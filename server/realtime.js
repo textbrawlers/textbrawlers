@@ -34,17 +34,17 @@ export function acceptInvite (playerId, inviteId) {
   if (inviteAccepted) {
     const RTPlayers = otherRps.concat(invitedRealtimePlayers)
 
-    const fight = fightManager.startFight(RTPlayers.map(rt => rt.player))
-
-    players.forEach(player => {
-      player.send('startgame', { id: fight.id })
-    })
-
-    fight.on('attack', attack => {
+    fightManager.startFight(RTPlayers.map(rt => rt.player)).then(fight => {
       players.forEach(player => {
-        player.send('fight.attack', attack)
+        player.send('startgame', { id: fight.id })
       })
-    })
+
+      fight.on('attack', attack => {
+        players.forEach(player => {
+          player.send('fight.attack', attack)
+        })
+      })
+    }).catch(err => console.error(err))
   }
 }
 
