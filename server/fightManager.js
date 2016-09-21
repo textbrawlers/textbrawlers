@@ -3,17 +3,6 @@ import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
 
-const getFightKey = () => {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVXYabcdefghijklmnopqrstuvxyz0123456789'
-
-  let key = ''
-  for (var i = 0; i < 20; i++) {
-    key += chars[Math.floor(Math.random() * chars.length)]
-  }
-
-  return key
-}
-
 const fightDB = db.get('fights')
 
 function getRandom (droptable) {
@@ -41,7 +30,10 @@ export default class FightManager {
     const fight = new Fight(players)
     const fightObj = new EventEmitter()
     fightObj.doc = await fightDB.insert({
-      players: players.map(p => p.id)
+      players: players.map(p => ({
+        _id: p.id,
+        equipped: p.equipped.serialize()
+      }))
     })
     fightObj.players = players
     fightObj.fight = fight
@@ -93,7 +85,9 @@ export default class FightManager {
     if (resp.done) {
       fightObj.fight.writeLog(fightObj.id)
       fightObj.doc.history = fightObj.attackHistory
-      fightObj.doc.save().then(() => console.log('Fight ' + fightObj.id + ' saved successfully.')).catch(err => console.error(err))
+      fightDB.update({_id: fightObj.doc._id}, fightObj.doc).then(
+        () => console.log('Fight ' + fightObj.id + ' saved successfully.')
+      ).catch(err => console.error(err))
       this.fights.splice(this.fights.indexOf(fightObj), 1)
     } else {
       setTimeout(() => this.attack(fightObj), 500)
