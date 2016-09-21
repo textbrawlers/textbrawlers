@@ -180,7 +180,7 @@ export default class Fight {
 
   applyBlock () {
     this.blocked = false
-    if (Math.random() < this.defender.player.getStat('block-chance').value) {
+    if (Math.random() < this.defender.player.getStat('block-chance').value - this.weapons[this.currentWeapon].stats.getValue('armor-pierce')) {
       this.blocked = true
       this.damage *= this.defender.player.getStat('block-multiplier').value
     }
