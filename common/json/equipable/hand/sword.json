@@ -113,21 +113,21 @@
       },
       "description": "For when the longsword just won't suffice."
     },
-    "andúril": {
-      "name": "Andúril",
+    "sword-of-burning-passion": {
+      "name": "Sword of Burning Passion",
       "slot": "hand",
       "attack": true,
-      "icon": "itemandúril",
-      "drop-rate": 50,
+      "icon": "itemswordpassion",
+      "drop-rate": 20,
       "attack-stats": {
-        "damage": 15,
-        "attack-speed": 0.99,
-        "crit-chance": 0.35,
-        "crit-damage": 1.99,
-        "burn-chance": 0.05,
-        "burn-damage": 0.4
+        "damage": 14,
+        "attack-speed": 0.7,
+        "crit-chance": 0.2,
+        "crit-damage": 1.5,
+        "burn-chance": 0.3,
+        "burn-damage": 0.35
       },
-      "description": "Very bright was that sword when it was made whole again; the light of the sun shone redly in it, and the light of the moon shone cold, and its edge was hard and keen. The blade was given a new name; Andúril, Flame of the West."
+      "description": "Hot stuff."
     },
     "cursed-sword-weakness": {
       "name": "Cursed Sword of Weakness",
