@@ -1,23 +1,11 @@
 {
   "trinket": {
-    "content": {
-      "name": "Content",
-      "slot": "trinket",
-      "attack": false,
-      "icon": "itemcontent",
-      "drop-rate": 125,
-      
-      "character-stats": {
-        "max-health": 20
-      },
-      "description": "More content."
-    },
     "pocket-knife": {
       "name": "Pocket Knife",
       "slot": "trinket",
       "attack": true,
       "icon": "itemknife",
-      "drop-rate": 50,
+      "drop-rate": 100,
       "attack-stats": {
         "damage": 2,
         "attack-speed": 1.0,
@@ -37,7 +25,19 @@
       "character-stats": {
         "bleed-duration": 4
       },
-      "description": "Attaching a bandage causes it to transform into a Coagulating Amulet"
+      "description": "Attaching a bandage causes it to transform into a Coagulating Amulet."
+    },
+    "lucky-coin": {
+      "name": "Lucky Coin",
+      "slot": "trinket",
+      "attack": false,
+      "icon": "itemknife",
+      "drop-rate": 50,
+      "character-stats": {
+        "luck": 1.0,
+        "crit-chance": 0.1
+      },
+      "description": "Do you feel lucky, punk?"
     }
   }
 }
