@@ -1,5 +1,6 @@
 import fightMessages from 'common/fight/text.js'
 import Fight from 'server/fight.js'
+import db from 'server/common/database.js'
 import EventEmitter from 'events'
 
 const getFightKey = () => {
@@ -12,6 +13,8 @@ const getFightKey = () => {
 
   return key
 }
+
+const fightDB = db.get('fights')
 
 function getRandom (droptable) {
   let rn = Math.random()
@@ -34,12 +37,16 @@ export default class FightManager {
     return this.fights.find(fightObj => fightObj.id === id)
   }
 
-  startFight (players) {
+  async startFight (players) {
     const fight = new Fight(players)
     const fightObj = new EventEmitter()
+    fightObj.doc = await fightDB.insert({
+      players: players.map(p => p.id)
+    })
     fightObj.players = players
     fightObj.fight = fight
-    fightObj.id = getFightKey()
+    fightObj.attackHistory = []
+    fightObj.id = fightObj.doc._id.toString()
     this.fights.push(fightObj)
 
     this.attack(fightObj)
@@ -74,6 +81,7 @@ export default class FightManager {
       resp.message = this.getRandomMessage(fightObj, resp)
     }
 
+    fightObj.attackHistory.push(resp)
     fightObj.emit('attack', resp)
   }
 
