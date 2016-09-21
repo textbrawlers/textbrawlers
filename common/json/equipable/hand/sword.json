@@ -53,22 +53,6 @@
       },
 	    "description": "Watch them bleed. A lot."
     },
-    "cursed-sword": {
-      "name": "Cursed Sword",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemcursedsword",
-      "drop-rate": 10,
-      "attack-stats": {
-        "damage": 35,
-        "attack-speed": -0.4,
-		    "crit-chance": 0.25,
-        "crit-damage": 1.0,
-        "bleed-chance": 0.5,
-        "bleed-duration": 10
-      },
-	    "description": "Don't forget to feed it."
-    },
     "nameless-sword": {
       "name": "Nameless Sword",
       "slot": "hand",
@@ -143,6 +127,79 @@
         "burn-damage": 0.4
       },
       "description": "Very bright was that sword when it was made whole again; the light of the sun shone redly in it, and the light of the moon shone cold, and its edge was hard and keen. The blade was given a new name; Andúril, Flame of the West."
+    },
+    "cursed-sword": {
+      "name": "Cursed Sword",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemcursedsword",
+      "drop-rate": 10,
+      "attack-stats": {
+        "damage": 35,
+        "attack-speed": -0.4,
+		    "crit-chance": 0.25,
+        "crit-damage": 1.0,
+        "bleed-chance": 0.5,
+        "bleed-duration": 10
+      },
+	    "description": "Don't forget to feed it."
+    },
+    "cursed-sword-weakness": {
+      "name": "Cursed Sword of Weakness",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemcursedsword",
+      "drop-rate": 3,
+      "attack-stats": {
+        "damage": 32,
+        "attack-speed": 0.35,
+		    "crit-chance": 0.4,
+        "crit-damage": 1.0,
+        "bleed-chance": 0.5,
+        "bleed-duration": 10
+      },
+      "character-stats": {
+        "damage-multiplier": -0.9 
+      },
+	    "description": "Do you even lift, bro?"
+    },
+    "cursed-sword-frailty": {
+      "name": "Cursed Sword of Frailty",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemcursedsword",
+      "drop-rate": 3,
+      "attack-stats": {
+        "damage": 32,
+        "attack-speed": 0.35,
+		    "crit-chance": 0.4,
+        "crit-damage": 1.0,
+        "bleed-chance": 0.5,
+        "bleed-duration": 10
+      },
+      "character-stats": {
+        "max-health-multiplier": -0.9 
+      },
+	    "description": "Taking the pain up to eleven. YOUR pain."
+    },
+    "cursed-sword-lethargy": {
+      "name": "Cursed Sword of Lethargy",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemcursedsword",
+      "drop-rate": 3,
+      "attack-stats": {
+        "damage": 32,
+        "attack-speed": 0.35,
+		    "crit-chance": 0.4,
+        "crit-damage": 1.0,
+        "bleed-chance": 0.5,
+        "bleed-duration": 10
+      },
+      "character-stats": {
+        "attack-speed": -0.9 
+      },
+	    "description": "Don't expect to win any running contests."
     }
   }
 }
