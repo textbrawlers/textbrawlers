@@ -3,7 +3,7 @@ import fs from 'fs'
 
 export default class Fight {
   constructor (players) {
-    this.log = []
+    this.logbook = []
 
     this.playerStates = players.map(player => ({
       currentHP: Math.round(player.getStat('max-health').value),
@@ -19,7 +19,7 @@ export default class Fight {
   }
 
   luckWeightLifter(players) {
-    this.log.push('Doing weight lifting.')
+    this.log('Doing weight lifting.')
     let maxWeight = 0
     players.forEach(player => {
       const playerLuckValue = player.getStat('luck').value
@@ -48,11 +48,11 @@ export default class Fight {
     let resp
     this.buffRound = this.checkBuffs() ? this.buffRound : false;
     if (this.buffRound){
-      this.log.push('ID: ' + this.attackId + '. Starting a dotattack.')
+      this.log('ID: ' + this.attackId + '. Starting a dotattack.')
       resp = this.doBuffs()
       this.buffRound = false
     } else {
-      this.log.push('ID: ' + this.attackId + '. Starting an attack.')
+      this.log('ID: ' + this.attackId + '. Starting an attack.')
       this.initAttack()
       this.doAttack()
       resp = this.createResponse()
@@ -80,7 +80,7 @@ export default class Fight {
         this.numAttacks /= 2
       }
     }
-    this.log.push('ID: ' + this.attackId + '. Attack initialized, player ' + this.attackerNum + ' is the attacker.')
+    this.log('ID: ' + this.attackId + '. Attack initialized, player ' + this.attackerNum + ' is the attacker.')
   }
 
   endAttack () {
@@ -88,20 +88,20 @@ export default class Fight {
     if (this.numAttacks <= 0) {
       this.currentWeapon++
       if (!this.weapons[this.currentWeapon]) {
-        this.log.push('ID: ' + this.attackId + '. Player has no more weapons.')
+        this.log('ID: ' + this.attackId + '. Player has no more weapons.')
         this.buffRound = true
-        this.log.push('ID: ' + this.attackId + '. Setting dotround: true.')
+        this.log('ID: ' + this.attackId + '. Setting dotround: true.')
         this.turn++
         this.currentWeapon = 0
         if (!this.playerStates[this.turn]) {
           this.turn = 0
         }
-        this.log.push('ID: ' + this.attackId + '. Attack ended.')
+        this.log('ID: ' + this.attackId + '. Attack ended.')
       }else{
-        this.log.push('ID: ' + this.attackId + '. Player is using another weapon.')
+        this.log('ID: ' + this.attackId + '. Player is using another weapon.')
       }
     }else{
-      this.log.push('ID: ' + this.attackId + '. Hit chance remaining: ' + this.numAttacks + '.')
+      this.log('ID: ' + this.attackId + '. Hit chance remaining: ' + this.numAttacks + '.')
     }
   }
 
@@ -134,12 +134,12 @@ export default class Fight {
       this.damage = 0
       this.arcaneDamage = 0
       if (Math.random() <= this.numAttacks) {
-        this.log.push('ID: ' + this.attackId + '. Player hit the enemy.')
+        this.log('ID: ' + this.attackId + '. Player hit the enemy.')
 
         this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
-        this.log.push('ID: ' + this.attackId + '. Base damage = ' + this.damage + '.')
+        this.log('ID: ' + this.attackId + '. Base damage = ' + this.damage + '.')
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
-        this.log.push('ID: ' + this.attackId + '. Applying multiplier, current damage = ' + this.damage + '.')
+        this.log('ID: ' + this.attackId + '. Applying multiplier, current damage = ' + this.damage + '.')
 
         //Normal Modifiers
         this.applyCrit()
@@ -158,11 +158,11 @@ export default class Fight {
         this.defender.currentHP -= this.damage
       } else {
         this.miss = true
-        this.log.push('ID: ' + this.attackId + '. Player missed.')
+        this.log('ID: ' + this.attackId + '. Player missed.')
       }
     } else {
       this.hasWeapon = false
-      this.log.push('ID: ' + this.attackId + '. This scrub has no weapons.')
+      this.log('ID: ' + this.attackId + '. This scrub has no weapons.')
     }
   }
 
@@ -194,13 +194,13 @@ export default class Fight {
       if (Math.random() < weapon.stats.getValue('crit-chance') - 1) {
         this.crits = 2
         this.damage *= (1 + (1.5 * weapon.stats.getValue('crit-damage')))
-        this.log.push('ID: ' + this.attackId + '. Applying red crit, current damage = ' + this.damage + '.')
+        this.log('ID: ' + this.attackId + '. Applying red crit, current damage = ' + this.damage + '.')
       } else {
         this.damage *= (1 + weapon.stats.getValue('crit-damage'))
-        this.log.push('ID: ' + this.attackId + '. Applying crit, current damage = ' + this.damage + '.')
+        this.log('ID: ' + this.attackId + '. Applying crit, current damage = ' + this.damage + '.')
       }
     }else{
-      this.log.push('ID: ' + this.attackId + '. No crit, current damage = ' + this.damage + '.')
+      this.log('ID: ' + this.attackId + '. No crit, current damage = ' + this.damage + '.')
     }
   }
 
@@ -211,9 +211,9 @@ export default class Fight {
     if (Math.random() <= weapon.stats.getValue('bleed-chance')) {
       let bleedStack = {type: 'bleed', duration: weapon.stats.getValue('bleed-duration')}
       this.playerStates[defender].buffs.push(bleedStack)
-      this.log.push('ID: ' + this.attackId + '. Bleed, applied.')
+      this.log('ID: ' + this.attackId + '. Bleed, applied.')
     }else{
-      this.log.push('ID: ' + this.attackId + '. Bleed, failed to apply.')
+      this.log('ID: ' + this.attackId + '. Bleed, failed to apply.')
     }
   }
 
@@ -224,11 +224,11 @@ export default class Fight {
 
     if (weapon.stats.getValue('poison-duration')){
       if (oldBuffs.find(buff => buff.type === 'poison')) {
-        this.log.push('ID: ' + this.attackId + '. Poison, dot found.')
+        this.log('ID: ' + this.attackId + '. Poison, dot found.')
         const buffIndex = oldBuffs.findIndex(buff => buff.type === 'poison')
 
         if (oldBuffs[buffIndex].damage < weapon.stats.getValue('poison-damage')) {
-          this.log.push('ID: ' + this.attackId + '. Poison, new dot is stronger, applying.')
+          this.log('ID: ' + this.attackId + '. Poison, new dot is stronger, applying.')
           const newBuff = {
             type: 'poison',
             duration: weapon.stats.getValue('poison-duration'),
@@ -236,7 +236,7 @@ export default class Fight {
           }
           this.playerStates[defender].buffs[buffIndex] = newBuff
         } else {
-          this.log.push('ID: ' + this.attackId + '. Poison, old dot is stonger.')
+          this.log('ID: ' + this.attackId + '. Poison, old dot is stonger.')
         }
       } else {
         const newBuff = {
@@ -245,10 +245,10 @@ export default class Fight {
           damage: weapon.stats.getValue('poison-damage')
         }
         this.playerStates[defender].buffs.push(newBuff)
-        this.log.push('ID: ' + this.attackId + '. Poison, dot not found, applying.')
+        this.log('ID: ' + this.attackId + '. Poison, dot not found, applying.')
       }
     }else{
-      this.log.push('ID: ' + this.attackId + '. Poison, no poisonous weapon equipped.')
+      this.log('ID: ' + this.attackId + '. Poison, no poisonous weapon equipped.')
     }
   }
 
@@ -256,9 +256,9 @@ export default class Fight {
     const defender = this.getCurrentDefenderIndex()
     if (Math.random() < this.weapons[this.currentWeapon].stats.getValue('stun-chance')) {
       this.playerStates[defender].buffs.push({type: 'stun'})
-      this.log.push('ID: ' + this.attackId + '. Stun, applied.')
+      this.log('ID: ' + this.attackId + '. Stun, applied.')
     } else {
-      this.log.push('ID: ' + this.attackId + '. Stun, failed to apply.')
+      this.log('ID: ' + this.attackId + '. Stun, failed to apply.')
     }
   }
 
@@ -268,14 +268,14 @@ export default class Fight {
 
     if (Math.random() < weapon.stats.getValue('burn-chance')) {
       const oldBuffs = this.playerStates[defender].buffs
-      this.log.push('ID: ' + this.attackId + '. Burn, succeded.')
+      this.log('ID: ' + this.attackId + '. Burn, succeded.')
 
       if (oldBuffs.find(buff => buff.type === 'burn')) {
-        this.log.push('ID: ' + this.attackId + '. Burn, dot exists.')
+        this.log('ID: ' + this.attackId + '. Burn, dot exists.')
         const buffIndex = oldBuffs.findIndex(buff => buff.type === 'burn')
 
         if (oldBuffs[buffIndex].damage < weapon.stats.getValue('burn-damage')) {
-          this.log.push('ID: ' + this.attackId + '. Burn, new dot is stronger, applying.')
+          this.log('ID: ' + this.attackId + '. Burn, new dot is stronger, applying.')
           const newBuff = {type: 'burn',
             duration: 3,
             baseDmg: baseDamage,
@@ -283,10 +283,10 @@ export default class Fight {
           }
           this.playerStates[defender].buffs[buffIndex] = newBuff
         }else{
-          this.log.push('ID: ' + this.attackId + '. Burn, old dot is stronger.')
+          this.log('ID: ' + this.attackId + '. Burn, old dot is stronger.')
         }
       } else {
-        this.log.push('ID: ' + this.attackId + '. Burn, dot not found, applying.')
+        this.log('ID: ' + this.attackId + '. Burn, dot not found, applying.')
         const newBuff = {type: 'burn',
           duration: 3,
           baseDmg: baseDamage,
@@ -295,7 +295,7 @@ export default class Fight {
         this.playerStates[defender].buffs.push(newBuff)
       }
     }else{
-      this.log.push('ID: ' + this.attackId + '. Burn, failed.')
+      this.log('ID: ' + this.attackId + '. Burn, failed.')
     }
   }
 
@@ -304,18 +304,18 @@ export default class Fight {
     const chance = this.weapons[this.currentWeapon].stats.getValue('arcane-chance')
 
     if (Math.random() < chance) {
-      this.log.push('ID: ' + this.attackId + '. Arcane, succeded.')
+      this.log('ID: ' + this.attackId + '. Arcane, succeded.')
       const oldBuffs = this.playerStates[defender].buffs
       const weapon = this.weapons[this.currentWeapon]
 
       if (oldBuffs.find(buff => buff.type === 'arcane')) {
-        this.log.push('ID: ' + this.attackId + '. Arcane, dot exists.')
+        this.log('ID: ' + this.attackId + '. Arcane, dot exists.')
         const buffIndex = oldBuffs.findIndex(buff => buff.type === 'arcane')
         let damage = oldBuffs[buffIndex].damage
         let currentStacks = oldBuffs[buffIndex].stacks
 
         if (currentStacks >= 4) {
-          this.log.push('ID: ' + this.attackId + '. Arcane, maximum stacks, exploding.')
+          this.log('ID: ' + this.attackId + '. Arcane, maximum stacks, exploding.')
           this.damage += oldBuffs[buffIndex].storedDmg
           this.arcaneDamage = oldBuffs[buffIndex].storedDmg
           this.playerStates[defender].buffs.splice(buffIndex, 1)
@@ -327,13 +327,13 @@ export default class Fight {
             storedDmg: oldBuffs[buffIndex].storedDmg
           }
           this.playerStates[defender].buffs[buffIndex] = newBuff
-          this.log.push('ID: ' + this.attackId + '. Arcane, new dot is stronger, applying. Stacks: ' + newBuff.stacks + '.')
+          this.log('ID: ' + this.attackId + '. Arcane, new dot is stronger, applying. Stacks: ' + newBuff.stacks + '.')
         } else {
           this.playerStates[defender].buffs[buffIndex].stacks++
-          this.log.push('ID: ' + this.attackId + '. Arcane, old dot is stronger. Stacks: ' + this.playerStates[defender].buffs[buffIndex].stacks + '.')
+          this.log('ID: ' + this.attackId + '. Arcane, old dot is stronger. Stacks: ' + this.playerStates[defender].buffs[buffIndex].stacks + '.')
         }
       } else {
-        this.log.push('ID: ' + this.attackId + '. Arcane, dot not found, applying. Stacks: 1.')
+        this.log('ID: ' + this.attackId + '. Arcane, dot not found, applying. Stacks: 1.')
         const newBuff = {
           type: 'arcane',
           stacks: 1,
@@ -343,7 +343,7 @@ export default class Fight {
         this.playerStates[defender].buffs.push(newBuff)
       }
     } else {
-      this.log.push('ID: ' + this.attackId + '. Arcane, failed.')
+      this.log('ID: ' + this.attackId + '. Arcane, failed.')
     }
   }
 
@@ -352,7 +352,7 @@ export default class Fight {
     if (this.playerStates[defender].buffs.length > 0) {
       return true
     }
-    this.log.push('ID: ' + this.attackId + '. No dots found, skipping dotattack.')
+    this.log('ID: ' + this.attackId + '. No dots found, skipping dotattack.')
     return false
   }
 
@@ -367,11 +367,11 @@ export default class Fight {
 
     let defender = this.getCurrentDefenderIndex()
     let index = 0
-    this.log.push('ID: ' + this.attackId + '. Dots found: ' + this.playerStates[defender].buffs.length + '.')
+    this.log('ID: ' + this.attackId + '. Dots found: ' + this.playerStates[defender].buffs.length + '.')
     while (this.playerStates[defender].buffs[index]) {
       let currentBuff = this.playerStates[defender].buffs[index]
       if (currentBuff.type === 'bleed') {
-        this.log.push('ID: ' + this.attackId + '. Bleed found, duration remaining: ' + currentBuff.duration + '.')
+        this.log('ID: ' + this.attackId + '. Bleed found, duration remaining: ' + currentBuff.duration + '.')
         bleedDamage++
         if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index)
@@ -380,7 +380,7 @@ export default class Fight {
           index++
         }
       } else if (currentBuff.type === 'poison') {
-        this.log.push('ID: ' + this.attackId + '. Poison found, duration remaining: ' + currentBuff.duration + '.')
+        this.log('ID: ' + this.attackId + '. Poison found, duration remaining: ' + currentBuff.duration + '.')
         poisonDamage = currentBuff.damage
         if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index)
@@ -390,7 +390,7 @@ export default class Fight {
         }
         poisonDuration = currentBuff.duration--
       } else if (currentBuff.type === 'burn') {
-        this.log.push('ID: ' + this.attackId + '. Burn found, duration remaining: ' + currentBuff.duration + '.')
+        this.log('ID: ' + this.attackId + '. Burn found, duration remaining: ' + currentBuff.duration + '.')
         burnDamage = Math.round(currentBuff.damageMult * currentBuff.baseDmg)
         if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index)
@@ -400,13 +400,13 @@ export default class Fight {
         }
         burnDuration = currentBuff.duration--
       } else if (currentBuff.type === 'arcane') {
-        this.log.push('ID: ' + this.attackId + '. Arcane found, stacks: ' + currentBuff.stacks + '.')
+        this.log('ID: ' + this.attackId + '. Arcane found, stacks: ' + currentBuff.stacks + '.')
         arcaneDamage = 1
         this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
         index++
         arcaneStacks = currentBuff.stacks
       } else if (currentBuff.type === 'stun') {
-        this.log.push('ID: ' + this.attackId + '. Stun found, removing.')
+        this.log('ID: ' + this.attackId + '. Stun found, removing.')
         this.playerStates[defender].buffs.splice(index)
       }
     }
@@ -434,8 +434,13 @@ export default class Fight {
     }
   }
 
+  log(text){
+    this.logbook.push(text)
+    console.log(text)
+  }
+
   writeLog(fightKey){
-    const logString = `${this.log.join('\r\n')}`
+    const logString = `${this.logbook.join('\r\n')}`
     fs.writeFile("./logs/fight-" + fightKey + ".log", logString, function(err){
       if (err) {
         console.log(err)

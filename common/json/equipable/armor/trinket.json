@@ -38,6 +38,18 @@
         "crit-chance": 0.1
       },
       "description": "Do you feel lucky, punk?"
+    },
+    "arcane-star": {
+      "name": "Arcane Star",
+      "slot": "trinket",
+      "attack": false,
+      "icon": "itemarcanestar",
+      "drop-rate": 50,
+      "character-stats": {
+        "arcane-chance": 1,
+        "arcane-damage": 4
+      },
+      "description": "Made from the purest of arcane energy."
     }
   }
 }
