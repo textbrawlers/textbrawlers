@@ -199,7 +199,7 @@ export default class Fight {
         this.damage *= (1 + weapon.stats.getValue('crit-damage'))
         this.log('ID: ' + this.attackId + '. Applying crit, current damage = ' + this.damage + '.')
       }
-    }else{
+    } else {
       this.log('ID: ' + this.attackId + '. No crit, current damage = ' + this.damage + '.')
     }
   }
@@ -212,7 +212,7 @@ export default class Fight {
       let bleedStack = {type: 'bleed', duration: weapon.stats.getValue('bleed-duration')}
       this.playerStates[defender].buffs.push(bleedStack)
       this.log('ID: ' + this.attackId + '. Bleed, applied.')
-    }else{
+    } else {
       this.log('ID: ' + this.attackId + '. Bleed, failed to apply.')
     }
   }
@@ -247,7 +247,7 @@ export default class Fight {
         this.playerStates[defender].buffs.push(newBuff)
         this.log('ID: ' + this.attackId + '. Poison, dot not found, applying.')
       }
-    }else{
+    } else {
       this.log('ID: ' + this.attackId + '. Poison, no poisonous weapon equipped.')
     }
   }
@@ -276,25 +276,27 @@ export default class Fight {
 
         if (oldBuffs[buffIndex].damage < weapon.stats.getValue('burn-damage')) {
           this.log('ID: ' + this.attackId + '. Burn, new dot is stronger, applying.')
-          const newBuff = {type: 'burn',
+          const newBuff = {
+            type: 'burn',
             duration: 3,
             baseDmg: baseDamage,
             damageMult: weapon.stats.getValue('burn-damage')
           }
           this.playerStates[defender].buffs[buffIndex] = newBuff
-        }else{
+        } else {
           this.log('ID: ' + this.attackId + '. Burn, old dot is stronger.')
         }
       } else {
         this.log('ID: ' + this.attackId + '. Burn, dot not found, applying.')
-        const newBuff = {type: 'burn',
+        const newBuff = {
+          type: 'burn',
           duration: 3,
           baseDmg: baseDamage,
           damageMult: weapon.stats.getValue('burn-damage')
         }
         this.playerStates[defender].buffs.push(newBuff)
       }
-    }else{
+    } else {
       this.log('ID: ' + this.attackId + '. Burn, failed.')
     }
   }
@@ -322,7 +324,7 @@ export default class Fight {
         } else if (damage < weapon.stats.getValue('arcane-damage')) {
           const newBuff = {
             type: 'arcane',
-            stacks: currentStacks++,
+            stacks: currentStacks + 1,
             damage: weapon.stats.getValue('arcane-damage'),
             storedDmg: oldBuffs[buffIndex].storedDmg
           }
@@ -374,7 +376,7 @@ export default class Fight {
         this.log('ID: ' + this.attackId + '. Bleed found, duration remaining: ' + currentBuff.duration + '.')
         bleedDamage++
         if (currentBuff.duration <= 0) {
-          this.playerStates[defender].buffs.splice(index)
+          this.playerStates[defender].buffs.splice(index, 1)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
@@ -383,7 +385,7 @@ export default class Fight {
         this.log('ID: ' + this.attackId + '. Poison found, duration remaining: ' + currentBuff.duration + '.')
         poisonDamage = currentBuff.damage
         if (currentBuff.duration <= 0) {
-          this.playerStates[defender].buffs.splice(index)
+          this.playerStates[defender].buffs.splice(index, 1)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
@@ -393,7 +395,7 @@ export default class Fight {
         this.log('ID: ' + this.attackId + '. Burn found, duration remaining: ' + currentBuff.duration + '.')
         burnDamage = Math.round(currentBuff.damageMult * currentBuff.baseDmg)
         if (currentBuff.duration <= 0) {
-          this.playerStates[defender].buffs.splice(index)
+          this.playerStates[defender].buffs.splice(index, 1)
         } else {
           this.playerStates[defender].buffs[index].duration--
           index++
@@ -407,7 +409,7 @@ export default class Fight {
         arcaneStacks = currentBuff.stacks
       } else if (currentBuff.type === 'stun') {
         this.log('ID: ' + this.attackId + '. Stun found, removing.')
-        this.playerStates[defender].buffs.splice(index)
+        this.playerStates[defender].buffs.splice(index, 1)
       }
     }
 

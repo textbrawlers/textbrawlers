@@ -11,7 +11,7 @@
         "crit-chance": 0.35,
         "crit-damage": 0.75
       },
-	  "description": "Cuts both ways!"
+      "description": "Cuts both ways!"
     },
     "woodcutters-axe": {
       "name": "Woodcutter's Axe",
@@ -24,7 +24,7 @@
         "crit-chance": 0.4,
         "crit-damage": 0.6
       },
-	  "description": "How much wood would a woodcutter cut if a woodcutter would cut wood?"
+      "description": "How much wood would a woodcutter cut if a woodcutter would cut wood?"
     },
     "tomahawk": {
       "name": "Tomahawk",
@@ -37,7 +37,20 @@
         "crit-chance": 0.25,
         "crit-damage": 14.0
       },
-	  "description": "Significantly deadlier than a mohawk. But just as cool."
+      "description": "Significantly deadlier than a mohawk. But just as cool."
+    },
+    "1337-bladed-axe": {
+      "name": "THE LUL AXE",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemaxe",
+      "attack-stats": {
+        "damage": 1337,
+        "attack-speed": 0.1337,
+        "crit-chance": 0.35,
+        "crit-damage": 0.75
+      },
+      "description": "LUL CUTTER"
     }
   }
 }
