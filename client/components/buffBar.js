@@ -20,6 +20,10 @@ const buffConfig = {
   fury: {
     name: 'Fury',
     image: 'bufffury.png'
+  },
+  stun: {
+    name: 'Stun',
+    image: 'buffstun.png'
   }
 }
 
