@@ -6,6 +6,7 @@ import Player from 'common/game/player.js'
 import InventorySlot from './inventorySlot.js'
 import InvItem from './invItem.js'
 import BuffBar from './buffBar.js'
+import HealthBar from './healthBar.js'
 
 export default class Fight extends Component {
 
