@@ -5,7 +5,7 @@ export default class HealthBar extends Component {
     const maxHealth = this.props.healthData.maxHP
     const currHealth = this.props.healthData.currentHP
 
-    const barFillAmount = Math.floor((currHealth/maxHealth) * 100)
+    const barFillAmount = Math.floor((currHealth / maxHealth) * 100)
 
     return (
       <div>

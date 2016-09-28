@@ -102,12 +102,12 @@ export default class Fight extends Component {
     if (lastAttack) {
       buffsMe = lastAttack.playerStates[this.state.me].buffs
       buffsOpponent = lastAttack.playerStates[this.state.me === 0 ? 1 : 0].buffs
-      healthDataMe{
-        currentHP: lastAttack.playerStates[this.state.me].currentHP
+      healthDataMe = {
+        currentHP: lastAttack.playerStates[this.state.me].currentHP,
         maxHP: lastAttack.playerStates[this.state.me].maxHP
       }
-      healthDataOpponent{
-        currentHP: lastAttack.playerStates[this.state.me === 0 ? 1 : 0].currentHP
+      healthDataOpponent = {
+        currentHP: lastAttack.playerStates[this.state.me === 0 ? 1 : 0].currentHP,
         maxHP: lastAttack.playerStates[this.state.me === 0 ? 1 : 0].maxHP
       }
     }
@@ -146,8 +146,10 @@ export default class Fight extends Component {
                   </div>
                 </div>
               }
-              <HealthBar healthData={healthDataMe} />
-              <BuffBar  />
+              {healthDataMe &&
+                <HealthBar healthData={healthDataMe} />
+              }
+              <BuffBar buffs={buffsMe}/>
             </div>
           </div>
           <div className='window fight-window'>
@@ -181,7 +183,9 @@ export default class Fight extends Component {
                   </div>
                 </div>
               }
-              <HealthBar healthData={healthDataOpponent} />
+              {healthDataOpponent &&
+                <HealthBar healthData={healthDataOpponent} />
+              }
               <BuffBar buffs={buffsOpponent} />
             </div>
           </div>
