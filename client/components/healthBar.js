@@ -9,14 +9,21 @@ export default class HealthBar extends Component {
 
     return (
       <div>
-        <div style=`background-color: FF0000; height: 5px; width: 100%`>
-          <div style=`background-color: 00FF00; height: 5px; width: ${barFillAmount}%`>
-
+        <div style={{
+          backgroundColor: '#F00',
+          height: '5px',
+          width: '100%'
+        }}>
+          <div style={{
+            backgroundColor: '#F00',
+            height: '5px',
+            width: barFillAmount + '%'
+          }}>
           </div>
         </div>
         <br>
         `${currHealth}/${maxHealth}`
-      <div>
+      </div>
     )
   }
 }
