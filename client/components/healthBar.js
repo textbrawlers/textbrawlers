@@ -22,7 +22,7 @@ export default class HealthBar extends Component {
           </div>
         </div>
         <br />
-        `${currHealth}/${maxHealth}`
+        {`${currHealth}/${maxHealth}`}
       </div>
     )
   }
