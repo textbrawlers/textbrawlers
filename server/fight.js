@@ -1,5 +1,6 @@
-import * as SMath from 'common/api/specmath'
+import * as SMath from 'common/api/specmath.js'
 import fs from 'fs'
+import modifierHandler from './modifierHandler.js'
 
 export default class Fight {
   constructor (players) {
@@ -141,9 +142,30 @@ export default class Fight {
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
         this.log('ID: ' + this.attackId + '. Applying multiplier, current damage = ' + this.damage + '.')
 
+        let fightData = {
+          playerStates: this.playerStates,
+          attacker: this.attacker,
+          defender: this.defender,
+          weapons: this.weapons,
+          currentWeapon: this.currentWeapon,
+          crits: this.crits,
+          damage: this.damage,
+          arcaneDamage: this.arcaneDamage
+        }
+
         //Normal Modifiers
-        this.applyCrit()
-        this.applyBlock()
+        //this.applyCrit()
+        //this.applyBlock()
+        let applyResp = modifierHandler.apply(fightData)
+
+        this.damage = applyResp.damage
+        this.blocked = applyResp.blocked
+        if (applyResp.crits){
+          this.crits = applyResp.crits
+        }
+        if (applyResp.crits){
+          this.arcaneDamage = applyResp.arcaneDamage
+        }
 
         //Special Modifiers
         this.applyArcane()
@@ -438,14 +460,14 @@ export default class Fight {
 
   log(text){
     this.logbook.push(text)
-    console.log(text)
+    //console.log(text)
   }
 
   writeLog(fightKey){
     const logString = `${this.logbook.join('\r\n')}`
     fs.writeFile("./logs/fight-" + fightKey + ".log", logString, function(err){
       if (err) {
-        console.log(err)
+        console.log(err.stack || err)
       } else {
         console.log('Log written successfully.')
       }

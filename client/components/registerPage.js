@@ -80,7 +80,7 @@ export default class RegisterPage extends React.Component {
         window.alert(`Could not create account: ${response.json.error}`)
       }
       resolve()
-    })()).catch(err => console.error(err))
+    })()).catch(err => console.error(err.stack || err))
   }
 
 }

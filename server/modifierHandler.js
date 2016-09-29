@@ -1,18 +1,24 @@
-// Include modifiers here.
+import modifiers from './modifier/config.js'
 
-// Add modifiers to array.
-const modifiers = [
-
-]
-
-export default class modifierHandler{
+export default {
   apply(fightData){
-    let resp = []
+    let resp = {}
     modifiers.forEach(modifier => {
-      resp.push(modifier.apply())
+      let mod = modifier.apply(fightData)
+
+      resp.damage = mod.damage
+      if (mod.blocked) {
+        resp.blocked = mod.blocked
+      }
+      if (mod.crits){
+        resp.crits = mod.crits
+      }
+      if (mod.crits){
+        resp.arcaneDamage = mod.arcaneDamage
+      }
     })
     return resp
-  }
+  },
 
   tick(fightData){
     let resp = []

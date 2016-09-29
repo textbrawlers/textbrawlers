@@ -25,7 +25,7 @@ export default class Fight extends Component {
   }
 
   componentDidMount () {
-    this.update().catch(err => console.error(err))
+    this.update().catch(err => console.error(err.stack || err))
   }
 
   async update () {

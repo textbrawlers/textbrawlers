@@ -87,7 +87,7 @@ export default class FightManager {
       fightObj.doc.history = fightObj.attackHistory
       fightDB.update({_id: fightObj.doc._id}, fightObj.doc).then(
         () => console.log('Fight ' + fightObj.id + ' saved successfully.')
-      ).catch(err => console.error(err))
+      ).catch(err => console.error(err.stack || err))
       this.fights.splice(this.fights.indexOf(fightObj), 1)
     } else {
       setTimeout(() => this.attack(fightObj), 500)

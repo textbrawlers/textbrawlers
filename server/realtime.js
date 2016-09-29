@@ -44,7 +44,7 @@ export function acceptInvite (playerId, inviteId) {
           player.send('fight.attack', attack)
         })
       })
-    }).catch(err => console.error(err))
+    }).catch(err => console.error(err.stack || err))
   }
 }
 
@@ -87,6 +87,6 @@ export default function realtime (wss) {
 
 function checkError (cb) {
   return (...args) => {
-    return Promise.resolve(cb(...args)).catch(err => console.error(err))
+    return Promise.resolve(cb(...args)).catch(err => console.error(err.stack || err))
   }
 }
