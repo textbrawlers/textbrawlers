@@ -8,10 +8,10 @@
       "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
-        "attack-speed": 0,8,
+        "attack-speed": 0.8,
         "crit-chance": 0.4,
         "crit-damage": 0.8,
-        "burn-chance": 0,3,
+        "burn-chance": 0.3,
         "burn-damage": 1.0,
         "ranged": true
       },
@@ -26,7 +26,7 @@
       "attack-stats": {
         "damage": 4,
         "attack-speed": 1.8,
-        "crit-chance": 0.20,
+        "crit-chance": 0.2,
         "crit-damage": 1.0,
         "ranged": true
       },
