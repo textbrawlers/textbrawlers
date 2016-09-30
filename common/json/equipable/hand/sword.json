@@ -139,7 +139,7 @@
         "damage": 33,
         "attack-speed": 0.45,
 		"crit-chance": 0.5,
-        "crit-damage": 0.8,
+        "crit-damage": 0.8
       },
       "character-stats": {
         "damage-multiplier": -0.9
@@ -156,7 +156,7 @@
         "damage": 33,
         "attack-speed": 0.45,
 		"crit-chance": 0.5,
-        "crit-damage": 0.8,
+        "crit-damage": 0.8
       },
       "character-stats": {
         "max-health-multiplier": -0.9
@@ -173,7 +173,7 @@
         "damage": 33,
         "attack-speed": 0.45,
 		"crit-chance": 0.5,
-        "crit-damage": 0.8,
+        "crit-damage": 0.8
       },
       "character-stats": {
         "attack-speed": -0.9
