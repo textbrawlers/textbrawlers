@@ -8,10 +8,10 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 6,
-        "attack-speed": 1.0,
-        "crit-chance": 0.4,
+        "attack-speed": 0.6,
+        "crit-chance": 0.3,
         "crit-damage": 0.4,
-        "bleed-chance": 0.35,
+        "bleed-chance": 0.1,
         "bleed-duration": 1
       },
 	  "empower-stats": [{

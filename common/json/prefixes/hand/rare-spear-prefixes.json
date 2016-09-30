@@ -1,5 +1,22 @@
 {
-
-
-  
+  "unique": {
+    "piercing": {
+      "name": "Piercing",
+      "attack-stats": {
+        "armor-pierce": 0.5
+      }
+    },
+    "penetrating": {
+      "name": "Penetrating",
+      "attack-stats": {
+        "armor-pierce": 0.1
+      }
+    },
+    "impaling": {
+      "name": "Impaling",
+      "attack-stats": {
+        "armor-pierce": 0.15
+      }
+    }
+  }
 }

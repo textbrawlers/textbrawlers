@@ -6,9 +6,9 @@
       "attack": true,
       "icon": "itemsword",
       "attack-stats": {
-        "damage": 10,
-        "attack-speed": 1.0,
-        "crit-chance": 0.5,
+        "damage": 13,
+        "attack-speed": 0.8,
+        "crit-chance": 0.4,
         "crit-damage":  0.5
       },
 	  "description": "Size isn't everything."
@@ -19,8 +19,8 @@
       "attack": true,
       "icon": "itemlongsword",
       "attack-stats": {
-        "damage": 20,
-        "attack-speed": 0.55,
+        "damage": 22,
+        "attack-speed": 0.45,
         "crit-chance": 0.2,
         "crit-damage": 0.5
       },
@@ -32,9 +32,9 @@
       "attack": true,
       "icon": "itembroadsword",
       "attack-stats": {
-        "damage": 15,
-        "attack-speed": 0.5,
-        "crit-chance": 0.85,
+        "damage": 17,
+        "attack-speed": 0.65,
+        "crit-chance": 0.5,
         "crit-damage": 0.5
       },
 	  "description": "Not as broad as your mother!"
@@ -49,9 +49,9 @@
         "damage": 6,
         "attack-speed": 0.85,
         "bleed-chance": 0.75,
-		    "bleed-duration": 8
+		"bleed-duration": 8
       },
-	    "description": "Watch them bleed. A lot."
+	  "description": "Watch them bleed. A lot."
     },
     "nameless-sword": {
       "name": "Nameless Sword",
@@ -60,12 +60,10 @@
       "icon": "itemnamelesssword",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 10,
+        "damage": 13,
         "attack-speed": 0.75,
-    		"crit-chance": 0.35,
-    		"crit-damage": 0.7,
-    		"bleed-chance": 0.4,
-    		"bleed-duration": 2
+    	"crit-chance": 0.3,
+    	"crit-damage": 0.65
       },
       "description": "\"What do you call it?\"\n\n\"...\""
     },
@@ -76,10 +74,12 @@
       "icon": "itemancientsword",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 12,
-    		"attack-speed": 0.8,
-    		"crit-chance": 0.5,
-    		"crit-damage": 0.5
+        "damage": 10,
+    	"attack-speed": 0.8,
+    	"crit-chance": 0.2,
+    	"crit-damage": 0.5,
+		"arcane-chance": 0.4,
+		"arcane-damage": 2
       },
       "description": "It's pretty old."
     },
@@ -90,11 +90,11 @@
       "icon": "itemrapier",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 4,
-        "attack-speed": 1.35,
-    		"crit-chance": 0.8,
-    		"crit-damage": 1.5,
-    		"armor-pierce": 0.3
+        "damage": 5,
+        "attack-speed": 0.95,
+    	"crit-chance": 0.5,
+    	"crit-damage": 1.0,
+    	"armor-pierce": 0.3
       },
       "description": "Stick 'em with the pointy end."
     },
@@ -105,11 +105,11 @@
       "icon": "itemzweihander",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 40,
-        "attack-speed": 0.2,
-    		"crit-chance": 0.2,
-    		"crit-damage": 0.4,
-    		"slow": true
+        "damage": 44,
+        "attack-speed": 0.15,
+    	"crit-chance": 0.15,
+    	"crit-damage": 0.2,
+    	"slow": true
       },
       "description": "For when the longsword just won't suffice."
     },
@@ -120,12 +120,12 @@
       "icon": "itemswordpassion",
       "drop-rate": 20,
       "attack-stats": {
-        "damage": 14,
-        "attack-speed": 0.7,
-        "crit-chance": 0.2,
-        "crit-damage": 1.5,
-        "burn-chance": 0.3,
-        "burn-damage": 0.35
+        "damage": 9,
+        "attack-speed": 0.8,
+        "crit-chance": 0.3,
+        "crit-damage": 0.8,
+        "burn-chance": 0.35,
+        "burn-damage": 0.4
       },
       "description": "Hot stuff."
     },
@@ -136,17 +136,15 @@
       "icon": "itemcursedsword",
       "drop-rate": 3,
       "attack-stats": {
-        "damage": 32,
-        "attack-speed": 0.35,
-		    "crit-chance": 0.4,
-        "crit-damage": 1.0,
-        "bleed-chance": 0.5,
-        "bleed-duration": 10
+        "damage": 33,
+        "attack-speed": 0.45,
+		"crit-chance": 0.5,
+        "crit-damage": 0.8,
       },
       "character-stats": {
-        "damage-multiplier": -0.9 
+        "damage-multiplier": -0.9
       },
-	    "description": "Do you even lift, bro?"
+	  "description": "Do you even lift, bro?"
     },
     "cursed-sword-frailty": {
       "name": "Cursed Sword of Frailty",
@@ -155,17 +153,15 @@
       "icon": "itemcursedsword",
       "drop-rate": 3,
       "attack-stats": {
-        "damage": 32,
-        "attack-speed": 0.35,
-		    "crit-chance": 0.4,
-        "crit-damage": 1.0,
-        "bleed-chance": 0.5,
-        "bleed-duration": 10
+        "damage": 33,
+        "attack-speed": 0.45,
+		"crit-chance": 0.5,
+        "crit-damage": 0.8,
       },
       "character-stats": {
-        "max-health-multiplier": -0.9 
+        "max-health-multiplier": -0.9
       },
-	    "description": "Taking the pain up to eleven. YOUR pain."
+	  "description": "Taking the pain up to eleven. YOUR pain."
     },
     "cursed-sword-lethargy": {
       "name": "Cursed Sword of Lethargy",
@@ -174,17 +170,15 @@
       "icon": "itemcursedsword",
       "drop-rate": 3,
       "attack-stats": {
-        "damage": 32,
-        "attack-speed": 0.35,
-		    "crit-chance": 0.4,
-        "crit-damage": 1.0,
-        "bleed-chance": 0.5,
-        "bleed-duration": 10
+        "damage": 33,
+        "attack-speed": 0.45,
+		"crit-chance": 0.5,
+        "crit-damage": 0.8,
       },
       "character-stats": {
-        "attack-speed": -0.9 
+        "attack-speed": -0.9
       },
-	    "description": "Don't expect to win any running contests."
+	  "description": "Don't expect to win any running contests."
     }
   }
 }

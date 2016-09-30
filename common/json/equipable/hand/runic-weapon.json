@@ -7,18 +7,18 @@
       "icon": "itemrunesword",
       "drop-rate": 25,
       "attack-stats": {
-        "damage": 2,
-        "attack-speed": 0.25,
-        "crit-chance": 0.125,
-        "crit-damage":  0.125
+        "damage": 5,
+        "attack-speed": 0,32,
+        "crit-chance": 0.16,
+        "crit-damage":  0.2
       },
 	  "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
-		  "damage": 2,
-		  "attack-speed": 0.25,
-		  "crit-chance": 0.125,
-		  "crit-damage": 0.125
+		  "damage": 3,
+		  "attack-speed": 0.16,
+		  "crit-chance": 0.08,
+		  "crit-damage": 0.1
         }
       }],
 	  "description": "Found next to the corpse of the supreme lord of all undead. Upon closer inspection, it was determined to be a complete coincidence."
@@ -30,18 +30,15 @@
       "icon": "itemruneaxe",
       "drop-rate": 25,
       "attack-stats": {
-        "damage": 5,
-        "attack-speed": 0.125,
-        "crit-chance": 0.15,
-        "crit-damage": 0.125
+        "damage": 14,
+        "attack-speed": 0.21,
+        "crit-chance": 0.09,
+        "crit-damage": 0.4
       },
 	  "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
-		  "damage": 5,
-		  "attack-speed": 0.125,
-		  "crit-chance": 0.15,
-		  "crit-damage": 0.125
+		  "crit-damage": 0.3
         }
       }],
 	  "description": "\"Three eggs, five liters of milk, two kilos of flour. Remember to buy catfood.\""
@@ -53,21 +50,15 @@
       "icon": "itemruneknife",
       "drop-rate": 25,
       "attack-stats": {
-        "damage": 2,
-        "attack-speed": 0.4,
-        "crit-chance": 0.1,
-        "crit-damage": 0.025,
-        "bleed-chance": 0.1
+        "damage": 4,
+        "attack-speed": 0.64,
+        "crit-chance": 0.18,
+        "crit-damage": 0.24
       },
 	  "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
-		  "damage": 2,
-		  "attack-speed": 0.4,
-		  "crit-chance": 0.1,
-		  "crit-damage": 0.025,
-		  "bleed-chance": 0.1,
-		  "bleed-duration": 1
+		  "attack-speed": 0.48,
         }
       }],
       "description": "The runes appear to be some sort of ancient warning label: \"Do not use as a makeshift toothpick\"."
@@ -79,18 +70,15 @@
       "icon": "itemrunehammer",
       "drop-rate": 25,
       "attack-stats": {
-        "damage": 5,
-        "attack-speed": 0.1,
-        "crit-chance": 0.25,
-        "crit-damage": 0.05
+        "damage": 12,
+        "attack-speed": 0.24,
+        "crit-chance": 0.4,
+        "crit-damage": 0.12
       },
 	  "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
-		  "damage": 5,
-		  "attack-speed": 0.1,
-		  "crit-chance": 0.25,
-		  "crit-damage": 0.05
+		  "crit-chance": 0.3
         }
       }],
       "description": "The runes roughly translates to \"This side up\"."
@@ -102,15 +90,14 @@
       "icon": "itemrunespear",
       "drop-rate": 25,
       "attack-stats": {
-        "damage": 6,
-        "attack-speed": 0.2,
-        "slow": true
+        "damage": 5,
+        "attack-speed": 0.85
       },
 	  "empower-stats": [{
 		"category": "runic-weapon",
 		"stats": {
-		  "damage": 6,
-		  "attack-speed": 0.2
+		  "damage": 3,
+		  "damage-multiplier": 0,25
         }
       }],
       "description": "\"Pointy end goes in enemy.\""

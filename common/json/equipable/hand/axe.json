@@ -6,10 +6,10 @@
       "attack": true,
       "icon": "itemaxe",
       "attack-stats": {
-        "damage": 22,
-        "attack-speed": 0.5,
-        "crit-chance": 0.35,
-        "crit-damage": 0.75
+        "damage": 23,
+        "attack-speed": 0.35,
+        "crit-chance": 0.15,
+        "crit-damage": 1.0
       },
       "description": "Cuts both ways!"
     },
@@ -19,10 +19,10 @@
       "attack": true,
       "icon": "itemwoodaxe",
       "attack-stats": {
-        "damage": 15,
-        "attack-speed": 0.65,
-        "crit-chance": 0.4,
-        "crit-damage": 0.6
+        "damage": 17,
+        "attack-speed": 0.55,
+        "crit-chance": 0.25,
+        "crit-damage": 0.75
       },
       "description": "How much wood would a woodcutter cut if a woodcutter would cut wood?"
     },
@@ -32,25 +32,12 @@
       "attack": true,
       "icon": "itemtomahawk",
       "attack-stats": {
-        "damage": 5,
-        "attack-speed": 0.35,
-        "crit-chance": 0.25,
-        "crit-damage": 14.0
+        "damage": 9,
+        "attack-speed": 0.65,
+        "crit-chance": 0.05,
+        "crit-damage": 4.0
       },
       "description": "Significantly deadlier than a mohawk. But just as cool."
-    },
-    "1337-bladed-axe": {
-      "name": "THE LUL AXE",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemaxe",
-      "attack-stats": {
-        "damage": 1337,
-        "attack-speed": 0.1337,
-        "crit-chance": 0.35,
-        "crit-damage": 0.75
-      },
-      "description": "LUL CUTTER"
     }
   }
 }

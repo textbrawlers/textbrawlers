@@ -7,12 +7,12 @@
       "icon": "itemfirewand",
       "drop-rate": 25,
       "attack-stats": {
-        "damage": 7,
-        "attack-speed": 1.0,
-        "crit-chance": 0.5,
+        "damage": 5,
+        "attack-speed": 0,8,
+        "crit-chance": 0.4,
         "crit-damage": 0.8,
-        "burn-chance": 1.0,
-        "burn-damage": 0.3,
+        "burn-chance": 0,3,
+        "burn-damage": 1.0,
         "ranged": true
       },
       "description": "A match would probably be more useful."
@@ -25,7 +25,7 @@
       "drop-rate": 25,
       "attack-stats": {
         "damage": 4,
-        "attack-speed": 3.5,
+        "attack-speed": 1.8,
         "crit-chance": 0.20,
         "crit-damage": 1.0,
         "ranged": true
@@ -39,12 +39,12 @@
       "icon": "itemfingeroflight",
       "drop-rate": 15,
       "attack-stats": {
-        "damage": 9,
+        "damage": 3,
         "attack-speed": 0.85,
         "crit-chance": 0.5,
-        "crit-damage": 0.75,
-        "arcane-chance": 0.75,
-        "arcane-damage": 4
+        "crit-damage": 0.5,
+        "arcane-chance": 0.5,
+        "arcane-damage": 2
       },
       "description": "What... Pointing at people makes them die?"
     }

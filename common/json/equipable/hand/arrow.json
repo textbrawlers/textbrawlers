@@ -8,10 +8,10 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "attack-speed": 10.1,
-          "crit-chance": 0.05,
-          "crit-damage": 0.05,
-          "damage-multiplier": 0.05
+          "attack-speed": 10.0,
+          "crit-chance": 0.1,
+          "crit-damage": 0.1,
+          "damage-multiplier": 0.45
         }
       }],
       "description": "Basic does not necessarily mean bad. But it usually does."
@@ -24,9 +24,10 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "attack-speed": 9.8,
-          "crit-damage": 0.1,
-          "damage-multiplier": 0.15
+          "attack-speed": 9.85,
+          "crit-chance": 0.05,
+          "crit-damage": 0.15,
+          "damage-multiplier": 0.7
         }
       }],
       "description": "When your arrows need more impact."
