@@ -15,6 +15,8 @@ export default function messages (m, weapon, attacker, defender, round) {
   
     if (weapon.type === 'magical-weapon') {
       m.add(50, "[defender] was promptly turned into a bubbling pool of flesh.")
+    } else if (weapon.type === 'head') {
+      m.add(50, "[defender] could no longer bear the embarrassment of being beaten by a helmet, and committed suicide.")
     }
   } else {
     if (weapon.type !== 'head') {
@@ -51,7 +53,20 @@ export default function messages (m, weapon, attacker, defender, round) {
         }
       }
     } else {
-      m.add(100, '[attacker] bankade med ACB')
+      if (round.missed) {
+        m.add(100, '[attacker] threw his helmet at [defender] but missed. What an idiot.')
+        m.add(1, "[attacker] missed...")
+      } else if (round.blocked) {
+        m.add(100, '[attacker] threw his helmet at [defender] but [defender] caught it in mid-air.')
+        m.add(10, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
+      } else if (round.crit) {
+        m.add(100, '[attacker] threw his helmet at [defender] and hit a weak spot, somehow.')
+        m.add(10, '[attacker] takes of his [item-name] and proceeds to clobber [defender] senseless with it!')
+      } else {
+        m.add(100, '[attacker] threw his [item-name] and hit [defender] in the face.')
+        m.add(30, '[attacker] headbutted [defender] in the stomach.')
+        m.add(50, '[defender] suddenly got an arrow in his back. Who did that?')
+      }
     }
 
     if (weapon.rarity === 'legendary' && weapon.hasStat('ranged')) {
