@@ -58,7 +58,7 @@
 	  "empower-stats": [{
         "category": "runic-weapon",
         "stats": {
-		  "attack-speed": 0.48,
+		  "attack-speed": 0.48
         }
       }],
       "description": "The runes appear to be some sort of ancient warning label: \"Do not use as a makeshift toothpick\"."
