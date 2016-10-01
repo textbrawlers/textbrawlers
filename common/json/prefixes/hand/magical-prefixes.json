@@ -4,28 +4,28 @@
       "name": "Reduced",
       "drop-rate": 100,
       "attack-stats": {
-        "damage-multiplier": -0.2
+        "damage-multiplier": -0.1
       }
     },
     "weakened": {
       "name": "Weakened",
       "drop-rate": 100,
       "attack-stats": {
-        "damage-multiplier": -0.1
+        "damage-multiplier": -0.05
       }
     },
     "enhanced": {
       "name": "Enhanced",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": 0.1
+        "damage-multiplier": 0.05
       }
     },
     "arcane": {
       "name": "Arcane",
       "drop-rate": 25,
       "attack-stats": {
-        "damage-multiplier": 0.2
+        "damage-multiplier": 0.1
       }
     }
   },
@@ -35,28 +35,28 @@
       "name": "Hindering",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": -0.3
+        "attack-speed": -0.2
       }
     },
     "complicated": {
       "name": "Complicated",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": -0.15
+        "attack-speed": -0.1
       }
     },
     "hastened": {
       "name": "Hastened",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": 0.15
+        "attack-speed": 0.1
       }
     },
     "energetic": {
       "name": "Energetic",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": 0.3
+        "attack-speed": 0.2
       }
     }
   },
@@ -97,42 +97,42 @@
       "name": "Underpowered",
       "drop-rate": 100,
       "attack-stats": {
-        "crit-damage": -0.45
+        "crit-damage": -0.15
       }
     },
     "puny": {
       "name": "Puny",
       "drop-rate": 100,
       "attack-stats": {
-        "crit-damage": -0.3
+        "crit-damage": -0.1
       }
     },
     "weak": {
       "name": "Weak",
       "drop-rate": 100,
       "attack-stats": {
-        "crit-damage": -0.15
+        "crit-damage": -0.05
       }
     },
     "powerful": {
       "name": "Powerful",
       "drop-rate": 100,
       "attack-stats": {
-        "crit-damage": 0.15
+        "crit-damage": 0.05
       }
     },
     "mighty": {
       "name": "Mighty",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": 0.3
+        "crit-damage": 0.1
       }
     },
     "overpowered": {
       "name": "Overpowered",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": 0.45
+        "crit-damage": 0.15
       }
     }
   },
@@ -143,14 +143,14 @@
       "drop-rate": 100,
       "attack-stats": {
         "burn-chance": 0.1,
-        "burn-damage": 0.1
+        "burn-damage": 0.2
       }
     },
     "fiery": {
       "name": "Fiery",
       "drop-rate": 50,
       "attack-stats": {
-        "burn-chance": 0.1,
+        "burn-chance": 0.2,
         "burn-damage": 0.2
       }
     },
@@ -159,7 +159,7 @@
       "drop-rate": 25,
       "attack-stats": {
         "burn-chance": 0.2,
-        "burn-damage": 0.2
+        "burn-damage": 0.3
       }
     }
   }

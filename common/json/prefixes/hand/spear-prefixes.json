@@ -4,40 +4,40 @@
       "name": "Broken",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": -0.3
+        "damage": -6
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "attack-stats": {
-        "damage-multiplier": -0.2
+        "damage": -4
       }
     },
     "blunt": {
       "name": "Blunt",
       "attack-stats": {
-        "damage-multiplier": -0.1
+        "damage": -2
       }
     },
     "sharp": {
       "name": "Sharp",
       "attack-stats": {
-        "damage-multiplier": 0.1
+        "damage": 2
       }
     },
     "ruthless": {
       "name": "Ruthless",
       "drop-rate": 75,
       "attack-stats": {
-        "damage-multiplier": 0.2
+        "damage": 4
       }
     },
     "deadly": {
       "name": "Deadly",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": 0.3
+        "damage": 6
       }
     }
   },
@@ -115,21 +115,21 @@
     "ripping": {
       "name": "Ripping",
       "attack-stats": {
-        "bleed-duration": 2
+        "bleed-duration": 3
       }
     },
     "tearing": {
       "name": "Tearing",
       "drop-rate": 75,
       "attack-stats": {
-        "bleed-duration": 3
+        "bleed-duration": 4
       }
     },
     "rupturing": {
       "name": "Rupturing",
       "drop-rate": 50,
       "attack-stats": {
-        "bleed-duration": 4
+        "bleed-duration": 5
       }
     }
   }

@@ -47,40 +47,40 @@
       "name": "Slow",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": -0.3
+        "attack-speed": -0.1
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": -0.2
+        "attack-speed": -0.07
       }
     },
     "heavy": {
       "name": "Heavy",
       "attack-stats": {
-        "attack-speed": -0.1
+        "attack-speed": -0.03
       }
     },
     "nimble": {
       "name": "Nimble",
       "attack-stats": {
-        "attack-speed": 0.1
+        "attack-speed": 0.03
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": 0.2
+        "attack-speed": 0.07
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": 0.3
+        "attack-speed": 0.1
       }
     }
   },
@@ -90,14 +90,14 @@
       "name": "Inaccurate",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": -0.3
+        "crit-chance": -0.25
       }
     },
     "inexact": {
       "name": "Inexact",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": -0.2
+        "crit-chance": -0.18
       }
     },
     "uncertain": {
@@ -116,14 +116,14 @@
       "name": "Piercing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": 0.2
+        "crit-chance": 0.18
       }
     },
     "precise": {
       "name": "Precise",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": 0.3
+        "crit-chance": 0.25
       }
     }
   },
@@ -133,40 +133,40 @@
       "name": "Harmless",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": -0.6
+        "crit-damage": -0.1
       }
     },
     "kind": {
       "name": "Kind",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-damage": -0.4
+        "crit-damage": -0.07
       }
     },
     "safe": {
       "name": "Safe",
       "attack-stats": {
-        "crit-damage": -0.2
+        "crit-damage": -0.03
       }
     },
     "crushing": {
       "name": "Crushing",
       "attack-stats": {
-        "crit-damage": 0.2
+        "crit-damage": 0.03
       }
     },
     "demolishing": {
       "name": "Demolishing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-damage": 0.4
+        "crit-damage": 0.07
       }
     },
     "obliterating": {
       "name": "Obliterating",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": 0.6
+        "crit-damage": 0.1
       }
     }
   },
@@ -175,21 +175,21 @@
     "stunning": {
       "name": "Stunning",
       "attack-stats": {
-        "stun-chance": 0.1
+        "stun-chance": 0.05
       }
     },
     "staggering": {
       "name": "Staggering",
       "drop-rate": 75,
       "attack-stats": {
-        "stun-chance": 0.2
+        "stun-chance": 0.1
       }
     },
     "overwhelming": {
       "name": "Overwhelming",
       "drop-rate": 50,
       "attack-stats": {
-        "stun-chance": 0.3
+        "stun-chance": 0.15
       }
     }
   }

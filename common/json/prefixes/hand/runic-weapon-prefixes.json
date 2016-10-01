@@ -4,77 +4,41 @@
       "name": "Broken",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": -0.075
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "damage-multiplier": -0.075
-        }
-      }]
+        "damage-multiplier": -0.15
+      }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "attack-stats": {
-        "damage-multiplier": -0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "damage-multiplier": -0.05
-        }
-      }]
+        "damage-multiplier": -0.1
+      }
     },
     "blunt": {
       "name": "Blunt",
       "attack-stats": {
-        "damage-multiplier": -0.025
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "damage-multiplier": -0.025
-        }
-      }]
+        "damage-multiplier": -0.05
+      }
     },
     "sharp": {
       "name": "Sharp",
       "attack-stats": {
-        "damage-multiplier": 0.025
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "damage-multiplier": 0.025
-        }
-      }]
+        "damage-multiplier": 0.05
+      }
     },
     "ruthless": {
       "name": "Ruthless",
       "drop-rate": 75,
       "attack-stats": {
-        "damage-multiplier": 0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "damage-multiplier": 0.05
-        }
-      }]
+        "damage-multiplier": 0.1
+      }
     },
     "deadly": {
       "name": "Deadly",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": 0.075
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "damage-multiplier": 0.075
-        }
-      }]
+        "damage-multiplier": 0.15
+      }
     }
   },
 
@@ -83,77 +47,41 @@
       "name": "Slow",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": -0.075
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "attack-speed": -0.075
-        }
-      }]
+        "attack-speed": -0.2
+      }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": -0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "attack-speed": -0.05
-        }
-      }]
+        "attack-speed": -0.15
+      }
     },
     "heavy": {
       "name": "Heavy",
       "attack-stats": {
-        "attack-speed": -0.025
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "attack-speed": -0.025
-        }
-      }]
+        "attack-speed": -0.1
+      }
     },
     "nimble": {
       "name": "Nimble",
       "attack-stats": {
-        "attack-speed": 0.025
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "attack-speed": 0.025
-        }
-      }]
+        "attack-speed": 0.1
+      }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": 0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "attack-speed": 0.05
-        }
-      }]
+        "attack-speed": 0.15
+      }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": 0.075
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "attack-speed": 0.075
-        }
-      }]
+        "attack-speed": 0.2
+      }
     }
   },
 
@@ -162,77 +90,41 @@
       "name": "Inaccurate",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": -0.075
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-chance": -0.075
-        }
-      }]
+        "crit-chance": -0.2
+      }
     },
     "inexact": {
       "name": "Inexact",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": -0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-chance": -0.05
-        }
-      }]
+        "crit-chance": -0.15
+      }
     },
     "uncertain": {
       "name": "Uncertain",
       "attack-stats": {
-        "crit-chance": -0.025
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-chance": -0.025
-        }
-      }]
+        "crit-chance": -0.1
+      }
     },
     "aiming": {
       "name": "Aiming",
       "attack-stats": {
-        "crit-chance": 0.025
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-chance": 0.025
-        }
-      }]
+        "crit-chance": 0.1
+      }
     },
     "piercing": {
       "name": "Piercing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": 0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-chance": 0.05
-        }
-      }]
+        "crit-chance": 0.15
+      }
     },
     "precise": {
       "name": "Precise",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": 0.075
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-chance": 0.075
-        }
-      }]
+        "crit-chance": 0.2
+      }
     }
   },
 
@@ -242,76 +134,40 @@
       "drop-rate": 50,
       "attack-stats": {
         "crit-damage": -0.15
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-damage": -0.15
-        }
-      }]
+      }
     },
     "kind": {
       "name": "Kind",
       "drop-rate": 75,
       "attack-stats": {
         "crit-damage": -0.1
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-damage": -0.1
-        }
-      }]
+      }
     },
     "safe": {
       "name": "Safe",
       "attack-stats": {
         "crit-damage": -0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-damage": -0.05
-        }
-      }]
+      }
     },
     "crushing": {
       "name": "Crushing",
       "attack-stats": {
         "crit-damage": 0.05
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-damage": 0.05
-        }
-      }]
+      }
     },
     "demolishing": {
       "name": "Demolishing",
       "drop-rate": 75,
       "attack-stats": {
         "crit-damage": 0.1
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-damage": 0.1
-        }
-      }]
+      }
     },
     "obliterating": {
       "name": "Obliterating",
       "drop-rate": 50,
       "attack-stats": {
         "crit-damage": 0.15
-      },
-	  "empower-stats": [{
-        "category": "runic-weapon",
-        "stats": {
-		  "crit-damage": 0.15
-        }
-      }]
+      }
     }
   }
 }

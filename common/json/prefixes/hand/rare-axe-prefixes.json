@@ -4,7 +4,7 @@
       "name": "Oversized",
       "attack-stats": {
         "damage-multiplier": 0.3,
-        "attack-speed": -0.2
+        "attack-speed": -0.1
       }
     }
   }

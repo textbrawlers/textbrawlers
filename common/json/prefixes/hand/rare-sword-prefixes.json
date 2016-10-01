@@ -3,7 +3,7 @@
     "oversized": {
       "name": "Oversized",
       "attack-stats": {
-        "damage-multiplier": 0.3,
+        "damage-multiplier": 0.15,
         "attack-speed": -0.2
       }
     }

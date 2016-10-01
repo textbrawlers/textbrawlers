@@ -105,7 +105,7 @@
       "icon": "itemzweihander",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 44,
+        "damage": 38,
         "attack-speed": 0.15,
     	"crit-chance": 0.15,
     	"crit-damage": 0.2,

@@ -4,40 +4,40 @@
       "name": "Broken",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": -0.3
+        "damage-multiplier": -0.15
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "attack-stats": {
-        "damage-multiplier": -0.2
+        "damage-multiplier": -0.1
       }
     },
     "blunt": {
       "name": "Blunt",
       "attack-stats": {
-        "damage-multiplier": -0.1
+        "damage-multiplier": -0.05
       }
     },
     "sharp": {
       "name": "Sharp",
       "attack-stats": {
-        "damage-multiplier": 0.1
+        "damage-multiplier": 0.05
       }
     },
     "ruthless": {
       "name": "Ruthless",
       "drop-rate": 75,
       "attack-stats": {
-        "damage-multiplier": 0.2
+        "damage-multiplier": 0.1
       }
     },
     "deadly": {
       "name": "Deadly",
       "drop-rate": 50,
       "attack-stats": {
-        "damage-multiplier": 0.3
+        "damage-multiplier": 0.15
       }
     }
   },
@@ -47,14 +47,14 @@
       "name": "Slow",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": -0.3
+        "attack-speed": -0.2
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": -0.2
+        "attack-speed": -0.15
       }
     },
     "heavy": {
@@ -73,14 +73,14 @@
       "name": "Quick",
       "drop-rate": 75,
       "attack-stats": {
-        "attack-speed": 0.2
+        "attack-speed": 0.15
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "attack-stats": {
-        "attack-speed": 0.3
+        "attack-speed": 0.2
       }
     }
   },
@@ -90,14 +90,14 @@
       "name": "Inaccurate",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": -0.3
+        "crit-chance": -0.2
       }
     },
     "inexact": {
       "name": "Inexact",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": -0.2
+        "crit-chance": -0.15
       }
     },
     "uncertain": {
@@ -116,14 +116,14 @@
       "name": "Piercing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-chance": 0.2
+        "crit-chance": 0.15
       }
     },
     "precise": {
       "name": "Precise",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-chance": 0.3
+        "crit-chance": 0.2
       }
     }
   },
@@ -133,40 +133,40 @@
       "name": "Harmless",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": -0.45
+        "crit-damage": -0.15
       }
     },
     "kind": {
       "name": "Kind",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-damage": -0.3
+        "crit-damage": -0.1
       }
     },
     "safe": {
       "name": "Safe",
       "attack-stats": {
-        "crit-damage": -0.15
+        "crit-damage": -0.05
       }
     },
     "crushing": {
       "name": "Crushing",
       "attack-stats": {
-        "crit-damage": 0.15
+        "crit-damage": 0.05
       }
     },
     "demolishing": {
       "name": "Demolishing",
       "drop-rate": 75,
       "attack-stats": {
-        "crit-damage": 0.3
+        "crit-damage": 0.1
       }
     },
     "obliterating": {
       "name": "Obliterating",
       "drop-rate": 50,
       "attack-stats": {
-        "crit-damage": 0.45
+        "crit-damage": 0.15
       }
     }
   },
@@ -175,7 +175,7 @@
     "cutting": {
       "name": "Cutting",
       "attack-stats": {
-        "bleed-chance": 0.1,
+        "bleed-chance": 0.15,
         "bleed-duration": 1
       }
     },
@@ -183,7 +183,7 @@
       "name": "Slicing",
       "drop-rate": 75,
       "attack-stats": {
-        "bleed-chance": 0.2,
+        "bleed-chance": 0.3,
         "bleed-duration": 1
       }
     },
@@ -191,7 +191,7 @@
       "name": "Slashing",
       "drop-rate": 50,
       "attack-stats": {
-        "bleed-chance": 0.3,
+        "bleed-chance": 0.45,
         "bleed-duration": 1
       }
     }
@@ -201,21 +201,21 @@
     "ripping": {
       "name": "Ripping",
       "attack-stats": {
-        "bleed-duration": 2
+        "bleed-duration": 3
       }
     },
     "tearing": {
       "name": "Tearing",
       "drop-rate": 75,
       "attack-stats": {
-        "bleed-duration": 3
+        "bleed-duration": 4
       }
     },
     "rupturing": {
       "name": "Rupturing",
       "drop-rate": 50,
       "attack-stats": {
-        "bleed-duration": 4
+        "bleed-duration": 5
       }
     }
   }
