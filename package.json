@@ -6,11 +6,13 @@
   "dependencies": {
     "babel-eslint": "^6.1.2",
     "dotenv": "^2.0.0",
-    "jspm": "^0.17.0-beta.28",
+    "jspm": "^0.17.0-beta.29",
     "ws": "^1.1.1"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "ignore": [
+      "jspm.config.js"
+    ]
   },
   "devDependencies": {
     "chokidar-socket-emitter": "^0.5.2",
@@ -68,7 +70,7 @@
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "querystring": "github:jspm/nodelibs-querystring@^0.2.0-alpha",
-      "react": "npm:react@^15.0.0",
+      "react": "npm:react@^15.2.1",
       "react-dnd": "npm:react-dnd@^2.1.4",
       "react-dom": "npm:react-dom@^15.2.1",
       "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
@@ -83,6 +85,22 @@
       "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha"
     },
     "overrides": {
+      "npm:asap@2.0.4": {
+        "map": {
+          "./asap": {
+            "browser": "./browser-asap.js"
+          },
+          "./asap.js": {
+            "browser": "./browser-asap.js"
+          },
+          "./raw": {
+            "browser": "./browser-raw.js"
+          },
+          "./raw.js": {
+            "browser": "./browser-raw.js"
+          }
+        }
+      },
       "npm:browserify-zlib@0.1.4": {
         "dependencies": {
           "readable-stream": "^2.0.2",
@@ -249,7 +267,7 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jspm bundle \"client/entrypoint.js + app.js\" test.js",
     "postinstall": "jspm i",
     "start": "jspm run app.js",
     "socket-emitter": "chokidar-socket-emitter",

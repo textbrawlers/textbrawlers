@@ -4,6 +4,8 @@ jspm_packages
 .idea
 build.js
 build.js.map
+test.js
+test.js.map
 npm-debug.log
 npm-debug.log*
 build-*
