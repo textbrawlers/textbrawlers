@@ -315,16 +315,15 @@ body {
 
 .react-context-menu {
     min-width: 160px;
-    padding: 5px 0;
     margin: 2px 0 0;
     font-size: 16px;
     color: #373a3c;
     text-align: left;
-    background-color: #fff;
+    background-color: #ededed;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .25rem;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     outline: none;
 }
 
@@ -346,9 +345,8 @@ body {
 
 .react-context-menu-link.active,
 .react-context-menu-link:hover {
-    color: #fff;
-    background-color: #0275d8;
-    border-color: #0275d8;
+    color: #white;
+    background-color: #d4d4d4;
 }
 
 .react-context-menu-item.submenu > a {
@@ -370,4 +368,16 @@ body {
 
 .window:not(:first-child) .windowcontent {
   border-left:1px solid #dddddd;
+}
+
+.window detailed-tooltip-window {
+  background:#ededed;
+}
+
+.detailed-tooltip-window {
+  width: 600px;
+}
+
+.detailed-tooltip {
+  padding:5px;
 }

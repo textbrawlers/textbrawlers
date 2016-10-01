@@ -63,7 +63,14 @@ class Stat extends Component {
   render () {
     const stat = this.props.stat
     const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-    const tooltip = this.state.showTooltip && <div>{stat.detailedTooltip}</div>
+    const tooltip = this.state.showTooltip && (
+      <div className='content-background'>
+        <div className='window detailed-tooltip-window'>
+          <h2>STATNAME</h2>
+          <div className="detailed-tooltip">{stat.detailedTooltip}</div>
+        </div>
+      </div>
+    );
     return (
       <TetherComponent
         attachment='top left'

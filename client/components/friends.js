@@ -170,11 +170,11 @@ class FriendContextMenu extends Component {
   render () {
     return (
       <ContextMenu identifier='friend-context-menu'>
-        <MenuItem data={{action: 'remove-friend'}} onClick={this.handleClick}>
-          Remove Friend
-        </MenuItem>
         <MenuItem data={{action: 'invite-game'}} onClick={this.handleClick}>
           Invite to Game
+        </MenuItem>
+        <MenuItem data={{action: 'remove-friend'}} onClick={this.handleClick}>
+          Remove Friend
         </MenuItem>
       </ContextMenu>
     )
