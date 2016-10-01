@@ -1,0 +1,3 @@
+notify:
+  webhooks:
+    - url: http://hook.retardarenan.henrik.ninja/circle
