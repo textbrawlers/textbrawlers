@@ -8,7 +8,7 @@
       "drop-rate": 25,
       "attack-stats": {
         "damage": 5,
-        "attack-speed": 0,32,
+        "attack-speed": 0.32,
         "crit-chance": 0.16,
         "crit-damage":  0.2
       },
@@ -97,7 +97,7 @@
 		"category": "runic-weapon",
 		"stats": {
 		  "damage": 3,
-		  "damage-multiplier": 0,25
+		  "damage-multiplier": 0.25
         }
       }],
       "description": "\"Pointy end goes in enemy.\""
