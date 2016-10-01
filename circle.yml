@@ -1,3 +1,6 @@
 notify:
   webhooks:
     - url: http://hook.retardarenan.henrik.ninja/circle
+machine:
+  node:
+    version: v6.7.0
