@@ -93,8 +93,9 @@
       "icon": "itemobsidianhelmet",
       "drop-rate": 50,
       "character-stats": {
-        "max-health": -10,
-        "damage": 1
+        "damage": 1,
+        "attack-speed": -0.15,
+        "max-health": -15
       },
       "description": "*Sigh* ANOTHER fingerprint."
     }

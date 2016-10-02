@@ -44,6 +44,19 @@
         "attack-speed": 0.15
       },
       "description": "Lighter than air, and just as protective!"
+    },
+    "obsidian-leggings": {
+      "name": "Obsidian Leggings",
+      "slot": "head",
+      "attack": false,
+      "icon": "itemobsidianpants",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage": 1,
+        "attack-speed": -0.15,
+        "max-health": -15
+      },
+      "description": "Oh boy... And you thought the lamellar boots were bad?"
     }
   }
 }

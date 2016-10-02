@@ -55,6 +55,19 @@
         "attack-speed": 0.2
       },
       "description": "Not as tasty as a Linen Tonic, but slightly more wearable."
+    },
+    "obsidian-chestpiece": {
+      "name": "Obsidian Chestpiece",
+      "slot": "head",
+      "attack": false,
+      "icon": "itemobsidianchestpiece",
+      "drop-rate": 50,
+      "character-stats": {
+        "damage": 1,
+        "attack-speed": -0.1,
+        "max-health": -10
+      },
+      "description": "Not the most comfortable of things, but it IS... Sharp..?"
     }
   }
 }
