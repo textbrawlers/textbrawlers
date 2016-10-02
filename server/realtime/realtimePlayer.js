@@ -8,7 +8,15 @@ export default class RealtimePlayer {
   }
 
   send (id, data) {
-    this.ws.send(JSON.stringify({id, data}))
+    return new Promise((resolve, reject) => {
+      this.ws.send(JSON.stringify({id, data}), err => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve()
+        }
+      })
+    })
   }
 
   updatePlayerCount (count) {
