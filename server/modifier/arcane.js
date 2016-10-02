@@ -43,8 +43,11 @@ export default {
   tick (fightData) {
     const buff = fightData.playerStates[fightData.defenderIndex].buffs.find(b => b.type === 'arcane')
     if (buff) {
-      fightData.dots.arcaneDamage = 1
-      buff.storedDmg += buff.damage + 1
+      fightData.dots.arcane = {
+        type: 'arcane',
+        damage: 1
+      }
+      buff.storedDmg += buff.damage - 1
     }
     return fightData
   }

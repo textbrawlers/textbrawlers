@@ -36,7 +36,10 @@ export default {
     ps.buffs = ps.buffs.filter(b => !(b.type === 'burn' && b.duration <= 0))
     const buff = ps.buffs.find(b => b.type === 'burn')
     if (buff) {
-      fightData.dots.burnDamage = Math.round(buff.damageMult * buff.baseDmg)
+      fightData.dots.burn = {
+        type: 'burn',
+        damage: Math.round(buff.damageMult * buff.baseDmg)
+      }
       buff.duration--
     }
     return fightData

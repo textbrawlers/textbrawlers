@@ -7,6 +7,7 @@ import InventorySlot from './inventorySlot.js'
 import InvItem from './invItem.js'
 import BuffBar from './buffBar.js'
 import HealthBar from './healthBar.js'
+import * as common from 'common/api/common.js'
 
 export default class Fight extends Component {
 
@@ -248,18 +249,11 @@ export default class Fight extends Component {
 
     const buffTexts = []
 
-    if (attack.bleedDamage > 0) {
-      buffTexts.push(attack.bleedDamage + ' Bleed Damage')
-    }
-    if (attack.poisonDamage > 0) {
-      buffTexts.push(attack.poisonDamage + ' Poison Damage')
-    }
-    if (attack.burnDamage > 0) {
-      buffTexts.push(attack.burnDamage + ' Burn Damage')
-    }
-    if (attack.arcaneDamage > 0) {
-      buffTexts.push(attack.arcaneDamage + ' Arcane Damage')
-    }
+    Object.entries(attack.dots).forEach(([dot, obj]) => {
+      if (dot && obj.damage) {
+        buffTexts.push(obj.damage + ' ' + common.capitalizeFirstLetter(obj.type) + ' Damage')
+      }
+    })
 
     if (buffTexts.length > 0) {
       return `${defender} took ${buffTexts.join(', ')}.`

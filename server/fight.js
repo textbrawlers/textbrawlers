@@ -1,5 +1,4 @@
 import * as SMath from 'common/api/specmath.js'
-import fs from 'fs'
 import modifierHandler from './modifierHandler.js'
 
 export default class Fight {
@@ -170,8 +169,8 @@ export default class Fight {
     this.fightData = modifierHandler.tick(this.fightData)
 
     let totalDamage = 0
-    Object.entries(this.fightData.dots).forEach(([dot, damage]) => {
-      totalDamage += damage
+    Object.entries(this.fightData.dots).forEach(([dot, obj]) => {
+      totalDamage += obj.damage
     })
 
     this.fightData.playerStates[this.getCurrentDefenderIndex()].currentHP -= Math.round(totalDamage)
@@ -188,16 +187,5 @@ export default class Fight {
       playerDamaged: this.getCurrentDefenderIndex(),
       dots: this.fightData.dots
     }
-  }
-
-  writeLog (fightKey) {
-    const logString = `${this.logbook.join('\r\n')}`
-    fs.writeFile('./logs/fight-' + fightKey + '.log', logString, function (err) {
-      if (err) {
-        console.log(err.stack || err)
-      } else {
-        console.log('Log written successfully.')
-      }
-    })
   }
 }

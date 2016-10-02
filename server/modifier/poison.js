@@ -34,7 +34,10 @@ export default {
     ps.buffs = ps.buffs.filter(b => !(b.type === 'poison' && b.duration <= 0))
     const buff = ps.buffs.find(b => b.type === 'poison')
     if (buff) {
-      fightData.dots.poisonDamage = buff.damage
+      fightData.dots.poison = {
+        type: 'poison',
+        damage: buff.damage
+      }
       buff.duration--
     }
     return fightData

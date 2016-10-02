@@ -84,10 +84,9 @@ export default class FightManager {
     this.sendAttackResponse(fightObj, resp)
 
     if (resp.done) {
-      //fightObj.fight.writeLog(fightObj.id)
       fightObj.doc.history = fightObj.attackHistory
       fightDB.update({_id: fightObj.doc._id}, fightObj.doc).then(
-        () => console.log('Fight ' + fightObj.id + ' saved successfully.')
+        () => console.log('Fight ' + fightObj.id + ' stored successfully.')
       ).catch(err => console.error(err.stack || err))
       this.fights.splice(this.fights.indexOf(fightObj), 1)
     } else {
