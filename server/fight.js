@@ -166,6 +166,7 @@ export default class Fight {
   doBuffs () {
     this.fightData.defenderIndex = this.getCurrentDefenderIndex()
 
+    this.fightData.dots = {}
     this.fightData = modifierHandler.tick(this.fightData)
 
     let totalDamage = 0
