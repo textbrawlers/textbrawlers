@@ -6,6 +6,9 @@ export default {
       if (modifier.apply) {
         fightData = modifier.apply(fightData)
       }
+      if (!fightData) {
+        console.warn('FightData is undefined. Did you remember to return?')
+      }
     })
     return fightData
   },
@@ -15,6 +18,9 @@ export default {
       if (modifier.init) {
         fightData = modifier.init(fightData)
       }
+      if (!fightData) {
+        console.warn('FightData is undefined. Did you remember to return?')
+      }
     })
     return fightData
   },
@@ -23,6 +29,9 @@ export default {
     modifiers.forEach(modifier => {
       if (modifier.tick) {
         fightData = modifier.tick(fightData)
+      }
+      if (!fightData) {
+        console.warn('FightData is undefined. Did you remember to return?')
       }
     })
     return fightData

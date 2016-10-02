@@ -17,5 +17,6 @@ export default {
   tick (fightData) {
     const ps = fightData.playerStates[fightData.defenderIndex]
     ps.buffs = ps.buffs.filter(b => !(b.type === 'stun'))
+    return fightData
   }
 }
