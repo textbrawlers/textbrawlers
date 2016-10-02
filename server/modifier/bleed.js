@@ -1,5 +1,5 @@
 export default {
-  apply(fightData) {
+  apply (fightData) {
     let bleedStack = {}
     const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]
@@ -14,7 +14,7 @@ export default {
     }
   },
 
-  tick(fightData) {
+  tick (fightData) {
 
   }
 }

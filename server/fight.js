@@ -13,7 +13,7 @@ export default class Fight {
       buffs: []
     }))
 
-    this.turn = luckWeightLifter(players)
+    this.turn = this.luckWeightLifter(players)
     this.currentWeapon = 0
     this.numAttacks = 0
     this.attackId = 0
@@ -141,7 +141,7 @@ export default class Fight {
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
         this.log('ID: ' + this.attackId + '. Applying multiplier, current damage = ' + this.damage + '.')
 
-        let fightData = updateFightData()
+        let fightData = this.updateFightData()
 
         let applyResp = modifierHandler.apply(fightData)
 
@@ -150,7 +150,7 @@ export default class Fight {
         if (applyResp.crits) {
           this.crits = applyResp.crits
         }
-        if (applyResp.arcaneDamage)
+        if (applyResp.arcaneDamage) {
           this.arcaneDamage = applyResp.arcaneDamage
         }
 
@@ -187,7 +187,7 @@ export default class Fight {
     return this.turn
   }
 
-  updateFightData() {
+  updateFightData () {
     return {
       playerStates: this.playerStates,
       attackerIndex: this.getCurrentAttackerIndex(),
