@@ -74,9 +74,7 @@ export default class Fight {
 
     if (this.fightData.numAttacks <= 0) {
       this.fightData.numAttacks = this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('attack-speed')
-      if (this.fightData.attacker.buffs.find(b => b.type === 'stun')) {
-        this.fightData.numAttacks /= 2
-      }
+      this.fightData = modifierHandler.init(this.fightData)
     }
   }
 
