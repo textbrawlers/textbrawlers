@@ -4,7 +4,7 @@
       "name": "Pocket Knife",
       "slot": "trinket",
       "attack": true,
-      "icon": "itemknife",
+      "icon": "itempocketknife",
       "drop-rate": 100,
       "attack-stats": {
         "damage": 2,
@@ -20,7 +20,7 @@
       "name": "Haemorrhaging Amulet",
       "slot": "trinket",
       "attack": false,
-      "icon": "itemknife",
+      "icon": "itemhaemorrhagingamulet",
       "drop-rate": 50,
       "character-stats": {
         "bleed-duration": 4
@@ -31,7 +31,7 @@
       "name": "Lucky Coin",
       "slot": "trinket",
       "attack": false,
-      "icon": "itemknife",
+      "icon": "itemluckycoin",
       "drop-rate": 50,
       "character-stats": {
         "luck": 1.0,
