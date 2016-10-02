@@ -45,11 +45,11 @@
       },
       "description": "Lighter than air, and just as protective!"
     },
-    "obsidian-leggings": {
-      "name": "Obsidian Leggings",
+    "obsidian-greaves": {
+      "name": "Obsidian Greaves",
       "slot": "head",
       "attack": false,
-      "icon": "itemobsidianpants",
+      "icon": "itemobsidianshoes",
       "drop-rate": 50,
       "character-stats": {
         "damage": 1,
