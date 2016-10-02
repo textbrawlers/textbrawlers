@@ -6,6 +6,7 @@ import Item from 'common/game/item.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
+const fights = db.get('fights')
 
 export async function requestItem (ctx) {
   ctx.player.inventory.push(await generateItem())
@@ -194,10 +195,55 @@ export async function getSocial (ctx) {
   ctx.body = ctx.account.social
 }
 
+export async function fightSubscribe (ctx) {
+  const id = ctx.params.id
+
+  const rt = Realtime.getRealtimePlayer(ctx.player)
+  const fight = Realtime.getFight(id)
+
+  let status = 'failed'
+
+  if (rt && fight) {
+    if (!fight.subscribers.find(p => p.id.equals(rt.player.id))) {
+      fight.subscribers.push(rt.player)
+      status = 'ok'
+    }
+  } else {
+    console.log('Could not find rt or fight', !!rt, !!fight, id)
+  }
+  ctx.body = { status }
+}
+
+export async function fightUnsubscribe (ctx) {
+  const id = ctx.params.id
+
+  const rt = Realtime.getRealtimePlayer(ctx.player)
+  const fight = Realtime.getFight(id)
+
+  let status = 'failed'
+
+  if (rt && fight) {
+    fight.subscribers = fight.subscribers.filter(p => !p.id.equals(rt.player.id))
+    status = 'ok'
+  }
+  ctx.body = { status }
+}
+
 export async function getFight (ctx) {
   const fight = fightManager.get(ctx.params.id)
   if (!fight) {
-    ctx.body = { success: false }
+    const dbFight = await fights.findOne({_id: ctx.params.id})
+    if (!dbFight) {
+      ctx.body = { success: false }
+      return
+    }
+
+    let accounts = await Promise.all(dbFight.players.map(player => users.findOne({_id: player._id})))
+    accounts = accounts.map(account => ({username: account.username}))
+    const me = dbFight.players.findIndex(player => player._id.toString() === ctx.account._id.toString())
+
+    ctx.body = { players: dbFight.players, me, accounts, history: dbFight.history }
+
     return
   }
   const players = fight.players.map(player => player.serialize())
@@ -205,7 +251,7 @@ export async function getFight (ctx) {
   accounts = accounts.map(account => ({username: account.username}))
 
   const me = fight.players.findIndex(player => player.id.toString() === ctx.account._id.toString())
-  ctx.body = { players, me, accounts }
+  ctx.body = { players, me, accounts, history: fight.attackHistory }
 }
 
 function getCorrectInventory (ctx, inventory) {

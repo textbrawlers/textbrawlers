@@ -13,6 +13,14 @@ function sendPlayerCount () {
   }
 }
 
+export function getRealtimePlayer (player) {
+  return players.find(rtPlayer => rtPlayer.player.id.equals(player.id))
+}
+
+export function getFight (id) {
+  return fightManager.get(id)
+}
+
 export function acceptInvite (playerId, inviteId) {
   let inviteAccepted = false
   const playerRps = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
@@ -35,13 +43,14 @@ export function acceptInvite (playerId, inviteId) {
     const RTPlayers = otherRps.concat(invitedRealtimePlayers)
 
     fightManager.startFight(RTPlayers.map(rt => rt.player)).then(fight => {
-      players.forEach(player => {
-        player.send('startgame', { id: fight.id })
+      fight.players.forEach(player => {
+        sendMessage(player.id, 'startgame', { id: fight.id })
       })
 
       fight.on('attack', attack => {
-        players.forEach(player => {
-          player.send('fight.attack', attack)
+        fight.subscribers.forEach(player => {
+          attack.fightId = fight.id
+          sendMessage(player.id, 'fight.attack', attack)
         })
       })
     }).catch(err => console.error(err.stack || err))

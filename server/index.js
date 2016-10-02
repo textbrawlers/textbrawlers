@@ -40,6 +40,8 @@ router.post('/game/acceptInvite', auth, game.acceptInvite)
 router.post('/game/createCustomItem', auth, game.createCustomItem)
 router.get('/game/requestInventory', auth, game.requestInventory)
 router.get('/game/fight/:id', auth, game.getFight)
+router.post('/game/fight-subscribe/:id', auth, game.fightSubscribe)
+router.post('/game/fight-unsubscribe/:id', auth, game.fightUnsubscribe)
 router.get('/game/social', auth, game.getSocial)
 
 export default router

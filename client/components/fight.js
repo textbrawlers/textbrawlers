@@ -24,8 +24,43 @@ export default class Fight extends Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.params.fightId !== this.props.params.fightId) {
+      this.load(nextProps.params.fightId)
+    }
+  }
+
   componentDidMount () {
-    this.update().catch(err => console.error(err.stack || err))
+    this.load(this.props.params.fightId)
+
+    this.props.realtime.on('message-fight.attack', attack => {
+      if (attack.fightId === this.props.params.fightId) {
+        this.setState({
+          attacks: this.state.attacks.concat(attack)
+        })
+      }
+    })
+  }
+
+  load (fightId) {
+    this.setState({
+      attacks: [],
+      players: [],
+      accounts: [],
+      me: -1,
+      failedLoad: false
+    })
+
+    request.post(`/api/game/fight-subscribe/` + fightId).then(() => {
+      return this.update()
+    })
+    .then(() => console.log('Fight subscribed'))
+    .catch(err => console.error(err.stack || err))
+  }
+
+  componentWillUnmount () {
+    request.post(`/api/game/fight-unsubscribe/` + this.props.params.fightId)
+      .catch(err => console.error(err.stack || err))
   }
 
   async update () {
@@ -43,7 +78,8 @@ export default class Fight extends Component {
     this.setState({
       players: players,
       accounts: resp.accounts,
-      me: resp.me
+      me: resp.me,
+      attacks: resp.history
     })
   }
 
@@ -63,15 +99,10 @@ export default class Fight extends Component {
     )
   }
 
-  componentWillMount () {
-    this.props.realtime.on('message-fight.attack', attack => {
-      this.setState({
-        attacks: this.state.attacks.concat(attack)
-      })
-    })
-  }
-
   render () {
+    if (this.state.players.length === 0) {
+      return <div />
+    }
     const attacks = this.state.attacks.map((attack, i) => {
       const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
 

@@ -37,6 +37,7 @@ export default class FightManager {
     })
     fightObj.players = players
     fightObj.fight = fight
+    fightObj.subscribers = []
     fightObj.attackHistory = []
     fightObj.id = fightObj.doc._id.toString()
     this.fights.push(fightObj)
