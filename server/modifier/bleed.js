@@ -14,6 +14,7 @@ export default {
   },
 
   tick (fightData) {
+    fightData.dots.bleedDamage = 0
     const ps = fightData.playerStates[fightData.defenderIndex]
     ps.buffs = ps.buffs.filter(buff => !(buff.type === 'bleed' && buff.duration <= 0))
     ps.buffs.filter(buff => buff.type === 'bleed').forEach(buff => {
