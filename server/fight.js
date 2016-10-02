@@ -23,9 +23,8 @@ export default class Fight {
   luckWeightLifter (players) {
     let maxWeight = 0
     players.forEach(player => {
-      const playerLuckValue = player.getStat('luck').value
-      if (playerLuckValue) {
-        maxWeight += 10 * (1 + playerLuckValue)
+      if (player.getStat('luck').value) {
+        maxWeight += 10 * (1 + player.getStat('luck').value)
       } else {
         maxWeight += 10
       }
@@ -33,9 +32,8 @@ export default class Fight {
     const weight = SMath.randomInt(maxWeight)
     let currWeight = 0
     const index = players.findIndex(player => {
-      const playerLuckValue = player.getStat('luck').value
-      if (playerLuckValue) {
-        currWeight += 10 * (1 + playerLuckValue)
+      if (player.getStat('luck').value) {
+        currWeight += 10 * (1 + player.getStat('luck').value)
       } else {
         currWeight += 10
       }
