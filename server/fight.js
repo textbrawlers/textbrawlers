@@ -4,8 +4,6 @@ import modifierHandler from './modifierHandler.js'
 
 export default class Fight {
   constructor (players) {
-    this.logbook = []
-
     this.playerStates = players.map(player => ({
       currentHP: Math.round(player.getStat('max-health').value),
       maxHP: Math.round(player.getStat('max-health').value),
@@ -48,11 +46,9 @@ export default class Fight {
     let resp
     this.buffRound = this.checkBuffs() ? this.buffRound : false
     if (this.buffRound) {
-      this.log('ID: ' + this.attackId + '. Starting a dotattack.')
       resp = this.doBuffs()
       this.buffRound = false
     } else {
-      this.log('ID: ' + this.attackId + '. Starting an attack.')
       this.initAttack()
       this.doAttack()
       resp = this.createResponse()
@@ -80,7 +76,6 @@ export default class Fight {
         this.numAttacks /= 2
       }
     }
-    this.log('ID: ' + this.attackId + '. Attack initialized, player ' + this.attackerNum + ' is the attacker.')
   }
 
   endAttack () {
@@ -88,20 +83,13 @@ export default class Fight {
     if (this.numAttacks <= 0) {
       this.currentWeapon++
       if (!this.weapons[this.currentWeapon]) {
-        this.log('ID: ' + this.attackId + '. Player has no more weapons.')
         this.buffRound = true
-        this.log('ID: ' + this.attackId + '. Setting dotround: true.')
         this.turn++
         this.currentWeapon = 0
         if (!this.playerStates[this.turn]) {
           this.turn = 0
         }
-        this.log('ID: ' + this.attackId + '. Attack ended.')
-      } else {
-        this.log('ID: ' + this.attackId + '. Player is using another weapon.')
       }
-    } else {
-      this.log('ID: ' + this.attackId + '. Hit chance remaining: ' + this.numAttacks + '.')
     }
   }
 
@@ -134,12 +122,8 @@ export default class Fight {
       this.damage = 0
       this.arcaneDamage = 0
       if (Math.random() <= this.numAttacks) {
-        this.log('ID: ' + this.attackId + '. Player hit the enemy.')
-
         this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
-        this.log('ID: ' + this.attackId + '. Base damage = ' + this.damage + '.')
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
-        this.log('ID: ' + this.attackId + '. Applying multiplier, current damage = ' + this.damage + '.')
 
         let fightData = this.updateFightData()
 
@@ -154,24 +138,13 @@ export default class Fight {
           this.arcaneDamage = applyResp.arcaneDamage
         }
 
-        // Special Modifiers
-        this.applyArcane()
-
-        // Dot Modifiers
-        this.applyBleed()
-        this.applyPoison()
-        this.applyStun()
-        this.applyBurn(this.damage)
-
         this.damage = Math.round(this.damage)
         this.defender.currentHP -= this.damage
       } else {
         this.miss = true
-        this.log('ID: ' + this.attackId + '. Player missed.')
       }
     } else {
       this.hasWeapon = false
-      this.log('ID: ' + this.attackId + '. This scrub has no weapons.')
     }
   }
 
@@ -207,7 +180,6 @@ export default class Fight {
     if (this.playerStates[defender].buffs.length > 0) {
       return true
     }
-    this.log('ID: ' + this.attackId + '. No dots found, skipping dotattack.')
     return false
   }
 
@@ -222,11 +194,9 @@ export default class Fight {
 
     let defender = this.getCurrentDefenderIndex()
     let index = 0
-    this.log('ID: ' + this.attackId + '. Dots found: ' + this.playerStates[defender].buffs.length + '.')
     while (this.playerStates[defender].buffs[index]) {
       let currentBuff = this.playerStates[defender].buffs[index]
       if (currentBuff.type === 'bleed') {
-        this.log('ID: ' + this.attackId + '. Bleed found, duration remaining: ' + currentBuff.duration + '.')
         bleedDamage++
         if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index, 1)
@@ -235,7 +205,6 @@ export default class Fight {
           index++
         }
       } else if (currentBuff.type === 'poison') {
-        this.log('ID: ' + this.attackId + '. Poison found, duration remaining: ' + currentBuff.duration + '.')
         poisonDamage = currentBuff.damage
         if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index, 1)
@@ -245,7 +214,6 @@ export default class Fight {
         }
         poisonDuration = currentBuff.duration--
       } else if (currentBuff.type === 'burn') {
-        this.log('ID: ' + this.attackId + '. Burn found, duration remaining: ' + currentBuff.duration + '.')
         burnDamage = Math.round(currentBuff.damageMult * currentBuff.baseDmg)
         if (currentBuff.duration <= 0) {
           this.playerStates[defender].buffs.splice(index, 1)
@@ -255,13 +223,11 @@ export default class Fight {
         }
         burnDuration = currentBuff.duration--
       } else if (currentBuff.type === 'arcane') {
-        this.log('ID: ' + this.attackId + '. Arcane found, stacks: ' + currentBuff.stacks + '.')
         arcaneDamage = 1
         this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
         index++
         arcaneStacks = currentBuff.stacks
       } else if (currentBuff.type === 'stun') {
-        this.log('ID: ' + this.attackId + '. Stun found, removing.')
         this.playerStates[defender].buffs.splice(index, 1)
       }
     }
@@ -287,11 +253,6 @@ export default class Fight {
       arcaneDamage: arcaneDamage,
       arcaneStacks: arcaneStacks
     }
-  }
-
-  log (text) {
-    this.logbook.push(text)
-    // console.log(text)
   }
 
   writeLog (fightKey) {
