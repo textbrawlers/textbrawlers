@@ -1,7 +1,6 @@
 export default {
   apply (fightData) {
-    let resp = {}
-    const defender = this.defenderIndex
+    const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]
 
     if (Math.random() < weapon.stats.getValue('burn-chance')) {
@@ -11,33 +10,24 @@ export default {
         const buffIndex = oldBuffs.findIndex(buff => buff.type === 'burn')
 
         if (oldBuffs[buffIndex].damage < weapon.stats.getValue('burn-damage')) {
-          resp = {
-            buff: {
-              action: 'replace',
-              index: fightData.index,
-              buff: {
-                type: 'burn',
-                duration: 3,
-                baseDmg: fightData.damage,
-                damageMult: weapon.stats.getValue('burn-damage')
-              }
-            }
+          const newBuff = {
+            type: 'burn',
+            duration: 3,
+            baseDmg: fightData.damage,
+            damageMult: weapon.stats.getValue('burn-damage')
           }
+          fightData.playerStates[defender].buffs[buffIndex] = newBuff
         }
       } else {
-        resp = {
-          buff: {
-            action: 'add',
-            buff: {
-              type: 'burn',
-              duration: 3,
-              baseDmg: fightData.damage,
-              damageMult: weapon.stats.getValue('burn-damage')
-            }
-          }
+        const newBuff = {
+          type: 'burn',
+          duration: 3,
+          baseDmg: fightData.damage,
+          damageMult: weapon.stats.getValue('burn-damage')
         }
+        fightData.playerStates[defender].buffs.push(newBuff)
       }
     }
-    return resp
+    return fightData
   }
 }

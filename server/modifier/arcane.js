@@ -1,6 +1,5 @@
 export default {
   apply (fightData) {
-    let resp = {}
     const defender = fightData.defenderIndex
     const chance = fightData.weapons[fightData.currentWeapon].stats.getValue('arcane-chance')
 
@@ -14,55 +13,31 @@ export default {
         let currentStacks = oldBuffs[buffIndex].stacks
 
         if (currentStacks >= 4) {
-          resp = {
-            damage: fightData.damage + oldBuffs[buffIndex].storedDmg,
-            arcaneDamage: oldBuffs[buffIndex].storedDmg,
-            buff: {
-              action: 'splice',
-              index: fightData.index
-            }
-          }
+          fightData.damage += oldBuffs[buffIndex].storedDmg
+          fightData.arcaneDamage = oldBuffs[buffIndex].storedDmg
+          fightData.playerStates[defender].buffs.splice(buffIndex, 1)
         } else if (damage < weapon.stats.getValue('arcane-damage')) {
-          resp = {
-            buff: {
-              action: 'replace',
-              index: fightData.index,
-              buff: {
-                type: 'arcane',
-                stacks: currentStacks + 1,
-                damage: weapon.stats.getValue('arcane-damage'),
-                storedDmg: oldBuffs[buffIndex].storedDmg
-              }
-            }
+          const newBuff = {
+            type: 'arcane',
+            stacks: currentStacks + 1,
+            damage: weapon.stats.getValue('arcane-damage'),
+            storedDmg: oldBuffs[buffIndex].storedDmg
           }
+          fightData.playerStates[defender].buffs[buffIndex] = newBuff
         } else {
-          resp = {
-            buff: {
-              action: 'replace',
-              index: fightData.index,
-              buff: {
-                type: 'arcane',
-                stacks: currentStacks + 1,
-                damage: oldBuffs[buffIndex].damage,
-                storedDmg: oldBuffs[buffIndex].storedDmg
-              }
-            }
-          }
+          fightData.playerStates[defender].buffs[buffIndex].stacks++
         }
       } else {
-        resp = {
-          buff: {
-            action: 'add',
-            buff: {
-              type: 'arcane',
-              stacks: 1,
-              damage: weapon.stats.getValue('arcane-damage'),
-              storedDmg: 0
-            }
-          }
+        const newBuff = {
+          type: 'arcane',
+          stacks: 1,
+          damage: weapon.stats.getValue('arcane-damage'),
+          storedDmg: 0
         }
+        fightData.playerStates[defender].buffs.push(newBuff)
       }
+    } else {
     }
-    return resp
+    return fightData
   }
 }

@@ -1,20 +1,13 @@
 export default {
   apply (fightData) {
-    let resp = {}
+    const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]
 
     if (Math.random() <= weapon.stats.getValue('bleed-chance')) {
-      resp = {
-        buff: {
-          action: 'add',
-          buff: {
-            type: 'bleed',
-            duration: weapon.stats.getValue('bleed-duration')
-          }
-        }
-      }
+      let bleedStack = {type: 'bleed', duration: weapon.stats.getValue('bleed-duration')}
+      fightData.playerStates[defender].buffs.push(bleedStack)
     }
-    return resp
+    return fightData
   },
 
   tick (fightData) {

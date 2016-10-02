@@ -4,17 +4,20 @@ import modifierHandler from './modifierHandler.js'
 
 export default class Fight {
   constructor (players) {
-    this.playerStates = players.map(player => ({
+    let playerStates = players.map(player => ({
       currentHP: Math.round(player.getStat('max-health').value),
       maxHP: Math.round(player.getStat('max-health').value),
       player: player,
       buffs: []
     }))
 
-    this.turn = this.luckWeightLifter(players)
-    this.currentWeapon = 0
-    this.numAttacks = 0
-    this.attackId = 0
+    this.fightData = {
+      playerStates: playerStates,
+      turn: this.luckWeightLifter(players),
+      currentWeapon: 0,
+      numAttacks: 0,
+      attackId: 0
+    }
   }
 
   luckWeightLifter (players) {
@@ -42,19 +45,19 @@ export default class Fight {
   }
 
   attack () {
-    this.attackId++
+    this.fightData.attackId++
     let resp
-    this.buffRound = this.checkBuffs() ? this.buffRound : false
-    if (this.buffRound) {
+    this.fightData.buffRound = this.checkBuffs() ? this.fightData.buffRound : false
+    if (this.fightData.buffRound) {
       resp = this.doBuffs()
-      this.buffRound = false
+      this.fightData.buffRound = false
     } else {
       this.initAttack()
       this.doAttack()
       resp = this.createResponse()
       this.endAttack()
 
-      if (this.defender.currentHP <= 0) {
+      if (this.fightData.defender.currentHP <= 0) {
         resp.done = true
       }
     }
@@ -62,32 +65,32 @@ export default class Fight {
   }
 
   initAttack () {
-    this.attackerNum = this.turn
-    this.defenderNum = this.playerStates[this.turn + 1] ? this.turn + 1 : 0
+    this.fightData.attackerNum = this.turn
+    this.fightData.defenderNum = this.playerStates[this.turn + 1] ? this.turn + 1 : 0
 
-    this.attacker = this.playerStates[this.attackerNum]
-    this.defender = this.playerStates[this.defenderNum]
+    this.fightData.attacker = this.fightData.playerStates[this.fightData.attackerNum]
+    this.fightData.defender = this.fightData.playerStates[this.fightData.defenderNum]
 
-    this.weapons = this.attacker.player.weaponStats
+    this.fightData.weapons = this.fightData.attacker.player.weaponStats
 
-    if (this.numAttacks <= 0) {
-      this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
-      if (this.attacker.buffs.find(b => b.type === 'stun')) {
-        this.numAttacks /= 2
+    if (this.fightData.numAttacks <= 0) {
+      this.fightData.numAttacks = this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('attack-speed')
+      if (this.fightData.attacker.buffs.find(b => b.type === 'stun')) {
+        this.fightData.numAttacks /= 2
       }
     }
   }
 
   endAttack () {
-    this.numAttacks -= 1
-    if (this.numAttacks <= 0) {
-      this.currentWeapon++
-      if (!this.weapons[this.currentWeapon]) {
-        this.buffRound = true
-        this.turn++
-        this.currentWeapon = 0
-        if (!this.playerStates[this.turn]) {
-          this.turn = 0
+    this.fightData.numAttacks -= 1
+    if (this.fightData.numAttacks <= 0) {
+      this.fightData.currentWeapon++
+      if (!this.fightData.weapons[this.fightData.currentWeapon]) {
+        this.fightData.buffRound = true
+        this.fightData.turn++
+        this.fightData.currentWeapon = 0
+        if (!this.fightData.playerStates[this.fightData.turn]) {
+          this.fightData.turn = 0
         }
       }
     }
@@ -96,88 +99,65 @@ export default class Fight {
   createResponse () {
     return {
       type: 'regular',
-      playerStates: this.playerStates.map(s => ({
+      playerStates: this.fightData.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP,
         id: s.player.id,
         buffs: s.buffs
       })),
-      damage: this.damage,
-      attacker: this.attackerNum,
-      defender: this.defenderNum,
-      hasWeapon: this.hasWeapon,
-      missed: this.miss,
-      blocked: this.blocked,
-      crit: this.crits,
-      arcaneDamage: this.arcaneDamage,
-      weapon: this.currentWeapon
+      damage: this.fightData.damage,
+      attacker: this.fightData.attackerNum,
+      defender: this.fightData.defenderNum,
+      hasWeapon: this.fightData.hasWeapon,
+      missed: this.fightData.miss,
+      blocked: this.fightData.blocked,
+      crit: this.fightData.crits,
+      arcaneDamage: this.fightData.arcaneDamage,
+      weapon: this.fightData.currentWeapon
     }
   }
 
   doAttack () {
-    if (this.weapons[0]) {
-      this.hasWeapon = true
-      this.miss = false
-      this.crits = 0
-      this.damage = 0
-      this.arcaneDamage = 0
-      if (Math.random() <= this.numAttacks) {
-        this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
-        this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
+    if (this.fightData.weapons[0]) {
+      this.fightData.hasWeapon = true
+      this.fightData.miss = false
+      this.fightData.crits = 0
+      this.fightData.damage = 0
+      this.fightData.arcaneDamage = 0
+      if (Math.random() <= this.fightData.numAttacks) {
+        this.fightData.damage = this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('damage')
+        this.fightData.damage *= (1 + this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('damage-multiplier'))
 
-        let fightData = this.updateFightData()
+        this.fightData.attackerIndex = this.getCurrentAttackerIndex()
+        this.fightData.defenderIndex = this.getCurrentDefenderIndex()
 
-        let applyResp = modifierHandler.apply(fightData)
+        this.fightData = modifierHandler.apply(this.fightData)
 
-        this.damage = applyResp.damage
-        this.blocked = applyResp.blocked
-        if (applyResp.crits) {
-          this.crits = applyResp.crits
-        }
-        if (applyResp.arcaneDamage) {
-          this.arcaneDamage = applyResp.arcaneDamage
-        }
-
-        this.damage = Math.round(this.damage)
-        this.defender.currentHP -= this.damage
+        this.fightData.damage = Math.round(this.fightData.damage)
+        this.fightData.defender.currentHP -= this.fightData.damage
       } else {
-        this.miss = true
+        this.fightData.miss = true
       }
     } else {
-      this.hasWeapon = false
+      this.fightData.hasWeapon = false
     }
   }
 
   getCurrentDefenderIndex () {
     let currentDefenderIndex = 0
-    if (this.playerStates[this.turn + 1]) {
-      currentDefenderIndex = this.turn + 1
+    if (this.fightData.playerStates[this.fightData.turn + 1]) {
+      currentDefenderIndex = this.fightData.turn + 1
     }
     return currentDefenderIndex
   }
 
   getCurrentAttackerIndex () {
-    return this.turn
-  }
-
-  updateFightData () {
-    return {
-      playerStates: this.playerStates,
-      attackerIndex: this.getCurrentAttackerIndex(),
-      defenderIndex: this.getCurrentDefenderIndex(),
-      attacker: this.attacker,
-      defender: this.defender,
-      weapons: this.weapons,
-      currentWeapon: this.currentWeapon,
-      crits: this.crits,
-      damage: this.damage,
-      arcaneDamage: this.arcaneDamage
-    }
+    return this.fightData.turn
   }
 
   checkBuffs () {
     let defender = this.getCurrentDefenderIndex()
-    if (this.playerStates[defender].buffs.length > 0) {
+    if (this.fightData.playerStates[defender].buffs.length > 0) {
       return true
     }
     return false
@@ -194,50 +174,50 @@ export default class Fight {
 
     let defender = this.getCurrentDefenderIndex()
     let index = 0
-    while (this.playerStates[defender].buffs[index]) {
-      let currentBuff = this.playerStates[defender].buffs[index]
+    while (this.fightData.playerStates[defender].buffs[index]) {
+      let currentBuff = this.fightData.playerStates[defender].buffs[index]
       if (currentBuff.type === 'bleed') {
         bleedDamage++
         if (currentBuff.duration <= 0) {
-          this.playerStates[defender].buffs.splice(index, 1)
+          this.fightData.playerStates[defender].buffs.splice(index, 1)
         } else {
-          this.playerStates[defender].buffs[index].duration--
+          this.fightData.playerStates[defender].buffs[index].duration--
           index++
         }
       } else if (currentBuff.type === 'poison') {
         poisonDamage = currentBuff.damage
         if (currentBuff.duration <= 0) {
-          this.playerStates[defender].buffs.splice(index, 1)
+          this.fightData.playerStates[defender].buffs.splice(index, 1)
         } else {
-          this.playerStates[defender].buffs[index].duration--
+          this.fightData.playerStates[defender].buffs[index].duration--
           index++
         }
         poisonDuration = currentBuff.duration--
       } else if (currentBuff.type === 'burn') {
         burnDamage = Math.round(currentBuff.damageMult * currentBuff.baseDmg)
         if (currentBuff.duration <= 0) {
-          this.playerStates[defender].buffs.splice(index, 1)
+          this.fightData.playerStates[defender].buffs.splice(index, 1)
         } else {
-          this.playerStates[defender].buffs[index].duration--
+          this.fightData.playerStates[defender].buffs[index].duration--
           index++
         }
         burnDuration = currentBuff.duration--
       } else if (currentBuff.type === 'arcane') {
         arcaneDamage = 1
-        this.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
+        this.fightData.playerStates[defender].buffs[index].storedDmg += currentBuff.damage--
         index++
         arcaneStacks = currentBuff.stacks
       } else if (currentBuff.type === 'stun') {
-        this.playerStates[defender].buffs.splice(index, 1)
+        this.fightData.playerStates[defender].buffs.splice(index, 1)
       }
     }
 
     let totalDamage = bleedDamage + poisonDamage + burnDamage + arcaneDamage
-    this.playerStates[defender].currentHP -= Math.round(totalDamage)
+    this.fightData.playerStates[defender].currentHP -= Math.round(totalDamage)
 
     return {
       type: 'buff',
-      playerStates: this.playerStates.map(s => ({
+      playerStates: this.fightData.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP,
         id: s.player.id,

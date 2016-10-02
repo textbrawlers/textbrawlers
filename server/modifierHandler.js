@@ -2,18 +2,10 @@ import modifiers from './modifier/config.js'
 
 export default {
   apply (fightData) {
-    let resp = {}
-    let index = 0
     modifiers.forEach(modifier => {
-      fightData.id = Math.random()
-      fightData.index = index
-      let mod = modifier.apply(fightData)
-
-      fightData.damage = mod.damage
-      Object.assign(resp, mod)
-      index++
+      fightData = modifier.apply(fightData)
     })
-    return resp
+    return fightData
   },
 
   attackInit (fightData) {
