@@ -12,11 +12,11 @@ export default function messages (m, weapon, attacker, defender, round) {
     m.add(1, 'Gregolas smited [defender].')
     m.add(50, '[defender] tripped and broke his neck...')
     m.add(100, '[attacker] inflicted fatal damage to [defender].')
-  
+
     if (weapon.type === 'magical-weapon') {
-      m.add(50, "[defender] was promptly turned into a bubbling pool of flesh.")
+      m.add(50, '[defender] was promptly turned into a bubbling pool of flesh.')
     } else if (weapon.type === 'head') {
-      m.add(50, "[defender] could no longer bear the embarrassment of being beaten by a helmet, and committed suicide.")
+      m.add(50, '[defender] could no longer bear the embarrassment of being beaten by a helmet, and committed suicide.')
     }
   } else {
     if (weapon.type !== 'head') {
@@ -39,7 +39,7 @@ export default function messages (m, weapon, attacker, defender, round) {
         if (round.missed) {
           m.add(100, '[attacker] swinged his [item-name] at [defender] but missed.')
           m.add(10, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
-          m.add(1, "[attacker] missed...")
+          m.add(1, '[attacker] missed...')
         } else if (round.blocked) {
           m.add(100, '[attacker] swinged his [item-name] at [defender] but [defender] blocked the attack.')
           m.add(10, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
@@ -55,7 +55,7 @@ export default function messages (m, weapon, attacker, defender, round) {
     } else {
       if (round.missed) {
         m.add(100, '[attacker] threw his helmet at [defender] but missed. What an idiot.')
-        m.add(1, "[attacker] missed...")
+        m.add(1, '[attacker] missed...')
       } else if (round.blocked) {
         m.add(100, '[attacker] threw his helmet at [defender] but [defender] caught it in mid-air.')
         m.add(10, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
@@ -80,7 +80,7 @@ export default function messages (m, weapon, attacker, defender, round) {
         m.add(10, '[attacker] fired his legendary [item-name] at [defender] and hit.')
       }
     }
-    
+
     if (weapon.rarity === 'legendary' && !weapon.hasStat('ranged')) {
       if (round.missed) {
         m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but missed.')

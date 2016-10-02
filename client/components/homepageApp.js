@@ -15,20 +15,18 @@ export default class extends React.Component {
       <div>
         <div>
           <div className='links'>
-            <div className='leftlinks'>
-            </div>
+            <div className='leftlinks' />
             <div className='middlelinks'>
               <Link to='/'>
                 <img className='title' src='/client/png/title.png' />
               </Link>
             </div>
-            <div className='rightlinks'>
-            </div>
+            <div className='rightlinks' />
           </div>
         </div>
         <div className='page-homepage'>
           <div className='container-login'>
-            <div className="content-background">
+            <div className='content-background'>
               <div className='window login-window'>
                 <h2>Login</h2>
                 <div className='windowcontent'>

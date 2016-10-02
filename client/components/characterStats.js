@@ -67,10 +67,10 @@ class Stat extends Component {
       <div className='content-background'>
         <div className='window detailed-tooltip-window'>
           <h2>STATNAME</h2>
-          <div className="detailed-tooltip">{stat.detailedTooltip}</div>
+          <div className='detailed-tooltip'>{stat.detailedTooltip}</div>
         </div>
       </div>
-    );
+    )
     return (
       <TetherComponent
         attachment='top left'

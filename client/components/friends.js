@@ -136,7 +136,7 @@ export default class Friends extends Component {
         <div className='container-friend'>
           <div className='window friend-window'>
             <h2>Friends
-              {!this.props.realtime.connected && <div className='disconnected'></div>}
+              {!this.props.realtime.connected && <div className='disconnected' />}
             </h2>
             {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
           </div>
@@ -152,8 +152,7 @@ class BasicFriend extends Component {
     return (
       <div className='friend'>
         {this.props.friend.username}
-        <div className='offline'>
-        </div>
+        <div className='offline' />
       </div>
     )
   }

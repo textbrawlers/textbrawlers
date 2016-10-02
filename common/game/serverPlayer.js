@@ -1,7 +1,5 @@
-import Monk from 'monk'
+import db from 'server/common/database.js'
 import Player from './player.js'
-
-const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
 
 export default class ServerPlayer extends Player {

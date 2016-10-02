@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "babel-eslint": "^7.0.0",
-    "dotenv": "^2.0.0",
-    "jspm": "^0.17.0-beta.29",
-    "ws": "^1.1.1"
+    "jspm": "^0.17.0-beta.29"
   },
   "standard": {
     "ignore": [
@@ -17,7 +14,8 @@
   "devDependencies": {
     "chokidar-socket-emitter": "^0.5.2",
     "nodemon": "^1.9.2",
-    "npm-run-all": "^3.1.0"
+    "npm-run-all": "^3.1.0",
+    "standard": "^8.3.0"
   },
   "jspm": {
     "name": "retardarenan",
@@ -283,7 +281,8 @@
     "monitor-debug": "nodemon -w server -wcommon -x \"npm start\"",
     "dev": "run-p socket-emitter dev-bundle monitor",
     "build": "jspm bundle --minify client/entrypoint.js build-production.js",
-    "run": "jspm run app.js --production"
+    "run": "jspm run app.js --production",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",

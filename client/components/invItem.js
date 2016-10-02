@@ -27,23 +27,29 @@ class InventoryItem extends React.Component {
   }
 
   onClick (e) {
-    const from = {
+    const invFrom = {
       inventory: this.props.inventory,
       item: this.props.slot
     }
 
     if (e.ctrlKey) {
-      this.props.switchItems({from, to: {
-        inventory: 'reassemble',
-        item: -1
-      }})
+      this.props.switchItems({
+        from: invFrom,
+        to: {
+          inventory: 'reassemble',
+          item: -1
+        }}
+      )
     }
 
     if (e.shiftKey) {
-      this.props.switchItems({from, to: {
-        inventory: 'equipped',
-        item: targetSlot[this.props.item.slot]
-      }})
+      this.props.switchItems({
+        from: invFrom,
+        to: {
+          inventory: 'equipped',
+          item: targetSlot[this.props.item.slot]
+        }
+      })
     }
   }
 

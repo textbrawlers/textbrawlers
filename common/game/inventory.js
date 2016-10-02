@@ -50,7 +50,7 @@ export default class Inventory {
 
     for (let [slot, jsonItem] of Object.entries(jsonInventory)) {
       const item = await Item.fromJSON(jsonItem)
-      if (item){
+      if (item) {
         items[slot] = item
       }
     }

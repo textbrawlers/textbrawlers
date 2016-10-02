@@ -63,7 +63,7 @@ export default class GameIndex extends Component {
   createSlot (index) {
     return (
       <InventorySlot accepts='any' key={index} switchItems={this.switchItems.bind(this)} inventory='inventory' slot={index}>
-         {this.getItem('inventory', index)}
+        {this.getItem('inventory', index)}
       </InventorySlot>
     )
   }

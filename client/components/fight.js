@@ -149,7 +149,7 @@ export default class Fight extends Component {
               {healthDataMe &&
                 <HealthBar healthData={healthDataMe} />
               }
-              <BuffBar buffs={buffsMe}/>
+              <BuffBar buffs={buffsMe} />
             </div>
           </div>
           <div className='window fight-window'>

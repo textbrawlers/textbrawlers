@@ -19,12 +19,12 @@ export default class Fight {
     this.attackId = 0
   }
 
-  luckWeightLifter(players) {
+  luckWeightLifter (players) {
     this.log('Doing weight lifting.')
     let maxWeight = 0
     players.forEach(player => {
       const playerLuckValue = player.getStat('luck').value
-      if (playerLuckValue){
+      if (playerLuckValue) {
         maxWeight += 10 * (1 + playerLuckValue)
       } else {
         maxWeight += 10
@@ -34,7 +34,7 @@ export default class Fight {
     let currWeight = 0
     const index = players.findIndex(player => {
       const playerLuckValue = player.getStat('luck').value
-      if (playerLuckValue){
+      if (playerLuckValue) {
         currWeight += 10 * (1 + playerLuckValue)
       } else {
         currWeight += 10
@@ -47,8 +47,8 @@ export default class Fight {
   attack () {
     this.attackId++
     let resp
-    this.buffRound = this.checkBuffs() ? this.buffRound : false;
-    if (this.buffRound){
+    this.buffRound = this.checkBuffs() ? this.buffRound : false
+    if (this.buffRound) {
       this.log('ID: ' + this.attackId + '. Starting a dotattack.')
       resp = this.doBuffs()
       this.buffRound = false
@@ -77,7 +77,7 @@ export default class Fight {
 
     if (this.numAttacks <= 0) {
       this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
-      if (this.attacker.buffs.find(b => b.type === "stun")){
+      if (this.attacker.buffs.find(b => b.type === 'stun')) {
         this.numAttacks /= 2
       }
     }
@@ -98,10 +98,10 @@ export default class Fight {
           this.turn = 0
         }
         this.log('ID: ' + this.attackId + '. Attack ended.')
-      }else{
+      } else {
         this.log('ID: ' + this.attackId + '. Player is using another weapon.')
       }
-    }else{
+    } else {
       this.log('ID: ' + this.attackId + '. Hit chance remaining: ' + this.numAttacks + '.')
     }
   }
@@ -128,7 +128,7 @@ export default class Fight {
   }
 
   doAttack () {
-    if(this.weapons[0]){
+    if (this.weapons[0]) {
       this.hasWeapon = true
       this.miss = false
       this.crits = 0
@@ -153,24 +153,24 @@ export default class Fight {
           arcaneDamage: this.arcaneDamage
         }
 
-        //Normal Modifiers
-        //this.applyCrit()
-        //this.applyBlock()
+        // Normal Modifiers
+        // this.applyCrit()
+        // this.applyBlock()
         let applyResp = modifierHandler.apply(fightData)
 
         this.damage = applyResp.damage
         this.blocked = applyResp.blocked
-        if (applyResp.crits){
+        if (applyResp.crits) {
           this.crits = applyResp.crits
         }
-        if (applyResp.crits){
+        if (applyResp.crits) {
           this.arcaneDamage = applyResp.arcaneDamage
         }
 
-        //Special Modifiers
+        // Special Modifiers
         this.applyArcane()
 
-        //Dot Modifiers
+        // Dot Modifiers
         this.applyBleed()
         this.applyPoison()
         this.applyStun()
@@ -244,7 +244,7 @@ export default class Fight {
     const oldBuffs = this.playerStates[defender].buffs
     const weapon = this.weapons[this.currentWeapon]
 
-    if (weapon.stats.getValue('poison-duration')){
+    if (weapon.stats.getValue('poison-duration')) {
       if (oldBuffs.find(buff => buff.type === 'poison')) {
         this.log('ID: ' + this.attackId + '. Poison, dot found.')
         const buffIndex = oldBuffs.findIndex(buff => buff.type === 'poison')
@@ -458,14 +458,14 @@ export default class Fight {
     }
   }
 
-  log(text){
+  log (text) {
     this.logbook.push(text)
-    //console.log(text)
+    // console.log(text)
   }
 
-  writeLog(fightKey){
+  writeLog (fightKey) {
     const logString = `${this.logbook.join('\r\n')}`
-    fs.writeFile("./logs/fight-" + fightKey + ".log", logString, function(err){
+    fs.writeFile('./logs/fight-' + fightKey + '.log', logString, function (err) {
       if (err) {
         console.log(err.stack || err)
       } else {

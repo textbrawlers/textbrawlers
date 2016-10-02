@@ -1,3 +1,4 @@
+/*
 applyFury (weaponDamageMult) {
   let attacker = this.getCurrentAttackerIndex()
   if (this.playerStates[attacker].buffs.find(buff => buff.type === 'fury')) {
@@ -27,3 +28,4 @@ resetFury () {
     this.playerStates[attacker].buffs[buffIndex] = newBuff
   }
 }
+*/

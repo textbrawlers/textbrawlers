@@ -7,12 +7,12 @@ export default class ItemTooltip extends Component {
 
     const characterStats = item.characterStats.getStats().map((stat, i) => {
       const statTooltip = stat.render((stat, i) => `<b>${stat}</b>`)
-      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}} />
     })
 
     const attackStats = item.attackStats.getStats().map((stat, i) => {
       const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+      return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}} />
     })
 
     let characterStatsDiv
@@ -65,7 +65,7 @@ export default class ItemTooltip extends Component {
     return item.empoweredStats.map((conf, i) => {
       const stats = conf.stats.getStats().map((stat, i) => {
         const statTooltip = stat.render(stat => `<b>${stat}</b>`)
-        return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}}></p>
+        return <p key={i} dangerouslySetInnerHTML={{__html: statTooltip}} />
       })
 
       let empowerCategory = ' ' + Common.capitalizeFirstLetter(conf.category)
