@@ -71,6 +71,12 @@
     "detail-tooltip": "Block Multiplier determines how many percent of the initial damage you will take when blocking. A 0.5 block multiplier means a 50 percent reduction in damage, while a 0.1 modifier means a 90 percent reduction.",
     "display": true
   },
+  "dodge-chance": {
+    "type": "additive",
+    "tooltip": "[percent] Dodge Chance",
+    "detail-tooltip": "Your dodge chance represent the chance you have to completely ignore all effects of an enemy attack.",
+    "display": true
+  },
   "max-health": {
     "type": "additive",
     "tooltip": "[fixed] Max Health",

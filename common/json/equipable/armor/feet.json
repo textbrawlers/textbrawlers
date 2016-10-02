@@ -7,7 +7,8 @@
       "icon": "itemleathershoes",
       "drop-rate": 125,
       "character-stats": {
-        "max-health": 10
+        "dodge-chance": 0.02,
+		"block-chance": -0.04
       },
       "description": "A pair of not-so-comfy leather boots."
     },
@@ -17,8 +18,8 @@
       "attack": false,
       "icon": "itemironshoes",
       "character-stats": {
-        "max-health": 20,
-        "block-chance": -0.05
+        "max-health": 10,
+        "dodge-chance": -0.02
       },
       "description": "A piece of your standard iron attire. More specifically the piece for your feet."
     },
@@ -29,7 +30,8 @@
       "icon": "itemlamellarshoes",
       "drop-rate": 75,
       "character-stats": {
-        "block-chance": 0.05
+        "block-chance": 0.04,
+		"max-health": -10
       },
       "description": "Beware of blisters."
     },
@@ -40,23 +42,12 @@
       "icon": "itemlinensocks",
       "drop-rate": 50,
       "character-stats": {
-        "attack-speed": 0.05,
+        "attack-speed": 0.02,
         "dodge-chance": 0.01,
-        "max-health": -15
+        "max-health": -5,
+		"block-chance": -0.02
       },
       "description": "Don't get cold feet!"
-    },
-    "boots-of-the-wind": {
-      "name": "Boots of the Wind",
-      "slot": "feet",
-      "attack": false,
-      "icon": "itemwindshoes",
-      "drop-rate": 25,
-      "character-stats": {
-        "max-health-multiplier": -0.1,
-        "attack-speed": 0.15
-      },
-      "description": "Lighter than air, and just as protective!"
     },
     "obsidian-greaves": {
       "name": "Obsidian Greaves",
@@ -66,10 +57,24 @@
       "drop-rate": 50,
       "character-stats": {
         "damage": 1,
-        "attack-speed": -0.15,
-        "max-health": -15
+        "attack-speed": -0.05,
+        "max-health": -5
       },
       "description": "Oh boy... And you thought lamellar boots were bad?"
+    },
+    "boots-of-the-wind": {
+      "name": "Boots of the Wind",
+      "slot": "feet",
+      "attack": false,
+      "icon": "itemwindshoes",
+      "drop-rate": 25,
+      "character-stats": {
+        "attack-speed": 0.01,
+        "dodge-chance": 0.02,
+        "max-health": -5,
+		"block-chance": -0.02
+      },
+      "description": "Lighter than air, and just as protective!"
     }
   }
 }

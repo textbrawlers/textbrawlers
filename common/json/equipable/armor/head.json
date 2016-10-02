@@ -7,12 +7,13 @@
       "icon": "itemironhelmet",
       "drop-rate": 125,
       "character-stats": {
-        "block-multiplier": 0.96
+        "block-multiplier": 1.1,
+		"max-health-multiplier": -0.1
       },
       "attack-stats": {
         "damage": 0,
         "attack-speed": 1,
-        "bleed-chance": 1,
+        "bleed-chance": 0.1,
         "bleed-duration": 10
       },
       "description": "It seems like yet ANOTHER developer needs to learn the alphabet."
@@ -24,13 +25,14 @@
       "icon": "itemironhelmet",
       "drop-rate": 125,
       "character-stats": {
-        "block-chance": 0.03
+        "block-chance": 0.1,
+		"max-health": -10
       },
       "attack-stats": {
-        "damage": 3,
-        "attack-speed": 0.3,
-        "crit-chance": 0.3,
-        "crit-damage": 0.3
+        "damage": 1,
+        "attack-speed": 0.1,
+        "crit-chance": 0.1,
+        "crit-damage": 0.1
       },
       "description": "It seems like a developer needs to learn the alphabet."
     },
@@ -41,7 +43,8 @@
       "icon": "itemleatherhelmet",
       "drop-rate": 125,
       "character-stats": {
-        "max-health": 10
+        "dodge-chance": 0.02,
+		"block-chance": -0.04
       },
       "description": "A leathery piece of headwear. Protection is not assured."
     },
@@ -51,8 +54,8 @@
       "attack": false,
       "icon": "itemironhelmet",
       "character-stats": {
-        "max-health": 20,
-        "block-chance": -0.05
+        "max-health": 10,
+        "dodge-chance": -0.02
       },
       "description": "A piece of your standard iron attire. More specifically the piece for your head."
     },
@@ -63,7 +66,8 @@
       "icon": "itemlamellarhelmet",
       "drop-rate": 75,
       "character-stats": {
-        "block-chance": 0.05
+        "block-chance": 0.04,
+		"max-health": -10
       },
       "description": "Someone decided to make a lamellar helmet. Someone is not very smart."
     },
@@ -74,30 +78,12 @@
       "icon": "itemlinencap",
       "drop-rate": 50,
       "character-stats": {
-        "attack-speed": 0.05,
+        "attack-speed": 0.02,
         "dodge-chance": 0.01,
-        "max-health": -15
+        "max-health": -5,
+		"block-chance": -0.02
       },
       "description": "Hold on to your hat."
-    },
-    "archmages-crown": {
-      "name": "Archmage's Crown",
-      "slot": "head",
-      "attack": false,
-      "icon": "itemcrownhelmet",
-      "drop-rate": 20,
-      "character-stats": {
-        "block-chance": 0.01
-      },
-      "empower-stats": [{
-        "category": "magical",
-        "stats": {
-          "damage-multiplier": 0.15,
-          "crit-chance": 0.05,
-          "crit-damage": 0.5
-        }
-      }],
-      "description": "A long lost crown. Who knows what it is for?"
     },
     "obsidian-helmet": {
       "name": "Obsidian Helmet",
@@ -107,10 +93,29 @@
       "drop-rate": 50,
       "character-stats": {
         "damage": 1,
-        "attack-speed": -0.15,
-        "max-health": -15
+        "attack-speed": -0.05,
+        "max-health": -5
       },
       "description": "*Sigh* ANOTHER fingerprint."
+    },
+    "archmages-crown": {
+      "name": "Archmage's Crown",
+      "slot": "head",
+      "attack": false,
+      "icon": "itemcrownhelmet",
+      "drop-rate": 20,
+      "character-stats": {
+		"max-health": -5
+      },
+      "empower-stats": [{
+        "category": "magical",
+        "stats": {
+          "damage-multiplier": 0.15,
+          "crit-chance": 0.05,
+          "crit-damage": 0.1
+        }
+      }],
+      "description": "A long lost crown. Who knows what it is for?"
     }
   }
 }
