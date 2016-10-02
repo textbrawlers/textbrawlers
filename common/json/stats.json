@@ -158,7 +158,14 @@
   "luck": {
     "type": "additive",
     "tooltip": "[percent] Luck",
-    "detail-tooltip": "Increases the chance to hit first in fights."
+    "detail-tooltip": "Increases the chance to hit first in fights.",
+    "display": true
+  },
+  "timestop": {
+    "type": "additive",
+    "tooltip": "[percent] Timestop",
+    "detail-tooltip": "Stops the time at the end of your turn giving you another turn.",
+    "display": true
   },
   "category": {
     "type": "text",

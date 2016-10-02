@@ -91,6 +91,7 @@ export default class Fight {
         }
       }
     }
+    this.fightData = modifierHandler.end(this.fightData)
   }
 
   createResponse () {

@@ -35,5 +35,17 @@ export default {
       }
     })
     return fightData
+  },
+
+  end (fightData) {
+    modifiers.forEach(modifier => {
+      if (modifier.end) {
+        fightData = modifier.end(fightData)
+      }
+      if (!fightData) {
+        console.warn('FightData is undefined. Did you remember to return?')
+      }
+    })
+    return fightData
   }
 }
