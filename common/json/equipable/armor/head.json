@@ -67,6 +67,19 @@
       },
       "description": "Someone decided to make a lamellar helmet. Someone is not very smart."
     },
+    "linen-cap": {
+      "name": "Linen Cap",
+      "slot": "head",
+      "attack": false,
+      "icon": "itemlinencap",
+      "drop-rate": 50,
+      "character-stats": {
+        "attack-speed": 0.05,
+        "dodge-chance": 0.01,
+        "max-health": -15
+      },
+      "description": "Hold on to your hat."
+    },
     "archmages-crown": {
       "name": "Archmage's Crown",
       "slot": "head",

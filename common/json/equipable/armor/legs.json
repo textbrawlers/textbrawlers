@@ -46,7 +46,7 @@
     },
     "obsidian-leggings": {
       "name": "Obsidian Leggings",
-      "slot": "head",
+      "slot": "legs",
       "attack": false,
       "icon": "itemobsidianpants",
       "drop-rate": 50,

@@ -33,6 +33,19 @@
       },
       "description": "Beware of blisters."
     },
+   "linen-socks": {
+      "name": "Linen Socks",
+      "slot": "feet",
+      "attack": false,
+      "icon": "itemlinensocks",
+      "drop-rate": 50,
+      "character-stats": {
+        "attack-speed": 0.05,
+        "dodge-chance": 0.01,
+        "max-health": -15
+      },
+      "description": "Don't get cold feet!"
+    },
     "boots-of-the-wind": {
       "name": "Boots of the Wind",
       "slot": "feet",
@@ -47,7 +60,7 @@
     },
     "obsidian-greaves": {
       "name": "Obsidian Greaves",
-      "slot": "head",
+      "slot": "feet",
       "attack": false,
       "icon": "itemobsidianshoes",
       "drop-rate": 50,
@@ -56,7 +69,7 @@
         "attack-speed": -0.15,
         "max-health": -15
       },
-      "description": "Oh boy... And you thought the lamellar boots were bad?"
+      "description": "Oh boy... And you thought lamellar boots were bad?"
     }
   }
 }

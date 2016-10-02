@@ -58,7 +58,7 @@
     },
     "obsidian-chestpiece": {
       "name": "Obsidian Chestpiece",
-      "slot": "head",
+      "slot": "torso",
       "attack": false,
       "icon": "itemobsidianchestpiece",
       "drop-rate": 50,
