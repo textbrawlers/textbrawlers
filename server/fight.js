@@ -21,6 +21,7 @@ export default class Fight {
   }
 
   luckWeightLifter (players) {
+    this.log('Doing weight lifting.')
     let maxWeight = 0
     players.forEach(player => {
       const playerLuckValue = player.getStat('luck').value

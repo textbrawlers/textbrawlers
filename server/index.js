@@ -6,7 +6,13 @@ import * as game from './api/game.js'
 const auth = async (ctx, next) => {
   const key = ctx.request.header.key
 
-  const { player, jsonUser } = await SPlayer.fromKey(key, true)
+  const playerResp = await SPlayer.fromKey(key, true)
+
+  if (!playerResp) {
+    ctx.throw(401)
+    return
+  }
+  const { player, jsonUser } = playerResp
 
   if (player) {
     ctx.player = player
