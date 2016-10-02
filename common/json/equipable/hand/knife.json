@@ -8,7 +8,7 @@
       "drop-rate": 50,
       "attack-stats": {
         "damage": 6,
-        "attack-speed": 0.6,
+        "attack-speed": 1.1,
         "crit-chance": 0.3,
         "crit-damage": 0.4,
         "bleed-chance": 0.1,
@@ -17,7 +17,7 @@
 	  "empower-stats": [{
         "category": "knife",
         "stats": {
-		  "attack-speed": 1.0
+		  "attack-speed": 0.5
         }
       }],
       "description": "The knife of a very well known assassin, and therefore a very bad assassin."
@@ -30,14 +30,14 @@
       "drop-rate": 10,
       "attack-stats": {
         "damage": 2,
-        "attack-speed": 0.1,
+        "attack-speed": 0.6,
         "crit-chance": 1,
         "crit-damage": -0.5
       },
 	  "empower-stats": [{
         "category": "knife",
         "stats": {
-		  "attack-speed": 1.0
+		  "attack-speed": 0.5
         }
       }],
       "description": "But WHY?"
