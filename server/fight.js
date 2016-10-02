@@ -13,13 +13,14 @@ export default class Fight {
       buffs: []
     }))
 
-    this.turn = luckWeightLifter(players)
+    this.turn = SMath.randomInt(this.playerStates.length)
     this.currentWeapon = 0
     this.numAttacks = 0
     this.attackId = 0
   }
 
   luckWeightLifter (players) {
+    this.log('Doing weight lifting.')
     let maxWeight = 0
     players.forEach(player => {
       const playerLuckValue = player.getStat('luck').value
@@ -141,8 +142,20 @@ export default class Fight {
         this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
         this.log('ID: ' + this.attackId + '. Applying multiplier, current damage = ' + this.damage + '.')
 
-        let fightData = updateFightData()
+        let fightData = {
+          playerStates: this.playerStates,
+          attacker: this.attacker,
+          defender: this.defender,
+          weapons: this.weapons,
+          currentWeapon: this.currentWeapon,
+          crits: this.crits,
+          damage: this.damage,
+          arcaneDamage: this.arcaneDamage
+        }
 
+        // Normal Modifiers
+        // this.applyCrit()
+        // this.applyBlock()
         let applyResp = modifierHandler.apply(fightData)
 
         this.damage = applyResp.damage
@@ -150,7 +163,7 @@ export default class Fight {
         if (applyResp.crits) {
           this.crits = applyResp.crits
         }
-        if (applyResp.arcaneDamage)
+        if (applyResp.crits) {
           this.arcaneDamage = applyResp.arcaneDamage
         }
 
@@ -187,18 +200,77 @@ export default class Fight {
     return this.turn
   }
 
-  updateFightData() {
-    return {
-      playerStates: this.playerStates,
-      attackerIndex: this.getCurrentAttackerIndex(),
-      defenderIndex: this.getCurrentDefenderIndex(),
-      attacker: this.attacker,
-      defender: this.defender,
-      weapons: this.weapons,
-      currentWeapon: this.currentWeapon,
-      crits: this.crits,
-      damage: this.damage,
-      arcaneDamage: this.arcaneDamage
+  applyBlock () {
+    this.blocked = false
+    if (Math.random() < this.defender.player.getStat('block-chance').value - this.weapons[this.currentWeapon].stats.getValue('armor-pierce')) {
+      this.blocked = true
+      this.damage *= this.defender.player.getStat('block-multiplier').value
+    }
+  }
+
+  applyCrit () {
+    const weapon = this.weapons[this.currentWeapon]
+
+    if (Math.random() < weapon.stats.getValue('crit-chance')) {
+      this.crits = 1
+      if (Math.random() < weapon.stats.getValue('crit-chance') - 1) {
+        this.crits = 2
+        this.damage *= (1 + (1.5 * weapon.stats.getValue('crit-damage')))
+        this.log('ID: ' + this.attackId + '. Applying red crit, current damage = ' + this.damage + '.')
+      } else {
+        this.damage *= (1 + weapon.stats.getValue('crit-damage'))
+        this.log('ID: ' + this.attackId + '. Applying crit, current damage = ' + this.damage + '.')
+      }
+    } else {
+      this.log('ID: ' + this.attackId + '. No crit, current damage = ' + this.damage + '.')
+    }
+  }
+
+  applyBleed () {
+    const defender = this.getCurrentDefenderIndex()
+    const weapon = this.weapons[this.currentWeapon]
+
+    if (Math.random() <= weapon.stats.getValue('bleed-chance')) {
+      let bleedStack = {type: 'bleed', duration: weapon.stats.getValue('bleed-duration')}
+      this.playerStates[defender].buffs.push(bleedStack)
+      this.log('ID: ' + this.attackId + '. Bleed, applied.')
+    } else {
+      this.log('ID: ' + this.attackId + '. Bleed, failed to apply.')
+    }
+  }
+
+  applyPoison () {
+    const defender = this.getCurrentDefenderIndex()
+    const oldBuffs = this.playerStates[defender].buffs
+    const weapon = this.weapons[this.currentWeapon]
+
+    if (weapon.stats.getValue('poison-duration')) {
+      if (oldBuffs.find(buff => buff.type === 'poison')) {
+        this.log('ID: ' + this.attackId + '. Poison, dot found.')
+        const buffIndex = oldBuffs.findIndex(buff => buff.type === 'poison')
+
+        if (oldBuffs[buffIndex].damage < weapon.stats.getValue('poison-damage')) {
+          this.log('ID: ' + this.attackId + '. Poison, new dot is stronger, applying.')
+          const newBuff = {
+            type: 'poison',
+            duration: weapon.stats.getValue('poison-duration'),
+            damage: weapon.stats.getValue('poison-damage')
+          }
+          this.playerStates[defender].buffs[buffIndex] = newBuff
+        } else {
+          this.log('ID: ' + this.attackId + '. Poison, old dot is stonger.')
+        }
+      } else {
+        const newBuff = {
+          type: 'poison',
+          duration: weapon.stats.getValue('poison-duration'),
+          damage: weapon.stats.getValue('poison-damage')
+        }
+        this.playerStates[defender].buffs.push(newBuff)
+        this.log('ID: ' + this.attackId + '. Poison, dot not found, applying.')
+      }
+    } else {
+      this.log('ID: ' + this.attackId + '. Poison, no poisonous weapon equipped.')
     }
   }
 
