@@ -78,7 +78,7 @@ export default class Fight extends Component {
     this.setState({
       players: players,
       accounts: resp.accounts,
-      me: resp.me,
+      me: resp.me === -1 ? 0 : resp.me,
       attacks: resp.history
     })
   }
