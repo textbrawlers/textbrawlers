@@ -21,7 +21,6 @@ export default class Fight {
   }
 
   luckWeightLifter (players) {
-    this.log('Doing weight lifting.')
     let maxWeight = 0
     players.forEach(player => {
       const playerLuckValue = player.getStat('luck').value
@@ -165,6 +164,7 @@ export default class Fight {
   }
 
   doBuffs () {
+    this.fightData.defenderIndex = this.getCurrentDefenderIndex()
     let bleedDamage = 0
     let poisonDamage = 0
     let poisonDuration = 0
@@ -173,7 +173,6 @@ export default class Fight {
     let arcaneDamage = 0
     let arcaneStacks = 0
 
-    let defender = this.getCurrentDefenderIndex()
     let index = 0
     while (this.fightData.playerStates[defender].buffs[index]) {
       let currentBuff = this.fightData.playerStates[defender].buffs[index]
