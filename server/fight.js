@@ -65,8 +65,8 @@ export default class Fight {
   }
 
   initAttack () {
-    this.fightData.attackerNum = this.turn
-    this.fightData.defenderNum = this.playerStates[this.turn + 1] ? this.turn + 1 : 0
+    this.fightData.attackerNum = this.fightData.turn
+    this.fightData.defenderNum = this.fightData.playerStates[this.fightData.turn + 1] ? this.fightData.turn + 1 : 0
 
     this.fightData.attacker = this.fightData.playerStates[this.fightData.attackerNum]
     this.fightData.defender = this.fightData.playerStates[this.fightData.defenderNum]
