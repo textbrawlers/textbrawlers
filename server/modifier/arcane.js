@@ -36,7 +36,15 @@ export default {
         }
         fightData.playerStates[defender].buffs.push(newBuff)
       }
-    } else {
+    }
+    return fightData
+  },
+
+  tick (fightData) {
+    const buff = fightData.playerStates[fightData.defenderIndex].buffs.find(b => b.type === 'arcane')
+    if (buff) {
+      fightData.dots.arcaneDamage = 1
+      buff.storedDmg += buff.damage + 1
     }
     return fightData
   }

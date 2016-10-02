@@ -29,7 +29,14 @@ export default {
     return fightData
   },
 
-  tick () {
-
+  tick (fightData) {
+    const ps = fightData.playerStates[fightData.defenderIndex]
+    ps.buffs = ps.buffs.filter(b => !(b.type === 'poison' && b.duration <= 0))
+    const buff = ps.buffs.find(b => b.type === 'poison')
+    if (buff) {
+      fightData.dots.poisonDamage = buff.damage
+      buff.duration--
+    }
+    return fightData
   }
 }

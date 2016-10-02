@@ -14,14 +14,12 @@ export default {
   },
 
   tick (fightData) {
-    fightData.playerStates[fightData.defenderIndex].buffs.filter(
-      buff => buff.type === 'bleed').forEach(buff => {
-        fightData.bleedDamage++
-        if (buff.duration <= 0) {
-          fightData.playerStates[fightData.defenderIndex].buffs.splice(index, 1)
-        } else {
-          fightData.playerStates[fightData.defenderIndex].buffs[index].duration--
-        }
+    const ps = fightData.playerStates[fightData.defenderIndex]
+    ps.buffs = ps.buffs.filter(buff => !(buff.type === 'bleed' && buff.duration <= 0))
+    ps.buffs.filter(buff => buff.type === 'bleed').forEach(buff => {
+      fightData.dots.bleedDamage++
+      buff.duration--
     })
+    return fightData
   }
 }

@@ -8,15 +8,17 @@ export default {
     return fightData
   },
 
-  attackInit (fightData) {
-
+  init (fightData) {
+    modifiers.forEach(modifier => {
+      fightData = modifier.init(fightData)
+    })
+    return fightData
   },
 
   tick (fightData) {
-    let resp = []
     modifiers.forEach(modifier => {
-      resp.push(modifier.tick())
+      fightData = modifier.tick(fightData)
     })
-    return resp
+    return fightData
   }
 }
