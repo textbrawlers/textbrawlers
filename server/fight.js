@@ -162,6 +162,7 @@ export default class Fight {
   }
 
   doBuffs () {
+    let resp = {}
     this.fightData.defenderIndex = this.getCurrentDefenderIndex()
 
     this.fightData.dots = {}
@@ -174,7 +175,7 @@ export default class Fight {
 
     this.fightData.playerStates[this.getCurrentDefenderIndex()].currentHP -= Math.round(totalDamage)
 
-    return {
+    resp = {
       type: 'buff',
       playerStates: this.fightData.playerStates.map(s => ({
         currentHP: s.currentHP,
@@ -186,5 +187,11 @@ export default class Fight {
       playerDamaged: this.getCurrentDefenderIndex(),
       dots: this.fightData.dots
     }
+
+    if (this.fightData.playerStates[this.getCurrentDefenderIndex()].currentHP <= 0) {
+      resp.done = true
+    }
+
+    return resp
   }
 }
