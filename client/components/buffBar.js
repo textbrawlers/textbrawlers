@@ -1,31 +1,5 @@
 import React, { Component } from 'react'
-
-const buffConfig = {
-  arcane: {
-    name: 'Arcane',
-    image: 'dotarcane.png'
-  },
-  bleed: {
-    name: 'Bleed',
-    image: 'dotbleed.png'
-  },
-  burn: {
-    name: 'Burn',
-    image: 'dotburn.png'
-  },
-  poison: {
-    name: 'Poison',
-    image: 'dotpoison.png'
-  },
-  fury: {
-    name: 'Fury',
-    image: 'bufffury.png'
-  },
-  stun: {
-    name: 'Stun',
-    image: 'buffstun.png'
-  }
-}
+import buffConfig from 'common/json/dotcfg.json'
 
 export default class BuffBar extends Component {
   render () {
