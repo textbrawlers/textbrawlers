@@ -1,180 +1,210 @@
 {
   "damage": {
     "type": "additive",
+    "name": "Damage",
     "tooltip": "[fixed] Damage",
     "detail-tooltip": "The amount of damage a weapon deals with each hit, before adding any modifiers such as percentage-based damage and crits.",
     "display": true
   },
   "damage-multiplier": {
     "type": "additive",
+    "name": "Damage",
     "tooltip": "[plus-percent] Damage",
     "detail-tooltip": "A percentage-based multiplier for your damage. The damage a weapon deals is increased by this value.",
     "display": true
   },
   "attack-speed": {
     "type": "additive",
+    "name": "Hit Chance",
     "tooltip": "[fixed-fine] Hit Chance",
     "detail-tooltip": "The chance your weapon has to hit an enemy (this is different from evade). If a weapon has more than 1 hit chance, it will automatically hit once, and have a chance of hitting an additional time. For example, a weapon with 4.5 hit chance will automatically hit 4 times and have a 50 percent chance of hitting a fifth time.",
     "display": true
   },
   "crit-chance": {
     "type": "additive",
+    "name": "Crit Chance",
     "tooltip": "[percent] Crit Chance",
     "detail-tooltip": "The chance your weapon has to land a Critical Hit. A Critical Hit deals additional damage based on your Crit Damage. A Crit Chance over 100 percent means that crits are guaranteed, and you have the chance of scoring a Red Crit, which deals 150 percent of your crit damage instead of the normal 100 percent.",
     "display": true
   },
   "crit-damage": {
     "type": "additive",
+    "name": "Crit Damage",
     "tooltip": "[plus-percent] Crit Damage",
     "detail-tooltip": "The amount of bonus damage your weapon recieves during a Critical Hit. A Critical Hit deals additional damage based on your Crit Damage. A Crit Chance over 100 percent means that crits are guaranteed, and you have the chance of scoring a Red Crit, which deals 150 percent of your crit damage instead of the normal 100 percent.",
     "display": true
   },
   "bleed-chance": {
     "type": "additive",
+    "name": "Bleed Chance",
     "tooltip": "[percent] Bleed Chance",
     "detail-tooltip": "The chance your weapon has to inflict a Bleed stack upon your enemy each attack. Bleed deals 1 damage each turn and stacks, with each stack having its own separate duration.",
     "display": true
   },
   "bleed-duration": {
     "type": "additive",
+    "name": "Bleed Duration",
     "tooltip": "[fixed] Bleed Duration",
     "detail-tooltip": "How long a stack of Bleed from this weapon will last. Bleed deals 1 damage each turn and stacks, with each stack having its own separate duration.",
     "display": true
   },
   "poison-duration": {
     "type": "additive",
+    "name": "Poison Duration",
     "tooltip": "[fixed] Poison Duration",
     "detail-tooltip": "How long a stack of poison from this weapon will remain. Poison deals damage each turn to an enemy depending on your Poison Damage. Poison does not stack, and if multiple poisons are applied to an enemy, only the one with the highest damage will remain.",
     "display": true
   },
   "poison-damage": {
     "type": "additive",
+    "name": "Poison Damage",
     "tooltip": "[fixed] Poison Damage",
     "detail-tooltip": "How much damage a stack of poison from this weapon will deal per turn. Poison deals damage each turn to an enemy depending on your Poison Damage. Poison does not stack, and if multiple poisons are applied to an enemy, only the one with the highest damage will remain.",
     "display": true
   },
   "stun-chance": {
     "type": "additive",
+    "name": "Stun Chance",
     "tooltip": "[percent] Stun Chance",
     "detail-tooltip": "Stun Chance is the chance of causing a Stun with each attack. A Stun halves your opponent's attack speed during their next turn.",
     "display": true
   },
   "block-chance": {
     "type": "additive",
+    "name": "Block Chance",
     "tooltip": "[percent] Block Chance",
     "detail-tooltip": "Block Chance is the chance you have to block an attack. A blocked attack deals reduced damage based on your Block Multiplier.",
     "display": true
   },
   "block-multiplier": {
     "type": "multiplicative",
+    "name": "Block Multiplier",
     "tooltip": "[fixed-fine] Block Multiplier",
     "detail-tooltip": "Block Multiplier determines how many percent of the initial damage you will take when blocking. A 0.5 block multiplier means a 50 percent reduction in damage, while a 0.1 modifier means a 90 percent reduction.",
     "display": true
   },
   "dodge-chance": {
     "type": "additive",
+    "name": "Dodge Chance",
     "tooltip": "[percent] Dodge Chance",
     "detail-tooltip": "Your dodge chance represent the chance you have to completely ignore all effects of an enemy attack.",
     "display": true
   },
   "max-health": {
     "type": "additive",
+    "name": "Max Health",
     "tooltip": "[fixed] Max Health",
     "detail-tooltip": "Your maximum health, this determines how long you will be able to survive.",
     "display": true
   },
   "max-health-multiplier": {
     "type": "additive",
+    "name": "Max Health",
     "tooltip": "[plus-percent] Max Health",
     "detail-tooltip": "A percentage-based modifier for your maximum health. Your maximum health is increased by this value.",
     "display": true
   },
   "comfort": {
     "type": "additive",
+    "name": "Comfort",
     "tooltip": "[plus-percent] Comfort",
     "detail-tooltip": "How comfortable you currently are.",
     "display": false
   },
   "fashionable": {
     "type": "additive",
+    "name": "Fashionable",
     "tooltip": "[plus-percent] Fashionable",
     "detail-tooltip": "How FABULOUS you look.",
     "display": false
   },
   "fury": {
     "type": "multiplicative",
+    "name": "Fury",
     "tooltip": "[plus-mult] Fury",
     "detail-tooltip": "Every successful attack multiplies your current Fury stacks with the Fury of your weapon. All your attacks have their damage increased based on your current Fury stacks. All Fury stacks are lost as soon as you miss an attack.",
     "display": false
   },
   "burn-chance": {
     "type": "additive",
+    "name": "Burn Chance",
     "tooltip": "[percent] Burn Chance",
     "detail-tooltip": "Burn Chance is your chance of inflicting a Burn with each attack. A Burn deals a percentage of the damage that applied it each turn for three turns.",
     "display": true
   },
   "burn-damage": {
     "type": "additive",
+    "name": "Burn Damage",
     "tooltip": "[percent] Burn Damage",
     "detail-tooltip": "Burn Damage is how much damage a Burn deals. A Burn deals a percentage of the damage that applied it each turn for three turns.",
     "display": true
   },
   "arcane-chance": {
     "type": "additive",
+    "name": "Arcane Chance",
     "tooltip": "[percent] Arcane Chance",
     "detail-tooltip": "Arcane Chance is the chance your weapon has to give your opponent a stack of Arcane (stacks up to 4 times). Your opponent takes 1 damage each turn for each stack of arcane they have. However, they also store damage for each stack equal to your Arcane Damage - 1. Upon reaching five stacks, all stored damage is released, and all arcane stacks are removed.",
     "display": true
   },
   "arcane-damage": {
     "type": "additive",
+    "name": "Arcane Damage",
     "tooltip": "[fixed] Arcane Damage",
     "detail-tooltip": "Arcane Damage is the damage you weapon deals for each Arcane stack. Your opponent takes 1 damage each turn for each stack of arcane they have. However, they also store damage for each stack equal to your Arcane Damage - 1. Upon reaching five stacks, all stored damage is released, and all arcane stacks are removed.",
     "display": true
   },
   "void-strike": {
     "type": "multiplicative",
+    "name": "Void Strike",
     "tooltip": "[fixed] Void Strike",
     "detail-tooltip": "Every hit adds a stack of 'void'. Each hit has a 50% chance to deal the numbers of stacks times your damage, while consuming all stacks.",
     "display": false
   },
   "ranged": {
     "type": "boolean",
+    "name": "Ranged",
     "tooltip": "Ranged",
     "detail-tooltip": "Ranged weapons are harder to dodge, but easier to block. Your enemy treats their dodge as 10% lower against this weapon, but treats their block chance as 20% higher.",
     "display": true
   },
   "slow": {
     "type": "boolean",
+    "name": "Slow",
     "tooltip": "Slow",
     "detail-tooltip": "Slow weapons are easier to dodge, and thus your enemy treats their dodge as 20% higher against this weapon.",
     "display": true
   },
   "armor-pierce": {
     "type": "additive",
+    "name": "Armor Pierce",
     "tooltip": "[percent] Armor Pierce",
     "detail-tooltip": "If a weapon has Armor Pierce, your opponent recieves that much lower Block Chance against attacks with this weapon.",
     "display": true
   },
   "luck": {
     "type": "additive",
+    "name": "Luck",
     "tooltip": "[percent] Luck",
     "detail-tooltip": "Increases the chance to hit first in fights.",
     "display": true
   },
   "timestop": {
     "type": "additive",
+    "name": "Timestop",
     "tooltip": "[percent] Timestop",
     "detail-tooltip": "Stops the time at the end of your turn giving you another turn.",
     "display": true
   },
   "bloodlust": {
     "type": "additive",
+    "name": "Bloodlust",
     "tooltip": "[percent] Bloodlust",
     "detail-tooltip": "A weapon with Bloodlust deals 10% extra damage for each stack of bleed your opponent has, up to a maximum determined by your Bloodlust.",
     "display": true
   },
   "category": {
     "type": "text",
+    "name": "Itemtype",
     "tooltip": "Itemtype: [type]",
     "detail-tooltip": "Item type is used when determining which items recieve Empowered stats.",
     "display": false

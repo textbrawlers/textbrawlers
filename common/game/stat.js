@@ -42,6 +42,7 @@ export default class Stat {
     this.value = value
     this.id = id
 
+    this.name = baseStat.name
     this.tooltip = baseStat.tooltip
     this.type = baseStat.type
     this.display = baseStat.display

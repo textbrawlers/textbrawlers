@@ -66,7 +66,7 @@ class Stat extends Component {
     const tooltip = this.state.showTooltip && (
       <div className='content-background'>
         <div className='window detailed-tooltip-window'>
-          <h2>STATNAME</h2>
+          <h2>{stat.name}</h2>
           <div className='detailed-tooltip'>{stat.detailedTooltip}</div>
         </div>
       </div>
