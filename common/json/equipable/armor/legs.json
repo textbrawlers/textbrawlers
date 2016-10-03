@@ -56,8 +56,8 @@
       "drop-rate": 50,
       "character-stats": {
         "damage": 1,
-        "attack-speed": -0.1,
-        "max-health": -10
+        "attack-speed": -0.05,
+        "max-health": -5
       },
       "description": "Just don't bend your knees, and you'll be golden!"
     }
