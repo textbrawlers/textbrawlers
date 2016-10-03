@@ -272,7 +272,8 @@
     }
   },
   "scripts": {
-    "test": "jspm bundle \"client/entrypoint.js + app.js\" test.js",
+    "test-bundle": "jspm bundle \"client/entrypoint.js + app.js\" test.js",
+    "test": "run-p lint test-bundle",
     "postinstall": "jspm i",
     "start": "jspm run app.js",
     "socket-emitter": "chokidar-socket-emitter",
