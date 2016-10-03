@@ -38,6 +38,20 @@
         "crit-damage": 4.0
       },
       "description": "Significantly deadlier than a mohawk. But just as cool."
+    },
+    "bloodthirsting-axe": {
+      "name": "Bloodthirsting Axe",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemaxe",
+      "attack-stats": {
+        "damage": 10,
+        "attack-speed": 0.35,
+        "crit-chance": 0.15,
+        "crit-damage": 1.0,
+		"bloodlust": 5.0
+      },
+      "description": "Don't make the axe angry. You won't like it when it's angry."
     }
   }
 }

@@ -7,6 +7,7 @@ import burn from './burn.js'
 import poison from './poison.js'
 import stun from './stun.js'
 import timestop from './timestop.js'
+import bloodlust from './bloodlust.js'
 
 // Add modifiers to array. Order matters.
 const modifiers = [
@@ -17,7 +18,8 @@ const modifiers = [
   burn,
   poison,
   stun,
-  timestop
+  timestop,
+  bloodlust
 ]
 
 export default modifiers

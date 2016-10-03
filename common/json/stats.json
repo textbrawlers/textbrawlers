@@ -167,6 +167,12 @@
     "detail-tooltip": "Stops the time at the end of your turn giving you another turn.",
     "display": true
   },
+  "bloodlust": {
+    "type": "additive",
+    "tooltip": "[percent] Bloodlust",
+    "detail-tooltip": "A weapon with Bloodlust deals 10% extra damage for each stack of bleed your opponent has, up to a maximum determined by your Bloodlust.",
+    "display": true
+  },
   "category": {
     "type": "text",
     "tooltip": "Itemtype: [type]",
