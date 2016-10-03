@@ -19,6 +19,12 @@ export default class Friends extends Component {
     this.props.realtime.on('message-status.invites', invites => {
       this.setState({invites: invites})
     })
+
+    this.props.realtime.on('message-status.onlniefriends', friends => {
+      this.setState({
+        onlineFriends: friends
+      })
+    })
   }
 
   addFriend (e) {
@@ -73,7 +79,9 @@ export default class Friends extends Component {
     })
 
     const friends = this.props.social.friends.map((friend, i) => {
-      return (<Friend key={i} friend={friend} />)
+      const friendOnline = this.state.onlineFriends.indexOf(friend._id) !== -1
+      const Friend = friendOnline ? OnlineFriend : OfflineFriend
+      return (<Friend key={i} friend={friend} friendOnline={friendOnline} />)
     })
 
     return (
@@ -132,6 +140,7 @@ export default class Friends extends Component {
   render () {
     return (
       <div className='container-social'>
+        <FriendContextMenu online />
         <FriendContextMenu />
         <div className='container-friend'>
           <div className='window friend-window'>
@@ -152,13 +161,14 @@ class BasicFriend extends Component {
     return (
       <div className='friend'>
         {this.props.friend.username}
-        <div className='offline' />
+        <div className={this.props.friendOnline ? 'online' : 'offline'} />
       </div>
     )
   }
 }
 
-const Friend = ContextMenuLayer('friend-context-menu', props => props)(BasicFriend)
+const OnlineFriend = ContextMenuLayer('friend-context-menu-online', props => props)(BasicFriend)
+const OfflineFriend = ContextMenuLayer('friend-context-menu-offline', props => props)(BasicFriend)
 
 class FriendContextMenu extends Component {
   constructor () {
@@ -168,10 +178,12 @@ class FriendContextMenu extends Component {
 
   render () {
     return (
-      <ContextMenu identifier='friend-context-menu'>
-        <MenuItem data={{action: 'invite-game'}} onClick={this.handleClick}>
-          Invite to Game
-        </MenuItem>
+      <ContextMenu identifier={`friend-context-menu-${this.props.online ? 'online' : 'offline'}`}>
+        {this.props.online &&
+          <MenuItem data={{action: 'invite-game'}} onClick={this.handleClick}>
+            Invite to Game
+          </MenuItem>
+        }
         <MenuItem data={{action: 'remove-friend'}} onClick={this.handleClick}>
           Remove Friend
         </MenuItem>

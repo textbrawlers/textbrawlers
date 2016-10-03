@@ -134,6 +134,7 @@ SystemJS.config({
     'koa-router': 'npm:koa-router@7.0.1',
     'koa-send': 'npm:koa-send@3.2.0',
     'koa-static': 'npm:koa-static@2.0.0',
+    'lodash': 'npm:lodash-es@4.16.3',
     'lru-cache': 'npm:lru-cache@4.0.1',
     'module': 'github:jspm/nodelibs-module@0.2.0-alpha',
     'monk': 'npm:monk@3.0.7',

@@ -2,14 +2,28 @@ import url from 'url'
 import ServerPlayer from 'common/game/serverPlayer.js'
 import RealtimePlayer from './realtime/realtimePlayer.js'
 import { fightManager } from './fightManager.js'
+import isEqual from 'lodash/isEqual'
 
 export const players = []
 
-function sendPlayerCount () {
+function updatePlayers () {
   const count = players.length
+
+  const playerIds = players.map(rtPlayer => rtPlayer.player.id.toString())
 
   for (const player of players) {
     player.updatePlayerCount(count)
+
+    player.account = player.account || {}
+    player.account.friends = player.account.friends || {}
+
+    const friends = player.account.social.friends.map(friend => friend._id.toString())
+
+    const onlineFriends = playerIds.filter(id => friends.indexOf(id) !== -1)
+
+    if (!isEqual(onlineFriends, player.onlineFriends)) {
+      player.updateFriendList(onlineFriends)
+    }
   }
 }
 
@@ -86,17 +100,17 @@ export function sendMessage (playerId, messageId, data) {
 export default function realtime (wss) {
   wss.on('connection', checkError(async ws => {
     const location = url.parse(ws.upgradeReq.url, true)
-    const player = await ServerPlayer.fromKey(location.query.token)
+    const { player, jsonUser } = await ServerPlayer.fromKey(location.query.token, true)
 
     if (player) {
-      const realtimePlayer = new RealtimePlayer(player, ws)
+      const realtimePlayer = new RealtimePlayer(player, ws, jsonUser)
       realtimePlayer.send('status.auth', true)
       players.push(realtimePlayer)
-      sendPlayerCount()
+      updatePlayers()
 
       ws.addEventListener('close', () => {
         players.splice(players.indexOf(realtimePlayer), 1)
-        sendPlayerCount()
+        updatePlayers()
       })
     } else {
       ws.terminate()

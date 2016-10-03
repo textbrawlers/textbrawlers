@@ -1,8 +1,9 @@
 
 export default class RealtimePlayer {
-  constructor (player, ws) {
+  constructor (player, ws, account) {
     this.player = player
     this.ws = ws
+    this.account = account
 
     this.invites = []
   }
@@ -17,6 +18,11 @@ export default class RealtimePlayer {
         }
       })
     })
+  }
+
+  updateFriendList (friends) {
+    this.onlineFriends = friends
+    this.send('status.onlniefriends', friends)
   }
 
   updatePlayerCount (count) {
