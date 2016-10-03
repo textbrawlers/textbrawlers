@@ -27,6 +27,18 @@ export default class ServerPlayer extends Player {
     return undefined
   }
 
+  static async fromId (id) {
+    const jsonUser = await users.findOne(id)
+
+    if (jsonUser) {
+      const player = await ServerPlayer.fromJSON(jsonUser.player || {})
+      player.id = jsonUser._id
+      player.ServerPlayer = true
+
+      return player
+    }
+  }
+
   static async fromJSON (jsonPlayer, key) {
     return new ServerPlayer(await Player.baseFromJSON(jsonPlayer), key)
   }

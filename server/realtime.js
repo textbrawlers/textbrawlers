@@ -42,7 +42,17 @@ export function acceptInvite (playerId, inviteId) {
   if (inviteAccepted) {
     const RTPlayers = otherRps.concat(invitedRealtimePlayers)
 
-    fightManager.startFight(RTPlayers.map(rt => rt.player)).then(fight => {
+    return Promise.all(RTPlayers.map(rtPlayer => {
+      return ServerPlayer.fromId(rtPlayer.player.id).then(player => {
+        if (player) {
+          rtPlayer.player = player
+        } else {
+          console.warn('Could not refresh RealtimePlayer.player', rtPlayer.player.id)
+        }
+      })
+    })).then(() => {
+      return fightManager.startFight(RTPlayers.map(rt => rt.player))
+    }).then(fight => {
       fight.players.forEach(player => {
         sendMessage(player.id, 'startgame', { id: fight.id })
       })

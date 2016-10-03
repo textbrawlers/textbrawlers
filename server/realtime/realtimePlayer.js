@@ -26,8 +26,6 @@ export default class RealtimePlayer {
   acceptInvite (other) {
     const inviteIndex = this.invites.findIndex(invite => invite.inviter.toString() === other.toString())
 
-    console.log(inviteIndex)
-
     if (inviteIndex !== -1) {
       this.invites.splice(inviteIndex, 1)
       this.sendInviteUpdate()

@@ -123,7 +123,6 @@ export default class CreateItem extends Component {
   }
 
   render () {
-    console.log(this.state)
     return (
       <div>
         <label>

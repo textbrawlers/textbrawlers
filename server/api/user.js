@@ -1,14 +1,8 @@
 import monk from 'monk'
 import bCrypt from 'bcryptjs'
+import db from 'server/common/database.js'
 
-let users
-
-monk(process.env.MONGODB || 'localhost/retardarenan')
-  .then(db => {
-    users = db.get('users')
-
-    console.log('Connected to database')
-  }).catch(err => console.log('Could not connect to database', err))
+const users = db.get('users')
 
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVXYabcdefghijklmnopqrstuvxyz0123456789'
 
@@ -61,12 +55,8 @@ export async function login (ctx) {
   const username = ctx.request.body.username
   const password = ctx.request.body.password
 
-  console.log('pre findone')
   const user = await users.findOne({username})
-
   ctx.body = {}
-
-  console.log('post findone')
   if (!user) {
     ctx.body = { success: false, error: 'Invalid details' }
     return
