@@ -34,10 +34,10 @@
         "crit-chance": 1,
         "crit-damage": -0.5
       },
-	  "empower-stats": [{
+      "empower-stats": [{
         "category": "knife",
         "stats": {
-		  "attack-speed": 0.5
+      "attack-speed": 0.5
         }
       }],
       "description": "But WHY?"

@@ -27,6 +27,23 @@
       },
       "description": "Attaching a bandage causes it to transform into a Coagulating Amulet."
     },
+    "shielding-amulet": {
+      "name": "Shielding Amulet",
+      "slot": "trinket",
+      "attack": false,
+      "icon": "itemshieldingamulet",
+      "drop-rate": 50,
+      "character-stats": {
+        "block-chance": 0.01
+      },
+      "empower-stats": [{
+        "category": "shield",
+        "stats": {
+      "block-modifier": 0.92
+        }
+      }],
+      "description": "Don't forget to use protection!"
+    },
     "lucky-coin": {
       "name": "Lucky Coin",
       "slot": "trinket",
