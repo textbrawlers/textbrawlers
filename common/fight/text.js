@@ -18,6 +18,9 @@ export default function messages (m, weapon, attacker, defender, round) {
     } else if (weapon.type === 'head') {
       m.add(50, '[defender] could no longer bear the embarrassment of being beaten by a helmet, and committed suicide.')
     }
+    if (round.arcane) {
+      m.add(50, '[attacker] erased [defender] from the earth with overwhelming arcane power.')
+    }
   } else {
     if (weapon.type !== 'head') {
       if (weapon.hasStat('ranged')) {
