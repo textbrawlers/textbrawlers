@@ -30,23 +30,7 @@
         "crit-damage": 1.0,
         "ranged": true
       },
-      "description": "Madness? THIS... IS... ZEUS!"
-    },
-    "fingeroflight": {
-      "name": "Finger of Light",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemfingeroflight",
-      "drop-rate": 15,
-      "attack-stats": {
-        "damage": 3,
-        "attack-speed": 0.85,
-        "crit-chance": 0.5,
-        "crit-damage": 0.5,
-        "arcane-chance": 0.5,
-        "arcane-damage": 2
-      },
-      "description": "What... Pointing at people makes them die?"
+      "description": "Madness?! THIS... IS... ZEUS!"
     }
   }
 }
