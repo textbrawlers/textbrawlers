@@ -14,6 +14,7 @@ export default {
 
         if (currentStacks >= 4) {
           fightData.damage += oldBuffs[buffIndex].storedDmg
+          fightData.textData.arcane = oldBuffs[buffIndex].storedDmg
           fightData.arcaneDamage = oldBuffs[buffIndex].storedDmg
           fightData.playerStates[defender].buffs.splice(buffIndex, 1)
         } else if (damage < weapon.stats.getValue('arcane-damage')) {

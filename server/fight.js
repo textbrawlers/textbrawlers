@@ -46,9 +46,9 @@ export default class Fight {
   attack () {
     this.fightData.attackId++
     let resp
-    this.fightData.buffRound = this.checkBuffs() ? this.fightData.buffRound : false
+    this.fightData.buffRound = this.checkTick() ? this.fightData.buffRound : false
     if (this.fightData.buffRound) {
-      resp = this.doBuffs()
+      resp = this.tick()
       this.fightData.buffRound = false
     } else {
       this.initAttack()
@@ -64,6 +64,8 @@ export default class Fight {
   }
 
   initAttack () {
+    this.fightData.textData = {}
+
     this.fightData.attackerNum = this.fightData.turn
     this.fightData.defenderNum = this.fightData.playerStates[this.fightData.turn + 1] ? this.fightData.turn + 1 : 0
 
@@ -95,6 +97,9 @@ export default class Fight {
   }
 
   createResponse () {
+    this.fightData.textData.hasWeapon = this.fightData.hasWeapon
+    this.fightData.textData.missed = this.fightData.miss
+
     return {
       type: 'regular',
       playerStates: this.fightData.playerStates.map(s => ({
@@ -106,12 +111,8 @@ export default class Fight {
       damage: this.fightData.damage,
       attacker: this.fightData.attackerNum,
       defender: this.fightData.defenderNum,
-      hasWeapon: this.fightData.hasWeapon,
-      missed: this.fightData.miss,
-      blocked: this.fightData.blocked,
-      crit: this.fightData.crits,
-      arcaneDamage: this.fightData.arcaneDamage,
-      weapon: this.fightData.currentWeapon
+      weapon: this.fightData.currentWeapon,
+      textData: this.fightData.textData
     }
   }
 
@@ -153,7 +154,7 @@ export default class Fight {
     return this.fightData.turn
   }
 
-  checkBuffs () {
+  checkTick () {
     let defender = this.getCurrentDefenderIndex()
     if (this.fightData.playerStates[defender].buffs.length > 0) {
       return true
@@ -161,7 +162,7 @@ export default class Fight {
     return false
   }
 
-  doBuffs () {
+  tick () {
     let resp = {}
     this.fightData.defenderIndex = this.getCurrentDefenderIndex()
 

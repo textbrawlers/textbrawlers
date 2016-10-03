@@ -61,7 +61,7 @@ export default class FightManager {
 
     const weapon = fightObj.players[resp.attacker].weaponStats[resp.weapon].weapon
 
-    fightMessages({add}, weapon, attacker, defender, resp)
+    fightMessages({add}, weapon, attacker, defender, resp.textData)
 
     messages.forEach(message => { message.chance /= chanceSum })
 
