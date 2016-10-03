@@ -12,7 +12,6 @@ export default {
 	let tempDamageCalc = 0
 	
     const ps = fightData.playerStates[defender]
-    ps.buffs = ps.buffs.filter(buff => !(buff.type === 'bleed' && buff.duration <= 0))
     ps.buffs.filter(buff => buff.type === 'bleed').forEach(buff => {
       tempDamageCalc++
     })
