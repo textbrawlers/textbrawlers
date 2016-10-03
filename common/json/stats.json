@@ -202,6 +202,13 @@
     "detail-tooltip": "A weapon with Bloodlust deals 10% extra damage for each stack of bleed your opponent has, up to a maximum determined by your Bloodlust.",
     "display": true
   },
+  "thorns": {
+    "type": "flat",
+    "name": "Thorns",
+    "tooltip": "[fixed] Thorns",
+    "detail-tooltip": "Whenever you succesfully Block an attack, your opponent takes damage equal to your Thorns (your enemy may still block this damage).",
+    "display": true
+  },
   "category": {
     "type": "text",
     "name": "Itemtype",

@@ -8,11 +8,13 @@ import poison from './poison.js'
 import stun from './stun.js'
 import timestop from './timestop.js'
 import bloodlust from './bloodlust.js'
+import thorns from './thorns.js'
 
 // Add modifiers to array. Order matters.
 const modifiers = [
   crit,
   block,
+  thorns,
   arcane,
   bleed,
   burn,
