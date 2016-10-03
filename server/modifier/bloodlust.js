@@ -9,7 +9,7 @@ export default {
   apply (fightData) {
     const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]
-	const tempDamageCalc = 0
+	let tempDamageCalc = 0
 	
     const ps = fightData.playerStates[defender]
     ps.buffs = ps.buffs.filter(buff => !(buff.type === 'bleed' && buff.duration <= 0))
@@ -20,19 +20,4 @@ export default {
 	
     return fightData
   },
-
-  init (fightData) {
-    // Modify fightData
-    return fightData
-  },
-
-  tick (fightData) {
-    // Modify fightData
-    return fightData
-  },
-
-  end (fightData) {
-    // Modify fightData
-    return fightData
-  }
 }
