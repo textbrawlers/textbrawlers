@@ -39,7 +39,7 @@
       "empower-stats": [{
         "category": "shield",
         "stats": {
-      "block-modifier": 0.92
+      "block-multiplier": 0.92
         }
       }],
       "description": "Don't forget to use protection!"
