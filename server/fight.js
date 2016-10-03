@@ -11,6 +11,7 @@ export default class Fight {
     }))
 
     this.fightData = {
+      modifierStorage: {},
       playerStates: playerStates,
       turn: this.luckWeightLifter(players),
       currentWeapon: 0,
