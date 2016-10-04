@@ -17,7 +17,7 @@
     "type": "additive",
     "name": "Hit Chance",
     "tooltip": "[fixed-fine] Hit Chance",
-    "detail-tooltip": "The chance your weapon has to hit an enemy (this is different from evade). If a weapon has more than 1 hit chance, it will automatically hit once, and have a chance of hitting an additional time. For example, a weapon with 4.5 hit chance will automatically hit 4 times and have a 50 percent chance of hitting a fifth time.",
+    "detail-tooltip": "The chance your weapon has to hit an enemy (this is different from dodge). If a weapon has more than 1 hit chance, it will automatically hit once, and have a chance of hitting an additional time. For example, a weapon with 4.5 hit chance will automatically hit 4 times and have a 50 percent chance of hitting a fifth time.",
     "display": true
   },
   "crit-chance": {
@@ -192,7 +192,7 @@
     "type": "additive",
     "name": "Timestop",
     "tooltip": "[percent] Timestop",
-    "detail-tooltip": "Stops the time at the end of your turn giving you another turn.",
+    "detail-tooltip": "At the end of each turn, you have a chance equal to your Timestop to gain an additional turn.",
     "display": true
   },
   "bloodlust": {
