@@ -42,3 +42,7 @@ realtime(webSocketServer)
 
 httpServer.listen(3000)
 console.log(`Listening on port ${port}`)
+
+process.on('unhandledRejection', reason => {
+  console.error('Unhandled promise rejection', reason.stack || reason)
+})
