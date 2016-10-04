@@ -78,8 +78,12 @@ export default class Friends extends Component {
       )
     })
 
-    const friends = this.props.social.friends.map((friend, i) => {
+    const friendInfo = this.props.social.friends.map((friend, i) => {
       const friendOnline = this.state.onlineFriends.indexOf(friend._id) !== -1
+      return { friendOnline, friend }
+    }).sort(({friendOnline}) => !friendOnline)
+
+    const friends = friendInfo.map(({friend, friendOnline}, i) => {
       const Friend = friendOnline ? OnlineFriend : OfflineFriend
       return (<Friend key={i} friend={friend} friendOnline={friendOnline} />)
     })
