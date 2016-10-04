@@ -32,6 +32,17 @@
         "block-multiplier": 0.5
       },
       "description": "Big enough to tower over any opposition."
+    },
+    "spiked-shield": {
+      "name": "Spiked Shield",
+      "slot": "hand",
+      "attack": false,
+      "icon": "itemheatershield",
+      "character-stats": {
+        "block-chance": 0.4,
+        "thorns": 1
+      },
+      "description": "Less of a shield and more of a pincushion."
     }
   }
 }
