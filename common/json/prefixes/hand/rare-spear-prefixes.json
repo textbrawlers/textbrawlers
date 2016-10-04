@@ -3,7 +3,7 @@
     "piercing": {
       "name": "Piercing",
       "attack-stats": {
-        "armor-pierce": 0.5
+        "armor-pierce": 0.05
       }
     },
     "penetrating": {
