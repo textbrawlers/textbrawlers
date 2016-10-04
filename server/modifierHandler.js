@@ -2,10 +2,8 @@ import modifiers from './modifier/config.js'
 
 export default {
   apply (fightData) {
-    modifiers.forEach(modifier => {
-      if (modifier.apply) {
-        fightData = modifier.apply(fightData)
-      }
+    modifiers.filter(m => m.apply).forEach(modifier => {
+      fightData = modifier.apply(fightData)
       if (!fightData) {
         console.warn('FightData is undefined. Did you remember to return?')
       }
@@ -14,10 +12,8 @@ export default {
   },
 
   init (fightData) {
-    modifiers.forEach(modifier => {
-      if (modifier.init) {
-        fightData = modifier.init(fightData)
-      }
+    modifiers.filter(m => m.init).forEach(modifier => {
+      fightData = modifier.init(fightData)
       if (!fightData) {
         console.warn('FightData is undefined. Did you remember to return?')
       }
@@ -26,10 +22,8 @@ export default {
   },
 
   tick (fightData) {
-    modifiers.forEach(modifier => {
-      if (modifier.tick) {
-        fightData = modifier.tick(fightData)
-      }
+    modifiers.filter(m => m.tick).forEach(modifier => {
+      fightData = modifier.tick(fightData)
       if (!fightData) {
         console.warn('FightData is undefined. Did you remember to return?')
       }
@@ -38,14 +32,20 @@ export default {
   },
 
   end (fightData) {
-    modifiers.forEach(modifier => {
-      if (modifier.end) {
-        fightData = modifier.end(fightData)
-      }
+    modifiers.filter(m => m.end).forEach(modifier => {
+      fightData = modifier.end(fightData)
       if (!fightData) {
         console.warn('FightData is undefined. Did you remember to return?')
       }
     })
     return fightData
+  },
+
+  deathText (textData) {
+    let textToAdd = []
+    modifiers.filter(m => m.deathText).forEach(modifier => {
+      textToAdd.push(modifier.deathText(textData))
+    })
+    return textToAdd
   }
 }

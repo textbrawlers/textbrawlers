@@ -1,3 +1,5 @@
+import modifierHandler from 'server/modifierHandler.js'
+
 export default function messages (m, weapon, attacker, defender, round) {
   if (defender.currentHP <= 0) {
     m.add(100, '[attacker] finished off [defender].')
@@ -18,9 +20,9 @@ export default function messages (m, weapon, attacker, defender, round) {
     } else if (weapon.type === 'head') {
       m.add(50, '[defender] could no longer bear the embarrassment of being beaten by a helmet, and committed suicide.')
     }
-    if (round.arcane) {
-      m.add(50, '[attacker] erased [defender] from the earth with overwhelming arcane power.')
-    }
+    modifierHandler.deathText(round).forEach(cdt => {
+      m.add(cdt.chance, cdt.text)
+    })
   } else {
     if (weapon.type !== 'head') {
       if (weapon.hasStat('ranged')) {

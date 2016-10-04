@@ -51,5 +51,14 @@ export default {
       buff.storedDmg += buff.damage - 1
     }
     return fightData
+  },
+
+  deathText (textData) {
+    if (textData.arcane) {
+      return {
+        chance: 50,
+        text: '[attacker] erased [defender] from the earth with overwhelming arcane power.'
+      }
+    }
   }
 }
