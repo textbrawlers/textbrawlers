@@ -1,5 +1,8 @@
 export default {
   apply (fightData) {
+    const defender = fightData.defenderIndex		
+    const attacker = fightData.attackerIndex		
+    
     let thornsDamage = fightData.defender.player.stats.getValue('thorns')
     let damageToDeal = 0
 
