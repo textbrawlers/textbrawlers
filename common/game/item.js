@@ -11,7 +11,7 @@ const itemCache = LRU({
 })
 
 export default class Item {
-  constructor (baseItem, { prefixes = [], rarity } = {}) {
+  constructor (baseItem, { prefixes = [], rarity, unseen } = {}) {
     this.prefixes = prefixes
 
     const prefixList = prefixes.map(prefix => prefix.name).join(' ')
@@ -62,6 +62,7 @@ export default class Item {
 
     this.icon = baseItem.icon
     this.rarity = rarity || 'common'
+    this.unseen = unseen
     this.category = this.type = baseItem.category
     this.description = baseItem.description
     this.slot = baseItem.slot
@@ -97,6 +98,7 @@ export default class Item {
     }
 
     const item = new Item(baseItem, {
+      unseen: jsonItem.unseen,
       rarity: jsonItem.rarity,
       prefixes: (jsonItem.prefixes || []).map(prefix => {
         let prefixObj = prefixes
@@ -122,7 +124,8 @@ export default class Item {
     return {
       id: this.id,
       rarity: this.rarity,
-      prefixes: this.prefixes.map(prefix => prefix.path)
+      prefixes: this.prefixes.map(prefix => prefix.path),
+      unseen: this.unseen
     }
   }
 }

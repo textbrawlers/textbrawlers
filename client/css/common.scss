@@ -76,7 +76,7 @@ body {
   vertical-align:top;
   display: inline-block;
   position: relative;
-} 
+}
 
 .inv-slot img {
   width: 50px;
@@ -170,6 +170,10 @@ body {
 
 .item-set {
   border-color: #f23022;
+}
+
+.item-unseen {
+  background: red;
 }
 
 .tooltip-window p:first-child {
@@ -311,7 +315,7 @@ body {
 // Context Menus
 //
 // Based on https://github.com/vkbansal/react-contextmenu/blob/master/examples/react-context-menu.css
-// 
+//
 
 .react-context-menu {
     min-width: 160px;

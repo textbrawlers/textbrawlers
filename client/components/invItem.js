@@ -86,8 +86,10 @@ class InventoryItem extends React.Component {
       className += ' item-dragging'
     }
 
+    const containerStyle = item.unseen ? 'item-unseen' : ''
+
     return connectDragSource(
-      <div style={tooltipContainerStyle}>
+      <div style={tooltipContainerStyle} className={containerStyle}>
         <TetherComponent
           attachment='top left'
           targetAttachment='top right'

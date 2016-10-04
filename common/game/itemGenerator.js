@@ -137,7 +137,7 @@ export async function generateItem () {
 
   const allPrefixes = getRandomPrefixes(possible, baseItem, prefixes, randomRarity.prefixes)
 
-  const item = new Item(baseItem, { rarity, prefixes: allPrefixes })
+  const item = new Item(baseItem, { rarity, prefixes: allPrefixes, unseen: true })
 
   return item
 }
