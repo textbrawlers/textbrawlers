@@ -44,7 +44,10 @@ export default {
   deathText (textData) {
     let textToAdd = []
     modifiers.filter(m => m.deathText).forEach(modifier => {
-      textToAdd.push(modifier.deathText(textData))
+      let textObj = modifier.deathText(textData)
+      if (textObj) {
+        textToAdd.push(textObj)
+      }
     })
     return textToAdd
   }
