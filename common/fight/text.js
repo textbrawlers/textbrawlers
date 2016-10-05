@@ -86,7 +86,7 @@ export default function messages (m, weapon, attacker, defender, round) {
       }
     }
 
-    if (weapon.rarity === 'legendary' && !weapon.hasStat('ranged') && weapon.type !== 'bow') {
+    if (weapon.rarity === 'legendary' && !weapon.hasStat('ranged') && weapon.type !== 'bow' && weapon.type !== 'head') {
       if (round.missed) {
         m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but missed.')
       } else if (round.blocked) {
