@@ -3,7 +3,7 @@ export default {
     const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]
 
-    if (Math.random() < weapon.stats.getValue('burn-chance')) {
+    if (Math.random() < weapon.stats.getValue('burn-chance') && !fightData.miss) {
       const oldBuffs = fightData.playerStates[defender].buffs
 
       if (oldBuffs.find(buff => buff.type === 'burn')) {
