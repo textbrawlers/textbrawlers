@@ -24,14 +24,14 @@
     "type": "additive",
     "name": "Crit Chance",
     "tooltip": "[percent] Crit Chance",
-    "detail-tooltip": "The chance your weapon has to land a Critical Hit. A Critical Hit deals additional damage based on your Crit Damage. A Crit Chance over 100 percent means that crits are guaranteed, and you have the chance of scoring a Red Crit, which deals 150 percent of your crit damage instead of the normal 100 percent.",
+    "detail-tooltip": "The chance your weapon has to land a Critical Hit. A Critical Hit deals additional damage based on your Crit Damage. A Crit Chance over 100 percent means that crits are guaranteed, and you have the chance of scoring a Red Crit, which deals 150 percent of your crit damage instead of the normal 100 percent. A blocked attack can never crit.",
     "display": true
   },
   "crit-damage": {
     "type": "additive",
     "name": "Crit Damage",
     "tooltip": "[plus-percent] Crit Damage",
-    "detail-tooltip": "The amount of bonus damage your weapon recieves during a Critical Hit. A Critical Hit deals additional damage based on your Crit Damage. A Crit Chance over 100 percent means that crits are guaranteed, and you have the chance of scoring a Red Crit, which deals 150 percent of your crit damage instead of the normal 100 percent.",
+    "detail-tooltip": "The amount of bonus damage your weapon recieves during a Critical Hit. A Critical Hit deals additional damage based on your Crit Damage. A Crit Chance over 100 percent means that crits are guaranteed, and you have the chance of scoring a Red Crit, which deals 150 percent of your crit damage instead of the normal 100 percent. A blocked attack can never crit.",
     "display": true
   },
   "bleed-chance": {
