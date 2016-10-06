@@ -3,7 +3,7 @@ export default {
     const defender = fightData.defenderIndex
     const chance = fightData.weapons[fightData.currentWeapon].stats.getValue('arcane-chance')
 
-    if (Math.random() < chance) {
+    if (Math.random() < chance && !fightData.miss) {
       const oldBuffs = fightData.playerStates[defender].buffs
       const weapon = fightData.weapons[fightData.currentWeapon]
 
