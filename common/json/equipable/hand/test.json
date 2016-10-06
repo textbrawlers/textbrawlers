@@ -22,6 +22,17 @@
         "arcane-damage": 3
       },
       "description": "Only added for testing of dots."
+    },
+    "dodge-tester": {
+      "name": "Dodge Tester",
+      "slot": "hand",
+      "attack": false,
+      "icon": "test",
+      "drop-rate": 0,
+      "character-stats": {
+        "dodge-chance": 1.0,
+      },
+      "description": "Only added for testing of dodge."
     }
   }
 }
