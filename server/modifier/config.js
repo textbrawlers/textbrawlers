@@ -1,4 +1,5 @@
 // Include modifiers here.
+import dodge from './dodge.js'
 import crit from './crit.js'
 import block from './block.js'
 import arcane from './arcane.js'
@@ -12,6 +13,7 @@ import thorns from './thorns.js'
 
 // Add modifiers to array. Order matters.
 const modifiers = [
+  dodge,
   crit,
   block,
   thorns,
