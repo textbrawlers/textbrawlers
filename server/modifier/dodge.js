@@ -12,7 +12,7 @@ export default {
     if (Math.random() < fightData.defender.player.stats.getValue('dodge-chance') + dodgeMod) {
       fightData.miss = true
       didDodge = [didDodge, true]
-      fightData.modifierStorage.Push(didDodge)
+      fightData.modifierStorage.push(didDodge)
       fightData.damage *= 0
     }
     
