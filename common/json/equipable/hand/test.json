@@ -30,7 +30,7 @@
       "icon": "test",
       "drop-rate": 0,
       "character-stats": {
-        "dodge-chance": 1.0,
+        "dodge-chance": 1.0
       },
       "description": "Only added for testing of dodge."
     }
