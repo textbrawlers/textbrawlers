@@ -14,19 +14,19 @@ import thorns from './thorns.js'
 // Add modifiers to array. Order is as follows: Dodge, On Dodge Effects, Block, On Block Effects, Crit, On Crit Effects, On Hit Effects, Other
 const modifiers = [
   dodge,
-  
+
   block,
   thorns,
-  
+
   crit,
-  
+
   bloodlust,
   arcane,
   bleed,
   burn,
   poison,
   stun,
-  
+
   timestop
 ]
 
