@@ -73,7 +73,7 @@
     "type": "additive",
     "name": "Block Chance",
     "tooltip": "[percent] Block Chance",
-    "detail-tooltip": "Block Chance is the chance you have to block an attack. A blocked attack deals reduced damage based on your Block Multiplier.",
+    "detail-tooltip": "Block Chance is the chance you have to block an attack. You can only ever have a 80% block chance; any block chance above this value is lost. A blocked attack deals reduced damage based on your Block Multiplier.",
     "display": true
   },
   "block-multiplier": {
