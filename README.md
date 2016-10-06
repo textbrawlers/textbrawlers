@@ -23,6 +23,20 @@ The server is configured through environment variables, which can eaither be set
 MONGODB=user:password@domain/database
 ```
 
+## Code linting
+We use [standard](https://github.com/feross/standard) to check code syntax and enforce our code style. To check and även fix some problems automatically inatall standard locally:
+
+```
+# Inställning standard
+npm i -g standard
+
+# Check syntax
+standard
+
+# Autofix some issues
+standard --fix
+```
+
 
 [logo]: http://retardarenan.henrik.ninja/client/png/title.png
 [shield-circle-ci]: https://img.shields.io/circleci/project/ineentho/textspel.svg?style=flat-square
