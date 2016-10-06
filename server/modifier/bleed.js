@@ -3,7 +3,7 @@ export default {
     const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]
 
-    if (Math.random() <= weapon.stats.getValue('bleed-chance')) {
+    if (Math.random() <= weapon.stats.getValue('bleed-chance') && !fightData.miss) {
       let bleedStack = {
         type: 'bleed',
         duration: weapon.stats.getValue('bleed-duration')
