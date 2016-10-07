@@ -20,8 +20,8 @@
         "attack-speed": -0.01
       }
     },
-    "agile": {
-      "name": "Agile",
+    "hasty": {
+      "name": "Hasty",
       "character-stats": {
         "attack-speed": 0.01
       }
