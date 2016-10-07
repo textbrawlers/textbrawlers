@@ -4,40 +4,40 @@
       "name": "Destroyed",
       "drop-rate": 50,
       "character-stats": {
-        "max-health": -15.0
+        "max-health": -10.0
       }
     },
     "broken": {
       "name": "Broken",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": -10.0
+        "max-health": -6.0
       }
     },
     "damaged": {
       "name": "Damaged",
       "character-stats": {
-        "max-health": -5.0
+        "max-health": -2.0
       }
     },
     "thick": {
       "name": "Thick",
       "character-stats": {
-        "max-health": 5.0
+        "max-health": 2.0
       }
     },
     "reinforced": {
       "name": "Reinforced",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": 10.0
+        "max-health": 6.0
       }
     },
     "fortified": {
       "name": "Fortified",
       "drop-rate": 50,
       "character-stats": {
-        "max-health": 15.0
+        "max-health": 10.0
       }
     }
   },
@@ -47,38 +47,34 @@
       "name": "Cursed",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": -8,
-        "block-chance": -0.04,
-        "block-multiplier": 1.04,
-        "damage-multiplier": -0.04
+        "max-health": -2,
+        "block-chance": -0.02,
+        "damage-multiplier": -0.02
       }
     },
     "possessed": {
       "name": "Possessed",
       "character-stats": {
-        "max-health": -4,
-        "block-chance": -0.02,
-        "block-multiplier": 1.02,
-        "damage-multiplier": -0.02
+        "max-health": -1,
+        "block-chance": -0.01,
+        "damage-multiplier": -0.01
       }
     },
     "enchanted": {
       "name": "Enchanted",
       "character-stats": {
-        "max-health": 4,
-        "block-chance": 0.02,
-        "block-multiplier": 0.98,
-        "damage-multiplier": 0.02
+        "max-health": 1,
+        "block-chance": 0.01,
+        "damage-multiplier": 0.01
       }
     },
     "magical": {
       "name": "Magical",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": 8,
-        "block-chance": 0.04,
-        "block-multiplier": 0.94,
-        "damage-multiplier": 0.04
+        "max-health": 2,
+        "block-chance": 0.02,
+        "damage-multiplier": 0.02
       }
     }
   },
@@ -88,26 +84,26 @@
       "name": "Vulnerable",
       "drop-rate": 75,
       "character-stats": {
-        "block-multiplier": 1.2
+        "block-multiplier": 1.04
       }
     },
     "exposed": {
       "name": "Exposed",
       "character-stats": {
-        "block-multiplier": 1.1
+        "block-multiplier": 1.02
       }
     },
     "secure": {
       "name": "Secure",
       "character-stats": {
-        "block-multiplier": 0.9
+        "block-multiplier": 0.98
       }
     },
     "covered": {
       "name": "Covered",
       "drop-rate": 75,
       "character-stats": {
-        "block-multiplier": 0.8
+        "block-multiplier": 0.96
       }
     }
   },
@@ -117,46 +113,46 @@
       "name": "Honorable",
       "drop-rate": 25,
       "character-stats": {
-        "damage-multiplier": -0.18,
-        "max-health-multiplier": 0.18
+        "damage-multiplier": -0.09,
+        "max-health-multiplier": 0.09
       }
     },
     "peaceful": {
       "name": "Peaceful",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": -0.12,
-        "max-health-multiplier": 0.12
+        "damage-multiplier": -0.06,
+        "max-health-multiplier": 0.06
       }
     },
     "merciful": {
       "name": "Merciful",
       "character-stats": {
-        "damage-multiplier": -0.06,
-        "max-health-multiplier": 0.06
+        "damage-multiplier": -0.03,
+        "max-health-multiplier": 0.03
       }
     },
     "cruel": {
       "name": "Cruel",
       "character-stats": {
-        "damage-multiplier": 0.06,
-        "max-health-multiplier": -0.06
+        "damage-multiplier": 0.03,
+        "max-health-multiplier": -0.03
       }
     },
     "barbaric": {
       "name": "Barbaric",
       "drop-rate": 50,
       "character-stats": {
-        "damage-multiplier": 0.12,
-        "max-health-multiplier": -0.12
+        "damage-multiplier": 0.06,
+        "max-health-multiplier": -0.06
       }
     },
     "unstoppable": {
       "name": "Unstoppable",
       "drop-rate": 25,
       "character-stats": {
-        "damage-multiplier": 0.18,
-        "max-health-multiplier": -0.18
+        "damage-multiplier": 0.09,
+        "max-health-multiplier": -0.09
       }
     }
   }
