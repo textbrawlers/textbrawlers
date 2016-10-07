@@ -1,3 +1,44 @@
 {
-
+  "dodge-chance": {
+    "rigid": {
+      "name": "Rigid",
+      "drop-rate": 50,
+      "character-stats": {
+        "dodge-chance": -0.03
+      }
+    },
+    "stiff": {
+      "name": "Stiff",
+      "drop-rate": 75,
+      "character-stats": {
+        "dodge-chance": -0.02
+      }
+    },
+    "sluggish": {
+      "name": "Sluggish",
+      "character-stats": {
+        "dodge-chance": -0.01
+      }
+    },
+    "flexible": {
+      "name": "Flexible",
+      "character-stats": {
+        "dodge-chance": 0.01
+      }
+    },
+    "agile": {
+      "name": "Agile",
+      "drop-rate": 75,
+      "character-stats": {
+        "dodge-chance": 0.02
+      }
+    },
+    "acrobatic": {
+      "name": "Acrobatic",
+      "drop-rate": 50,
+      "character-stats": {
+        "dodge-chance": 0.03
+      }
+    }
+  }
 }
