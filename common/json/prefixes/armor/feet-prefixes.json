@@ -4,40 +4,40 @@
       "name": "Heavy",
       "drop-rate": 50,
       "character-stats": {
-        "attack-speed": -0.12
+        "attack-speed": -0.03
       }
     },
     "clumsy": {
       "name": "Clumsy",
       "drop-rate": 75,
       "character-stats": {
-        "attack-speed": -0.08
+        "attack-speed": -0.02
       }
     },
     "slow": {
       "name": "Slow",
       "character-stats": {
-        "attack-speed": -0.04
+        "attack-speed": -0.01
       }
     },
     "agile": {
       "name": "Agile",
       "character-stats": {
-        "attack-speed": 0.04
+        "attack-speed": 0.01
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "character-stats": {
-        "attack-speed": 0.08
+        "attack-speed": 0.02
       }
     },
     "swift": {
       "name": "Swift",
       "drop-rate": 50,
       "character-stats": {
-        "attack-speed": 0.12
+        "attack-speed": 0.03
       }
     }
   }
