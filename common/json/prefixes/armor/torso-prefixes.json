@@ -4,40 +4,40 @@
       "name": "Retreating",
       "drop-rate": 25,
       "character-stats": {
-        "max-health-multiplier": -0.15
+        "max-health-multiplier": -0.10
       }
     },
     "ceasing": {
       "name": "Ceasing",
       "drop-rate": 50,
       "character-stats": {
-        "max-health-multiplier": -0.1
+        "max-health-multiplier": -0.06
       }
     },
     "abandoning": {
       "name": "Abandoning",
       "character-stats": {
-        "max-health-multiplier": -0.05
+        "max-health-multiplier": -0.02
       }
     },
     "vigorous": {
       "name": "Vigorous",
       "character-stats": {
-        "max-health-multiplier": 0.05
+        "max-health-multiplier": 0.02
       }
     },
     "enduring": {
       "name": "Enduring",
       "drop-rate": 50,
       "character-stats": {
-        "max-health-multiplier": 0.1
+        "max-health-multiplier": 0.06
       }
     },
     "persevering": {
-      "name": "Persevering",
+      "name": "Perservering",
       "drop-rate": 25,
       "character-stats": {
-        "max-health-multiplier": 0.15
+        "max-health-multiplier": 0.1
       }
     }
   }
