@@ -26,7 +26,7 @@
         "fashionable": 0.2
       }
     },
-    "Glittering": {
+    "glittering": {
       "name": "Glittering",
       "drop-rate": 75,
       "character-stats": {
