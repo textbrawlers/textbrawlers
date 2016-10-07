@@ -11,14 +11,14 @@ export default {
     return fightData
   },
 
-  weaponChange(fightData){
+  weaponChange (fightData) {
     modifiers.filter(m => m.weaponChange).forEach(modifier => {
       fightData = modifier.weaponChange(fightData)
       if (!fightData) {
         console
       }
     })
-  }
+  },
 
   init (fightData) {
     modifiers.filter(m => m.init).forEach(modifier => {

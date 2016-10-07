@@ -13,7 +13,9 @@ export default {
       dodgeMod += 0.1
     }
 
-    if (Math.random() < fightData.defender.player.stats.getValue('dodge-chance') + dodgeMod) {
+    dodgeMod += fightData.defender.player.stats.getValue('dodge-chance')
+
+    if (Math.random() < dodgeMod) {
       fightData.modifierStorage.dodge.dodged = true
 
       if (Math.floor(fightData.numAttacks) === 0) {
