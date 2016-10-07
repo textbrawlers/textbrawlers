@@ -2,7 +2,7 @@ export default {
   apply (fightData) {
     const weapon = fightData.weapons[fightData.currentWeapon]
 
-    if (Math.random() < weapon.stats.getValue('crit-chance') && !fightData.miss && !fightData.blocked) {
+    if (Math.random() < weapon.stats.getValue('crit-chance')) {
       fightData.textData.crits = 1
       if (Math.random() < weapon.stats.getValue('crit-chance') - 1) {
         fightData.textData.crits = 2

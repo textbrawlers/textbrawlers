@@ -4,7 +4,7 @@ export default {
     const oldBuffs = fightData.playerStates[defender].buffs
     const weapon = fightData.weapons[fightData.currentWeapon]
 
-    if (weapon.stats.getValue('poison-duration') && !fightData.miss) {
+    if (weapon.stats.getValue('poison-duration')) {
       if (oldBuffs.find(buff => buff.type === 'poison')) {
         const buffIndex = oldBuffs.findIndex(buff => buff.type === 'poison')
 
