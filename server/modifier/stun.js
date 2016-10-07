@@ -7,7 +7,7 @@ export default {
     return fightData
   },
 
-  init (fightData) {
+  weaponChange (fightData) {
     if (fightData.attacker.buffs.find(b => b.type === 'stun')) {
       fightData.numAttacks /= 2
     }

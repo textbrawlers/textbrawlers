@@ -77,8 +77,10 @@ export default class Fight {
 
     if (this.fightData.numAttacks <= 0) {
       this.fightData.numAttacks = this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('attack-speed')
-      this.fightData = modifierHandler.init(this.fightData)
+      this.fightData = modifierHandler.weaponChange(this.fightData)
     }
+
+    this.fightData = modifierHandler.init(this.fightData)
   }
 
   endAttack () {
