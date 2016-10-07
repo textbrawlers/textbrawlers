@@ -1,10 +1,24 @@
 {
   "unique": {
-    "heavy": {
-      "name": "Heavy",
+    "lightweight": {
+      "name": "Lightweight",
       "character-stats": {
-        "max-health-multiplier": 0.1,
-        "attack-speed": -0.1
+        "dodge-chance": 0.01,
+        "block-chance": -0.02
+      }
+    },
+    "bulky": {
+      "name": "Bulky",
+      "character-stats": {
+        "max-health": 5,
+        "dodge-chance": -0.01
+      }
+    },
+    "untouchable": {
+      "name": "Untouchable",
+      "character-stats": {
+        "block-chance": 0.02,
+        "max-health": -5
       }
     }
   }
