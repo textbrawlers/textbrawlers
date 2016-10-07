@@ -106,7 +106,7 @@ export default function realtime (wss) {
       const realtimePlayer = new RealtimePlayer(player, ws, jsonUser)
       realtimePlayer.send('status.auth', true)
       players.filter(rtp => rtp.player.id.equals(player.id)).forEach(playerToDisconnect => {
-        playerToDisconnect.ws.terminate()
+        playerToDisconnect.ws.close()
         players.splice(players.indexOf(playerToDisconnect), 1)
       })
       players.push(realtimePlayer)
@@ -117,7 +117,7 @@ export default function realtime (wss) {
         updatePlayers()
       })
     } else {
-      ws.terminate()
+      ws.close()
     }
   }))
 }
