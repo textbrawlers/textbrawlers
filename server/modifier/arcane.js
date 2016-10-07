@@ -55,10 +55,10 @@ export default {
 
   deathText (textData) {
     if (textData.arcane) {
-      return {
+      return [{
         chance: 50,
         text: '[attacker] erased [defender] from the earth with overwhelming arcane power.'
-      }
+      }]
     }
   }
 }

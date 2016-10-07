@@ -52,13 +52,15 @@ export default {
   },
 
   deathText (textData) {
-    let textToAdd = []
+    let texts = []
     modifiers.filter(m => m.deathText).forEach(modifier => {
-      let textObj = modifier.deathText(textData)
-      if (textObj) {
-        textToAdd.push(textObj)
+      let textObjects = modifier.deathText(textData)
+      if (textObjects) {
+        textObjects.forEach(textObj => {
+          texts.push(textObj)
+        })
       }
     })
-    return textToAdd
+    return texts
   }
 }
