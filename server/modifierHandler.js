@@ -15,7 +15,7 @@ export default {
     modifiers.filter(m => m.weaponChange).forEach(modifier => {
       fightData = modifier.weaponChange(fightData)
       if (!fightData) {
-        console
+        console.warn('FightData is undefined. Did you remember to return?')
       }
     })
   },
