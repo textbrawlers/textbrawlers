@@ -4,40 +4,40 @@
       "name": "Hole-Filled",
       "drop-rate": 50,
       "character-stats": {
-        "block-chance": -0.15
+        "block-chance": -0.06
       }
     },
     "exposing": {
       "name": "Exposing",
       "drop-rate": 75,
       "character-stats": {
-        "block-chance": -0.1
+        "block-chance": -0.04
       }
     },
     "crushed": {
       "name": "Crushed",
       "character-stats": {
-        "block-chance": -0.05
+        "block-chance": -0.02
       }
     },
     "protective": {
       "name": "Protective",
       "character-stats": {
-        "block-chance": 0.05
+        "block-chance": 0.02
       }
     },
     "thwarting": {
       "name": "Thwarting",
       "drop-rate": 75,
       "character-stats": {
-        "block-chance": 0.1
+        "block-chance": 0.04
       }
     },
     "impenetrable": {
       "name": "Impenetrable",
       "drop-rate": 50,
       "character-stats": {
-        "block-chance": 0.15
+        "block-chance": 0.06
       }
     }
   }
