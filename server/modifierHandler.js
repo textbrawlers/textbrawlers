@@ -18,6 +18,7 @@ export default {
         console.warn('FightData is undefined. Did you remember to return?')
       }
     })
+    return fightData
   },
 
   init (fightData) {
