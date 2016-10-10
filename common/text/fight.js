@@ -1,4 +1,5 @@
 import modifierHandler from 'server/modifierHandler.js'
+import types from './types.js'
 
 export default function messages (m, weapon, attacker, defender, round) {
   if (defender.currentHP <= 0) {
@@ -15,15 +16,12 @@ export default function messages (m, weapon, attacker, defender, round) {
     m.add(50, '[defender] tripped and broke his neck...')
     m.add(100, '[attacker] inflicted fatal damage to [defender].')
 
-    if (weapon.type === 'magical-weapon') {
-      m.add(50, '[defender] was promptly turned into a bubbling pool of flesh.')
-    } else if (weapon.type === 'head') {
-      m.add(50, '[defender] could no longer bear the embarrassment of being beaten by a helmet, and committed suicide.')
-    }
+    types.deathText({m}, weapon, round)
     modifierHandler.deathText(round).forEach(cdt => {
       m.add(cdt.chance, cdt.text)
     })
   } else {
+    types.getText({m}, weapon, round)
     if (weapon.type !== 'head') {
       if (weapon.hasStat('ranged')) {
         if (round.missed) {
@@ -57,21 +55,6 @@ export default function messages (m, weapon, attacker, defender, round) {
           m.add(50, '[defender] suddenly got an arrow in his back. Who did that?')
         }
       }
-    } else {
-      if (round.missed) {
-        m.add(100, '[attacker] threw his helmet at [defender] but missed. What an idiot.')
-        m.add(1, '[attacker] missed...')
-      } else if (round.blocked) {
-        m.add(100, '[attacker] threw his helmet at [defender] but [defender] caught it in mid-air.')
-        m.add(10, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
-      } else if (round.crit) {
-        m.add(100, '[attacker] threw his helmet at [defender] and hit a weak spot, somehow.')
-        m.add(10, '[attacker] takes of his [item-name] and proceeds to clobber [defender] senseless with it!')
-      } else {
-        m.add(100, '[attacker] threw his [item-name] and hit [defender] in the face.')
-        m.add(30, '[attacker] headbutted [defender] in the stomach.')
-        m.add(50, '[defender] suddenly got an arrow in his back. Who did that?')
-      }
     }
 
     if (weapon.rarity === 'legendary' && weapon.hasStat('ranged')) {
@@ -95,68 +78,6 @@ export default function messages (m, weapon, attacker, defender, round) {
         m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit a weak spot.')
       } else {
         m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit.')
-      }
-    }
-
-    if (weapon.type === 'bow') {
-      if (round.blocked) {
-        m.add(100, '[attacker] fired an arrow at [defender] but [defender] blocked it.')
-      } else if (round.crit) {
-        m.add(100, '[attacker] fired an arrow at [defender] which hit a critical spot.')
-        m.add(1, '[defender] took an arrow to the knee.')
-      } else {
-        m.add(100, '[attacker] fired an arrow at [defender] which hit.')
-      }
-    }
-
-    if (weapon.type === 'sword') {
-      if (round.blocked) {
-        m.add(100, '[attacker] sliced at [defender]\'s defences.')
-      } else if (round.crit) {
-        m.add(100, '[attacker] sliced [defender] and hit a critical spot.')
-      } else {
-        m.add(100, '[attacker] sliced [defender].')
-      }
-    }
-
-    if (weapon.type === 'axe') {
-      if (round.blocked) {
-        m.add(100, '[attacker] chopped at [defender]\'s defences.')
-      } else if (round.crit) {
-        m.add(100, '[attacker] chopped [defender] and hit a critical spot.')
-      } else {
-        m.add(100, '[attacker] chopped [defender].')
-      }
-    }
-
-    if (weapon.type === 'hammer') {
-      if (round.blocked) {
-        m.add(100, '[attacker] battered [defender]\'s defences.')
-      } else if (round.crit) {
-        m.add(100, '[attacker] battered [defender] and hit a critical spot.')
-      } else {
-        m.add(100, '[attacker] battered [defender].')
-      }
-    }
-
-    if (weapon.type === 'knife') {
-      if (round.blocked) {
-        m.add(100, '[attacker] stabbed at [defender]\'s defences.')
-      } else if (round.crit) {
-        m.add(100, '[attacker] stabbed [defender] and hit a critical spot.')
-        m.add(20, '[attacker] stabbed [defender] in the back. What a coward.')
-      } else {
-        m.add(100, '[attacker] stabbed [defender].')
-      }
-    }
-
-    if (weapon.type === 'magical-weapon') {
-      if (round.blocked) {
-        m.add(100, '[attacker] fired a spell at [defender]\'s defences.')
-      } else if (round.crit) {
-        m.add(100, '[attacker] fired a spell at [defender] and hit a critical spot.')
-      } else {
-        m.add(100, '[attacker] fired a spell at [defender].')
       }
     }
   }

@@ -1,4 +1,4 @@
-import fightMessages from 'common/fight/text.js'
+import fightMessages from 'common/text/fight.js'
 import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
