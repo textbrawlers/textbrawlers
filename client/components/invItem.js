@@ -57,6 +57,12 @@ class InventoryItem extends React.Component {
     this.setState({
       tooltipVisible: true
     })
+
+    if (this.props.markSeen) {
+      const { slot, inventory } = this.props
+
+      this.props.markSeen({ slot, inventory })
+    }
   }
 
   handleMouseOut () {

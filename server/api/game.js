@@ -254,6 +254,22 @@ export async function getFight (ctx) {
   ctx.body = { players, me, accounts, history: fight.attackHistory }
 }
 
+export async function markItemSeen (ctx) {
+  const inv = ctx.player.getInventory(ctx.request.body.inventory)
+  if (inv) {
+    const item = inv.get(ctx.request.body.slot)
+    if (item) {
+      const jsonItem = item.serialize()
+      jsonItem.unseen = false
+
+      inv.set(ctx.request.body.slot, await Item.fromJSON(jsonItem))
+    }
+  }
+
+  ctx.body = ctx.player.serialize()
+  await ctx.player.save()
+}
+
 function getCorrectInventory (ctx, inventory) {
   switch (inventory) {
     case 'equipped':

@@ -22,6 +22,18 @@ export default class Player {
     return {inventory, equipped, reassemble, id}
   }
 
+  getInventory (inv) {
+    if (inv === 'inventory') {
+      return this.inventory
+    }
+    if (inv === 'equipped') {
+      return this.equipped
+    }
+    if (inv === 'reassemble') {
+      return this.reassemble
+    }
+  }
+
   get stats () {
     let characterStats = new StatCollection()
     characterStats.add(new Stat('max-health', 100))

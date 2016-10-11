@@ -33,8 +33,8 @@ export default class GameIndex extends Component {
     this.updatePlayer()
   }
 
-  async request (url) {
-    const resp = (await request.post(url)).json
+  async request (url, params) {
+    const resp = (await request.post(url, params)).json
     this.updatePlayer(resp)
   }
 
@@ -52,12 +52,16 @@ export default class GameIndex extends Component {
     })
   }
 
+  markSeen ({ slot, inventory }) {
+    this.request('/api/game/markItemSeen', { slot, inventory }).catch(console.error.bind(console))
+  }
+
   getItem (inventory, index) {
     const item = this.state.player[inventory] && this.state.player[inventory].get(index)
     if (!item) {
       return
     }
-    return <ContextMenuInvItem item={item} switchItems={this.switchItems.bind(this)} inventory={inventory} slot={index} />
+    return <ContextMenuInvItem item={item} switchItems={this.switchItems.bind(this)} markSeen={this.markSeen.bind(this)} inventory={inventory} slot={index} />
   }
 
   createSlot (index) {
