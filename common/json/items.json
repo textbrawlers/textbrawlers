@@ -20,7 +20,6 @@
   ],
   "sets": [
     "common/json/equipable/set/setfurious.json",
-    "common/json/equipable/set/setbladedancer.json",
-    "common/json/equipable/set/setvoidcaller.json"
+    "common/json/equipable/set/setbladedancer.json"
   ]
 }
