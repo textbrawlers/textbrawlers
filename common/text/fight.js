@@ -16,12 +16,12 @@ export default function messages (m, weapon, attacker, defender, round) {
     m.add(50, '[defender] tripped and broke his neck...')
     m.add(100, '[attacker] inflicted fatal damage to [defender].')
 
-    types.deathText({m}, weapon, round)
+    types.deathText(m, weapon, round)
     modifierHandler.deathText(round).forEach(cdt => {
       m.add(cdt.chance, cdt.text)
     })
   } else {
-    types.getText({m}, weapon, round)
+    types.getText(m, weapon, round)
     if (weapon.type !== 'head') {
       if (weapon.hasStat('ranged')) {
         if (round.missed) {
