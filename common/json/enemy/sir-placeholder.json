@@ -1,0 +1,12 @@
+{
+  "sir-placeholder": {
+    "name": "Sir Placeholder",
+    "hp": 350,
+    "placeholders-pride": {
+      "name": "Placeholder's Pride",
+      "damage": 7,
+      "crit-chance": 0.2,
+      "crit-damage": 1
+    }
+  }
+}

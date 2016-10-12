@@ -191,6 +191,15 @@ export async function acceptInvite (ctx) {
   ctx.body = { success: true }
 }
 
+export async function fightNPC (ctx) {
+  const playerId = ctx.account._id
+  const inviteId = ctx.request.body.id
+
+  Realtime.acceptInvite(playerId, inviteId)
+
+  ctx.body = { success: true }
+}
+
 export async function getSocial (ctx) {
   ctx.body = ctx.account.social
 }
