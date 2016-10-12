@@ -5,6 +5,7 @@ import HomepageApp from './components/homepageApp.js'
 import ToolsApp from './components/toolsApp.js'
 import Game from './components/game.js'
 import GameIndex from './components/gameIndex.js'
+import NPCFightSelection from './components/npcFightSelection.js'
 import Fight from './components/fight.js'
 import ItemDetails from './components/itemDetails.js'
 import ItemBrowser from './components/tools/itemBrowser.js'
@@ -20,6 +21,7 @@ const routes = (
     <IndexRoute component={HomepageApp} />
     <Route path='game' component={Game}>
       <IndexRoute component={GameIndex} />
+      <Route path='fight' component={NPCFightSelection} />
       <Route path='fight/:fightId' component={Fight} />
       <Route path='item/:itemId' component={ItemDetails} />
     </Route>
