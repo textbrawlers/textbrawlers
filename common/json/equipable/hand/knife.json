@@ -5,7 +5,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemknife",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "attack-stats": {
         "damage": 6,
         "attack-speed": 1.1,
@@ -14,13 +14,36 @@
         "bleed-chance": 0.1,
         "bleed-duration": 1
       },
-	  "empower-stats": [{
+	    "empower-stats": [{
         "category": "knife",
         "stats": {
-		  "attack-speed": 0.5
+		      "attack-speed": 0.5
         }
       }],
       "description": "The knife of a very well known assassin, and therefore a very bad assassin."
+    },
+    "sai": {
+      "name": "Sai",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsai",
+      "drop-rate": 40,
+      "attack-stats": {
+        "damage": 5,
+        "attack-speed": 0.8,
+        "crit-chance": 0.1,
+        "crit-damage": 0.3
+      },
+      "character-stats": {
+        "block-chance": 0.1
+      },
+	    "empower-stats": [{
+        "category": "knife",
+        "stats": {
+		      "attack-speed": 0.5
+        }
+      }],
+      "description": "Three stabs for the price of one!"
     },
     "linen-knife": {
       "name": "Linen Knife",
@@ -37,7 +60,7 @@
       "empower-stats": [{
         "category": "knife",
         "stats": {
-      "attack-speed": 0.5
+          "attack-speed": 0.5
         }
       }],
       "description": "But WHY?"
