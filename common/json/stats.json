@@ -164,14 +164,14 @@
     "type": "boolean",
     "name": "Ranged",
     "tooltip": "Ranged",
-    "detail-tooltip": "Ranged weapons are harder to dodge, but easier to block. Your enemy treats their dodge as 10% lower against this weapon, but treats their block chance as 20% higher.",
+    "detail-tooltip": "Ranged weapons are harder to dodge, but easier to block. Your enemy treats their dodge as 5% lower against this weapon, but treats their block chance as 20% higher.",
     "display": true
   },
   "slow": {
     "type": "boolean",
     "name": "Slow",
     "tooltip": "Slow",
-    "detail-tooltip": "Slow weapons are easier to dodge, and thus your enemy treats their dodge as 20% higher against this weapon.",
+    "detail-tooltip": "Slow weapons are easier to dodge, and thus your enemy treats their dodge as 10% higher against this weapon.",
     "display": true
   },
   "armor-pierce": {
