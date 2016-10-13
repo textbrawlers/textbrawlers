@@ -20,6 +20,7 @@
     "rare-spear-prefixes": "common/json/prefixes/hand/rare-spear-prefixes.json",
 
     "armor-prefixes": "common/json/prefixes/armor/armor-prefixes.json",
+    "rare-armor-prefixes": "common/json/prefixes/armor/rare-armor-prefixes.json",
     "head-prefixes": "common/json/prefixes/armor/head-prefixes.json",
     "feet-prefixes": "common/json/prefixes/armor/feet-prefixes.json",
     "legs-prefixes": "common/json/prefixes/armor/legs-prefixes.json",
