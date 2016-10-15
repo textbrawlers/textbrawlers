@@ -165,10 +165,8 @@ export default class Friends extends Component {
             </h2>
             <div className='friends-collapsible'>
               {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
+              {this.state.invites.length ? this.renderInviteWindow() : ''}
             </div>
-          </div>
-          <div className='friends-collapsible'>
-            {this.state.invites.length ? this.renderInviteWindow() : ''}
           </div>
         </div>
       </div>
