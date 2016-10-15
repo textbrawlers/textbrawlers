@@ -210,6 +210,7 @@ body {
   position:absolute;
   top:30px;
   right:30px;
+  z-index:100;
 }
 
 .container-invite {
@@ -221,7 +222,6 @@ body {
 .container-friend {
   width:280px;
   max-height:100%;
-  z-index:1000;
 }
 
 .invite-window {
