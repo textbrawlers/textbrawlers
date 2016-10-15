@@ -8,10 +8,12 @@ export default class Friends extends Component {
     super()
     this.addFriend = this.addFriend.bind(this)
     this.acceptInvite = this.acceptInvite.bind(this)
+    this.toggleCollapseFriends = this.toggleCollapseFriends.bind(this)
 
     this.state = {
       friendName: '',
-      invites: []
+      invites: [],
+      friendsExpanded: true
     }
   }
 
@@ -141,19 +143,33 @@ export default class Friends extends Component {
     )
   }
 
+  toggleCollapseFriends () {
+    this.setState({
+      friendsExpanded: !this.state.friendsExpanded
+    })
+  }
+
   render () {
+    const friendsExpandedClass = this.state.friendsExpanded ? 'friends-expanded' : 'friends-collapsed'
+
     return (
       <div className='container-social'>
         <FriendContextMenu online />
         <FriendContextMenu />
-        <div className='container-friend'>
-        <div className='window friend-window'>
-          <h2>Friends
-            {!this.props.realtime.connected && <div className='disconnected' />}
-          </h2>
-          {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
-        </div>
-        {this.state.invites.length ? this.renderInviteWindow() : ''}
+        <div className={'container-friend ' + friendsExpandedClass}>
+          <div className='window friend-window'>
+            <h2 onClick={this.toggleCollapseFriends}>
+              Friends
+              <img src='/client/png/arrow.png' className='friends-toggle' />
+              {!this.props.realtime.connected && <div className='disconnected' />}
+            </h2>
+            <div className='friends-collapsible'>
+              {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
+            </div>
+          </div>
+          <div className='friends-collapsible'>
+            {this.state.invites.length ? this.renderInviteWindow() : ''}
+          </div>
         </div>
       </div>
     )

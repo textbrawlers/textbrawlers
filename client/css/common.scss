@@ -45,6 +45,21 @@ body {
   padding:0px 5px;
 }
 
+.friends-toggle {
+  float: right;
+  transition: transform .2s ease-in-out;
+}
+
+.friends-collapsed {
+  .friends-collapsible {
+    display: none;
+  }
+
+  .friends-toggle {
+    transform: rotateZ(180deg);
+  }
+}
+
 .window form {
   margin-bottom:0;
 }
