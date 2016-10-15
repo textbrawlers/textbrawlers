@@ -147,15 +147,13 @@ export default class Friends extends Component {
         <FriendContextMenu online />
         <FriendContextMenu />
         <div className='container-friend'>
-          <div className='content-background'>
-            <div className='window friend-window'>
-              <h2>Friends
-                {!this.props.realtime.connected && <div className='disconnected' />}
-              </h2>
-              {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
-            </div>
-            {this.state.invites.length ? this.renderInviteWindow() : ''}
-          </div>
+        <div className='window friend-window'>
+          <h2>Friends
+            {!this.props.realtime.connected && <div className='disconnected' />}
+          </h2>
+          {this.props.realtime.connected ? this.renderFriendContent() : this.renderFriendsOffline()}
+        </div>
+        {this.state.invites.length ? this.renderInviteWindow() : ''}
         </div>
       </div>
     )
