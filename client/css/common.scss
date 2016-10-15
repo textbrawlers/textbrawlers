@@ -50,10 +50,13 @@ body {
   transition: transform .2s ease-in-out;
 }
 
+.friends-collapsible {
+  border-bottom:1px black solid;
+}
+
 .friends-collapsed {
   .friends-collapsible {
     display:none;
-    border-bottom:1px black solid;
   }
 
   .friends-toggle {
