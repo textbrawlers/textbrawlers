@@ -14,16 +14,19 @@ export default {
   },
 
   tick (fightData) {
-    fightData.dots.bleed = {
-      type: 'bleed',
-      damage: 0
-    }
+    let damage = 0
     const ps = fightData.playerStates[fightData.defenderIndex]
     ps.buffs = ps.buffs.filter(buff => !(buff.type === 'bleed' && buff.duration <= 0))
     ps.buffs.filter(buff => buff.type === 'bleed').forEach(buff => {
-      fightData.dots.bleed.damage++
+      damage++
       buff.duration--
     })
+    if (damage > 0) {
+      fightData.dots.bleed = {
+        type: 'bleed',
+        damage: damage
+      }
+    }
     return fightData
   }
 }
