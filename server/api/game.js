@@ -3,6 +3,7 @@ import { generateItem } from 'common/game/itemGenerator.js'
 import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
 import Item from 'common/game/item.js'
+import NPC from 'common/game/NPC.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
@@ -193,9 +194,12 @@ export async function acceptInvite (ctx) {
 
 export async function fightNPC (ctx) {
   const playerId = ctx.account._id
-  const inviteId = ctx.request.body.id
 
-  Realtime.acceptInvite(playerId, inviteId)
+  // const npc = ctx.request.body.npc
+
+  const npc = new NPC()
+
+  Realtime.startNPCFight(playerId, npc)
 
   ctx.body = { success: true }
 }
@@ -256,7 +260,15 @@ export async function getFight (ctx) {
     return
   }
   const players = fight.players.map(player => player.serialize())
-  let accounts = await Promise.all(fight.players.map(player => users.findOne({_id: player.id})))
+  let accounts = await Promise.all(fight.players.map(player => {
+    if (player.id) {
+      return users.findOne({_id: player.id})
+    } else {
+      return {
+        username: 'NPC'
+      }
+    }
+  }))
   accounts = accounts.map(account => ({username: account.username}))
 
   const me = fight.players.findIndex(player => player.id.toString() === ctx.account._id.toString())
@@ -271,7 +283,7 @@ export async function markItemSeen (ctx) {
       const jsonItem = item.serialize()
       jsonItem.unseen = false
 
-      inv.set(ctx.request.body.slot, await Item.fromJSON(jsonItem))
+      inv.set(ctx.request.body.slot, Item.fromJSON(jsonItem))
     }
   }
 

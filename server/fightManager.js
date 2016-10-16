@@ -2,6 +2,7 @@ import fightMessages from 'common/text/fight.js'
 import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
+import NPC from 'common/game/npc.js'
 
 const fightDB = db.get('fights')
 
@@ -29,11 +30,18 @@ export default class FightManager {
   async startFight (players) {
     const fight = new Fight(players)
     const fightObj = new EventEmitter()
+    const playersJSON = players.map(p => {
+      if (p.isNpc) {
+        return { equipped: p.equipped.serialize() }
+      } else {
+        return {
+          _id: p.id,
+          equipped: p.equipped.serialize()
+        }
+      }
+    })
     fightObj.doc = await fightDB.insert({
-      players: players.map(p => ({
-        _id: p.id,
-        equipped: p.equipped.serialize()
-      }))
+      players: playersJSON
     })
     fightObj.players = players
     fightObj.fight = fight
@@ -43,6 +51,8 @@ export default class FightManager {
     this.fights.push(fightObj)
 
     this.attack(fightObj)
+
+    console.log('New fight created: ' + fightObj.id)
 
     return fightObj
   }

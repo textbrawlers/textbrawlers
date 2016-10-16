@@ -35,6 +35,23 @@ export function getFight (id) {
   return fightManager.get(id)
 }
 
+export function startNPCFight (playerId, npc) {
+  const realtimePlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
+
+  fightManager.startFight(realtimePlayers.map(rt => rt.player).concat(npc)).then(fight => {
+    realtimePlayers.forEach(rtPlayer => {
+      sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })
+    })
+
+    fight.on('attack', attack => {
+      fight.subscribers.forEach(player => {
+        attack.fightId = fight.id
+        sendMessage(player.id, 'fight.attack', attack)
+      })
+    })
+  })
+}
+
 export function acceptInvite (playerId, inviteId) {
   let inviteAccepted = false
   const playerRps = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))

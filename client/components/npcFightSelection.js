@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import request from 'common/api/request.js'
 
 export default class NPCFightSelection extends Component {
 
@@ -27,8 +28,7 @@ export default class NPCFightSelection extends Component {
   }
 
   selectEnemy (enemy) {
-    // TODO: request(...)
-    console.log('select enemy', enemy)
+    request.post('/api/game/fightNPC').catch(err => console.error(err.stack || err))
   }
 
   renderEnemy (enemy) {

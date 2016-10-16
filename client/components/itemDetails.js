@@ -18,10 +18,8 @@ export default class ItemDetails extends Component {
     const base64 = this.props.params.itemId
     const itemJSON = JSON.parse(window.atob(base64))
 
-    Item.fromJSON(itemJSON).then(item => {
-      this.setState({ item })
-      this.setState({ itemJSON })
-    })
+    const item = Item.fromJSON(itemJSON)
+    this.setState({ item, itemJSON })
   }
 
   render () {

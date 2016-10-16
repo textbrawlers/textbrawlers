@@ -10,6 +10,14 @@ const itemCache = LRU({
   max: 10000
 })
 
+let items, prefixes
+
+const loadPromise = (async () => {
+  items = (await getItems()).items
+  prefixes = (await getPrefixes()).prefixes
+  console.log('Loaded items & prefixes')
+})().catch(err => console.error(err))
+
 export default class Item {
   constructor (baseItem, { prefixes = [], rarity, unseen } = {}) {
     this.prefixes = prefixes
@@ -78,7 +86,7 @@ export default class Item {
     return `/client/png/${this.icon}.png`
   }
 
-  static async fromJSON (jsonItem) {
+  static fromJSON (jsonItem) {
     const str = JSON.stringify(jsonItem)
 
     const cachedItem = itemCache.get(str)
@@ -86,9 +94,6 @@ export default class Item {
     if (cachedItem) {
       return cachedItem
     }
-
-    const { items } = await getItems()
-    const { prefixes } = await getPrefixes()
 
     const baseItem = items.find(item => item.id === jsonItem.id)
 
@@ -127,5 +132,9 @@ export default class Item {
       prefixes: this.prefixes.map(prefix => prefix.path),
       unseen: this.unseen
     }
+  }
+
+  static get loadPromise () {
+    return loadPromise
   }
 }
