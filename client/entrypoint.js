@@ -13,6 +13,8 @@ import ItemGen from './components/tools/itemGen.js'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 import 'client/css/common.scss'
+import getItems from 'common/items/items.js'
+import getPrefixes from 'common/items/prefixes.js'
 
 const NotFound = () => (<p> Jaha ja.</p>)
 
@@ -48,9 +50,14 @@ class RenderForcer extends React.Component {
 
 const WrappedRenderForcer = DragDropContext(HTML5Backend)(RenderForcer)
 
-render((
-  <WrappedRenderForcer />
+Promise.all([
+  getItems(),
+  getPrefixes()
+]).then(() => {
+  render((
+    <WrappedRenderForcer />
   ), document.getElementById('root'))
+}).catch(err => console.error(err.stack || err))
 
 loadWebfont()
 

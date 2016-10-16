@@ -2,7 +2,6 @@ import Inventory from './inventory.js'
 import EquippedInventory from './equippedInventory.js'
 import StatCollection from './statCollection.js'
 import Stat from './stat.js'
-import Entity from './entity.js'
 
 export default class Player {
 
