@@ -10,13 +10,14 @@ export default class NPC {
     this.type = Entity.TYPE_NPC
 
     this.stats = new StatCollection([
-      new Stat('max-health', 100),
+      new Stat('max-health', 1000),
       new Stat('block-multiplier', 0.75)
     ])
 
     this.weaponStats = [{
       stats: new StatCollection([
-        new Stat('damage', 10)
+        new Stat('damage', 10000),
+        new Stat('attack-speed', 10000)
       ]),
       weapon: Item.fromJSON({
         id: 'longsword',
