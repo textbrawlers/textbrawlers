@@ -29,7 +29,9 @@ export default {
   },
 
   end (fightData) {
-    fightData.numAttacks += fightData.modifierStorage.dodge.removed
+    if (fightData.modifierStorage.dodge) {
+      fightData.numAttacks += fightData.modifierStorage.dodge.removed
+    }
     return fightData
   }
 }
