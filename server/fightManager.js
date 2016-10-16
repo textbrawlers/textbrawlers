@@ -2,7 +2,6 @@ import fightMessages from 'common/text/fight.js'
 import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
-import NPC from 'common/game/npc.js'
 
 const fightDB = db.get('fights')
 
