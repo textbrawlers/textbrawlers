@@ -10,6 +10,7 @@ import send from 'koa-send'
 
 import server from 'server/index.js'
 import realtime from 'server/realtime.js'
+import * as npcs from 'common/game/npcs.js'
 import WebSocket from 'ws'
 
 const app = new Koa()
@@ -40,9 +41,13 @@ const webSocketServer = new WebSocket.Server({server: httpServer})
 
 realtime(webSocketServer)
 
-httpServer.listen(3000)
-console.log(`Listening on port ${port}`)
+Promise.all([
+  npcs.parseNPCS()
+]).then(() => {
+  httpServer.listen(3000)
+  console.log(`Listening on port ${port}`)
 
-process.on('unhandledRejection', reason => {
-  console.error('Unhandled promise rejection', reason.stack || reason)
-})
+  process.on('unhandledRejection', reason => {
+    console.error('Unhandled promise rejection', reason.stack || reason)
+  })
+}).catch(err => console.error('Error initializing server', err.stack || err))

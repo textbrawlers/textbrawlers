@@ -6,25 +6,30 @@ import Entity from './entity.js'
 
 export default class NPC {
 
-  constructor () {
+  constructor (npcData) {
     this.type = Entity.TYPE_NPC
 
-    this.stats = new StatCollection([
-      new Stat('max-health', 1000),
-      new Stat('block-multiplier', 0.75)
-    ])
+    let cStats = []
+    Object.entries(npcData).forEach(([key, value]) => {
+      if (key !== 'name' && key !== 'equipped') {
+        cStats.push(new Stat(key, value))
+      }
+    })
+    this.stats = new StatCollection(cStats)
+
+    let aStats = []
+    Object.entries(npcData.equipped.left.stats).forEach(([key, value]) => {
+      if (key !== 'name') {
+        aStats.push(new Stat(key, value))
+      }
+    })
 
     this.weaponStats = [{
-      stats: new StatCollection([
-        new Stat('damage', 10000),
-        new Stat('attack-speed', 10000)
-      ]),
+      stats: new StatCollection(aStats),
       weapon: Item.fromJSON({
-        id: 'longsword',
+        id: npcData.equipped.left.id,
         rarity: 'legendary',
-        prefixes: [
-          ['sword-prefixes', 'cirt-chance', 'uncertain']
-        ]
+        prefixes: [[]]
       })
     }]
 

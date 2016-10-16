@@ -1,6 +1,5 @@
 {
   "enemies": [
-    "common/json/enemy/sir-placeholder.json",
-    "common/json/enemy/ärtan-kurt.json"
+    "common/json/enemy/sir-placeholder.json"
   ]
 }
