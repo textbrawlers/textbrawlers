@@ -79,29 +79,34 @@
     "head": {
       "head-prefixes": 100,
       "armor-prefixes": 100,
+      "weird-prefixes": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "torso": {
       "torso-prefixes": 100,
       "armor-prefixes": 100,
+      "weird-prefixes": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "legs": {
       "legs-prefixes": 100,
       "armor-prefixes": 100,
+      "weird-prefixes": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "feet": {
       "feet-prefixes": 100,
       "armor-prefixes": 100,
+      "weird-prefixes": 20,
       "rare-armor-prefixes": 10,
       "troll-prefixes": 1
     },
     "trinket": {
       "trinket-prefixes": 100,
+      "weird-prefixes": 20,
       "troll-prefixes": 1
     },
     "offhand": {
