@@ -75,11 +75,7 @@ export default class Fight {
 
     this.fightData.weapons = this.fightData.attacker.player.weaponStats
 
-    console.log(this.fightData.attacker.player.weaponStats)
-    console.log(this.fightData.weapons)
-    console.log(this.fightData.currentWeapon)
-
-    if (this.fightData.numAttacks <= 0) {
+    if (this.fightData.numAttacks <= 0 && this.fightData.weapons.length > 0) {
       this.fightData.numAttacks = this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('attack-speed')
       this.fightData = modifierHandler.weaponChange(this.fightData)
     }
