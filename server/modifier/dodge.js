@@ -17,13 +17,8 @@ export default {
 
     if (Math.random() < dodgeMod) {
       fightData.modifierStorage.dodge.dodged = true
-
-      if (Math.floor(fightData.numAttacks) === 0) {
-        fightData.numAttacks *= 0
-      } else {
-        fightData.modifierStorage.dodge.remainingAttacks = fightData.numAttacks - 1
-        fightData.numAttacks *= 0
-      }
+      fightData.modifierStorage.dodge.remainingAttacks = fightData.numAttacks - 1
+      fightData.numAttacks *= 0
       fightData.textData.dodged = true
     }
     return fightData
