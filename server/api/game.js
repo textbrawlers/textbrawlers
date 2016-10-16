@@ -3,7 +3,7 @@ import { generateItem } from 'common/game/itemGenerator.js'
 import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
 import Item from 'common/game/item.js'
-import NPC from 'common/game/NPC.js'
+import NPC from 'common/game/npc.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
