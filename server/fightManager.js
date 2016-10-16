@@ -68,7 +68,7 @@ export default class FightManager {
     const attacker = resp.playerStates[resp.attacker]
     const defender = resp.playerStates[resp.defender]
 
-    const weapon = resp.hasWeapon ? fightObj.players[resp.attacker].weaponStats[resp.weapon].weapon : {type: 'null'}
+    const weapon = resp.textData.hasWeapon ? fightObj.players[resp.attacker].weaponStats[resp.weapon].weapon : undefined
 
     fightMessages({add}, weapon, attacker, defender, resp.textData)
 

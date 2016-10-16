@@ -124,9 +124,7 @@ export default class Fight {
     if (this.fightData.weapons[0]) {
       this.fightData.hasWeapon = true
       this.fightData.miss = false
-      this.fightData.crits = 0
       this.fightData.damage = 0
-      this.fightData.arcaneDamage = 0
       if (Math.random() <= this.fightData.numAttacks) {
         this.fightData.damage = this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('damage')
         this.fightData.damage *= (1 + this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('damage-multiplier'))

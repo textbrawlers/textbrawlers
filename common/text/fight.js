@@ -20,7 +20,7 @@ export default function messages (m, weapon, attacker, defender, round) {
     modifierHandler.deathText(round).forEach(cdt => {
       m.add(cdt.chance, cdt.text)
     })
-  } else if (weapon.type === 'null') {
+  } else if (!round.hasWeapon) {
     m.add(100, '[attacker] is a scurb and left his weapon at home.')
     m.add(100, '[attacker] has apparently thrown his weapon in a lake.')
     m.add(100, 'The muppet [attacker] forgot his weapon.')
