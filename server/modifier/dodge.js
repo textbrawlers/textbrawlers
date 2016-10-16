@@ -34,7 +34,7 @@ export default {
   fightText (textData) {
     if (textData.dodged) {
       return [{
-        chance: 50,
+        chance: 100,
         text: '[defender] dodged [attacker]\'s attack.'
       }]
     }

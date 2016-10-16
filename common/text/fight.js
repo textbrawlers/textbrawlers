@@ -30,63 +30,65 @@ export default function messages (m, weapon, attacker, defender, round) {
     modifierHandler.fightText(round).forEach(cdt => {
       m.add(cdt.chance, cdt.text)
     })
-    types.getText(m, weapon, round)
-    if (weapon.type !== 'head') {
-      if (weapon.hasStat('ranged')) {
-        if (round.missed) {
-          m.add(100, '[attacker] fired at [defender] but missed.')
-          m.add(10, '[attacker] attempted to trickshot [defender], but failed miserably.')
-        } else if (round.blocked) {
-          m.add(100, '[attacker] fired at [defender] but [defender] blocked.')
-          m.add(10, "[attacker] attempted to trickshot [defender], but failed to consider [defender]'s blocking skills.")
-        } else if (round.crit) {
-          m.add(100, '[attacker] fired at [defender] and hit a weak spot.]')
-          m.add(10, '[attacker] managed to trickshot [defender], resulting in a critical hit!')
-          m.add(1, '[attacker] 360 no-scoped [defender].]')
+    if (!round.dodged) {
+      types.getText(m, weapon, round)
+      if (weapon.type !== 'head') {
+        if (weapon.hasStat('ranged')) {
+          if (round.missed) {
+            m.add(100, '[attacker] fired at [defender] but missed.')
+            m.add(10, '[attacker] attempted to trickshot [defender], but failed miserably.')
+          } else if (round.blocked) {
+            m.add(100, '[attacker] fired at [defender] but [defender] blocked.')
+            m.add(10, "[attacker] attempted to trickshot [defender], but failed to consider [defender]'s blocking skills.")
+          } else if (round.crit) {
+            m.add(100, '[attacker] fired at [defender] and hit a weak spot.]')
+            m.add(10, '[attacker] managed to trickshot [defender], resulting in a critical hit!')
+            m.add(1, '[attacker] 360 no-scoped [defender].]')
+          } else {
+            m.add(100, '[attacker] fired at [defender] and hit.')
+            m.add(10, '[attacker] managed to trickshot [defender], though the result was underwhelming.')
+          }
         } else {
-          m.add(100, '[attacker] fired at [defender] and hit.')
-          m.add(10, '[attacker] managed to trickshot [defender], though the result was underwhelming.')
-        }
-      } else {
-        if (round.missed) {
-          m.add(100, '[attacker] swinged his [item-name] at [defender] but missed.')
-          m.add(10, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
-          m.add(1, '[attacker] missed...')
-        } else if (round.blocked) {
-          m.add(100, '[attacker] swinged his [item-name] at [defender] but [defender] blocked the attack.')
-          m.add(10, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
-        } else if (round.crit) {
-          m.add(100, '[attacker] swinged his [item-name] at [defender] and hit a weak spot.')
-          m.add(10, '[attacker] flailed wildly at [defender] and hit a weak spot, to everyone\'s suprise.')
-        } else {
-          m.add(100, '[attacker] swinged his [item-name] at [defender] and hit.')
-          m.add(10, '[attacker] flailed wildly at [defender] and hit, somehow.')
-          m.add(50, '[defender] suddenly got an arrow in his back. Who did that?')
+          if (round.missed) {
+            m.add(100, '[attacker] swinged his [item-name] at [defender] but missed.')
+            m.add(10, '[attacker] flailed wildly at [defender] but missed. What a surprise.')
+            m.add(1, '[attacker] missed...')
+          } else if (round.blocked) {
+            m.add(100, '[attacker] swinged his [item-name] at [defender] but [defender] blocked the attack.')
+            m.add(10, '[attacker] flailed wildly at [defender] and got blocked, to no one\'s suprise.')
+          } else if (round.crit) {
+            m.add(100, '[attacker] swinged his [item-name] at [defender] and hit a weak spot.')
+            m.add(10, '[attacker] flailed wildly at [defender] and hit a weak spot, to everyone\'s suprise.')
+          } else {
+            m.add(100, '[attacker] swinged his [item-name] at [defender] and hit.')
+            m.add(10, '[attacker] flailed wildly at [defender] and hit, somehow.')
+            m.add(50, '[defender] suddenly got an arrow in his back. Who did that?')
+          }
         }
       }
-    }
 
-    if (weapon.rarity === 'legendary' && weapon.hasStat('ranged')) {
-      if (round.missed) {
-        m.add(10, '[attacker] fired his legendary [item-name] at [defender] but missed.')
-      } else if (round.blocked) {
-        m.add(10, '[attacker] fired his legendary [item-name] at [defender] and got blocked.')
-      } else if (round.crit) {
-        m.add(10, '[attacker] fired his legendary [item-name] at [defender] and hit a weak spot.')
-      } else {
-        m.add(10, '[attacker] fired his legendary [item-name] at [defender] and hit.')
+      if (weapon.rarity === 'legendary' && weapon.hasStat('ranged')) {
+        if (round.missed) {
+          m.add(10, '[attacker] fired his legendary [item-name] at [defender] but missed.')
+        } else if (round.blocked) {
+          m.add(10, '[attacker] fired his legendary [item-name] at [defender] and got blocked.')
+        } else if (round.crit) {
+          m.add(10, '[attacker] fired his legendary [item-name] at [defender] and hit a weak spot.')
+        } else {
+          m.add(10, '[attacker] fired his legendary [item-name] at [defender] and hit.')
+        }
       }
-    }
 
-    if (weapon.rarity === 'legendary' && !weapon.hasStat('ranged') && weapon.type !== 'bow' && weapon.type !== 'head') {
-      if (round.missed) {
-        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but missed.')
-      } else if (round.blocked) {
-        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but [defender] blocked the attack.')
-      } else if (round.crit) {
-        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit a weak spot.')
-      } else {
-        m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit.')
+      if (weapon.rarity === 'legendary' && !weapon.hasStat('ranged') && weapon.type !== 'bow' && weapon.type !== 'head') {
+        if (round.missed) {
+          m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but missed.')
+        } else if (round.blocked) {
+          m.add(10, '[attacker] swinged his legendary [item-name] at [defender] but [defender] blocked the attack.')
+        } else if (round.crit) {
+          m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit a weak spot.')
+        } else {
+          m.add(10, '[attacker] swinged his legendary [item-name] at [defender] and hit.')
+        }
       }
     }
   }
