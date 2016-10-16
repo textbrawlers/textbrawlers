@@ -75,12 +75,15 @@ export default class Fight {
 
     this.fightData.weapons = this.fightData.attacker.player.weaponStats
 
-    if (this.fightData.weapons.length > 0) {
+    if (this.fightData.weapons && this.fightData.weapons.length > 0) {
       if (this.fightData.numAttacks <= 0) {
         this.fightData.numAttacks = this.fightData.weapons[this.fightData.currentWeapon].stats.getValue('attack-speed')
         this.fightData = modifierHandler.weaponChange(this.fightData)
       }
       this.fightData = modifierHandler.init(this.fightData)
+    }
+    if (!this.fightData.weapons) {
+      console.log('Henrik ljuger som fan. ...player.weaponStats är undefined.')
     }
   }
 
