@@ -2,11 +2,12 @@ import StatCollection from './statCollection.js'
 import EquippedInventory from './equippedInventory.js'
 import Stat from './stat.js'
 import Item from './item.js'
+import Entity from './entity.js'
 
 export default class NPC {
 
   constructor () {
-    this.isNpc = true
+    this.type = Entity.TYPE_NPC
 
     this.stats = new StatCollection([
       new Stat('max-health', 100),
@@ -29,15 +30,18 @@ export default class NPC {
     this.equipped = new EquippedInventory([], 7)
   }
 
+  // generate argument to be passed into the constructor
+  static baseFromJSON () {
+    return {}
+  }
+
   getStat (statId) {
     return this.stats.find(stat => stat.id === statId)
   }
 
   serialize () {
-    return {}
-  }
-
-  fromJSON () {
-    return new NPC()
+    return {
+      type: this.type
+    }
   }
 }

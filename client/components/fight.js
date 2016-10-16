@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import 'client/css/game-fight.scss'
 import 'client/css/game-inventory.scss'
 import request from 'common/api/request.js'
-import Player from 'common/game/player.js'
+import Entity from 'common/game/entity.js'
 import InventorySlot from './inventorySlot.js'
 import InvItem from './invItem.js'
 import BuffBar from './buffBar.js'
@@ -74,7 +74,7 @@ export default class Fight extends Component {
       return
     }
 
-    const players = await Promise.all(resp.players.map(player => Player.fromJSON(player)))
+    const players = resp.players.map(player => Entity.fromJSON(player))
 
     this.setState({
       players: players,

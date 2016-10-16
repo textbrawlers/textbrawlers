@@ -2,6 +2,7 @@ import Inventory from './inventory.js'
 import EquippedInventory from './equippedInventory.js'
 import StatCollection from './statCollection.js'
 import Stat from './stat.js'
+import Entity from './entity.js'
 
 export default class Player {
 
@@ -12,10 +13,10 @@ export default class Player {
     this.id = id
   }
 
-  static async baseFromJSON (jsonPlayer) {
-    const inventory = await Inventory.fromJSON(Inventory, jsonPlayer.inventory, 120)
-    const equipped = await EquippedInventory.fromJSON(EquippedInventory, jsonPlayer.equipped, 7)
-    const reassemble = await Inventory.fromJSON(Inventory, jsonPlayer.reassemble, 4)
+  static baseFromJSON (jsonPlayer) {
+    const inventory = Inventory.fromJSON(Inventory, jsonPlayer.inventory, 120)
+    const equipped = EquippedInventory.fromJSON(EquippedInventory, jsonPlayer.equipped, 7)
+    const reassemble = Inventory.fromJSON(Inventory, jsonPlayer.reassemble, 4)
 
     const id = jsonPlayer.id
 
@@ -102,8 +103,8 @@ export default class Player {
     return weapons
   }
 
-  static async fromJSON (jsonPlayer) {
-    return new Player(await Player.baseFromJSON(jsonPlayer))
+  static fromJSON (jsonPlayer) {
+    return new Player(Player.baseFromJSON(jsonPlayer))
   }
 
   serialize () {

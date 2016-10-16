@@ -94,7 +94,7 @@ export default class GameIndex extends Component {
     if (!jsonPlayer) {
       jsonPlayer = (await request.get('/api/user/get')).json
     }
-    const player = await Player.fromJSON(jsonPlayer)
+    const player = Player.fromJSON(jsonPlayer)
     this.setState({player})
   }
 

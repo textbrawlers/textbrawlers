@@ -43,13 +43,12 @@ export default class Inventory {
     return this.inventory[slot]
   }
 
-  static async fromJSON (Type, jsonInventory, size) {
+  static fromJSON (Type, jsonInventory, size) {
     jsonInventory = jsonInventory || {}
 
     const items = {}
 
     for (let [slot, jsonItem] of Object.entries(jsonInventory)) {
-      await Item.loadPromise
       const item = Item.fromJSON(jsonItem)
       if (item) {
         items[slot] = item

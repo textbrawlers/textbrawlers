@@ -14,7 +14,7 @@ export default class ServerPlayer extends Player {
     const jsonUser = (await users.findOne({key}))
 
     if (jsonUser) {
-      const player = await ServerPlayer.fromJSON(jsonUser.player || {}, key)
+      const player = ServerPlayer.fromJSON(jsonUser.player || {}, key)
       player.key = key
       player.id = jsonUser._id
       player.serverPlayer = true
@@ -31,7 +31,7 @@ export default class ServerPlayer extends Player {
     const jsonUser = await users.findOne(id)
 
     if (jsonUser) {
-      const player = await ServerPlayer.fromJSON(jsonUser.player || {})
+      const player = ServerPlayer.fromJSON(jsonUser.player || {})
       player.id = jsonUser._id
       player.ServerPlayer = true
 
@@ -39,8 +39,8 @@ export default class ServerPlayer extends Player {
     }
   }
 
-  static async fromJSON (jsonPlayer, key) {
-    return new ServerPlayer(await Player.baseFromJSON(jsonPlayer), key)
+  static fromJSON (jsonPlayer, key) {
+    return new ServerPlayer(Player.baseFromJSON(jsonPlayer), key)
   }
 
   async save () {

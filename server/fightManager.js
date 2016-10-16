@@ -30,7 +30,7 @@ export default class FightManager {
     const fight = new Fight(players)
     const fightObj = new EventEmitter()
     const playersJSON = players.map(p => {
-      if (p.isNpc) {
+      if (p.type === 'npc') {
         return { equipped: p.equipped.serialize() }
       } else {
         return {
