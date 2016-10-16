@@ -2,7 +2,7 @@ import Entity from './entity.js'
 
 const npcs = []
 
-async function parseNPCS () {
+export async function parseNPCs () {
   const npcConfig = await System.import('common/json/enemies.json')
   const enemies = await Promise.all(npcConfig.enemies.map(url => System.import(url)))
 
@@ -11,7 +11,7 @@ async function parseNPCS () {
   })
 }
 
-function randomizeNPC (diffVal) {
+export function randomizeNPC (diffVal) {
   const npc = npcs[Math.random() * npcs.length]
 
   const newNPC = {

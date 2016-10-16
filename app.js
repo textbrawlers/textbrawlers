@@ -42,7 +42,7 @@ const webSocketServer = new WebSocket.Server({server: httpServer})
 realtime(webSocketServer)
 
 Promise.all([
-  npcs.parseNPCS()
+  npcs.parseNPCs()
 ]).then(() => {
   httpServer.listen(3000)
   console.log(`Listening on port ${port}`)
