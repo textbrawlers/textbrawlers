@@ -24,6 +24,7 @@ export default {
         fightData.modifierStorage.dodge.removed = dodgeMod
         fightData.numAttacks -= dodgeMod
       }
+      fightData.textData.dodged = true
     }
     return fightData
   },
@@ -33,5 +34,14 @@ export default {
       fightData.numAttacks += fightData.modifierStorage.dodge.removed
     }
     return fightData
+  },
+
+  fightText (textData) {
+    if (textData.dodged) {
+      return [{
+        chance: 50,
+        text: '[defender] dodged [attacker]\'s attack.'
+      }]
+    }
   }
 }

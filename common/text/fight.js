@@ -27,6 +27,9 @@ export default function messages (m, weapon, attacker, defender, round) {
     m.add(50, '[attacker]...')
     m.add(1, 'Suddenly a wild developer appeard and stole [attacker]\'s weapon.')
   } else {
+    modifierHandler.fightText(round).forEach(cdt => {
+      m.add(cdt.chance, cdt.text)
+    })
     types.getText(m, weapon, round)
     if (weapon.type !== 'head') {
       if (weapon.hasStat('ranged')) {

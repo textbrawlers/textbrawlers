@@ -62,5 +62,18 @@ export default {
       }
     })
     return texts
+  },
+
+  fightText (textData) {
+    let texts = []
+    modifiers.filter(m => m.fightText).forEach(modifier => {
+      let textObjects = modifier.fightText(textData)
+      if (textObjects) {
+        textObjects.forEach(textObj => {
+          texts.push(textObj)
+        })
+      }
+    })
+    return texts
   }
 }
