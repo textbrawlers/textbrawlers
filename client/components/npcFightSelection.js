@@ -12,19 +12,9 @@ export default class NPCFightSelection extends Component {
   }
 
   componentWillMount () {
-    // TODO: request(...)
-
-    this.setState({
-      enemies: [{
-        name: 'Enemy 1',
-        maxhp: 151,
-        id: 1
-      }, {
-        name: 'Enemy 2',
-        maxhp: 156,
-        id: 2
-      }]
-    })
+    request.get('/api/game/requestNPCs').then(resp => {
+      this.setState({enemies: resp.json.npcs})
+    }).catch(err => console.error(err.stack || err))
   }
 
   selectEnemy (enemy) {

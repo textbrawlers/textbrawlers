@@ -4,6 +4,7 @@ import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
 import Item from 'common/game/item.js'
 import NPC from 'common/game/npc.js'
+import * as NPCs from 'server/npcs.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
@@ -202,6 +203,14 @@ export async function fightNPC (ctx) {
   Realtime.startNPCFight(playerId, npc)
 
   ctx.body = { success: true }
+}
+
+export async function requestNPCs (ctx) {
+  const curryPlayer = await users.findOne({ _id: ctx.account._id })
+
+  const npcs = NPCs.getCurrentNPCsForPlayer(curryPlayer)
+
+  ctx.body = { npcs: npcs }
 }
 
 export async function getSocial (ctx) {

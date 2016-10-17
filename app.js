@@ -10,7 +10,7 @@ import send from 'koa-send'
 
 import server from 'server/index.js'
 import realtime from 'server/realtime.js'
-import * as npcs from 'common/game/npcs.js'
+import * as npcs from 'server/npcs.js'
 import WebSocket from 'ws'
 
 const app = new Koa()
