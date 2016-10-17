@@ -13,6 +13,8 @@ export default class NPC {
     Object.entries(npcData).forEach(([key, value]) => {
       if (key !== 'name' && key !== 'equipped') {
         cStats.push(new Stat(key, value))
+      } else if (key === 'name') {
+        this.name = value
       }
     })
     this.stats = new StatCollection(cStats)
@@ -47,7 +49,8 @@ export default class NPC {
 
   serialize () {
     return {
-      type: this.type
+      type: this.type,
+      name: this.name
     }
   }
 }

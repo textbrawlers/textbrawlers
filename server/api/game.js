@@ -3,7 +3,6 @@ import { generateItem } from 'common/game/itemGenerator.js'
 import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
 import Item from 'common/game/item.js'
-import NPC from 'common/game/npc.js'
 import * as NPCs from 'server/npcs.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
@@ -195,11 +194,11 @@ export async function acceptInvite (ctx) {
 
 export async function fightNPC (ctx) {
   const playerId = ctx.account._id
+  const curryPlayer = await users.findOne({ _id: playerId })
+  const npcIndex = ctx.request.body.enemyId
+  const npc = curryPlayer.player.npcs[npcIndex]
 
-  // const npc = ctx.request.body.npc
-
-  const npc = new NPC()
-
+  console.log(npc)
   Realtime.startNPCFight(playerId, npc)
 
   ctx.body = { success: true }
