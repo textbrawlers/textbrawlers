@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import request from 'common/api/request.js'
+import Entity from 'common/game/entity.js'
 
 export default class NPCFightSelection extends Component {
 
@@ -13,7 +14,8 @@ export default class NPCFightSelection extends Component {
 
   componentWillMount () {
     request.get('/api/game/requestNPCs').then(resp => {
-      this.setState({enemies: resp.json.npcs})
+      const enemies = resp.json.npcs.map(npc => Entity.fromJSON(npc))
+      this.setState({ enemies })
     }).catch(err => console.error(err.stack || err))
   }
 
@@ -30,7 +32,7 @@ export default class NPCFightSelection extends Component {
     return (
       <a onClick={() => this.selectEnemy(id)}>
         <div style={style}>
-          Name: {enemy.name}; hp: {enemy.stats.stats[0].value}
+          Name: {enemy.name}; hp: {enemy.stats.getValue('max-health')}
         </div>
       </a>
     )

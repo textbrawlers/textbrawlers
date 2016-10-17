@@ -1,3 +1,5 @@
+import Stat from './stat.js'
+
 export default class StatCollection {
 
   constructor (stats) {
@@ -56,6 +58,14 @@ export default class StatCollection {
 
   filter (fn) {
     this.stats = this.stats.filter(fn)
+  }
+
+  serialize () {
+    return this.stats.map(({id, value}) => ({ id, value }))
+  }
+
+  static fromJSON (json) {
+    return new StatCollection(json.map(({id, value}) => new Stat(id, value)))
   }
 
 }

@@ -1,5 +1,8 @@
-import Entity from 'common/game/entity.js'
 import db from 'server/common/database.js'
+import NPC from 'common/game/npc.js'
+import Stat from 'common/game/stat.js'
+import Item from 'common/game/item.js'
+import StatCollection from 'common/game/statCollection.js'
 
 const playerDB = db.get('users')
 
@@ -22,7 +25,8 @@ export function getCurrentNPCsForPlayer (acc) {
     for (let i = 0; i < 5; i++) {
       npcsForPlayer[i] = randomizeNPC(1) // Magical number is to be removed.
     }
-    acc.player.npcs = npcsForPlayer
+    acc.player.npcs = npcsForPlayer.map(npc => npc.serialize())
+    console.log(acc.player.npcs)
     playerDB.update({_id: acc._id}, acc).then(
       () => console.log('Player "' + acc.username + '"s npcs updated.')
     ).catch(err => console.error(err.stack || err))
@@ -34,25 +38,22 @@ function randomizeNPC (diffVal) {
   const npcIndex = Math.floor(Math.random() * npcs.length)
   const npc = npcs[npcIndex] ? npcs[npcIndex] : npcs[0]
 
-  const newNPC = {
+  return new NPC({
     name: npc.name,
-    'max-health': Math.round(randomizeValue(npc.hp, diffVal)),
-    equipped: {
-      left: {
-        id: npc.equipped.left.id,
-        stats: {
-          damage: Math.round(randomizeValue(npc.equipped.left.stats.damage, diffVal)),
-          'attack-speed': randomizeValue(npc.equipped.left.stats['attack-speed'], diffVal),
-          'crit-chance': randomizeValue(npc.equipped.left.stats['crit-chance'], diffVal),
-          'crit-damage': randomizeValue(npc.equipped.left.stats['crit-damage'], diffVal)
-        }
-      }
-    }
-  }
-
-  newNPC.type = 'npc'
-
-  return Entity.fromJSON(newNPC)
+    stats: new StatCollection([
+      new Stat('max-health', Math.round(randomizeValue(npc.stats.hp, diffVal)))
+    ]),
+    weaponStats: [{
+      weapon: Item.fromJSON({id: npc.equipped.left.id, rarity: 'legendary', prefixes: []}),
+      stats: new StatCollection([
+        new Stat('damage', Math.round(randomizeValue(npc.equipped.left.stats.damage, diffVal))),
+        new Stat('attack-speed', randomizeValue(npc.equipped.left.stats['attack-speed'], diffVal)),
+        new Stat('crit-chance', randomizeValue(npc.equipped.left.stats['crit-chance'], diffVal)),
+        new Stat('crit-damage', randomizeValue(npc.equipped.left.stats['crit-damage'], diffVal))
+      ])
+    }],
+    type: 'npc'
+  })
 }
 
 function randomizeValue (valArr, diffVal) {

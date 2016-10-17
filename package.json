@@ -69,7 +69,7 @@
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "querystring": "github:jspm/nodelibs-querystring@^0.2.0-alpha",
-      "react": "npm:react@^15.2.1",
+      "react": "npm:react@^15.0.0",
       "react-dnd": "npm:react-dnd@^2.1.4",
       "react-dom": "npm:react-dom@^15.2.1",
       "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
@@ -297,4 +297,4 @@
     "url": "https://github.com/ineentho/textspel/issues"
   },
   "homepage": "https://github.com/ineentho/textspel#readme"
-}
+}

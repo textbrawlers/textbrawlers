@@ -4,7 +4,7 @@ import NPC from './npc.js'
 export default class Entity {
   static fromJSON (json) {
     if (json.type === Entity.TYPE_NPC) {
-      return new NPC(json)
+      return new NPC(NPC.baseFromJSON(json))
     } else {
       return new Player(Player.baseFromJSON(json))
     }

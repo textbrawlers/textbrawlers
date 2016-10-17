@@ -1,7 +1,9 @@
 {
   "id": "sir-placeholder",
   "name": "Sir Placeholder",
-  "hp": [350, 400],
+  "stats": {
+    "hp": [350, 400]
+  },
   "equipped": {
     "left": {
       "id": "placeholders-pride",

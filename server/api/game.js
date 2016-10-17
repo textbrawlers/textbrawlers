@@ -4,6 +4,7 @@ import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
 import Item from 'common/game/item.js'
 import * as NPCs from 'server/npcs.js'
+import Entity from 'common/game/entity.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
@@ -196,9 +197,9 @@ export async function fightNPC (ctx) {
   const playerId = ctx.account._id
   const curryPlayer = await users.findOne({ _id: playerId })
   const npcIndex = ctx.request.body.enemyId
-  const npc = curryPlayer.player.npcs[npcIndex]
+  const npc = Entity.fromJSON(curryPlayer.player.npcs[npcIndex])
 
-  console.log(npc)
+  console.log('npc', npc)
   Realtime.startNPCFight(playerId, npc)
 
   ctx.body = { success: true }
