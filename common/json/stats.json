@@ -216,6 +216,13 @@
     "detail-tooltip": "Whenever you succesfully Block an attack, your opponent takes damage equal to your Thorns (your enemy may still block this damage).",
     "display": true
   },
+  "multistrike": {
+    "type": "multiplicative",
+    "name": "Multistrike",
+    "tooltip": "[fixed]x Multistrike",
+    "detail-tooltip": "A multistrike splits its attacks depending on its Multistrike. The total damage remains the same, but each attack applies on-hit effects seperately. For example, a 20 damage weapon with 2x Multistrike attacks twice as often, but only deals 10 damage per hit.",
+    "display": true
+  },
   "category": {
     "type": "text",
     "name": "Itemtype",
