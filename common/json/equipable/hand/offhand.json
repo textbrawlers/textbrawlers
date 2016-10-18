@@ -7,7 +7,8 @@
       "icon": "itemhourglass",
       "drop-rate": 10,
       "character-stats": {
-        "attack-speed": 0.3,
+        "attack-speed": 0.1,
+        "timestop-accel": 0.4,
         "timestop": 0.05
       },
       "description":"You can't see me, my time is now!"
