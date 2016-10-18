@@ -195,13 +195,6 @@
     "detail-tooltip": "At the end of each turn, you have a chance equal to your Timestop to gain an additional turn.",
     "display": true
   },
-  "timestop-accel": {
-    "type": "additive",
-    "name": "Timestop Acceleration",
-    "tooltip": "[fixed-fine] Hit Chance on Timestop",
-    "detail-tooltip": "On a turn which Timestop activates, you gain this much extra Hit Chance.",
-    "display": true
-  },
   "bloodlust": {
     "type": "additive",
     "name": "Bloodlust",

@@ -134,7 +134,7 @@ export default class Fight {
 
         this.fightData = modifierHandler.apply(this.fightData)
         
-        if (this.fightData.damage < 0) {
+        if (this.fightData.damage < 1) {
           this.fightData.damage = 1
         }
 
