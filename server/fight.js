@@ -85,8 +85,8 @@ export default class Fight {
   }
 
   endAttack () {
-    this.fightData.numAttacks -= 1
     this.fightData = modifierHandler.end(this.fightData)
+    this.fightData.numAttacks -= 1
     if (this.fightData.numAttacks <= 0) {
       this.fightData.currentWeapon++
       if (!this.fightData.weapons[this.fightData.currentWeapon]) {
