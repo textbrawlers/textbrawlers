@@ -134,10 +134,6 @@ export default class Fight {
 
         this.fightData = modifierHandler.apply(this.fightData)
 
-        if (this.fightData.damage < 0) {
-          this.fightData.damage = 1
-        }
-
         this.fightData.damage = Math.round(this.fightData.damage)
         this.fightData.defender.currentHP -= this.fightData.damage
       } else {
