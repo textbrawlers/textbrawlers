@@ -86,6 +86,7 @@ export default class Fight {
 
   endAttack () {
     this.fightData.numAttacks -= 1
+    this.fightData = modifierHandler.end(this.fightData)
     if (this.fightData.numAttacks <= 0) {
       this.fightData.currentWeapon++
       if (!this.fightData.weapons[this.fightData.currentWeapon]) {
@@ -97,7 +98,6 @@ export default class Fight {
         }
       }
     }
-    this.fightData = modifierHandler.end(this.fightData)
   }
 
   createResponse () {
@@ -133,6 +133,10 @@ export default class Fight {
         this.fightData.defenderIndex = this.getCurrentDefenderIndex()
 
         this.fightData = modifierHandler.apply(this.fightData)
+        
+        if (this.fightData.damage < 0) {
+          this.fightData.damage = 1
+        }
 
         this.fightData.damage = Math.round(this.fightData.damage)
         this.fightData.defender.currentHP -= this.fightData.damage
