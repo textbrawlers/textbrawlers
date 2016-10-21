@@ -26,6 +26,7 @@ const displayFunctions = {
       return `${niceVal}%`
     }
   }
+  string: value => value,
 }
 
 export default class Stat {

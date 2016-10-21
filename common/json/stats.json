@@ -226,7 +226,7 @@
   "required-ammo": {
     "type": "text",
     "name": "Ammo",
-    "tooltip": "Ammo: [type]",
+    "tooltip": "Ammo: [string]",
     "detail-tooltip": "Specifies the required ammo for this weapon.",
     "diplay": true
   },
