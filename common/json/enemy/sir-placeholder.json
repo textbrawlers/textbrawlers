@@ -2,7 +2,7 @@
   "id": "sir-placeholder",
   "name": "Sir Placeholder",
   "stats": {
-    "hp": [350, 400]
+    "max-health": [350, 400]
   },
   "equipped": {
     "left": {

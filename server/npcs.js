@@ -1,5 +1,6 @@
 import db from 'server/common/database.js'
 import NPC from 'common/game/npc.js'
+import stats from 'common/json/stats.json'
 import Stat from 'common/game/stat.js'
 import Item from 'common/game/item.js'
 import StatCollection from 'common/game/statCollection.js'
@@ -39,27 +40,32 @@ function randomizeNPC (diffVal) {
 
   return new NPC({
     name: npc.name,
-    stats: new StatCollection([
-      new Stat('max-health', Math.round(randomizeValue(npc.stats.hp, diffVal)))
-    ]),
+    stats: new StatCollection(buildStatArr(npc.stats, diffVal)),
     weaponStats: [{
       weapon: Item.fromJSON({id: npc.equipped.left.id, rarity: 'legendary', prefixes: []}),
-      stats: new StatCollection([
-        new Stat('damage', Math.round(randomizeValue(npc.equipped.left.stats.damage, diffVal))),
-        new Stat('attack-speed', randomizeValue(npc.equipped.left.stats['attack-speed'], diffVal)),
-        new Stat('crit-chance', randomizeValue(npc.equipped.left.stats['crit-chance'], diffVal)),
-        new Stat('crit-damage', randomizeValue(npc.equipped.left.stats['crit-damage'], diffVal))
-      ])
+      stats: new StatCollection(buildStatArr(npc.equipped.left.stats, diffVal))
     }],
     type: 'npc'
   })
 }
 
-function randomizeValue (valArr, diffVal) {
+function buildStatArr (stats, diffVal) {
+  let statArr = []
+  Object.entries(stats).forEach(([key, value]) => {
+    statArr.push(new Stat(key, randomizeValue(key, value, diffVal)))
+  })
+  return statArr
+}
+
+function randomizeValue (key, valArr, diffVal) {
   let result = valArr[0] + Math.random() * (valArr[1] - valArr[0])
   result *= getMultiplierValue()
   result *= diffVal
-  return result
+  return shouldRound(key) ? Math.round(result) : result
+}
+
+function shouldRound (key) {
+  return stats[key].rounded
 }
 
 function getMultiplierValue () {
