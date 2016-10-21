@@ -2,6 +2,22 @@ import Router from 'koa-router'
 import { login, register, getPlayer } from './api/user.js'
 import SPlayer from 'common/game/serverPlayer.js'
 import * as game from './api/game.js'
+import * as gamedata from './api/gamedata.js'
+
+const jsonApi = async (ctx, next) => {
+  await next()
+
+  if (ctx.query.pretty) {
+    ctx.body = `
+    <pre><code class="json">${JSON.stringify(ctx.body, undefined, 4)}</code></pre>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/ocean.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+    `
+
+    ctx.type = 'text/html'
+  }
+}
 
 const auth = async (ctx, next) => {
   const key = ctx.request.header.key
@@ -46,5 +62,7 @@ router.get('/game/fight/:id', auth, game.getFight)
 router.post('/game/fight-subscribe/:id', auth, game.fightSubscribe)
 router.post('/game/fight-unsubscribe/:id', auth, game.fightUnsubscribe)
 router.get('/game/social', auth, game.getSocial)
+
+router.get('/gamedata/items', jsonApi, gamedata.items)
 
 export default router
