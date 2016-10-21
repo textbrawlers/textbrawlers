@@ -10,6 +10,7 @@ import stun from './stun.js'
 import timestop from './timestop.js'
 import bloodlust from './bloodlust.js'
 import thorns from './thorns.js'
+import maffect from './magicalaffect'
 
 // Add modifiers to array. Order is as follows: Dodge, On Dodge Effects, Block, On Block Effects, Crit, On Crit Effects, On Hit Effects, Other
 const modifiers = [
@@ -26,6 +27,7 @@ const modifiers = [
   burn,
   poison,
   stun,
+  maffect,
 
   timestop
 ]

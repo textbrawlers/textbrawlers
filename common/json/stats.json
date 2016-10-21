@@ -125,6 +125,13 @@
     "detail-tooltip": "Every successful attack multiplies your current Fury stacks with the Fury of your weapon. All your attacks have their damage increased based on your current Fury stacks. All Fury stacks are lost as soon as you miss an attack.",
     "display": false
   },
+  "magical-affect": {
+    "type": "additive",
+    "name": "Magical Affect",
+    "tooltip": "[percent] Magical Affect Chance",
+    "detail-tooltip": "Magical Affect has a chane to apply and deals bonus percent damage when opponent is hit bu a magical weapon. Magical Affect stack with half the original chane with each successful hit and deals 1.5 times the damage for each stack.",
+    "display": true
+  },
   "burn-chance": {
     "type": "additive",
     "name": "Burn Chance",
@@ -215,6 +222,13 @@
     "tooltip": "[fixed]x Multistrike",
     "detail-tooltip": "A multistrike splits its attacks depending on its Multistrike. The total damage remains the same, but each attack applies on-hit effects seperately. For example, a 20 damage weapon with 2x Multistrike attacks twice as often, but only deals 10 damage per hit.",
     "display": true
+  },
+  "required-ammo": {
+    "type": "text",
+    "name": "Ammo",
+    "tooltip": "Ammo: [type]",
+    "detail-tooltip": "Specifies the required ammo for this weapon.",
+    "diplay": true
   },
   "category": {
     "type": "text",

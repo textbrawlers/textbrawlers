@@ -26,7 +26,6 @@ export function getCurrentNPCsForPlayer (acc) {
       npcsForPlayer[i] = randomizeNPC(1) // Magical number is to be removed.
     }
     acc.player.npcs = npcsForPlayer.map(npc => npc.serialize())
-    console.log(acc.player.npcs)
     playerDB.update({_id: acc._id}, acc).then(
       () => console.log('Player "' + acc.username + '"s npcs updated.')
     ).catch(err => console.error(err.stack || err))

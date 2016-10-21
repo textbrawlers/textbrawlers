@@ -6,6 +6,7 @@
       "attack": true,
       "icon": "itembow",
       "attack-stats": {
+        "required-ammo": "arrow",
         "damage": 11,
         "attack-speed": -9.2,
         "crit-chance": 0.75,
@@ -20,6 +21,7 @@
       "attack": true,
       "icon": "itemlongbow",
       "attack-stats": {
+        "required-ammo": "arrow",
         "damage": 17,
         "attack-speed": -9.5,
         "crit-chance": 0.75,
@@ -34,6 +36,7 @@
       "attack": true,
       "icon": "itemcrossbow",
       "attack-stats": {
+        "required-ammo": "arrow",
         "damage": 14,
         "attack-speed": -9.5,
         "crit-chance": 0.60,

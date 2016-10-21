@@ -13,6 +13,7 @@
         "crit-damage": 0.8,
         "burn-chance": 0.3,
         "burn-damage": 1.0,
+        "magical-affect": 0.6,
         "ranged": true
       },
       "description": "A match would probably be more useful."
@@ -28,6 +29,7 @@
         "attack-speed": 1.8,
         "crit-chance": 0.2,
         "crit-damage": 1.0,
+        "magical-affect": 0.4,
         "ranged": true
       },
       "description": "Madness?! THIS... IS... ZEUS!"
