@@ -7,9 +7,14 @@ import * as gamedata from './api/gamedata.js'
 const jsonApi = async (ctx, next) => {
   await next()
 
-  if (ctx.query.pretty) {
+  if (ctx.query.format === 'pretty') {
     ctx.body = `
-    <pre><code class="json">${JSON.stringify(ctx.body, undefined, 4)}</code></pre>
+    <style>
+      body { margin: 0; }
+      pre { margin: 0; }
+      code.hljs { padding: 30px }
+    </style>
+    <pre><code class="json">${JSON.stringify(ctx.body, undefined, 2)}</code></pre>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/ocean.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad()</script>
@@ -64,5 +69,9 @@ router.post('/game/fight-unsubscribe/:id', auth, game.fightUnsubscribe)
 router.get('/game/social', auth, game.getSocial)
 
 router.get('/gamedata/items', jsonApi, gamedata.items)
+router.get('/gamedata/prefixes', jsonApi, gamedata.prefixes)
+router.get('/gamedata/type-prefix-map', jsonApi, gamedata.typePrefixMap)
+router.get('/gamedata/droptable', jsonApi, gamedata.droptable)
+router.get('/gamedata/random-item', jsonApi, gamedata.randomItem)
 
 export default router
