@@ -159,10 +159,11 @@ export default class Fight {
     let result = true
     const weapon = fightData.weapons[fightData.currentWeapon]
     if (weapon.stats.getValue('required-ammo')) {
+      result = false
       const neededAmmoType = weapon.stats.getValue('required-ammo')
       Object.entries(fightData.attacker.player.equipped.inventory).find(([slot, item]) => {
-        if (item.type !== neededAmmoType) {
-          result = false
+        if (item.type === neededAmmoType) {
+          result = true
         }
       })
     }
