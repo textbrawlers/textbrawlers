@@ -192,7 +192,7 @@ body {
 }
 
 .item-unseen {
-  background: red;
+  background: radial-gradient(ellipse at center, rgba(214,153,255,1) 0%,rgba(255,255,255,0) 100%);
 }
 
 .tooltip-window p:first-child {
