@@ -112,8 +112,8 @@
         "crit-chance": 0.1
       }
     },
-    "piercing": {
-      "name": "Piercing",
+    "homing": {
+      "name": "Homing",
       "drop-rate": 75,
       "attack-stats": {
         "crit-chance": 0.18
