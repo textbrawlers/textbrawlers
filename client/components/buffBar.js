@@ -14,7 +14,14 @@ export default class BuffBar extends Component {
     }, [])
 
     const buffList = buffs.map((buff, i) => {
-      const b = buffConfig[buff.type]
+      let b = buffConfig[buff.type]
+
+      if (!b) {
+        console.warn(`Buff type ${buff.type} is not defined in dotcfg.json`)
+        b = {
+          name: '_unknown_' + buff.type
+        }
+      }
 
       return (
         <div key={i} title={b.name} style={{display: 'inline-block'}}>
