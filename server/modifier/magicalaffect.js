@@ -7,7 +7,7 @@ export default {
     if (weapon.stats.getValue('magical-affect')) {
       let chance = weapon.stats.getValue('magical-affect')
       if (oldBuffs.find(buff => buff.type === 'magical-affect')) {
-        const buffIndex = oldBuffs.find(buff => buff.type === 'magical-affect')
+        const buffIndex = oldBuffs.findIndex(buff => buff.type === 'magical-affect')
         const rand = Math.random()
         const oldBuff = oldBuffs[buffIndex]
 
