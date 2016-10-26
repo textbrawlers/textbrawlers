@@ -24,13 +24,13 @@ export default {
       fightData.modifierStorage.multistrike.multistrikeCounter = 0
     }
     if (fightData.modifierStorage.multistrike.multistrikeCounter < fightData.weapons[fightData.currentWeapon].stats.getValue('multistrike') - 1) {
-      fightData.modifierStorage.multistrike.multistrikeCounter++
       if (fightData.numAttacks < 1) {
         fightData.numAttacks = 2
       } else {
         fightData.numAttacks++
       }
       fightData.damage /= 2
+      fightData.modifierStorage.multistrike.multistrikeCounter++
     } else {
       fightData.modifierStorage.multistrike.multistrikeCounter = 0
     }
