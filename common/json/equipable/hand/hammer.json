@@ -41,7 +41,7 @@
 		"bleed-duration": 4
       },
       "description": "Rise and shine!"
-    }
+    },
      "hammer-of-rage": {
       "name": "Hammer of Rage",
       "slot": "hand",
@@ -55,7 +55,7 @@
         "stun-chance": 0.25,
         "rampage-chance": 0.5
       },
-      "description": "A hammer so blunt it will make you angry!"
+      "description": "*Hits blunt*"
     }
   }
 }
