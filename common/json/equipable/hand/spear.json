@@ -8,7 +8,7 @@
       "attack-stats": {
         "damage": 8,
         "attack-speed": 1.0,
-		"damage-multiplier": 0.5
+		    "damage-multiplier": 0.5
       },
 	  "description": "Time to hunt!"
     },
@@ -20,10 +20,24 @@
       "attack-stats": {
         "damage": 12,
         "attack-speed": 0.85,
-		"damage-multiplier": 0.5,
-		"slow": true
+		    "damage-multiplier": 0.5,
+		    "slow": true
       },
       "description": "*Poke*"
+    },
+    "trident": {
+      "name": "Trident",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itempike",
+      "attack-stats": {
+        "damage": 9,
+        "attack-speed": 0.55,
+		    "damage-multiplier": 0.5,
+        "multistrike": 3,
+		    "slow": true
+      },
+      "description": "*Poke x3*"
     },
     "halberd": {
       "name": "Halberd",
