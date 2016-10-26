@@ -255,6 +255,14 @@
     "rounded": false,
     "display": true
   },
+  "rampage-chance": {
+    "type": "additive",
+    "name": "Rampage",
+    "tooltip": "[percent] Rampage Chance",
+    "detail-tooltip": "Rampage Chance is the chance each attack has to give you an additional attack with the same weapon. These bonus attacks give further attacks.",
+    "rounded": false,
+    "display": true
+  },
   "required-ammo": {
     "type": "text",
     "name": "Ammo",
