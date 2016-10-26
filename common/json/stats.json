@@ -247,7 +247,7 @@
     "rounded": true,
     "display": true
   },
-  "multistrike": {
+  "multistrike-chance": {
     "type": "multiplicative",
     "name": "Multistrike",
     "tooltip": "[fixed]x Multistrike",
@@ -255,11 +255,11 @@
     "rounded": false,
     "display": true
   },
-  "rampage-chance": {
+  "multistrike-chance": {
     "type": "additive",
-    "name": "Rampage",
-    "tooltip": "[percent] Rampage Chance",
-    "detail-tooltip": "Rampage Chance is the chance each attack has to give you an additional attack with the same weapon. These bonus attacks give further attacks.",
+    "name": "Multistrike",
+    "tooltip": "[percent] Multistrike Chance",
+    "detail-tooltip": "Multistrike Chance is the chance each attack has to give you an additional attack with the same weapon. These bonus attacks can give further attacks.",
     "rounded": false,
     "display": true
   },

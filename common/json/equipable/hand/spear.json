@@ -34,7 +34,7 @@
         "damage": 9,
         "attack-speed": 0.55,
 		    "damage-multiplier": 0.5,
-        "multistrike": 3,
+        "multistrike-chance": 0.3,
 		    "slow": true
       },
       "description": "*Poke x3*"
@@ -47,8 +47,8 @@
       "attack-stats": {
         "damage": 16,
         "attack-speed": 0.65,
-		"damage-multiplier": 0.5,
-		"slow": true
+        "damage-multiplier": 0.5,
+        "slow": true
       },
       "description": "Chop wood from a distance!"
     },
@@ -60,10 +60,10 @@
       "attack-stats": {
         "damage": 9,
         "attack-speed": 0.85,
-		"damage-multiplier": 0.5,
-		"arcane-chance": 0.3,
-		"arcane-damage": 3,
-		"slow": true
+        "damage-multiplier": 0.5,
+        "arcane-chance": 0.3,
+        "arcane-damage": 3,
+        "slow": true
       },
       "description": "*Ye olde Poke*"
     }

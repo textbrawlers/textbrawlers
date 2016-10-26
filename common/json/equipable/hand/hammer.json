@@ -53,7 +53,7 @@
         "crit-chance": 0.8,
         "crit-damage": 0.15,
         "stun-chance": 0.25,
-        "rampage-chance": 0.5
+        "multistrike-chance": 0.5
       },
       "description": "*Hits blunt*"
     }

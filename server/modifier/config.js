@@ -12,13 +12,12 @@ import bloodlust from './bloodlust.js'
 import thorns from './thorns.js'
 import maffect from './magicalaffect.js'
 import multistrike from './multistrike.js'
-import rampage from './rampage.js'
 
 // Add modifiers to array. Order is as follows: Dodge, On Dodge Effects, Block, On Block Effects, Crit, On Crit Effects, On Hit Effects, Other
 const modifiers = [
   dodge,
 
-  rampage,
+  multistrike,
 
   block,
   thorns,
