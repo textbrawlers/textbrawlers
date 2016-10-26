@@ -1,11 +1,13 @@
 export default {
   init (fightData) {    
-    let hitMod = 1 - (0.5 ^ fightData.modifierStorage.multistrike.multistrikeCounter )
-
-    if (Math.random() < hitMod) {
-      fightData.modifierStorage.multistrike.remainingAttacks = fightData.numAttacks
-      fightData.numAttacks *= 0
+    if (fightData.modifierStorage.multistrike.multistrikeCounter) {
+      let hitMod = 1 - (0.5 ^ fightData.modifierStorage.multistrike.multistrikeCounter )
+      if (Math.random() < hitMod) {
+        fightData.modifierStorage.multistrike.remainingAttacks = fightData.numAttacks
+        fightData.numAttacks *= 0
+      }
     }
+
     return fightData
   },
 
