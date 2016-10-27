@@ -22,5 +22,9 @@
   "stun": {
     "name": "Stun",
     "image": "buffstun.png"
+  },
+  "magical-affect": {
+    "name": "Magical Affect",
+    "image": "buffmaff.png"
   }
 }
