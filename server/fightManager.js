@@ -111,7 +111,6 @@ export default class FightManager {
   }
 
   onFightEnd (fightObj) {
-    console.log('Kör onFightEnd')
     const isNPC = fightObj.fight.playerStates.some(ps => ps.player.type === 'npc')
     console.log(isNPC)
     if (isNPC) {
@@ -122,7 +121,6 @@ export default class FightManager {
   }
 
   endNPCFight (fightObj) {
-    console.log('Kör endNPCFight')
     const playerStates = fightObj.fight.playerStates
     const npcIndex = playerStates.findIndex(ps => ps.player.type === 'npc')
     console.log(npcIndex)
@@ -134,13 +132,14 @@ export default class FightManager {
     } else {
       diffMod -= npc.currentHP / npc.maxHP
     }
-    console.log('DB Start')
+    let username
     userDB.findOne({ _id: stats.player.id }).then(acc => {
       acc.player.npcDifficulty += diffMod * 0.1
       acc.player.npcs = genNewNPCs(acc.player.npcDifficulty)
+      username = acc.username
       return userDB.update({ _id: acc._id }, acc)
-    }).catch(err => console.error(err.stack || err))
-    console.log('DB Done')
+    }).then(() => console.log('Updated NPC data for ' + username + '.')
+    ).catch(err => console.error(err.stack || err))
   }
 
   endPVPFight (fightObj) {
