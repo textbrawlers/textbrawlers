@@ -43,6 +43,19 @@ export default class Fight extends Component {
     })
   }
 
+  componentWillUpdate () {
+    const attacklog = this.refs.attacklog
+    this.wasScrolledBottom = attacklog && attacklog.scrollTop + attacklog.offsetHeight === attacklog.scrollHeight
+  }
+
+  componentDidUpdate () {
+    if (this.wasScrolledBottom) {
+      const attacklog = this.refs.attacklog
+
+      attacklog.scrollTop = attacklog.scrollHeight
+    }
+  }
+
   load (fightId) {
     this.setState({
       attacks: [],
@@ -187,7 +200,7 @@ export default class Fight extends Component {
           <div className='window fight-window'>
             <h2>Fight</h2>
             <div className='windowcontent'>
-              <div className='container-fight-text'>
+              <div className='container-fight-text' ref='attacklog'>
                 {attacks}
               </div>
             </div>

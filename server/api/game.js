@@ -20,7 +20,6 @@ export async function requestItem (ctx) {
 
 export async function createCustomItem (ctx) {
   const item = Item.fromJSON(ctx.request.body)
-  console.log('item', item)
   ctx.player.inventory.push(item)
 
   await ctx.player.save()
