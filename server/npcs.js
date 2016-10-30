@@ -24,7 +24,7 @@ export function getCurrentNPCsForPlayer (acc) {
     npcsForPlayer = acc.player.npcs
   } else {
     for (let i = 0; i < 5; i++) {
-      npcsForPlayer[i] = randomizeNPC(0.1).serialize() // Magical number is to be removed.
+      npcsForPlayer[i] = randomizeNPC(0.1, i).serialize() // Magical number is to be removed.
     }
     acc.player.npcs = npcsForPlayer
     playerDB.update({_id: acc._id}, acc).then(
@@ -34,13 +34,15 @@ export function getCurrentNPCsForPlayer (acc) {
   return npcsForPlayer
 }
 
-function randomizeNPC (diffVal) {
+function randomizeNPC (diffVal, selectDiff) {
   const npcIndex = Math.floor(Math.random() * npcs.length)
   const npc = npcs[npcIndex] ? npcs[npcIndex] : npcs[0]
+  const difficulty = diffVal * (selectDiff + 1)
 
   return new NPC({
     name: npc.name,
-    stats: buildStatCollection(npc.stats, diffVal),
+    difficulty: selectDiff,
+    stats: buildStatCollection(npc.stats, difficulty),
     weaponStats: [{
       weapon: Item.fromJSON({id: npc.equipped.left.id, rarity: 'legendary', prefixes: []}),
       stats: buildStatCollection(npc.equipped.left.stats, diffVal)

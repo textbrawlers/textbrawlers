@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import request from 'common/api/request.js'
 import Entity from 'common/game/entity.js'
 
+const diffColorMap = {
+  0: 'green',
+  1: 'greenyellow',
+  2: 'yellow',
+  3: 'orange',
+  4: 'red'
+}
+
 export default class NPCFightSelection extends Component {
 
   constructor () {
@@ -25,7 +33,7 @@ export default class NPCFightSelection extends Component {
 
   renderEnemy (enemy, id) {
     const style = {
-      background: 'green',
+      background: diffColorMap[enemy.difficulty],
       margin: 15
     }
 

@@ -5,12 +5,13 @@ import Entity from './entity.js'
 
 export default class NPC {
 
-  constructor ({weaponStats, stats, name}) {
+  constructor ({weaponStats, stats, name, difficulty}) {
     this.type = Entity.TYPE_NPC
 
     this.weaponStats = weaponStats
     this.stats = stats
     this.name = name
+    this.difficulty = difficulty
 
     this.equipped = new EquippedInventory([], 7)
   }
@@ -23,6 +24,7 @@ export default class NPC {
         weapon: Item.fromJSON(weapon)
       })),
       stats: StatCollection.fromJSON(npcData.stats),
+      difficulty: npcData.difficulty,
       name: npcData.name
     }
   }
@@ -35,6 +37,7 @@ export default class NPC {
     return {
       type: this.type,
       name: this.name,
+      difficulty: this.difficulty,
       stats: this.stats.serialize(),
       weaponStats: this.weaponStats.map(({stats, weapon}) => ({
         stats: stats.serialize(),
