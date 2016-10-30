@@ -10,7 +10,7 @@
         "damage": 2,
         "attack-speed": 0.6,
         "crit-chance": 0.2,
-        "crit-damage": 0.5,
+        "crit-damage": 0.5
       },
       "description": "I ALWAYS have a backup plan."
     },
@@ -52,7 +52,7 @@
       "attack-stats": {
         "magical-affect": 0.1
       },
-      "description": "It feel focused..."
+      "description": "It feels focused..."
     },
     "lucky-coin": {
       "name": "Lucky Coin",
