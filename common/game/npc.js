@@ -5,11 +5,7 @@ import Entity from './entity.js'
 
 export default class NPC {
 
-<<<<<<< HEAD
-  constructor ({weaponStats, stats, name, difficulty}) {
-=======
-  constructor ({weaponStats, stats, name, equipped}) {
->>>>>>> Send NPC names and items to the client
+  constructor ({weaponStats, stats, name, difficulty, equipped}) {
     this.type = Entity.TYPE_NPC
 
     this.weaponStats = weaponStats
