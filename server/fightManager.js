@@ -2,8 +2,10 @@ import fightMessages from 'common/text/fight.js'
 import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
+import * as NPCs from './npcs.js'
 
 const fightDB = db.get('fights')
+const userDB = db.get('users')
 
 function getRandom (droptable) {
   let rn = Math.random()
@@ -97,6 +99,7 @@ export default class FightManager {
     this.sendAttackResponse(fightObj, resp)
 
     if (resp.done) {
+      this.onFightEnd(fightObj)
       fightObj.doc.history = fightObj.attackHistory
       fightDB.update({_id: fightObj.doc._id}, fightObj.doc).then(
         () => console.log('Fight ' + fightObj.id + ' stored successfully.')
@@ -105,6 +108,42 @@ export default class FightManager {
     } else {
       setTimeout(() => this.attack(fightObj), 500)
     }
+  }
+
+  onFightEnd (fightObj) {
+    console.log('Kör onFightEnd')
+    const isNPC = fightObj.fight.playerStates.some(ps => ps.player.type === 'npc')
+    console.log(isNPC)
+    if (isNPC) {
+      this.endNPCFight(fightObj)
+    } else {
+      this.endPVPFight(fightObj)
+    }
+  }
+
+  endNPCFight (fightObj) {
+    console.log('Kör endNPCFight')
+    const playerStates = fightObj.fight.playerStates
+    const npcIndex = playerStates.findIndex(ps => ps.player.type === 'npc')
+    console.log(npcIndex)
+    const npc = playerStates[npcIndex]
+    const player = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
+    let diffMod = 1
+    if (npc.currentHP <= 0) {
+      diffMod += player.currentHP / player.maxHP
+    } else {
+      diffMod -= npc.currentHP / npc.maxHP
+    }
+    console.log('DB stuff')
+    userDB.findOne({ _id: player.id }).then(acc => {
+      acc.player.npcDifficulty += diffMod * 0.1
+      return userDB.update({ _id: player.id }, acc)
+    }).catch(err => console.error(err.stack || err))
+    console.log('DB done')
+  }
+
+  endPVPFight (fightObj) {
+
   }
 }
 

@@ -1,8 +1,6 @@
 import * as SMath from 'common/api/specmath.js'
 import modifierHandler from './modifierHandler.js'
 
-let fightData = {}
-
 export default class Fight {
   constructor (players) {
     let playerStates = players.map(player => ({
@@ -12,14 +10,12 @@ export default class Fight {
       buffs: []
     }))
 
-    fightData = {
-      modifierStorage: {},
-      playerStates: playerStates,
-      turn: this.luckWeightLifter(players),
-      currentWeapon: 0,
-      numAttacks: 0,
-      attackId: 0
-    }
+    this.modifierStorage = {}
+    this.playerStates = playerStates
+    this.turn = this.luckWeightLifter(players)
+    this.currentWeapon = 0
+    this.numAttacks = 0
+    this.attackId = 0
   }
 
   luckWeightLifter (players) {
@@ -47,19 +43,19 @@ export default class Fight {
   }
 
   attack () {
-    fightData.attackId++
+    this.attackId++
     let resp
-    fightData.buffRound = this.checkTick() ? fightData.buffRound : false
-    if (fightData.buffRound) {
+    this.buffRound = this.checkTick() ? this.buffRound : false
+    if (this.buffRound) {
       resp = this.tick()
-      fightData.buffRound = false
+      this.buffRound = false
     } else {
       this.initAttack()
       this.doAttack()
       resp = this.createResponse()
       this.endAttack()
 
-      if (fightData.defender.currentHP <= 0) {
+      if (this.defender.currentHP <= 0) {
         resp.done = true
       }
     }
@@ -67,101 +63,101 @@ export default class Fight {
   }
 
   initAttack () {
-    fightData.textData = {}
+    this.textData = {}
 
-    fightData.attackerNum = fightData.turn
-    fightData.defenderNum = fightData.playerStates[fightData.turn + 1] ? fightData.turn + 1 : 0
+    this.attackerNum = this.turn
+    this.defenderNum = this.playerStates[this.turn + 1] ? this.turn + 1 : 0
 
-    fightData.attacker = fightData.playerStates[fightData.attackerNum]
-    fightData.defender = fightData.playerStates[fightData.defenderNum]
+    this.attacker = this.playerStates[this.attackerNum]
+    this.defender = this.playerStates[this.defenderNum]
 
-    fightData.weapons = fightData.attacker.player.weaponStats
+    this.weapons = this.attacker.player.weaponStats
 
-    if (fightData.weapons.length > 0) {
-      if (fightData.numAttacks <= 0) {
-        fightData.numAttacks = fightData.weapons[fightData.currentWeapon].stats.getValue('attack-speed')
-        fightData = modifierHandler.weaponChange(fightData)
+    if (this.weapons.length > 0) {
+      if (this.numAttacks <= 0) {
+        this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
+        Object.assign(this, modifierHandler.weaponChange(this))
       }
-      fightData = modifierHandler.init(fightData)
+      Object.assign(this, modifierHandler.init(this))
     }
   }
 
   endAttack () {
-    fightData = modifierHandler.end(fightData)
-    fightData.numAttacks -= 1
-    if (fightData.numAttacks <= 0) {
-      fightData.currentWeapon++
-      if (!fightData.weapons[fightData.currentWeapon]) {
-        fightData.buffRound = true
-        fightData.turn++
-        fightData.currentWeapon = 0
-        if (!fightData.playerStates[fightData.turn]) {
-          fightData.turn = 0
+    Object.assign(this, modifierHandler.end(this))
+    this.numAttacks -= 1
+    if (this.numAttacks <= 0) {
+      this.currentWeapon++
+      if (!this.weapons[this.currentWeapon]) {
+        this.buffRound = true
+        this.turn++
+        this.currentWeapon = 0
+        if (!this.playerStates[this.turn]) {
+          this.turn = 0
         }
       }
     }
   }
 
   createResponse () {
-    fightData.textData.hasWeapon = fightData.hasWeapon
-    fightData.textData.missed = fightData.miss
+    this.textData.hasWeapon = this.hasWeapon
+    this.textData.missed = this.miss
 
     return {
       type: 'regular',
-      playerStates: fightData.playerStates.map(s => ({
+      playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP,
         id: s.player.id,
         buffs: s.buffs
       })),
-      damage: fightData.damage,
-      attacker: fightData.attackerNum,
-      defender: fightData.defenderNum,
-      weapon: fightData.currentWeapon,
-      textData: fightData.textData
+      damage: this.damage,
+      attacker: this.attackerNum,
+      defender: this.defenderNum,
+      weapon: this.currentWeapon,
+      textData: this.textData
     }
   }
 
   doAttack () {
-    fightData.damage = 0
-    if (fightData.weapons[0]) {
-      fightData.hasWeapon = true
+    this.damage = 0
+    if (this.weapons[0]) {
+      this.hasWeapon = true
       if (this.findAmmo()) {
-        fightData.miss = false
-        if (Math.random() <= fightData.numAttacks) {
-          fightData.damage = fightData.weapons[fightData.currentWeapon].stats.getValue('damage')
-          fightData.damage *= (1 + fightData.weapons[fightData.currentWeapon].stats.getValue('damage-multiplier'))
+        this.miss = false
+        if (Math.random() <= this.numAttacks) {
+          this.damage = this.weapons[this.currentWeapon].stats.getValue('damage')
+          this.damage *= (1 + this.weapons[this.currentWeapon].stats.getValue('damage-multiplier'))
 
-          fightData.attackerIndex = this.getCurrentAttackerIndex()
-          fightData.defenderIndex = this.getCurrentDefenderIndex()
+          this.attackerIndex = this.getCurrentAttackerIndex()
+          this.defenderIndex = this.getCurrentDefenderIndex()
 
-          fightData = modifierHandler.apply(fightData)
+          Object.assign(this, modifierHandler.apply(this))
 
-          if (fightData.damage < 1) {
-            fightData.damage = 1
+          if (this.damage < 1) {
+            this.damage = 1
           }
 
-          fightData.damage = Math.round(fightData.damage)
-          fightData.defender.currentHP -= fightData.damage
+          this.damage = Math.round(this.damage)
+          this.defender.currentHP -= this.damage
         } else {
-          fightData.miss = true
+          this.miss = true
         }
       } else {
-        fightData.ammo = false
+        this.ammo = false
         console.log('No ammo')
       }
     } else {
-      fightData.hasWeapon = false
+      this.hasWeapon = false
     }
   }
 
   findAmmo () {
     let result = true
-    const weapon = fightData.weapons[fightData.currentWeapon]
+    const weapon = this.weapons[this.currentWeapon]
     if (weapon.stats.getValue('required-ammo')) {
       result = false
       const neededAmmoType = weapon.stats.getValue('required-ammo')
-      Object.entries(fightData.attacker.player.equipped.inventory).find(([slot, item]) => {
+      Object.entries(this.attacker.player.equipped.inventory).find(([slot, item]) => {
         if (item.type === neededAmmoType) {
           result = true
         }
@@ -172,19 +168,19 @@ export default class Fight {
 
   getCurrentDefenderIndex () {
     let currentDefenderIndex = 0
-    if (fightData.playerStates[fightData.turn + 1]) {
-      currentDefenderIndex = fightData.turn + 1
+    if (this.playerStates[this.turn + 1]) {
+      currentDefenderIndex = this.turn + 1
     }
     return currentDefenderIndex
   }
 
   getCurrentAttackerIndex () {
-    return fightData.turn
+    return this.turn
   }
 
   checkTick () {
     let defender = this.getCurrentDefenderIndex()
-    if (fightData.playerStates[defender].buffs.length > 0) {
+    if (this.playerStates[defender].buffs.length > 0) {
       return true
     }
     return false
@@ -192,21 +188,21 @@ export default class Fight {
 
   tick () {
     let resp = {}
-    fightData.defenderIndex = this.getCurrentDefenderIndex()
+    this.defenderIndex = this.getCurrentDefenderIndex()
 
-    fightData.dots = {}
-    fightData = modifierHandler.tick(fightData)
+    this.dots = {}
+    Object.assign(this, modifierHandler.tick(this))
 
     let totalDamage = 0
-    Object.entries(fightData.dots).forEach(([dot, obj]) => {
+    Object.entries(this.dots).forEach(([dot, obj]) => {
       totalDamage += obj.damage
     })
 
-    fightData.playerStates[this.getCurrentDefenderIndex()].currentHP -= Math.round(totalDamage)
+    this.playerStates[this.getCurrentDefenderIndex()].currentHP -= Math.round(totalDamage)
 
     resp = {
       type: 'buff',
-      playerStates: fightData.playerStates.map(s => ({
+      playerStates: this.playerStates.map(s => ({
         currentHP: s.currentHP,
         maxHP: s.maxHP,
         id: s.player.id,
@@ -214,10 +210,10 @@ export default class Fight {
       })),
       attacker: this.getCurrentAttackerIndex(),
       playerDamaged: this.getCurrentDefenderIndex(),
-      dots: fightData.dots
+      dots: this.dots
     }
 
-    if (fightData.playerStates[this.getCurrentDefenderIndex()].currentHP <= 0) {
+    if (this.playerStates[this.getCurrentDefenderIndex()].currentHP <= 0) {
       resp.done = true
     }
 
