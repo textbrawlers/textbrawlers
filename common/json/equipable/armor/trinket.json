@@ -44,6 +44,17 @@
       }],
       "description": "Don't forget to use protection!"
     },
+    "energyfocus": {
+      "name": "Energyfocus",
+      "slot": "trinket",
+      "attack": true,
+      "icon": "itemenergyfocus",
+      "drop-rate": 100,
+      "attack-stats": {
+        "magical-affect": 0.1
+      },
+      "description": "IMA FIRIN MAH LAZOR!"
+    },
     "lucky-coin": {
       "name": "Lucky Coin",
       "slot": "trinket",
