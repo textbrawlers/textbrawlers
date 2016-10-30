@@ -20,3 +20,11 @@ export default class EquippedInventory extends Inventory {
     return true
   }
 }
+
+EquippedInventory.SLOT_HEAD = 0
+EquippedInventory.SLOT_BODY = 1
+EquippedInventory.SLOT_LEGS = 2
+EquippedInventory.SLOT_FEET = 3
+EquippedInventory.SLOT_LEFT_HAND = 4
+EquippedInventory.SLOT_RIGHT_HAND = 5
+EquippedInventory.SLOT_TRINKET = 6

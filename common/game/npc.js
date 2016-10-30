@@ -5,7 +5,11 @@ import Entity from './entity.js'
 
 export default class NPC {
 
+<<<<<<< HEAD
   constructor ({weaponStats, stats, name, difficulty}) {
+=======
+  constructor ({weaponStats, stats, name, equipped}) {
+>>>>>>> Send NPC names and items to the client
     this.type = Entity.TYPE_NPC
 
     this.weaponStats = weaponStats
@@ -13,7 +17,7 @@ export default class NPC {
     this.name = name
     this.difficulty = difficulty
 
-    this.equipped = new EquippedInventory([], 7)
+    this.equipped = equipped || new EquippedInventory([], 7)
   }
 
   // generate argument to be passed into the constructor
@@ -25,7 +29,8 @@ export default class NPC {
       })),
       stats: StatCollection.fromJSON(npcData.stats),
       difficulty: npcData.difficulty,
-      name: npcData.name
+      name: npcData.name,
+      equipped: EquippedInventory.fromJSON(EquippedInventory, npcData.equipped, 7)
     }
   }
 
@@ -42,7 +47,8 @@ export default class NPC {
       weaponStats: this.weaponStats.map(({stats, weapon}) => ({
         stats: stats.serialize(),
         weapon: weapon.serialize()
-      }))
+      })),
+      equipped: this.equipped.serialize()
     }
   }
 }

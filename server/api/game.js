@@ -274,7 +274,7 @@ export async function getFight (ctx) {
       return users.findOne({_id: player.id})
     } else {
       return {
-        username: 'NPC'
+        username: player.name
       }
     }
   }))

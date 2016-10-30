@@ -4,6 +4,7 @@ import stats from 'common/json/stats.json'
 import Stat from 'common/game/stat.js'
 import Item from 'common/game/item.js'
 import StatCollection from 'common/game/statCollection.js'
+import EquippedInventory from 'common/game/equippedInventory.js'
 
 const playerDB = db.get('users')
 
@@ -50,14 +51,20 @@ function randomizeNPC (diffVal, selectDiff) {
   const npc = npcs[npcIndex] ? npcs[npcIndex] : npcs[0]
   const difficulty = diffVal * (selectDiff + 1)
 
+  const leftWeapon = Item.fromJSON({id: npc.equipped.left.id, rarity: 'legendary', prefixes: []})
+
+  const equipped = new EquippedInventory({}, 7)
+  equipped.set(EquippedInventory.SLOT_LEFT_HAND, leftWeapon)
+
   return new NPC({
     name: npc.name,
     difficulty: selectDiff,
     stats: buildStatCollection(npc.stats, difficulty),
     weaponStats: [{
-      weapon: Item.fromJSON({id: npc.equipped.left.id, rarity: 'legendary', prefixes: []}),
+      weapon: leftWeapon,
       stats: buildStatCollection(npc.equipped.left.stats, diffVal)
     }],
+    equipped: equipped,
     type: 'npc'
   })
 }
