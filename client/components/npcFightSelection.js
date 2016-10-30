@@ -30,7 +30,7 @@ export default class NPCFightSelection extends Component {
     }
 
     return (
-      <a onClick={() => this.selectEnemy(id)}>
+      <a onClick={() => this.selectEnemy(id)} key={id}>
         <div style={style}>
           Name: {enemy.name}; hp: {enemy.stats.getValue('max-health')}
         </div>
