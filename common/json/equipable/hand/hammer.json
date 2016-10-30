@@ -49,11 +49,12 @@
       "icon": "itemragehammer",
       "attack-stats": {
         "damage": 10,
-        "attack-speed": 0.75,
-        "crit-chance": 0.8,
+        "attack-speed": 0.3,
+        "crit-chance": 0.85
+        ,
         "crit-damage": 0.15,
-        "stun-chance": 0.25,
-        "multistrike-chance": 0.5
+        "stun-chance": 0.1,
+        "multistrike-chance": 0.4
       },
       "description": "*Hits blunt*"
     }

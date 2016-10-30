@@ -29,12 +29,12 @@
       "name": "Trident",
       "slot": "hand",
       "attack": true,
-      "icon": "itempike",
+      "icon": "itemtrident",
       "attack-stats": {
         "damage": 9,
         "attack-speed": 0.55,
 		    "damage-multiplier": 0.5,
-        "multistrike-chance": 0.3,
+        "multistrike-chance": 0.2,
 		    "slow": true
       },
       "description": "*Poke x3*"
