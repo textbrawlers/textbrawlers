@@ -8,11 +8,9 @@
       "drop-rate": 100,
       "attack-stats": {
         "damage": 2,
-        "attack-speed": 1.0,
-        "crit-chance": 0.7,
-        "crit-damage": 0.4,
-        "bleed-chance": 0.45,
-        "bleed-duration": 1
+        "attack-speed": 0.6,
+        "crit-chance": 0.2,
+        "crit-damage": 0.5,
       },
       "description": "I ALWAYS have a backup plan."
     },
@@ -23,7 +21,7 @@
       "icon": "itemhaemorrhagingamulet",
       "drop-rate": 50,
       "character-stats": {
-        "bleed-duration": 4
+        "bleed-duration": 3
       },
       "description": "Attaching a bandage causes it to transform into a Coagulating Amulet."
     },
@@ -34,7 +32,8 @@
       "icon": "itemshieldingamulet",
       "drop-rate": 50,
       "character-stats": {
-        "block-chance": 0.01
+        "block-chance": 0.01,
+        "block-multiplier": 0.96
       },
       "empower-stats": [{
         "category": "shield",
@@ -44,16 +43,16 @@
       }],
       "description": "Don't forget to use protection!"
     },
-    "energyfocus": {
-      "name": "Energyfocus",
+    "magical-focus": {
+      "name": "Magical Focus",
       "slot": "trinket",
       "attack": true,
       "icon": "itemenergyfocus",
-      "drop-rate": 100,
+      "drop-rate": 25,
       "attack-stats": {
         "magical-affect": 0.1
       },
-      "description": "IMA FIRIN MAH LAZOR!"
+      "description": "It feel focused..."
     },
     "lucky-coin": {
       "name": "Lucky Coin",
@@ -62,7 +61,7 @@
       "icon": "itemluckycoin",
       "drop-rate": 50,
       "character-stats": {
-        "luck": 1.0,
+        "luck": 0.6,
         "crit-chance": -0.1
       },
       "description": "Do you feel lucky, punk?"

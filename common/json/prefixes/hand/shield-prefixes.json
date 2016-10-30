@@ -4,40 +4,40 @@
       "name": "Decayed",
       "drop-rate": 50,
       "character-stats": {
-        "block-multiplier": 1.15
+        "block-multiplier": 1.1
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "character-stats": {
-        "block-multiplier": 1.10
+        "block-multiplier": 1.06
       }
     },
     "scratched": {
       "name": "Scratched",
       "character-stats": {
-        "block-multiplier": 1.05
+        "block-multiplier": 1.02
       }
     },
     "spotless": {
       "name": "Spotless",
       "character-stats": {
-        "block-multiplier": 0.95
+        "block-multiplier": 0.98
       }
     },
     "pristine": {
       "name": "Pristine",
       "drop-rate": 75,
       "character-stats": {
-        "block-multiplier": 0.85
+        "block-multiplier": 0.94
       }
     },
     "perfect": {
       "name": "Perfect",
       "drop-rate": 50,
       "character-stats": {
-        "block-multiplier": 0.75
+        "block-multiplier": 0.9
       }
     }
   },
@@ -47,40 +47,40 @@
       "name": "Slow",
       "drop-rate": 50,
       "character-stats": {
-        "block-chance": -0.15
+        "block-chance": -0.1
       }
     },
     "lazy": {
       "name": "Lazy",
       "drop-rate": 75,
       "character-stats": {
-        "block-chance": -0.1
+        "block-chance": -0.06
       }
     },
     "heavy": {
       "name": "Heavy",
       "character-stats": {
-        "block-chance": -0.05
+        "block-chance": -0.02
       }
     },
     "nimble": {
       "name": "Nimble",
       "character-stats": {
-        "block-chance": 0.05
+        "block-chance": 0.02
       }
     },
     "quick": {
       "name": "Quick",
       "drop-rate": 75,
       "character-stats": {
-        "block-chance": 0.1
+        "block-chance": 0.06
       }
     },
     "rapid": {
       "name": "Rapid",
       "drop-rate": 50,
       "character-stats": {
-        "block-chance": 0.15
+        "block-chance": 0.1
       }
     }
   },
@@ -133,38 +133,34 @@
       "name": "Cursed",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": -10,
-        "block-chance": -0.04,
-        "block-multiplier": 1.04,
-        "damage-multiplier": -0.04
+        "max-health": -2,
+        "block-chance": -0.02,
+        "block-multiplier": 1.02
       }
     },
     "possessed": {
       "name": "Possessed",
       "character-stats": {
-        "max-health": -5,
-        "block-chance": -0.02,
-        "block-multiplier": 1.02,
-        "damage-multiplier": -0.02
+        "max-health": -1,
+        "block-chance": -0.01,
+        "block-multiplier": 1.01
       }
     },
     "enchanted": {
       "name": "Enchanted",
       "character-stats": {
-        "max-health": 5,
-        "block-chance": 0.02,
-        "block-multiplier": 0.98,
-        "damage-multiplier": 0.02
+        "max-health": 1,
+        "block-chance": 0.01,
+        "block-multiplier": 0.99
       }
     },
     "magical": {
       "name": "Magical",
       "drop-rate": 75,
       "character-stats": {
-        "max-health": 10,
-        "block-chance": 0.04,
-        "block-multiplier": 0.94,
-        "damage-multiplier": 0.04
+        "max-health": 2,
+        "block-chance": 0.02,
+        "block-multiplier": 0.98
       }
     }
   }

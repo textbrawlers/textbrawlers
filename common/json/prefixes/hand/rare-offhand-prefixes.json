@@ -7,12 +7,12 @@
       }
     }
   },
-   "special": {
+  "special": {
     "dragontouched": {
       "name": "Dragontouched",
       "character-stats": {
-        "crit-chance": 0.1,
-        "crit-damage": 0.4
+        "crit-chance": -0.04,
+        "crit-damage":  0.1
       }
     }
   }

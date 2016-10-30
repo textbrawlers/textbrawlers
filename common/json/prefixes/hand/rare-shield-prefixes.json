@@ -3,40 +3,8 @@
     "oversized": {
       "name": "Oversized",
       "character-stats": {
-      	"block-chance": 0.15,
-      	"attack-speed": -0.2
-      }
-    }
-  },
-
-	"numb": {
-    "resilient": {
-      "name": "Resilient",
-      "character-stats": {
-        "block-chance": 0.2,
-        "max-health-multiplier": -0.2
-      }
-    },
-    "durable": {
-      "name": "Durable",
-      "character-stats": {
-        "block-chance": 0.1,
-        "max-health-multiplier": -0.1
-      }
-    },
-    "indifferent": {
-      "name": "Indifferent",
-      "character-stats": {
-        "block-chance": -0.1,
-        "max-health-multiplier": 0.1
-      }
-    },
-    "numb": {
-      "name": "Numb",
-      "drop-rate": 50,
-      "character-stats": {
-        "block-chance": -0.2,
-        "max-health-multiplier": 0.2
+      	"block-chance": -0.1,
+      	"block-multiplier": 0.9
       }
     }
   }

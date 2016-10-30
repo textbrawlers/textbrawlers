@@ -6,10 +6,10 @@
       "attack": false,
       "icon": "itemwoodbuckler",
       "character-stats": {
-        "block-chance": 0.6,
-        "block-multiplier": 0.9
+        "block-chance": 0.35,
+        "block-multiplier": 0.8
       },
-      "description": "Lets just hope your enemy doesn't bring any fire weapon..."
+      "description": "Lets just hope your enemy doesn't bring a fire weapon..."
     },
     "heater-shield": {
       "name": "Heater Shield",
@@ -17,8 +17,8 @@
       "attack": false,
       "icon": "itemheatershield",
       "character-stats": {
-        "block-chance": 0.4,
-        "block-multiplier": 0.7
+        "block-chance": 0.2,
+        "block-multiplier": 0.6
       },
       "description": "''Have you seen my smoothing iron, honey?''"
     },
@@ -28,21 +28,10 @@
       "attack": false,
       "icon": "itemtowershield",
       "character-stats": {
-        "block-chance": 0.2,
-        "block-multiplier": 0.5
+        "block-chance": 0.1,
+        "block-multiplier": 0.35
       },
       "description": "Big enough to tower over any opposition."
-    },
-    "spiked-shield": {
-      "name": "Spiked Shield",
-      "slot": "hand",
-      "attack": false,
-      "icon": "itemheatershield",
-      "character-stats": {
-        "block-chance": 0.4,
-        "thorns": 1
-      },
-      "description": "Less of a shield and more of a pincushion."
     }
   }
 }

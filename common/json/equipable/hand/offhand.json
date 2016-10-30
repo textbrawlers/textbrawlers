@@ -7,7 +7,7 @@
       "icon": "itemhourglass",
       "drop-rate": 10,
       "character-stats": {
-        "timestop": 0.15
+        "timestop": 0.20
       },
       "description":"You can't see me, my time is now!"
     },
@@ -20,9 +20,12 @@
       "character-stats": {
         "damage-multiplier": 0.05,
         "attack-speed": 0.05,
-        "burn-chance": 0.1,
-        "burn-damage": 0.1,
-        "fashionable": 1.1
+        "crit-chance": 0.05,
+        "crit-damage": 0.05,
+        "armor-pierce": 0.05,
+        "burn-chance": 0.05,
+        "burn-damage": 0.05,
+        "fashionable": 0.35
       },
       "description":"In the name of the stars!"
     },
@@ -33,8 +36,8 @@
       "icon": "itemwinegoblet",
       "drop-rate": 25,
       "character-stats": {
-        "crit-chance": -0.2,
-        "damage-multiplier": 0.8,
+        "crit-chance": -0.15,
+        "damage-multiplier": 0.6,
         "comfort": 1.5
       },
       "description":"I need a... Drink... *hick*"
@@ -60,7 +63,7 @@
       "character-stats": {
         "damage": 2
       },
-      "description": "Do you feel lucky, punk?"
+      "description": "To be dead... Or not to be dead?"
     }
   }
 }
