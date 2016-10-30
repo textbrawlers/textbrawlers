@@ -32,16 +32,21 @@ export function getCurrentNPCsForPlayer (acc) {
   if (acc.player.npcs && acc.player.npcs.length > 0) {
     npcsForPlayer = acc.player.npcs
   } else {
-    for (let i = 0; i < 5; i++) {
-      npcsForPlayer[i] = randomizeNPC(diffVal, i).serialize()
-    }
-    acc.player.npcs = npcsForPlayer
+    acc.player.npcs = genNewNPCs(diffVal)
     updateDB = true
   }
   if (updateDB) {
     playerDB.update({_id: acc._id}, acc).then(
       () => console.log('Player "' + acc.username + '"s npcs updated.')
     ).catch(err => console.error(err.stack || err))
+  }
+  return npcsForPlayer
+}
+
+export function genNewNPCs (diffVal) {
+  let npcsForPlayer = []
+  for (let i = 0; i < 5; i++) {
+    npcsForPlayer[i] = randomizeNPC(diffVal, i).serialize()
   }
   return npcsForPlayer
 }

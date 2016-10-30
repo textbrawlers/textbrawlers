@@ -2,7 +2,7 @@ import fightMessages from 'common/text/fight.js'
 import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
-import * as NPCs from './npcs.js'
+import {genNewNPCs} from './npcs.js'
 
 const fightDB = db.get('fights')
 const userDB = db.get('users')
@@ -127,19 +127,20 @@ export default class FightManager {
     const npcIndex = playerStates.findIndex(ps => ps.player.type === 'npc')
     console.log(npcIndex)
     const npc = playerStates[npcIndex]
-    const player = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
-    let diffMod = 1
+    const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
+    let diffMod = 0
     if (npc.currentHP <= 0) {
-      diffMod += player.currentHP / player.maxHP
+      diffMod += stats.currentHP / stats.maxHP
     } else {
       diffMod -= npc.currentHP / npc.maxHP
     }
-    console.log('DB stuff')
-    userDB.findOne({ _id: player.id }).then(acc => {
+    console.log('DB Start')
+    userDB.findOne({ _id: stats.player.id }).then(acc => {
       acc.player.npcDifficulty += diffMod * 0.1
-      return userDB.update({ _id: player.id }, acc)
+      acc.player.npcs = genNewNPCs(acc.player.npcDifficulty)
+      return userDB.update({ _id: acc._id }, acc)
     }).catch(err => console.error(err.stack || err))
-    console.log('DB done')
+    console.log('DB Done')
   }
 
   endPVPFight (fightObj) {
