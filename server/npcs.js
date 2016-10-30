@@ -24,7 +24,7 @@ export function getCurrentNPCsForPlayer (acc) {
     npcsForPlayer = acc.player.npcs
   } else {
     for (let i = 0; i < 5; i++) {
-      npcsForPlayer[i] = randomizeNPC(1).serialize() // Magical number is to be removed.
+      npcsForPlayer[i] = randomizeNPC(0.1).serialize() // Magical number is to be removed.
     }
     acc.player.npcs = npcsForPlayer
     playerDB.update({_id: acc._id}, acc).then(
@@ -40,21 +40,21 @@ function randomizeNPC (diffVal) {
 
   return new NPC({
     name: npc.name,
-    stats: new StatCollection(buildStatArr(npc.stats, diffVal)),
+    stats: buildStatCollection(npc.stats, diffVal),
     weaponStats: [{
       weapon: Item.fromJSON({id: npc.equipped.left.id, rarity: 'legendary', prefixes: []}),
-      stats: new StatCollection(buildStatArr(npc.equipped.left.stats, diffVal))
+      stats: buildStatCollection(npc.equipped.left.stats, diffVal)
     }],
     type: 'npc'
   })
 }
 
-function buildStatArr (stats, diffVal) {
-  let statArr = []
+function buildStatCollection (stats, diffVal) {
+  const statCollection = new StatCollection()
   Object.entries(stats).forEach(([key, value]) => {
-    statArr.push(new Stat(key, randomizeValue(key, value, diffVal)))
+    statCollection.add(new Stat(key, randomizeValue(key, value, diffVal)))
   })
-  return statArr
+  return statCollection
 }
 
 function randomizeValue (key, valArr, diffVal) {
