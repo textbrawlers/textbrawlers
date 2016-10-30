@@ -67,7 +67,7 @@ function randomizeNPC (diffVal, selectDiff) {
     stats: buildStatCollection(npc.stats, difficulty),
     weaponStats: [{
       weapon: leftWeapon,
-      stats: buildStatCollection(npc.equipped.left.stats, diffVal)
+      stats: buildStatCollection(npc.equipped.left.stats, difficulty)
     }],
     equipped: equipped,
     type: 'npc'
