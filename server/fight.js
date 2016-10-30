@@ -75,7 +75,11 @@ export default class Fight {
 
     if (this.weapons.length > 0) {
       if (this.numAttacks <= 0) {
-        this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
+        const currentWeapon = this.weapons[this.currentWeapon]
+        if (!currentWeapon) {
+          console.error('No current weapon', this.currentWeapon, this)
+        }
+        this.numAttacks = currentWeapon.stats.getValue('attack-speed')
         Object.assign(this, modifierHandler.weaponChange(this))
       }
       Object.assign(this, modifierHandler.init(this))
