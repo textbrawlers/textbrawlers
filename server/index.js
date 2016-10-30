@@ -35,6 +35,10 @@ const auth = async (ctx, next) => {
   }
   const { player, jsonUser } = playerResp
 
+  jsonUser.social = jsonUser.social || {}
+  jsonUser.social.requests = jsonUser.social.requests || []
+  jsonUser.social.friends = jsonUser.social.friends || []
+
   if (player) {
     ctx.player = player
     ctx.account = jsonUser

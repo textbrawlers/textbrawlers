@@ -15,6 +15,8 @@ function updatePlayers () {
     player.updatePlayerCount(count)
 
     player.account = player.account || {}
+    player.account.social = player.account.social || {}
+    player.account.social.friends = player.account.social.friends || []
     player.account.friends = player.account.friends || {}
 
     const friends = player.account.social.friends.map(friend => friend._id.toString())

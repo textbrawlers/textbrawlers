@@ -199,7 +199,6 @@ export async function fightNPC (ctx) {
   const npcIndex = ctx.request.body.enemyId
   const npc = Entity.fromJSON(curryPlayer.player.npcs[npcIndex])
 
-  console.log('npc', npc)
   Realtime.startNPCFight(playerId, npc)
 
   ctx.body = { success: true }
@@ -230,8 +229,6 @@ export async function fightSubscribe (ctx) {
       fight.subscribers.push(rt.player)
       status = 'ok'
     }
-  } else {
-    console.log('Could not find rt or fight', !!rt, !!fight, id)
   }
   ctx.body = { status }
 }
@@ -260,7 +257,15 @@ export async function getFight (ctx) {
       return
     }
 
-    let accounts = await Promise.all(dbFight.players.map(player => users.findOne({_id: player._id})))
+    let accounts = await Promise.all(dbFight.players.map(player => {
+      if (player._id) {
+        return users.findOne({_id: player._id})
+      } else {
+        return {
+          username: player.name
+        }
+      }
+    }))
     accounts = accounts.map(account => ({username: account.username}))
     const me = dbFight.players.findIndex(player => player._id.toString() === ctx.account._id.toString())
 

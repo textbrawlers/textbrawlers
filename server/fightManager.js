@@ -31,7 +31,7 @@ export default class FightManager {
     const fightObj = new EventEmitter()
     const playersJSON = players.map(p => {
       if (p.type === 'npc') {
-        return { equipped: p.equipped.serialize() }
+        return { equipped: p.equipped.serialize(), name: p.name }
       } else {
         return {
           _id: p.id,
@@ -67,6 +67,10 @@ export default class FightManager {
 
     const attacker = resp.playerStates[resp.attacker]
     const defender = resp.playerStates[resp.defender]
+
+    if (!fightObj.players[resp.attacker]) {
+      throw new Error(`Fight does not have player ${resp.attacker}`)
+    }
 
     const weapon = resp.textData.hasWeapon ? fightObj.players[resp.attacker].weaponStats[resp.weapon].weapon : undefined
 
