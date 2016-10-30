@@ -19,14 +19,25 @@ export async function parseNPCs () {
 }
 
 export function getCurrentNPCsForPlayer (acc) {
+  let updateDB = false
+  let diffVal = 0.1
+  if (acc.player.npcDifficulty) {
+    diffVal = acc.player.npcDifficulty
+  } else {
+    acc.player.npcDifficulty = diffVal
+    updateDB = true
+  }
   let npcsForPlayer = []
   if (acc.player.npcs && acc.player.npcs.length > 0) {
     npcsForPlayer = acc.player.npcs
   } else {
     for (let i = 0; i < 5; i++) {
-      npcsForPlayer[i] = randomizeNPC(0.1, i).serialize() // Magical number is to be removed.
+      npcsForPlayer[i] = randomizeNPC(diffVal, i).serialize()
     }
     acc.player.npcs = npcsForPlayer
+    updateDB = true
+  }
+  if (updateDB) {
     playerDB.update({_id: acc._id}, acc).then(
       () => console.log('Player "' + acc.username + '"s npcs updated.')
     ).catch(err => console.error(err.stack || err))
