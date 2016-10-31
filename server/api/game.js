@@ -156,7 +156,7 @@ export async function getPVPRankScoreboard (ctx) {
 }
 
 export async function getNpcDifficultyScoreboard (ctx) {
-  const scoreboard = await users.find({ npcDifficulty: { $exists: true }  }, { sort: { npcDifficulty: -1 } })
+  const scoreboard = await users.find({ npcDifficulty: { $exists: true } }, { sort: { npcDifficulty: -1 } })
 
   ctx.body = { scoreboard }
 }
