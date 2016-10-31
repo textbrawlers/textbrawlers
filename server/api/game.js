@@ -196,7 +196,7 @@ export async function fightNPC (ctx) {
   const playerId = ctx.account._id
   const curryPlayer = await users.findOne({ _id: playerId })
   const npcIndex = ctx.request.body.enemyId
-  const npc = Entity.fromJSON(curryPlayer.player.npcs[npcIndex])
+  const npc = Entity.fromJSON(curryPlayer.npcs[npcIndex])
 
   Realtime.startNPCFight(playerId, npc)
 
