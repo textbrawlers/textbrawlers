@@ -22,17 +22,17 @@ export async function parseNPCs () {
 export function getCurrentNPCsForPlayer (acc) {
   let updateDB = false
   let diffVal = 0.1
-  if (acc.player.npcDifficulty) {
-    diffVal = acc.player.npcDifficulty
+  if (acc.npcDifficulty) {
+    diffVal = acc.npcDifficulty
   } else {
-    acc.player.npcDifficulty = diffVal
+    acc.npcDifficulty = diffVal
     updateDB = true
   }
   let npcsForPlayer = []
-  if (acc.player.npcs && acc.player.npcs.length > 0) {
-    npcsForPlayer = acc.player.npcs
+  if (acc.npcs && acc.npcs.length > 0) {
+    npcsForPlayer = acc.npcs
   } else {
-    acc.player.npcs = genNewNPCs(diffVal)
+    acc.npcs = genNewNPCs(diffVal)
     updateDB = true
   }
   if (updateDB) {

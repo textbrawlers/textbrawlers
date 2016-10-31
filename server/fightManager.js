@@ -133,12 +133,12 @@ export default class FightManager {
     }
     let username
     userDB.findOne({ _id: stats.player.id }).then(acc => {
-      if (acc.player.npcDifficulty) {
-        const npcDiff = acc.player.npcDifficulty + diffMod
-        acc.player.npcDifficulty = npcDiff < 0.1 ? 0.1 : npcDiff
-        acc.player.npcs = genNewNPCs(acc.player.npcDifficulty)
+      if (acc.npcDifficulty) {
+        const npcDiff = acc.npcDifficulty + diffMod
+        acc.npcDifficulty = npcDiff < 0.1 ? 0.1 : npcDiff
+        acc.npcs = genNewNPCs(acc.npcDifficulty)
       } else {
-        acc.player.npcDifficulty = 0.1
+        acc.npcDifficulty = 0.1
       }
       username = acc.username
       return userDB.update({ _id: acc._id }, acc)
@@ -163,8 +163,8 @@ export default class FightManager {
 
   getPVPRank (playerState) {
     return userDB.findOne({ _id: playerState.player.id }).then(acc => {
-      if (acc.player.pvpRank) {
-        return acc.player.pvpRank
+      if (acc.pvpRank) {
+        return acc.pvpRank
       } else {
         return 1500
       }
@@ -174,10 +174,10 @@ export default class FightManager {
   updatePVPRank (playerState, value) {
     let username = ''
     userDB.findOne({ _id: playerState.player.id }).then(acc => {
-      if (acc.player.pvpRank) {
-        acc.player.pvpRank += value
+      if (acc.pvpRank) {
+        acc.pvpRank += value
       } else {
-        acc.player.pvpRank = 1500 + value
+        acc.pvpRank = 1500 + value
       }
       username = acc.username
       return userDB.update({ _id: acc._id }, acc)
