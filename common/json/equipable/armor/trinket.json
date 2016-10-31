@@ -38,7 +38,7 @@
       "empower-stats": [{
         "category": "shield",
         "stats": {
-      "block-multiplier": 0.92
+          "block-multiplier": 0.92
         }
       }],
       "description": "Don't forget to use protection!"
@@ -49,8 +49,11 @@
       "attack": true,
       "icon": "itemenergyfocus",
       "drop-rate": 25,
-      "attack-stats": {
-        "magical-affect": 0.1
+      "empower-stats": {
+        "category": "magical",
+        "stats": {
+          "magical-affect": 0.1
+        }
       },
       "description": "It feels focused..."
     },

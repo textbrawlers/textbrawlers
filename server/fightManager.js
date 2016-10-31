@@ -123,19 +123,23 @@ export default class FightManager {
   endNPCFight (fightObj) {
     const playerStates = fightObj.fight.playerStates
     const npcIndex = playerStates.findIndex(ps => ps.player.type === 'npc')
-    console.log(npcIndex)
     const npc = playerStates[npcIndex]
     const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
     let diffMod = 0
-    if (npc.currentHP <= 0) {
-      diffMod += stats.currentHP / stats.maxHP
-    } else {
-      diffMod -= npc.currentHP / npc.maxHP
+    if (npc.currentHP <= 0 && stats.maxHP !== 0) {
+      diffMod += (stats.currentHP / stats.maxHP) * 0.1
+    } else if (npc.maxHP !== 0) {
+      diffMod -= (npc.currentHP / npc.maxHP) * 0.1
     }
     let username
     userDB.findOne({ _id: stats.player.id }).then(acc => {
-      acc.player.npcDifficulty += diffMod * 0.1
-      acc.player.npcs = genNewNPCs(acc.player.npcDifficulty)
+      if (acc.player.npcDifficulty) {
+        const npcDiff = acc.player.npcDifficulty + diffMod
+        acc.player.npcDifficulty = npcDiff < 0.1 ? 0.1 : npcDiff
+        acc.player.npcs = genNewNPCs(acc.player.npcDifficulty)
+      } else {
+        acc.player.npcDifficulty = 0.1
+      }
       username = acc.username
       return userDB.update({ _id: acc._id }, acc)
     }).then(() => console.log('Updated NPC data for ' + username + '.')
@@ -143,7 +147,42 @@ export default class FightManager {
   }
 
   endPVPFight (fightObj) {
+    const playerStates = fightObj.fight.playerStates
+    const winnerIndex = playerStates.findIndex(ps => ps.currentHP > 0)
+    const winner = playerStates[winnerIndex]
+    const loser = playerStates[winnerIndex + 1] ? playerStates[winnerIndex + 1] : playerStates[0]
+    this.getPVPRank(winner).then(winnerRank => {
+      this.getPVPRank(loser).then(loserRank => {
+        console.log(winnerRank + ', ' + loserRank)
+        let ratio = 50 * ((winner.currentHP / winner.maxHP) * (loserRank / winnerRank))
+        this.updatePVPRank(winner, Math.round(ratio * 1.5))
+        this.updatePVPRank(loser, -Math.round(ratio))
+      })
+    }).catch(err => console.error(err.stack || err))
+  }
 
+  getPVPRank (playerState) {
+    return userDB.findOne({ _id: playerState.player.id }).then(acc => {
+      if (acc.player.pvpRank) {
+        return acc.player.pvpRank
+      } else {
+        return 1500
+      }
+    }).catch(err => console.error(err.stack || err))
+  }
+
+  updatePVPRank (playerState, value) {
+    let username = ''
+    userDB.findOne({ _id: playerState.player.id }).then(acc => {
+      if (acc.player.pvpRank) {
+        acc.player.pvpRank += value
+      } else {
+        acc.player.pvpRank = 1500 + value
+      }
+      username = acc.username
+      return userDB.update({ _id: acc._id }, acc)
+    }).then(() => console.log('Updated rank for ' + username + '.')
+  ).catch(err => console.error(err.stack || err))
   }
 }
 
