@@ -127,7 +127,7 @@ export default class FightManager {
     const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
     let diffMod = 0
     if (npc.currentHP <= 0 && stats.maxHP !== 0) {
-      diffMod += (stats.currentHP / stats.maxHP) * 0.1
+      diffMod += (stats.currentHP / stats.maxHP) * 0.1 * ((npc.difficulty + 1) / 5)
     } else if (npc.maxHP !== 0) {
       diffMod -= (npc.currentHP / npc.maxHP) * 0.1
     }
