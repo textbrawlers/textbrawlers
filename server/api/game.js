@@ -149,6 +149,18 @@ export async function removeRequest (ctx) {
   ctx.body = { success: true }
 }
 
+export async function getPVPRankScoreboard (ctx) {
+  const scoreboard = await users.find({ pvpRank: { $exists: true } }, { sort: { pvpRank: -1 } })
+
+  ctx.body = { scoreboard }
+}
+
+export async function getNpcDifficultyScoreboard (ctx) {
+  const scoreboard = await users.find({ npcDifficulty: { $exists: true }  }, { sort: { npcDifficulty: -1 } })
+
+  ctx.body = { scoreboard }
+}
+
 export async function removeFriend (ctx) {
   ctx.account.social = ctx.account.social || {}
   ctx.account.social.friends = ctx.account.social.friends || {}

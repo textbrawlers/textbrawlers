@@ -71,6 +71,8 @@ router.get('/game/fight/:id', auth, game.getFight)
 router.post('/game/fight-subscribe/:id', auth, game.fightSubscribe)
 router.post('/game/fight-unsubscribe/:id', auth, game.fightUnsubscribe)
 router.get('/game/social', auth, game.getSocial)
+router.get('/game/scoreboard/npcdiff', auth, game.getNpcDifficultyScoreboard)
+router.get('/game/scoreboard/pvp', auth, game.getPVPRankScoreboard)
 
 router.get('/gamedata/items', jsonApi, gamedata.items)
 router.get('/gamedata/prefixes', jsonApi, gamedata.prefixes)
