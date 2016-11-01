@@ -38,6 +38,7 @@ export default class Player {
     let characterStats = new StatCollection()
     characterStats.add(new Stat('max-health', 100))
     characterStats.add(new Stat('block-multiplier', 0.75))
+    characterStats.add(new Stat('dodge-chance', 0.1))
     for (let i = 0; i < 7; i++) {
       const item = this.equipped.get(i)
       if (!item) {
