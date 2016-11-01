@@ -132,12 +132,12 @@ export default class FightManager {
       diffMod -= (npc.currentHP / npc.maxHP) * 0.1
     }
     let username
-    userDB.findOne({ _id: stats.player.id }).then(acc => {
-      if (acc.npcDifficulty) {
+    userDB.findOne({ _id: stats.player.id }).then(acc => {      if (acc.npcDifficulty) {
         const npcDiff = acc.npcDifficulty + diffMod
         acc.npcDifficulty = npcDiff < 0.1 ? 0.1 : npcDiff
         acc.npcs = genNewNPCs(acc.npcDifficulty)
       } else {
+.5
         acc.npcDifficulty = 0.1
       }
       username = acc.username
@@ -154,8 +154,8 @@ export default class FightManager {
     this.getPVPRank(winner).then(winnerRank => {
       this.getPVPRank(loser).then(loserRank => {
         console.log(winnerRank + ', ' + loserRank)
-        let ratio = 50 * ((winner.currentHP / winner.maxHP) * (loserRank / winnerRank))
-        this.updatePVPRank(winner, Math.round(ratio * 1.5))
+        let ratio = 50 * (loserRank / winnerRank)
+        this.updatePVPRank(winner, Math.round(ratio))
         this.updatePVPRank(loser, -Math.round(ratio))
       })
     }).catch(err => console.error(err.stack || err))
