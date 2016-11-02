@@ -33,7 +33,6 @@ export default class extends React.Component {
   }
 
   render () {
-
     const { newWinnerELO, newLoserELO } = this.calculate()
     return (
       <div>
