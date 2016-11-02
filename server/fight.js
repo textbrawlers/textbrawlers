@@ -73,14 +73,12 @@ export default class Fight {
 
     this.weapons = this.attacker.player.weaponStats
 
-    if (this.weapons.length > 0 && this.weapons[this.currentWeapon]) {
+    if (this.weapons.length > 0) {
       if (this.numAttacks <= 0) {
         this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
         Object.assign(this, modifierHandler.weaponChange(this))
       }
       Object.assign(this, modifierHandler.init(this))
-    } else if (!this.weapons[this.currentWeapon]) {
-      this.hasWeapon = false
     }
   }
 
