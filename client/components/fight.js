@@ -93,7 +93,7 @@ export default class Fight extends Component {
       players: players,
       accounts: resp.accounts,
       me: resp.me === -1 ? 0 : resp.me,
-      attacks: resp.history
+      attacks: resp.history || []
     })
   }
 
