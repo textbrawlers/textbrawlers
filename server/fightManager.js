@@ -3,6 +3,7 @@ import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
 import {genNewNPCs} from './npcs.js'
+import calculateNewElo from 'common/util/elo.js'
 
 const fightDB = db.get('fights')
 const userDB = db.get('users')
@@ -153,11 +154,9 @@ export default class FightManager {
     const loser = playerStates[winnerIndex + 1] ? playerStates[winnerIndex + 1] : playerStates[0]
     this.getPVPRank(winner).then(winnerRank => {
       this.getPVPRank(loser).then(loserRank => {
-        console.log(winnerRank + ', ' + loserRank)
-        let ratio = 50 * (loserRank / winnerRank)
-        ratio = ratio > 50 ? 50 : ratio
-        this.updatePVPRank(winner, Math.round(ratio * 1.5))
-        this.updatePVPRank(loser, -Math.round(ratio))
+        const newRank = calculateNewElo(winnerRank, loserRank)
+        this.updatePVPRank(winner, newRank.winner)
+        this.updatePVPRank(loser, newRank.loser)
       })
     }).catch(err => console.error(err.stack || err))
   }
@@ -175,11 +174,7 @@ export default class FightManager {
   updatePVPRank (playerState, value) {
     let username = ''
     userDB.findOne({ _id: playerState.player.id }).then(acc => {
-      if (acc.pvpRank) {
-        acc.pvpRank += value
-      } else {
-        acc.pvpRank = 1500 + value
-      }
+      acc.pvpRank = value
       username = acc.username
       return userDB.update({ _id: acc._id }, acc)
     }).then(() => console.log('Updated rank for ' + username + '.')

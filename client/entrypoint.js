@@ -16,6 +16,7 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import 'client/css/common.scss'
 import getItems from 'common/items/items.js'
 import getPrefixes from 'common/items/prefixes.js'
+import EloCalculator from './components/tools/eloCalculator.js'
 
 const NotFound = () => (<p> Jaha ja.</p>)
 
@@ -32,6 +33,7 @@ const routes = (
     <Route path='tools' component={ToolsApp}>
       <Route path='itembrowser' component={ItemBrowser} />
       <Route path='itemgen' component={ItemGen} />
+      <Route path='elocalculator' component={EloCalculator} />
     </Route>
     <Route path='*' component={NotFound} />
   </Route>
