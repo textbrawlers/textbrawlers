@@ -16,7 +16,7 @@ export default class extends React.Component {
     const { winner, loser } = calculateNewElo(this.state.winnerELO, this.state.loserELO)
     return {
       newWinnerELO: winner,
-      newloserELO: loser
+      newLoserELO: loser
     }
   }
 
