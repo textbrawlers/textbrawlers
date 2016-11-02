@@ -155,7 +155,8 @@ export default class FightManager {
       this.getPVPRank(loser).then(loserRank => {
         console.log(winnerRank + ', ' + loserRank)
         let ratio = 50 * (loserRank / winnerRank)
-        this.updatePVPRank(winner, Math.round(ratio))
+        ratio = ratio > 50 ? 50 : ratio
+        this.updatePVPRank(winner, Math.round(ratio * 1.5))
         this.updatePVPRank(loser, -Math.round(ratio))
       })
     }).catch(err => console.error(err.stack || err))
