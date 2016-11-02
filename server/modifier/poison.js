@@ -1,4 +1,6 @@
 export default {
+  name: 'poison',
+
   apply (fightData) {
     const defender = fightData.defenderIndex
     const oldBuffs = fightData.playerStates[defender].buffs

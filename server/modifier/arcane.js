@@ -1,4 +1,6 @@
 export default {
+  name: 'arcane',
+
   apply (fightData) {
     const defender = fightData.defenderIndex
     const chance = fightData.weapons[fightData.currentWeapon].stats.getValue('arcane-chance')

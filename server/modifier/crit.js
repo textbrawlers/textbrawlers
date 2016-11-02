@@ -1,4 +1,6 @@
 export default {
+  name: 'crit',
+
   apply (fightData) {
     const weapon = fightData.weapons[fightData.currentWeapon]
 

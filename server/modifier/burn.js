@@ -1,4 +1,6 @@
 export default {
+  name: 'burn',
+
   apply (fightData) {
     const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]

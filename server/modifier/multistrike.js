@@ -1,4 +1,6 @@
 export default {
+  name: 'multistrike',
+
   apply (fightData) {
     const weapon = fightData.weapons[fightData.currentWeapon]
     if (Math.random() < weapon.stats.getValue('multistrike-chance')) {

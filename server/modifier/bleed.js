@@ -1,4 +1,6 @@
 export default {
+  name: 'bleed',
+
   apply (fightData) {
     const defender = fightData.defenderIndex
     const weapon = fightData.weapons[fightData.currentWeapon]

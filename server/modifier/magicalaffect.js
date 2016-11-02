@@ -1,4 +1,6 @@
 export default {
+  name: 'magicalaffect',
+
   apply (fightData) {
     const defender = fightData.defenderIndex
     const oldBuffs = fightData.playerStates[defender].buffs

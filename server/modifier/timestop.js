@@ -1,4 +1,6 @@
 export default {
+  name: 'timestop',
+
   end (fightData) {
     fightData.modifierStorage.timestop = {
       hasTimeStopped: false

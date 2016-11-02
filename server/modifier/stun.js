@@ -1,4 +1,6 @@
 export default {
+  name: 'stun',
+
   apply (fightData) {
     const defender = fightData.defenderIndex
     if (Math.random() < fightData.weapons[fightData.currentWeapon].stats.getValue('stun-chance')) {

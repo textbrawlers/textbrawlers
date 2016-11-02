@@ -1,4 +1,6 @@
 export default {
+  name: 'thorns',
+
   apply (fightData) {
     let thornsDamage = fightData.defender.player.stats.getValue('thorns')
     let damageToDeal = 0
