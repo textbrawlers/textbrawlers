@@ -8,7 +8,7 @@
       "attack-stats": {
         "required-ammo": "arrow",
         "damage": 11,
-        "attack-speed": -9.2,
+        "attack-speed": 0.8,
         "crit-chance": 0.75,
         "crit-damage": 0.75,
         "ranged": true
@@ -23,7 +23,7 @@
       "attack-stats": {
         "required-ammo": "arrow",
         "damage": 17,
-        "attack-speed": -9.5,
+        "attack-speed": 0.5,
         "crit-chance": 0.75,
         "crit-damage": 0.75,
         "ranged": true
@@ -38,7 +38,7 @@
       "attack-stats": {
         "required-ammo": "arrow",
         "damage": 14,
-        "attack-speed": -9.5,
+        "attack-speed": 0.5,
         "crit-chance": 0.60,
         "crit-damage": 1.25,
         "ranged": true

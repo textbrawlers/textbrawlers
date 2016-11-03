@@ -8,7 +8,6 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "attack-speed": 10.0,
           "crit-chance": 0.1,
           "crit-damage": 0.1,
           "damage-multiplier": 0.45
@@ -24,7 +23,7 @@
       "empower-stats": [{
         "category": "bow",
         "stats": {
-          "attack-speed": 9.85,
+          "attack-speed": -0.15,
           "crit-chance": 0.05,
           "crit-damage": 0.15,
           "damage-multiplier": 0.7
