@@ -195,6 +195,22 @@ body {
   background: radial-gradient(ellipse at center, rgba(214,153,255,1) 0%,rgba(255,255,255,0) 100%);
 }
 
+.item-unseen .item-common {
+  background: linear-gradient(to right, rgba(247,247,247,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.item-unseen .item-uncommon {
+  background: linear-gradient(to right, rgba(3,126,32,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.item-unseen .item-rare {
+  background: linear-gradient(to right, rgba(26,160,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.item-unseen .item-legendary {
+  background: linear-gradient(to right, rgba(157,0,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
 .tooltip-window p:first-child {
   margin-top: 5px;
 }
