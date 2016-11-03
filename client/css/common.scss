@@ -192,23 +192,23 @@ body {
 }
 
 .item-unseen {
-  background: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(163,163,163,0) 64%, rgba(255,255,255,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
 }
 
 .item-unseen .item-common {
-  background: radial-gradient(ellipse at center, rgba(247,247,247,1) 0%, rgba(252,252,252,0) 64%, rgba(255,255,255,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(247,247,247,1) 0%, rgba(247,247,247,0) 100%);
 }
 
 .item-unseen .item-uncommon {
-  background: radial-gradient(ellipse at center, rgba(55,226,0,1) 0%, rgba(183,245,163,0) 64%, rgba(255,255,255,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(55,226,0,1) 0%, rgba(247,247,247,0) 100%);
 }
 
 .item-unseen .item-rare {
-  background: radial-gradient(ellipse at center, rgba(26,160,255,1) 0%, rgba(173,221,255,0) 64%, rgba(255,255,255,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(26,160,255,1) 0%, rgba(247,247,247,0) 100%);
 }
 
 .item-unseen .item-legendary {
-  background: radial-gradient(ellipse at center, rgba(157,0,255,1) 0%, rgba(220,163,255,0) 64%, rgba(255,255,255,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(157,0,255,1) 0%, rgba(247,247,247,0) 100%);
 }
 
 .tooltip-window p:first-child {
