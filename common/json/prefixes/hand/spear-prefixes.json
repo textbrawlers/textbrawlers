@@ -4,14 +4,14 @@
       "name": "Broken",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": -6
+        "damage": -4
       }
     },
     "rusty": {
       "name": "Rusty",
       "drop-rate": 75,
       "attack-stats": {
-        "damage": -4
+        "damage": -3
       }
     },
     "blunt": {
@@ -30,14 +30,14 @@
       "name": "Ruthless",
       "drop-rate": 75,
       "attack-stats": {
-        "damage": 4
+        "damage": 3
       }
     },
     "deadly": {
       "name": "Deadly",
       "drop-rate": 50,
       "attack-stats": {
-        "damage": 6
+        "damage": 4
       }
     }
   },
