@@ -49,12 +49,12 @@
       "attack": true,
       "icon": "itemenergyfocus",
       "drop-rate": 25,
-      "empower-stats": {
+      "empower-stats": [{
         "category": "magical",
         "stats": {
           "magical-affect": 0.1
         }
-      },
+      }],
       "description": "It feels focused..."
     },
     "lucky-coin": {
