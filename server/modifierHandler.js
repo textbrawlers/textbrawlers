@@ -90,7 +90,6 @@ const modifierHandler = {
     }
     const i = Math.random() * texts.length
     const text = texts[i] ? texts[i] : texts[0]
-    console.log(text.text)
     return text.text
   }
 }

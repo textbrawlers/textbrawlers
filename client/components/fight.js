@@ -148,14 +148,14 @@ export default class Fight extends Component {
     const accountMe = this.state.accounts[this.state.me]
     const accountOpponent = this.state.accounts[this.state.me === 0 ? 1 : 0]
 
-    const lastAttack = this.state.attacks[this.state.attacks.length - 1]
+    const lastAttack = this.state.attacks[this.state.attacks - 1].type !== 'newTurn' ? this.state.attacks[this.state.attacks.length - 1] : this.state.attacks[this.state.attacks.length - 2]
 
     let buffsMe = []
     let buffsOpponent = []
     let healthDataMe
     let healthDataOpponent
 
-    if (lastAttack) {
+    if (lastAttack && lastAttack.type !== 'newTurn') {
       buffsMe = lastAttack.playerStates[this.state.me].buffs
       buffsOpponent = lastAttack.playerStates[this.state.me === 0 ? 1 : 0].buffs
       healthDataMe = {
