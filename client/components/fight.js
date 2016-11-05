@@ -118,7 +118,18 @@ export default class Fight extends Component {
       return <div />
     }
     const attacks = this.state.attacks.map((attack, i) => {
-      const attackText = attack.type === 'regular' ? this.printRegularAttack(attack) : this.printBuffAttack(attack)
+      let attackText = ''
+      switch (attack.type) {
+        case 'regular':
+          attackText = this.printRegularAttack(attack)
+          break
+        case 'buff':
+          attackText = this.printBuffAttack(attack)
+          break
+        case 'newTurn':
+          attackText = this.printNewTurn(attack)
+          break
+      }
 
       const isMe = attack.attacker === this.state.me
       const className = ['fight-text']
@@ -277,5 +288,20 @@ export default class Fight extends Component {
       return `${defender} took ${buffTexts.join(', ')}.`
     }
     return ''
+  }
+
+  printNewTurn (attack) {
+    if (this.state.accounts.length === 0) {
+      return
+    }
+
+    const attacker = this.state.accounts[attack.attacker].username
+    const defender = this.state.accounts[attack.defender].username
+
+    const msg = attack.message
+      .replace(/\[attacker\]/g, attacker)
+      .replace(/\[defender\]/g, defender)
+
+    return `${msg}`
   }
 }

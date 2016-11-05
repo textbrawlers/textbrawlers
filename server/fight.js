@@ -16,6 +16,7 @@ export default class Fight {
     this.currentWeapon = 0
     this.numAttacks = 0
     this.attackId = 0
+    this.newTurn = true
   }
 
   luckWeightLifter (players) {
@@ -45,19 +46,24 @@ export default class Fight {
   attack () {
     this.attackId++
     let resp
-    this.buffRound = this.checkTick() ? this.buffRound : false
-    if (this.buffRound) {
-      resp = this.tick()
-      this.buffRound = false
-    } else {
-      this.initAttack()
-      this.doAttack()
-      resp = this.createResponse()
-      this.endAttack()
+    if (!this.newTurn) {
+      this.buffRound = this.checkTick() ? this.buffRound : false
+      if (this.buffRound) {
+        resp = this.tick()
+        this.buffRound = false
+      } else {
+        this.initAttack()
+        this.doAttack()
+        resp = this.createResponse()
+        this.endAttack()
 
-      if (this.defender.currentHP <= 0) {
-        resp.done = true
+        if (this.defender.currentHP <= 0) {
+          resp.done = true
+        }
       }
+    } else {
+      resp = this.turnResp()
+      this.newTurn = false
     }
     return resp
   }
@@ -88,6 +94,7 @@ export default class Fight {
     if (this.numAttacks <= 0) {
       this.currentWeapon++
       if (!this.weapons[this.currentWeapon]) {
+        this.newTurn = true
         this.buffRound = true
         this.turn++
         this.currentWeapon = 0
@@ -217,6 +224,16 @@ export default class Fight {
       resp.done = true
     }
 
+    return resp
+  }
+
+  turnResp () {
+    let resp = {
+      type: 'newTurn',
+      attacker: this.turn,
+      defender: this.playerStates[this.turn + 1] ? this.turn + 1 : 0,
+      message: modifierHandler.turnText(this)
+    }
     return resp
   }
 }
