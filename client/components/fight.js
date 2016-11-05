@@ -157,6 +157,7 @@ export default class Fight extends Component {
     for (let i = this.state.attacks.length - 1; i--; i < 0) {
       if (this.state.attacks[i].playerStates) {
         lastPlayerStates = this.state.attacks[i].playerStates
+        break
       }
     }
 
