@@ -148,23 +148,28 @@ export default class Fight extends Component {
     const accountMe = this.state.accounts[this.state.me]
     const accountOpponent = this.state.accounts[this.state.me === 0 ? 1 : 0]
 
-    const lastAttack = this.state.attacks[this.state.attacks - 1].type !== 'newTurn' ? this.state.attacks[this.state.attacks.length - 1] : this.state.attacks[this.state.attacks.length - 2]
-
     let buffsMe = []
     let buffsOpponent = []
     let healthDataMe
     let healthDataOpponent
 
-    if (lastAttack && lastAttack.type !== 'newTurn') {
-      buffsMe = lastAttack.playerStates[this.state.me].buffs
-      buffsOpponent = lastAttack.playerStates[this.state.me === 0 ? 1 : 0].buffs
+    let lastPlayerStates
+    for (let i = this.state.attacks.length - 1; i--; i < 0) {
+      if (this.state.attacks[i].playerStates) {
+        lastPlayerStates = this.state.attacks[i].playerStates
+      }
+    }
+
+    if (lastPlayerStates) {
+      buffsMe = lastPlayerStates[this.state.me].buffs
+      buffsOpponent = lastPlayerStates[this.state.me === 0 ? 1 : 0].buffs
       healthDataMe = {
-        currentHP: lastAttack.playerStates[this.state.me].currentHP,
-        maxHP: lastAttack.playerStates[this.state.me].maxHP
+        currentHP: lastPlayerStates[this.state.me].currentHP,
+        maxHP: lastPlayerStates[this.state.me].maxHP
       }
       healthDataOpponent = {
-        currentHP: lastAttack.playerStates[this.state.me === 0 ? 1 : 0].currentHP,
-        maxHP: lastAttack.playerStates[this.state.me === 0 ? 1 : 0].maxHP
+        currentHP: lastPlayerStates[this.state.me === 0 ? 1 : 0].currentHP,
+        maxHP: lastPlayerStates[this.state.me === 0 ? 1 : 0].maxHP
       }
     }
 
