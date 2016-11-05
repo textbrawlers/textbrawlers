@@ -154,7 +154,7 @@ export default class Fight extends Component {
     let healthDataOpponent
 
     let lastPlayerStates
-    for (let i = this.state.attacks.length - 1; i--; i < 0) {
+    for (let i = this.state.attacks.length; i--; i < 0) {
       if (this.state.attacks[i].playerStates) {
         lastPlayerStates = this.state.attacks[i].playerStates
         break
