@@ -109,6 +109,7 @@ export default class Fight {
         }
       }
     }
+    console.log('postr end attack', this.currentWeapon, this.turn)
   }
 
   createResponse () {
