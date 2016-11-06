@@ -1,0 +1,18 @@
+{
+  "id": "spirit-of-dev",
+  "name": "Spirit of Dev",
+  "stats": {
+    "max-health": [170, 210]
+  },
+  "equipped": {
+    "left": {
+      "id": "dev-hands",
+      "stats": {
+        "damage": [3, 5],
+        "attack-speed": [4, 5],
+        "crit-chance": [0.1, 0.2],
+        "crit-damage": [0.3, 0.45]
+      }
+    }
+  }
+}

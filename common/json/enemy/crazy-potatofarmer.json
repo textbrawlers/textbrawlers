@@ -1,0 +1,18 @@
+{
+  "id": "crazy-potatofarmer",
+  "name": "Crazy Potatofarmer",
+  "stats": {
+    "max-health": [240, 260]
+  },
+  "equipped": {
+    "left": {
+      "id": "pitchfork",
+      "stats": {
+        "damage": [8, 11],
+        "attack-speed": [1, 1.2],
+        "crit-chance": [0.35, 0.45],
+        "crit-damage": [0.6, 0.7]
+      }
+    }
+  }
+}

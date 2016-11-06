@@ -1,5 +1,10 @@
 {
   "enemies": [
-    "common/json/enemy/sir-placeholder.json"
+    "common/json/enemy/crazy-potatofarmer.json",
+    "common/json/enemy/living-vine.json",
+    "common/json/enemy/sheep.json",
+    "common/json/enemy/sir-placeholder.json",
+    "common/json/enemy/slime.json",
+    "common/json/enemy/spirit-of-dev.json"
   ]
 }

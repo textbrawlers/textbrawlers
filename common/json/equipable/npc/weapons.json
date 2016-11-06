@@ -13,6 +13,76 @@
         "crit-damage":  1
       },
     "description": "Holding the place."
+    },
+    "pitchfork": {
+      "name": "Pitchfork",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsword",
+      "drop-rate": 0,
+      "attack-stats": {
+        "damage": 9,
+        "attack-speed": 1.1,
+        "crit-chance": 0.4,
+        "crit-damage":  0.65
+      },
+    "description": "Pitching the fork."
+    },
+    "grape": {
+      "name": "Grape",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsword",
+      "drop-rate": 0,
+      "attack-stats": {
+        "damage": 4,
+        "attack-speed": 1.9,
+        "crit-chance": 0.18,
+        "crit-damage":  0.53
+      },
+    "description": "Grapes..."
+    },
+    "horns": {
+      "name": "Horns",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsword",
+      "drop-rate": 0,
+      "attack-stats": {
+        "damage": 16,
+        "attack-speed": 0.63,
+        "crit-chance": 0.45,
+        "crit-damage":  0.65
+      },
+    "description": "Headbutting for good."
+    },
+    "slime": {
+      "name": "Slime",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsword",
+      "drop-rate": 0,
+      "attack-stats": {
+        "damage": 7,
+        "attack-speed": 0.75,
+        "crit-chance": 0.15,
+        "crit-damage":  1.2
+      },
+    "description": "Slimy."
+    },
+    "dev-hands": {
+      "name": "Dev Hands",
+      "slot": "hand",
+      "attack": true,
+      "icon": "itemsword",
+      "drop-rate": 0,
+      "attack-stats": {
+        "damage": 4,
+        "attack-speed": 4.5,
+        "crit-chance": 0.15,
+        "crit-damage":  0.38
+      },
+    "description": "Hands?!"
     }
   }
 }

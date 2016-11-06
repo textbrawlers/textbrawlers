@@ -1,0 +1,18 @@
+{
+  "id": "living-vine",
+  "name": "Living Vine",
+  "stats": {
+    "max-health": [300, 330]
+  },
+  "equipped": {
+    "left": {
+      "id": "grape",
+      "stats": {
+        "damage": [3, 5],
+        "attack-speed": [1.8, 2],
+        "crit-chance": [0.15, 0.2],
+        "crit-damage": [0.5, 0.55]
+      }
+    }
+  }
+}
