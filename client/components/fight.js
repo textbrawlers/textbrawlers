@@ -143,9 +143,7 @@ export default class Fight extends Component {
         <div key={i} className={className.join(' ')}>
           {attackText}
 
-          <div className='attackicons'>
-            {icons.map((icon, i) => <img key={i} src={`/client/png/${icon}.png`} />)}
-          </div>
+          {icons.map((icon, i) => <img key={i} src={`/client/png/${icon}.png`} />)}
         </div>
       )
     })
@@ -271,12 +269,10 @@ export default class Fight extends Component {
       icons.push('attackredcrit')
     } else if (attack.textData.crits === 1) {
       icons.push('attackcrit')
+    } else if (attack.textData.blocked) {
+      icons.push('attackblock')
     } else {
       icons.push('attackhit')
-    }
-
-    if (attack.textData.blocked) {
-      icons.push('attackblock')
     }
 
     return icons
