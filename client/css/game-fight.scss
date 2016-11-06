@@ -17,16 +17,17 @@
   }
 
   .fight-text-newturn:not(:first-child) {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   .fight-text-newturn {
+    margin-top: 5px;
     text-align: center;
-    background-color: #77dd77;
+    background-color: #ccffcc;
   }
 
   .fight-text-newturn.fight-text-opponent {
-    background-color: #dd7777;
+    background-color: #ffcccc;
   }
 
   .container-fight-text {
