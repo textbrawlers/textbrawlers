@@ -219,8 +219,15 @@ export async function requestNPCs (ctx) {
   const curryPlayer = await users.findOne({ _id: ctx.account._id })
 
   const npcs = NPCs.getCurrentNPCsForPlayer(curryPlayer)
-
   ctx.body = { npcs: npcs }
+}
+
+export async function clearNPCs (ctx) {
+  let player = await users.findOne({ _id: ctx.account._id })
+  player.npcs = []
+  users.update({_id: ctx.account._id}, player).then(() =>
+    console.log('Removed NPCs for player' + player.username + '.')
+  ).catch(err => console.error(err.stack || err))
 }
 
 export async function getSocial (ctx) {

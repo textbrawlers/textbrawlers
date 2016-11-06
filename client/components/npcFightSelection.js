@@ -18,6 +18,8 @@ export default class NPCFightSelection extends Component {
     this.state = {
       enemies: []
     }
+
+    this.clearNPCs = this.clearNPCs.bind(this)
   }
 
   componentWillMount () {
@@ -29,6 +31,10 @@ export default class NPCFightSelection extends Component {
 
   selectEnemy (enemyId) {
     request.post('/api/game/fightNPC', {enemyId}).catch(err => console.error(err.stack || err))
+  }
+
+  clearNPCs () {
+    request.post('/api/game/clearNPCs', {}).catch(err => console.error(err.stack || err))
   }
 
   renderEnemy (enemy, id) {
@@ -52,6 +58,10 @@ export default class NPCFightSelection extends Component {
         Select enemy:
 
         {this.state.enemies.map((enemy, id) => this.renderEnemy(enemy, id))}
+        <br />
+        <button id='clearNPCs' onClick={this.clearNPCs}>
+          Clear NPCs
+        </button>
       </div>
     )
   }

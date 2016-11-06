@@ -36,9 +36,7 @@ export function getCurrentNPCsForPlayer (acc) {
     updateDB = true
   }
   if (updateDB) {
-    playerDB.update({_id: acc._id}, acc).then(
-      () => console.log('Player "' + acc.username + '"s npcs updated.')
-    ).catch(err => console.error(err.stack || err))
+    update(acc)
   }
   return npcsForPlayer
 }
@@ -77,7 +75,9 @@ function randomizeNPC (diffVal, selectDiff) {
 function buildStatCollection (stats, diffVal) {
   const statCollection = new StatCollection()
   Object.entries(stats).forEach(([key, value]) => {
-    statCollection.add(new Stat(key, randomizeValue(key, value, diffVal)))
+    const val = randomizeValue(key, value, diffVal)
+    const stat = new Stat(key, val)
+    statCollection.add(stat)
   })
   return statCollection
 }
@@ -95,4 +95,10 @@ function shouldRound (key) {
 
 function getMultiplierValue () {
   return Math.random() * 0.4 + 0.8
+}
+
+function update (acc) {
+  playerDB.update({_id: acc._id}, acc).then(
+    () => console.log('Player "' + acc.username + '"s npcs updated.')
+  ).catch(err => console.error(err.stack || err))
 }

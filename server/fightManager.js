@@ -141,18 +141,21 @@ export default class FightManager {
     const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
     let diffMod = 0
     if (npc.currentHP <= 0 && stats.maxHP !== 0) {
-      diffMod += (stats.currentHP / stats.maxHP) * 0.1 * ((npc.difficulty + 1) / 5)
+      const npcDiffMod = (npc.player.difficulty + 1) / 5
+      const hpBase = stats.currentHP / stats.maxHP
+      diffMod += hpBase * npcDiffMod * 0.1
     } else if (npc.maxHP !== 0) {
       diffMod -= (npc.currentHP / npc.maxHP) * 0.1
     }
     let username
     userDB.findOne({ _id: stats.player.id }).then(acc => {
-      if (acc.npcDifficulty) {
+      if (!isNaN(acc.npcDifficulty) && acc.npcDifficulty) {
         const npcDiff = acc.npcDifficulty + diffMod
         acc.npcDifficulty = npcDiff < 0.1 ? 0.1 : npcDiff
         acc.npcs = genNewNPCs(acc.npcDifficulty)
       } else {
         acc.npcDifficulty = 0.1
+        acc.npcs = genNewNPCs(acc.npcDifficulty)
       }
       username = acc.username
       return userDB.update({ _id: acc._id }, acc)
