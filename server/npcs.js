@@ -54,19 +54,43 @@ function randomizeNPC (diffVal, selectDiff) {
   const npc = npcs[npcIndex] ? npcs[npcIndex] : npcs[0]
   const difficulty = diffVal * (selectDiff + 1)
 
-  const leftWeapon = Item.fromJSON({id: npc.equipped.left.id, rarity: 'legendary', prefixes: []})
+  const weapons = {
+    head: EquippedInventory.SLOT_HEAD,
+    body: EquippedInventory.SLOT_BODY,
+    legs: EquippedInventory.SLOT_LEGS,
+    feet: EquippedInventory.SLOT_FEET,
+    left: EquippedInventory.SLOT_LEFT_HAND,
+    right: EquippedInventory.SLOT_RIGHT_HAND,
+    trinket: EquippedInventory.SLOT_TRINKET
+  }
 
   const equipped = new EquippedInventory({}, 7)
-  equipped.set(EquippedInventory.SLOT_LEFT_HAND, leftWeapon)
+
+  const weaponStats = Object.entries(weapons).map(([key, slot]) => {
+    const weaponConfig = npc.equipped[key]
+    if (!weaponConfig) {
+      return
+    }
+
+    const weapon = Item.fromJSON({
+      id: weaponConfig.id,
+      rarity: 'legendary',
+      prefixes: []
+    })
+
+    equipped.set(slot, weapon)
+
+    return {
+      weapon: weapon,
+      stats: buildStatCollection(weaponConfig.stats, difficulty)
+    }
+  }).filter(weapon => weapon)
 
   return new NPC({
     name: npc.name,
     difficulty: selectDiff,
     stats: buildStatCollection(npc.stats, difficulty),
-    weaponStats: [{
-      weapon: leftWeapon,
-      stats: buildStatCollection(npc.equipped.left.stats, difficulty)
-    }],
+    weaponStats: weaponStats,
     equipped: equipped,
     type: 'npc'
   })
