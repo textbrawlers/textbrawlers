@@ -10,13 +10,13 @@ export default class HealthBar extends Component {
     return (
       <div>
         <div style={{
-          backgroundColor: '#F00',
-          height: '5px',
+          background: 'url(/client/png/hpdepleted.png)',
+          height: '40px',
           width: '100%'
         }}>
           <div style={{
-            backgroundColor: '#0F0',
-            height: '5px',
+            background: 'url(/client/png/hpfull.png)',
+            height: '40px',
             width: barFillAmount + '%'
           }} />
         </div>
