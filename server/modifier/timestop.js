@@ -2,18 +2,24 @@ export default {
   name: 'timestop',
 
   end (fightData) {
-    fightData.modifierStorage.timestop = false
-    if (fightData.numAttacks < 1 && !fightData.weapons[fightData.currentWeapon + 1]) {
-      if (Math.random() < fightData.attacker.player.stats.getValue('timestop')) {
-        fightData.turn = fightData.turn > 0 ? fightData.turn - 1 : fightData.playerStates.length - 1
-        fightData.modifierStorage.timestop = true
-      }
+    if (Math.random() < fightData.attacker.player.stats.getValue('timestop') && !fightData.modifierStorage.timestoppedLastTurn) {
+      fightData.turn = fightData.turn > 0 ? fightData.turn - 1 : fightData.playerStates.length - 1
+      fightData.modifierStorage.timestop = true
     }
     return fightData
   },
 
+  newTurn (fightData) {
+    if (fightData.modifierStorage.timestop) {
+      fightData.modifierStorage.timestop = false
+      fightData.modifierStorage.timestoppedLastTurn = true
+    } else {
+      fightData.modifierStorage.timestoppedLastTurn = false
+    }
+  },
+
   turnText (textData) {
-    if (textData.modifierStorage.timestop) {
+    if (textData.modifierStorage.timestoppedLastTurn) {
       return '[attacker] stopped time and got another turn.'
     }
   }

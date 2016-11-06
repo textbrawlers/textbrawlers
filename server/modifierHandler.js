@@ -37,16 +37,10 @@ const modifierHandler = {
   },
 
   newTurn (fightData) {
-    const resp = {
-      modifiers: []
-    }
     modifiers.filter(m => m.newTurn).forEach(modifier => {
-      const data = modifier.newTurn(fightData)
-      if (data) {
-        resp.modifiers.push(data)
-      }
+      fightData = modifier.newTurn(fightData)
     })
-    return resp
+    return fightData
   },
 
   deathText (textData) {

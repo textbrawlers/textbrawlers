@@ -62,6 +62,7 @@ export default class Fight {
         }
       }
     } else {
+      Object.assign(this, modifierHandler.newTurn(this))
       resp = this.turnResp()
       this.newTurn = false
     }
