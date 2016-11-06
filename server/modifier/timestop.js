@@ -4,6 +4,7 @@ export default {
   end (fightData) {
     if (Math.random() < fightData.attacker.player.stats.getValue('timestop') && !fightData.modifierStorage.timestoppedLastTurn) {
       fightData.turn = fightData.turn > 0 ? fightData.turn - 1 : fightData.playerStates.length - 1
+      fightData.currentWeapon = 0
       fightData.modifierStorage.timestop = true
     }
     return fightData
