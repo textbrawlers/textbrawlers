@@ -111,8 +111,8 @@ export default class FightManager {
     if (resp.done) {
       this.saveFight(fightObj)
     } else {
-      if (fightObj.type === 'newTurn') {
-        setTimeout(() => this.attack(fightObj), 2000)
+      if (resp.type === 'newTurn') {
+        setTimeout(() => this.attack(fightObj), 1500)
       } else {
         this.attack(fightObj)
       }
