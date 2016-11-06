@@ -78,19 +78,19 @@ const modifierHandler = {
   turnText (textData) {
     let texts = []
     modifiers.filter(m => m.turnText).forEach(modifier => {
-      let textObjects = modifier.turnText(textData)
-      if (textObjects) {
-        textObjects.forEach(textObj => {
-          texts.push(textObj)
-        })
+      const resp = modifier.turnText(textData)
+      if (resp) {
+        texts.push(resp)
       }
     })
     if (texts.length === 0) {
-      texts.push({chance: 100, text: '[attacker]\'s turn has begun.'})
+      texts.push('[attacker]\'s turn has begun.')
     }
     const i = Math.random() * texts.length
+    console.log(texts)
     const text = texts[i] ? texts[i] : texts[0]
-    return text.text
+    console.log(text)
+    return text
   }
 }
 
