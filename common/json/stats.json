@@ -164,7 +164,7 @@
     "name": "Burn Damage",
     "tooltip": "[percent] Burn Damage",
     "detail-tooltip": "Burn Damage is how much damage a Burn deals. A Burn deals a percentage of the damage that applied it each turn for three turns.",
-    "rounded": true,
+    "rounded": false,
     "display": true
   },
   "arcane-chance": {
@@ -245,14 +245,6 @@
     "tooltip": "[fixed] Thorns",
     "detail-tooltip": "Whenever you succesfully Block an attack, your opponent takes damage equal to your Thorns (your enemy may still block this damage).",
     "rounded": true,
-    "display": true
-  },
-  "multistrike-chance": {
-    "type": "multiplicative",
-    "name": "Multistrike",
-    "tooltip": "[fixed]x Multistrike",
-    "detail-tooltip": "A multistrike splits its attacks depending on its Multistrike. The total damage remains the same, but each attack applies on-hit effects seperately. For example, a 20 damage weapon with 2x Multistrike attacks twice as often, but only deals 10 damage per hit.",
-    "rounded": false,
     "display": true
   },
   "multistrike-chance": {
