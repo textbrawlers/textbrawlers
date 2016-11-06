@@ -288,9 +288,11 @@ export default class Fight extends Component {
 
     const attacker = this.state.players[attack.attacker]
 
-    let weapon = ''
+    let weapon
+    let weaponName
     if (attacker.weaponStats && attacker.weaponStats.length > 0) {
-      weapon = attacker.weaponStats[attack.weapon].weapon.displayName
+      weapon = attacker.weaponStats[attack.weapon].weapon
+      weaponName = weapon.displayName
     }
 
     const meIsAttacker = this.state.me === attack.attacker
@@ -306,10 +308,15 @@ export default class Fight extends Component {
       defenderNameStyled = `<span class="player-name-me">${defenderName}</span>`
     }
 
+    let weaponNameStyled
+    if (weapon) {
+      weaponNameStyled = `<span class="attack-weapon rarity-${weapon.rarity}">${weaponName}</span>`
+    }
+
     const msg = attack.message
       .replace(/\[attacker\]/g, attackerNameStyled)
       .replace(/\[defender\]/g, defenderNameStyled)
-      .replace(/\[item-name\]/g, weapon)
+      .replace(/\[item-name\]/g, weaponNameStyled)
 
     return `${msg} (${attack.damage})`
   }

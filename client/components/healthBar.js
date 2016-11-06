@@ -12,16 +12,31 @@ export default class HealthBar extends Component {
         <div style={{
           background: 'url(/client/png/hpdepleted.png)',
           height: '40px',
-          width: '100%'
+          width: '100%',
+          position: 'relative'
         }}>
           <div style={{
             background: 'url(/client/png/hpfull.png)',
             height: '40px',
-            width: barFillAmount + '%'
+            width: barFillAmount + '%',
+            position: 'absolute',
+            left: 0,
+            top: 0
           }} />
+          <div style={{
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            width: '100%',
+            height: '100%',
+            lineHeight: '40px',
+            color: 'white',
+            textAlign: 'center'
+          }}>
+            {`${currHealth}/${maxHealth}`}
+          </div>
         </div>
         <br />
-        {`${currHealth}/${maxHealth}`}
       </div>
     )
   }
