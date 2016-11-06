@@ -18,9 +18,13 @@
 
   .fight-text-newturn:not(:first-child) {
     margin-top: 30px;
+  }
+
+  .fight-text-newturn {
     text-align: center;
     background-color:#d4d4d4;
   }
+
   .container-fight-text {
     height:500px - 39px;
     overflow-y:scroll;
