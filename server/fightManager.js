@@ -127,7 +127,6 @@ export default class FightManager {
 
   onFightEnd (fightObj) {
     const isNPC = fightObj.fight.playerStates.some(ps => ps.player.type === 'npc')
-    console.log(isNPC)
     if (isNPC) {
       this.endNPCFight(fightObj)
     } else {
