@@ -118,27 +118,34 @@ export default class Fight extends Component {
       return <div />
     }
     const attacks = this.state.attacks.map((attack, i) => {
+      const className = ['fight-text']
+      let icons = []
       let attackText = ''
       switch (attack.type) {
         case 'regular':
           attackText = this.printRegularAttack(attack)
+          icons = icons.concat(this.getRegularAttackIcons(attack))
           break
         case 'buff':
           attackText = this.printBuffAttack(attack)
           break
         case 'newTurn':
           attackText = this.printNewTurn(attack)
+          className.push('fight-text-newturn')
           break
       }
 
       const isMe = attack.attacker === this.state.me
-      const className = ['fight-text']
       if (!isMe) {
         className.push('fight-text-opponent')
       }
       return (
         <div key={i} className={className.join(' ')}>
           {attackText}
+
+          <div className='attackicons'>
+            {icons.map((icon, i) => <img key={i} src={`/client/png/${icon}.png`} />)}
+          </div>
         </div>
       )
     })
@@ -254,6 +261,25 @@ export default class Fight extends Component {
         </div>
       </div>
     )
+  }
+
+  getRegularAttackIcons (attack) {
+    const icons = []
+    if (attack.textData.missed) {
+      icons.push('attackmiss')
+    } else if (attack.textData.crits === 2) {
+      icons.push('attackredcrit')
+    } else if (attack.textData.crits === 1) {
+      icons.push('attackcrit')
+    } else {
+      icons.push('attackhit')
+    }
+
+    if (attack.textData.blocked) {
+      icons.push('attackblock')
+    }
+
+    return icons
   }
 
   printRegularAttack (attack) {

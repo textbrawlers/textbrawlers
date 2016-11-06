@@ -27,6 +27,14 @@
     text-align: right;
   }
 
+  .fight-text-newturn:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  .attackicons {
+    float: right;
+  }
+
   .container-fight-text {
     height:500px - 39px;
     overflow-y:scroll;
