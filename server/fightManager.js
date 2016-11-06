@@ -103,19 +103,25 @@ export default class FightManager {
     this.fights.splice(this.fights.indexOf(fightObj), 1)
   }
 
-  attack (fightObj) {
-    const resp = fightObj.fight.attack()
-
+  finishAttack (fightObj, resp) {
     this.sendAttackResponse(fightObj, resp)
 
     if (resp.done) {
       this.saveFight(fightObj)
     } else {
-      if (resp.type === 'newTurn') {
-        setTimeout(() => this.attack(fightObj), 1500)
-      } else {
-        this.attack(fightObj)
-      }
+      this.attack(fightObj)
+    }
+  }
+
+  attack (fightObj) {
+    const resp = fightObj.fight.attack()
+
+    if (resp.type === 'newTurn') {
+      setTimeout(() => {
+        this.finishAttack(fightObj, resp)
+      }, 1500)
+    } else {
+      this.finishAttack(fightObj, resp)
     }
   }
 
