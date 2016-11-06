@@ -32,7 +32,7 @@ export function getCurrentNPCsForPlayer (acc) {
   if (acc.npcs && acc.npcs.length > 0) {
     npcsForPlayer = acc.npcs
   } else {
-    acc.npcs = genNewNPCs(diffVal)
+    npcsForPlayer = acc.npcs = genNewNPCs(diffVal)
     updateDB = true
   }
   if (updateDB) {
