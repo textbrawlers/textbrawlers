@@ -94,20 +94,28 @@ export default class FightManager {
     fightObj.emit('attack', resp)
   }
 
+  saveFight (fightObj) {
+    this.onFightEnd(fightObj)
+    fightObj.doc.history = fightObj.attackHistory
+    fightDB.update({_id: fightObj.doc._id}, fightObj.doc).then(
+      () => console.log('Fight ' + fightObj.id + ' stored successfully.')
+    ).catch(err => console.error(err.stack || err))
+    this.fights.splice(this.fights.indexOf(fightObj), 1)
+  }
+
   attack (fightObj) {
     const resp = fightObj.fight.attack()
 
     this.sendAttackResponse(fightObj, resp)
 
     if (resp.done) {
-      this.onFightEnd(fightObj)
-      fightObj.doc.history = fightObj.attackHistory
-      fightDB.update({_id: fightObj.doc._id}, fightObj.doc).then(
-        () => console.log('Fight ' + fightObj.id + ' stored successfully.')
-      ).catch(err => console.error(err.stack || err))
-      this.fights.splice(this.fights.indexOf(fightObj), 1)
+      this.saveFight(fightObj)
     } else {
-      setTimeout(() => this.attack(fightObj), 500)
+      if (fightObj.type === 'newTurn') {
+        setTimeout(() => this.attack(fightObj), 2000)
+      } else {
+        this.attack(fightObj)
+      }
     }
   }
 
