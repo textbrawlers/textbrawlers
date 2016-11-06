@@ -141,7 +141,7 @@ export default class Fight extends Component {
       }
       return (
         <div key={i} className={className.join(' ')}>
-          {attackText}
+          <span dangerouslySetInnerHTML={{__html: attackText}} />
 
           {icons.map((icon, i) => <img key={i} src={`/client/png/${icon}.png`} />)}
         </div>
@@ -293,9 +293,22 @@ export default class Fight extends Component {
       weapon = attacker.weaponStats[attack.weapon].weapon.displayName
     }
 
+    const meIsAttacker = this.state.me === attack.attacker
+
+    let attackerNameStyled
+    let defenderNameStyled
+
+    if (meIsAttacker) {
+      attackerNameStyled = `<span class="player-name-me">${attackerName}</span>`
+      defenderNameStyled = `<span class="player-name-other">${defenderName}</span>`
+    } else {
+      attackerNameStyled = `<span class="player-name-other">${attackerName}</span>`
+      defenderNameStyled = `<span class="player-name-me">${defenderName}</span>`
+    }
+
     const msg = attack.message
-      .replace(/\[attacker\]/g, attackerName)
-      .replace(/\[defender\]/g, defenderName)
+      .replace(/\[attacker\]/g, attackerNameStyled)
+      .replace(/\[defender\]/g, defenderNameStyled)
       .replace(/\[item-name\]/g, weapon)
 
     return `${msg} (${attack.damage})`
