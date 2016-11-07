@@ -8,7 +8,9 @@ export default class HealthBar extends Component {
     const barFillAmount = Math.max((currHealth / maxHealth) * 100, 0)
 
     return (
-      <div>
+      <div style={{
+        marginBottom: '5px'
+      }}>
         <div style={{
           background: 'url(/client/png/hpdepleted.png)',
           height: '28px',
@@ -34,6 +36,7 @@ export default class HealthBar extends Component {
             textAlign: 'center'
           }}>
             {`${currHealth}/${maxHealth}`}
+          </div>
           <div style={{
             background: 'url(/client/png/hpborder.png)',
             height: '28px',
@@ -42,7 +45,6 @@ export default class HealthBar extends Component {
             left: 0,
             top: 0
           }} />
-          </div>
         </div>
       </div>
     )
