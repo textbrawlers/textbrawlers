@@ -24,7 +24,7 @@ const rarities = [{
 export async function getDroptable () {
   const items = (await getItems()).items
   const possibleItems = items.filter(item => item.category !== 'set')
-  const totalChance = possibleItems.reduce((val, item) => val + (item.dropRate || 100), 0)
+  const totalChance = possibleItems.reduce((val, item) => val + (item.dropRate !== undefined ? item.dropRate : 100), 0)
 
   const droptable = []
   possibleItems.forEach(item => {
