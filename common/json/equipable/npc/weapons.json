@@ -77,8 +77,8 @@
       "icon": "itemsword",
       "drop-rate": 0,
       "attack-stats": {
-        "damage": 7,
-        "attack-speed": 0.65,
+        "damage": 5,
+        "attack-speed": 0.55,
         "crit-chance": 0.2,
         "crit-damage":  0.5
       },
@@ -91,7 +91,7 @@
       "icon": "itemheatershield",
       "drop-rate": 0,
       "attack-stats": {
-        "block-chance": 0.2,
+        "block-chance": 0.5,
         "block-multiplier":  0.6
       },
     "description": "Slimy. And hard."
