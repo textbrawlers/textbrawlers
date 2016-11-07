@@ -28,13 +28,16 @@ export async function getDroptable () {
 
   const droptable = []
   possibleItems.forEach(item => {
-    const dropRate = item.dropRate || 100
+    const dropRate = item.dropRate !== undefined ? item.dropRate : 100
 
     droptable.push({
       chance: dropRate / totalChance,
-      item
+      item,
+      dropRate
     })
   })
+  droptable.sort((a, b) => b.chance - a.chance)
+
   return droptable
 }
 

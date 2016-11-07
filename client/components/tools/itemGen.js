@@ -42,6 +42,9 @@ export default class extends React.Component {
           {entry.item.name}
         </td>
         <td>
+          {entry.dropRate}
+        </td>
+        <td>
           {Math.round(entry.chance * 100 * 100) / 100}%
         </td>
       </tr>
@@ -80,6 +83,13 @@ export default class extends React.Component {
         <br />
         {invSlot}
         <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Drop Rate</th>
+              <th>Drop Chance</th>
+            </tr>
+          </thead>
           <tbody>
             {table}
           </tbody>
