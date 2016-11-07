@@ -38,10 +38,12 @@ export function getFight (id) {
 }
 
 export function startNPCFight (playerId, npc) {
-  const realtimePlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
+  const rtPlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
 
-  fightManager.startFight(realtimePlayers.map(rt => rt.player).concat(npc)).then(fight => {
-    realtimePlayers.forEach(rtPlayer => {
+  refreshPlayers(rtPlayers).then(() => {
+    return fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npc))
+  }).then(fight => {
+    rtPlayers.forEach(rtPlayer => {
       sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })
     })
 
@@ -52,6 +54,18 @@ export function startNPCFight (playerId, npc) {
       })
     })
   })
+}
+
+function refreshPlayers (rtPlayers) {
+  return Promise.all(rtPlayers.map(rtPlayer => {
+    return ServerPlayer.fromId(rtPlayer.player.id).then(player => {
+      if (player) {
+        rtPlayer.player = player
+      } else {
+        console.warn('Could not refresh RealtimePlayer.player', rtPlayer.player.id)
+      }
+    })
+  }))
 }
 
 export function acceptInvite (playerId, inviteId) {
@@ -73,18 +87,10 @@ export function acceptInvite (playerId, inviteId) {
   })
 
   if (inviteAccepted) {
-    const RTPlayers = otherRps.concat(invitedRealtimePlayers)
+    const rtPlayers = otherRps.concat(invitedRealtimePlayers)
 
-    return Promise.all(RTPlayers.map(rtPlayer => {
-      return ServerPlayer.fromId(rtPlayer.player.id).then(player => {
-        if (player) {
-          rtPlayer.player = player
-        } else {
-          console.warn('Could not refresh RealtimePlayer.player', rtPlayer.player.id)
-        }
-      })
-    })).then(() => {
-      return fightManager.startFight(RTPlayers.map(rt => rt.player))
+    refreshPlayers(rtPlayers).then(() => {
+      return fightManager.startFight(rtPlayers.map(rt => rt.player))
     }).then(fight => {
       fight.players.forEach(player => {
         sendMessage(player.id, 'startgame', { id: fight.id })
