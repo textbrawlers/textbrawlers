@@ -5,7 +5,7 @@ export default {
     if (Math.random() < fightData.attacker.player.stats.getValue('timestop') && !fightData.modifierStorage.timestoppedLastTurn) {
       console.log('turn', fightData.turn)
       fightData.turn = fightData.turn > 0 ? fightData.turn - 1 : fightData.playerStates.length - 1
-      fightData.numAttacks = 0
+      // fightData.numAttacks = 0
       fightData.modifierStorage.timestop = true
       console.log('timestop = true')
     }
