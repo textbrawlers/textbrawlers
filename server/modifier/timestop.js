@@ -3,11 +3,10 @@ export default {
 
   end (fightData) {
     if (Math.random() < fightData.attacker.player.stats.getValue('timestop') && !fightData.modifierStorage.timestoppedLastTurn) {
-      console.log('turn', fightData.turn)
-      fightData.turn = fightData.turn > 0 ? fightData.turn - 1 : fightData.playerStates.length - 1
-      // fightData.numAttacks = 0
       fightData.modifierStorage.timestop = true
-      console.log('timestop = true')
+    }
+    if (fightData.modifierStorage.timestop && fightData.numAttacks < 1 && !fightData.weapons[fightData.currentWeapon + 1]) {
+      fightData.turn = fightData.turn > 0 ? fightData.turn - 1 : fightData.playerStates.length - 1
     }
     return fightData
   },
