@@ -15,11 +15,6 @@
         "crit-chance": [0.1, 0.3],
         "crit-damage": [0.4, 0.6]
       }
-    },
-    "right": {
-      "id": "slimy-shield",
-      "stats": {
-      }
     }
   }
 }
