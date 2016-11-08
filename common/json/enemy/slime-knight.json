@@ -2,7 +2,9 @@
   "id": "slime-knight",
   "name": "Slime Knight",
   "stats": {
-    "max-health": [500, 550]
+    "max-health": [450, 500],
+    "block-chance": [0.45, 0.65],
+    "block-multiplier": [0.5, 0.7]
   },
   "equipped": {
     "left": {
@@ -17,8 +19,6 @@
     "right": {
       "id": "slimy-shield",
       "stats": {
-        "block-chance": [0.45, 0.65],
-        "block-multiplier": [0.5, 0.7]
       }
     }
   }
