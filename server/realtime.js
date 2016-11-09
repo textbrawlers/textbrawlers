@@ -134,9 +134,7 @@ export default function realtime (wss) {
       players.filter(rtp => rtp.player.id.equals(player.id)).forEach(playerToDisconnect => {
         playerToDisconnect.ws.close()
         const index = players.indexOf(playerToDisconnect)
-        if (index === -1) {
-          players.splice(index, 1)
-        }
+        players.splice(index, 1)
       })
 
       players.push(realtimePlayer)
