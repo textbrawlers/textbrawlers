@@ -101,7 +101,7 @@
     "tooltip": "[percent] Dodge Chance",
     "detail-tooltip": "Your dodge chance represent the chance you have to completely ignore all effects of an enemy attack.",
     "rounded": false,
-    "display": true
+    "display": false
   },
   "max-health": {
     "type": "additive",
@@ -221,7 +221,7 @@
     "tooltip": "[percent] Luck",
     "detail-tooltip": "Increases the chance to hit first in fights.",
     "rounded": false,
-    "display": true
+    "display": false
   },
   "timestop": {
     "type": "additive",
@@ -245,7 +245,7 @@
     "tooltip": "[fixed] Thorns",
     "detail-tooltip": "Whenever you succesfully Block an attack, your opponent takes damage equal to your Thorns (your enemy may still block this damage).",
     "rounded": true,
-    "display": true
+    "display": false
   },
   "multistrike-chance": {
     "type": "additive",
@@ -269,7 +269,7 @@
     "tooltip": "Halves your Arcane Chance if your enemy has more than 2 arcane stacks. Doubles your Arcane Chance if your enemy has fewer than 2 arcane stacks.",
     "detail-tooltip": "Halves your Arcane Chance if your enemy has more than 2 arcane stacks. Doubles your Arcane Chance if your enemy has fewer than 2 arcane stacks.",
     "rounded": false,
-    "display": true
+    "display": false
   },
   "category": {
     "type": "text",
