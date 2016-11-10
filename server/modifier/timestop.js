@@ -12,13 +12,13 @@ export default {
   },
 
   newTurn (fightData) {
-    console.log('new turn')
     if (fightData.modifierStorage.timestop) {
       fightData.modifierStorage.timestop = false
       fightData.modifierStorage.timestoppedLastTurn = true
     } else {
       fightData.modifierStorage.timestoppedLastTurn = false
     }
+    return fightData
   },
 
   turnText (textData) {
