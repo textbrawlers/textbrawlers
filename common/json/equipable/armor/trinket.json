@@ -76,7 +76,7 @@
       "icon": "itemarchaicamulet",
       "drop-rate": 20,
       "character-stats": {
-        "arcane damage": -1,
+        "arcane-damage": -1,
         "effect-archaic-amulet-of-arcane-augmentation": true
       },
       "description": "Alliteration always attach alternatives."
