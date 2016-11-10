@@ -19,16 +19,14 @@ export default {
           fightData.textData.arcane = oldBuffs[buffIndex].storedDmg
           fightData.arcaneDamage = oldBuffs[buffIndex].storedDmg
           fightData.playerStates[defender].buffs.splice(buffIndex, 1)
-        } else if (damage < weapon.stats.getValue('arcane-damage')) {
+        } else {
           const newBuff = {
             type: 'arcane',
             stacks: currentStacks + 1,
-            damage: weapon.stats.getValue('arcane-damage'),
+            damage: damage + weapon.stats.getValue('arcane-damage'),
             storedDmg: oldBuffs[buffIndex].storedDmg
           }
           fightData.playerStates[defender].buffs[buffIndex] = newBuff
-        } else {
-          fightData.playerStates[defender].buffs[buffIndex].stacks++
         }
       } else {
         const newBuff = {
