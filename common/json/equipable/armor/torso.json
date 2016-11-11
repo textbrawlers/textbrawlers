@@ -8,7 +8,7 @@
       "drop-rate": 125,
       "character-stats": {
         "dodge-chance": 0.04,
-		"block-chance": -0.08
+		    "block-chance": -0.08
       },
       "description": "Apparently, wearing hardened pieces of leather on your chest substantially increases yor resistance to a wide variety of weapons. Who would have guessed?"
     },
@@ -18,7 +18,7 @@
       "attack": false,
       "icon": "itemironchestpiece",
       "character-stats": {
-        "max-health": 20,
+        "max-health": 10,
         "dodge-chance": -0.04
       },
       "description": "A piece of your standard iron attire. More specifically the piece for your chest."
@@ -31,7 +31,7 @@
       "drop-rate": 75,
       "character-stats": {
         "block-chance": 0.08,
-		"max-health": -20
+		    "max-health": -10
       },
       "description": "Armor covered in small overlapping pieces of metal. Not the most comfortable of things."
     },
@@ -44,7 +44,7 @@
         "attack-speed": 0.04,
         "dodge-chance": 0.02,
         "max-health": -10,
-		"block-chance": -0.04
+		    "block-chance": -0.04
       },
       "description": "Not as tasty as a Linen Tonic, but slightly more wearable."
     },
@@ -70,7 +70,7 @@
       "character-stats": {
         "max-health": 40,
         "attack-speed": -0.04,
-		"dodge-chance": -0.04
+		    "dodge-chance": -0.04
       },
       "description": "Legends tell tales of a chestplate so powerful that no mortal man could damage it. This is not that chestplate."
     }
