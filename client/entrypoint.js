@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, browserHistory, Route, IndexRoute } from 'react-router'
+import { Router, browserHistory, Route, IndexRoute, IndexRedirect } from 'react-router'
 import HomepageApp from './components/homepageApp.js'
 import ToolsApp from './components/toolsApp.js'
 import Game from './components/game.js'
@@ -17,6 +17,8 @@ import 'client/css/common.scss'
 import getItems from 'common/items/items.js'
 import getPrefixes from 'common/items/prefixes.js'
 import EloCalculator from './components/tools/eloCalculator.js'
+import Interface from './components/interface.js'
+import Inventory from './components/inventory.js'
 
 const NotFound = () => (<p> Jaha ja.</p>)
 
@@ -29,6 +31,10 @@ const routes = (
       <Route path='fight/:fightId' component={Fight} />
       <Route path='item/:itemId' component={ItemDetails} />
       <Route path='scoreboard' component={Scoreboard} />
+    </Route>
+    <Route path='game2' component={Interface}>
+      <IndexRedirect to='inventory' />
+      <Route path='inventory' component={Inventory} />
     </Route>
     <Route path='tools' component={ToolsApp}>
       <Route path='itembrowser' component={ItemBrowser} />

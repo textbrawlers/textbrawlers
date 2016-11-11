@@ -12,7 +12,7 @@ export default class extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='old-common'>
         <div>
           <div className='links'>
             <div className='leftlinks' />

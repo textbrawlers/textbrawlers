@@ -67,7 +67,7 @@ export default class Game extends Component {
 
   render () {
     return (
-      <div>
+      <div className='old-common'>
         <Friends social={this.state.social} connect={this.connect} realtimeState={this.state.realtime} realtime={this.realtime} />
         <div>
           <div className='links'>
