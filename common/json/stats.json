@@ -263,14 +263,6 @@
     "rounded": false,
     "display": true
   },
-  "effect-archaic-amulet-of-arcane-augmentation": {
-    "type": "boolean",
-    "name": "Special Effect",
-    "tooltip": "Halves your Arcane Chance if your enemy has more than 2 arcane stacks. Doubles your Arcane Chance if your enemy has fewer than 2 arcane stacks.",
-    "detail-tooltip": "Halves your Arcane Chance if your enemy has more than 2 arcane stacks. Doubles your Arcane Chance if your enemy has fewer than 2 arcane stacks.",
-    "rounded": false,
-    "display": false
-  },
   "category": {
     "type": "text",
     "name": "Itemtype",
