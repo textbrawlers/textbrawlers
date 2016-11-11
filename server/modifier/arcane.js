@@ -7,16 +7,6 @@ export default {
     const oldBuffs = fightData.playerStates[defender].buffs
     const weapon = fightData.weapons[fightData.currentWeapon]
 
-    if (weapon.stats.getValue('effect-archaic-amulet-of-arcane-augmentation') && oldBuffs.find(buff => buff.type === 'arcane')) {
-      const buffIndex = oldBuffs.findIndex(buff => buff.type === 'arcane')
-
-      if (oldBuffs[buffIndex].stacks < 2) {
-        chance *= 2
-      } else if (oldBuffs[buffIndex].stacks > 2) {
-        chance *= 0.5
-      }
-    }
-
     if (Math.random() < chance) {
       if (oldBuffs.find(buff => buff.type === 'arcane')) {
         const buffIndex = oldBuffs.findIndex(buff => buff.type === 'arcane')
