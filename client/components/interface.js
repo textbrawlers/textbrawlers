@@ -8,9 +8,20 @@ export default class Game extends Component {
         <div className='title-bar'><img src='/client/png/interface/title.png'></img></div>
         <div className='flex-container'>
           <div className='link-container'>
+            <div className='link-cluster'>
+              <div className='link-title'>
+                Link Category
+              </div>
+              <div className='link-sub'>
+                <a href=''>Link 1</a>
+                <a href=''>Link 2</a>
+              </div>
+            </div>
           </div>
           <div className='content-container'>
-            {React.cloneElement(this.props.children, { realtime: this.realtime })}
+            <div className='content-box'>
+              {React.cloneElement(this.props.children, { realtime: this.realtime })}
+            </div>
           </div>
         </div>
       </div>
