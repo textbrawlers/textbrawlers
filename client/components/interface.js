@@ -5,8 +5,14 @@ export default class Game extends Component {
   render () {
     return (
       <div className='tb-interface'>
-        <span className='red-text'>Interface</span>
-        {React.cloneElement(this.props.children, { realtime: this.realtime })}
+        <div className='title-bar'><img src='/client/png/interface/title.png'></img></div>
+        <div className='flex-container'>
+          <div className='link-container'>
+          </div>
+          <div className='content-container'>
+            {React.cloneElement(this.props.children, { realtime: this.realtime })}
+          </div>
+        </div>
       </div>
     )
   }

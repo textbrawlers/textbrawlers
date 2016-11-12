@@ -1,10 +1,30 @@
 .tb-interface {
 
-  background: red;
+  display: flex;
+  flex-direction: column;
+
+  background: #f2f0ed;
   height: 100%;
 
-  .red-text {
-    color: red;
+  .title-bar {
+    background: #f2dcbd;
+    padding: 20px 0 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .flex-container {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .link-container {
+    background: #f2dcbd;
+    width: 300px;
+  }
+
+  .content-container {
+    background: red;
   }
 
 }
