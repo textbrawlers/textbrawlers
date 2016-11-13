@@ -17,14 +17,14 @@ npm run socket-emitter
 
 ## Configuration
 
-The server is configured through environment variables, which can eaither be set as normal, or specified in a .env file listing all variables. For example:
+The server is configured through environment variables, which can either be set as normal, or specified in a .env file listing all variables. For example:
 
 ```
 MONGODB=user:password@domain/database
 ```
 
 ## Code linting
-We use [standard](https://github.com/feross/standard) to check code syntax and enforce our code style. To check and även fix some problems automatically inatall standard locally:
+We use [standard](https://github.com/feross/standard) to check code syntax and enforce our code style. To check and even fix some problems; automatically inStall standard locally:
 
 ```
 # Inställning standard
