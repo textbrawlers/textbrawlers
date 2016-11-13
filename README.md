@@ -38,5 +38,5 @@ standard --fix
 ```
 
 
-[logo]: http://retardarenan.henrik.ninja/client/png/title.png
+[logo]: http://retardarenan.henrik.ninja/client/png/interface/title.png
 [shield-circle-ci]: https://img.shields.io/circleci/project/ineentho/textspel.svg?style=flat-square
