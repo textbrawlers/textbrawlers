@@ -1,5 +1,12 @@
 .tb-pageinventory {
 
-  display: flex;
+  .pageinventoryrow-1 {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .pageinventoryrow-2 {
+    display: flex;
+  }
 
 }

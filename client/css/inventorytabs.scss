@@ -1,0 +1,10 @@
+.tb-inventorytabs {
+
+  $inv-slot-width: 50px;
+  $inv-slot-padding: 5px;
+
+  width: 5 * ($inv-slot-width + $inv-slot-padding * 2);
+
+  margin-right: 60px;
+
+}

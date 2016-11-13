@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import 'client/css/inventory.scss'
+import 'client/css/inventorytabs.scss'
 import InventorySlot from './inventorySlot2.js'
 
-const INV_WIDTH = 10
-const INV_HEIGHT = 4
+const INV_WIDTH = 5
+const INV_HEIGHT = 1
 
 export default class Game extends Component {
 
@@ -20,7 +20,7 @@ export default class Game extends Component {
 
   render () {
     return (
-      <div className='tb-inventory'>
+      <div className='tb-inventorytabs'>
         {this.renderInventorySlots()}
       </div>
     )

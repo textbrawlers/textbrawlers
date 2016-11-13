@@ -7,7 +7,7 @@ const INV_HEIGHT = 1
 
 export default class Game extends Component {
 
-  renderInventory () {
+  renderInventorySlots () {
     const slots = []
     for (let y = 0; y < INV_HEIGHT; y++) {
       for (let x = 0; x < INV_WIDTH; x++) {
@@ -21,7 +21,7 @@ export default class Game extends Component {
   render () {
     return (
       <div className='tb-equipped'>
-        {this.renderInventory()}
+        {this.renderInventorySlots()}
       </div>
     )
   }
