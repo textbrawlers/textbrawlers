@@ -24,7 +24,7 @@ MONGODB=user:password@domain/database
 ```
 
 ## Code linting
-We use [standard](https://github.com/feross/standard) to check code syntax and enforce our code style. To check and even fix some problems; automatically inStall standard locally:
+We use [standard](https://github.com/feross/standard) to check code syntax and enforce our code style. To check and even fix some problems; automatically install standard locally:
 
 ```
 # Inställning standard
