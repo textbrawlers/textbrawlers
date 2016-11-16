@@ -9,7 +9,7 @@ export default class Game extends Component {
         <div className='flex-container'>
           <div className='link-container'>
             <div className='link-cluster'>
-              <div className='link-title'>
+              <div className='title titlelink'>
                 Link Category
               </div>
               <div className='link-sub'>

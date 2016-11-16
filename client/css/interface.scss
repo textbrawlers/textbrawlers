@@ -35,12 +35,18 @@
 
   }
 
-  .link-title {
-    background: #f0c68b;
+  .title {
     border-bottom: 1px solid #574021;
     padding: 4px 0 4px 0;
     font-weight: bold;
     text-align: center;
+  }
+
+  .title {
+
+    &.titlelink {
+      background: #f0c68b;
+    }
   }
 
   .link-sub {
@@ -62,4 +68,10 @@
   .content-box {
 
   }
+
+  .pagerow {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
 }

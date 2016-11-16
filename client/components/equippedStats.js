@@ -6,7 +6,17 @@ export default class Game extends Component {
   render () {
     return (
       <div className='tb-equippedstats'>
-        STATS
+        <div className='stats'>
+          <div className='title titlestats'>
+            Stats
+          </div>
+          <div className='textrow'>
+            Stat 1: 40%
+          </div>
+          <div className='textrow'>
+            Stat 2: 40
+          </div>
+        </div>
       </div>
     )
   }

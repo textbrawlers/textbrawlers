@@ -1,10 +1,22 @@
 .tb-equippedstats {
 
-  $inv-slot-width: 50px;
-  $inv-slot-padding: 5px;
-
-  width: 3 * ($inv-slot-width + $inv-slot-padding * 2);
-
+  width: 180px;
   margin-right: 30px;
+
+  .stats {
+
+    margin-bottom: 5px;
+
+    .title {
+      &.titlestats {
+        background: #f0c68b;
+      }
+    }
+
+    .textrow {
+      padding: 4px 4px 0 4px;
+    }
+
+  }
 
 }

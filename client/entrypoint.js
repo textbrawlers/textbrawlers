@@ -20,6 +20,7 @@ import getPrefixes from 'common/items/prefixes.js'
 import EloCalculator from './components/tools/eloCalculator.js'
 import Interface from './components/interface.js'
 import PageInventory from './components/pageInventory.js'
+import PageFight from './components/pageFight.js'
 
 const NotFound = () => (<p> Jaha ja.</p>)
 
@@ -36,6 +37,7 @@ const routes = (
     <Route path='game2' component={Interface}>
       <IndexRedirect to='inventory' />
       <Route path='inventory' component={PageInventory} />
+      <Route path='fight' component={PageFight} />
     </Route>
     <Route path='tools' component={ToolsApp}>
       <Route path='itembrowser' component={ItemBrowser} />
