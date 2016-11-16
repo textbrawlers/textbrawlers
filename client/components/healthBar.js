@@ -12,13 +12,13 @@ export default class HealthBar extends Component {
         marginBottom: '5px'
       }}>
         <div style={{
-          background: 'url(/client/png/hpdepleted.png)',
+          background: 'url(/client/png/fightinterface/hpdepleted.png)',
           height: '28px',
           width: '100%',
           position: 'relative'
         }}>
           <div style={{
-            background: 'url(/client/png/hpfull.png)',
+            background: 'url(/client/png/fightinterface/hpfull.png)',
             height: '28px',
             width: barFillAmount + '%',
             position: 'absolute',
@@ -38,7 +38,7 @@ export default class HealthBar extends Component {
             {`${currHealth}/${maxHealth}`}
           </div>
           <div style={{
-            background: 'url(/client/png/hpborder.png)',
+            background: 'url(/client/png/fightinterface/hpborder.png)',
             height: '28px',
             width: '100%',
             position: 'absolute',

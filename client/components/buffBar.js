@@ -26,7 +26,7 @@ export default class BuffBar extends Component {
       return (
         <div key={i} title={b.name} style={{display: 'inline-block'}}>
           {buff.stacks > 1 && <span>{buff.stacks}x</span>}
-          <img src={`/client/png/${b.image}`} />
+          <img src={`/client/png/fighticons/${b.image}`} />
         </div>
       )
     })
