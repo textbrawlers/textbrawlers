@@ -25,7 +25,7 @@ import PageFight from './components/pageFight.js'
 const NotFound = () => (
   <div>
     <p>Jaha ja.</p>
-    <iframe title='BRAINPOWER' width='420' height='315' src='https://www.youtube.com/embed/0bOV4ExHPZY?autoplay=1' frameborder='0' allowfullscren />
+    <iframe title='BRAINPOWER' width='420' height='315' src='https://www.youtube.com/embed/h-mUGj41hWA?autoplay=1' frameborder='0' allowfullscren />
   </div>)
 
 const routes = (
