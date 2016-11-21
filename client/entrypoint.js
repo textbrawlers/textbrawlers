@@ -22,7 +22,11 @@ import Interface from './components/interface.js'
 import PageInventory from './components/pageInventory.js'
 import PageFight from './components/pageFight.js'
 
-const NotFound = () => (<p> Jaha ja.</p>)
+const NotFound = () => (
+  <div>
+    <p>Jaha ja.</p>
+    <iframe width='420' height='315' src='https://www.youtube.com/watch?v=0bOV4ExHPZY?autoplay=1' />
+  </div>)
 
 const routes = (
   <Route path='/'>
