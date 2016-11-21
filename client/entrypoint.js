@@ -23,10 +23,12 @@ import PageInventory from './components/pageInventory.js'
 import PageFight from './components/pageFight.js'
 
 const NotFound = () => (
-  <div>
-    <p>Jaha ja.</p>
+  <center>
+    <h1>404</h1><br />
+    <p>Page not found</p><br />
     <iframe title='BRAINPOWER' width='420' height='315' src='https://www.youtube.com/embed/h-mUGj41hWA?autoplay=1&start=11' frameborder='0' allowfullscreen />
-  </div>)
+  </center>
+)
 
 const routes = (
   <Route path='/'>
