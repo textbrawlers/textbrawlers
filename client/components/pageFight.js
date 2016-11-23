@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import 'client/css/pagefight.scss'
 import Equipped from './equipped.js'
-import Inventory from './inventory.js'
 import EquippedStats from './equippedStats.js'
 import FightLog from './fightLog.js'
 
