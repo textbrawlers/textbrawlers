@@ -5,6 +5,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemironarrow",
+	  "drop-rate": 100,
       "empower-stats": [{
         "category": "bow",
         "stats": {
@@ -20,6 +21,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemironarrow",
+	  "drop-rate": 75,
       "empower-stats": [{
         "category": "bow",
         "stats": {

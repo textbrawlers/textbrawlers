@@ -44,7 +44,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemserratedsword",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "attack-stats": {
         "damage": 6,
         "attack-speed": 0.85,
@@ -58,7 +58,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemnamelesssword",
-      "drop-rate": 50,
+      "drop-rate": 75,
       "attack-stats": {
         "damage": 13,
         "attack-speed": 0.75,
@@ -72,7 +72,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemancientsword",
-      "drop-rate": 50,
+      "drop-rate": 25,
       "attack-stats": {
         "damage": 10,
     	"attack-speed": 0.8,
@@ -112,22 +112,6 @@
     	"slow": true
       },
       "description": "For when the longsword just won't suffice."
-    },
-    "sword-of-burning-passion": {
-      "name": "Sword of Burning Passion",
-      "slot": "hand",
-      "attack": true,
-      "icon": "itemswordpassion",
-      "drop-rate": 20,
-      "attack-stats": {
-        "damage": 9,
-        "attack-speed": 0.8,
-        "crit-chance": 0.3,
-        "crit-damage": 0.8,
-        "burn-chance": 0.35,
-        "burn-damage": 0.4
-      },
-      "description": "Hot stuff."
     },
     "cursed-sword-weakness": {
       "name": "Cursed Sword of Weakness",

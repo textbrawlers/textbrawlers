@@ -27,7 +27,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemsai",
-      "drop-rate": 40,
+      "drop-rate": 50,
       "attack-stats": {
         "damage": 5,
         "attack-speed": 0.8,
@@ -50,7 +50,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemlinenknife",
-      "drop-rate": 10,
+      "drop-rate": 5,
       "attack-stats": {
         "damage": 2,
         "attack-speed": 0.6,

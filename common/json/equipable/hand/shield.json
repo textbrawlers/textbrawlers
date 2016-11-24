@@ -5,6 +5,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemwoodbuckler",
+	  "drop-rate": 75,
       "character-stats": {
         "block-chance": 0.35,
         "block-multiplier": 0.8
@@ -27,6 +28,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemtowershield",
+	  "drop-rate": 75,
       "character-stats": {
         "block-chance": 0.1,
         "block-multiplier": 0.35

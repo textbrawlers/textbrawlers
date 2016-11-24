@@ -20,6 +20,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemlongbow",
+	  "drop-rate": 75,
       "attack-stats": {
         "required-ammo": "arrow",
         "damage": 17,
@@ -35,6 +36,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemcrossbow",
+	  "drop-rate": 75,
       "attack-stats": {
         "required-ammo": "arrow",
         "damage": 14,

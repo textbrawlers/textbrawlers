@@ -31,6 +31,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemtomahawk",
+	  "drop-rate": 50,
       "attack-stats": {
         "damage": 9,
         "attack-speed": 0.65,
@@ -44,6 +45,7 @@
       "slot": "hand",
       "attack": true,
       "icon": "itemaxe",
+	  "drop-rate": 0,
       "attack-stats": {
         "damage": 10,
         "attack-speed": 0.35,

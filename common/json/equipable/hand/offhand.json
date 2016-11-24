@@ -5,7 +5,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemhourglass",
-      "drop-rate": 10,
+      "drop-rate": 50,
       "character-stats": {
         "timestop": 0.2
       },
@@ -16,7 +16,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemstarstone",
-      "drop-rate": 25,
+      "drop-rate": 50,
       "character-stats": {
         "damage-multiplier": 0.05,
         "attack-speed": 0.05,
@@ -34,7 +34,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemwinegoblet",
-      "drop-rate": 25,
+      "drop-rate": 50,
       "character-stats": {
         "crit-chance": -0.15,
         "damage-multiplier": 0.6,
@@ -47,7 +47,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemvigorcrystal",
-      "drop-rate": 75,
+      "drop-rate": 50,
       "character-stats": {
         "max-health": 60,
         "max-health-multiplier": 0.15
@@ -59,7 +59,7 @@
       "slot": "hand",
       "attack": false,
       "icon": "itemskull",
-      "drop-rate": 25,
+      "drop-rate": 50,
       "character-stats": {
         "damage": 2
       },
