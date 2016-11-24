@@ -19,7 +19,7 @@
       "slot": "trinket",
       "attack": false,
       "icon": "itemhaemorrhagingamulet",
-      "drop-rate": 50,
+      "drop-rate": 100,
       "character-stats": {
         "bleed-duration": 3
       },
@@ -30,7 +30,7 @@
       "slot": "trinket",
       "attack": false,
       "icon": "itemshieldingamulet",
-      "drop-rate": 50,
+      "drop-rate": 100,
       "character-stats": {
         "block-chance": 0.01,
         "block-multiplier": 0.96
@@ -48,7 +48,7 @@
       "slot": "trinket",
       "attack": true,
       "icon": "itemenergyfocus",
-      "drop-rate": 25,
+      "drop-rate": 100,
       "empower-stats": [{
         "category": "magical",
         "stats": {
@@ -62,7 +62,7 @@
       "slot": "trinket",
       "attack": false,
       "icon": "itemluckycoin",
-      "drop-rate": 50,
+      "drop-rate": 100,
       "character-stats": {
         "luck": 0.6,
         "crit-chance": -0.1

@@ -17,6 +17,7 @@
       "slot": "legs",
       "attack": false,
       "icon": "itemironpants",
+	  "drop-rate": 125,
       "character-stats": {
         "max-health": 10,
         "dodge-chance": -0.04
@@ -28,7 +29,7 @@
       "slot": "legs",
       "attack": false,
       "icon": "itemlamellarpants",
-      "drop-rate": 75,
+      "drop-rate": 125,
       "character-stats": {
         "block-chance": 0.08,
 		    "max-health": -10
@@ -40,6 +41,7 @@
       "slot": "legs",
       "attack": false,
       "icon": "itemlinenpants",
+	  "drop-rate": 50,
       "character-stats": {
         "attack-speed": 0.04,
         "dodge-chance": 0.02,

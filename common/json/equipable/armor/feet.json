@@ -17,6 +17,7 @@
       "slot": "feet",
       "attack": false,
       "icon": "itemironshoes",
+	  "drop-rate": 125,
       "character-stats": {
         "max-health": 5,
         "dodge-chance": -0.02
@@ -28,7 +29,7 @@
       "slot": "feet",
       "attack": false,
       "icon": "itemlamellarshoes",
-      "drop-rate": 75,
+      "drop-rate": 125,
       "character-stats": {
         "block-chance": 0.04,
 		    "max-health": -5
