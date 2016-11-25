@@ -155,5 +155,38 @@
         "max-health-multiplier": -0.09
       }
     }
+  },
+
+  "discipline": {
+    "impulsive": {
+      "name": "Impulsive",
+      "drop-rate": 25,
+      "character-stats": {
+        "crit-damage": 0.04,
+        "crit-chance": -0.02
+      }
+    },
+    "rash": {
+      "name": "Rash",
+      "character-stats": {
+        "crit-damage": 0.02,
+        "crit-chance": -0.01
+      }
+    },
+    "deliberate": {
+      "name": "Deliberate",
+      "character-stats": {
+        "crit-chance": 0.01,
+        "crit-damage": -0.02
+      }
+    },
+    "disciplined": {
+      "name": "Disciplined",
+      "drop-rate": 25,
+      "character-stats": {
+        "crit-chance": 0.02,
+        "crit-damage": -0.04
+      }
+    }
   }
 }
