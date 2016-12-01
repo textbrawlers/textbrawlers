@@ -40,8 +40,11 @@
       "monk": "npm:monk@^3.0.7",
       "react-contextmenu": "npm:react-contextmenu@^1.6.2",
       "react-dnd-html5-backend": "npm:react-dnd-html5-backend@^2.1.2",
+      "react-redux": "npm:react-redux@^4.4.5",
       "react-router": "npm:react-router@^2.6.0",
       "react-tether": "npm:react-tether@^0.5.2",
+      "redux-logger": "npm:redux-logger@^2.7.4",
+      "redux-thunk": "npm:redux-thunk@^2.1.0",
       "sass": "github:mobilexag/plugin-sass@^0.4.6",
       "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
       "whatwg-fetch": "npm:whatwg-fetch@^1.0.0",
@@ -73,6 +76,7 @@
       "react-dnd": "npm:react-dnd@^2.1.4",
       "react-dom": "npm:react-dom@^15.2.1",
       "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
+      "redux": "npm:redux@^3.6.0",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
       "timers": "github:jspm/nodelibs-timers@^0.2.0-alpha",
@@ -104,6 +108,22 @@
         "map": {
           "./register.js": {
             "browser": "./register-shim.js"
+          }
+        }
+      },
+      "npm:asap@2.0.5": {
+        "map": {
+          "./asap": {
+            "browser": "./browser-asap.js"
+          },
+          "./asap.js": {
+            "browser": "./browser-asap.js"
+          },
+          "./raw": {
+            "browser": "./browser-raw.js"
+          },
+          "./raw.js": {
+            "browser": "./browser-raw.js"
           }
         }
       },
@@ -219,6 +239,11 @@
           "test.js"
         ]
       },
+      "npm:inherits@2.0.3": {
+        "ignore": [
+          "test.js"
+        ]
+      },
       "npm:keygrip@1.0.1": {
         "map": {
           "keygrip": "@empty"
@@ -243,6 +268,12 @@
         }
       },
       "npm:lodash@4.15.0": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:lodash@4.16.6": {
         "map": {
           "buffer": "@empty",
           "process": "@empty"

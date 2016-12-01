@@ -21,6 +21,10 @@ import EloCalculator from './components/tools/eloCalculator.js'
 import Interface from './components/interface.js'
 import PageInventory from './components/pageInventory.js'
 import PageFight from './components/pageFight.js'
+import { Provider } from 'react-redux'
+import createStore from './store/createStore.js'
+import { fetchInventory } from './store/actions.js'
+import Item from 'common/game/item.js'
 
 const NotFound = () => (
   <center>
@@ -29,6 +33,16 @@ const NotFound = () => (
     <iframe title='BRAINPOWER' width='420' height='315' src='https://www.youtube.com/embed/h-mUGj41hWA?autoplay=1&start=11' frameborder='0' allowfullscreen />
   </center>
 )
+
+const store = createStore()
+
+store.subscribe(() => {
+  console.log('store update', store.getState())
+})
+
+store.dispatch({
+  type: 'TEST'
+})
 
 const routes = (
   <Route path='/'>
@@ -60,9 +74,11 @@ class RenderForcer extends React.Component {
   }
   render () {
     return (
-      <Router history={browserHistory}>
-        {routes}
-      </Router>
+      <Provider store={store}>
+        <Router history={browserHistory}>
+          {routes}
+        </Router>
+      </Provider>
     )
   }
 }
@@ -71,8 +87,12 @@ const WrappedRenderForcer = DragDropContext(HTML5Backend)(RenderForcer)
 
 Promise.all([
   getItems(),
-  getPrefixes()
+  getPrefixes(),
+  Item.loadPromise
 ]).then(() => {
+  console.log('Loaded initial items & prefixes')
+  store.dispatch((fetchInventory('me')))
+
   render((
     <WrappedRenderForcer />
   ), document.getElementById('root'))

@@ -43,6 +43,12 @@ export default class Inventory {
     return this.inventory[slot]
   }
 
+  *[Symbol.iterator] () {
+    for (let i = 0; i < this.size; i++) {
+      yield this.get(i)
+    }
+  }
+
   static fromJSON (Type, jsonInventory, size) {
     jsonInventory = jsonInventory || {}
 
