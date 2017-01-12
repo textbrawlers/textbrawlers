@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'client/css/interface.scss'
 
-export default class Game extends Component {
+export default class Interface extends Component {
   render () {
     return (
       <div className='tb-interface'>

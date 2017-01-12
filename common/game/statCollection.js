@@ -60,6 +60,14 @@ export default class StatCollection {
     this.stats = this.stats.filter(fn)
   }
 
+  forEach (fn) {
+    this.stats.forEach(fn)
+  }
+
+  map (fn) {
+    return this.stats.map(fn)
+  }
+
   serialize () {
     return this.stats.map(({id, value}) => ({ id, value }))
   }

@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
 import 'client/css/equipped.scss'
 import InventorySlot from './inventorySlot2.js'
+import InventoryItem from './invItem.js'
+import { connect } from 'react-redux'
 
-const INV_WIDTH = 7
-const INV_HEIGHT = 1
+const INV_SIZE = 7
 
-export default class Game extends Component {
+class Equipped extends Component {
 
   renderInventorySlots () {
-    const slots = []
-    for (let y = 0; y < INV_HEIGHT; y++) {
-      for (let x = 0; x < INV_WIDTH; x++) {
-        slots.push(<InventorySlot key={x + '.' + y} />)
-      }
+    if (!this.props.player || !this.props.player.inventory) {
+      return <p>Loading</p>
     }
 
-    return slots
+    const equippedInventory = this.props.player.inventory.equipped
+
+    return [...equippedInventory.slice(0, INV_SIZE)].map((item, slot) => (
+      <InventorySlot key={slot} >
+        {item && <InventoryItem slot={slot} item={item} inventory={equippedInventory} />}
+      </InventorySlot>
+    ))
   }
 
   render () {
@@ -26,3 +30,17 @@ export default class Game extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  player: state.inventoriesById.me
+})
+
+const mapDispatchToProps = (dispatch) => ({
+})
+
+const MyEquipped = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Equipped)
+
+export default MyEquipped

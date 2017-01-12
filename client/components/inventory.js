@@ -15,7 +15,7 @@ class Inventory extends Component {
     }
     const inventory = this.props.player.inventory.inventory
 
-    return [...inventory].slice(0, INV_WIDTH * INV_HEIGHT).map((item, slot) => (
+    return [...inventory.slice(0, INV_WIDTH * INV_HEIGHT)].map((item, slot) => (
       <InventorySlot key={slot} >
         {item && <InventoryItem slot={slot} item={item} inventory={inventory} />}
       </InventorySlot>

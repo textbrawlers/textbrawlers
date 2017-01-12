@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'client/css/fightlog.scss'
 
-export default class Game extends Component {
+export default class FightLog extends Component {
 
   render () {
     return (

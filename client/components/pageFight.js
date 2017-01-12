@@ -4,7 +4,7 @@ import Equipped from './equipped.js'
 import EquippedStats from './equippedStats.js'
 import FightLog from './fightLog.js'
 
-export default class Game extends Component {
+export default class PageFight extends Component {
 
   render () {
     return (

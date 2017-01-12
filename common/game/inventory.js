@@ -49,6 +49,12 @@ export default class Inventory {
     }
   }
 
+  *slice (start, end) {
+    for (let i = start; i < this.size && i < end; i++) {
+      yield this.get(i)
+    }
+  }
+
   static fromJSON (Type, jsonInventory, size) {
     jsonInventory = jsonInventory || {}
 

@@ -5,7 +5,7 @@ import InventorySlot from './inventorySlot2.js'
 const INV_WIDTH = 5
 const INV_HEIGHT = 1
 
-export default class Game extends Component {
+export default class InventoryTabs extends Component {
 
   renderInventorySlots () {
     const slots = []

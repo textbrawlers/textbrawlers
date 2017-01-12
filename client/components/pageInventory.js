@@ -5,10 +5,17 @@ import Inventory from './inventory.js'
 import EquippedStats from './equippedStats.js'
 import InventoryTabs from './inventoryTabs.js'
 import Reassembler from './reassembler.js'
+import { connect } from 'react-redux'
 
-export default class Game extends Component {
+class PageInventory extends Component {
 
   render () {
+    const {player} = this.props
+
+    if (!player || !player.inventory) {
+      return <div>Loading...</div>
+    }
+
     return (
       <div className='tb-pageinventory'>
         <div className='pagerow'>
@@ -16,7 +23,7 @@ export default class Game extends Component {
           <Inventory />
         </div>
         <div className='pagerow'>
-          <EquippedStats />
+          <EquippedStats player={player.inventory} />
           <InventoryTabs />
           <Reassembler />
         </div>
@@ -24,3 +31,17 @@ export default class Game extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  player: state.inventoriesById.me
+})
+
+const mapDispatchToProps = (dispatch) => ({
+})
+
+const ConnectedPageInventory = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PageInventory)
+
+export default ConnectedPageInventory
