@@ -3,7 +3,7 @@ export default {
     return weapon.type === 'magical'
   },
 
-  getText (weapon, round) {
+  fightText (round) {
     let result = []
     if (round.blocked) {
       result.push({
@@ -24,7 +24,7 @@ export default {
     return result
   },
 
-  deathText (weapon, round) {
+  deathText (round) {
     let result = []
     result.push({
       chance: 50,

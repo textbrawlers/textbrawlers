@@ -9,6 +9,10 @@ const fightDB = db.get('fights')
 const userDB = db.get('users')
 
 function getRandom (droptable) {
+  if (droptable.length <= 0 || !droptable) {
+    console.log('FightManager, func getRandom() got empty table')
+  }
+
   let rn = Math.random()
 
   for (const item of droptable) {

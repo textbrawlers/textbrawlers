@@ -3,7 +3,7 @@ export default {
     return weapon.type === 'head'
   },
 
-  getText (weapon, round) {
+  fightText (round) {
     let result = []
     if (round.missed) {
       result.push({
@@ -49,7 +49,7 @@ export default {
     return result
   },
 
-  deathText (weapon, round) {
+  deathText (round) {
     let result = []
     result.push({
       chance: 50,

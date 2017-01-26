@@ -3,7 +3,7 @@ export default {
     return weapon.type === 'bow'
   },
 
-  getText (weapon, round) {
+  fightText (round) {
     let result = []
     if (round.blocked) {
       result.push({

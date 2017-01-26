@@ -62,7 +62,7 @@ export default class Fight {
         }
       }
     } else {
-      Object.assign(this, modifierHandler.newTurn(this))
+      Object.assign(this, modifierHandler.func(this, funcType.newTurn))
       resp = this.turnResp()
       this.newTurn = false
     }
@@ -88,14 +88,14 @@ export default class Fight {
           console.log(this)
         }
         this.numAttacks = this.weapons[this.currentWeapon].stats.getValue('attack-speed')
-        Object.assign(this, modifierHandler.weaponChange(this))
+        Object.assign(this, modifierHandler.func(this, funcType.weaponChange))
       }
-      Object.assign(this, modifierHandler.init(this))
+      Object.assign(this, modifierHandler.func(this, funcType.init))
     }
   }
 
   endAttack () {
-    Object.assign(this, modifierHandler.end(this))
+    Object.assign(this, modifierHandler.func(this, funcType.end))
     this.numAttacks -= 1
     if (this.numAttacks <= 0) {
       this.currentWeapon++
@@ -145,7 +145,7 @@ export default class Fight {
           this.attackerIndex = this.getCurrentAttackerIndex()
           this.defenderIndex = this.getCurrentDefenderIndex()
 
-          Object.assign(this, modifierHandler.apply(this))
+          Object.assign(this, modifierHandler.func(this, funcType.apply))
 
           if (this.damage < 1) {
             this.damage = 1
@@ -205,7 +205,7 @@ export default class Fight {
     this.defenderIndex = this.getCurrentDefenderIndex()
 
     this.dots = {}
-    Object.assign(this, modifierHandler.tick(this))
+    Object.assign(this, modifierHandler.func(this, funcType.tick))
 
     let totalDamage = 0
     Object.entries(this.dots).forEach(([dot, obj]) => {
@@ -235,12 +235,23 @@ export default class Fight {
   }
 
   turnResp () {
+    const texts = modifierHandler.turnText(this)
+    const i = Math.random() * texts.length
     let resp = {
       type: 'newTurn',
       attacker: this.turn,
       defender: this.playerStates[this.turn + 1] ? this.turn + 1 : 0,
-      message: modifierHandler.turnText(this)
+      message: texts[i] ? texts[i] : texts[0]
     }
     return resp
   }
+}
+
+let funcType = {
+  newTurn: 'newTurn',
+  tick: 'tick',
+  weaponChange: 'weaponChange',
+  init: 'init',
+  end: 'end',
+  apply: 'apply'
 }

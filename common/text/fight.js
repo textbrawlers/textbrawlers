@@ -1,4 +1,5 @@
 import modifierHandler from 'server/modifierHandler.js'
+import textType from './textFuncEnum.js'
 import types from './types.js'
 
 export default function messages (m, weapon, attacker, defender, round) {
@@ -16,8 +17,8 @@ export default function messages (m, weapon, attacker, defender, round) {
     m.add(50, '[defender] tripped and broke his neck...')
     m.add(100, '[attacker] inflicted fatal damage to [defender].')
 
-    types.deathText(m, weapon, round)
-    modifierHandler.deathText(round).forEach(cdt => {
+    types.textFunc(m, weapon, round, textType.deathText)
+    modifierHandler.textFunc(round, textType.deathText).forEach(cdt => {
       m.add(cdt.chance, cdt.text)
     })
   } else if (!round.hasWeapon) {
@@ -27,11 +28,11 @@ export default function messages (m, weapon, attacker, defender, round) {
     m.add(50, '[attacker]...')
     m.add(1, 'Suddenly a wild developer appeard and stole [attacker]\'s weapon.')
   } else {
-    modifierHandler.fightText(round).forEach(cdt => {
+    modifierHandler.textFunc(round, textType.fightText).forEach(cdt => {
       m.add(cdt.chance, cdt.text)
     })
+    types.textFunc(m, weapon, round, textType.fightText)
     if (!round.dodged) {
-      types.getText(m, weapon, round)
       if (weapon.type !== 'head') {
         if (weapon.hasStat('ranged')) {
           if (round.missed) {
