@@ -13,17 +13,20 @@ import thorns from './thorns.js'
 import maffect from './magicalaffect.js'
 import multistrike from './multistrike.js'
 
-// Add modifiers to array. Order is as follows: Dodge, On Dodge Effects, Block, On Block Effects, Crit, On Crit Effects, On Hit Effects, Other
+// Add modifiers to array, ORDER MATTERS.
 const modifiers = [
+  // Dodge
   dodge,
-
+  // On Dodge
   multistrike,
-
+  // Block
   block,
+  // On Block
   thorns,
-
+  // Crit
   crit,
-
+  // On Crit
+  // On Hit
   bloodlust,
   arcane,
   bleed,
@@ -31,7 +34,7 @@ const modifiers = [
   poison,
   stun,
   maffect,
-
+  // Other
   timestop
 ]
 
