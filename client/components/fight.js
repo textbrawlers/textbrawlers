@@ -314,9 +314,9 @@ export default class Fight extends Component {
     }
 
     const msg = attack.message
-      .replace(/\[attacker\]/g, attackerNameStyled)
-      .replace(/\[defender\]/g, defenderNameStyled)
-      .replace(/\[item-name\]/g, weaponNameStyled)
+      .replace(/\[attacker]/g, attackerNameStyled)
+      .replace(/\[defender]/g, defenderNameStyled)
+      .replace(/\[item-name]/g, weaponNameStyled)
 
     return `${msg} (${attack.damage})`
   }
@@ -347,8 +347,8 @@ export default class Fight extends Component {
     const defender = this.state.accounts[attack.defender].username
 
     const msg = attack.message
-      .replace(/\[attacker\]/g, attacker)
-      .replace(/\[defender\]/g, defender)
+      .replace(/\[attacker]/g, attacker)
+      .replace(/\[defender]/g, defender)
 
     return `${msg}`
   }
