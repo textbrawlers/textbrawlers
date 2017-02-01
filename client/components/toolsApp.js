@@ -14,7 +14,7 @@ export default class extends React.Component {
             <div className='leftlinks' />
             <div className='middlelinks'>
               <Link to='/'>
-                <img className='title' src='/client/png/title.png' />
+                <img className='title' src='/client/png/interface/title.png' />
               </Link>
             </div>
             <div className='rightlinks' />
