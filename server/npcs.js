@@ -42,17 +42,22 @@ export function getCurrentNPCsForPlayer (acc) {
 }
 
 export function genNewNPCs (diffVal) {
+  let availableNPCs = []
+  npcs.forEach(npc => {
+    availableNPCs.push(npc)
+  })
   let npcsForPlayer = []
-  for (let i = 0; i < 5; i++) {
-    npcsForPlayer[i] = randomizeNPC(diffVal, i).serialize()
+  for (let i = 0; i < 3; i++) {
+    const npcObj = randomizeNPC(availableNPCs, diffVal)
+    npcsForPlayer[i] = npcObj.npc.serialize()
+    availableNPCs.splice(npcObj.index, 1)
   }
   return npcsForPlayer
 }
 
-function randomizeNPC (diffVal, selectDiff) {
-  const npcIndex = Math.floor(Math.random() * npcs.length)
-  const npc = npcs[npcIndex] ? npcs[npcIndex] : npcs[0]
-  const difficulty = diffVal * (selectDiff + 1)
+function randomizeNPC (availableNPCs, diffVal) {
+  const npcIndex = Math.floor(Math.random() * availableNPCs.length)
+  const npc = availableNPCs[npcIndex] ? availableNPCs[npcIndex] : availableNPCs[0]
 
   const weapons = {
     head: EquippedInventory.SLOT_HEAD,
@@ -82,17 +87,19 @@ function randomizeNPC (diffVal, selectDiff) {
 
     return {
       weapon: weapon,
-      stats: buildStatCollection(weaponConfig.stats, difficulty)
+      stats: buildStatCollection(weaponConfig.stats, diffVal)
     }
   }).filter(weapon => weapon)
 
-  return new NPC({
-    name: npc.name,
-    difficulty: selectDiff,
-    stats: buildStatCollection(npc.stats, difficulty),
-    weaponStats: weaponStats,
-    equipped: equipped,
-    type: 'npc'
+  return ({
+    index: npcIndex,
+    npc: new NPC({
+      name: npc.name,
+      stats: buildStatCollection(npc.stats, diffVal),
+      weaponStats: weaponStats,
+      equipped: equipped,
+      type: 'npc'
+    })
   })
 }
 
@@ -118,7 +125,7 @@ function shouldRound (key) {
 }
 
 function getMultiplierValue () {
-  return Math.random() * 0.4 + 0.8
+  return Math.random() * 0.2 + 0.9
 }
 
 function update (acc) {

@@ -206,19 +206,28 @@ export async function acceptInvite (ctx) {
 
 export async function fightNPC (ctx) {
   const playerId = ctx.account._id
-  const curryPlayer = await users.findOne({ _id: playerId })
+  const currentPlayer = await users.findOne({ _id: playerId })
   const npcIndex = ctx.request.body.enemyId
-  const npc = Entity.fromJSON(curryPlayer.npcs[npcIndex])
+  const npc = Entity.fromJSON(currentPlayer.npcs[npcIndex])
 
   Realtime.startNPCFight(playerId, npc)
 
   ctx.body = { success: true }
 }
 
-export async function requestNPCs (ctx) {
-  const curryPlayer = await users.findOne({ _id: ctx.account._id })
+export async function requestNPCSelectionData (ctx) {
+  const currentPlayer = await users.findOne({_id: ctx.account._id})
+  const resp = {
+    npcLevel: currentPlayer.npcLevel,
+    npcs: NPCs.getCurrentNPCsForPlayer(currentPlayer)
+  }
+  ctx.body = resp
+}
 
-  const npcs = NPCs.getCurrentNPCsForPlayer(curryPlayer)
+export async function requestNPCs (ctx) {
+  const currentPlayer = await users.findOne({ _id: ctx.account._id })
+
+  const npcs = NPCs.getCurrentNPCsForPlayer(currentPlayer)
   ctx.body = { npcs: npcs }
 }
 

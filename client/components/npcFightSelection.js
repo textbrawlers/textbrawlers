@@ -2,14 +2,6 @@ import React, { Component } from 'react'
 import request from 'common/api/request.js'
 import Entity from 'common/game/entity.js'
 
-const diffColorMap = {
-  0: 'green',
-  1: 'greenyellow',
-  2: 'yellow',
-  3: 'orange',
-  4: 'red'
-}
-
 export default class NPCFightSelection extends Component {
 
   constructor () {
@@ -22,15 +14,16 @@ export default class NPCFightSelection extends Component {
     this.clearNPCs = this.clearNPCs.bind(this)
   }
 
-  requestNpcs () {
-    request.get('/api/game/requestNPCs').then(resp => {
+  requestNPCSelectionData () {
+    request.get('/api/game/requestNPCSelectionData').then(resp => {
       const enemies = resp.json.npcs.map(npc => Entity.fromJSON(npc))
-      this.setState({ enemies })
+      const npcLevel = resp.json.npcLevel
+      this.setState({ enemies, npcLevel })
     }).catch(err => console.error(err.stack || err))
   }
 
   componentWillMount () {
-    this.requestNpcs()
+    this.requestNPCSelectionData()
   }
 
   selectEnemy (enemyId) {
@@ -39,22 +32,45 @@ export default class NPCFightSelection extends Component {
 
   clearNPCs () {
     request.post('/api/game/clearNPCs', {}).catch(err => console.error(err.stack || err)).then(() => {
-      this.requestNpcs()
+      this.requestNPCSelectionData()
     })
   }
 
   renderEnemy (enemy, id) {
     const style = {
-      background: diffColorMap[enemy.difficulty],
+      background: 'pink',
       margin: 15
     }
 
     return (
       <a onClick={() => this.selectEnemy(id)} key={id}>
         <div style={style}>
-          Name: {enemy.name}; hp: {enemy.stats.getValue('max-health')}
+          Name: {enemy.name}
         </div>
       </a>
+    )
+  }
+
+  renderDifficulties () {
+    function getDiffOption (number) {
+      return (
+        <option key={number} value={number}>{number}</option>
+      )
+    }
+
+    let diffArr = []
+    if (this.state.npcLevel) {
+      for (let i = 1; i < this.state.npcLevel; i++) {
+        diffArr.push(getDiffOption(i))
+      }
+    } else {
+      diffArr.push(getDiffOption(1))
+    }
+
+    return (
+      <select>
+        {diffArr}
+      </select>
     )
   }
 
@@ -64,6 +80,8 @@ export default class NPCFightSelection extends Component {
         Select enemy:
 
         {this.state.enemies.map((enemy, id) => this.renderEnemy(enemy, id))}
+        <br />
+        {this.renderDifficulties()}
         <br />
         <button id='clearNPCs' onClick={this.clearNPCs}>
           Clear NPCs
