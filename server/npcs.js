@@ -5,9 +5,11 @@ import Stat from 'common/game/stat.js'
 import Item from 'common/game/item.js'
 import StatCollection from 'common/game/statCollection.js'
 import EquippedInventory from 'common/game/equippedInventory.js'
+// import Entity from 'common/game/entity.js'
 
 const playerDB = db.get('users')
 
+const nrOfNPCsPerLevel = 3
 const npcs = []
 
 export async function parseNPCs () {
@@ -19,46 +21,39 @@ export async function parseNPCs () {
   })
 }
 
-export function getCurrentNPCsForPlayer (acc) {
+export function getCurrentNPCNamesForPlayer (acc) {
   let updateDB = false
-  let diffVal = 0.1
-  if (acc.npcDifficulty) {
-    diffVal = acc.npcDifficulty
-  } else {
-    acc.npcDifficulty = diffVal
-    updateDB = true
-  }
-  let npcsForPlayer = []
+  let npcNames = []
   if (acc.npcs && acc.npcs.length > 0) {
-    npcsForPlayer = acc.npcs
+    acc.npcs.forEach(npc => {
+      npcNames.push(npc.name)
+    })
   } else {
-    npcsForPlayer = acc.npcs = genNewNPCs(diffVal)
-    updateDB = true
+    let availableNPCs = []
+    npcs.forEach(npc => {
+      availableNPCs.push(npc)
+    })
+    for (let i = 0; i < nrOfNPCsPerLevel; i++) {
+      const npcIndex = Math.floor(Math.random() * availableNPCs.length)
+      const npc = availableNPCs[npcIndex] ? availableNPCs[npcIndex] : availableNPCs[0]
+      npcNames.push(npc.name)
+      availableNPCs.splice(npcIndex, 1)
+      updateDB = true
+    }
   }
   if (updateDB) {
     update(acc)
   }
-  return npcsForPlayer
+  return npcNames
 }
 
-export function genNewNPCs (diffVal) {
-  let availableNPCs = []
-  npcs.forEach(npc => {
-    availableNPCs.push(npc)
-  })
+export function getCurrentNPCsForPlayer (acc, level) {
   let npcsForPlayer = []
-  for (let i = 0; i < 3; i++) {
-    const npcObj = randomizeNPC(availableNPCs, diffVal)
-    npcsForPlayer[i] = npcObj.npc.serialize()
-    availableNPCs.splice(npcObj.index, 1)
-  }
+  acc.npcs.forEach(npc => { npcsForPlayer.pusch(randomizeNPC(npc, level)) })
   return npcsForPlayer
 }
 
-function randomizeNPC (availableNPCs, diffVal) {
-  const npcIndex = Math.floor(Math.random() * availableNPCs.length)
-  const npc = availableNPCs[npcIndex] ? availableNPCs[npcIndex] : availableNPCs[0]
-
+function randomizeNPC (npc, level) {
   const weapons = {
     head: EquippedInventory.SLOT_HEAD,
     body: EquippedInventory.SLOT_BODY,
@@ -87,19 +82,16 @@ function randomizeNPC (availableNPCs, diffVal) {
 
     return {
       weapon: weapon,
-      stats: buildStatCollection(weaponConfig.stats, diffVal)
+      stats: buildStatCollection(weaponConfig.stats, level)
     }
   }).filter(weapon => weapon)
 
-  return ({
-    index: npcIndex,
-    npc: new NPC({
-      name: npc.name,
-      stats: buildStatCollection(npc.stats, diffVal),
-      weaponStats: weaponStats,
-      equipped: equipped,
-      type: 'npc'
-    })
+  return new NPC({
+    name: npc.name,
+    stats: buildStatCollection(npc.stats, level),
+    weaponStats: weaponStats,
+    equipped: equipped,
+    type: 'npc'
   })
 }
 

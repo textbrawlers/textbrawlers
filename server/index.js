@@ -64,7 +64,7 @@ router.post('/game/inviteGame', auth, game.inviteGame)
 router.post('/game/acceptInvite', auth, game.acceptInvite)
 router.post('/game/createCustomItem', auth, game.createCustomItem)
 router.post('/game/markItemSeen', auth, game.markItemSeen)
-router.post('/game/fightNPC', auth, game.fightNPC)
+router.post('/game/fightLevel', auth, game.fightLevel)
 router.post('/game/clearNPCs', auth, game.clearNPCs) // Only debugging purpouse
 router.get('/game/requestNPCSelectionData', auth, game.requestNPCSelectionData)
 router.get('/game/requestNPCs', auth, game.requestNPCs)

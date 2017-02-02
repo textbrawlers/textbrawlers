@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import request from 'common/api/request.js'
-import Entity from 'common/game/entity.js'
 
 export default class NPCFightSelection extends Component {
 
@@ -16,7 +15,7 @@ export default class NPCFightSelection extends Component {
 
   requestNPCSelectionData () {
     request.get('/api/game/requestNPCSelectionData').then(resp => {
-      const enemies = resp.json.npcs.map(npc => Entity.fromJSON(npc))
+      const enemies = resp.json.npcs
       const npcLevel = resp.json.npcLevel
       this.setState({ enemies, npcLevel })
     }).catch(err => console.error(err.stack || err))
@@ -26,8 +25,8 @@ export default class NPCFightSelection extends Component {
     this.requestNPCSelectionData()
   }
 
-  selectEnemy (enemyId) {
-    request.post('/api/game/fightNPC', {enemyId}).catch(err => console.error(err.stack || err))
+  fightLevel (level) {
+    request.post('/api/game/fightLevel', {level}).catch(err => console.error(err.stack || err))
   }
 
   clearNPCs () {
@@ -36,18 +35,16 @@ export default class NPCFightSelection extends Component {
     })
   }
 
-  renderEnemy (enemy, id) {
+  renderEnemy (name) {
     const style = {
       background: 'pink',
       margin: 15
     }
 
     return (
-      <a onClick={() => this.selectEnemy(id)} key={id}>
-        <div style={style}>
-          Name: {enemy.name}
-        </div>
-      </a>
+      <div style={style}>
+        Name: {name}
+      </div>
     )
   }
 
@@ -68,7 +65,7 @@ export default class NPCFightSelection extends Component {
     }
 
     return (
-      <select>
+      <select id='level'>
         {diffArr}
       </select>
     )
@@ -79,12 +76,15 @@ export default class NPCFightSelection extends Component {
       <div className='page-game-fight-selection'>
         Select enemy:
 
-        {this.state.enemies.map((enemy, id) => this.renderEnemy(enemy, id))}
+        {this.state.enemies.map(enemy => this.renderEnemy(enemy))}
         <br />
         {this.renderDifficulties()}
         <br />
         <button id='clearNPCs' onClick={this.clearNPCs}>
           Clear NPCs
+        </button>
+        <button id='fightLevel' onClick={this.fightLevel(1)}>
+          Fight Level
         </button>
       </div>
     )

@@ -4,7 +4,7 @@ import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
 import Item from 'common/game/item.js'
 import * as NPCs from 'server/npcs.js'
-import Entity from 'common/game/entity.js'
+// import Entity from 'common/game/entity.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
 const users = db.get('users')
@@ -204,13 +204,12 @@ export async function acceptInvite (ctx) {
   ctx.body = { success: true }
 }
 
-export async function fightNPC (ctx) {
+export async function fightLevel (ctx) {
   const playerId = ctx.account._id
-  const currentPlayer = await users.findOne({ _id: playerId })
-  const npcIndex = ctx.request.body.enemyId
-  const npc = Entity.fromJSON(currentPlayer.npcs[npcIndex])
+  const npcLevel = ctx.request.body.enemyId
+  const npcs = NPCs.getCurrentNPCsForPlayer(npcLevel)
 
-  Realtime.startNPCFight(playerId, npc)
+  Realtime.startNPCFight(playerId, npcs)
 
   ctx.body = { success: true }
 }
@@ -219,7 +218,7 @@ export async function requestNPCSelectionData (ctx) {
   const currentPlayer = await users.findOne({_id: ctx.account._id})
   const resp = {
     npcLevel: currentPlayer.npcLevel,
-    npcs: NPCs.getCurrentNPCsForPlayer(currentPlayer)
+    npcs: NPCs.getCurrentNPCNamesForPlayer(currentPlayer)
   }
   ctx.body = resp
 }
