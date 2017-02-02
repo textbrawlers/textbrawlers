@@ -1,6 +1,6 @@
-# [![Text Brawlers][logo]](http://retardarenan.henrik.ninja)
+# [![Text Brawlers][logo]](http://textbrawlers.com)
 
-[![Circle CI][shield-circle-ci]](https://circleci.com/gh/ineentho/textspel/)
+[![Circle CI][shield-circle-ci]](https://circleci.com/gh/textbrawlers/textbrawlers/)
 
 ## Starting a development server
 
@@ -38,5 +38,5 @@ standard --fix
 ```
 
 
-[logo]: http://retardarenan.henrik.ninja/client/png/interface/title.png
-[shield-circle-ci]: https://img.shields.io/circleci/project/ineentho/textspel.svg?style=flat-square
+[logo]: https://textbrawlers.com/client/png/interface/title.png
+[shield-circle-ci]: https://img.shields.io/circleci/project/textbrawlers/textbrawlers.svg?style=flat-square
