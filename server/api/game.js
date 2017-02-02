@@ -205,9 +205,10 @@ export async function acceptInvite (ctx) {
 }
 
 export async function fightLevel (ctx) {
+  const currentPlayer = await users.findOne({ _id: ctx.account._id })
   const playerId = ctx.account._id
   const npcLevel = ctx.request.body.enemyId
-  const npcs = NPCs.getCurrentNPCsForPlayer(npcLevel)
+  const npcs = NPCs.getCurrentNPCsForPlayer(currentPlayer, npcLevel)
 
   Realtime.startNPCFight(playerId, npcs)
 

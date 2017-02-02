@@ -67,7 +67,6 @@ router.post('/game/markItemSeen', auth, game.markItemSeen)
 router.post('/game/fightLevel', auth, game.fightLevel)
 router.post('/game/clearNPCs', auth, game.clearNPCs) // Only debugging purpouse
 router.get('/game/requestNPCSelectionData', auth, game.requestNPCSelectionData)
-router.get('/game/requestNPCs', auth, game.requestNPCs)
 router.get('/game/requestInventory', auth, game.requestInventory)
 router.get('/game/fight/:id', auth, game.getFight)
 router.post('/game/fight-subscribe/:id', auth, game.fightSubscribe)
