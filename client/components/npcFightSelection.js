@@ -83,7 +83,7 @@ export default class NPCFightSelection extends Component {
         <button id='clearNPCs' onClick={this.clearNPCs}>
           Clear NPCs
         </button>
-        <button id='fightLevel' onClick={this.fightLevel(1)}>
+        <button id='fightLevel' onClick={() => this.fightLevel(1)}>
           Fight Level
         </button>
       </div>

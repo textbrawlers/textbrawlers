@@ -23,6 +23,7 @@ export async function parseNPCs () {
 
 export function getCurrentNPCNamesForPlayer (acc) {
   let updateDB = false
+  let newNpcs = []
   let npcNames = []
   if (acc.npcs && acc.npcs.length > 0) {
     acc.npcs.forEach(npc => {
@@ -37,9 +38,11 @@ export function getCurrentNPCNamesForPlayer (acc) {
       const npcIndex = Math.floor(Math.random() * availableNPCs.length)
       const npc = availableNPCs[npcIndex] ? availableNPCs[npcIndex] : availableNPCs[0]
       npcNames.push(npc.name)
+      newNpcs.push(npc)
       availableNPCs.splice(npcIndex, 1)
       updateDB = true
     }
+    acc.npcs = newNpcs
   }
   if (updateDB) {
     update(acc)
@@ -49,7 +52,8 @@ export function getCurrentNPCNamesForPlayer (acc) {
 
 export function getCurrentNPCsForPlayer (acc, level) {
   let npcsForPlayer = []
-  acc.npcs.forEach(npc => { npcsForPlayer.pusch(randomizeNPC(npc, level)) })
+  console.log(acc.npcs)
+  acc.npcs.forEach(npc => { npcsForPlayer.push(randomizeNPC(npc, level)) })
   return npcsForPlayer
 }
 

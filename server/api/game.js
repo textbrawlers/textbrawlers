@@ -210,6 +210,8 @@ export async function fightLevel (ctx) {
   const npcLevel = ctx.request.body.enemyId
   const npcs = NPCs.getCurrentNPCsForPlayer(currentPlayer, npcLevel)
 
+  console.log(npcs)
+
   Realtime.startNPCFight(playerId, npcs)
 
   ctx.body = { success: true }
