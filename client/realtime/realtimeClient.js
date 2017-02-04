@@ -50,8 +50,9 @@ export default class RealtimeClient extends EventEmitter {
     const host = document.location.host.replace(/:.*/, '')
     const port = document.location.port
     const token = window.localStorage.getItem('key')
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss'
 
-    this.socket = new window.WebSocket(`wss://${host}:${port}/?token=${token}`)
+    this.socket = new window.WebSocket(`${protocol}://${host}:${port}/?token=${token}`)
 
     this.socket.addEventListener('open', this.onOpen.bind(this))
     this.socket.addEventListener('close', this.onClose.bind(this))
