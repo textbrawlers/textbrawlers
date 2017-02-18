@@ -51,9 +51,10 @@ export function getCurrentNPCNamesForPlayer (acc) {
 }
 
 export function getCurrentNPCsForPlayer (acc, level) {
+  console.log(level)
   let npcsForPlayer = []
-  console.log(acc.npcs)
   acc.npcs.forEach(npc => { npcsForPlayer.push(randomizeNPC(npc, level)) })
+  console.log(npcsForPlayer[0].stats)
   return npcsForPlayer
 }
 
@@ -90,13 +91,15 @@ function randomizeNPC (npc, level) {
     }
   }).filter(weapon => weapon)
 
-  return new NPC({
+  let rNpc = new NPC({
     name: npc.name,
     stats: buildStatCollection(npc.stats, level),
     weaponStats: weaponStats,
     equipped: equipped,
     type: 'npc'
   })
+
+  return rNpc
 }
 
 function buildStatCollection (stats, diffVal) {
