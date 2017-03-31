@@ -1,0 +1,18 @@
+{
+	"id": "tomator",
+	"name": "Tomator",
+	"stats": {
+		"max-health": [150, 170]
+	},
+	"equipped": {
+		"left": {
+			"id": "ketchup",
+			"stats": {
+				"damage": [4, 9],
+				"attack-speed": [2, 2.3],
+				"crit-chance": [0.3, 0.4],
+				"crit-damage": [0.45, 0.55]
+			}
+		}
+	}
+}
