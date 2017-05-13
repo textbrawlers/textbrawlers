@@ -153,9 +153,10 @@ export default class FightManager {
       userDB.findOne({ _id: stats.player.id }).then(acc => {
         const npcDBIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === npc.player.name)
         if (npcDBIndex === 2) {
-          if (!isNaN(acc.npcLevel) && acc.npcLevel) {
+          if (!isNaN(acc.npcLevel) && acc.npcLevel && acc.npcLevel === fightObj.level) {
             acc.npcLevel = acc.npcLevel + 1
-            // acc.npcs = getCurrentNPCNamesForPlayer(acc, acc.npcDifficulty)
+          } else if (!isNaN(acc.npcLevel) && acc.npcLevel) {
+            acc.npcLevel = acc.npcLevel
           } else {
             acc.npcLevel = 1
           }

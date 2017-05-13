@@ -42,12 +42,13 @@ export function startNPCFight (playerId, npcs) {
   doNPCFight(playerId, npcs)
 }
 
-async function doNPCFight (playerId, npcs) {
+async function doNPCFight (playerId, npcs, level) {
   const rtPlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
 
   for (let i = 0; i < 3; i++) {
     await refreshPlayers(rtPlayers)
-    const fight = await fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npcs[i]))
+    let fight = await fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npcs[i]))
+    fight.level = level
 
     rtPlayers.forEach(rtPlayer => {
       sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })
