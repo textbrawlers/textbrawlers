@@ -35,9 +35,10 @@ export default class NPCFightSelection extends Component {
     })
   }
 
-  renderEnemy (name) {
+  renderEnemy (name, defeated) {
+    let color = defeated ? 'green' : 'red'
     const style = {
-      background: 'pink',
+      background: color,
       margin: 15
     }
 
@@ -76,7 +77,7 @@ export default class NPCFightSelection extends Component {
       <div className='page-game-fight-selection'>
         Select enemy:
 
-        {this.state.enemies.map(enemy => this.renderEnemy(enemy))}
+        {this.state.enemies.map(enemy => this.renderEnemy(enemy.name, enemy.defeated))}
         <br />
         {this.renderDifficulties()}
         <br />

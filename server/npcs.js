@@ -27,7 +27,7 @@ export function getCurrentNPCNamesForPlayer (acc) {
   let npcNames = []
   if (acc.npcs && acc.npcs.length > 0) {
     acc.npcs.forEach(npc => {
-      npcNames.push(npc.name)
+      npcNames.push({name: npc.name, defeated: npc.defeated})
     })
   } else {
     let availableNPCs = []
@@ -36,8 +36,9 @@ export function getCurrentNPCNamesForPlayer (acc) {
     })
     for (let i = 0; i < nrOfNPCsPerLevel; i++) {
       const npcIndex = Math.floor(Math.random() * availableNPCs.length)
-      const npc = availableNPCs[npcIndex] ? availableNPCs[npcIndex] : availableNPCs[0]
-      npcNames.push(npc.name)
+      let npc = availableNPCs[npcIndex] ? availableNPCs[npcIndex] : availableNPCs[0]
+      npc.defeated = false
+      npcNames.push({name: npc.name, defeated: npc.defeated})
       newNpcs.push(npc)
       availableNPCs.splice(npcIndex, 1)
       updateDB = true
