@@ -53,7 +53,7 @@ export function getCurrentNPCNamesForPlayer (acc) {
 
 export function getCurrentNPCsForPlayer (acc, level) {
   let npcsForPlayer = []
-  acc.npcs.forEach(npc => { npcsForPlayer.push(randomizeNPC(npc, level)) })
+  acc.npcs.forEach(npc => { npcsForPlayer.push(randomizeNPC(npc, level / 10)) })
   return npcsForPlayer
 }
 
