@@ -1,0 +1,17 @@
+{
+  "extends": ["standard"],
+  "rules": {
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1}],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"]}],
+    "react/jsx-uses-vars": ["error"],
+    "react/jsx-uses-react": ["error"]
+  },
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

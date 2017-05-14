@@ -54,21 +54,35 @@ export async function login (ctx) {
   const username = ctx.request.body.username
   const password = ctx.request.body.password
 
-  const user = await users.findOne({username})
+  const user = await users.findOne({ username })
   ctx.body = {}
   if (!user) {
-    ctx.body = { success: false, error: 'Invalid details' }
+    ctx.body = {
+      errors: [
+        {
+          field: 'username',
+          message: 'This username does not exist'
+        }
+      ]
+    }
     return
   }
 
   const match = await compare(password, user.hashedpw)
 
   if (!match) {
-    ctx.body = { success: false, error: 'Invalid details' }
+    ctx.body = {
+      errors: [{ field: 'password', message: 'Wrong password' }]
+    }
     return
   }
 
-  ctx.body = { success: true, key: user.key }
+  ctx.body = {
+    key: user.key,
+    user: {
+      username: user.username
+    }
+  }
 }
 
 export async function register (ctx) {
@@ -78,18 +92,26 @@ export async function register (ctx) {
   let salt = await genSalt(10)
   let hashedpw = await hash(password, salt)
 
-  const user = await users.findOne({username})
+  const user = await users.findOne({ username })
   if (user) {
-    ctx.body = { success: false, error: 'Username taken' }
+    ctx.body = {
+      errors: [{ field: 'username', message: 'Username already taken' }]
+    }
     return
   }
 
   const key = randomKey()
 
-  await users.insert({username, hashedpw, key})
-  ctx.body = { success: true }
+  await users.insert({ username, hashedpw, key })
+  ctx.body = {
+    key,
+    user: {
+      username: user
+    }
+  }
 }
 
 export async function getPlayer (ctx) {
   ctx.body = ctx.player.serialize()
 }
+

@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux'
-import { REQUEST_INVENTORY, RECIEVE_INVENTORY, SET_CURRENT_USER } from './actions.js'
+import { routerReducer } from 'react-router-redux'
+import { REQUEST_INVENTORY, RECIEVE_INVENTORY, SET_USER } from './actions.js'
 
-const inventory = (state = {
-  isFetching: false,
-  inventory: null
-}, action) => {
+const inventory = (
+  state = {
+    isFetching: false,
+    inventory: null
+  },
+  action
+) => {
   switch (action.type) {
     case REQUEST_INVENTORY:
       return Object.assign({}, state, {
@@ -32,9 +36,9 @@ const inventoriesById = (state = {}, action) => {
   }
 }
 
-const currentUser = (state = null, action) => {
+const user = (state = null, action) => {
   switch (action.type) {
-    case SET_CURRENT_USER:
+    case SET_USER:
       return action.user
     default:
       return state
@@ -44,6 +48,8 @@ const currentUser = (state = null, action) => {
 export const makeRootReducer = () => {
   return combineReducers({
     inventoriesById,
-    currentUser
+    user,
+    router: routerReducer
   })
 }
+

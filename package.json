@@ -1,132 +1,104 @@
 {
-  "name": "retardarenan",
+  "name": "textbrawlers",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "[![Circle CI][shield-circle-ci]](https://circleci.com/gh/textbrawlers/textbrawlers/)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "jspm run app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/textbrawlers/textbrawlers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/textbrawlers/textbrawlers/issues"
+  },
+  "homepage": "https://github.com/textbrawlers/textbrawlers#readme",
   "dependencies": {
-    "jspm": "^0.17.0-beta.29"
-  },
-  "standard": {
-    "ignore": [
-      "jspm.config.js"
-    ]
-  },
-  "devDependencies": {
-    "chokidar-socket-emitter": "^0.5.2",
-    "nodemon": "^1.9.2",
-    "npm-run-all": "^4.0.1",
-    "standard": "^8.3.0"
+    "jspm": "^0.17.0-beta.41"
   },
   "jspm": {
-    "name": "retardarenan",
-    "main": "retardarenan.js",
+    "name": "textbrawlers",
+    "main": "textbrawlers.js",
     "dependencies": {
-      "babel-plugin-transform-runtime": "npm:babel-plugin-transform-runtime@^6.12.0",
-      "babel-preset-es2015": "npm:babel-preset-es2015@^6.9.0",
-      "babel-preset-es2017": "npm:babel-preset-es2017@^1.6.1",
-      "bcryptjs": "npm:bcryptjs@^2.3.0",
-      "core-js": "npm:core-js@^2.4.1",
-      "dotenv": "npm:dotenv@^2.0.0",
-      "graceful-fs": "npm:graceful-fs@^4.1.4",
-      "json": "github:systemjs/plugin-json@^0.1.2",
-      "koa": "npm:koa@2",
-      "koa-bodyparser": "npm:koa-bodyparser@3",
+      "bcryptjs": "npm:bcryptjs@^2.4.3",
+      "dotenv": "npm:dotenv@^4.0.0",
+      "graceful-fs": "npm:graceful-fs@^4.1.11",
+      "history": "npm:history@^4.6.1",
+      "image": "github:systemjs/plugin-image@^0.1.0",
+      "json": "github:systemjs/plugin-json@^0.3.0",
+      "koa": "npm:koa@^2.2.0",
+      "koa-bodyparser": "npm:koa-bodyparser@^4.2.0",
+      "koa-conditional-get": "npm:koa-conditional-get@^2.0.0",
       "koa-convert": "npm:koa-convert@^1.2.0",
-      "koa-router": "npm:koa-router@7",
-      "koa-send": "npm:koa-send@^3.2.0",
-      "koa-static": "npm:koa-static@^2.0.0",
-      "lodash": "npm:lodash-es@^4.16.3",
-      "lru-cache": "npm:lru-cache@^4.0.1",
-      "monk": "npm:monk@^3.0.7",
-      "react-contextmenu": "npm:react-contextmenu@^1.6.2",
-      "react-dnd-html5-backend": "npm:react-dnd-html5-backend@^2.1.2",
-      "react-redux": "npm:react-redux@^4.4.5",
-      "react-router": "npm:react-router@^2.6.0",
-      "react-tether": "npm:react-tether@^0.5.2",
-      "redux-logger": "npm:redux-logger@^2.7.4",
-      "redux-thunk": "npm:redux-thunk@^2.1.0",
-      "sass": "github:mobilexag/plugin-sass@^0.4.6",
-      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
-      "whatwg-fetch": "npm:whatwg-fetch@^1.0.0",
-      "ws": "npm:ws@^1.1.1"
+      "koa-etag": "npm:koa-etag@^3.0.0",
+      "koa-router": "npm:koa-router@^7.1.1",
+      "koa-send": "npm:koa-send@^4.1.0",
+      "koa-static": "npm:koa-static@^3.0.0",
+      "lodash": "npm:lodash@^4.17.4",
+      "lru-cache": "npm:lru-cache@^4.0.2",
+      "monk": "npm:monk@^4.0.0",
+      "react-dom": "npm:react-dom@16.0.0-alpha.12",
+      "react-redux": "npm:react-redux@^5.0.4",
+      "react-router": "npm:react-router@^4.1.1",
+      "react-router-dom": "npm:react-router-dom@^4.1.1",
+      "react-router-redux": "npm:react-router-redux@next",
+      "redux-logger": "npm:redux-logger@^3.0.1",
+      "redux-thunk": "npm:redux-thunk@^2.2.0",
+      "styled-components": "npm:styled-components@2.0.0-17",
+      "utf-8-validate": "npm:utf-8-validate@^3.0.1",
+      "whatwg-fetch": "npm:whatwg-fetch@^2.0.3",
+      "ws": "npm:ws@1"
     },
     "devDependencies": {
-      "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.8.0",
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.12"
+      "babel-plugin-transform-react-jsx": "npm:babel-plugin-transform-react-jsx@^6.24.1",
+      "core-js": "npm:core-js@^2.4.1",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.21",
+      "systemjs-hot-reloader": "npm:systemjs-hot-reloader@^1.1.0"
     },
     "peerDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
-      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
-      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
-      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
-      "dns": "github:jspm/nodelibs-dns@^0.2.0-alpha",
-      "domain": "github:jspm/nodelibs-domain@^0.2.0-alpha",
-      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
-      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
-      "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
-      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
-      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
-      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "querystring": "github:jspm/nodelibs-querystring@^0.2.0-alpha",
-      "react": "npm:react@^15.0.0",
-      "react-dnd": "npm:react-dnd@^2.1.4",
-      "react-dom": "npm:react-dom@^15.2.1",
-      "readline": "github:jspm/nodelibs-readline@^0.2.0-alpha",
+      "ajv": "npm:ajv@^5.0.1",
+      "assert": "npm:jspm-nodelibs-assert@^0.2.0",
+      "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
+      "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",
+      "constants": "npm:jspm-nodelibs-constants@^0.2.0",
+      "crypto": "npm:jspm-nodelibs-crypto@^0.2.0",
+      "dns": "npm:jspm-nodelibs-dns@^0.2.0",
+      "domain": "npm:jspm-nodelibs-domain@^0.2.0",
+      "eslint": "npm:eslint",
+      "eslint-plugin-import": "npm:eslint-plugin-import@^2.2.0",
+      "eslint-plugin-node": "npm:eslint-plugin-node@^4.2.2",
+      "eslint-plugin-promise": "npm:eslint-plugin-promise@^3.5.0",
+      "eslint-plugin-standard": "npm:eslint-plugin-standard@^3.0.1",
+      "events": "npm:jspm-nodelibs-events@^0.2.0",
+      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "http": "npm:jspm-nodelibs-http@^0.2.0",
+      "https": "npm:jspm-nodelibs-https@^0.2.0",
+      "module": "npm:jspm-nodelibs-module@^0.2.0",
+      "net": "npm:jspm-nodelibs-net@^0.2.0",
+      "os": "npm:jspm-nodelibs-os@^0.2.0",
+      "path": "npm:jspm-nodelibs-path@^0.2.0",
+      "process": "npm:jspm-nodelibs-process@^0.2.0",
+      "querystring": "npm:jspm-nodelibs-querystring@^0.2.0",
+      "react": "npm:react@^16.0.0-alpha.12",
+      "readline": "npm:jspm-nodelibs-readline@^0.2.0",
       "redux": "npm:redux@^3.6.0",
-      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
-      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
-      "timers": "github:jspm/nodelibs-timers@^0.2.0-alpha",
-      "tls": "github:jspm/nodelibs-tls@^0.2.0-alpha",
-      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
-      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
-      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
-      "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha"
+      "stream": "npm:jspm-nodelibs-stream@^0.2.0",
+      "string_decoder": "npm:jspm-nodelibs-string_decoder@^0.2.0",
+      "tls": "npm:jspm-nodelibs-tls@^0.2.0",
+      "tty": "npm:jspm-nodelibs-tty@^0.2.0",
+      "uglify-js": "npm:uglify-js@^2.6",
+      "uglify-to-browserify": "npm:uglify-to-browserify@1.0",
+      "url": "npm:jspm-nodelibs-url@^0.2.0",
+      "util": "npm:jspm-nodelibs-util@^0.2.0",
+      "vm": "npm:jspm-nodelibs-vm@^0.2.0",
+      "zlib": "npm:jspm-nodelibs-zlib@^0.2.0"
     },
     "overrides": {
-      "npm:asap@2.0.4": {
-        "map": {
-          "./asap": {
-            "browser": "./browser-asap.js"
-          },
-          "./asap.js": {
-            "browser": "./browser-asap.js"
-          },
-          "./raw": {
-            "browser": "./browser-raw.js"
-          },
-          "./raw.js": {
-            "browser": "./browser-raw.js"
-          }
-        }
-      },
-      "npm:any-promise@1.3.0": {
-        "map": {
-          "./register.js": {
-            "browser": "./register-shim.js"
-          }
-        }
-      },
-      "npm:asap@2.0.5": {
-        "map": {
-          "./asap": {
-            "browser": "./browser-asap.js"
-          },
-          "./asap.js": {
-            "browser": "./browser-asap.js"
-          },
-          "./raw": {
-            "browser": "./browser-raw.js"
-          },
-          "./raw.js": {
-            "browser": "./browser-raw.js"
-          }
-        }
-      },
       "npm:browserify-zlib@0.1.4": {
         "dependencies": {
           "readable-stream": "^2.0.2",
@@ -134,90 +106,6 @@
         },
         "map": {
           "_stream_transform": "readable-stream/transform"
-        }
-      },
-      "npm:bson@0.5.2": {
-        "main": "lib/bson/index.js",
-        "format": "cjs",
-        "meta": {
-          "*": {
-            "globals": {
-              "process": "process"
-            }
-          },
-          "./lib/bson/index.js": {
-            "deps": [
-              "./binary.js",
-              "./code.js",
-              "./map.js",
-              "./db_ref.js",
-              "./double.js",
-              "./max_key.js",
-              "./min_key.js",
-              "./objectid.js",
-              "./symbol.js",
-              "./decimal128.js",
-              "./timestamp.js",
-              "./long.js",
-              "./regexp.js"
-            ]
-          },
-          "*.json": {
-            "format": "json"
-          },
-          "../binary": true,
-          "../code": true,
-          "../db_ref": true,
-          "../double": true,
-          "../float_parser": true,
-          "../long": true,
-          "../max_key": true,
-          "../min_key": true,
-          "../objectid": true,
-          "../regexp": true,
-          "../symbol": true,
-          "../timestamp": true,
-          "alternate_parsers/*": {
-            "globals": {
-              "Buffer": "buffer/global"
-            }
-          },
-          "browser_build/bson.js": {
-            "globals": {
-              "Buffer": "buffer/global"
-            }
-          },
-          "lib/bson/binary.js": {
-            "globals": {
-              "Buffer": "buffer/global"
-            }
-          },
-          "lib/bson/bson.js": {
-            "globals": {
-              "Buffer": "buffer/global"
-            }
-          },
-          "lib/bson/decimal128.js": {
-            "globals": {
-              "Buffer": "buffer/global"
-            }
-          },
-          "lib/bson/objectid.js": {
-            "globals": {
-              "Buffer": "buffer/global"
-            }
-          },
-          "lib/bson/parser/*": {
-            "globals": {
-              "Buffer": "buffer/global"
-            }
-          }
-        },
-        "map": {
-          "./lib/bson": "./lib/bson/index.js",
-          "./lib/bson/index.js": {
-            "browser": "./lib/bson/bson.js"
-          }
         }
       },
       "npm:debug@2.2.0": {
@@ -228,16 +116,31 @@
           "./browser.js": {
             "node": "./node.js"
           },
+          "./node.js": {
+            "browser": "./browser.js"
+          },
           "fs": "@node/fs",
           "net": "@node/net",
           "tty": "@node/tty",
           "util": "@node/util"
         }
       },
-      "npm:inherits@2.0.1": {
-        "ignore": [
-          "test.js"
-        ]
+      "npm:debug@2.6.6": {
+        "main": "src/browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./src/browser.js": {
+            "node": "./src/node.js"
+          },
+          "./node.js": {
+            "browser": "./src/browser.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
       },
       "npm:inherits@2.0.3": {
         "ignore": [
@@ -249,31 +152,7 @@
           "keygrip": "@empty"
         }
       },
-      "npm:lodash@4.13.1": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      },
-      "npm:lodash@4.14.0": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      },
-      "npm:lodash@4.14.1": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      },
-      "npm:lodash@4.15.0": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      },
-      "npm:lodash@4.16.6": {
+      "npm:lodash@4.17.4": {
         "map": {
           "buffer": "@empty",
           "process": "@empty"
@@ -283,17 +162,17 @@
         "jspmNodeConversion": false,
         "format": "cjs"
       },
-      "npm:sass.js@0.9.11": {
-        "map": {
-          "ws": "@empty"
-        },
-        "meta": {
-          "dist/sass.worker.js": {
-            "format": "global"
-          }
-        }
+      "npm:ms@0.7.3": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
       },
-      "npm:ws@1.1.1": {
+      "npm:pbkdf2@3.0.12": {
+        "main": "browser.js"
+      },
+      "npm:safe-buffer@5.0.1": {
+        "browser": "index.js"
+      },
+      "npm:ws@1.1.4": {
         "dependencies": {
           "options": ">=0.0.5",
           "ultron": "1.0.x",
@@ -303,29 +182,7 @@
       }
     }
   },
-  "scripts": {
-    "test-bundle": "jspm bundle \"client/entrypoint.js + app.js\" test.js",
-    "test": "run-p lint test-bundle",
-    "postinstall": "jspm i",
-    "start": "jspm run app.js",
-    "socket-emitter": "chokidar-socket-emitter",
-    "dev-bundle": "jspm bundle client/entrypoint.js + plugin-babel + systemjs-hot-reloader + sass + sass/sass-inject.js + babel-plugin-transform-react-jsx -wd",
-    "monitor": "nodemon -w server -wcommon -x \"npm start\"",
-    "monitor-debug": "nodemon -w server -wcommon -x \"npm start\"",
-    "dev": "run-p socket-emitter dev-bundle monitor",
-    "build": "jspm bundle --minify client/entrypoint.js build-production.js",
-    "run": "jspm run app.js --production",
-    "lint": "standard"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ineentho/textspel.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ineentho/textspel/issues"
-  },
-  "homepage": "https://github.com/ineentho/textspel#readme"
-}
+  "devDependencies": {
+    "eslint-plugin-react": "^7.0.1"
+  }
+}

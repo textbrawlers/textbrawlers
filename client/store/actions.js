@@ -1,11 +1,11 @@
-import request from 'common/api/request.js'
-import Player from 'common/game/player.js'
+// import request from 'common/api/request.js'
+// import Player from 'common/game/player.js'
 
 export const REQUEST_INVENTORY = 'REQUEST_INVENTORY'
 export const RECIEVE_INVENTORY = 'RECIEVE_INVENTORY'
-export const SET_CURRENT_USER = 'SET_CURRENT_USER'
+export const SET_USER = 'SET_USER'
 
-export const requestInventory = (playerId) => ({
+export const requestInventory = playerId => ({
   type: REQUEST_INVENTORY,
   playerId
 })
@@ -16,8 +16,8 @@ export const recieveInventory = (playerId, json) => ({
   inventory: Player.fromJSON(json)
 })
 
-export const fetchInventory = (playerId) => {
-  return (dispatch) => {
+export const fetchInventory = playerId => {
+  return dispatch => {
     dispatch(requestInventory(playerId))
 
     return request.get('/api/user/get').then(resp => {
@@ -26,7 +26,8 @@ export const fetchInventory = (playerId) => {
   }
 }
 
-export const setCurrentUser = (user) => ({
-  type: SET_CURRENT_USER,
+export const setUser = user => ({
+  type: SET_USER,
   user
 })
+
