@@ -70,6 +70,8 @@ export default class NPCFightSelection extends Component {
   renderDifficulties () {
     const getDiffOption = (number) => {
       if (number === this.state.npcLevel) {
+        let level = number
+        this.setState({ level })
         return (
           <option key={number} value={number} selected='selected'>{number}</option>
         )
