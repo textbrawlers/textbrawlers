@@ -43,7 +43,7 @@ async function parseSetItems () {
       // each set
       const set = {}
       setBonuses[setName] = set
-      
+
       Object.entries(setConfig.items).forEach(([id, item]) => {
         // each set item
         const category = 'set'
@@ -51,11 +51,11 @@ async function parseSetItems () {
         const finalItem = new BaseItem(Object.assign({}, item, {category, id, itemSet}))
         allItems.push(finalItem)
       })
-      
+
       Object.entries(setConfig.bonuses).forEach(([itemsRequired, stats]) => {
         // each set bonus
         const statCollection = new StatCollection(Object.entries(stats).map(([id, value]) => new Stat(id, value)))
-        
+
         set[itemsRequired] = statCollection
       })
     })
