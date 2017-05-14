@@ -20,13 +20,21 @@ export async function parseNPCs () {
   })
 }
 
-export function getCurrentNPCNamesForPlayer (acc, allowUpdate) {
+export function getAllCurrentNPCNamesForPlayer (acc, allowUpdate) {
+  const allNpcNames = []
+  for (let i = 0; i < acc.npcLevel; i++) {
+    allNpcNames[i] = getCurrentNPCNamesForPlayer(acc, allowUpdate, i)
+  }
+  return allNpcNames
+}
+
+export function getCurrentNPCNamesForPlayer (acc, allowUpdate, level) {
   let updateDB = false
   let newNpcs = []
   let npcNames = []
-  if (acc.npcs && acc.npcs.length > 0) {
-    acc.npcs.forEach(npc => {
-      npcNames.push({name: npc.name, defeated: npc.defeatedAtLevel})
+  if (acc.npcs && acc.npcs.length > 0 && acc.npcs[level] && acc.npcs[level].length > 0) {
+    acc.npcs[level].forEach(npc => {
+      npcNames.push({name: npc.name, defeated: npc.defeated})
     })
   } else {
     let availableNPCs = []
@@ -36,13 +44,12 @@ export function getCurrentNPCNamesForPlayer (acc, allowUpdate) {
     for (let i = 0; i < nrOfNPCsPerLevel; i++) {
       const npcIndex = Math.floor(Math.random() * availableNPCs.length)
       let npc = availableNPCs[npcIndex] ? availableNPCs[npcIndex] : availableNPCs[0]
-      npc.defeatedAtLevel = []
-      npcNames.push({name: npc.name, defeated: npc.defeatedAtLevel})
+      npcNames.push({name: npc.name, defeated: false})
       newNpcs.push(npc)
       availableNPCs.splice(npcIndex, 1)
       updateDB = true
     }
-    acc.npcs = newNpcs
+    acc.npcs[level] = newNpcs
   }
   if (updateDB && allowUpdate) {
     update(acc)
@@ -51,14 +58,8 @@ export function getCurrentNPCNamesForPlayer (acc, allowUpdate) {
 }
 
 export function getNPCFromName (acc, name, level) {
-  const npcIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === name)
-  return randomizeNPC(acc.npcs[npcIndex], level / 10)
-}
-
-export function getCurrentNPCsForPlayer (acc, level) {
-  let npcsForPlayer = []
-  acc.npcs.forEach(npc => { npcsForPlayer.push(randomizeNPC(npc, level / 10)) })
-  return npcsForPlayer
+  const npcIndex = acc.npcs[level - 1].findIndex(dbNpc => dbNpc.name === name)
+  return randomizeNPC(acc.npcs[level - 1][npcIndex], level / 80)
 }
 
 function randomizeNPC (npc, level) {

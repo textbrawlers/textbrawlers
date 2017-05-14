@@ -16,7 +16,7 @@ export default class NPCFightSelection extends Component {
   }
 
   requestNPCSelectionData () {
-    request.get('/api/game/requestNPCSelectionData').then(resp => {
+    return request.get('/api/game/requestNPCSelectionData').then(resp => {
       const enemies = resp.json.npcs
       const npcLevel = resp.json.npcLevel
       this.setState({ enemies, npcLevel })
@@ -52,8 +52,7 @@ export default class NPCFightSelection extends Component {
   }
 
   renderEnemy (name, defeated) {
-    console.log(defeated)
-    let color = defeated[this.state.level - 1] ? 'green' : 'red'
+    let color = defeated ? 'green' : 'red'
     const style = {
       background: color,
       margin: 15
@@ -92,10 +91,13 @@ export default class NPCFightSelection extends Component {
   }
 
   render () {
+    const selectedEnemies = this.state.enemies[this.state.level - 1]
+
     return (
       <div className='page-game-fight-selection'>
-        Select enemy:
-        {this.state.enemies.map((enemy, index) => this.renderEnemy(enemy.name, enemy.defeated))}
+        Select enemy: {
+          selectedEnemies && selectedEnemies.map(enemy => this.renderEnemy(enemy.name, enemy.defeated))
+        }
         <br />
         {this.renderDifficulties()}
         <br />

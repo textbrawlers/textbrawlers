@@ -209,6 +209,8 @@ export async function fightNpc (ctx) {
   const playerId = ctx.account._id
   const npcLevel = ctx.request.body.level
   const npcName = ctx.request.body.name
+  console.log(npcLevel)
+  console.log(npcName)
   const npc = NPCs.getNPCFromName(currentPlayer, npcName, npcLevel)
 
   Realtime.startNPCFight(playerId, npc, npcLevel)
@@ -220,16 +222,9 @@ export async function requestNPCSelectionData (ctx) {
   const currentPlayer = await users.findOne({_id: ctx.account._id})
   const resp = {
     npcLevel: currentPlayer.npcLevel,
-    npcs: NPCs.getCurrentNPCNamesForPlayer(currentPlayer, true)
+    npcs: NPCs.getAllCurrentNPCNamesForPlayer(currentPlayer, true)
   }
   ctx.body = resp
-}
-
-export async function requestNPCs (ctx) {
-  const currentPlayer = await users.findOne({ _id: ctx.account._id })
-
-  const npcs = NPCs.getCurrentNPCsForPlayer(currentPlayer)
-  ctx.body = { npcs: npcs }
 }
 
 export async function clearNPCs (ctx) {

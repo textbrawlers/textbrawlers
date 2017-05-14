@@ -153,7 +153,7 @@ export default class FightManager {
           acc.npcs.forEach(dbNpc => {
             levelComplete = dbNpc.defeatedAtLevel[fightObj.level - 1] ? levelComplete : false
           })
-          if (levelComplete && !isNaN(acc.npcLevel) && acc.npcLevel) {
+          if (levelComplete && !isNaN(acc.npcLevel) && acc.npcLevel && fightObj.level - 1 === acc.npcLevel) {
             acc.npcLevel = acc.npcLevel + 1
             acc.npcs = []
             getCurrentNPCNamesForPlayer(acc, false)
