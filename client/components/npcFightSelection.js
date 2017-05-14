@@ -37,7 +37,7 @@ export default class NPCFightSelection extends Component {
   }
 
   fightNpc (name) {
-    request.post('/api/game/fightNpc', {name, level:this.state.level}).catch(err => console.error(err.stack || err))
+    request.post('/api/game/fightNpc', {name, level: this.state.level}).catch(err => console.error(err.stack || err))
   }
 
   clearNPCs () {

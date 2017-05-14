@@ -144,18 +144,20 @@ export default class FightManager {
     const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
 
     let username
-    if (npc.currentHP <= 0){
+    if (npc.currentHP <= 0) {
       userDB.findOne({ _id: stats.player.id }).then(acc => {
         if (fightObj.level <= acc.npcLevel) {
           const dbNpcIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === npc.player.name)
           acc.npcs[dbNpcIndex].defeatedAtLevel[fightObj.level - 1] = true
           let levelComplete = true
-          acc.npcs.forEach(dbNpc => levelComplete = dbNpc.defeatedAtLevel[fightObj.level - 1] ? levelComplete : false)
+          acc.npcs.forEach(dbNpc => {
+            levelComplete = dbNpc.defeatedAtLevel[fightObj.level - 1] ? levelComplete : false
+          })
           if (levelComplete && !isNaN(acc.npcLevel) && acc.npcLevel) {
             acc.npcLevel = acc.npcLevel + 1
             acc.npcs = []
             getCurrentNPCNamesForPlayer(acc, false)
-          } else if (!isNaN(acc.npcLevel) && acc.npcLevel){
+          } else if (!isNaN(acc.npcLevel) && acc.npcLevel) {
             acc.npcLevel = acc.npcLevel
           } else {
             acc.npcLevel = 1
