@@ -5,6 +5,7 @@ import { fightManager } from './fightManager.js'
 import isEqual from 'lodash/isEqual'
 
 export const players = []
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 function updatePlayers () {
   const count = players.length
@@ -37,12 +38,26 @@ export function getFight (id) {
   return fightManager.get(id)
 }
 
+<<<<<<< HEAD
 export function startNPCFight (playerId, npc) {
   const rtPlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
 
   refreshPlayers(rtPlayers).then(() => {
     return fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npc))
   }).then(fight => {
+=======
+export function startNPCFight (playerId, npcs) {
+  doNPCFight(playerId, npcs)
+}
+
+async function doNPCFight (playerId, npcs, level) {
+  const rtPlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
+
+  for (let i = 0; i < 3; i++) {
+    await refreshPlayers(rtPlayers)
+    const fight = await fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npcs[i]), level)
+
+>>>>>>> f53224fedcc85f02c18dcbbd71a94bc41166147a
     rtPlayers.forEach(rtPlayer => {
       sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })
     })
@@ -53,7 +68,13 @@ export function startNPCFight (playerId, npc) {
         sendMessage(player.id, 'fight.attack', attack)
       })
     })
-  })
+
+    await fight.fightDonePromise
+    if (!fight.victory) {
+      break
+    }
+    await sleep(500)
+  }
 }
 
 function refreshPlayers (rtPlayers) {
