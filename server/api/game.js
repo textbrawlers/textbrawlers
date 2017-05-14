@@ -209,8 +209,6 @@ export async function fightNpc (ctx) {
   const playerId = ctx.account._id
   const npcLevel = ctx.request.body.level
   const npcName = ctx.request.body.name
-  console.log(npcLevel)
-  console.log(npcName)
   const npc = NPCs.getNPCFromName(currentPlayer, npcName, npcLevel)
 
   Realtime.startNPCFight(playerId, npc, npcLevel)

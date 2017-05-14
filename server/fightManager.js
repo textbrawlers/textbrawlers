@@ -142,21 +142,26 @@ export default class FightManager {
     const npcIndex = playerStates.findIndex(ps => ps.player.type === 'npc')
     const npc = playerStates[npcIndex]
     const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
+    const currentLevel = fightObj.level - 1
 
     let username
     if (npc.currentHP <= 0) {
       userDB.findOne({ _id: stats.player.id }).then(acc => {
         if (fightObj.level <= acc.npcLevel) {
-          const dbNpcIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === npc.player.name)
-          acc.npcs[dbNpcIndex].defeatedAtLevel[fightObj.level - 1] = true
+          const dbNpcIndex = acc.npcs[currentLevel].findIndex(dbNpc => dbNpc.name === npc.player.name)
+          acc.npcs[currentLevel][dbNpcIndex].defeated = true
           let levelComplete = true
-          acc.npcs.forEach(dbNpc => {
-            levelComplete = dbNpc.defeatedAtLevel[fightObj.level - 1] ? levelComplete : false
+          acc.npcs[currentLevel].forEach(dbNpc => {
+            levelComplete = dbNpc.defeated ? levelComplete : false
           })
-          if (levelComplete && !isNaN(acc.npcLevel) && acc.npcLevel && fightObj.level - 1 === acc.npcLevel) {
-            acc.npcLevel = acc.npcLevel + 1
-            acc.npcs = []
-            getCurrentNPCNamesForPlayer(acc, false)
+          if (levelComplete && !isNaN(acc.npcLevel) && acc.npcLevel) {
+            if (parseInt(fightObj.level) === parseInt(acc.npcLevel)) {
+              acc.npcLevel = acc.npcLevel + 1
+            } else {
+              acc.npcLevel = acc.npcLevel
+            }
+            acc.npcs[currentLevel] = []
+            getCurrentNPCNamesForPlayer(acc, false, currentLevel)
           } else if (!isNaN(acc.npcLevel) && acc.npcLevel) {
             acc.npcLevel = acc.npcLevel
           } else {
@@ -164,6 +169,7 @@ export default class FightManager {
           }
         }
         username = acc.username
+        console.log('Player id: ' + acc._id)
         return userDB.update({ _id: acc._id }, acc)
       }).then(() => console.log('Updated NPC data for ' + username + '.')
       ).catch(err => console.error(err.stack || err))
