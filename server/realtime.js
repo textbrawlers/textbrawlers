@@ -47,8 +47,7 @@ async function doNPCFight (playerId, npcs, level) {
 
   for (let i = 0; i < 3; i++) {
     await refreshPlayers(rtPlayers)
-    let fight = await fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npcs[i]))
-    fight.level = level
+    const fight = await fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npcs[i]), level)
 
     rtPlayers.forEach(rtPlayer => {
       sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })

@@ -31,8 +31,11 @@ export default class FightManager {
   get (id) {
     return this.fights.find(fightObj => fightObj.id === id)
   }
-
   async startFight (players) {
+    startFight(players, -1)
+  }
+
+  async startFight (players, level) {
     const fight = new Fight(players)
     const fightObj = new EventEmitter()
     const playersJSON = players.map(p => {
@@ -48,6 +51,7 @@ export default class FightManager {
     fightObj.doc = await fightDB.insert({
       players: playersJSON
     })
+    fightObj.level = level
     fightObj.players = players
     fightObj.fight = fight
     fightObj.subscribers = []
@@ -153,6 +157,7 @@ export default class FightManager {
       userDB.findOne({ _id: stats.player.id }).then(acc => {
         const npcDBIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === npc.player.name)
         if (npcDBIndex === 2) {
+          console.log(acc.npcLevel + ', ' + fightObj.level)
           if (!isNaN(acc.npcLevel) && acc.npcLevel && acc.npcLevel === fightObj.level) {
             acc.npcLevel = acc.npcLevel + 1
           } else if (!isNaN(acc.npcLevel) && acc.npcLevel) {
