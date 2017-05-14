@@ -39,7 +39,7 @@ export default class Player {
     characterStats.add(new Stat('max-health', 100))
     characterStats.add(new Stat('block-multiplier', 0.75))
     characterStats.add(new Stat('dodge-chance', 0.1))
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < equipped.size; i++) {
       const item = this.equipped.get(i)
       if (!item) {
         continue
@@ -63,7 +63,7 @@ export default class Player {
     const stats = new StatCollection(this.stats)
     stats.add(weapon.attackStats)
 
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < equipped.size; i++) {
       const item = this.equipped.get(i)
       if (!item) { continue }
       item.empoweredStats.filter(empower => empower.category === weapon.category).forEach(empower => {
@@ -74,7 +74,12 @@ export default class Player {
     const statsToRemove = [
       'max-health',
       'block-chance',
-      'block-multiplier'
+      'block-multiplier',
+      'dodge-chance',
+      'comfort',
+      'fashionable',
+      'luck',
+      'timestop'
     ]
 
     stats.filter(stat => statsToRemove.indexOf(stat.id) === -1)
@@ -87,7 +92,7 @@ export default class Player {
 
   get weaponStats () {
     const weapons = []
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < equipped.size; i++) {
       const item = this.equipped.get(i)
       if (!item || !item.canAttack) {
         continue
