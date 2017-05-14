@@ -42,7 +42,8 @@ async function parseSetItems () {
       Object.entries(setConfig.items).forEach(([id, item]) => {
         // each set item
         const category = 'set'
-        const finalItem = new BaseItem(Object.assign({}, item, {category, id}))
+        const itemSet = setName
+        const finalItem = new BaseItem(Object.assign({}, item, {category, id, itemSet}))
         allItems.push(finalItem)
       })
     })
