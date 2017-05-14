@@ -2,7 +2,7 @@ import fightMessages from 'common/text/fight.js'
 import Fight from 'server/fight.js'
 import db from 'server/common/database.js'
 import EventEmitter from 'events'
-import {genNewNPCs} from './npcs.js'
+import {getCurrentNPCNamesForPlayer} from './npcs.js'
 import calculateNewElo from 'common/util/elo.js'
 
 const fightDB = db.get('fights')
@@ -142,28 +142,34 @@ export default class FightManager {
     const npcIndex = playerStates.findIndex(ps => ps.player.type === 'npc')
     const npc = playerStates[npcIndex]
     const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
-    let diffMod = 0
-    if (npc.currentHP <= 0 && stats.maxHP !== 0) {
-      const npcDiffMod = (npc.player.difficulty + 1) / 5
-      const hpBase = stats.currentHP / stats.maxHP
-      diffMod += hpBase * npcDiffMod * 0.1
-    } else if (npc.maxHP !== 0) {
-      diffMod -= (npc.currentHP / npc.maxHP) * 0.1
-    }
+
     let username
-    userDB.findOne({ _id: stats.player.id }).then(acc => {
-      if (!isNaN(acc.npcDifficulty) && acc.npcDifficulty) {
-        const npcDiff = acc.npcDifficulty + diffMod
-        acc.npcDifficulty = npcDiff < 0.1 ? 0.1 : npcDiff
-        acc.npcs = genNewNPCs(acc.npcDifficulty)
-      } else {
-        acc.npcDifficulty = 0.1
-        acc.npcs = genNewNPCs(acc.npcDifficulty)
-      }
-      username = acc.username
-      return userDB.update({ _id: acc._id }, acc)
-    }).then(() => console.log('Updated NPC data for ' + username + '.')
-    ).catch(err => console.error(err.stack || err))
+    if (npc.currentHP <= 0){
+      userDB.findOne({ _id: stats.player.id }).then(acc => {
+        const dbNpcIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === npc.player.name)
+        console.log(npc.player.name)
+        console.log(acc.npcs[dbNpcIndex])
+        console.log(acc.npcs)
+        console.log(dbNpcIndex)
+        acc.npcs[dbNpcIndex].defeated = true
+
+        let levelComplete = true
+        acc.npcs.forEach(dbNpc => levelComplete = dbNpc.defeated ? levelComplete : false)
+        console.log(levelComplete)
+        if (levelComplete && !isNaN(acc.npcLevel) && acc.npcLevel) {
+          acc.npcLevel = acc.npcLevel + 1
+          acc.npcs = []
+          acc.npcs = getCurrentNPCNamesForPlayer(acc)
+        } else if (!isNaN(acc.npcLevel) && acc.npcLevel){
+          acc.npcLevel = acc.npcLevel
+        } else {
+          acc.npcLevel = 1
+        }
+        username = acc.username
+        return userDB.update({ _id: acc._id }, acc)
+      }).then(() => console.log('Updated NPC data for ' + username + '.')
+      ).catch(err => console.error(err.stack || err))
+    }
   }
 
   endPVPFight (fightObj) {

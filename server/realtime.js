@@ -37,11 +37,11 @@ export function getFight (id) {
   return fightManager.get(id)
 }
 
-export function startNPCFight (playerId, npcs) {
+export function startNPCFight (playerId, npc) {
   const rtPlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
 
   refreshPlayers(rtPlayers).then(() => {
-    return fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npcs[0]))
+    return fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npc))
   }).then(fight => {
     rtPlayers.forEach(rtPlayer => {
       sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })

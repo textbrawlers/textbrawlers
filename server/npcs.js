@@ -5,7 +5,6 @@ import Stat from 'common/game/stat.js'
 import Item from 'common/game/item.js'
 import StatCollection from 'common/game/statCollection.js'
 import EquippedInventory from 'common/game/equippedInventory.js'
-// import Entity from 'common/game/entity.js'
 
 const playerDB = db.get('users')
 
@@ -49,6 +48,11 @@ export function getCurrentNPCNamesForPlayer (acc) {
     update(acc)
   }
   return npcNames
+}
+
+export function getNPCFromName (acc, name, level) {
+  const npcIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === name)
+  return randomizeNPC(acc.npcs[npcIndex], level / 10)
 }
 
 export function getCurrentNPCsForPlayer (acc, level) {
