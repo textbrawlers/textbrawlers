@@ -122,7 +122,7 @@ export default class FightManager {
     if (resp.type === 'newTurn') {
       setTimeout(() => {
         this.finishAttack(fightObj, resp)
-      }, 1500)
+      }, process.env.QUICK_FIGHTS === true ? 0 : 1500)
     } else {
       this.finishAttack(fightObj, resp)
     }

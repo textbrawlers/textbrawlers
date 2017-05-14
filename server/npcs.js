@@ -59,7 +59,6 @@ export function getCurrentNPCNamesForPlayer (acc, allowUpdate, level) {
 
 export function getNPCFromName (acc, name, level) {
   const npcIndex = acc.npcs[level - 1].findIndex(dbNpc => dbNpc.name === name)
-  console.log(acc.npcs[level - 1][npcIndex])
   return randomizeNPC(acc.npcs[level - 1][npcIndex], level / 80)
 }
 
