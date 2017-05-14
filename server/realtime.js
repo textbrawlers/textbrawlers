@@ -38,12 +38,13 @@ export function getFight (id) {
   return fightManager.get(id)
 }
 
-export function startNPCFight (playerId, npc) {
+export function startNPCFight (playerId, npc, npcLevel) {
   const rtPlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
 
   refreshPlayers(rtPlayers).then(() => {
     return fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npc))
   }).then(fight => {
+    fight.level = npcLevel
     rtPlayers.forEach(rtPlayer => {
       sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })
     })

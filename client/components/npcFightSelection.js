@@ -7,10 +7,12 @@ export default class NPCFightSelection extends Component {
     super()
 
     this.state = {
-      enemies: []
+      enemies: [],
+      level: 1
     }
 
     this.clearNPCs = this.clearNPCs.bind(this)
+    this.setNpcsOnLevel = this.setNpcsOnLevel.bind(this)
   }
 
   requestNPCSelectionData () {
@@ -25,10 +27,17 @@ export default class NPCFightSelection extends Component {
     this.requestNPCSelectionData()
   }
 
+  getSelectedLevel () {
+    if (document.getElementById('level')) {
+      const e = document.getElementById('level')
+      return e.options[e.selectedIndex].value
+    } else {
+      return 1
+    }
+  }
+
   fightNpc (name) {
-    let e = document.getElementById('level')
-    let level = e.options[e.selectedIndex].value
-    request.post('/api/game/fightNpc', {name, level}).catch(err => console.error(err.stack || err))
+    request.post('/api/game/fightNpc', {name, level:this.state.level}).catch(err => console.error(err.stack || err))
   }
 
   clearNPCs () {
@@ -37,25 +46,26 @@ export default class NPCFightSelection extends Component {
     })
   }
 
-  renderEnemy (name, defeated, index) {
-    let color = defeated ? 'green' : 'red'
+  setNpcsOnLevel()
+  {
+    let level = this.getSelectedLevel()
+    this.setState({ level })
+  }
+
+  renderEnemy (name, defeated) {
+    console.log(defeated)
+    let color = defeated[this.state.level - 1] ? 'green' : 'red'
     const style = {
       background: color,
       margin: 15
     }
 
     return (
-<<<<<<< HEAD
       <a onClick={() => this.fightNpc(name)} key={name}>
         <div style={style}>
           Name: {name}
         </div>
       </a>
-=======
-      <div key={index} style={style}>
-        Name: {name}
-      </div>
->>>>>>> f53224fedcc85f02c18dcbbd71a94bc41166147a
     )
   }
 
@@ -76,7 +86,7 @@ export default class NPCFightSelection extends Component {
     }
 
     return (
-      <select id='level'>
+      <select id='level' onChange={this.setNpcsOnLevel}>
         {diffArr}
       </select>
     )
@@ -86,28 +96,13 @@ export default class NPCFightSelection extends Component {
     return (
       <div className='page-game-fight-selection'>
         Select enemy:
-
-<<<<<<< HEAD
         {this.state.enemies.map((enemy, index) => this.renderEnemy(enemy.name, enemy.defeated))}
-=======
-        {this.state.enemies.map((enemy, index) => this.renderEnemy(enemy.name, enemy.defeated, index))}
->>>>>>> f53224fedcc85f02c18dcbbd71a94bc41166147a
         <br />
         {this.renderDifficulties()}
         <br />
         <button id='clearNPCs' onClick={this.clearNPCs}>
           Clear NPCs
         </button>
-<<<<<<< HEAD
-=======
-        <button id='fightLevel' onClick={() => {
-          let e = document.getElementById('level')
-          let level = e.options[e.selectedIndex].value
-          this.fightLevel(level)
-        }}>
-          Fight Level
-        </button>
->>>>>>> f53224fedcc85f02c18dcbbd71a94bc41166147a
       </div>
     )
   }
