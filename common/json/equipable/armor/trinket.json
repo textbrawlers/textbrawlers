@@ -47,7 +47,7 @@
       "name": "Magical Focus",
       "slot": "trinket",
       "attack": true,
-      "icon": "itemenergyfocus",
+      "icon": "itemmagicalfocus",
       "drop-rate": 100,
       "empower-stats": [{
         "category": "magical",
