@@ -19,7 +19,8 @@ export default class NPCFightSelection extends Component {
     return request.get('/api/game/requestNPCSelectionData').then(resp => {
       const enemies = resp.json.npcs
       const npcLevel = resp.json.npcLevel
-      this.setState({ enemies, npcLevel })
+      const level = resp.json.npcLevel
+      this.setState({ enemies, npcLevel, level })
     }).catch(err => console.error(err.stack || err))
   }
 
@@ -70,8 +71,6 @@ export default class NPCFightSelection extends Component {
   renderDifficulties () {
     const getDiffOption = (number) => {
       if (number === this.state.npcLevel) {
-        let level = number
-        this.setState({ level })
         return (
           <option key={number} value={number} selected='selected'>{number}</option>
         )
