@@ -39,12 +39,22 @@ async function parseSetItems () {
     // each set item file
     Object.entries(config).forEach(([setName, setConfig]) => {
       // each set
+      const set = {}
+      const setBonuses[setName] = set
+      
       Object.entries(setConfig.items).forEach(([id, item]) => {
         // each set item
         const category = 'set'
         const itemSet = setName
         const finalItem = new BaseItem(Object.assign({}, item, {category, id, itemSet}))
         allItems.push(finalItem)
+      })
+      
+      Object.entries(setConfig.bonuses).forEach(([itemsRequired, stats]) => {
+        // each set bonus
+        const statCollection = new StatCollection(Object.entries(stats).map(([id, value]) => new Stat(id, value)))
+        
+        set[itemsRequired] = statCollection
       })
     })
   })
@@ -64,7 +74,7 @@ export default async function () {
   const setItems = await parseSetItems()
 
   const items = normalItems.concat(setItems.items)
-  const setBonuses = setItems.bonuses
+  const setBonuses = setItems.setBonuses
 
   return {items, setBonuses}
 }
