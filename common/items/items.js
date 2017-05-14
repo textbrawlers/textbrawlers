@@ -40,7 +40,7 @@ async function parseSetItems () {
     Object.entries(config).forEach(([setName, setConfig]) => {
       // each set
       const set = {}
-      const setBonuses[setName] = set
+      setBonuses[setName] = set
       
       Object.entries(setConfig.items).forEach(([id, item]) => {
         // each set item
