@@ -5,7 +5,6 @@ import { fightManager } from './fightManager.js'
 import isEqual from 'lodash/isEqual'
 
 export const players = []
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 function updatePlayers () {
   const count = players.length

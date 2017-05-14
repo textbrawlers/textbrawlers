@@ -46,8 +46,7 @@ export default class NPCFightSelection extends Component {
     })
   }
 
-  setNpcsOnLevel()
-  {
+  setNpcsOnLevel () {
     let level = this.getSelectedLevel()
     this.setState({ level })
   }
