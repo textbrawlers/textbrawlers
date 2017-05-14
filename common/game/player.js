@@ -74,7 +74,12 @@ export default class Player {
     const statsToRemove = [
       'max-health',
       'block-chance',
-      'block-multiplier'
+      'block-multiplier',
+      'dodge-chance',
+      'comfort',
+      'fashionable',
+      'luck',
+      'timestop'
     ]
 
     stats.filter(stat => statsToRemove.indexOf(stat.id) === -1)
