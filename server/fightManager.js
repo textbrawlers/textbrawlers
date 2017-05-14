@@ -24,6 +24,7 @@ function getRandom (droptable) {
 }
 
 export default class FightManager {
+
   constructor () {
     this.fights = []
   }

@@ -143,7 +143,7 @@ export default class Fight extends Component {
         <div key={i} className={className.join(' ')}>
           <span dangerouslySetInnerHTML={{__html: attackText}} />
 
-          {icons.map((icon, i) => <img key={i} src={`/client/png/fighticons/${icon}.png`} />)}
+          {icons.map((icon, i) => <img key={i} src={`/client/png/${icon}.png`} />)}
         </div>
       )
     })

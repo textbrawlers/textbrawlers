@@ -45,8 +45,8 @@
       "react-tether": "npm:react-tether@^0.5.2",
       "redux-logger": "npm:redux-logger@^2.7.4",
       "redux-thunk": "npm:redux-thunk@^2.1.0",
-      "sass": "github:dougludlow/plugin-sass@^0.4.6",
-      "systemjs-hot-reloader": "github:alexisvincent/systemjs-hot-reloader@^0.6.0",
+      "sass": "github:mobilexag/plugin-sass@^0.4.6",
+      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@^0.6.0",
       "whatwg-fetch": "npm:whatwg-fetch@^1.0.0",
       "ws": "npm:ws@^1.1.1"
     },
