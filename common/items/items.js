@@ -1,5 +1,7 @@
 import 'core-js/fn/object/entries'
 import BaseItem from 'common/game/baseItem.js'
+import StatCollection from 'common/game/statCollection.js'
+import Stat from 'common/game/stat.js'
 
 const cache = {}
 
