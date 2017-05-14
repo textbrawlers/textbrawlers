@@ -24,7 +24,6 @@ function getRandom (droptable) {
 }
 
 export default class FightManager {
-
   constructor () {
     this.fights = []
   }
@@ -32,11 +31,8 @@ export default class FightManager {
   get (id) {
     return this.fights.find(fightObj => fightObj.id === id)
   }
-  async startFight (players) {
-    startFight(players, -1)
-  }
 
-  async startFight (players, level) {
+  async startFight (players) {
     const fight = new Fight(players)
     const fightObj = new EventEmitter()
     const playersJSON = players.map(p => {
@@ -52,15 +48,11 @@ export default class FightManager {
     fightObj.doc = await fightDB.insert({
       players: playersJSON
     })
-    fightObj.level = level
     fightObj.players = players
     fightObj.fight = fight
     fightObj.subscribers = []
     fightObj.attackHistory = []
     fightObj.id = fightObj.doc._id.toString()
-    fightObj.fightDonePromise = new Promise(resolve => {
-      fightObj.resolveFightDone = resolve
-    })
     this.fights.push(fightObj)
 
     this.attack(fightObj)
@@ -130,7 +122,7 @@ export default class FightManager {
     if (resp.type === 'newTurn') {
       setTimeout(() => {
         this.finishAttack(fightObj, resp)
-      }, process.env.QUICK_FIGHTS === true ? 0 : 1500)
+      }, 1500)
     } else {
       this.finishAttack(fightObj, resp)
     }
@@ -143,7 +135,6 @@ export default class FightManager {
     } else {
       this.endPVPFight(fightObj)
     }
-    fightObj.resolveFightDone()
   }
 
   endNPCFight (fightObj) {
@@ -153,19 +144,13 @@ export default class FightManager {
     const stats = playerStates[npcIndex + 1] ? playerStates[npcIndex + 1] : playerStates[0]
 
     let username
-<<<<<<< HEAD
     if (npc.currentHP <= 0){
       userDB.findOne({ _id: stats.player.id }).then(acc => {
         const dbNpcIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === npc.player.name)
-        console.log(npc.player.name)
-        console.log(acc.npcs[dbNpcIndex])
-        console.log(acc.npcs)
-        console.log(dbNpcIndex)
         acc.npcs[dbNpcIndex].defeated = true
 
         let levelComplete = true
         acc.npcs.forEach(dbNpc => levelComplete = dbNpc.defeated ? levelComplete : false)
-        console.log(levelComplete)
         if (levelComplete && !isNaN(acc.npcLevel) && acc.npcLevel) {
           acc.npcLevel = acc.npcLevel + 1
           acc.npcs = []
@@ -175,33 +160,10 @@ export default class FightManager {
         } else {
           acc.npcLevel = 1
         }
-=======
-    if (npc.currentHP <= 0) {
-      fightObj.victory = true
-      userDB.findOne({ _id: stats.player.id }).then(acc => {
-        const npcDBIndex = acc.npcs.findIndex(dbNpc => dbNpc.name === npc.player.name)
-        if (npcDBIndex === 2) {
-          console.log(acc.npcLevel + ', ' + fightObj.level)
-          if (!isNaN(acc.npcLevel) && acc.npcLevel && acc.npcLevel === fightObj.level) {
-            acc.npcLevel = acc.npcLevel + 1
-          } else if (!isNaN(acc.npcLevel) && acc.npcLevel) {
-            acc.npcLevel = acc.npcLevel
-          } else {
-            acc.npcLevel = 1
-          }
-          acc.npcs = getCurrentNPCNamesForPlayer(acc)
-        }
-        acc.npcs[npcDBIndex].defeated = true
->>>>>>> f53224fedcc85f02c18dcbbd71a94bc41166147a
         username = acc.username
         return userDB.update({ _id: acc._id }, acc)
       }).then(() => console.log('Updated NPC data for ' + username + '.')
       ).catch(err => console.error(err.stack || err))
-<<<<<<< HEAD
-=======
-    } else {
-      fightObj.victory = false
->>>>>>> f53224fedcc85f02c18dcbbd71a94bc41166147a
     }
   }
 
