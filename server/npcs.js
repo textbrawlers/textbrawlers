@@ -120,13 +120,22 @@ function buildStatCollection (stats, diffVal) {
 
 function randomizeValue (key, valArr, diffVal) {
   let result = valArr[0] + Math.random() * (valArr[1] - valArr[0])
-  result *= getMultiplierValue()
-  result *= diffVal
+  if (stats[key].invertMult) {
+    result /= getMultiplierValue()
+    result /= diffVal
+  } else {
+    result *= getMultiplierValue()
+    result *= diffVal
+  }
   return shouldRound(key) ? Math.round(result) : result
 }
 
 function shouldRound (key) {
-  return stats[key].rounded
+  if (stats[key].rounded) {
+    return stats[key].rounded
+  } else {
+    return false
+  }
 }
 
 function getMultiplierValue () {
