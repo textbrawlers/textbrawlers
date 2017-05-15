@@ -6,6 +6,7 @@
     "common/json/enemy/sir-placeholder.json",
     "common/json/enemy/slime.json",
     "common/json/enemy/spirit-of-dev.json",
-    "common/json/enemy/slime-knight.json"
+    "common/json/enemy/slime-knight.json",
+    "common/json/enemy/tomator.json"
   ]
 }
