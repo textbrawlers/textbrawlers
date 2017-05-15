@@ -218,8 +218,11 @@ export async function fightNpc (ctx) {
 
 export async function requestNPCSelectionData (ctx) {
   const currentPlayer = await users.findOne({_id: ctx.account._id})
+  if (!currentPlayer.npcLevel) {
+    currentPlayer.npcLevel = 1
+  }
   const resp = {
-    npcLevel: currentPlayer.npcLevel ? currentPlayer.npcLevel : 1,
+    npcLevel: currentPlayer.npcLevel,
     npcs: NPCs.getAllCurrentNPCNamesForPlayer(currentPlayer, true)
   }
   ctx.body = resp
