@@ -53,6 +53,10 @@ export default class FightManager {
     fightObj.subscribers = []
     fightObj.attackHistory = []
     fightObj.id = fightObj.doc._id.toString()
+    fightObj.fightDonePromise = new Promise(resolve => {
+      fightObj.resolveFightDone = resolve
+    })
+
     this.fights.push(fightObj)
 
     this.attack(fightObj)
@@ -135,6 +139,7 @@ export default class FightManager {
     } else {
       this.endPVPFight(fightObj)
     }
+    fightObj.resolveFightDone()
   }
 
   endNPCFight (fightObj) {

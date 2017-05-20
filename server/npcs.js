@@ -143,7 +143,5 @@ function getMultiplierValue () {
 }
 
 function update (acc) {
-  playerDB.update({_id: acc._id}, acc).then(
-    () => console.log('Player "' + acc.username + '"s npcs updated.')
-  ).catch(err => console.error(err.stack || err))
+  playerDB.update({_id: acc._id}, acc).catch(err => console.error(err.stack || err))
 }

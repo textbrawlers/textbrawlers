@@ -38,23 +38,27 @@ export function getFight (id) {
 }
 
 export function startNPCFight (playerId, npc, npcLevel) {
+  doNPCFight(playerId, npc, npcLevel)
+}
+
+async function doNPCFight (playerId, npc, npcLevel) {
   const rtPlayers = players.filter(realtimePlayer => realtimePlayer.player.id.equals(playerId))
 
-  refreshPlayers(rtPlayers).then(() => {
-    return fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npc))
-  }).then(fight => {
-    fight.level = npcLevel
-    rtPlayers.forEach(rtPlayer => {
-      sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })
-    })
+  await refreshPlayers(rtPlayers)
+  const fight = fightManager.startFight(rtPlayers.map(rt => rt.player).concat(npc))
+  fight.level = npcLevel
+  rtPlayers.forEach(rtPlayer => {
+    sendMessage(rtPlayer.player.id, 'startgame', { id: fight.id })
+  })
 
-    fight.on('attack', attack => {
-      fight.subscribers.forEach(player => {
-        attack.fightId = fight.id
-        sendMessage(player.id, 'fight.attack', attack)
-      })
+  fight.on('attack', attack => {
+    fight.subscribers.forEach(player => {
+      attack.fightId = fight.id
+      sendMessage(player.id, 'fight.attack', attack)
     })
   })
+
+  await fight.fightDonePromise
 }
 
 function refreshPlayers (rtPlayers) {
