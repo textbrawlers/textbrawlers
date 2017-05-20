@@ -26,7 +26,9 @@ const GameArea = styled.div`
   grid-column: 2;
   grid-row: 2;
   background: yellow;
-  height: 100%;
+
+  display: flex;
+  justify-content: center;
 `
 
 const Menu = styled.div`

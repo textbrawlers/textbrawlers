@@ -12,7 +12,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import HomePage from 'client/components/HomePage.js'
 import createStore from 'client/store/createStore.js'
 import NotFound from 'client/components/NotFound.js'
-import Inventory from 'client/components/Inventory.js'
+import InventoryPage from 'client/components/InventoryPage.js'
 
 export const history = module ? module.history : createHistory()
 export const store = module ? module.store : createStore(history)
@@ -24,7 +24,7 @@ const rootContainer = document.getElementById('root')
 const Game = () => (
   <GameInterface>
     <Switch>
-      <Route path="/game/inventory" component={Inventory} />
+      <Route path="/game/inventory" component={InventoryPage} />
       <Route path="/game/start-fight/pve" component={PVE} />
       <Redirect exact from="/game" to="/game/inventory" />
       <Route path="*" component={NotFound} />
