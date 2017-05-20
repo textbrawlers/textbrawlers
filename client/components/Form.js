@@ -55,6 +55,7 @@ export default class Form extends React.Component {
           <Row>
             <Label htmlFor="username">Username:</Label>
             <FullWidthTextInput
+              autoFocus={mode === MODE_LOGIN}
               error={errors.username}
               type="text"
               id="username"

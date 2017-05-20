@@ -5,6 +5,7 @@ import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { storeKey } from 'client/network/session.js'
 import { setUser } from 'client/store/actions.js'
+import querystring from 'querystring'
 
 const createErrorMap = errors =>
   errors.reduce(
@@ -69,11 +70,16 @@ class LoginForm extends React.Component {
       this.setState({ errors: createErrorMap(errors) })
     } else {
       this.props.dispatch(setUser(user))
-      this.props.dispatch(push('/game/'))
+      const query = querystring.parse(this.props.location.search.substr(1))
+      this.props.dispatch(push(query.continue || '/game/'))
       storeKey(key)
     }
   }
 }
 
-export default connect()(LoginForm)
+const mapStateToProps = state => ({
+  location: state.router.location
+})
+
+export default connect(mapStateToProps)(LoginForm)
 
