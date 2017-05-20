@@ -14,7 +14,6 @@ export function requireAuthentication (Component) {
     }
 
     checkAuth () {
-      console.log('props', this.props)
       if (!this.props.isAuthenticated) {
         const redirectAfterLogin = this.props.location.pathname
         const url = `/?continue=${encodeURIComponent(redirectAfterLogin)}`

@@ -49,8 +49,8 @@ export default class Form extends React.Component {
     const { loading, mode = MODE_LOGIN, errors = {} } = this.props
 
     return (
-      <FormElement disabled={loading} onSubmit={this.submit}>
-        <div>
+      <FormElement onSubmit={this.submit}>
+        <fieldset disabled={loading}>
           {errors.general && <Row><ErrorText>{errors.general}</ErrorText></Row>}
           <Row>
             <Label htmlFor="username">Username:</Label>
@@ -90,7 +90,7 @@ export default class Form extends React.Component {
               {mode === MODE_LOGIN ? 'Login' : 'Register'}
             </Button>
           </Row>
-        </div>
+        </fieldset>
         {loading && <LoadingIndicator />}
       </FormElement>
     )

@@ -22,6 +22,11 @@ export const Box = styled.div`
   &:not(:last-child) > ${BoxContent} {
     border-right: 1px solid #ddd;
   }
+
+  ${media.ltMedium`
+    margin-top: 20px;
+    flex: none;
+  `}
 `
 
 export const OuterBox = styled.div`

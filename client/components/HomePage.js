@@ -4,13 +4,7 @@ import PageContainer from './PageContainer.js'
 import LoginForm from './container/LoginForm.js'
 import RegisterForm from './container/RegisterForm.js'
 import { Box, BoxHeader, BoxContent, OuterBox } from './Box.js'
-
-const Logo = styled.img`
-  display: block;
-  margin: 0 auto;
-  padding: 20px;
-  max-width: calc(100% - 40px);
-`
+import Logo from './Logo.js'
 
 const HomePage = () => (
   <PageContainer>

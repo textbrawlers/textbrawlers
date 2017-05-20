@@ -146,6 +146,7 @@ SystemJS.config({
     'react-router-redux': 'npm:react-router-redux@next',
     'readline': 'npm:jspm-nodelibs-readline@0.2.1',
     'redux': 'npm:redux@3.6.0',
+    'redux-devtools-extension': 'npm:redux-devtools-extension@2.13.2',
     'redux-logger': 'npm:redux-logger@3.0.1',
     'redux-thunk': 'npm:redux-thunk@2.2.0',
     'stream': 'npm:jspm-nodelibs-stream@0.2.1',
@@ -231,7 +232,7 @@ SystemJS.config({
         'core-util-is': 'npm:core-util-is@1.0.2',
         'process-nextick-args': 'npm:process-nextick-args@1.0.7',
         'isarray': 'npm:isarray@1.0.0',
-        'string_decoder': 'npm:string_decoder@1.0.0',
+        'string_decoder': 'npm:string_decoder@1.0.1',
         'util-deprecate': 'npm:util-deprecate@1.0.2'
       }
     },
@@ -1513,6 +1514,11 @@ SystemJS.config({
         'fbjs': 'npm:fbjs@0.8.12',
         'postcss-value-parser': 'npm:postcss-value-parser@3.3.0',
         'css-color-keywords': 'npm:css-color-keywords@1.0.0'
+      }
+    },
+    'npm:string_decoder@1.0.1': {
+      'map': {
+        'safe-buffer': 'npm:safe-buffer@5.0.1'
       }
     }
   }

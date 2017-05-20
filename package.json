@@ -47,6 +47,7 @@
       "react-router": "npm:react-router@^4.1.1",
       "react-router-dom": "npm:react-router-dom@^4.1.1",
       "react-router-redux": "npm:react-router-redux@next",
+      "redux-devtools-extension": "npm:redux-devtools-extension@^2.13.2",
       "redux-logger": "npm:redux-logger@^3.0.1",
       "redux-thunk": "npm:redux-thunk@^2.2.0",
       "styled-components": "npm:styled-components@2.0.0-17",
