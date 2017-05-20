@@ -33,20 +33,6 @@ SystemJS.config({
           'esutils': 'npm:esutils@2.0.2',
           'babel-types': 'npm:babel-types@6.24.1'
         }
-      },
-      'npm:babel-runtime@6.23.0': {
-        'map': {
-          'core-js': 'npm:core-js@2.4.1',
-          'regenerator-runtime': 'npm:regenerator-runtime@0.10.5'
-        }
-      },
-      'npm:babel-types@6.24.1': {
-        'map': {
-          'babel-runtime': 'npm:babel-runtime@6.23.0',
-          'esutils': 'npm:esutils@2.0.2',
-          'to-fast-properties': 'npm:to-fast-properties@1.0.3',
-          'lodash': 'npm:lodash@4.17.4'
-        }
       }
     }
   },
@@ -62,7 +48,8 @@ SystemJS.config({
           'loader': 'plugin-babel',
           'babelOptions': {
             'plugins': [
-              'babel-plugin-transform-react-jsx'
+              'babel-plugin-transform-react-jsx',
+              'babel-plugin-styled-components'
             ]
           }
         }
@@ -100,6 +87,8 @@ SystemJS.config({
   map: {
     'ajv': 'npm:ajv@5.0.1',
     'assert': 'npm:jspm-nodelibs-assert@0.2.1',
+    'babel-plugin-styled-components': 'npm:babel-plugin-styled-components@1.1.4',
+    'babel-types': 'npm:babel-types@6.24.1',
     'bcryptjs': 'npm:bcryptjs@2.4.3',
     'buffer': 'npm:jspm-nodelibs-buffer@0.2.3',
     'child_process': 'npm:jspm-nodelibs-child_process@0.2.1',
@@ -1519,6 +1508,25 @@ SystemJS.config({
     'npm:string_decoder@1.0.1': {
       'map': {
         'safe-buffer': 'npm:safe-buffer@5.0.1'
+      }
+    },
+    'npm:babel-plugin-styled-components@1.1.4': {
+      'map': {
+        'stylis': 'npm:stylis@2.0.0'
+      }
+    },
+    'npm:babel-runtime@6.23.0': {
+      'map': {
+        'core-js': 'npm:core-js@2.4.1',
+        'regenerator-runtime': 'npm:regenerator-runtime@0.10.5'
+      }
+    },
+    'npm:babel-types@6.24.1': {
+      'map': {
+        'babel-runtime': 'npm:babel-runtime@6.23.0',
+        'esutils': 'npm:esutils@2.0.2',
+        'to-fast-properties': 'npm:to-fast-properties@1.0.3',
+        'lodash': 'npm:lodash@4.17.4'
       }
     }
   }

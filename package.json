@@ -26,6 +26,8 @@
     "name": "textbrawlers",
     "main": "textbrawlers.js",
     "dependencies": {
+      "babel-plugin-styled-components": "npm:babel-plugin-styled-components@^1.1.4",
+      "babel-types": "npm:babel-types@^6.24.1",
       "bcryptjs": "npm:bcryptjs@^2.4.3",
       "dotenv": "npm:dotenv@^4.0.0",
       "graceful-fs": "npm:graceful-fs@^4.1.11",
