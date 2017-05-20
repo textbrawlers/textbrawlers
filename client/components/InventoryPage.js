@@ -1,9 +1,9 @@
 import React from 'react'
-import InventoryTab from './InventoryTab.js'
+import MyInventoryTab from 'client/components/container/MyInventoryTab.js'
 
 const InventoryPage = () => (
   <div>
-    <InventoryTab items={[1, 2, 3]} />
+    <MyInventoryTab items={[1, 2, 3]} tab={0} />
   </div>
 )
 
