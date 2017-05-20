@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
+import { Route } from 'react-router'
 
 export function requireAuthentication (Component) {
   class AuthenticatedComponent extends React.Component {
@@ -36,5 +37,14 @@ export function requireAuthentication (Component) {
   })
 
   return connect(mapStateToProps)(AuthenticatedComponent)
+}
+
+export function AuthenticatedRoute ({ component: Component, ...rest }) {
+  const RequireAuthComponent = requireAuthentication(Component)
+  return (
+    <Route {...rest}>
+      <RequireAuthComponent />
+    </Route>
+  )
 }
 
