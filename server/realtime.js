@@ -92,11 +92,11 @@ export function acceptInvite (playerId, inviteId) {
   })
 
   if (inviteAccepted) {
-    doPVPFight(invitedRealtimePlayers)
+    doPVPFight(otherRps, invitedRealtimePlayers)
   }
 }
 
-async function doPVPFight (invitedRealtimePlayers) {
+async function doPVPFight (otherRps, invitedRealtimePlayers) {
   const rtPlayers = otherRps.concat(invitedRealtimePlayers)
 
   await refreshPlayers(rtPlayers)
