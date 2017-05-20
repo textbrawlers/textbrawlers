@@ -92,23 +92,27 @@ export function acceptInvite (playerId, inviteId) {
   })
 
   if (inviteAccepted) {
-    const rtPlayers = otherRps.concat(invitedRealtimePlayers)
-
-    refreshPlayers(rtPlayers).then(() => {
-      return fightManager.startFight(rtPlayers.map(rt => rt.player))
-    }).then(fight => {
-      fight.players.forEach(player => {
-        sendMessage(player.id, 'startgame', { id: fight.id })
-      })
-
-      fight.on('attack', attack => {
-        fight.subscribers.forEach(player => {
-          attack.fightId = fight.id
-          sendMessage(player.id, 'fight.attack', attack)
-        })
-      })
-    }).catch(err => console.error(err.stack || err))
+    doPVPFight(invitedRealtimePlayers)
   }
+}
+
+async function doPVPFight (invitedRealtimePlayers) {
+  const rtPlayers = otherRps.concat(invitedRealtimePlayers)
+
+  await refreshPlayers(rtPlayers)
+  const fight = fightManager.startFight(rtPlayers.map(rt => rt.player))
+  fight.players.forEach(player => {
+    sendMessage(player.id, 'startgame', { id: fight.id })
+  })
+
+  fight.on('attack', attack => {
+    fight.subscribers.forEach(player => {
+      attack.fightId = fight.id
+      sendMessage(player.id, 'fight.attack', attack)
+    })
+  })
+
+  await fight.fightDonePromise
 }
 
 export function invitePlayer (playerId, sourcePlayer) {
