@@ -139,7 +139,7 @@ export default class FightManager {
     } else {
       this.endPVPFight(fightObj)
     }
-    fightObj.resolveFightDone()
+    fightObj.resolveFightDone
   }
 
   endNPCFight (fightObj) {
