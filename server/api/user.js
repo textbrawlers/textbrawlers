@@ -106,7 +106,17 @@ export async function register (ctx) {
   ctx.body = {
     key,
     user: {
-      username: user
+      username: user.username
+    }
+  }
+}
+
+export async function checkKey (ctx) {
+  const { key, username } = ctx.account
+  ctx.body = {
+    key,
+    user: {
+      username: username
     }
   }
 }

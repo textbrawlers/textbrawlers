@@ -13,9 +13,19 @@ import HomePage from 'client/components/HomePage.js'
 import createStore from 'client/store/createStore.js'
 import NotFound from 'client/components/NotFound.js'
 import InventoryPage from 'client/components/InventoryPage.js'
+import GlobalLoadingIndicator
+  from 'client/components/container/GlobalLoadingIndicator'
+import { tryRestoreSession } from 'client/network/session.js'
+
+import { startGlobalLoading, stopGlobalLoading } from 'client/store/actions.js'
 
 export const history = module ? module.history : createHistory()
 export const store = module ? module.store : createStore(history)
+
+store.dispatch(startGlobalLoading())
+tryRestoreSession(store).then(() => {
+  store.dispatch(stopGlobalLoading())
+})
 
 const PVE = () => <div>PVE</div>
 
@@ -34,13 +44,15 @@ const Game = () => (
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <AuthenticatedRoute path="/game" component={Game} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-    </ConnectedRouter>
+    <GlobalLoadingIndicator>
+      <ConnectedRouter history={history}>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <AuthenticatedRoute path="/game" component={Game} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </ConnectedRouter>
+    </GlobalLoadingIndicator>
   </Provider>,
   rootContainer
 )

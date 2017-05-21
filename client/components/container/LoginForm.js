@@ -69,6 +69,7 @@ class LoginForm extends React.Component {
     if (errors) {
       this.setState({ errors: createErrorMap(errors) })
     } else {
+      user.key = key
       this.props.dispatch(setUser(user))
       const query = querystring.parse(this.props.location.search.substr(1))
       this.props.dispatch(push(query.continue || '/game/'))

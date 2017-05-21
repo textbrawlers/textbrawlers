@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import { login, register, getPlayer } from './api/user.js'
+import { login, register, getPlayer, checkKey } from './api/user.js'
 import SPlayer from 'common/game/serverPlayer.js'
 import * as game from './api/game.js'
 import * as gamedata from './api/gamedata.js'
@@ -52,6 +52,7 @@ const router = new Router()
 
 router.post('/user/login', login)
 router.post('/user/register', register)
+router.post('/user/checkKey', auth, checkKey)
 router.get('/user/get', auth, getPlayer)
 
 router.post('/game/reassemble', auth, game.reassemble)
@@ -82,3 +83,4 @@ router.get('/gamedata/droptable', jsonApi, gamedata.droptable)
 router.get('/gamedata/random-item', jsonApi, gamedata.randomItem)
 
 export default router
+
