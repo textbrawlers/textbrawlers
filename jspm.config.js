@@ -116,13 +116,13 @@ SystemJS.config({
     'bcryptjs': 'npm:bcryptjs@2.3.0',
     'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
     'child_process': 'github:jspm/nodelibs-child_process@0.2.0-alpha',
-    'constants': 'github:jspm/nodelibs-constants@0.2.0-alpha',
+    'constants': 'npm:jspm-nodelibs-constants@0.2.0',
     'core-js': 'npm:core-js@2.4.1',
     'crypto': 'github:jspm/nodelibs-crypto@0.2.0-alpha',
-    'dns': 'github:jspm/nodelibs-dns@0.2.0-alpha',
+    'dns': 'npm:jspm-nodelibs-dns@0.2.0',
     'domain': 'github:jspm/nodelibs-domain@0.2.0-alpha',
     'dotenv': 'npm:dotenv@2.0.0',
-    'events': 'github:jspm/nodelibs-events@0.2.0-alpha',
+    'events': 'github:jspm/nodelibs-events@0.2.2',
     'fs': 'github:jspm/nodelibs-fs@0.2.0-alpha',
     'graceful-fs': 'npm:graceful-fs@4.1.4',
     'http': 'github:jspm/nodelibs-http@0.2.0-alpha',
@@ -136,13 +136,13 @@ SystemJS.config({
     'koa-static': 'npm:koa-static@2.0.0',
     'lodash': 'npm:lodash-es@4.16.6',
     'lru-cache': 'npm:lru-cache@4.0.1',
-    'module': 'github:jspm/nodelibs-module@0.2.0-alpha',
+    'module': 'npm:jspm-nodelibs-module@0.2.0',
     'monk': 'npm:monk@3.0.7',
-    'net': 'github:jspm/nodelibs-net@0.2.0-alpha',
+    'net': 'npm:jspm-nodelibs-net@0.2.0',
     'os': 'github:jspm/nodelibs-os@0.2.0-alpha',
-    'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
+    'path': 'github:jspm/nodelibs-path@0.2.3',
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
-    'querystring': 'github:jspm/nodelibs-querystring@0.2.0-alpha',
+    'querystring': 'npm:jspm-nodelibs-querystring@0.2.0',
     'react': 'npm:react@15.2.1',
     'react-contextmenu': 'npm:react-contextmenu@1.6.2',
     'react-dnd': 'npm:react-dnd@2.1.4',
@@ -151,7 +151,7 @@ SystemJS.config({
     'react-redux': 'npm:react-redux@4.4.5',
     'react-router': 'npm:react-router@2.6.0',
     'react-tether': 'npm:react-tether@0.5.2',
-    'readline': 'github:jspm/nodelibs-readline@0.2.0-alpha',
+    'readline': 'npm:jspm-nodelibs-readline@0.2.0',
     'redux': 'npm:redux@3.6.0',
     'redux-logger': 'npm:redux-logger@2.7.4',
     'redux-thunk': 'npm:redux-thunk@2.1.0',
@@ -159,12 +159,12 @@ SystemJS.config({
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
     'string_decoder': 'github:jspm/nodelibs-string_decoder@0.2.0-alpha',
     'systemjs-hot-reloader': 'github:capaj/systemjs-hot-reloader@0.6.0',
-    'timers': 'github:jspm/nodelibs-timers@0.2.0-alpha',
-    'tls': 'github:jspm/nodelibs-tls@0.2.0-alpha',
-    'tty': 'github:jspm/nodelibs-tty@0.2.0-alpha',
+    'timers': 'npm:jspm-nodelibs-timers@0.2.0',
+    'tls': 'npm:jspm-nodelibs-tls@0.2.0',
+    'tty': 'npm:jspm-nodelibs-tty@0.2.0',
     'url': 'github:jspm/nodelibs-url@0.2.0-alpha',
     'util': 'github:jspm/nodelibs-util@0.2.0-alpha',
-    'vm': 'github:jspm/nodelibs-vm@0.2.0-alpha',
+    'vm': 'npm:jspm-nodelibs-vm@0.2.0',
     'whatwg-fetch': 'npm:whatwg-fetch@1.0.0',
     'ws': 'npm:ws@1.1.1',
     'zlib': 'github:jspm/nodelibs-zlib@0.2.0-alpha'
@@ -261,31 +261,16 @@ SystemJS.config({
         'any-promise': 'npm:any-promise@1.3.0'
       }
     },
-    'github:jspm/nodelibs-stream@0.2.0-alpha': {
-      'map': {
-        'stream-browserify': 'npm:stream-browserify@2.0.1'
-      }
-    },
     'npm:stream-browserify@2.0.1': {
       'map': {
         'inherits': 'npm:inherits@2.0.3',
         'readable-stream': 'npm:readable-stream@2.2.1'
       }
     },
-    'github:jspm/nodelibs-url@0.2.0-alpha': {
-      'map': {
-        'url-browserify': 'npm:url@0.11.0'
-      }
-    },
     'npm:url@0.11.0': {
       'map': {
         'punycode': 'npm:punycode@1.3.2',
         'querystring': 'npm:querystring@0.2.0'
-      }
-    },
-    'github:jspm/nodelibs-crypto@0.2.0-alpha': {
-      'map': {
-        'crypto-browserify': 'npm:crypto-browserify@3.11.0'
       }
     },
     'npm:crypto-browserify@3.11.0': {
@@ -409,21 +394,6 @@ SystemJS.config({
         'inherits': 'npm:inherits@2.0.3'
       }
     },
-    'github:jspm/nodelibs-string_decoder@0.2.0-alpha': {
-      'map': {
-        'string_decoder-browserify': 'npm:string_decoder@0.10.31'
-      }
-    },
-    'github:jspm/nodelibs-buffer@0.2.0-alpha': {
-      'map': {
-        'buffer-browserify': 'npm:buffer@4.9.1'
-      }
-    },
-    'github:jspm/nodelibs-http@0.2.0-alpha': {
-      'map': {
-        'http-browserify': 'npm:stream-http@2.5.0'
-      }
-    },
     'npm:monk@3.0.7': {
       'map': {
         'debug': 'npm:debug@2.2.0',
@@ -455,11 +425,6 @@ SystemJS.config({
       'map': {
         'resolve-from': 'npm:resolve-from@2.0.0',
         'semver': 'npm:semver@5.3.0'
-      }
-    },
-    'github:jspm/nodelibs-timers@0.2.0-alpha': {
-      'map': {
-        'timers-browserify': 'npm:timers-browserify@1.4.2'
       }
     },
     'npm:timers-browserify@1.4.2': {
@@ -516,11 +481,6 @@ SystemJS.config({
     'npm:thenify@3.2.0': {
       'map': {
         'any-promise': 'npm:any-promise@1.3.0'
-      }
-    },
-    'github:jspm/nodelibs-zlib@0.2.0-alpha': {
-      'map': {
-        'zlib-browserify': 'npm:browserify-zlib@0.1.4'
       }
     },
     'npm:browserify-zlib@0.1.4': {
@@ -596,11 +556,6 @@ SystemJS.config({
         'iconv-lite': 'npm:iconv-lite@0.4.13'
       }
     },
-    'github:jspm/nodelibs-domain@0.2.0-alpha': {
-      'map': {
-        'domain-browserify': 'npm:domain-browser@1.1.7'
-      }
-    },
     'npm:history@2.1.2': {
       'map': {
         'warning': 'npm:warning@2.1.0',
@@ -640,9 +595,9 @@ SystemJS.config({
         'sass.js': 'npm:sass.js@0.9.11',
         'postcss': 'npm:postcss@5.1.0',
         'lodash': 'npm:lodash@4.14.0',
-        'fs': 'github:jspm/nodelibs-fs@0.1.2',
-        'path': 'github:jspm/nodelibs-path@0.1.0',
-        'url': 'github:jspm/nodelibs-url@0.1.0',
+        'fs': 'npm:jspm-nodelibs-fs@0.2.0',
+        'path': 'npm:jspm-nodelibs-path@0.2.0',
+        'url': 'npm:jspm-nodelibs-url@0.2.0',
         'reqwest': 'github:ded/reqwest@2.0.5'
       }
     },
@@ -671,22 +626,6 @@ SystemJS.config({
     'npm:supports-color@3.1.2': {
       'map': {
         'has-flag': 'npm:has-flag@1.0.0'
-      }
-    },
-    'github:jspm/nodelibs-path@0.1.0': {
-      'map': {
-        'path-browserify': 'npm:path-browserify@0.0.0'
-      }
-    },
-    'github:jspm/nodelibs-url@0.1.0': {
-      'map': {
-        'url': 'npm:url@0.10.3'
-      }
-    },
-    'npm:url@0.10.3': {
-      'map': {
-        'punycode': 'npm:punycode@1.3.2',
-        'querystring': 'npm:querystring@0.2.0'
       }
     },
     'npm:babel-plugin-transform-runtime@6.12.0': {
@@ -1270,11 +1209,6 @@ SystemJS.config({
         'nan': 'npm:nan@2.4.0'
       }
     },
-    'github:jspm/nodelibs-os@0.2.0-alpha': {
-      'map': {
-        'os-browserify': 'npm:os-browserify@0.2.1'
-      }
-    },
     'npm:react-contextmenu@1.6.2': {
       'map': {
         'lodash.isobject': 'npm:lodash.isobject@3.0.2',
@@ -1395,6 +1329,61 @@ SystemJS.config({
     'npm:redux-logger@2.7.4': {
       'map': {
         'deep-diff': 'npm:deep-diff@0.3.4'
+      }
+    },
+    'npm:jspm-nodelibs-timers@0.2.0': {
+      'map': {
+        'timers-browserify': 'npm:timers-browserify@1.4.2'
+      }
+    },
+    'npm:jspm-nodelibs-url@0.2.0': {
+      'map': {
+        'url-browserify': 'npm:url@0.11.0'
+      }
+    },
+    'github:jspm/nodelibs-http@0.2.0-alpha': {
+      'map': {
+        'http-browserify': 'npm:stream-http@2.5.0'
+      }
+    },
+    'github:jspm/nodelibs-buffer@0.2.0-alpha': {
+      'map': {
+        'buffer-browserify': 'npm:buffer@4.9.1'
+      }
+    },
+    'github:jspm/nodelibs-stream@0.2.0-alpha': {
+      'map': {
+        'stream-browserify': 'npm:stream-browserify@2.0.1'
+      }
+    },
+    'github:jspm/nodelibs-domain@0.2.0-alpha': {
+      'map': {
+        'domain-browserify': 'npm:domain-browser@1.1.7'
+      }
+    },
+    'github:jspm/nodelibs-string_decoder@0.2.0-alpha': {
+      'map': {
+        'string_decoder-browserify': 'npm:string_decoder@0.10.31'
+      }
+    },
+    'github:jspm/nodelibs-crypto@0.2.0-alpha': {
+      'map': {
+        'crypto-browserify': 'npm:crypto-browserify@3.11.0'
+      }
+    },
+    'github:jspm/nodelibs-os@0.2.0-alpha': {
+      'map': {
+        'os-browserify': 'npm:os-browserify@0.2.1'
+      }
+    },
+    'github:jspm/nodelibs-zlib@0.2.0-alpha': {
+      'map': {
+        'zlib-browserify': 'npm:browserify-zlib@0.1.4'
+      }
+    },
+    'github:jspm/nodelibs-url@0.2.0-alpha': {
+      'map': {
+        'url-browserify': 'npm:url@0.11.0'
       }
     }
   }
