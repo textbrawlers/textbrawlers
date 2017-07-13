@@ -16,16 +16,18 @@ import InventoryPage from 'client/components/InventoryPage.js'
 import GlobalLoadingIndicator
   from 'client/components/container/GlobalLoadingIndicator'
 import { tryRestoreSession } from 'client/network/session.js'
-
 import { startGlobalLoading, stopGlobalLoading } from 'client/store/actions.js'
 
 export const history = module ? module.history : createHistory()
 export const store = module ? module.store : createStore(history)
 
-store.dispatch(startGlobalLoading())
-tryRestoreSession(store).then(() => {
-  store.dispatch(stopGlobalLoading())
-})
+// Don't try to sign in again if hot-reloading
+if (!module) {
+  store.dispatch(startGlobalLoading())
+  tryRestoreSession(store).then(() => {
+    store.dispatch(stopGlobalLoading())
+  })
+}
 
 const PVE = () => <div>PVE</div>
 

@@ -75,6 +75,9 @@ SystemJS.config({
         }
       }
     }
+  },
+  map: {
+    '@hot': '@empty'
   }
 });
 

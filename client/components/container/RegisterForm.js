@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
   async onSubmit ({ username, password, repeatPassword }) {
     let errors = []
     if (username.length < 1) {
-      errors.push({ field: 'username', message: 'Please enter an username' })
+      errors.push({ field: 'username', message: 'Please enter a username' })
     }
 
     if (password.length < 1) {
@@ -72,7 +72,6 @@ class LoginForm extends React.Component {
     this.setState({ loading: false })
 
     if (errors) {
-      console.log(createErrorMap(errors))
       this.setState({ errors: createErrorMap(errors) })
     } else {
       this.props.dispatch(setUser(user))

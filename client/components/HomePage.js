@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import PageContainer from './PageContainer.js'
 import LoginForm from './container/LoginForm.js'
 import RegisterForm from './container/RegisterForm.js'

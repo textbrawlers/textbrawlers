@@ -36,7 +36,7 @@ class LoginForm extends React.Component {
   async onSubmit ({ username, password }) {
     let errors = []
     if (username.length < 1) {
-      errors.push({ field: 'username', message: 'Please enter an username' })
+      errors.push({ field: 'username', message: 'Please enter a username' })
     }
 
     if (password.length < 1) {
