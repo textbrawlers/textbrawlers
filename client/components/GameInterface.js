@@ -20,6 +20,11 @@ const TitleBar = styled.div`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
   background: red;
+  text-align: center;
+`
+
+const InlineBlockLink = styled(Link)`
+  display: inline-block;
 `
 
 const GameArea = styled.div`
@@ -54,9 +59,9 @@ const MenuHeader = styled.div`
 const GameInterface = props => (
   <Grid>
     <TitleBar>
-      <Link to="/game/inventory">
+      <InlineBlockLink to="/game/inventory">
         <Logo src="/client/img/textbrawlers.png" />
-      </Link>
+      </InlineBlockLink>
     </TitleBar>
     <GameArea>
       {props.children}
