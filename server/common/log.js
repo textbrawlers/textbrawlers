@@ -36,8 +36,9 @@ const log = bunyan.createLogger({
 export default log
 
 export const koaLogger = () => async (ctx, next) => {
-  const start = Date.now()
+  const start = process.hrtime()
   await next();
-  const processingTime = Date.now() - start
+  const [seconds, nanoseconds] = process.hrtime(start)
+  const processingTime = seconds * 10e9 + nanoseconds
   log.info({req: ctx.req, res: ctx.res, processingTime}, 'request finished')
 }
