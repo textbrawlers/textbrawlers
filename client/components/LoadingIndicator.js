@@ -28,11 +28,9 @@ const Spinner = styled.div`
   animation: linear ${spin} .5s infinite;
 `
 
-const LoadingIndicator = () => (
+const LoadingIndicator = () =>
   <LoadingIndicatorContainer>
     <Spinner />
   </LoadingIndicatorContainer>
-)
 
 export default LoadingIndicator
-

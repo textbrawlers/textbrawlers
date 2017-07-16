@@ -3,17 +3,17 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { Route } from 'react-router'
 
-export function requireAuthentication (Component) {
+export function requireAuthentication(Component) {
   class AuthenticatedComponent extends React.Component {
-    componentWillMount () {
+    componentWillMount() {
       this.checkAuth()
     }
 
-    componentWillReceiveProps (nextProps) {
+    componentWillReceiveProps(nextProps) {
       this.checkAuth()
     }
 
-    checkAuth () {
+    checkAuth() {
       if (!this.props.isAuthenticated) {
         const redirectAfterLogin = this.props.location.pathname
         const url = `/?continue=${encodeURIComponent(redirectAfterLogin)}`
@@ -21,24 +21,22 @@ export function requireAuthentication (Component) {
       }
     }
 
-    render () {
+    render() {
       return (
-        <div>
-          {this.props.isAuthenticated && <Component {...this.props} />}
-        </div>
+        <div>{this.props.isAuthenticated && <Component {...this.props} />}</div>
       )
     }
   }
 
   const mapStateToProps = state => ({
     location: state.router.location,
-    isAuthenticated: !!state.user
+    isAuthenticated: !!state.user,
   })
 
   return connect(mapStateToProps)(AuthenticatedComponent)
 }
 
-export function AuthenticatedRoute ({ component: Component, ...rest }) {
+export function AuthenticatedRoute({ component: Component, ...rest }) {
   const RequireAuthComponent = requireAuthentication(Component)
   return (
     <Route {...rest}>
@@ -46,4 +44,3 @@ export function AuthenticatedRoute ({ component: Component, ...rest }) {
     </Route>
   )
 }
-

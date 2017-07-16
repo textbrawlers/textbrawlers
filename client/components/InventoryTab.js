@@ -11,7 +11,7 @@ const Grid = styled.div`
   ${media.ltLarge`
     grid-template-columns: repeat(5, 50px);
     grid-template-rows: repeat(8, 50px);
-  `}
+  `};
 `
 
 const SlotContainer = styled.div`
@@ -29,4 +29,3 @@ const InventoryTab = ({ items }) => {
 }
 
 export default InventoryTab
-

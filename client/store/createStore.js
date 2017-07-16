@@ -8,8 +8,7 @@ export default history => {
   return createStore(
     makeRootReducer(),
     composeWithDevTools(
-      applyMiddleware(thunkMiddleware, routerMiddleware(history))
-    )
+      applyMiddleware(thunkMiddleware, routerMiddleware(history)),
+    ),
   )
 }
-

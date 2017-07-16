@@ -22,6 +22,11 @@
   "dependencies": {
     "jspm": "^0.17.0-beta.41"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "jspm": {
     "name": "textbrawlers",
     "main": "textbrawlers.js",
@@ -195,6 +200,14 @@
     }
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.0.1"
+    "eslint": "^4.2.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "prettier": "github:prettier/prettier"
   }
 }

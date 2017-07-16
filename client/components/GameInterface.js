@@ -11,9 +11,9 @@ const Grid = styled.div`
   width: 100%;
   height: 100%;
 
-  ${media.ltLarge`
+  ${media.ltMedium`
     display: block;
-  `}
+  `};
 `
 
 const TitleBar = styled.div`
@@ -41,9 +41,7 @@ const Menu = styled.div`
   grid-row: 2;
 `
 
-const MenuSection = styled.div`
-  margin-bottom: 10px;
-`
+const MenuSection = styled.div`margin-bottom: 10px;`
 
 const MenuItem = styled(Link)`
   padding: 5px;
@@ -52,9 +50,7 @@ const MenuItem = styled(Link)`
   display: block;
 `
 
-const MenuHeader = styled.div`
-  font-weight: bold;
-`
+const MenuHeader = styled.div`font-weight: bold;`
 
 const GameInterface = props => (
   <Grid>
@@ -63,9 +59,7 @@ const GameInterface = props => (
         <Logo src="/client/img/textbrawlers.png" />
       </InlineBlockLink>
     </TitleBar>
-    <GameArea>
-      {props.children}
-    </GameArea>
+    <GameArea>{props.children}</GameArea>
     <Menu>
       <MenuSection>
         <MenuHeader>Section</MenuHeader>
@@ -77,4 +71,3 @@ const GameInterface = props => (
 )
 
 export default GameInterface
-

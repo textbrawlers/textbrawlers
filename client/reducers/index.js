@@ -4,7 +4,7 @@ import {
   REQUEST_INVENTORY,
   RECIEVE_INVENTORY,
   SET_USER,
-  SET_NUMBER_GLOBAL_LOADING
+  SET_NUMBER_GLOBAL_LOADING,
 } from './actions.js'
 
 const globalLoading = (state = 0, action) => {
@@ -18,19 +18,19 @@ const globalLoading = (state = 0, action) => {
 const inventory = (
   state = {
     isFetching: false,
-    inventory: null
+    inventory: null,
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case REQUEST_INVENTORY:
       return Object.assign({}, state, {
-        isFetching: true
+        isFetching: true,
       })
     case RECIEVE_INVENTORY:
       return Object.assign({}, state, {
         isFetching: false,
-        inventory: action.inventory
+        inventory: action.inventory,
       })
     default:
       return state
@@ -42,7 +42,7 @@ const inventoriesById = (state = {}, action) => {
     case REQUEST_INVENTORY:
     case RECIEVE_INVENTORY:
       return Object.assign({}, state, {
-        [action.playerId]: inventory(state[action.playerId], action)
+        [action.playerId]: inventory(state[action.playerId], action),
       })
     default:
       return state
@@ -63,7 +63,6 @@ export const makeRootReducer = () => {
     inventoriesById,
     user,
     globalLoading,
-    router: routerReducer
+    router: routerReducer,
   })
 }
-

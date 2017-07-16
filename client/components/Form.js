@@ -7,9 +7,7 @@ import LoadingIndicator from './LoadingIndicator.js'
 export const MODE_LOGIN = 'MODE_LOGIN'
 export const MODE_REGISTER = 'MODE_REGISTER'
 
-const Label = styled.label`
-  display: block;
-`
+const Label = styled.label`display: block;`
 
 const Row = styled.div`
   &:not(:last-child) {
@@ -21,9 +19,7 @@ const FullWidthTextInput = styled(TextInput)`
   width: 100%;
 `
 
-const FormElement = styled.form`
-  position: relative;
-`
+const FormElement = styled.form`position: relative;`
 
 const ErrorText = styled.p`
   color: #f55;
@@ -31,7 +27,7 @@ const ErrorText = styled.p`
 `
 
 export default class Form extends React.Component {
-  constructor () {
+  constructor() {
     super()
 
     this.submit = this.submit.bind(this)
@@ -42,16 +38,19 @@ export default class Form extends React.Component {
     this.state = {
       username: '',
       password: '',
-      repeatPassword: ''
+      repeatPassword: '',
     }
   }
-  render () {
+  render() {
     const { loading, mode = MODE_LOGIN, errors = {} } = this.props
 
     return (
       <FormElement onSubmit={this.submit}>
         <fieldset disabled={loading}>
-          {errors.general && <Row><ErrorText>{errors.general}</ErrorText></Row>}
+          {errors.general &&
+            <Row>
+              <ErrorText>{errors.general}</ErrorText>
+            </Row>}
           <Row>
             <Label htmlFor="username">Username:</Label>
             <FullWidthTextInput
@@ -96,21 +95,20 @@ export default class Form extends React.Component {
     )
   }
 
-  submit (e) {
+  submit(e) {
     e.preventDefault()
     this.props.onSubmit(this.state)
   }
 
-  updateUsername (e) {
+  updateUsername(e) {
     this.setState({ username: e.target.value })
   }
 
-  updatePassword (e) {
+  updatePassword(e) {
     this.setState({ password: e.target.value })
   }
 
-  updateRepeatPassword (e) {
+  updateRepeatPassword(e) {
     this.setState({ repeatPassword: e.target.value })
   }
 }
-

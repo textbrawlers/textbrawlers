@@ -10,18 +10,18 @@ import querystring from 'querystring'
 const createErrorMap = errors =>
   errors.reduce(
     (obj, { field, message }) => Object.assign(obj, { [field]: message }),
-    {}
+    {},
   )
 
 class LoginForm extends React.Component {
-  constructor () {
+  constructor() {
     super()
 
     this.onSubmit = this.onSubmit.bind(this)
 
     this.state = {}
   }
-  render () {
+  render() {
     const { loading, errors } = this.state
     return (
       <Form
@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
     )
   }
 
-  async onSubmit ({ username, password }) {
+  async onSubmit({ username, password }) {
     let errors = []
     if (username.length < 1) {
       errors.push({ field: 'username', message: 'Please enter a username' })
@@ -58,10 +58,10 @@ class LoginForm extends React.Component {
     }
   }
 
-  async sendNetworkRequest ({ username, password }) {
+  async sendNetworkRequest({ username, password }) {
     const { errors, key, user } = await request.post('/api/user/login', {
       username,
-      password
+      password,
     })
 
     this.setState({ loading: false })
@@ -79,8 +79,7 @@ class LoginForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  location: state.router.location
+  location: state.router.location,
 })
 
 export default connect(mapStateToProps)(LoginForm)
-

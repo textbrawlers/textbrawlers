@@ -6,8 +6,7 @@ const GlobalLoadingIndicator = ({ isLoading, children }) =>
   isLoading ? <LoadingIndicator /> : children
 
 const mapStateToProps = state => ({
-  isLoading: state.globalLoading > 0
+  isLoading: state.globalLoading > 0,
 })
 
 export default connect(mapStateToProps)(GlobalLoadingIndicator)
-

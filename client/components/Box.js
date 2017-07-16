@@ -26,7 +26,7 @@ export const Box = styled.div`
   ${media.ltMedium`
     margin-top: 20px;
     flex: none;
-  `}
+  `};
 `
 
 export const OuterBox = styled.div`
@@ -36,6 +36,5 @@ export const OuterBox = styled.div`
 
   ${media.ltMedium`
     flex-direction: column;
-  `}
+  `};
 `
-

@@ -9,18 +9,18 @@ import { setUser } from 'client/store/actions.js'
 const createErrorMap = errors =>
   errors.reduce(
     (obj, { field, message }) => Object.assign(obj, { [field]: message }),
-    {}
+    {},
   )
 
 class LoginForm extends React.Component {
-  constructor () {
+  constructor() {
     super()
 
     this.onSubmit = this.onSubmit.bind(this)
 
     this.state = {}
   }
-  render () {
+  render() {
     const { loading, errors } = this.state
     return (
       <Form
@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
     )
   }
 
-  async onSubmit ({ username, password, repeatPassword }) {
+  async onSubmit({ username, password, repeatPassword }) {
     let errors = []
     if (username.length < 1) {
       errors.push({ field: 'username', message: 'Please enter a username' })
@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
     if (repeatPassword !== password) {
       errors.push({
         field: 'repeatPassword',
-        message: 'Passwords does not match'
+        message: 'Passwords does not match',
       })
     }
 
@@ -63,10 +63,10 @@ class LoginForm extends React.Component {
     }
   }
 
-  async sendNetworkRequest ({ username, password }) {
+  async sendNetworkRequest({ username, password }) {
     const { errors, key, user } = await request.post('/api/user/register', {
       username,
-      password
+      password,
     })
 
     this.setState({ loading: false })
@@ -82,4 +82,3 @@ class LoginForm extends React.Component {
 }
 
 export default connect()(LoginForm)
-

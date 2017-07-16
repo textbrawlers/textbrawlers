@@ -7,4 +7,3 @@ const Logo = styled.img`
   max-width: calc(100% - 40px);
 `
 export default Logo
-

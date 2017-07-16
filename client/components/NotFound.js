@@ -12,4 +12,3 @@ const Outer = styled.div`
 const NotFound = () => <Outer>404</Outer>
 
 export default NotFound
-

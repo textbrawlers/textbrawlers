@@ -3,9 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createHistory from 'history/createBrowserHistory'
 import GameInterface from 'client/components/GameInterface.js'
-import {
-  AuthenticatedRoute
-} from 'client/components/container/AuthenticatedComponent.js'
+import { AuthenticatedRoute } from 'client/components/container/AuthenticatedComponent.js'
 import { Provider } from 'react-redux'
 import { Route, Switch, Redirect } from 'react-router'
 import { ConnectedRouter } from 'react-router-redux'
@@ -13,8 +11,7 @@ import HomePage from 'client/components/HomePage.js'
 import createStore from 'client/store/createStore.js'
 import NotFound from 'client/components/NotFound.js'
 import InventoryPage from 'client/components/InventoryPage.js'
-import GlobalLoadingIndicator
-  from 'client/components/container/GlobalLoadingIndicator'
+import GlobalLoadingIndicator from 'client/components/container/GlobalLoadingIndicator'
 import { tryRestoreSession } from 'client/network/session.js'
 import { startGlobalLoading, stopGlobalLoading } from 'client/store/actions.js'
 
@@ -56,10 +53,9 @@ ReactDOM.render(
       </ConnectedRouter>
     </GlobalLoadingIndicator>
   </Provider>,
-  rootContainer
+  rootContainer,
 )
 
-export function __unload () {
+export function __unload() {
   ReactDOM.unmountComponentAtNode(rootContainer)
 }
-

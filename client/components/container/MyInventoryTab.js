@@ -11,4 +11,3 @@ const MyInventoryTab = () => {
 }
 
 export default connect()(MyInventoryTab)
-

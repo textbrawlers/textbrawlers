@@ -1,5 +1,5 @@
 {
-  "extends": ["standard"],
+  "extends": ["standard", "prettier"],
   "rules": {
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1}],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"]}],

@@ -5,7 +5,7 @@ import RegisterForm from './container/RegisterForm.js'
 import { Box, BoxHeader, BoxContent, OuterBox } from './Box.js'
 import Logo from './Logo.js'
 
-const HomePage = () => (
+const HomePage = () =>
   <PageContainer>
     <Logo src="/client/img/textbrawlers.png" />
     <OuterBox>
@@ -27,7 +27,5 @@ const HomePage = () => (
       </Box>
     </OuterBox>
   </PageContainer>
-)
 
 export default HomePage
-
