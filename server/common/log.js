@@ -1,9 +1,12 @@
 import bunyan from 'bunyan'
 import gelfStream from 'gelf-stream'
+import ConsoleFormattedStream from 'bunyan-console-formatted-stream'
 
 const streams = []
 
-if (process.env.GELF_SERVER) {
+const isServer = typeof process !== 'undefined'
+
+if (isServer && process.env.GELF_SERVER) {
   streams.push({
     type: 'raw',
     stream: gelfStream.forBunyan(process.env.GELF_SERVER)
@@ -11,10 +14,18 @@ if (process.env.GELF_SERVER) {
 }
 
 if (streams.length === 0) {
-  streams.push({
-    stream: process.stdout,
-    level: 'debug'
-  })
+  if (isServer) {
+    streams.push({
+      stream: process.stdout,
+      level: 'debug'
+    })
+  } else {
+    streams.push({
+      level: 'info',
+      stream: new ConsoleFormattedStream(),
+      type: 'raw'
+    })
+  }
 }
 
 const log = bunyan.createLogger({

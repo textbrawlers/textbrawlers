@@ -30,6 +30,12 @@
     <script src="/jspm.config.js"></script>
     <script src="/build-production.js"></script>
     <script>
+      System.config({
+        map: {
+          'gelf-stream': '@empty'
+        }
+      })
+
       System.import('client/entrypoint.js')
     </script>
   </body>

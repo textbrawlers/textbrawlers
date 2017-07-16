@@ -19,7 +19,10 @@ const router = new Router()
 
 router.use('/api', server.routes(), server.allowedMethods())
 
-const indexFile = process.env.NODE_ENV === 'production' ? './index-production.html' : './index-development.html'
+log.info({env: process.env.NODE_ENV}, 'launching server')
+
+const isProduciton = process.env.NODE_ENV === 'production'
+const indexFile = isProduciton ? './index-production.html' : './index-development.html'
 
 const fallbackRoute = () => {
   return async ctx => {
@@ -47,7 +50,7 @@ Promise.all([
   npcs.parseNPCs()
 ]).then(() => {
   httpServer.listen(3000)
-  log.info(`listening on port ${port}`)
+  log.info({port}, 'server listening')
 
   process.on('unhandledRejection', reason => {
     log.error('unhandled promise rejection', reason.stack || reason)

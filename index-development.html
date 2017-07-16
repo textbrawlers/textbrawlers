@@ -16,7 +16,10 @@
     <script src="/build.js"></script>
     <script>
       System.config({
-        trace: true
+        trace: true,
+        map: {
+          'gelf-stream': '@empty'
+        }
       })
 
       System.import('systemjs-hot-reloader/default-listener.js')

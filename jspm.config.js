@@ -4,7 +4,8 @@ SystemJS.config({
     'github:': 'jspm_packages/github/',
     'server': 'server/',
     'client': 'client/',
-    'common': 'common/'
+    'common': 'common/',
+    'local:': 'jspm_packages/local/'
   },
   devConfig: {
     'map': {
@@ -106,7 +107,8 @@ SystemJS.config({
   packageConfigPaths: [
     'npm:@*/*.json',
     'npm:*.json',
-    'github:*/*.json'
+    'github:*/*.json',
+    'local:*.json'
   ],
   map: {
     'assert': 'github:jspm/nodelibs-assert@0.2.0-alpha',
@@ -116,6 +118,7 @@ SystemJS.config({
     'bcryptjs': 'npm:bcryptjs@2.3.0',
     'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
     'bunyan': 'npm:bunyan@1.8.10',
+    'bunyan-console-formatted-stream': 'local:bunyan-console-formatted-stream@1.0.0',
     'child_process': 'github:jspm/nodelibs-child_process@0.2.0-alpha',
     'constants': 'github:jspm/nodelibs-constants@0.2.0-alpha',
     'core-js': 'npm:core-js@2.4.1',

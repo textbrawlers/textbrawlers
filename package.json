@@ -27,6 +27,7 @@
       "babel-preset-es2017": "npm:babel-preset-es2017@^1.6.1",
       "bcryptjs": "npm:bcryptjs@^2.3.0",
       "bunyan": "npm:bunyan@^1.8.10",
+      "bunyan-console-formatted-stream": "npm:bunyan-console-formatted-stream",
       "core-js": "npm:core-js@^2.4.1",
       "dotenv": "npm:dotenv@^2.0.0",
       "gelf-stream": "npm:gelf-stream@^1.1.1",
@@ -330,7 +331,7 @@
     "monitor": "nodemon -w server -wcommon -x \"npm start\"",
     "monitor-debug": "nodemon -w server -wcommon -x \"npm start\"",
     "dev": "run-p socket-emitter dev-bundle monitor",
-    "build": "jspm bundle --minify client/entrypoint.js build-production.js",
+    "build": "jspm bundle --minify client/entrypoint.js - gelf-stream build-production.js",
     "run": "jspm run app.js --production",
     "lint": "standard"
   },
