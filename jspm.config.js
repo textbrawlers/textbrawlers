@@ -118,7 +118,7 @@ SystemJS.config({
     'bcryptjs': 'npm:bcryptjs@2.3.0',
     'buffer': 'github:jspm/nodelibs-buffer@0.2.0-alpha',
     'bunyan': 'npm:bunyan@1.8.10',
-    'bunyan-console-formatted-stream': 'local:bunyan-console-formatted-stream@1.0.0',
+    'bunyan-console-formatted-stream': 'npm:bunyan-console-formatted-stream@1.0.0',
     'child_process': 'github:jspm/nodelibs-child_process@0.2.0-alpha',
     'constants': 'github:jspm/nodelibs-constants@0.2.0-alpha',
     'core-js': 'npm:core-js@2.4.1',
