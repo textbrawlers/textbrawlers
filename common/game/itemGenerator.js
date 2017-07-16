@@ -2,6 +2,7 @@ import getItems from 'common/items/items.js'
 import getPrefixes from 'common/items/prefixes.js'
 import Item from 'common/game/item.js'
 import Prefix from 'common/game/prefix.js'
+import log from 'server/common/log.js'
 
 const rarities = [{
   rarity: 'common',
@@ -141,6 +142,8 @@ export async function generateItem () {
   const allPrefixes = getRandomPrefixes(possible, baseItem, prefixes, randomRarity.prefixes)
 
   const item = new Item(baseItem, { rarity, prefixes: allPrefixes, unseen: true })
+
+  log.info({item: item.serialize()}, 'generated item')
 
   return item
 }
