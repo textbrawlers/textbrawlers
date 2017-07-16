@@ -1,11 +1,10 @@
 import React from 'react'
-import Form, { MODE_LOGIN } from '../Form.js'
+import Form, { MODE_REGISTER } from 'client/components/Form.js'
 import request from 'client/network/request.js'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { storeKey } from 'client/network/session.js'
-import { setUser } from 'client/store/actions.js'
-import querystring from 'querystring'
+import { setUser } from 'client/actions/auth.js'
 
 const createErrorMap = errors =>
   errors.reduce(
@@ -25,7 +24,7 @@ class LoginForm extends React.Component {
     const { loading, errors } = this.state
     return (
       <Form
-        mode={MODE_LOGIN}
+        mode={MODE_REGISTER}
         onSubmit={this.onSubmit}
         loading={loading}
         errors={errors}
@@ -33,7 +32,7 @@ class LoginForm extends React.Component {
     )
   }
 
-  async onSubmit({ username, password }) {
+  async onSubmit({ username, password, repeatPassword }) {
     let errors = []
     if (username.length < 1) {
       errors.push({ field: 'username', message: 'Please enter a username' })
@@ -41,6 +40,12 @@ class LoginForm extends React.Component {
 
     if (password.length < 1) {
       errors.push({ field: 'password', message: 'Please enter a password' })
+    }
+    if (repeatPassword !== password) {
+      errors.push({
+        field: 'repeatPassword',
+        message: 'Passwords does not match',
+      })
     }
 
     if (errors.length > 0) {
@@ -59,7 +64,7 @@ class LoginForm extends React.Component {
   }
 
   async sendNetworkRequest({ username, password }) {
-    const { errors, key, user } = await request.post('/api/user/login', {
+    const { errors, key, user } = await request.post('/api/user/register', {
       username,
       password,
     })
@@ -69,17 +74,11 @@ class LoginForm extends React.Component {
     if (errors) {
       this.setState({ errors: createErrorMap(errors) })
     } else {
-      user.key = key
       this.props.dispatch(setUser(user))
-      const query = querystring.parse(this.props.location.search.substr(1))
-      this.props.dispatch(push(query.continue || '/game/'))
+      this.props.dispatch(push('/game/'))
       storeKey(key)
     }
   }
 }
 
-const mapStateToProps = state => ({
-  location: state.router.location,
-})
-
-export default connect(mapStateToProps)(LoginForm)
+export default connect()(LoginForm)

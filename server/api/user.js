@@ -5,7 +5,7 @@ const users = db.get('users')
 
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVXYabcdefghijklmnopqrstuvxyz0123456789'
 
-function randomKey () {
+function randomKey() {
   let key = ''
   for (var i = 0; i < 20; i++) {
     key += chars[Math.floor(Math.random() * chars.length)]
@@ -14,7 +14,7 @@ function randomKey () {
   return key
 }
 
-function genSalt (work) {
+function genSalt(work) {
   return new Promise((resolve, reject) => {
     bCrypt.genSalt(work, (err, salt) => {
       if (err) {
@@ -26,7 +26,7 @@ function genSalt (work) {
   })
 }
 
-function hash (pw, salt) {
+function hash(pw, salt) {
   return new Promise((resolve, reject) => {
     bCrypt.hash(pw, salt, (err, hash) => {
       if (err) {
@@ -38,7 +38,7 @@ function hash (pw, salt) {
   })
 }
 
-function compare (password, userPassword) {
+function compare(password, userPassword) {
   return new Promise((resolve, reject) => {
     bCrypt.compare(password, userPassword, (err, match) => {
       if (err) {
@@ -50,7 +50,7 @@ function compare (password, userPassword) {
   })
 }
 
-export async function login (ctx) {
+export async function login(ctx) {
   const username = ctx.request.body.username
   const password = ctx.request.body.password
 
@@ -61,9 +61,9 @@ export async function login (ctx) {
       errors: [
         {
           field: 'username',
-          message: 'This username does not exist'
-        }
-      ]
+          message: 'This username does not exist',
+        },
+      ],
     }
     return
   }
@@ -72,7 +72,7 @@ export async function login (ctx) {
 
   if (!match) {
     ctx.body = {
-      errors: [{ field: 'password', message: 'Wrong password' }]
+      errors: [{ field: 'password', message: 'Wrong password' }],
     }
     return
   }
@@ -80,12 +80,12 @@ export async function login (ctx) {
   ctx.body = {
     key: user.key,
     user: {
-      username: user.username
-    }
+      username: user.username,
+    },
   }
 }
 
-export async function register (ctx) {
+export async function register(ctx) {
   const username = ctx.request.body.username
   const password = ctx.request.body.password
 
@@ -95,7 +95,7 @@ export async function register (ctx) {
   const user = await users.findOne({ username })
   if (user) {
     ctx.body = {
-      errors: [{ field: 'username', message: 'Username already taken' }]
+      errors: [{ field: 'username', message: 'Username already taken' }],
     }
     return
   }
@@ -106,22 +106,21 @@ export async function register (ctx) {
   ctx.body = {
     key,
     user: {
-      username: user.username
-    }
+      username,
+    },
   }
 }
 
-export async function checkKey (ctx) {
+export async function checkKey(ctx) {
   const { key, username } = ctx.account
   ctx.body = {
     key,
     user: {
-      username: username
-    }
+      username: username,
+    },
   }
 }
 
-export async function getPlayer (ctx) {
+export async function getPlayer(ctx) {
   ctx.body = ctx.player.serialize()
 }
-

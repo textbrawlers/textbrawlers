@@ -1,6 +1,6 @@
 /* global localStorage */
 import request from 'client/network/request.js'
-import { setUser } from 'client/store/actions.js'
+import { setUser } from 'client/actions/auth.js'
 
 export function storeKey(key) {
   localStorage.setItem('key', key)

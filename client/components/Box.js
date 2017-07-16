@@ -1,6 +1,8 @@
 import { media } from 'client/util/styleUtils.js'
 import styled from 'styled-components'
 
+const width = '800px'
+
 export const BoxHeader = styled.div`
   background: #dddddd;
   border-bottom: 1px solid #000;
@@ -24,17 +26,27 @@ export const Box = styled.div`
   }
 
   ${media.ltMedium`
-    margin-top: 20px;
     flex: none;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
   `};
 `
 
 export const OuterBox = styled.div`
   display: flex;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: ${width};
 
   ${media.ltMedium`
     flex-direction: column;
   `};
+`
+
+export const BoxBanner = styled.div`
+  max-width: calc(${width} - 30px);
+  margin: 0 auto;
+  background: hsla(112, 69%, 73%, 1);
+  padding: 5px 15px;
 `

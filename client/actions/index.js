@@ -3,8 +3,6 @@
 
 export const REQUEST_INVENTORY = 'REQUEST_INVENTORY'
 export const RECIEVE_INVENTORY = 'RECIEVE_INVENTORY'
-export const SET_USER = 'SET_USER'
-export const SET_NUMBER_GLOBAL_LOADING = 'SET_NUMBER_GLOBAL_LOADING'
 
 export const requestInventory = playerId => ({
   type: REQUEST_INVENTORY,
@@ -26,18 +24,3 @@ export const fetchInventory = playerId => {
     })
   }
 }
-
-export const startGlobalLoading = () => ({
-  type: SET_NUMBER_GLOBAL_LOADING,
-  change: 1,
-})
-
-export const stopGlobalLoading = () => ({
-  type: SET_NUMBER_GLOBAL_LOADING,
-  change: -1,
-})
-
-export const setUser = user => ({
-  type: SET_USER,
-  user,
-})
