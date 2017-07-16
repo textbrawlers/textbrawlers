@@ -1,5 +1,6 @@
 import bCrypt from 'bcryptjs'
 import db from 'server/common/database.js'
+import log from 'server/common/log.js'
 
 const users = db.get('users')
 

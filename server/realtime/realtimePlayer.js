@@ -12,7 +12,6 @@ export default class RealtimePlayer {
     return new Promise((resolve, reject) => {
       this.ws.send(JSON.stringify({id, data}), err => {
         if (err) {
-          console.log('typeof', typeof err)
           reject(err)
         } else {
           resolve()

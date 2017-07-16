@@ -4,6 +4,7 @@ import * as Realtime from 'server/realtime.js'
 import { fightManager } from 'server/fightManager.js'
 import Item from 'common/game/item.js'
 import * as NPCs from 'server/npcs.js'
+import log from 'server/common/log.js'
 // import Entity from 'common/game/entity.js'
 
 const db = new Monk(process.env.MONGODB || 'localhost/retardarenan')
@@ -232,7 +233,7 @@ export async function clearNPCs (ctx) {
   let player = await users.findOne({ _id: ctx.account._id })
   player.npcs = []
   await users.update({_id: ctx.account._id}, player)
-  console.log('Removed NPCs for player' + player.username + '.')
+  log.info({username: player.username}, 'removed NPCs')
 
   ctx.body = { status: 'ok' }
 }

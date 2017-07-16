@@ -4,13 +4,14 @@ import db from 'server/common/database.js'
 import EventEmitter from 'events'
 import {getCurrentNPCNamesForPlayer} from './npcs.js'
 import calculateNewElo from 'common/util/elo.js'
+import log from 'server/common/log.js'
 
 const fightDB = db.get('fights')
 const userDB = db.get('users')
 
 function getRandom (droptable) {
   if (droptable.length <= 0 || !droptable) {
-    console.log('FightManager, func getRandom() got empty table')
+    log.warn('FightManager, func getRandom() got empty table')
   }
 
   let rn = Math.random()
@@ -61,7 +62,7 @@ export default class FightManager {
 
     this.attack(fightObj)
 
-    console.log('New fight created: ' + fightObj.id)
+    log.info({fight: fightObj.id}, 'new fight created')
 
     return fightObj
   }
@@ -174,10 +175,9 @@ export default class FightManager {
           }
         }
         username = acc.username
-        console.log('Player id: ' + acc._id)
         return userDB.update({ _id: acc._id }, acc)
-      }).then(() => console.log('Updated NPC data for ' + username + '.')
-      ).catch(err => console.error(err.stack || err))
+      }).then(() => log.info({username}, 'updated NPC data'))
+        .catch(err => log.error(err))
     }
   }
 
@@ -211,8 +211,8 @@ export default class FightManager {
       acc.pvpRank = value
       username = acc.username
       return userDB.update({ _id: acc._id }, acc)
-    }).then(() => console.log('Updated rank for ' + username + '.')
-  ).catch(err => console.error(err.stack || err))
+    }).then(() => log.info({ username }, 'updated rank'))
+      .catch(err => log.error(err))
   }
 }
 

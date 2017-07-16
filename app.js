@@ -11,6 +11,7 @@ import send from 'koa-send'
 import server from 'server/index.js'
 import realtime from 'server/realtime.js'
 import * as npcs from 'server/npcs.js'
+import log, {koaLogger} from 'server/common/log.js'
 import WebSocket from 'ws'
 
 const app = new Koa()
@@ -27,6 +28,7 @@ const fallbackRoute = () => {
 }
 
 app
+  .use(koaLogger())
   .use(BodyParser())
   .use(convert(serve('.')))
   .use(router.routes())
@@ -45,9 +47,9 @@ Promise.all([
   npcs.parseNPCs()
 ]).then(() => {
   httpServer.listen(3000)
-  console.log(`Listening on port ${port}`)
+  log.info(`listening on port ${port}`)
 
   process.on('unhandledRejection', reason => {
-    console.error('Unhandled promise rejection', reason.stack || reason)
+    log.error('unhandled promise rejection', reason.stack || reason)
   })
-}).catch(err => console.error('Error initializing server', err.stack || err))
+}).catch(err => log.fatal('error initializing server', err.stack || err))

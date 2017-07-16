@@ -22,8 +22,6 @@ const itemToJSON = item => ({
 export async function items (ctx) {
   const items = (await getItems()).items
 
-  console.log(typeof items[0])
-
   const jsonItems = items.map(baseItem => new Item(baseItem)).map(itemToJSON)
 
   ctx.body = { items: jsonItems }

@@ -5,6 +5,7 @@ import getItems from 'common/items/items.js'
 import StatCollection from './statCollection.js'
 import getPrefixes from 'common/items/prefixes.js'
 import LRU from 'lru-cache'
+import log from 'server/common/log.js'
 
 const itemCache = LRU({
   max: 10000
@@ -15,8 +16,8 @@ let items, prefixes
 const loadPromise = (async () => {
   items = (await getItems()).items
   prefixes = (await getPrefixes()).prefixes
-  console.log('Loaded items & prefixes')
-})().catch(err => console.error(err))
+  log.info('loaded items & prefixes')
+})().catch(err => log.error(err))
 
 export default class Item {
   constructor (baseItem, { prefixes = [], rarity, unseen } = {}) {
