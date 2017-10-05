@@ -20,9 +20,10 @@ const router = new Router()
 
 router.use('/api', server.routes(), server.allowedMethods())
 
-const indexFile = process.env.NODE_ENV === 'production'
-  ? './index-production.html'
-  : './index-development.html'
+const indexFile =
+  process.env.NODE_ENV === 'production'
+    ? './index-production.html'
+    : './index-development.html'
 
 const fallbackRoute = () => {
   return async ctx => {
@@ -57,4 +58,3 @@ Promise.all([npcs.parseNPCs()])
     })
   })
   .catch(err => console.error('Error initializing server', err.stack || err))
-
