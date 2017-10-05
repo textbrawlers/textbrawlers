@@ -9,6 +9,7 @@ test.js.map
 npm-debug.log
 npm-debug.log*
 build-*
+.vscode
 
 logs/*
 !logs/.gitkeep
