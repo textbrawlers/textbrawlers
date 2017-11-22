@@ -35,6 +35,8 @@ export function __unload() {
   ReactDOM.unmountComponentAtNode(rootContainer)
 }
 
+loadWebfont()
+
 function loadWebfont() {
   window.WebFontConfig = {
     google: { families: ['Roboto::latin'] },

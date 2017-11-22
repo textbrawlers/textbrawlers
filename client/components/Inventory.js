@@ -10,6 +10,7 @@ import Logo from './Logo.js'
 import TopBar from './TopBar'
 import SideBar from './SideBar'
 import InventorySlot from './InventorySlot.js'
+import { FriendContainer, Friend, FriendStatus } from './Friend.js'
 
 const Inventory = () => (
   <Container>
@@ -32,6 +33,27 @@ const Inventory = () => (
         </CenterContainer>
         <Divider />
         <InventorySlot cluster />
+        <Fulhacker>
+          <Container width={0}>
+            <CenterContainer row>
+              <Divider vertical fill />
+              <CenterContainer itemstretch>
+                <FriendContainer>
+                  <Friend>Ineentho</Friend>
+                  <FriendStatus online />
+                </FriendContainer>
+                <FriendContainer>
+                  <Friend>KofoteN</Friend>
+                  <FriendStatus online />
+                </FriendContainer>
+                <FriendContainer>
+                  <Friend>Nicke535</Friend>
+                  <FriendStatus />
+                </FriendContainer>
+              </CenterContainer>
+            </CenterContainer>
+          </Container>
+        </Fulhacker>
       </CenterContainer>
     </CenterFlex>
   </Container>

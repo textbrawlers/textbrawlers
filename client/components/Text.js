@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 const Text = styled.div`
-  font-family: sans-serif;
   font-size: 16px;
   text-align: left;
   color: #000000;
