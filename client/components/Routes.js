@@ -1,10 +1,14 @@
 import { Route, Switch } from 'react-router'
-import EnTomSida from 'client/components/EnTomSida.js'
+import SignIn from 'client/components/SignIn.js'
+import SignUp from 'client/components/SignUp.js'
+import Inventory from 'client/components/Inventory.js'
 import React from 'react'
 
 const Routes = () => (
   <Switch>
-    <Route path="/en-tom-sida" component={EnTomSida} />
+    <Route path="/signin" component={SignIn} />
+    <Route path="/signup" component={SignUp} />
+    <Route path="/inventory" component={Inventory} />
   </Switch>
 )
 

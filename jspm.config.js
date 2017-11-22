@@ -128,6 +128,7 @@ SystemJS.config({
     'net': 'npm:jspm-nodelibs-net@0.2.1',
     'os': 'npm:jspm-nodelibs-os@0.2.1',
     'path': 'npm:jspm-nodelibs-path@0.2.3',
+    'polished': 'npm:polished@1.9.0',
     'process': 'npm:jspm-nodelibs-process@0.2.1',
     'querystring': 'npm:jspm-nodelibs-querystring@0.2.2',
     'react': 'npm:react@16.0.0-alpha.12',

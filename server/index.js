@@ -14,7 +14,11 @@ const jsonApi = async (ctx, next) => {
       pre { margin: 0; }
       code.hljs { padding: 30px }
     </style>
-    <pre><code class="json">${JSON.stringify(ctx.body, undefined, 2)}</code></pre>
+    <pre><code class="json">${JSON.stringify(
+      ctx.body,
+      undefined,
+      2,
+    )}</code></pre>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/ocean.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad()</script>
@@ -83,4 +87,3 @@ router.get('/gamedata/droptable', jsonApi, gamedata.droptable)
 router.get('/gamedata/random-item', jsonApi, gamedata.randomItem)
 
 export default router
-
