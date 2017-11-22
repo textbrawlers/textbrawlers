@@ -12,9 +12,15 @@ export const Divider = styled.div`
     props.vertical &&
     `
     background: ${lighten(0.7, '#000000')};
-    height: calc(100% - 40px);
+    height: initial;
     width: 1px;
     margin: 0 20px;
+`};
+
+  ${props =>
+    props.fill &&
+    `
+    align-self: stretch;
 `};
 `
 

@@ -18,14 +18,17 @@ const Inventory = () => (
       <CenterContainer>
         <CenterContainer row>
           <CenterContainer>
-            <InventorySlot />
-            <InventorySlot />
-            <InventorySlot />
-            <InventorySlot />
+            <Container m={5}>
+              <InventorySlot />
+              <InventorySlot />
+              <InventorySlot />
+              <InventorySlot />
+            </Container>
           </CenterContainer>
-          <Spacer vertical />
+          <Spacer vertical vfat />
           <InventorySlot stats />
-          <Divider vertical />
+          <Divider vertical fill />
+          <InventorySlot stats />
         </CenterContainer>
         <Divider />
         <InventorySlot cluster />

@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import styledSystem from 'styled-system'
 
-export const Container = styled.div`width: 100%;`
+export const Container = styled.div`${styledSystem.space};`
 
 export const CenterContainer = styled.div`
   position: relative;

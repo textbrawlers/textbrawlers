@@ -60,6 +60,7 @@
       "redux-logger": "npm:redux-logger@^3.0.1",
       "redux-thunk": "npm:redux-thunk@^2.2.0",
       "styled-components": "npm:styled-components@^2.1.1",
+      "styled-system": "npm:styled-system@^1.0.8",
       "utf-8-validate": "npm:utf-8-validate@^3.0.1",
       "whatwg-fetch": "npm:whatwg-fetch@^2.0.3",
       "ws": "npm:ws@1"
@@ -176,7 +177,7 @@
         "jspmNodeConversion": false,
         "format": "cjs"
       },
-      "npm:pbkdf2@3.0.12": {
+      "npm:pbkdf2@3.0.14": {
         "main": "browser.js"
       },
       "npm:safe-buffer@5.0.1": {
