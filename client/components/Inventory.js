@@ -23,6 +23,7 @@ const Inventory = () => (
             <InventorySlot />
             <InventorySlot />
           </CenterContainer>
+          <Spacer vertical />
           <InventorySlot stats />
           <Divider vertical />
         </CenterContainer>
