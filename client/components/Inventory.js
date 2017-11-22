@@ -34,25 +34,23 @@ const Inventory = () => (
         <Divider />
         <InventorySlot cluster />
         <Fulhacker>
-          <Container width={0}>
-            <CenterContainer row>
-              <Divider vertical fill />
-              <CenterContainer itemstretch>
-                <FriendContainer>
-                  <Friend>Ineentho</Friend>
-                  <FriendStatus online />
-                </FriendContainer>
-                <FriendContainer>
-                  <Friend>KofoteN</Friend>
-                  <FriendStatus online />
-                </FriendContainer>
-                <FriendContainer>
-                  <Friend>Nicke535</Friend>
-                  <FriendStatus />
-                </FriendContainer>
-              </CenterContainer>
+          <CenterContainer row>
+            <Divider vertical fill />
+            <CenterContainer itemstretch>
+              <FriendContainer>
+                <Friend>Ineentho</Friend>
+                <FriendStatus online />
+              </FriendContainer>
+              <FriendContainer>
+                <Friend>KofoteN</Friend>
+                <FriendStatus online />
+              </FriendContainer>
+              <FriendContainer>
+                <Friend>Nicke535</Friend>
+                <FriendStatus />
+              </FriendContainer>
             </CenterContainer>
-          </Container>
+          </CenterContainer>
         </Fulhacker>
       </CenterContainer>
     </CenterFlex>
