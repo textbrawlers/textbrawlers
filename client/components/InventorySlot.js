@@ -19,11 +19,13 @@ const InventorySlot = styled.div`
   ${props =>
     props.stats &&
     `
-    padding: 20px;
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    width: initial;
     height: 250px;
     margin: 10px;
-    background: orange;
+    background: none;
     font-size: 16px;
 `};
 `

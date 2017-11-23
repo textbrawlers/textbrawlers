@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, CenterContainer, CenterFlex } from './Container.js'
-import Button from './Button.js'
+import { Button } from './Button.js'
 import Text from './Text.js'
 import Textbox from './Textbox.js'
 import Fulhacker from './Fulhacker.js'
@@ -11,6 +11,7 @@ import TopBar from './TopBar'
 import SideBar from './SideBar'
 import InventorySlot from './InventorySlot.js'
 import { FriendContainer, Friend, FriendStatus } from './Friend.js'
+import { ItemStatRow, ItemStat } from './ItemStats.js'
 
 const Inventory = () => (
   <Container>
@@ -27,9 +28,22 @@ const Inventory = () => (
             </Container>
           </CenterContainer>
           <Spacer vertical vfat />
-          <InventorySlot stats />
+          <InventorySlot stats>
+            <ItemStat />
+          </InventorySlot>
           <Divider vertical fill />
-          <InventorySlot stats />
+          <InventorySlot stats>
+            <table>
+              <ItemStatRow>
+                <ItemStat>10&nbsp;</ItemStat>
+                <ItemStat>Damage</ItemStat>
+              </ItemStatRow>
+              <ItemStatRow>
+                <ItemStat>0.8&nbsp;</ItemStat>
+                <ItemStat>Hit Chance</ItemStat>
+              </ItemStatRow>
+            </table>
+          </InventorySlot>
         </CenterContainer>
         <Divider />
         <InventorySlot cluster />

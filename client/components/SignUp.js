@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { CenterContainer, CenterFlex } from './Container.js'
-import Button from './Button.js'
+import { Button, LinkButton } from './Button.js'
 import Text from './Text.js'
 import Textbox from './Textbox.js'
 import Fulhacker from './Fulhacker.js'
@@ -19,7 +19,7 @@ const SignUp = () => (
       <Textbox type="password" placeholder="Confirm Password" />
       <Button>Sign Up</Button>
       <Divider />
-      <Button>Sign In</Button>
+      <LinkButton to="/signin">Sign In</LinkButton>
       <Divider />
       <Button>Play as Guest</Button>
       <Text faded small>

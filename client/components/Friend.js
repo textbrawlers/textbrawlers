@@ -16,7 +16,7 @@ export const FriendStatus = styled.div`
   height: 16px;
   margin: 0 0 0 8px;
   border-radius: 32px;
-  background: red;
+  background: #f2f2f2;
 
   ${props =>
     props.online &&
