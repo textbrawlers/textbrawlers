@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, CenterContainer, CenterFlex } from './Container.js'
+import {
+  FullContainer,
+  Container,
+  CenterContainer,
+  CenterFlex,
+} from './Container.js'
 import { Button } from './Button.js'
 import Text from './Text.js'
 import Textbox from './Textbox.js'
@@ -11,39 +16,98 @@ import TopBar from './TopBar'
 import SideBar from './SideBar'
 import InventorySlot from './InventorySlot.js'
 import { FriendContainer, Friend, FriendStatus } from './Friend.js'
-import { ItemStatRow, ItemStat } from './ItemStats.js'
+import {
+  ItemStatTable,
+  ItemStatRow,
+  ItemStat,
+  ItemStatTitle,
+} from './ItemStats.js'
+import { Item } from './Items.js'
 
 const Inventory = () => (
-  <Container>
+  <FullContainer>
     <Logo small center />
     <CenterFlex>
       <CenterContainer>
-        <CenterContainer row>
+        <CenterContainer row my={10}>
+          <Divider vertical fill />
           <CenterContainer>
-            <Container m={5}>
+            <Container>
               <InventorySlot />
               <InventorySlot />
               <InventorySlot />
               <InventorySlot />
             </Container>
           </CenterContainer>
-          <Spacer vertical vfat />
+          <CenterContainer>
+            <Container mx={5}>
+              <InventorySlot />
+              <InventorySlot />
+              <InventorySlot />
+              <InventorySlot />
+            </Container>
+          </CenterContainer>
+          <CenterContainer>
+            <Container>
+              <InventorySlot />
+              <InventorySlot />
+              <InventorySlot />
+              <InventorySlot />
+            </Container>
+          </CenterContainer>
+          <Divider vertical fill />
           <InventorySlot stats>
-            <ItemStat />
+            <ItemStatTitle>Character Name</ItemStatTitle>
+            <ItemStatTable>
+              <tbody>
+                <ItemStatRow>
+                  <ItemStat amount>100&nbsp;</ItemStat>
+                  <ItemStat>Health</ItemStat>
+                </ItemStatRow>
+                <ItemStatRow>
+                  <ItemStat amount>10%&nbsp;</ItemStat>
+                  <ItemStat>Dodge Chance</ItemStat>
+                </ItemStatRow>
+              </tbody>
+            </ItemStatTable>
           </InventorySlot>
           <Divider vertical fill />
           <InventorySlot stats>
-            <table>
-              <ItemStatRow>
-                <ItemStat>10&nbsp;</ItemStat>
-                <ItemStat>Damage</ItemStat>
-              </ItemStatRow>
-              <ItemStatRow>
-                <ItemStat>0.8&nbsp;</ItemStat>
-                <ItemStat>Hit Chance</ItemStat>
-              </ItemStatRow>
-            </table>
+            <ItemStatTitle rare>Ripping Sharp Long Sword</ItemStatTitle>
+            <ItemStatTable>
+              <tbody>
+                <ItemStatRow>
+                  <ItemStat amount>10&nbsp;</ItemStat>
+                  <ItemStat>Damage</ItemStat>
+                </ItemStatRow>
+                <ItemStatRow>
+                  <ItemStat amount>80%&nbsp;</ItemStat>
+                  <ItemStat>Hit Chance</ItemStat>
+                </ItemStatRow>
+                <ItemStatRow>
+                  <ItemStat amount>20%&nbsp;</ItemStat>
+                  <ItemStat>Bleed Chance</ItemStat>
+                </ItemStatRow>
+              </tbody>
+            </ItemStatTable>
           </InventorySlot>
+          <Divider vertical fill />
+          <InventorySlot stats>
+            <ItemStatTitle uncommon>Sharp Long Sword</ItemStatTitle>
+            <ItemStatTable>
+              <tbody>
+                <ItemStatRow>
+                  <ItemStat amount>10&nbsp;</ItemStat>
+                  <ItemStat>Damage</ItemStat>
+                </ItemStatRow>
+                <ItemStatRow>
+                  <ItemStat amount>80%&nbsp;</ItemStat>
+                  <ItemStat>Hit Chance</ItemStat>
+                </ItemStatRow>
+              </tbody>
+            </ItemStatTable>
+          </InventorySlot>
+          <Divider vertical fill />
         </CenterContainer>
         <Divider />
         <InventorySlot cluster />
@@ -68,7 +132,7 @@ const Inventory = () => (
         </Fulhacker>
       </CenterContainer>
     </CenterFlex>
-  </Container>
+  </FullContainer>
 )
 
 export default Inventory

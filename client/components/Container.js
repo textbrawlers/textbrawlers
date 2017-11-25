@@ -2,12 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import styledSystem from 'styled-system'
 
+export const FullContainer = styled.div`
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+`
+
 export const Container = styled.div`
   ${styledSystem.space};
   ${styledSystem.width};
 `
 
 export const CenterContainer = styled.div`
+  ${styledSystem.space};
   position: relative;
   display: flex;
   justify-content: center;
@@ -31,6 +38,5 @@ export const CenterFlex = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  flex: 1;
 `

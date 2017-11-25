@@ -1,30 +1,33 @@
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/client/reset.css">
-  </head>
-  <body style="margin: 0; background: #f2f2f2">
-    <div id="root" style="height: 100%; width: 100%">
-      <div style="display: flex; height: 100%; align-items: center; justify-content: center">
-        <img src="/client/img/textbrawlers.png" style="max-width: calc(100% - 40px)" />
-      </div>
-    </div>
-    <script src="/jspm_packages/system.js"></script>
-    <script>
-      System.config({
-        baseURL: '/'
-      })
-    </script>
-    <script src="/jspm.config.js"></script>
-    <script>
-      System.config({
-        trace: true
-      })
-      System.import('systemjs-hot-reloader').then((connect) => {
-        connect()
-        System.import('client')
-      })
 
-    </script>
-  </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/client/reset.css">
+</head>
+
+<body style="margin: 0; background: #f2f2f2">
+  <div id="root" style="height: 100%; width: 100%">
+    <div style="display: flex; height: 100%; align-items: center; justify-content: center">
+      <img src="/client/img/common/textbrawlers.svg" style="max-width: calc(100% - 40px)" />
+    </div>
+  </div>
+  <script src="/jspm_packages/system.js"></script>
+  <script>
+    System.config({
+      baseURL: '/'
+    })
+  </script>
+  <script src="/jspm.config.js"></script>
+  <script>
+    System.config({
+      trace: true
+    })
+    System.import('systemjs-hot-reloader').then((connect) => {
+      connect()
+      System.import('client')
+    })
+
+  </script>
+</body>
+
 </html>

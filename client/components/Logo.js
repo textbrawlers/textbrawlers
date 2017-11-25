@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Logo = styled.img.attrs({
-  src: 'client/img/textbrawlers.svg',
+  src: 'client/img/common/textbrawlers.svg',
 })`
-    height:100px;
+    height: 100px;
     margin: 10px 0;
+    display: flex;
     
     ${props =>
       props.small &&
