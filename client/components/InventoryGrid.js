@@ -4,16 +4,17 @@ import InventorySlot from './InventorySlot.js'
 import _ from 'lodash'
 import { Container } from './Container.js'
 import styled from 'styled-components'
+import styledSystem from 'styled-system'
 
 const ContainerGrid = styled(Container)`
-  display: grid;
+  ${styledSystem.space} display: grid;
   grid-template-columns: repeat(${props => props.slotsWide}, 50px);
   grid-column-gap: ${props => props.margin}px;
   grid-row-gap: ${props => props.margin}px;
 `
 
-const InventoryGrid = ({ width, height, margin = 10 }) => (
-  <ContainerGrid margin={margin} slotsWide={width}>
+const InventoryGrid = ({ width, height, margin = 10, ...props }) => (
+  <ContainerGrid margin={margin} slotsWide={width} {...props}>
     {_.range(width * height).map(i => <InventorySlot key={i} />)}
   </ContainerGrid>
 )

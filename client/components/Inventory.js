@@ -7,18 +7,7 @@ import { FriendContainer, Friend, FriendStatus } from './Friend.js'
 import InventoryGrid from './InventoryGrid.js'
 import StatBox from './StatBox.js'
 import styled from 'styled-components'
-
-// Placeholder stats
-
-const OffensiveItems = styled.div`
-  align-self: stretch;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-
-  // 2 weaponboxes including dividers
-  max-width: ${(200 + 35 + 1 + 35) * 2};
-`
+import { OffensiveItems } from './ItemStats.js'
 
 const Inventory = () => (
   <FullContainer>
@@ -27,7 +16,7 @@ const Inventory = () => (
       <CenterContainer>
         <CenterContainer row my={10}>
           <Divider vertical fill />
-          <InventoryGrid width={3} height={4} margin={5} />
+          <InventoryGrid width={3} height={4} />
           <Divider vertical fill />
           <StatBox name="SkevskjutarN" />
           <Divider vertical fill />
@@ -46,7 +35,7 @@ const Inventory = () => (
           </OffensiveItems>
         </CenterContainer>
         <Divider />
-        <InventoryGrid width={16} height={4} />
+        <InventoryGrid width={16} height={4} my={10} />
         <Fulhacker side="right">
           <CenterContainer row>
             <Divider vertical fill />
