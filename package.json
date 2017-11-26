@@ -51,6 +51,7 @@
       "lru-cache": "npm:lru-cache@^4.0.2",
       "monk": "npm:monk@^4.0.0",
       "polished": "npm:polished@^1.9.0",
+      "prop-types": "npm:prop-types@^15.6.0",
       "react-dom": "npm:react-dom@16.0.0-alpha.12",
       "react-redux": "npm:react-redux@^5.0.4",
       "react-router": "npm:react-router@^4.1.1",
@@ -59,6 +60,7 @@
       "redux-devtools-extension": "npm:redux-devtools-extension@^2.13.2",
       "redux-logger": "npm:redux-logger@^3.0.1",
       "redux-thunk": "npm:redux-thunk@^2.2.0",
+      "reselect": "npm:reselect@^3.0.1",
       "styled-components": "npm:styled-components@^2.1.1",
       "styled-system": "npm:styled-system@^1.0.8",
       "utf-8-validate": "npm:utf-8-validate@^3.0.1",
@@ -180,9 +182,6 @@
       "npm:pbkdf2@3.0.14": {
         "main": "browser.js"
       },
-      "npm:safe-buffer@5.0.1": {
-        "browser": "index.js"
-      },
       "npm:safe-buffer@5.1.1": {
         "browser": "index.js"
       },
@@ -212,4 +211,4 @@
     "eslint-plugin-standard": "^3.0.1",
     "prettier": "github:prettier/prettier"
   }
-}
+}

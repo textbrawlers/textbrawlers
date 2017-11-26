@@ -1,28 +1,24 @@
 import React from 'react'
-import styled from 'styled-components'
-import {
-  FullContainer,
-  Container,
-  CenterContainer,
-  CenterFlex,
-} from './Container.js'
-import { Button } from './Button.js'
-import Text from './Text.js'
-import Textbox from './Textbox.js'
+import { FullContainer, CenterContainer, CenterFlex } from './Container.js'
 import Fulhacker from './Fulhacker.js'
-import { Divider, Spacer } from './Divider.js'
+import { Divider } from './Divider.js'
 import Logo from './Logo.js'
-import TopBar from './TopBar'
-import SideBar from './SideBar'
-import InventorySlot from './InventorySlot.js'
 import { FriendContainer, Friend, FriendStatus } from './Friend.js'
-import {
-  ItemStatTable,
-  ItemStatRow,
-  ItemStat,
-  ItemStatTitle,
-} from './ItemStats.js'
-import { Item } from './Items.js'
+import InventoryGrid from './InventoryGrid.js'
+import StatBox from './StatBox.js'
+import styled from 'styled-components'
+
+// Placeholder stats
+
+const OffensiveItems = styled.div`
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  // 2 weaponboxes including dividers
+  max-width: ${(200 + 35 + 1 + 35) * 2};
+`
 
 const Inventory = () => (
   <FullContainer>
@@ -31,87 +27,27 @@ const Inventory = () => (
       <CenterContainer>
         <CenterContainer row my={10}>
           <Divider vertical fill />
-          <CenterContainer>
-            <Container>
-              <InventorySlot />
-              <InventorySlot />
-              <InventorySlot />
-              <InventorySlot />
-            </Container>
-          </CenterContainer>
-          <CenterContainer>
-            <Container mx={5}>
-              <InventorySlot />
-              <InventorySlot />
-              <InventorySlot />
-              <InventorySlot />
-            </Container>
-          </CenterContainer>
-          <CenterContainer>
-            <Container>
-              <InventorySlot />
-              <InventorySlot />
-              <InventorySlot />
-              <InventorySlot />
-            </Container>
-          </CenterContainer>
+          <InventoryGrid width={3} height={4} margin={5} />
           <Divider vertical fill />
-          <InventorySlot stats>
-            <ItemStatTitle>Character Name</ItemStatTitle>
-            <ItemStatTable>
-              <tbody>
-                <ItemStatRow>
-                  <ItemStat amount>100&nbsp;</ItemStat>
-                  <ItemStat>Health</ItemStat>
-                </ItemStatRow>
-                <ItemStatRow>
-                  <ItemStat amount>10%&nbsp;</ItemStat>
-                  <ItemStat>Dodge Chance</ItemStat>
-                </ItemStatRow>
-              </tbody>
-            </ItemStatTable>
-          </InventorySlot>
+          <StatBox name="SkevskjutarN" />
           <Divider vertical fill />
-          <InventorySlot stats>
-            <ItemStatTitle rare>Ripping Sharp Long Sword</ItemStatTitle>
-            <ItemStatTable>
-              <tbody>
-                <ItemStatRow>
-                  <ItemStat amount>10&nbsp;</ItemStat>
-                  <ItemStat>Damage</ItemStat>
-                </ItemStatRow>
-                <ItemStatRow>
-                  <ItemStat amount>80%&nbsp;</ItemStat>
-                  <ItemStat>Hit Chance</ItemStat>
-                </ItemStatRow>
-                <ItemStatRow>
-                  <ItemStat amount>20%&nbsp;</ItemStat>
-                  <ItemStat>Bleed Chance</ItemStat>
-                </ItemStatRow>
-              </tbody>
-            </ItemStatTable>
-          </InventorySlot>
-          <Divider vertical fill />
-          <InventorySlot stats>
-            <ItemStatTitle uncommon>Sharp Long Sword</ItemStatTitle>
-            <ItemStatTable>
-              <tbody>
-                <ItemStatRow>
-                  <ItemStat amount>10&nbsp;</ItemStat>
-                  <ItemStat>Damage</ItemStat>
-                </ItemStatRow>
-                <ItemStatRow>
-                  <ItemStat amount>80%&nbsp;</ItemStat>
-                  <ItemStat>Hit Chance</ItemStat>
-                </ItemStatRow>
-              </tbody>
-            </ItemStatTable>
-          </InventorySlot>
-          <Divider vertical fill />
+          <OffensiveItems>
+            <StatBox rarity="rare" name="Ripping Sharp Long Sword" />
+            <Divider vertical fill />
+
+            <StatBox rarity="uncommon" name="Sharp Long Sword" />
+            <Divider vertical fill />
+
+            <StatBox rarity="common" name="Sharp Long Sword" />
+            <Divider vertical fill />
+
+            <StatBox rarity="legendary" name="Sharp Long Sword" />
+            <Divider vertical fill />
+          </OffensiveItems>
         </CenterContainer>
         <Divider />
-        <InventorySlot cluster />
-        <Fulhacker>
+        <InventoryGrid width={16} height={4} />
+        <Fulhacker side="right">
           <CenterContainer row>
             <Divider vertical fill />
             <CenterContainer itemstretch>
@@ -128,6 +64,25 @@ const Inventory = () => (
                 <FriendStatus />
               </FriendContainer>
             </CenterContainer>
+          </CenterContainer>
+        </Fulhacker>
+        <Fulhacker side="left">
+          <CenterContainer row>
+            <CenterContainer itemstretch>
+              <FriendContainer>
+                <Friend>Ineentho</Friend>
+                <FriendStatus online />
+              </FriendContainer>
+              <FriendContainer>
+                <Friend>KofoteN</Friend>
+                <FriendStatus online />
+              </FriendContainer>
+              <FriendContainer>
+                <Friend>Nicke535</Friend>
+                <FriendStatus />
+              </FriendContainer>
+            </CenterContainer>
+            <Divider vertical fill />
           </CenterContainer>
         </Fulhacker>
       </CenterContainer>

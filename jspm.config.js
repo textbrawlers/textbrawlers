@@ -126,10 +126,11 @@ SystemJS.config({
     'module': 'npm:jspm-nodelibs-module@0.2.1',
     'monk': 'npm:monk@4.0.0',
     'net': 'npm:jspm-nodelibs-net@0.2.1',
-    'os': 'npm:jspm-nodelibs-os@0.2.1',
+    'os': 'npm:jspm-nodelibs-os@0.2.2',
     'path': 'npm:jspm-nodelibs-path@0.2.3',
     'polished': 'npm:polished@1.9.0',
     'process': 'npm:jspm-nodelibs-process@0.2.1',
+    'prop-types': 'npm:prop-types@15.6.0',
     'querystring': 'npm:jspm-nodelibs-querystring@0.2.2',
     'react': 'npm:react@16.0.0-alpha.12',
     'react-dom': 'npm:react-dom@16.0.0-alpha.12',
@@ -142,8 +143,9 @@ SystemJS.config({
     'redux-devtools-extension': 'npm:redux-devtools-extension@2.13.2',
     'redux-logger': 'npm:redux-logger@3.0.1',
     'redux-thunk': 'npm:redux-thunk@2.2.0',
+    'reselect': 'npm:reselect@3.0.1',
     'stream': 'npm:jspm-nodelibs-stream@0.2.1',
-    'string_decoder': 'npm:jspm-nodelibs-string_decoder@0.2.1',
+    'string_decoder': 'npm:jspm-nodelibs-string_decoder@0.2.2',
     'styled-components': 'npm:styled-components@2.1.1',
     'styled-system': 'npm:styled-system@1.0.8',
     'tls': 'npm:jspm-nodelibs-tls@0.2.1',
@@ -159,26 +161,9 @@ SystemJS.config({
     'zlib': 'npm:jspm-nodelibs-zlib@0.2.3'
   },
   packages: {
-    'npm:fbjs@0.8.12': {
-      'map': {
-        'loose-envify': 'npm:loose-envify@1.3.1',
-        'object-assign': 'npm:object-assign@4.1.1',
-        'promise': 'npm:promise@7.3.1',
-        'core-js': 'npm:core-js@1.2.7',
-        'isomorphic-fetch': 'npm:isomorphic-fetch@2.2.1',
-        'setimmediate': 'npm:setimmediate@1.0.5',
-        'ua-parser-js': 'npm:ua-parser-js@0.7.13'
-      }
-    },
     'npm:loose-envify@1.3.1': {
       'map': {
         'js-tokens': 'npm:js-tokens@3.0.2'
-      }
-    },
-    'npm:prop-types@15.5.10': {
-      'map': {
-        'fbjs': 'npm:fbjs@0.8.12',
-        'loose-envify': 'npm:loose-envify@1.3.1'
       }
     },
     'npm:isomorphic-fetch@2.2.1': {
@@ -189,7 +174,7 @@ SystemJS.config({
     },
     'npm:encoding@0.1.12': {
       'map': {
-        'iconv-lite': 'npm:iconv-lite@0.4.19'
+        'iconv-lite': 'npm:iconv-lite@0.4.15'
       }
     },
     'npm:jspm-nodelibs-stream@0.2.1': {
@@ -208,46 +193,14 @@ SystemJS.config({
         'domain-browser': 'npm:domain-browser@1.1.7'
       }
     },
-    'npm:readable-stream@2.2.9': {
-      'map': {
-        'inherits': 'npm:inherits@2.0.3',
-        'buffer-shims': 'npm:buffer-shims@1.0.0',
-        'core-util-is': 'npm:core-util-is@1.0.2',
-        'process-nextick-args': 'npm:process-nextick-args@1.0.7',
-        'isarray': 'npm:isarray@1.0.0',
-        'string_decoder': 'npm:string_decoder@1.0.1',
-        'util-deprecate': 'npm:util-deprecate@1.0.2'
-      }
-    },
-    'npm:string_decoder@1.0.0': {
-      'map': {
-        'buffer-shims': 'npm:buffer-shims@1.0.0'
-      }
-    },
     'npm:jspm-nodelibs-buffer@0.2.3': {
       'map': {
         'buffer': 'npm:buffer@5.0.8'
       }
     },
-    'npm:buffer@5.0.6': {
-      'map': {
-        'ieee754': 'npm:ieee754@1.1.8',
-        'base64-js': 'npm:base64-js@1.2.1'
-      }
-    },
-    'npm:jspm-nodelibs-string_decoder@0.2.1': {
-      'map': {
-        'string_decoder': 'npm:string_decoder@0.10.31'
-      }
-    },
     'npm:jspm-nodelibs-crypto@0.2.1': {
       'map': {
         'crypto-browserify': 'npm:crypto-browserify@3.12.0'
-      }
-    },
-    'npm:jspm-nodelibs-os@0.2.1': {
-      'map': {
-        'os-browserify': 'npm:os-browserify@0.2.1'
       }
     },
     'npm:jspm-nodelibs-url@0.2.1': {
@@ -396,7 +349,7 @@ SystemJS.config({
       'map': {
         'loose-envify': 'npm:loose-envify@1.3.1',
         'history': 'npm:history@4.6.1',
-        'prop-types': 'npm:prop-types@15.5.10',
+        'prop-types': 'npm:prop-types@15.6.0',
         'react-router': 'npm:react-router@4.1.1'
       }
     },
@@ -413,7 +366,7 @@ SystemJS.config({
       'map': {
         'history': 'npm:history@4.6.1',
         'loose-envify': 'npm:loose-envify@1.3.1',
-        'prop-types': 'npm:prop-types@15.5.10',
+        'prop-types': 'npm:prop-types@15.6.0',
         'invariant': 'npm:invariant@2.2.2',
         'warning': 'npm:warning@3.0.0',
         'hoist-non-react-statics': 'npm:hoist-non-react-statics@1.2.0',
@@ -445,10 +398,10 @@ SystemJS.config({
     },
     'npm:react-dom@16.0.0-alpha.12': {
       'map': {
-        'fbjs': 'npm:fbjs@0.8.12',
+        'fbjs': 'npm:fbjs@0.8.16',
         'loose-envify': 'npm:loose-envify@1.3.1',
         'object-assign': 'npm:object-assign@4.1.1',
-        'prop-types': 'npm:prop-types@15.5.10'
+        'prop-types': 'npm:prop-types@15.6.0'
       }
     },
     'npm:react-redux@5.0.4': {
@@ -458,14 +411,14 @@ SystemJS.config({
         'loose-envify': 'npm:loose-envify@1.3.1',
         'lodash': 'npm:lodash@4.17.4',
         'lodash-es': 'npm:lodash-es@4.17.4',
-        'prop-types': 'npm:prop-types@15.5.10',
+        'prop-types': 'npm:prop-types@15.6.0',
         'invariant': 'npm:invariant@2.2.2'
       }
     },
     'npm:create-react-class@15.5.3': {
       'map': {
         'loose-envify': 'npm:loose-envify@1.3.1',
-        'fbjs': 'npm:fbjs@0.8.12',
+        'fbjs': 'npm:fbjs@0.8.16',
         'object-assign': 'npm:object-assign@4.1.1'
       }
     },
@@ -476,7 +429,7 @@ SystemJS.config({
     },
     'npm:react-router-redux@next': {
       'map': {
-        'prop-types': 'npm:prop-types@15.5.10',
+        'prop-types': 'npm:prop-types@15.6.0',
         'react-router': 'npm:react-router@4.1.1',
         'history': 'npm:history@4.6.1'
       }
@@ -484,10 +437,10 @@ SystemJS.config({
     'npm:react@16.0.0-alpha.12': {
       'map': {
         'create-react-class': 'npm:create-react-class@15.6.0',
-        'fbjs': 'npm:fbjs@0.8.12',
+        'fbjs': 'npm:fbjs@0.8.16',
         'loose-envify': 'npm:loose-envify@1.3.1',
         'object-assign': 'npm:object-assign@4.1.1',
-        'prop-types': 'npm:prop-types@15.5.10'
+        'prop-types': 'npm:prop-types@15.6.0'
       }
     },
     'npm:koa@2.2.0': {
@@ -679,7 +632,7 @@ SystemJS.config({
         'process-nextick-args': 'npm:process-nextick-args@1.0.7',
         'inherits': 'npm:inherits@2.0.3',
         'util-deprecate': 'npm:util-deprecate@1.0.2',
-        'string_decoder': 'npm:string_decoder@1.0.0'
+        'string_decoder': 'npm:string_decoder@1.0.3'
       }
     },
     'npm:mongodb-core@2.1.10': {
@@ -788,7 +741,7 @@ SystemJS.config({
     'npm:are-we-there-yet@1.1.4': {
       'map': {
         'delegates': 'npm:delegates@1.0.0',
-        'readable-stream': 'npm:readable-stream@2.2.9'
+        'readable-stream': 'npm:readable-stream@2.3.3'
       }
     },
     'npm:once@1.4.0': {
@@ -798,7 +751,7 @@ SystemJS.config({
     },
     'npm:tar-stream@1.5.4': {
       'map': {
-        'readable-stream': 'npm:readable-stream@2.2.9',
+        'readable-stream': 'npm:readable-stream@2.3.3',
         'xtend': 'npm:xtend@4.0.1',
         'end-of-stream': 'npm:end-of-stream@1.4.0',
         'bl': 'npm:bl@1.2.1'
@@ -823,7 +776,7 @@ SystemJS.config({
     },
     'npm:bl@1.2.1': {
       'map': {
-        'readable-stream': 'npm:readable-stream@2.2.9'
+        'readable-stream': 'npm:readable-stream@2.3.3'
       }
     },
     'npm:is-fullwidth-code-point@1.0.0': {
@@ -896,7 +849,7 @@ SystemJS.config({
     'npm:babel-code-frame@6.22.0': {
       'map': {
         'esutils': 'npm:esutils@2.0.2',
-        'js-tokens': 'npm:js-tokens@3.0.1',
+        'js-tokens': 'npm:js-tokens@3.0.2',
         'chalk': 'npm:chalk@1.1.3'
       }
     },
@@ -947,7 +900,7 @@ SystemJS.config({
     },
     'npm:concat-stream@1.6.0': {
       'map': {
-        'readable-stream': 'npm:readable-stream@2.2.9',
+        'readable-stream': 'npm:readable-stream@2.3.3',
         'inherits': 'npm:inherits@2.0.3',
         'typedarray': 'npm:typedarray@0.0.6'
       }
@@ -1393,11 +1346,6 @@ SystemJS.config({
         'has-flag': 'npm:has-flag@1.0.0'
       }
     },
-    'npm:string_decoder@1.0.1': {
-      'map': {
-        'safe-buffer': 'npm:safe-buffer@5.0.1'
-      }
-    },
     'npm:babel-runtime@6.23.0': {
       'map': {
         'core-js': 'npm:core-js@2.4.1',
@@ -1420,11 +1368,11 @@ SystemJS.config({
     'npm:styled-components@2.1.1': {
       'map': {
         'is-plain-object': 'npm:is-plain-object@2.0.4',
-        'prop-types': 'npm:prop-types@15.5.10',
-        'buffer': 'npm:buffer@5.0.6',
+        'prop-types': 'npm:prop-types@15.6.0',
+        'buffer': 'npm:buffer@5.0.8',
         'supports-color': 'npm:supports-color@3.2.3',
         'stylis': 'npm:stylis@3.2.3',
-        'fbjs': 'npm:fbjs@0.8.12',
+        'fbjs': 'npm:fbjs@0.8.16',
         'hoist-non-react-statics': 'npm:hoist-non-react-statics@1.2.0',
         'is-function': 'npm:is-function@1.0.1',
         'css-to-react-native': 'npm:css-to-react-native@2.0.4'
@@ -1437,7 +1385,7 @@ SystemJS.config({
     },
     'npm:create-react-class@15.6.0': {
       'map': {
-        'fbjs': 'npm:fbjs@0.8.12',
+        'fbjs': 'npm:fbjs@0.8.16',
         'loose-envify': 'npm:loose-envify@1.3.1',
         'object-assign': 'npm:object-assign@4.1.1'
       }
@@ -1449,7 +1397,7 @@ SystemJS.config({
     },
     'npm:css-to-react-native@2.0.4': {
       'map': {
-        'fbjs': 'npm:fbjs@0.8.12',
+        'fbjs': 'npm:fbjs@0.8.16',
         'css-color-keywords': 'npm:css-color-keywords@1.0.0',
         'postcss-value-parser': 'npm:postcss-value-parser@3.3.0'
       }
@@ -1606,6 +1554,16 @@ SystemJS.config({
         'bn.js': 'npm:bn.js@4.11.8',
         'minimalistic-assert': 'npm:minimalistic-assert@1.0.0',
         'inherits': 'npm:inherits@2.0.3'
+      }
+    },
+    'npm:jspm-nodelibs-string_decoder@0.2.2': {
+      'map': {
+        'string_decoder': 'npm:string_decoder@0.10.31'
+      }
+    },
+    'npm:jspm-nodelibs-os@0.2.2': {
+      'map': {
+        'os-browserify': 'npm:os-browserify@0.3.0'
       }
     }
   }

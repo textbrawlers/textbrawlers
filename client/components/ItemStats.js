@@ -1,10 +1,23 @@
-import React from 'react'
 import styled from 'styled-components'
 
-export const ItemStatTable = styled.table`margin: 0 5px;`
+const rarityColors = {
+  common: '#cacaca',
+  uncommon: 'rgb(107, 198, 70)',
+  rare: 'rgb(109, 149, 188)',
+  legendary: 'rgb(173, 119, 198)',
+}
 
-export const ItemStatRow = styled.tr`color: #1a1a1a;`
+const getRarityColor = name => rarityColors[name] || 'rgb(198, 156, 109)'
 
+export const ItemStatTable = styled.table`
+  margin: 0 5px;
+`
+
+export const ItemStatRow = styled.tr`
+  color: #1a1a1a;
+`
+
+// prettier-ignore
 export const ItemStat = styled.td`
   font-size: 16px;
   padding: ;
@@ -13,13 +26,12 @@ export const ItemStat = styled.td`
     text-align: left;
   }
 
-  ${props =>
-    props.amount &&
-    `
+  ${props => props.amount && `
     font-weight:bold;
 `};
 `
 
+// prettier-ignore
 export const ItemStatTitle = styled.div`
   font-size: 16px;
   font-weight: bold;
@@ -30,29 +42,16 @@ export const ItemStatTitle = styled.div`
   flex-direction: column;
   text-align: center;
   align-items: center;
-  background: rgb(198, 156, 109);
+  background: ${props => getRarityColor(props.rarity)};
+`
 
-  ${props =>
-    props.common &&
-    `
-    background: #cacaca;
-`};
-
-  ${props =>
-    props.uncommon &&
-    `
-    background: rgb(107, 198, 70);
-`};
-
-  ${props =>
-    props.rare &&
-    `
-    background: rgb(109, 149, 188);
-`};
-
-  ${props =>
-    props.legendary &&
-    `
-    background: rgb(173, 119, 198);
-`};
+export const StatContainer = styled.div`
+  border: none;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 200px;
+  background: none;
+  font-size: 16px;
 `

@@ -1,5 +1,5 @@
 {
-  "extends": ["standard", "prettier"],
+  "extends": ["standard", "prettier", "plugin:react/recommended"],
   "rules": {
     "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1}],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"]}],
